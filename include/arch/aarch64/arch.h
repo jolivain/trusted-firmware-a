@@ -908,6 +908,7 @@
 #define ESR_EC_LENGTH			U(6)
 #define ESR_ISS_SHIFT			U(0)
 #define ESR_ISS_LENGTH			U(25)
+#define ESR_ISS_MASK			GENMASK(24, 0)
 #define EC_UNKNOWN			U(0x0)
 #define EC_WFE_WFI			U(0x1)
 #define EC_AARCH32_CP15_MRC_MCR		U(0x3)
@@ -941,6 +942,24 @@
  * syndromes.
  */
 #define ESR_ISS_EABORT_EA_BIT		U(9)
+
+/*
+ * ISS bits for an exception from MSR, MRS, or System instruction
+ * execution in AArch64 state
+ */
+#define ESR_ISS_SYS_OP0_SHIFT		U(20)
+#define ESR_ISS_SYS_OP0_MASK		U(0x3)
+#define ESR_ISS_SYS_OP2_SHIFT		U(17)
+#define ESR_ISS_SYS_OP2_MASK		U(0x7)
+#define ESR_ISS_SYS_OP1_SHIFT		U(14)
+#define ESR_ISS_SYS_OP1_MASK		U(0x7)
+#define ESR_ISS_SYS_CRn_SHIFT		U(10)
+#define ESR_ISS_SYS_CRn_MASK		U(0xF)
+#define ESR_ISS_SYS_Rt_SHIFT		U(5)
+#define ESR_ISS_SYS_Rt_MASK		U(0x1F)
+#define ESR_ISS_SYS_CRm_SHIFT		U(1)
+#define ESR_ISS_SYS_CRm_MASK		U(0xF)
+#define ESR_ISS_SYS_DIRECTION_BIT	U(0)
 
 #define EC_BITS(x)			(((x) >> ESR_EC_SHIFT) & ESR_EC_MASK)
 
