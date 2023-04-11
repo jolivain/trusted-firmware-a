@@ -122,9 +122,7 @@ workaround_reset_start cortex_a510, ERRATUM(2347730), ERRATA_A510_2347730
 	 * specific microarchitectural clock gating
 	 * behaviour.
 	 */
-	mrs	x1, CORTEX_A510_CPUACTLR_EL1
-	orr	x1, x1, CORTEX_A510_CPUACTLR_EL1_BIT_17
-	msr	CORTEX_A510_CPUACTLR_EL1, x1
+	sysreg_bit_set CORTEX_A510_CPUACTLR_EL1, CORTEX_A510_CPUACTLR_EL1_BIT_17
 workaround_reset_end cortex_a510, ERRATUM(2347730)
 
 check_erratum_ls cortex_a510, ERRATUM(2347730), CPU_REV(1, 1)
@@ -145,13 +143,7 @@ workaround_reset_end cortex_a510, ERRATUM(2371937)
 check_erratum_ls cortex_a510, ERRATUM(2371937), CPU_REV(1, 1)
 
 workaround_reset_start cortex_a510, ERRATUM(2666669), ERRATA_A510_2666669
-	/*
-	 * Workaround will set IMP_CPUACTLR_EL1[38]
-	 * to 0b1.
-	 */
-	mrs	x1, CORTEX_A510_CPUACTLR_EL1
-	orr	x1, x1, CORTEX_A510_CPUACTLR_EL1_BIT_38
-	msr	CORTEX_A510_CPUACTLR_EL1, x1
+	sysreg_bit_set CORTEX_A510_CPUACTLR_EL1, CORTEX_A510_CPUACTLR_EL1_BIT_38
 workaround_reset_end cortex_a510, ERRATUM(2666669)
 
 check_erratum_ls cortex_a510, ERRATUM(2666669), CPU_REV(1, 1)
