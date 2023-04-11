@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfa2e618_9fcc6b3b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-04-11T16:03:28Z",
+      "side": 1,
+      "message": "Done. Limited to 50 chars to pass commit linter.",
+      "parentUuid": "eb7b0556_b729aacf",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 4
+      },
+      "revId": "70267d1ccb7dc50a5387adc9e14cd4377576714b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "17853b54_6399cd01",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "696f1d10_6267c55c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-04-11T16:03:28Z",
+      "side": 1,
+      "message": "Coverity:\nhttps://lists.trustedfirmware.org/archives/list/tf-a@lists.trustedfirmware.org/thread/PE4TOYXAU43343S2HVKVVDH2M3JIS64I/",
+      "parentUuid": "17853b54_6399cd01",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 13
+      },
+      "revId": "70267d1ccb7dc50a5387adc9e14cd4377576714b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58022627_b1211842",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-04-11T15:07:39Z",
       "side": 1,
       "message": "since we are checking ret here, do we need the assert in line 68",
+      "range": {
+        "startLine": 71,
+        "startChar": 6,
+        "endLine": 71,
+        "endChar": 13
+      },
+      "revId": "70267d1ccb7dc50a5387adc9e14cd4377576714b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e109e6fb_17542e44",
+        "filename": "lib/psci/psci_on.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-04-11T16:03:28Z",
+      "side": 1,
+      "message": "Removed the assert.",
+      "parentUuid": "58022627_b1211842",
       "range": {
         "startLine": 71,
         "startChar": 6,
