@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d348992f_129c673f",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-12T08:22:19Z",
+      "side": 1,
+      "message": "0U instead?",
+      "range": {
+        "startLine": 275,
+        "startChar": 48,
+        "endLine": 275,
+        "endChar": 49
+      },
+      "revId": "e02150ba0bf25f35dbca21849d67da0d0952c01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a4ebb6_bd650750",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-12T08:22:19Z",
+      "side": 1,
+      "message": "It seems this \u0027panic\u0027 gets replaced soon with the proper error code to justify why this function returns error code, right? It might make sense to add a TODO comment here.",
+      "range": {
+        "startLine": 277,
+        "startChar": 2,
+        "endLine": 277,
+        "endChar": 10
+      },
+      "revId": "e02150ba0bf25f35dbca21849d67da0d0952c01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f5082f30_10a7359a",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 3
@@ -43,6 +89,52 @@
         "startChar": 1,
         "endLine": 280,
         "endChar": 11
+      },
+      "revId": "e02150ba0bf25f35dbca21849d67da0d0952c01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33170f06_bc78bd31",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-12T08:22:19Z",
+      "side": 1,
+      "message": "0U instead?",
+      "range": {
+        "startLine": 530,
+        "startChar": 9,
+        "endLine": 530,
+        "endChar": 10
+      },
+      "revId": "e02150ba0bf25f35dbca21849d67da0d0952c01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4a95543_af71a407",
+        "filename": "services/std_svc/spmd/spmd_private.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-12T08:22:19Z",
+      "side": 1,
+      "message": "I think this declaration should go as a part of this patch: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19899/3",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 51
       },
       "revId": "e02150ba0bf25f35dbca21849d67da0d0952c01d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
