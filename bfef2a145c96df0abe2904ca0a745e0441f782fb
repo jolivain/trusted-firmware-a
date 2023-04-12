@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb734f8c_c2444a49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-04-12T06:43:38Z",
+      "side": 1,
+      "message": "If this targets OP-TEE why not implementing the service in the opteed SPD?\nUnless coreboot doesn\u0027t build along with TF-A SPD?\n\nAlso you should know the FF-A standard introduces a logging ABI.\nI appreciate a legacy implementation may be far from considering to adopt FF-A, but I thought fair mentioning here, as it seems we want to implement an adhoc solution vs a standard, which doesn\u0027t help defragmenting sw solutions.",
+      "revId": "bfef2a145c96df0abe2904ca0a745e0441f782fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
