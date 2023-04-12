@@ -16,6 +16,24 @@
       "message": "Hello Olivier and Manish,\n\nIt doesn\u0027t look like the OpenCI build error is related to our patch.\nCould you spare some time to review or merge the patch?\nThanks.",
       "revId": "8e38b928490516d308bdceebc4ad032852bf2716",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8666af05_a2c2047a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-12T11:19:38Z",
+      "side": 1,
+      "message": "Hi, these CI failures are un-related to your patch.\nAlso, please do not trigger CI+2 on patches which are limited to your platform(CI+1 should be enought). CI+2 does a lot of extra tests.\n\nI have provided verified+1 and MR+1, ask someone from mtk to give CoR and then i will merge it.",
+      "parentUuid": "ddeee37d_bd0f60f6",
+      "revId": "8e38b928490516d308bdceebc4ad032852bf2716",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
