@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5db6ffc_e4977bcd",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-12T08:29:54Z",
+      "side": 1,
+      "message": "The platform function declaration seems unrelated to the patch. Shouldn\u0027t it be part of this patch [1] in this series?\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20176",
+      "range": {
+        "startLine": 365,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 39
+      },
+      "revId": "d9138f8c33c8641bee3871c8c9425e6e58af51cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
