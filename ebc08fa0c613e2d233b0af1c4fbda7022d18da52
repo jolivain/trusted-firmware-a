@@ -51,6 +51,23 @@
       "message": "overriding unrelated FVP build failure, happens on master as well\n",
       "revId": "ebc08fa0c613e2d233b0af1c4fbda7022d18da52",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22575265_4efa5467",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-04-12T14:02:56Z",
+      "side": 1,
+      "message": "We still need the commit message fixed up similar to what Andre suggested.\n\nThis might see small but we rely on the commit message format to do some initial automatic changelog generation when we do a release so rely on this being correct to categorise changes and organise them in the changelog.",
+      "revId": "ebc08fa0c613e2d233b0af1c4fbda7022d18da52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
