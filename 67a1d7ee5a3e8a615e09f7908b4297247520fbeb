@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8814cfe_67538eb3",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-12T13:42:29Z",
+      "side": 1,
+      "message": "@Sandrine, I added this as a hard check, could you please let me know if this makes sense or if asserting would be better? This flag definitions are retained as bit fields without much change in the code.",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 3
+      },
+      "revId": "67a1d7ee5a3e8a615e09f7908b4297247520fbeb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
