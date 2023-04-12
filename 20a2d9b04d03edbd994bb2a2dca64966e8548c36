@@ -22,6 +22,52 @@
       },
       "revId": "20a2d9b04d03edbd994bb2a2dca64966e8548c36",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7d98603_086640fb",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-04-12T05:58:59Z",
+      "side": 1,
+      "message": "Based on the clarification below, if applicable need change here?",
+      "range": {
+        "startLine": 27,
+        "startChar": 29,
+        "endLine": 27,
+        "endChar": 33
+      },
+      "revId": "20a2d9b04d03edbd994bb2a2dca64966e8548c36",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ded8ad8e_9e75b328",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-04-12T05:58:59Z",
+      "side": 1,
+      "message": "Is this 8C or 8A? Or is there an updated document?\n\nDocument number DEN0077A\nDocument version 0.1\n\nFFA_EL3_INTR_HANDLE\n\nuint32 Function ID w0 • 0x8400008A",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 41
+      },
+      "revId": "20a2d9b04d03edbd994bb2a2dca64966e8548c36",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
