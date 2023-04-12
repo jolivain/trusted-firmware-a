@@ -68,6 +68,23 @@
       "parentUuid": "bdb16100_70609f7e",
       "revId": "146ddf882cede77e1b6a98714df813b5dc8711d4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "121e4be0_19cb2d1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-04-12T18:25:35Z",
+      "side": 1,
+      "message": "Docs build fails with \n\n 00:01:45.483 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/docs/threat_model/threat_model_spm.rst:1275:Bullet list ends without a blank line; unexpected unindent.",
+      "revId": "146ddf882cede77e1b6a98714df813b5dc8711d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
