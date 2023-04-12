@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b45fca1c_ac3fad72",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-12T14:21:24Z",
+      "side": 1,
+      "message": "Why not storing the ROTPK info directly into \u0026pk_plat_ptr / \u0026pk_plat_len?\nThis would allow us to get rid of lines 194-195...",
+      "range": {
+        "startLine": 180,
+        "startChar": 46,
+        "endLine": 180,
+        "endChar": 62
+      },
+      "revId": "67a1d7ee5a3e8a615e09f7908b4297247520fbeb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8814cfe_67538eb3",
         "filename": "drivers/auth/auth_mod.c",
         "patchSetId": 14
@@ -14,6 +37,30 @@
       "writtenOn": "2023-04-12T13:42:29Z",
       "side": 1,
       "message": "@Sandrine, I added this as a hard check, could you please let me know if this makes sense or if asserting would be better? This flag definitions are retained as bit fields without much change in the code.",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 3
+      },
+      "revId": "67a1d7ee5a3e8a615e09f7908b4297247520fbeb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80a1d54c_14ac6359",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-12T14:21:24Z",
+      "side": 1,
+      "message": "According to TF-A error handling policy [1], I think this ought to be an assertion. These ROTPK_* flags are populated by platform code (plat_get_rotpk_info() in this case) and so IMO they fall under the following category:\n\n - Bad argument provided by platform porting function\n\nThat being said, I question whether we need any sort of checks at all... Yes, such an assertion could be useful for platform integrators in some cases, if they did not intend to set any other flags that ROTPK_NOT_DEPLOYED or ROTPK_IS_HASH. But auth_signature() itself does not mind if some other bits are set, it will just ignore them. So I would argue we don\u0027t even need an assertion.\n\n[1] https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html#using-assert-to-check-for-programming-errors",
+      "parentUuid": "e8814cfe_67538eb3",
       "range": {
         "startLine": 183,
         "startChar": 0,
