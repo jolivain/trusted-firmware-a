@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21ad443a_d178f61c",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-12T09:41:40Z",
+      "side": 1,
+      "message": "pretty much yeah. I know that there\u0027s this new concept for errata that tf-a knows about, it will tell lower ELs about, but doesn\u0027t mitigate itself. I\u0027ve left this field for that information.",
+      "parentUuid": "2b09ada2_8803ccf0",
+      "range": {
+        "startLine": 300,
+        "startChar": 11,
+        "endLine": 300,
+        "endChar": 12
+      },
+      "revId": "d74d8dd5346269f3c8d942901575a20a204e35dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "435bb999_68883cd7",
         "filename": "include/lib/cpus/cpu_ops.h",
         "patchSetId": 25
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-11T21:58:04Z",
       "side": 1,
       "message": "nit: I think these are spaces.",
+      "range": {
+        "startLine": 99,
+        "startChar": 29,
+        "endLine": 99,
+        "endChar": 32
+      },
+      "revId": "d74d8dd5346269f3c8d942901575a20a204e35dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "252f43e8_3bd4db1f",
+        "filename": "include/lib/cpus/cpu_ops.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-12T09:41:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "435bb999_68883cd7",
       "range": {
         "startLine": 99,
         "startChar": 29,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fa2c557_b47f6c51",
+        "filename": "include/lib/cpus/cpu_ops.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-12T09:41:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acee52ed_b2f0adb8",
+      "range": {
+        "startLine": 100,
+        "startChar": 27,
+        "endLine": 100,
+        "endChar": 32
+      },
+      "revId": "d74d8dd5346269f3c8d942901575a20a204e35dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "beeed94d_a5083420",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-04-11T21:58:04Z",
       "side": 1,
       "message": "nit: tab",
+      "range": {
+        "startLine": 103,
+        "startChar": 23,
+        "endLine": 103,
+        "endChar": 32
+      },
+      "revId": "d74d8dd5346269f3c8d942901575a20a204e35dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9324a1b2_7bc38e3e",
+        "filename": "include/lib/cpus/cpu_ops.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-12T09:41:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "beeed94d_a5083420",
       "range": {
         "startLine": 103,
         "startChar": 23,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b866717_8ec1dd59",
+        "filename": "include/lib/cpus/cpu_ops.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-12T09:41:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89d346d0_458c56f4",
+      "range": {
+        "startLine": 104,
+        "startChar": 7,
+        "endLine": 104,
+        "endChar": 8
+      },
+      "revId": "d74d8dd5346269f3c8d942901575a20a204e35dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed35c1db_7a646ab9",
@@ -129,6 +249,24 @@
       "writtenOn": "2023-04-11T21:58:04Z",
       "side": 1,
       "message": "/*\n * errata framework - Should we change it to this instead?\n *",
+      "revId": "d74d8dd5346269f3c8d942901575a20a204e35dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81df5bad_c3d54d85",
+        "filename": "include/lib/cpus/errata.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-12T09:41:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed35c1db_7a646ab9",
       "revId": "d74d8dd5346269f3c8d942901575a20a204e35dd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
