@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ec8126b_7a5477f4",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-12T09:28:46Z",
+      "side": 1,
+      "message": "nit: init value\nnit2: \"...unexpected behavior in lower ELs that haven\u0027t been updated since the introduction of this feature\"",
+      "range": {
+        "startLine": 280,
+        "startChar": 43,
+        "endLine": 280,
+        "endChar": 48
+      },
+      "revId": "2a735e9d3e8323e91f81fa12acc188397dbd7e4c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
