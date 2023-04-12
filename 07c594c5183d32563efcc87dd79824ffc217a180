@@ -16,6 +16,24 @@
       "message": "The arm mentions some dependencies between these, TCR2, and HPDS. Should those be described here?",
       "revId": "07c594c5183d32563efcc87dd79824ffc217a180",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76ba4265_0c3ed96e",
+        "filename": "Makefile",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2023-04-12T14:03:08Z",
+      "side": 0,
+      "message": "There does not seem to be an obvious pattern of mentioning dependencies between features, indeed the Arm is typically silent when for example there\u0027s a dependency on features mandatory in the version of the architecture a feature was added in.",
+      "parentUuid": "96aa9cfb_9ad4cc41",
+      "revId": "07c594c5183d32563efcc87dd79824ffc217a180",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
