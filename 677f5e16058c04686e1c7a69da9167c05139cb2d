@@ -72,6 +72,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "839e80ba_c11e0ca8",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 33
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2023-04-12T16:16:21Z",
+      "side": 1,
+      "message": "Such a change seems a bit out of scope for SME2 support, it\u0027s an improvement to the existing SME support (the forcing SMCR_EL3.LEN to the architectural maximum was already present in the existing code).\n\nIt is however not clear to me why we\u0027re changing from setting a known value to using a read/modify/write, especially given that the fields in the register reset to an architecturally UNKNOWN value. I\u0027d expect that pattern to be followed for any new fields as it has been for SMCR_EL3.EZT0.",
+      "parentUuid": "8ef0d4b3_c0c4857e",
+      "range": {
+        "startLine": 47,
+        "startChar": 8,
+        "endLine": 47,
+        "endChar": 24
+      },
+      "revId": "677f5e16058c04686e1c7a69da9167c05139cb2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7cda65b8_1acc1efc",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 33
