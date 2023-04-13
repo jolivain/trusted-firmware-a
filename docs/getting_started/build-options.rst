@@ -302,6 +302,10 @@ Common build options
    flag can take the values 0 to 2, to align  with the ``FEATURE_DETECTION``
    mechanism. Default value is ``0``.
 
+-  ``ENABLE_FEAT_MSR_TRAP``: Numeric value to enable the ``FEAT_MSR_TRAP``
+   extension to handle implementation defined system register accesses from
+   lower ELs. Default value is ``0``.
+
 -  ``ENABLE_FEAT_PAN``: Numeric value to enable the ``FEAT_PAN`` (Privileged
    Access Never) extension. ``FEAT_PAN`` adds a bit to PSTATE, generating a
    permission fault for any privileged data access from EL1/EL2 to virtual

@@ -1204,6 +1204,7 @@ $(eval $(call assert_numerics,\
         TWED_DELAY \
         ENABLE_FEAT_TWED \
         SVE_VECTOR_LEN \
+	ENABLE_FEAT_MSR_TRAP \
 )))
 
 ifdef KEY_SIZE
@@ -1333,6 +1334,7 @@ $(eval $(call add_defines,\
         TWED_DELAY \
         ENABLE_FEAT_TWED \
 	CONDITIONAL_CMO \
+	ENABLE_FEAT_MSR_TRAP \
 )))
 
 ifeq (${SANITIZE_UB},trap)
