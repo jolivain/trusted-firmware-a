@@ -16,6 +16,24 @@
       "message": "nit: you can reduce the check to if (el2_implemented !\u003d EL_IMPL_NONE) as that\u0027s the only dangerous case. I think the HCE\u003d1 case is okay to be written to as well",
       "revId": "ddb615b419074727ac0a1430cf0f88bd018ac8df",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cef2892d_f164d891",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-13T16:10:41Z",
+      "side": 1,
+      "message": "Ack, its nit and will anyways be refactored later",
+      "parentUuid": "d3bed90f_a81acf03",
+      "revId": "ddb615b419074727ac0a1430cf0f88bd018ac8df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
