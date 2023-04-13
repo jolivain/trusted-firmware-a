@@ -119,6 +119,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85dc23be_5a9dae17",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 520,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-13T09:33:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b36e894_35d1d8ce",
+      "range": {
+        "startLine": 520,
+        "startChar": 38,
+        "endLine": 520,
+        "endChar": 46
+      },
+      "revId": "9180d3eb53d3766ee2670c44bb0e067a1db9288f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6b3c11f_5a81412d",
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "I thought this meant a smaller subset of errata from the comment.",
       "parentUuid": "27c43f07_46df1653",
+      "range": {
+        "startLine": 531,
+        "startChar": 43,
+        "endLine": 531,
+        "endChar": 62
+      },
+      "revId": "9180d3eb53d3766ee2670c44bb0e067a1db9288f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6831ff65_01b04f51",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-13T09:33:26Z",
+      "side": 1,
+      "message": "yes? Some errata have complicated checkers and they won\u0027t be able to use the other helpers. So I provide this one just to assemble the name. I still don\u0027t see the confusion",
+      "parentUuid": "665b00ba_8d5e3026",
       "range": {
         "startLine": 531,
         "startChar": 43,
