@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b489ad3_e9c088dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-13T15:40:17Z",
+      "side": 1,
+      "message": "The other failure is due to new files addition.\n\nUsually, when new files introduced, a coverity build configuration, need to be added to cover for Coverity scan. But here, its already under the ${ARM_ARCH_MAJOR},8) macro, implying its already picked for build by default. So please ignore this failure.\n\nPlease note, apart from this, if all other CI test_configs pass, maintainers/code-owners will overide the -1 vote with +1.\n",
+      "revId": "db4dccf37d78a1ae205a40a0cfd040dcfe02eb56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eb90d36_11eede3f",
+        "filename": "plat/qemu/common/qemu_sdei.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-13T15:40:17Z",
+      "side": 1,
+      "message": "Static checks failure, part of Allow CI+1 is due to the incorrect ordering of headers here.\n\nInclude ordering error, the order should be:\n\t#include \u003cbl31/ehf.h\u003e\n\t#include \u003ccommon/debug.h\u003e\n\t#include \u003clib/utils_def.h\u003e\n\t#include \u003cservices/sdei.h\u003e\n\n\t#include \u003cplatform_def.h\u003e\n\nKindly resolve it.",
+      "revId": "db4dccf37d78a1ae205a40a0cfd040dcfe02eb56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f88e4a9_fdd569e6",
