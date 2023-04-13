@@ -16,6 +16,121 @@
       "message": "Rendered: https://ci-builds.trustedfirmware.org/static-files/oi4ZUC4dfg1PeViu7W_NF90Z8WrBF1zPs8qZLRyaijkxNjgxMzgyNDY2OTE2Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvMTkzNDAyMi9hcnRpZmFjdA\u003d\u003d/artefacts-lava/build/html/index.html",
       "revId": "56897c59fcea51e6352d38b1a909a29190ba082a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af67ea00_e3bc127b",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 29
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-04-13T13:02:06Z",
+      "side": 1,
+      "message": "documentation",
+      "range": {
+        "startLine": 57,
+        "startChar": 41,
+        "endLine": 57,
+        "endChar": 50
+      },
+      "revId": "56897c59fcea51e6352d38b1a909a29190ba082a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b5eaeec_611af777",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 29
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-04-13T13:02:06Z",
+      "side": 1,
+      "message": "compiled?",
+      "range": {
+        "startLine": 57,
+        "startChar": 58,
+        "endLine": 57,
+        "endChar": 63
+      },
+      "revId": "56897c59fcea51e6352d38b1a909a29190ba082a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "116588f9_2996bb22",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 29
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-04-13T13:02:06Z",
+      "side": 1,
+      "message": "We could instead recommend that the user run `poetry run make -C docs help`. I skimmed through these instructions and this one caught me out.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 11
+      },
+      "revId": "56897c59fcea51e6352d38b1a909a29190ba082a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07d5275b_bc493a3a",
+        "filename": "docs/getting_started/docs-build.rst",
+        "patchSetId": 29
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-04-13T13:02:06Z",
+      "side": 1,
+      "message": "Fails with:\n\n    bash: line 2: curl: command not found\n    bash: line 3: poetry: command not found\n\nTry:\n\n    docker run --rm -v $PWD:/tf-a sphinxdoc/sphinx \\\n        bash -c \u0027cd /tf-a \u0026\u0026\n            apt-get update \u0026\u0026 apt-get install -y curl \u0026\u0026\n            curl -sSL https://install.python-poetry.org | python3 - \u0026\u0026\n            ~/.local/bin/poetry install \u0026\u0026 ~/.local/bin/poetry run make doc\u0027",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 48
+      },
+      "revId": "56897c59fcea51e6352d38b1a909a29190ba082a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7188f2b3_b30aeddd",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 29
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-04-13T13:02:06Z",
+      "side": 1,
+      "message": "Needs one more space indent",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 37
+      },
+      "revId": "56897c59fcea51e6352d38b1a909a29190ba082a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
