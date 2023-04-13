@@ -34,6 +34,24 @@
       "parentUuid": "98739cba_aa23607c",
       "revId": "ebb806c1bec454ea87f1bc9f2ff29bc9655e78a3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54137473_50e4bdd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-13T10:58:58Z",
+      "side": 1,
+      "message": "handle_sysreg_trap() was introduced to have a generic interface. We had only one usecase so far(RNG TRAP) and it is Arch feature. But for your usecase we can introduce a call back(to be populated by platform) to hide IMPDEF things inside platform handler.",
+      "parentUuid": "6ecee4f6_5bbebc6f",
+      "revId": "ebb806c1bec454ea87f1bc9f2ff29bc9655e78a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
