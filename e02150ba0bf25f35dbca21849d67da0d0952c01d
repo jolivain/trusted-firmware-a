@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3dea0120_fe3298ac",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-13T19:59:13Z",
+      "side": 1,
+      "message": "Hi Manish\nI didnt understand your comment. If the platform is unable to handle the Group0 interrupt, we consider it fatal and this function(spmd_group0_interrupt_handler_nwd) doesn\u0027t return from panic. Can you clarify?",
+      "parentUuid": "c0a4ebb6_bd650750",
+      "range": {
+        "startLine": 277,
+        "startChar": 2,
+        "endLine": 277,
+        "endChar": 10
+      },
+      "revId": "e02150ba0bf25f35dbca21849d67da0d0952c01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f5082f30_10a7359a",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 3
@@ -118,6 +142,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59bd1ffd_f5181dc7",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-13T19:59:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2ff7695c_eb42da1b",
+      "range": {
+        "startLine": 280,
+        "startChar": 1,
+        "endLine": 280,
+        "endChar": 11
+      },
+      "revId": "e02150ba0bf25f35dbca21849d67da0d0952c01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33170f06_bc78bd31",
@@ -141,6 +189,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ecfe556_13984ee4",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-13T19:59:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33170f06_bc78bd31",
+      "range": {
+        "startLine": 530,
+        "startChar": 9,
+        "endLine": 530,
+        "endChar": 10
+      },
+      "revId": "e02150ba0bf25f35dbca21849d67da0d0952c01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4a95543_af71a407",
@@ -154,6 +226,30 @@
       "writtenOn": "2023-04-12T08:22:19Z",
       "side": 1,
       "message": "I think this declaration should go as a part of this patch: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19899/3",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 51
+      },
+      "revId": "e02150ba0bf25f35dbca21849d67da0d0952c01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c465be0_255011d3",
+        "filename": "services/std_svc/spmd/spmd_private.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-13T19:59:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4a95543_af71a407",
       "range": {
         "startLine": 96,
         "startChar": 0,
