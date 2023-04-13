@@ -22,6 +22,30 @@
       },
       "revId": "636cb9c0d05945dafe853049695dea707d0501c8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5780faad_9db47d07",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-04-13T20:46:30Z",
+      "side": 1,
+      "message": "I would agree on the first one. With the latest change which brings in all build flags part of the structure and a check based on it later in the code, the conditional could be removed.\n\nBut I would keep the platform specific flag and the CPU erratum flag separate, there is slightly different meaning for each. One indicating platform specific interconnect and other indicating a CPU errata. Only that there is a dependency.",
+      "parentUuid": "d54fb468_7d8dbc80",
+      "range": {
+        "startLine": 285,
+        "startChar": 3,
+        "endLine": 285,
+        "endChar": 10
+      },
+      "revId": "636cb9c0d05945dafe853049695dea707d0501c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
