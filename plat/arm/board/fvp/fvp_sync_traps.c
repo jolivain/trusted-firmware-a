@@ -60,3 +60,12 @@ int plat_handle_rng_trap(uint64_t esr_el3, cpu_context_t *ctx)
 	 */
 	return TRAP_RET_CONTINUE;
 }
+
+/*
+ * This code implements a placeholder function to handle traps for the
+ * MSR instructions from the lower ELs
+ */
+int plat_handle_msr_trap(uint64_t esr_el3, cpu_context_t *ctx)
+{
+	return TRAP_RET_UNHANDLED;
+}
