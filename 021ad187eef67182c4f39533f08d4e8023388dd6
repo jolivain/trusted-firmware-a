@@ -16,6 +16,24 @@
       "message": "See the few static check failures (include order),\n\nand platform build failures N1sdp and Corstone\n\n23:44:18 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/n1sdp/debug/bl31/spmd_main.o: in function `spmd_group0_interrupt_handler_nwd\u0027:\n23:44:18 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/services/std_svc/spmd/spmd_main.c:275: undefined reference to `plat_spmd_handle_group0_interrupt\u0027\n23:44:18 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/n1sdp/debug/bl31/spmd_main.o: in function `spmd_handle_group0_intr_swd\u0027:\n23:44:18 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/services/std_svc/spmd/spmd_main.c:306: undefined reference to `plat_spmd_handle_group0_interrupt\u0027\n23:44:18 make: *** [Makefile:1426: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/n1sdp/debug/bl31/bl31.elf] Error 1\n\n23:50:48 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/corstone1000/debug/bl31/spmd_main.o: in function `spmd_group0_interrupt_handler_nwd\u0027:\n23:50:48 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/services/std_svc/spmd/spmd_main.c:275: undefined reference to `plat_spmd_handle_group0_interrupt\u0027\n23:50:48 aarch64-none-elf-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/corstone1000/debug/bl31/spmd_main.o: in function `spmd_handle_group0_intr_swd\u0027:\n23:50:48 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/services/std_svc/spmd/spmd_main.c:306: undefined reference to `plat_spmd_handle_group0_interrupt\u0027",
       "revId": "021ad187eef67182c4f39533f08d4e8023388dd6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd31a317_84c9da22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-13T19:59:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ccbe57b_e9b6bc83",
+      "revId": "021ad187eef67182c4f39533f08d4e8023388dd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
