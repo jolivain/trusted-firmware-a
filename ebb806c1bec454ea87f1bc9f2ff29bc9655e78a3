@@ -16,6 +16,24 @@
       "message": "This handling is already present in the caller of \"handle_lower_el_sync_ea\" function, so this introduced path will never be exercised.\nHave a look at \"handle_sync_exception -\u003e sync_handler64 -\u003e sysreg_handler64\" path  and commit ccd81f1e0",
       "revId": "ebb806c1bec454ea87f1bc9f2ff29bc9655e78a3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ecee4f6_5bbebc6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-04-13T10:33:21Z",
+      "side": 1,
+      "message": "Thanks for the pointer. The downstream code does not have this support. One question: how do you envision this functionality for IMPDEF CPU registers? e.g. programming a bit from the CPUECTLR_EL1 register. Should we add such flexibility to the handle_sysreg_trap() function? Or create platform handlers?",
+      "parentUuid": "98739cba_aa23607c",
+      "revId": "ebb806c1bec454ea87f1bc9f2ff29bc9655e78a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
