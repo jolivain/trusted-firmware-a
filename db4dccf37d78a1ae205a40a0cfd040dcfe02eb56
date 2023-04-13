@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f88e4a9_fdd569e6",
+        "filename": "plat/qemu/qemu/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-13T13:40:34Z",
+      "side": 1,
+      "message": "Qemu already have a priority here plat/qemu/qemu_sbsa/include/platform_def.h. I am not sure if this file is included or not but worth checking once.\nIMHO its safer to give a lower priority to SDEI events",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 49
+      },
+      "revId": "db4dccf37d78a1ae205a40a0cfd040dcfe02eb56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
