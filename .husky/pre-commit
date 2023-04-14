@@ -4,3 +4,4 @@
 . "$(dirname "$0")/_/husky.sh"
 
 "$(dirname "$0")/pre-commit.copyright" "$@"
+"$(dirname "$0")/pre-commit.plat_copyright" "$@"
