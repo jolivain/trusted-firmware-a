@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c4b4cb5_d68e810a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-14T23:55:28Z",
+      "side": 1,
+      "message": "@Samuel, thanks for the review, very good comments!",
+      "revId": "e4d21fdbade0d809e6c834a522d78deb5e7bf364",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0db86af5_7351978e",
@@ -14,6 +31,24 @@
       "writtenOn": "2023-04-14T02:04:14Z",
       "side": 1,
       "message": "1) Putting the check in this file applies it to all NCAT generation SoCs, but as far as I can tell, the special register arrangement is unique to variants of H616.\n2) The BSP specifically checks for a die version of 2, not just any nonzero version:\nhttps://github.com/smaeul/sun20i_d1_spl/blob/d21a737da79521923e2f235891dab7b7fe5692ff/include/arch/cpu_ncat.h#L179\n3) The value computed here is the same as that returned by plat_get_soc_revision() (which avoids needing to move the SUNXI_SRAM_VER_REG definition).",
+      "revId": "e4d21fdbade0d809e6c834a522d78deb5e7bf364",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6954bf4f_c9a618de",
+        "filename": "plat/allwinner/common/include/sunxi_cpucfg_ncat.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-14T23:55:28Z",
+      "side": 1,
+      "message": "1) Ouch, I totally missed that! And indeed I see no secondaries coming online on the H6 (for which most (all?) chips report die revision 1). I will move that into the per-SoC include stubs.\n2) Fair enough, I saw this, but didn\u0027t have any other information, and my H616s report both 0. Will follow the BSP to check for 2 explicitly.\n3) Ah, that\u0027s a good hint! So I can drop the SRAM_VER_REG refactor patch altogether, and just call this function from here.",
+      "parentUuid": "0db86af5_7351978e",
       "revId": "e4d21fdbade0d809e6c834a522d78deb5e7bf364",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
