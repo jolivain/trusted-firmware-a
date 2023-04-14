@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8d2e906_ab2988fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-14T09:52:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d52cf658_e48503ac",
+      "range": {
+        "startLine": 28,
+        "startChar": 20,
+        "endLine": 28,
+        "endChar": 28
+      },
+      "revId": "7caa6b103e29238f5e8cad6b4627677ef82dc4a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a3162d3_9f66bf9c",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-13T22:59:31Z",
       "side": 1,
       "message": "nit: Might want to update this in all other conversion patches. \n\"2023, Arm\"",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 31
+      },
+      "revId": "7caa6b103e29238f5e8cad6b4627677ef82dc4a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c0822ac_54a64e19",
+        "filename": "lib/cpus/aarch64/cortex_a57.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-14T09:52:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a3162d3_9f66bf9c",
       "range": {
         "startLine": 2,
         "startChar": 22,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "883526fb_b4e0355a",
+        "filename": "lib/cpus/aarch64/cortex_a57.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-14T09:52:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5c743d1_9b9b1af4",
+      "range": {
+        "startLine": 194,
+        "startChar": 1,
+        "endLine": 197,
+        "endChar": 34
+      },
+      "revId": "7caa6b103e29238f5e8cad6b4627677ef82dc4a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3c7c72e_53677e49",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-04-13T22:59:31Z",
       "side": 1,
       "message": "Same as above.\nIs this comment right anymore? Looks like the vbar is changed separately for each CVE, 5715 vs 23960?",
+      "range": {
+        "startLine": 219,
+        "startChar": 3,
+        "endLine": 220,
+        "endChar": 31
+      },
+      "revId": "7caa6b103e29238f5e8cad6b4627677ef82dc4a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbe1ffef_6c00efe2",
+        "filename": "lib/cpus/aarch64/cortex_a57.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-14T09:52:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3c7c72e_53677e49",
       "range": {
         "startLine": 219,
         "startChar": 3,
