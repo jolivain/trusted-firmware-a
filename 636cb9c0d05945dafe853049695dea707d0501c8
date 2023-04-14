@@ -94,6 +94,30 @@
       },
       "revId": "636cb9c0d05945dafe853049695dea707d0501c8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8acf3e18_97988b23",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-14T15:18:36Z",
+      "side": 1,
+      "message": "The return value is different for errata that have the interconnect flag enabled. The non-arm interconnect flag is being checked to differentiate between the return values since mitigation is not available in EL3. We are using the flag to differentiate between HIGHER_EL_MITIGATION and AFFECTED return values.",
+      "parentUuid": "5846fa71_27dc3759",
+      "range": {
+        "startLine": 285,
+        "startChar": 3,
+        "endLine": 285,
+        "endChar": 10
+      },
+      "revId": "636cb9c0d05945dafe853049695dea707d0501c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
