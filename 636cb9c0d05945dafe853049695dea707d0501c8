@@ -118,6 +118,30 @@
       },
       "revId": "636cb9c0d05945dafe853049695dea707d0501c8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "355b503f_293e8d4e",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-14T15:23:03Z",
+      "side": 1,
+      "message": "Yes, so it can be combined with the ENABLE information. Setting the ENABLE flag on a normal erratum should get the ABI to return HIGHER_EL_MITIGATION on it. Leaving it out, the return should be AFFECTED. It is identical with the interconnect flag. Therefore they can be merged in memory but kept in source.",
+      "parentUuid": "8acf3e18_97988b23",
+      "range": {
+        "startLine": 285,
+        "startChar": 3,
+        "endLine": 285,
+        "endChar": 10
+      },
+      "revId": "636cb9c0d05945dafe853049695dea707d0501c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
