@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "378a9d07_2c63aa82",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-14T14:33:53Z",
+      "side": 1,
+      "message": "Expand SRTM acronym (Static Root of Trust for Measurement). Alternatively, add the term in TF-A glossary [1] and refer the reader to it (I believe there is a special Sphinx syntax for that, something like |SRTM|).\n\n[1] https://trustedfirmware-a.readthedocs.io/en/latest/glossary.html",
+      "range": {
+        "startLine": 45,
+        "startChar": 35,
+        "endLine": 45,
+        "endChar": 39
+      },
+      "revId": "583aa4745ae9d385ced0531eeaa838fc9fd1aa08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "537073e0_7fe3e010",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-14T14:33:53Z",
+      "side": 1,
+      "message": "I think the reference to the \"TCG-compatible Event Log buffer\" dilutes the point here. The fact that measurements are not stored in their raw form but rather in a structured manner following a standard from TCG, is a detail that seems irrelevant to me at this stage of the explanation.\n\nSuggest simplifying to:\n\n This is achieved by storing them in the Secure Memory.\n\n\"them\" refers to the aforementioned \"Measured data\".",
+      "range": {
+        "startLine": 47,
+        "startChar": 18,
+        "endLine": 47,
+        "endChar": 51
+      },
+      "revId": "583aa4745ae9d385ced0531eeaa838fc9fd1aa08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4025f8ea_441e0a9d",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-14T14:33:53Z",
+      "side": 1,
+      "message": "To follow on from my previous suggestion, I feel this would need to be rephrased to better link to the previous sentence, as:\n\n Beyond the measurements stored inside the TCG-compliant Event Log buffer,",
+      "range": {
+        "startLine": 48,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 42
+      },
+      "revId": "583aa4745ae9d385ced0531eeaa838fc9fd1aa08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "015ec07a_01399f13",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-14T14:33:53Z",
+      "side": 1,
+      "message": "I know this got changed at Raghu\u0027s request, but I preferred the old phrasing: \"could compromise TF-A execution environment\u0027s security.\" I think it makes it more explicit that this note is written from the point of view of TF-A security boundary, which excludes the upper layers of secure world software (TOS / SPMC / TAs). If the event log gets compromised, this would make the attestation bogus / moot but it would not make a difference to TF-A, which would continue to function as expected. This is because TF-A only writes to the event log and does not consume it.",
+      "range": {
+        "startLine": 49,
+        "startChar": 60,
+        "endLine": 50,
+        "endChar": 38
+      },
+      "revId": "583aa4745ae9d385ced0531eeaa838fc9fd1aa08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24600f6b_c6fe2069",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-14T14:33:53Z",
+      "side": 1,
+      "message": "Perhaps add another sentence to say that the current measured boot design does not use local attestation. If it did, there would be further assets to protect, for example some keys could be unsealed and TF-A would need to protect them.",
+      "revId": "583aa4745ae9d385ced0531eeaa838fc9fd1aa08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2745e0d2_a8f7bac2",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-14T14:33:53Z",
+      "side": 1,
+      "message": "Suggest extending this:\n\n Measured Boot does not extend measurements into a discrete TPM, where they would be\n securely stored and protected against tampering.",
+      "range": {
+        "startLine": 57,
+        "startChar": 48,
+        "endLine": 58,
+        "endChar": 20
+      },
+      "revId": "583aa4745ae9d385ced0531eeaa838fc9fd1aa08",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
