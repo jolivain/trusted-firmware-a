@@ -22,6 +22,30 @@
       },
       "revId": "14d8aa6bdca8024ba49d14c46497a5774fdc459a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eac8ac0d_89e9d9d2",
+        "filename": "lib/cpus/aarch64/cortex_a77.S",
+        "patchSetId": 32
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-14T10:05:24Z",
+      "side": 1,
+      "message": "The old naming scheme is errata_\u003ccpu_code\u003e_\u003cerratum_number\u003e_wa. The new one is erratum_\u003ccpu_family_and_code\u003e_\u003cerratum_number\u003e_wa. So any calls to any errata (outside of the standard reset func) need to be updated. \n\nAnd thanks for spotting the typo, I\u0027ll fix it.",
+      "parentUuid": "a82a76c2_dd0e2b6c",
+      "range": {
+        "startLine": 185,
+        "startChar": 4,
+        "endLine": 185,
+        "endChar": 34
+      },
+      "revId": "14d8aa6bdca8024ba49d14c46497a5774fdc459a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
