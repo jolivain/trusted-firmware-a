@@ -20,6 +20,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "124e8505_382b5160",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-14T11:45:41Z",
+      "side": 1,
+      "message": "Maybe something like,\n\nIMPDEF_SYSREG_TRAP and directly call platform handler \"plat_handle_impdef_trap\" and hide all these details in platform file only.",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 27
+      },
+      "revId": "439d09a488758146fb7b3757b07b21a3fd8f8c71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1342d17_57f49889",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-14T11:45:41Z",
+      "side": 1,
+      "message": "Does all IMPDEF Sysreg has same encoding?",
+      "range": {
+        "startLine": 24,
+        "startChar": 44,
+        "endLine": 24,
+        "endChar": 68
+      },
+      "revId": "439d09a488758146fb7b3757b07b21a3fd8f8c71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1d49fd8_bc27dbd8",
         "filename": "docs/porting-guide.rst",
         "patchSetId": 4
