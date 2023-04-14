@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a657ed47_1bdd321f",
+        "filename": "plat/qemu/common/qemu_sdei.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001018
+      },
+      "writtenOn": "2023-04-14T12:40:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5eb90d36_11eede3f",
+      "revId": "db4dccf37d78a1ae205a40a0cfd040dcfe02eb56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f88e4a9_fdd569e6",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-04-13T13:40:34Z",
       "side": 1,
       "message": "Qemu already have a priority here plat/qemu/qemu_sbsa/include/platform_def.h. I am not sure if this file is included or not but worth checking once.\nIMHO its safer to give a lower priority to SDEI events",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 49
+      },
+      "revId": "db4dccf37d78a1ae205a40a0cfd040dcfe02eb56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c337cda5_ef0561d5",
+        "filename": "plat/qemu/qemu/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1001018
+      },
+      "writtenOn": "2023-04-14T12:40:53Z",
+      "side": 1,
+      "message": "Thanks for the comments.\nYes, the “plat/qemu/qemu_sbsa/include/platform_def.h” file has priority definition. but it is not included.\n\nI will change SEDI events to below value:\n\n#define PLAT_SDEI_CRITICAL_PRI          0x60\n#define PLAT_SDEI_NORMAL_PRI            0x70",
+      "parentUuid": "3f88e4a9_fdd569e6",
       "range": {
         "startLine": 287,
         "startChar": 0,
