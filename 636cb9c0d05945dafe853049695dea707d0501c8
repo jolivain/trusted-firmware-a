@@ -70,6 +70,30 @@
       },
       "revId": "636cb9c0d05945dafe853049695dea707d0501c8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5846fa71_27dc3759",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-14T09:57:00Z",
+      "side": 1,
+      "message": "\u003e there is slightly different meaning for each. One indicating platform specific interconnect and other indicating a CPU errata. Only that there is a dependency.\n\nYes, that is true, and I\u0027m not saying drop it entirely. It should still be kept for calculating the flag. However, as there is no other use for this information at the moment, it doesn\u0027t need to be stored in memory at runtime (which we are scarce of at the moment!). If one would arise, it is easy enough to refactor. Besides, it would be more work to then stuff it into the errata framework.",
+      "parentUuid": "7c71704c_96480e38",
+      "range": {
+        "startLine": 285,
+        "startChar": 3,
+        "endLine": 285,
+        "endChar": 10
+      },
+      "revId": "636cb9c0d05945dafe853049695dea707d0501c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
