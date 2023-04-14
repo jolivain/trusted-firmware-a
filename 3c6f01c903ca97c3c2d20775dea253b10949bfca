@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e3f4ffb_371eb33c",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-14T12:08:07Z",
+      "side": 1,
+      "message": "I am slightly concerned about this \u003c operator creating confusion... Typically, if you don\u0027t know the different ROTPK_* flags values (and you should not have to! as that\u0027s the whole purpose of macros), you would expect this condition to rather be:\n\n assert(flags \u003c\u003d ROTPK_VALID_FLAGS);\n\nNow, I think you made it a \u003c operator because valid values are either ROTPK_VALID_FLAGS or (ROTPK_IS_HASH | any-future-bits). IOW, you wanted to reject (ROTPK_DEPLOYED | any-other-bit). But this is making an assumption on the values of these macros, which sounds wrong to me.\n\nI now think we should replace ROTPK_VALID_FLAGS macro with the following function in include/plat/common/platform.h:\n\n static inline bool is_rotpk_flags_valid(unsigned int flags)\n {\n   unsigned int valid_flags \u003d ROTPK_IS_HASH;\n   return (flags \u003d\u003d ROTPK_NOT_DEPLOYED) || ((flags \u0026 ~valid_flags) \u003d\u003d 0);\n }\n\nIf we ever add a new bit, say ROTPK_IS_FOO, the implementation would need to evolve into:\n\n static inline bool is_rotpk_flags_valid(unsigned int flags)\n {\n   unsigned int valid_flags \u003d ROTPK_IS_HASH | ROTPK_IS_FOO;\n   return (flags \u003d\u003d ROTPK_NOT_DEPLOYED) || ((flags \u0026 ~valid_flags) \u003d\u003d 0);\n }\n\nAnd we\u0027d just change the assertion in auth_signature() into:\n\n assert(is_rotpk_flags_valid(flags));\n\nWhat do you think?",
+      "range": {
+        "startLine": 189,
+        "startChar": 16,
+        "endLine": 189,
+        "endChar": 17
+      },
+      "revId": "3c6f01c903ca97c3c2d20775dea253b10949bfca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06497b04_c4a6ba30",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-14T12:08:07Z",
+      "side": 1,
+      "message": "(coding style) Remove this space.",
+      "range": {
+        "startLine": 189,
+        "startChar": 8,
+        "endLine": 189,
+        "endChar": 9
+      },
+      "revId": "3c6f01c903ca97c3c2d20775dea253b10949bfca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
