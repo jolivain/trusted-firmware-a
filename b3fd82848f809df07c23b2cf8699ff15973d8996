@@ -16,6 +16,24 @@
       "message": "The goal of this commit is sharing, but now there are four copies of this definition. Is there maybe a better place to put it?",
       "revId": "b3fd82848f809df07c23b2cf8699ff15973d8996",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b3c9779_ae2933b3",
+        "filename": "plat/allwinner/sun50i_a64/include/sunxi_mmap.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-14T23:56:27Z",
+      "side": 1,
+      "message": "I didn\u0027t find a good place. But it turns out I don\u0027t need this patch at all, when just re-using plat_get_soc_revision(). Will drop this.",
+      "parentUuid": "21fe21b2_8e33c049",
+      "revId": "b3fd82848f809df07c23b2cf8699ff15973d8996",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
