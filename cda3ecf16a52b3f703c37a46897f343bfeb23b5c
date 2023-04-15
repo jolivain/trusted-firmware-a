@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4da07b95_3bcb8170",
+        "filename": "plat/allwinner/common/include/sunxi_cpucfg_ncat.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-15T00:04:35Z",
+      "side": 1,
+      "message": "That\u0027s true, but this debug register *is* mentioned in other manuals, as it\u0027s in the CPUCFG part, for which there are register descriptions.\nIf you don\u0027t mind, I will keep Mikhail\u0027s comment.",
+      "parentUuid": "46d42f26_9779ce8b",
+      "revId": "cda3ecf16a52b3f703c37a46897f343bfeb23b5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "61336b4b_66d73830",
         "filename": "plat/allwinner/common/include/sunxi_cpucfg_ncat.h",
         "patchSetId": 1
@@ -55,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "09e8773c_33e96d80",
+        "filename": "plat/allwinner/common/include/sunxi_cpucfg_ncat.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-15T00:04:35Z",
+      "side": 1,
+      "message": "Yes, I actually saw the RVBAR registers in the A133 manual. I made a table to figure out which SoC uses which registers. I will come back to this when adding the A133 support.",
+      "parentUuid": "5787141c_882768de",
+      "revId": "cda3ecf16a52b3f703c37a46897f343bfeb23b5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3093c3db_d6f5aa85",
         "filename": "plat/allwinner/common/include/sunxi_cpucfg_ncat.h",
         "patchSetId": 1
@@ -66,6 +102,24 @@
       "writtenOn": "2023-04-14T02:25:18Z",
       "side": 1,
       "message": "I wonder if the CPUIDLE hardware works with either die variant. Have you tried using it for initial SMP bringup? (~full register definitions at https://linux-sunxi.org/CPUIDLE)",
+      "revId": "cda3ecf16a52b3f703c37a46897f343bfeb23b5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7838d3c_317affa2",
+        "filename": "plat/allwinner/common/include/sunxi_cpucfg_ncat.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-15T00:04:35Z",
+      "side": 1,
+      "message": "No, but I was wondering about CPUIDLE as well. Also I don\u0027t have access to the other die variant, and am relying on Piotr and Mikhail for testing here. So this will come later, I guess.\nDoes using CPUIDLE for SMP bringup bring any advantage? Or would this be just for simpler testing of the functionality?",
+      "parentUuid": "3093c3db_d6f5aa85",
       "revId": "cda3ecf16a52b3f703c37a46897f343bfeb23b5c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
