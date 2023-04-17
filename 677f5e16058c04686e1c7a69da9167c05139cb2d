@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8572374f_83f0e3b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 33
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-17T12:28:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9b559e97_0a65e186",
+      "range": {
+        "startLine": 10,
+        "startChar": 36,
+        "endLine": 11,
+        "endChar": 14
+      },
+      "revId": "677f5e16058c04686e1c7a69da9167c05139cb2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a6e8f50_02de8b16",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-07T13:34:25Z",
       "side": 1,
       "message": "ideally those refactoring should not be part of this change",
+      "range": {
+        "startLine": 95,
+        "startChar": 54,
+        "endLine": 95,
+        "endChar": 64
+      },
+      "revId": "677f5e16058c04686e1c7a69da9167c05139cb2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94c13b27_f92e0556",
+        "filename": "changelog.yaml",
+        "patchSetId": 33
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-17T12:28:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7a6e8f50_02de8b16",
       "range": {
         "startLine": 95,
         "startChar": 54,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2e8d456_d0c2856f",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 33
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-17T12:28:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d91ad4a9_d9c2f922",
+      "range": {
+        "startLine": 420,
+        "startChar": 3,
+        "endLine": 420,
+        "endChar": 11
+      },
+      "revId": "677f5e16058c04686e1c7a69da9167c05139cb2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac73fc1b_77e6c2b6",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-04-07T13:34:25Z",
       "side": 1,
       "message": "should not be part of this change",
+      "range": {
+        "startLine": 366,
+        "startChar": 1,
+        "endLine": 366,
+        "endChar": 32
+      },
+      "revId": "677f5e16058c04686e1c7a69da9167c05139cb2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53e49bc3_5eded49a",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 33
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-17T12:28:56Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ac73fc1b_77e6c2b6",
       "range": {
         "startLine": 366,
         "startChar": 1,
@@ -140,6 +236,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1866b327_447a44c1",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 33
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-17T12:28:56Z",
+      "side": 1,
+      "message": "Thanks @Mark Brown and Olivier for highlighting this.\nHave modified and followed the pattern.",
+      "parentUuid": "839e80ba_c11e0ca8",
+      "range": {
+        "startLine": 47,
+        "startChar": 8,
+        "endLine": 47,
+        "endChar": 24
+      },
+      "revId": "677f5e16058c04686e1c7a69da9167c05139cb2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cda65b8_1acc1efc",
@@ -153,6 +273,30 @@
       "writtenOn": "2023-04-07T13:34:25Z",
       "side": 1,
       "message": "remove trailing space",
+      "range": {
+        "startLine": 54,
+        "startChar": 25,
+        "endLine": 54,
+        "endChar": 26
+      },
+      "revId": "677f5e16058c04686e1c7a69da9167c05139cb2d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ac24a81_71b56ec5",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 33
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-17T12:28:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cda65b8_1acc1efc",
       "range": {
         "startLine": 54,
         "startChar": 25,
