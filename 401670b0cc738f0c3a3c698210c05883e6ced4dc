@@ -110,6 +110,23 @@
       "message": "I ran that patch with some EL2 test payload that accesses GCSPR_EL2 and GCSCR_EL2, and it works as expected: without the patch I get an EL3 panic, with the patch it works and I can access and change the registers. There is not much proper Linux code out there yet, so this has to do for testing, for now.",
       "revId": "401670b0cc738f0c3a3c698210c05883e6ced4dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62a19d80_a2f152f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-17T16:42:06Z",
+      "side": 1,
+      "message": "nit: Could you please add the scope ( gcs ) to the changelog.yaml file (https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/changelog.yaml) as well ?\nAs its a new feature, would be good to have it as part of this patch. It helps in our changelog generation.\n\nThanks!",
+      "revId": "401670b0cc738f0c3a3c698210c05883e6ced4dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
