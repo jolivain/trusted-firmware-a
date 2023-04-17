@@ -45,6 +45,52 @@
       },
       "revId": "b01939b2e8ffb21878518d787235191429fadbd0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11d826fe_34756bea",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-04-17T09:22:59Z",
+      "side": 1,
+      "message": "This is a little clunky, could we split it into two parts explaining separately what the feature should be used with and the combination of options?",
+      "range": {
+        "startLine": 441,
+        "startChar": 3,
+        "endLine": 442,
+        "endChar": 73
+      },
+      "revId": "b01939b2e8ffb21878518d787235191429fadbd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed6c5817_0a7964ad",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-04-17T09:22:59Z",
+      "side": 1,
+      "message": "Is there a particular reason we have this strong emphasis? I know it exists from before but feels like overkill. 😄",
+      "range": {
+        "startLine": 443,
+        "startChar": 35,
+        "endLine": 443,
+        "endChar": 39
+      },
+      "revId": "b01939b2e8ffb21878518d787235191429fadbd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
