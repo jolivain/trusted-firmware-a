@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64e10bd4_9f2baced",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-17T14:06:28Z",
+      "side": 1,
+      "message": "I was curious how were you able to catch this issue.",
+      "revId": "2db7fd5a35ebf7c19ec65fe5f4b978846caf7d0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a2a7f55_ddac5a7b",
+        "filename": "include/common/uuid.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-17T14:06:28Z",
+      "side": 1,
+      "message": "Now that we have included it here, can we remove it from http://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/common/uuid.c#n9",
+      "revId": "2db7fd5a35ebf7c19ec65fe5f4b978846caf7d0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
