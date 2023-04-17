@@ -127,6 +127,24 @@
       "message": "nit: Could you please add the scope ( gcs ) to the changelog.yaml file (https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/changelog.yaml) as well ?\nAs its a new feature, would be good to have it as part of this patch. It helps in our changelog generation.\n\nThanks!",
       "revId": "401670b0cc738f0c3a3c698210c05883e6ced4dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcf7ae1e_7b435398",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-17T16:47:43Z",
+      "side": 1,
+      "message": "I don\u0027t think it makes sense to inflate the scopes to cover every tiny feature with a new three-letter-acronym, especially if TF-A isn\u0027t really involved in this feature. In the future GCS might become something that TF-A adopts for its own code base, but as it stands at the moment that\u0027s not the case. The scope could be added later.",
+      "parentUuid": "62a19d80_a2f152f4",
+      "revId": "401670b0cc738f0c3a3c698210c05883e6ced4dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
