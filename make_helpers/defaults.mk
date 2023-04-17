@@ -413,7 +413,7 @@ SANITIZE_UB := off
 USE_SPINLOCK_CAS := 0
 
 # Enable Link Time Optimization
-ENABLE_LTO			:= 0
+ENABLE_LTO			:= 1
 
 # This option will include EL2 registers in cpu context save and restore during
 # EL2 firmware entry/exit. Internal flag not meant for direct setting.
