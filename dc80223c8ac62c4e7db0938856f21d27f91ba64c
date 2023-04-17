@@ -16,6 +16,52 @@
       "message": "changes again in comments",
       "revId": "dc80223c8ac62c4e7db0938856f21d27f91ba64c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7575787_2f9d3b9f",
+        "filename": "include/arch/aarch64/asm_macros.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-04-17T08:47:11Z",
+      "side": 1,
+      "message": "nit: quite",
+      "range": {
+        "startLine": 31,
+        "startChar": 54,
+        "endLine": 31,
+        "endChar": 58
+      },
+      "revId": "dc80223c8ac62c4e7db0938856f21d27f91ba64c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fea6149e_ba207c3f",
+        "filename": "include/arch/aarch64/asm_macros.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-04-17T08:47:11Z",
+      "side": 1,
+      "message": "nit: necessary, allowing free movement of the sp.",
+      "range": {
+        "startLine": 38,
+        "startChar": 34,
+        "endLine": 38,
+        "endChar": 66
+      },
+      "revId": "dc80223c8ac62c4e7db0938856f21d27f91ba64c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
