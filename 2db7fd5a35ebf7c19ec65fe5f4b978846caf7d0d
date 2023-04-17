@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abc7f29d_52def876",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-04-17T15:12:22Z",
+      "side": 1,
+      "message": "This came from a defect report (GENFW-7350). Once the build system has been made a bit more sane, we could use something like Include What You Use to detect these.",
+      "parentUuid": "64e10bd4_9f2baced",
+      "revId": "2db7fd5a35ebf7c19ec65fe5f4b978846caf7d0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a2a7f55_ddac5a7b",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-04-17T14:06:28Z",
       "side": 1,
       "message": "Now that we have included it here, can we remove it from http://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/common/uuid.c#n9",
+      "revId": "2db7fd5a35ebf7c19ec65fe5f4b978846caf7d0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daf921be_5731d5e2",
+        "filename": "include/common/uuid.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-04-17T15:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a2a7f55_ddac5a7b",
       "revId": "2db7fd5a35ebf7c19ec65fe5f4b978846caf7d0d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
