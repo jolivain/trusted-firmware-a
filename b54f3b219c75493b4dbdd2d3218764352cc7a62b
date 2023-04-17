@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c8ce31f_6be913ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-04-17T14:19:16Z",
+      "side": 1,
+      "message": "We had a discussion internally within RMM team and we think this is not needed for EL3 firmware. Putting a -1 to prevent any accidental merge.",
+      "revId": "b54f3b219c75493b4dbdd2d3218764352cc7a62b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
