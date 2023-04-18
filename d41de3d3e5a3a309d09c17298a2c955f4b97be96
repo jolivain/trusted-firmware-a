@@ -16,6 +16,23 @@
       "message": "Test config failed, due to an infra issue.\nPassed on rebuild: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/35076/\nManually providing verified +1",
       "revId": "d41de3d3e5a3a309d09c17298a2c955f4b97be96",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4dd261c_f1eab86a",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 35
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-18T09:41:13Z",
+      "side": 1,
+      "message": "nit: isn\u0027t the mask still needed? Shouldn\u0027t both be here?",
+      "revId": "d41de3d3e5a3a309d09c17298a2c955f4b97be96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
