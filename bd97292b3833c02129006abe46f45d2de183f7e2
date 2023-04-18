@@ -67,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "526010fd_678d1c2b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-04-18T20:21:45Z",
+      "side": 1,
+      "message": "To maintain compatibility with other existing implementations we are considering whether we should update the spec to remove theses MBZ requirements and instead specify that these and other such fields should be \"Ignored\" instead. Where the definition of Ignored would specify that the field is reserved for future use and must not be interpreted or modified by the partition manager.\n\nFrom your perspective are these checks being (correctly) added to ensure an implementation conforms to the current spec guidance or do you have any opinions on whether these fields must actually be zeroed?",
+      "parentUuid": "87f92529_fc6fe5f5",
+      "revId": "bd97292b3833c02129006abe46f45d2de183f7e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96ed4fbd_9d255e69",
         "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
         "patchSetId": 5
