@@ -16,6 +16,23 @@
       "message": "Intermittent CI failures all over the place - patch builds fine and logically shouldn\u0027t cause any issues. Recommend we just proceed @Joanna Farley.",
       "revId": "12562af369e897c67aa45bfeb97cd7bb5d500cf6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56f609ec_927cef69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-04-18T15:05:42Z",
+      "side": 1,
+      "message": "Network failure in the commitlint job, but the commit message was validated by a previous run anyway.",
+      "revId": "12562af369e897c67aa45bfeb97cd7bb5d500cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
