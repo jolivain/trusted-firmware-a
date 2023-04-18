@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71844a02_d1d9679d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-04-18T09:56:23Z",
+      "side": 1,
+      "message": "Hi Harrison,\nI\u0027ve seen that the file ./bl2/bl2_el3.ld.S wasn\u0027t modified, was it just forgotten, or are there any other reasons?\nBy the way, this patch will impact all platforms. IIUC it only adds new linker macros, so I expect no real issue. But that could be good explaining a bit more about the goal of the patch in the commit message.\nAnother thing, memmap doesn\u0027t appear to be a correct scope in changelog.yaml. Or did I miss some other patch about that?\n\nBest regards,\nYann",
+      "revId": "923e41c0e2dde41c823fd9aecad367d304732db7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
