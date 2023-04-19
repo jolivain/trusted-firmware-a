@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c174702c_6ff69f57",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-19T08:05:09Z",
+      "side": 1,
+      "message": "3 CI configs failed for an infrastructure reason while fetching mbedTLS tarball from Github:\n\n curl: (7) Failed to connect to github.com port 443 after 12 ms: Connection refused\n\nThey passed on re-run.",
+      "revId": "1cf3e2f0a8eb0d6324ce3db68dd5c78bdb690a8a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
