@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9700a9a2_df8af0cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-04-19T11:08:32Z",
+      "side": 1,
+      "message": "@Boyan @Manish these \"sort sections\" patches are low-hanging fruit to help us get around the PROGBITS size issue. In most builds we won\u0027t gain anything at all, but there are where we see a reduction of a few ten to hundred bytes.",
+      "revId": "2ed0936dd07da8faed8748ac7e7eb5433c4c5081",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
