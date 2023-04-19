@@ -142,6 +142,24 @@
       "parentUuid": "9658657d_902bf54d",
       "revId": "bfef2a145c96df0abe2904ca0a745e0441f782fb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3145e84_c4379314",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-04-19T06:27:31Z",
+      "side": 1,
+      "message": "If possible I believe that creating the DTB in BL2 instead is preferable, but if it has to be done later I guess OPTEED in BL31 should be OK too.\n\nIt is also preferable if the bindings already are defined in the kernel since we don\u0027t want to maintain downstream device tree bindings.",
+      "parentUuid": "4b58bf59_14f6df63",
+      "revId": "bfef2a145c96df0abe2904ca0a745e0441f782fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
