@@ -16,6 +16,23 @@
       "message": "repeating my previous vote: re-tested patchset 10 with the GCS test and Linux",
       "revId": "688ab57b9349adb19277d88f2469ceeadb8ba083",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6b2539b_889844d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000686
+      },
+      "writtenOn": "2023-04-19T18:16:18Z",
+      "side": 1,
+      "message": "The build failure looks to be a false positive due to an infra issue:\n\n18:29:01 + curl --connect-timeout 5 --retry 5 --retry-delay 1 -sLSO -k -C - https://github.com/Mbed-TLS/mbedtls/archive/mbedtls-3.3.0.tar.gz\n18:29:01 curl: (7) Failed to connect to github.com port 443 after 17 ms: Connection refused\n18:29:01 Build step \u0027Execute shell\u0027 marked build as failure",
+      "revId": "688ab57b9349adb19277d88f2469ceeadb8ba083",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
