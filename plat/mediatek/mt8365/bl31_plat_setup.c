@@ -11,6 +11,7 @@
 #include <mt_gic_v3.h>
 #include <plat_params.h>
 
+#include <mcdi/mt_mcdi.h>
 #include <plat_private.h>
 #include <platform_def.h>
 #include <spm/mt_spm.h>
@@ -65,6 +66,8 @@ void bl31_platform_setup(void)
 	clear_sec_pol_ctl_en();
 
 	spm_boot_init();
+
+	mcupm_init();
 }
 
 void bl31_plat_arch_setup(void)

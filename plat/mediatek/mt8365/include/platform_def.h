@@ -65,6 +65,9 @@
 #define SEC_POL_CTL_EN0		       (MCUCFG_BASE + 0x0a00)
 #define MCU_ALL_PWR_ON		       (MCUCFG_BASE + 0x0b58)
 
+/* MCUCPM */
+#define MCUPM_BASE		       (IO_PHYS + 0x216000)
+
 /* UART related constants */
 #define UART0_BASE		       (IO_PHYS + 0x1002000)
 #define UART1_BASE		       (IO_PHYS + 0x1003000)

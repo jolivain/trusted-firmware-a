@@ -30,6 +30,7 @@ BL31_SOURCES += common/desc_image_load.c		      \
 		${MTK_PLAT_SOC}/aarch64/plat_helpers.S	      \
 		${MTK_PLAT_SOC}/aarch64/platform_common.c     \
 		${MTK_PLAT_SOC}/bl31_plat_setup.c	      \
+		${MTK_PLAT_SOC}/drivers/mcdi/mt_mcdi.c	      \
 		${MTK_PLAT_SOC}/drivers/spm/mt_spm.c	      \
 		${MTK_PLAT_SOC}/drivers/spm/mt_spm_internal.c \
 		${MTK_PLAT_SOC}/mt8365_console_setup.c	      \
