@@ -13,6 +13,7 @@
 
 #include <plat_private.h>
 #include <platform_def.h>
+#include <spm/mt_spm.h>
 
 #define NR_INT_POL_CTL 20
 
@@ -62,6 +63,8 @@ void bl31_platform_setup(void)
 	mt_gic_driver_init();
 	mt_gic_init();
 	clear_sec_pol_ctl_en();
+
+	spm_boot_init();
 }
 
 void bl31_plat_arch_setup(void)

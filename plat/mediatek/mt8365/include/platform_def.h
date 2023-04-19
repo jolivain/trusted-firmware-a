@@ -57,6 +57,9 @@
 #define MTK_DEV_RNG2_BASE	       0x0c000000
 #define MTK_DEV_RNG2_SIZE	       0x600000
 
+/* System Power Manager */
+#define SPM_BASE		       (IO_PHYS + 0x6000)
+
 /* MCUCFG */
 #define MCUCFG_BASE		       (IO_PHYS + 0x200000)
 #define SEC_POL_CTL_EN0		       (MCUCFG_BASE + 0x0a00)
