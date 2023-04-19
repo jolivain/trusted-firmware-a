@@ -57,6 +57,9 @@
 #define MTK_DEV_RNG2_BASE	       0x0c000000
 #define MTK_DEV_RNG2_SIZE	       0x600000
 
+/* INFRACFG */
+#define INFRACFG_AO_BASE	       (IO_PHYS + 0x1000)
+
 /* System Power Manager */
 #define SPM_BASE		       (IO_PHYS + 0x6000)
 

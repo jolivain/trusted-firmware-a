@@ -33,6 +33,7 @@ BL31_SOURCES += common/desc_image_load.c		      \
 		${MTK_PLAT_SOC}/drivers/mcdi/mt_mcdi.c	      \
 		${MTK_PLAT_SOC}/drivers/spm/mt_spm.c	      \
 		${MTK_PLAT_SOC}/drivers/spm/mt_spm_internal.c \
+		${MTK_PLAT_SOC}/drivers/spmc/mtspmc.c	      \
 		${MTK_PLAT_SOC}/mt8365_console_setup.c	      \
 		${MTK_PLAT_SOC}/plat_pm.c		      \
 		${MTK_PLAT_SOC}/plat_topology.c		      \
