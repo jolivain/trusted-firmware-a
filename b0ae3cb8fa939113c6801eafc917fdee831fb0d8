@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1a21a40_075c828e",
+        "filename": "Makefile",
+        "patchSetId": 11
+      },
+      "lineNbr": 719,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-04-19T13:54:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ba9be2fd_711bc06d",
+      "range": {
+        "startLine": 713,
+        "startChar": 0,
+        "endLine": 719,
+        "endChar": 5
+      },
+      "revId": "b0ae3cb8fa939113c6801eafc917fdee831fb0d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3bfd33f_969b10bc",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Originally I got mistaken that this was meant to be the CPU_WORD_SIZE macro, Yann kindly pointed out that this is not the case. To avoid confusion I make it explicitly different as suggested.",
       "parentUuid": "e3bfd33f_969b10bc",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "revId": "b0ae3cb8fa939113c6801eafc917fdee831fb0d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e04f198_8957b7bf",
+        "filename": "drivers/st/crypto/stm32_pka.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-04-19T13:54:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6d99e907_5c641a45",
       "range": {
         "startLine": 31,
         "startChar": 8,
