@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8021c8d0_0e9bff4b",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-19T06:32:30Z",
+      "side": 1,
+      "message": "Hi Madhukar,\n\n\u003e I didnt understand your comment.\n\nMy understanding was that you added \u0027panic\u0027 temporarily and it will be replaced soon by error code. Otherwise, it makes sense to not return anything (void) from this function with the current implementation, IOW, change the prototype of this function to \u0027void spmd_group0_interrupt_handler_nwd(...)\u0027or \u0027uint64_t __unused spmd_group0_interrupt_handler_nwd(...)\u0027 to abide with the interrupt handler prototype declaration. Any thoughts?\n\n\u003e If the platform is unable to handle the Group0 interrupt, we consider it fatal and this function(spmd_group0_interrupt_handler_nwd) doesn\u0027t return from panic. Can you clarify?\n\nAck, this makes sense.",
+      "parentUuid": "3dea0120_fe3298ac",
+      "range": {
+        "startLine": 277,
+        "startChar": 2,
+        "endLine": 277,
+        "endChar": 10
+      },
+      "revId": "e02150ba0bf25f35dbca21849d67da0d0952c01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f5082f30_10a7359a",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 3
