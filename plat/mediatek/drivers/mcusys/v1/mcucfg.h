@@ -83,6 +83,7 @@
 #define DORMANT_EN				BIT(6)
 #define RESETPWRON_CONFIG			BIT(5)
 #define PWR_CLK_DIS				BIT(4)
+#define PWR_ON_2ND				BIT(3)
 #define PWR_ON					BIT(2)
 #define PWR_RST_B				BIT(0)
 
