@@ -119,6 +119,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b0e4dda_437c8c70",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-19T15:26:06Z",
+      "side": 1,
+      "message": "This function, spmd_group0_interrupt_handler_nwd, is the implementation of the callback[1] whose prototype has uint64_t as the return value. Hence this function currently returns 0. You are right about specifying __unused but it seems no other functions do that. So I thought its better to be consistent.\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/bl31/interrupt_mgmt.h#n137",
+      "parentUuid": "8021c8d0_0e9bff4b",
+      "range": {
+        "startLine": 277,
+        "startChar": 2,
+        "endLine": 277,
+        "endChar": 10
+      },
+      "revId": "e02150ba0bf25f35dbca21849d67da0d0952c01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5082f30_10a7359a",
