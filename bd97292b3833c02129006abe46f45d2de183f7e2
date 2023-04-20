@@ -103,6 +103,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf8b7420_2a8692f2",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-04-20T23:00:33Z",
+      "side": 1,
+      "message": "Great, thanks for the feedback. \n\nWith regards to the forwards compatibility issue you mentioned. The thinking here was that since we will only introduce new fields when we do a bump in the spec version, a partition manager would first check to see if a field was enabled for a given partition\u0027s version, and only if so, interpret the meaning of the field. \n\nSo from an implementation perspective, if a field was not present in the FF-A version implemented by a partition, instead of validating the field was 0 in these checks, the partition manager would ignore the field instead. If the partition was updated to a new FF-A version that utilized the new field, the partition manager would parse the value as expected. This would be one way that we could avoid breaking backwards compatibility when introducing new meaning to these fields. \n\nWould that help address your concern here? Just looking to get your input on the various options to solve this.",
+      "parentUuid": "321a9d39_c5c70bff",
+      "revId": "bd97292b3833c02129006abe46f45d2de183f7e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96ed4fbd_9d255e69",
         "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
         "patchSetId": 5
