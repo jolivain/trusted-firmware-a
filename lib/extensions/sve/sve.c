@@ -29,7 +29,7 @@ void sve_enable(cpu_context_t *context)
 	cptr_el3 = read_ctx_reg(get_el3state_ctx(context), CTX_CPTR_EL3);
 
 	/* Enable access to SVE functionality for all ELs. */
-	cptr_el3 = (cptr_el3 | CPTR_EZ_BIT) & ~(TFP_BIT);
+	cptr_el3 = (cptr_el3 | CPTR_EZ_BIT) & ~TFP_BIT;
 	write_ctx_reg(get_el3state_ctx(context), CTX_CPTR_EL3, cptr_el3);
 
 	/* Restrict maximum SVE vector length (SVE_VECTOR_LEN+1) * 128. */
