@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "321a9d39_c5c70bff",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1000935
+      },
+      "writtenOn": "2023-04-20T18:31:26Z",
+      "side": 1,
+      "message": "The purpose of these checks is to ensure that these fields can be given meaning in the future.  A classic mistake in Linux userspace APIs is to omit such checks, with the result that the fields can never be used later without breaking compatibility.  I would prefer to fix all the components that are failing to clear these fields and then insist on them being zero from here on.",
+      "parentUuid": "526010fd_678d1c2b",
+      "revId": "bd97292b3833c02129006abe46f45d2de183f7e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96ed4fbd_9d255e69",
         "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
         "patchSetId": 5
