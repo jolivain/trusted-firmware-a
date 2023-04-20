@@ -135,6 +135,14 @@ static void setup_secure_context(cpu_context_t *ctx, const struct entry_point_in
 	}
 #endif /* CTX_INCLUDE_MTE_REGS */
 
+#if !CTX_INCLUDE_PAUTH_REGS
+	/*
+	 * To prevent leaks, disable pointer authentication. Any attempt to use
+	 *  in an EL other than EL3 it will be trapped in EL3.
+	 */
+	scr_el3 &= ~(SCR_API_BIT | SCR_APK_BIT);
+#endif /* !CTX_INCLUDE_PAUTH_REGS */
+
 	/* Enable S-EL2 if the next EL is EL2 and S-EL2 is present */
 	if ((GET_EL(ep->spsr) == MODE_EL2) && is_feat_sel2_supported()) {
 		if (GET_RW(ep->spsr) != MODE_RW_64) {
@@ -314,6 +322,18 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 	scr_el3 &= ~(SCR_NS_BIT | SCR_RW_BIT | SCR_EA_BIT | SCR_FIQ_BIT | SCR_IRQ_BIT |
 			SCR_ST_BIT | SCR_HCE_BIT | SCR_NSE_BIT);
 
+	 /*
+	 * SCR_EL3.TWE: Set to zero so that execution of WFE instructions at
+	 *  EL2, EL1 and EL0 are not trapped to EL3.
+	 *
+	 * SCR_EL3.TWI: Set to zero so that execution of WFI instructions at
+	 *  EL2, EL1 and EL0 are not trapped to EL3.
+	 *
+	 * SCR_EL3.SMD: Set to zero to enable SMC calls at EL1 and above, from
+	 *  both Security states and both Execution states.
+	 */
+	scr_el3 &= ~(SCR_TWE_BIT | SCR_TWI_BIT | SCR_SMD_BIT);
+
 	/*
 	 * SCR_EL3.RW: Set the execution state, AArch32 or AArch64, for next
 	 *  Exception level as specified by SPSR.
@@ -354,6 +374,17 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 	scr_el3 |= SCR_FIEN_BIT;
 #endif
 
+#if CTX_INCLUDE_PAUTH_REGS
+	/*
+	 * SCR_EL3.API: Set to one to not trap any PAuth instructions at ELs
+	 *  other than EL3
+	 *
+	 * SCR_EL3.APK: Set to one to not trap any PAuth key values at ELs other
+	 *  than EL3
+	 */
+	scr_el3 |= SCR_API_BIT | SCR_APK_BIT;
+#endif
+
 	/*
 	 * SCR_EL3.TCR2EN: Enable access to TCR2_ELx for AArch64 if present.
 	 */
@@ -370,10 +401,16 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 	}
 
 	/*
-	 * CPTR_EL3 was initialized out of reset, copy that value to the
-	 * context register.
+	 * Initialise CPTR_EL3, setting all fields rather than relying on hw.
+	 * All fields are architecturally UNKNOWN on reset.
+	 *
+	 * CPTR_EL3.TFP: Set to zero so that accesses to the V- or Z- registers
+	 *  by Advanced SIMD, floating-point or SVE instructions (if
+	 *  implemented) do not trap to EL3.
 	 */
-	write_ctx_reg(get_el3state_ctx(ctx), CTX_CPTR_EL3, read_cptr_el3());
+	u_register_t cptr_el3 = CPTR_EL3_RESET_VAL & ~(TFP_BIT);
+
+	write_ctx_reg(get_el3state_ctx(ctx), CTX_CPTR_EL3, cptr_el3);
 
 	/*
 	 * SCR_EL3.HCE: Enable HVC instructions if next execution state is
