@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3789599_ea768346",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-20T09:26:33Z",
+      "side": 1,
+      "message": "Static checks, failure is due to addition of new source file, qemu_sdei.c\n\nIf this file, gets built only when SDEI_SUPPORT\u003d1, then a new build configuration needs to be added in tf-cov-make script, to get this file covered under coverity, similar to this as below.\n\n[ https://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/script/tf-coverity/tf-cov-make#n399 ]\n\nThanks!",
+      "revId": "7a439cf837bdc78be1e0e9f5eb40c58afb08e33f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96bbc1ad_5d4fb167",
