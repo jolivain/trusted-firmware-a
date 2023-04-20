@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11393153_258fd6f2",
+        "filename": "include/lib/coreboot.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-04-20T23:53:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c3477f0_f5dad38e",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d18f8da_ed645fd4",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-04-20T22:57:31Z",
       "side": 1,
       "message": "Why not just compute this in the get_location function when it is called?",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da5214e4_35860ae5",
+        "filename": "lib/coreboot/coreboot_table.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-04-20T23:53:24Z",
+      "side": 1,
+      "message": "I wanted to do that, but I didn\u0027t see where this information would still be stored after loading it.  AFAICT, it only saves data from the tags and not where the whole table overall is located.",
+      "parentUuid": "8d18f8da_ed645fd4",
       "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23da3ead_f6416d85",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-04-20T23:53:24Z",
+      "side": 1,
+      "message": "OK, I\u0027ll leave this comment open and do that after more feedback so I don\u0027t lose context for all the existing comments.",
+      "parentUuid": "6cf9f64b_8d1798e3",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b42fe083_050f7b5c",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 7
@@ -65,6 +119,24 @@
       "writtenOn": "2023-04-20T22:57:31Z",
       "side": 1,
       "message": "TF-A is built with -std\u003dgnu99 so inline declarations should be fine. Might look better to declare these in the COREBOOT block below rather than requiring another block up here.",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89076ba9_b9843f55",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-04-20T23:53:24Z",
+      "side": 1,
+      "message": "OK, moved...but I thought I was told in TF-A reviews before to put all declarations at the top even though the compiler doesn\u0027t complain about it. :)",
+      "parentUuid": "b42fe083_050f7b5c",
       "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -86,6 +158,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ddde376_937d01d4",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-04-20T23:53:24Z",
+      "side": 1,
+      "message": "OK, I just made it skip the whole firmware section if the address/size are not valid.",
+      "parentUuid": "e0da31df_f56fbe5a",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b65bec2e_1dc40d81",
@@ -103,6 +193,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "356cb84e_dd5a3fb8",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-04-20T23:53:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b65bec2e_1dc40d81",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f24f2cb_a25602a0",
@@ -116,6 +224,24 @@
       "writtenOn": "2023-04-20T22:57:31Z",
       "side": 1,
       "message": "No, we can\u0027t do this. PLATFORM_STACK_SIZE is only 1K on some platforms so you\u0027d be instantly blowing it here. I don\u0027t want to be in a situation where we constantly have to hand-craft stack sizes for every platform we use this on, and if someone just changes one harmless-looking FDT_SIZE constant somewhere, you could get really hard to debug issues.\n\nEither we find a location of memory that would eventually be used by OP-TEE anyway but isn\u0027t claimed by it that early to stash this, or we need a global array. (How does OP-TEE know which memory it is allowed to use anyway? Looks like all we have here is a load address and an image size that are passed in by the NS world. But surely OP-TEE needs more memory than just the binary itself? I guess that\u0027s just hardcoded in OP-TEE what it will claim? Is there no way we can know about that here?)\n\nYou should also measure how big that FDT actually gets, 1K is probably a bit much.",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f92bab36_934f7c09",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-04-20T23:53:24Z",
+      "side": 1,
+      "message": "Yeah, we had talked about this offline and I know this solution wasn\u0027t ideal but wanted more feedback on it. :)\n\nJens, do you happen to know if there\u0027s a memory region in OP-TEE we can copy this into from TF-A that\u0027s safe to use during OP-TEE initialization?\n\nI moved it to a global array for now, pending feedback from Jens about some place we may be able to put this in OP-TEE\u0027s memory region and shrunk the size to be what it needs.",
+      "parentUuid": "6f24f2cb_a25602a0",
       "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -143,6 +269,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4241b399_da0b86ec",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-04-20T23:53:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9598c126_8f0d3d0c",
+      "range": {
+        "startLine": 377,
+        "startChar": 21,
+        "endLine": 377,
+        "endChar": 22
+      },
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f35f53cc_90330053",
@@ -156,6 +306,24 @@
       "writtenOn": "2023-04-20T22:57:31Z",
       "side": 1,
       "message": "If we want to be able to flush this buffer, make sure you declare it with `__aligned(CACHE_WRITEBACK_GRANULE)`.",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "686c3731_f10c8772",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-04-20T23:53:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f35f53cc_90330053",
       "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
