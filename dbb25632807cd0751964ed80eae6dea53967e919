@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5f61c16_ae429467",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-20T16:37:16Z",
+      "side": 1,
+      "message": "@Soby, Is it possible for Non-RAS FFH, clearing A bit would cause EL3 spelx Serror exception?",
+      "range": {
+        "startLine": 370,
+        "startChar": 0,
+        "endLine": 370,
+        "endChar": 27
+      },
+      "revId": "dbb25632807cd0751964ed80eae6dea53967e919",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
