@@ -1,0 +1,163 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c3477f0_f5dad38e",
+        "filename": "include/lib/coreboot.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-04-20T22:57:31Z",
+      "side": 1,
+      "message": "Same comment about the namespacing again (e.g. `coreboot_get_table_location()`)",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d18f8da_ed645fd4",
+        "filename": "lib/coreboot/coreboot_table.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-04-20T22:57:31Z",
+      "side": 1,
+      "message": "Why not just compute this in the get_location function when it is called?",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cf9f64b_8d1798e3",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-04-20T22:57:31Z",
+      "side": 1,
+      "message": "nit: Maybe it\u0027s time to factor all the #if OPTEE_ALLOW_SMC_LOAD functions out into a separate file? Single files where large swaths are covered by an #ifdef are hard to read.",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b42fe083_050f7b5c",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-04-20T22:57:31Z",
+      "side": 1,
+      "message": "TF-A is built with -std\u003dgnu99 so inline declarations should be fine. Might look better to declare these in the COREBOOT block below rather than requiring another block up here.",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0da31df_f56fbe5a",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-04-20T22:57:31Z",
+      "side": 1,
+      "message": "There should be some check to skip this cleanly (and still build a working, just empty, FDT) if the address is NULL (i.e. if the original table could not be parsed correctly). Or maybe add a return value to the get function to make the error case clearer?",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b65bec2e_1dc40d81",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-04-20T22:57:31Z",
+      "side": 1,
+      "message": "The whole assign-variables-then-memcpy-into-another-buffer thing here seems a bit more complicated than necessary. Why not\n\n struct {\n   uint64_t addr;\n   uint32_t size;\n } reg_node;\n reg_prop.addr \u003d cpu_to_fdt64(coreboot_table_addr);\n reg_prop.size \u003d cpu_to_fdt32(coreboot_table_size);\n ret \u003d fdt_property(fdt_buf, \"reg\", \u0026reg_prop, sizeof(uint64_t) + sizeof(uint32_t));\n\n?",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f24f2cb_a25602a0",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-04-20T22:57:31Z",
+      "side": 1,
+      "message": "No, we can\u0027t do this. PLATFORM_STACK_SIZE is only 1K on some platforms so you\u0027d be instantly blowing it here. I don\u0027t want to be in a situation where we constantly have to hand-craft stack sizes for every platform we use this on, and if someone just changes one harmless-looking FDT_SIZE constant somewhere, you could get really hard to debug issues.\n\nEither we find a location of memory that would eventually be used by OP-TEE anyway but isn\u0027t claimed by it that early to stash this, or we need a global array. (How does OP-TEE know which memory it is allowed to use anyway? Looks like all we have here is a load address and an image size that are passed in by the NS world. But surely OP-TEE needs more memory than just the binary itself? I guess that\u0027s just hardcoded in OP-TEE what it will claim? Is there no way we can know about that here?)\n\nYou should also measure how big that FDT actually gets, 1K is probably a bit much.",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9598c126_8f0d3d0c",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-04-20T22:57:31Z",
+      "side": 1,
+      "message": "nit: no space after cast",
+      "range": {
+        "startLine": 377,
+        "startChar": 21,
+        "endLine": 377,
+        "endChar": 22
+      },
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f35f53cc_90330053",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-04-20T22:57:31Z",
+      "side": 1,
+      "message": "If we want to be able to flush this buffer, make sure you declare it with `__aligned(CACHE_WRITEBACK_GRANULE)`.",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
