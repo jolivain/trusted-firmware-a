@@ -85,6 +85,24 @@
       "parentUuid": "18ec3fc4_d57540a1",
       "revId": "7a439cf837bdc78be1e0e9f5eb40c58afb08e33f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18f97f25_973ff48f",
+        "filename": "plat/qemu/qemu/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1001018
+      },
+      "writtenOn": "2023-04-20T09:36:24Z",
+      "side": 1,
+      "message": "Thanks,  you mean below commands, right?\n\nmake -j8 CROSS_COMPILE\u003daarch64-linux-gnu- PLAT\u003dqemu QEMU_USE_GIC_DRIVER\u003dQEMU_GICV3 BL33\u003du-boot.bin all fip DEBUG\u003d1",
+      "parentUuid": "1fbdf20f_a7eff010",
+      "revId": "7a439cf837bdc78be1e0e9f5eb40c58afb08e33f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
