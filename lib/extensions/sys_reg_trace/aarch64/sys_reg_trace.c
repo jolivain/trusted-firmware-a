@@ -28,10 +28,14 @@ void sys_reg_trace_disable(cpu_context_t *ctx)
 	 * CPTR_EL3.TTA: Set to one so that System register accesses to the
 	 *  trace registers trap to EL3, unless it is trapped by CPACR.TRCDIS,
 	 *  CPACR_EL1.TTA, or CPTR_EL2.TTA
+	 *
+	 * CPTR_EL3.TCPAC: Set to zero so that any accesses to CPACR_EL1,
+	 *  CPTR_EL2, CPACR, or HCPTR do not trap to EL3.
 	 */
 	u_register_t val = read_ctx_reg(get_el3state_ctx(ctx), CTX_CPTR_EL3);
 
 	val |= TTA_BIT;
+	val &= ~TCPAC_BIT;
 	write_ctx_reg(get_el3state_ctx(ctx), CTX_CPTR_EL3, val);
 }
 
