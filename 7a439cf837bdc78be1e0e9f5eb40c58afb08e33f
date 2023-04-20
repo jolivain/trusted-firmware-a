@@ -67,6 +67,24 @@
       "message": "SDEI_SUPPORT flag is disabled by default in defaults.mk file.\n\nShouldn\u0027t this flag be enabled by default? \nAny thoughts regarding this? Because, currently with this setup, qemu_sdei.c is getting unconditionally included for the build, without enabling SDEI_SUPPORT.\n\nEither, enable the flag or,\nconditionally compiling this file would be better, as below.\n\nifeq (${SDEI_SUPPORT}, 1)\nBL31_SOURCES \t\t+\u003d \tplat/qemu/common/qemu_sdei.c\t\t\nendif\nAlso enable the dependent flag EL3_EXCEPTION_HANDLING, if SDEI_SUPPORT is enabled by default to qemu.\n\nLet me know your thoughts here.",
       "revId": "7a439cf837bdc78be1e0e9f5eb40c58afb08e33f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fbdf20f_a7eff010",
+        "filename": "plat/qemu/qemu/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-04-20T09:33:06Z",
+      "side": 1,
+      "message": "I\u0027d prefer using the defaults and conditionally compiling the file.",
+      "parentUuid": "18ec3fc4_d57540a1",
+      "revId": "7a439cf837bdc78be1e0e9f5eb40c58afb08e33f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
