@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "776fca75_e5c90c59",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-21T08:13:30Z",
+      "side": 1,
+      "message": "That works but IMO it would be preferable to move this function into platform.h, just below the ROTPK_* macros definitions. If both are defined next to each other, it increases the likelihood of us updating both in tandem accordingly if we ever add a new ROTPK_ flag. Else I am worried we might forget.",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 0
+      },
+      "revId": "c2dcfaf8f6987701abb28dc6862b8037ad5b343e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
