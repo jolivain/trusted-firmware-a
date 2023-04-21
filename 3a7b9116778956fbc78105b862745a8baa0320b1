@@ -34,6 +34,29 @@
       "parentUuid": "82928c04_5792d3ec",
       "revId": "3a7b9116778956fbc78105b862745a8baa0320b1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf2fd182_1b28c0ba",
+        "filename": "plat/arm/board/fvp/fvp_sync_traps.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-21T09:19:01Z",
+      "side": 1,
+      "message": "I  don\u0027t think we have a way to test this on FVP platform,do you wish to introduce it? if not then remove this part\nTo test this part of code do you wish to upstream nvidia platform patch on top of it? if not then even downstream test should be enough.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 1
+      },
+      "revId": "3a7b9116778956fbc78105b862745a8baa0320b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
