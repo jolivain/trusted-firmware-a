@@ -9,6 +9,7 @@
 
 /* Vendor header */
 #include "apusys.h"
+#include "apusys_devapc.h"
 #include "apusys_power.h"
 #include <lib/mtk_init/mtk_init.h>
 #include <mtk_sip_svc.h>
@@ -44,6 +45,8 @@ DECLARE_SMC_HANDLER(MTK_SIP_APUSYS_CONTROL, apusys_kernel_handler);
 int apusys_init(void)
 {
 	apusys_power_init();
+	apusys_devapc_ao_init();
+
 	return 0;
 }
 MTK_PLAT_SETUP_1_INIT(apusys_init);
