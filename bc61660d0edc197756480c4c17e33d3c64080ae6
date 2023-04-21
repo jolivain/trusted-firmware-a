@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d1f481f_dc1d028d",
+        "filename": "include/services/el3_spmc_ffa_memory.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-04-21T09:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8762e23_9ebac645",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "bc61660d0edc197756480c4c17e33d3c64080ae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1503e517_1fd24f3d",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-04-03T13:24:53Z",
       "side": 1,
       "message": "I think our coding style guidelines state we should use multi-line statements.",
+      "range": {
+        "startLine": 707,
+        "startChar": 0,
+        "endLine": 707,
+        "endChar": 53
+      },
+      "revId": "bc61660d0edc197756480c4c17e33d3c64080ae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c97b4539_fdff6a88",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-04-21T09:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1503e517_1fd24f3d",
       "range": {
         "startLine": 707,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4198d786_ff932c75",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-04-21T09:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbf495d9_1626f605",
+      "range": {
+        "startLine": 772,
+        "startChar": 6,
+        "endLine": 772,
+        "endChar": 33
+      },
+      "revId": "bc61660d0edc197756480c4c17e33d3c64080ae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a3fffc4_0106dcd3",
@@ -100,6 +172,30 @@
       "writtenOn": "2023-04-03T13:24:53Z",
       "side": 1,
       "message": "line length seems it would hit static checks issues.",
+      "range": {
+        "startLine": 773,
+        "startChar": 0,
+        "endLine": 773,
+        "endChar": 85
+      },
+      "revId": "bc61660d0edc197756480c4c17e33d3c64080ae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1469c325_78c86706",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-04-21T09:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a3fffc4_0106dcd3",
       "range": {
         "startLine": 773,
         "startChar": 0,
@@ -133,6 +229,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5062e7b_2cfcce80",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-04-21T09:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "854e5307_c78c5588",
+      "range": {
+        "startLine": 780,
+        "startChar": 32,
+        "endLine": 780,
+        "endChar": 42
+      },
+      "revId": "bc61660d0edc197756480c4c17e33d3c64080ae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b33baff_0902c58d",
@@ -146,6 +266,30 @@
       "writtenOn": "2023-04-03T13:24:53Z",
       "side": 1,
       "message": "ret !\u003d 0\n\nI think MISRA says that if statement conditions should use booleans explicitly.",
+      "range": {
+        "startLine": 1062,
+        "startChar": 6,
+        "endLine": 1062,
+        "endChar": 9
+      },
+      "revId": "bc61660d0edc197756480c4c17e33d3c64080ae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc2c1405_16f0d035",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-04-21T09:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b33baff_0902c58d",
       "range": {
         "startLine": 1062,
         "startChar": 6,
