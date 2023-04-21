@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f11c7ee_0e6fd397",
+        "filename": "lib/coreboot/coreboot_table.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-04-21T00:01:01Z",
+      "side": 1,
+      "message": "Right, but you\u0027re saving that. What I\u0027m saying is you only need to save coreboot_table_addr here, and then you can use that to recompute coreboot_table_size when you need it.",
+      "parentUuid": "da5214e4_35860ae5",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cf9f64b_8d1798e3",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 7
@@ -108,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c335ccd8_f015cd4e",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-04-21T00:01:01Z",
+      "side": 1,
+      "message": "Sure, could also do it in a follow-up patch after this lands if that\u0027s easier.",
+      "parentUuid": "23da3ead_f6416d85",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b42fe083_050f7b5c",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 7
@@ -137,6 +173,24 @@
       "side": 1,
       "message": "OK, moved...but I thought I was told in TF-A reviews before to put all declarations at the top even though the compiler doesn\u0027t complain about it. :)",
       "parentUuid": "b42fe083_050f7b5c",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50157031_a2f0b46d",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-04-21T00:01:01Z",
+      "side": 1,
+      "message": "I don\u0027t see anything explicit in the coding style, but maybe I\u0027m missing something. I just think it makes things cleaner to have less #ifdef blocks here, let\u0027s see if someone objects.",
+      "parentUuid": "89076ba9_b9843f55",
       "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
