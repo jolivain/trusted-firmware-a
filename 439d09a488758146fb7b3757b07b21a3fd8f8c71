@@ -65,6 +65,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b73689bf_6590d5ed",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-21T09:10:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bd31ba95_2f4fc293",
+      "range": {
+        "startLine": 23,
+        "startChar": 4,
+        "endLine": 23,
+        "endChar": 27
+      },
+      "revId": "439d09a488758146fb7b3757b07b21a3fd8f8c71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1342d17_57f49889",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "That is my understanding. This opcode covers opcode from section 12.3.2 of the Architecture reference manual version DDI 0487G.b.",
       "parentUuid": "d1342d17_57f49889",
+      "range": {
+        "startLine": 24,
+        "startChar": 44,
+        "endLine": 24,
+        "endChar": 68
+      },
+      "revId": "439d09a488758146fb7b3757b07b21a3fd8f8c71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eac6c942_bc78c010",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-21T09:10:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c094b3dc_6bc548c9",
       "range": {
         "startLine": 24,
         "startChar": 44,
