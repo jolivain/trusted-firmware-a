@@ -117,6 +117,30 @@
       },
       "revId": "3c6f01c903ca97c3c2d20775dea253b10949bfca",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52492a5e_715eae91",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-21T08:08:12Z",
+      "side": 1,
+      "message": "\u003e Though, I\u0027m curious to know why \u0027flags\u0027 need to be bitfields. Bitfields are useful only when allowing for combinations (for example, ROTPK_IS_HASH|any-future-bits) but with the current implementation, I don\u0027t see how that applies to \u0027flags\u0027. flags can either be NOT_DEPLOYED or HASH or FULL_KEY.\n\nYou\u0027re right, we don\u0027t use \u0027flags\u0027 as a bitfield right now. This is because we only have 1 flag: bit #0 / ROTPK_IS_HASH (I am letting aside ROTPK_NOT_DEPLOYED, as it\u0027s a bit of a special case). So if flags was *not* a bitfield but rather an integer value like you suggest, then it would not make a difference as it stands today. \n\n\u003e Is it necessary to make the provision to declare \"ROTPK_IS_HASH | any-future-bits\" as a valid value without knowing how it will be implemented in the future?\n\nThat\u0027s a fair point. Bitfields in this case might be extra flexibility, which we don\u0027t need. But they don\u0027t harm either in my view. So I\u0027d rather not change their meaning without a strong reason.",
+      "parentUuid": "16a0971c_848ad3e6",
+      "range": {
+        "startLine": 189,
+        "startChar": 16,
+        "endLine": 189,
+        "endChar": 17
+      },
+      "revId": "3c6f01c903ca97c3c2d20775dea253b10949bfca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
