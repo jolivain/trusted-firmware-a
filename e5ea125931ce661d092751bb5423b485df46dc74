@@ -302,6 +302,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d259f766_98cab9a9",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-04-21T06:32:32Z",
+      "side": 1,
+      "message": "No, we don\u0027t have any area reserved like that.\n\nIn a configuration with Hafnium as SPMC at S-EL2 it loads manifest/dtb at the lowest address in OP-TEE memory and the OP-TEE binary is loaded 4k or 16k higher up. Once OP-TEE has initialized it may reuse that memory. I\u0027m not sure if that\u0027s the best approach here, but it\u0027s at least a fallback option.",
+      "parentUuid": "f92bab36_934f7c09",
+      "revId": "e5ea125931ce661d092751bb5423b485df46dc74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9598c126_8f0d3d0c",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 7
