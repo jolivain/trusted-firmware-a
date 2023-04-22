@@ -122,6 +122,24 @@
       "parentUuid": "3093c3db_d6f5aa85",
       "revId": "cda3ecf16a52b3f703c37a46897f343bfeb23b5c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b236e30_b4e7f18d",
+        "filename": "plat/allwinner/common/include/sunxi_cpucfg_ncat.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2023-04-22T20:53:07Z",
+      "side": 1,
+      "message": "It would make the code simpler, especially if it can abstract away the differences between die variants. But it is not critical in any way.",
+      "parentUuid": "b7838d3c_317affa2",
+      "revId": "cda3ecf16a52b3f703c37a46897f343bfeb23b5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
