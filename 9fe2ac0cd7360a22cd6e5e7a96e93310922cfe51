@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9971a53e_ba2d2ecb",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-04-22T01:14:52Z",
+      "side": 1,
+      "message": "```\nservices/spd/opteed/opteed_main.c:223: ERROR: Bad function definition - int create_opteed_dt() should probably be int create_opteed_dt(void)\n+static int create_opteed_dt()\n```",
+      "revId": "9fe2ac0cd7360a22cd6e5e7a96e93310922cfe51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
