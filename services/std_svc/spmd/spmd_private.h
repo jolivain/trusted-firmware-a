@@ -100,6 +100,8 @@ spmd_spm_core_context_t *spmd_get_context(void);
 int spmd_pm_secondary_ep_register(uintptr_t entry_point);
 bool spmd_check_address_in_binary_image(uint64_t address);
 
+uint64_t spmd_ffa_error_return(void *handle, int error_code);
+
 #endif /* __ASSEMBLER__ */
 
 #endif /* SPMD_PRIVATE_H */
