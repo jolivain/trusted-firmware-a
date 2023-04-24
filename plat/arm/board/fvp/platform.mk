@@ -509,3 +509,8 @@ PLAT_BL_COMMON_SOURCES	+=	plat/arm/board/fvp/fvp_el3_spmc.c
 endif
 
 PSCI_OS_INIT_MODE	:=	1
+
+$(eval $(call add_define,PLATFORM_TEST_RAS_FFH))
+ifeq (${PLATFORM_TEST_RAS_FFH}, 1)
+BL31_SOURCES	+= plat/arm/board/fvp/aarch64/fvp_fault.S
+endif
