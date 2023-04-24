@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -30,28 +30,17 @@ func cortex_hayes_core_pwr_dwn
 	 * Enable CPU power down bit in power control register
 	 * ---------------------------------------------------
 	 */
-	mrs	x0, CORTEX_HAYES_CPUPWRCTLR_EL1
-	orr	x0, x0, #CORTEX_HAYES_CPUPWRCTLR_EL1_CORE_PWRDN_BIT
-	msr	CORTEX_HAYES_CPUPWRCTLR_EL1, x0
+	sysreg_bit_set CORTEX_HAYES_CPUPWRCTLR_EL1, CORTEX_HAYES_CPUPWRCTLR_EL1_CORE_PWRDN_BIT
 	isb
 	ret
 endfunc cortex_hayes_core_pwr_dwn
 
-	/*
-	 * Errata printing function for Cortex Hayes. Must follow AAPCS.
-	 */
-#if REPORT_ERRATA
-func cortex_hayes_errata_report
-	ret
-endfunc cortex_hayes_errata_report
-#endif
+errata_report_shim cortex_hayes
 
-func cortex_hayes_reset_func
+cpu_reset_func_start cortex_hayes
 	/* Disable speculative loads */
-	msr	SSBS, xzr
-	isb
-	ret
-endfunc cortex_hayes_reset_func
+	msr     SSBS, xzr
+cpu_reset_func_end cortex_hayes
 
 	/* ---------------------------------------------
 	 * This function provides Cortex Hayes specific
