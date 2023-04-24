@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39794a97_9afdd737",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-04-24T16:27:42Z",
+      "side": 1,
+      "message": "nitpick: align arguments.",
+      "range": {
+        "startLine": 259,
+        "startChar": 11,
+        "endLine": 259,
+        "endChar": 19
+      },
+      "revId": "3090693cba2a118788b3e43fb7097e8cb7eaab2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "373d1df3_2973b87d",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-04-24T16:27:42Z",
+      "side": 1,
+      "message": "full stop, and below.",
+      "range": {
+        "startLine": 263,
+        "startChar": 67,
+        "endLine": 263,
+        "endChar": 68
+      },
+      "revId": "3090693cba2a118788b3e43fb7097e8cb7eaab2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ce2d388_871499b3",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-04-24T16:27:42Z",
+      "side": 1,
+      "message": "declare at the top of the scope of the function.",
+      "range": {
+        "startLine": 273,
+        "startChar": 1,
+        "endLine": 273,
+        "endChar": 16
+      },
+      "revId": "3090693cba2a118788b3e43fb7097e8cb7eaab2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76345228_94cbecc4",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-04-24T16:27:42Z",
+      "side": 1,
+      "message": "At this point isn\u0027t the state of flags as needed, as a result of lines 517 and 518?",
+      "range": {
+        "startLine": 530,
+        "startChar": 0,
+        "endLine": 531,
+        "endChar": 42
+      },
+      "revId": "3090693cba2a118788b3e43fb7097e8cb7eaab2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
