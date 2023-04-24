@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f49003fa_09aac6cd",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 6
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-04-24T09:43:22Z",
+      "side": 1,
+      "message": "This makes it such we need to have this field in the SP layout file.\nCould you add an error message that mentions this should be defined in the SP_layout?\nCheck line 62",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 61
+      },
+      "revId": "fe901dba50a30d00090ceb5300ee0443243d86a1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
