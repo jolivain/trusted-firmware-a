@@ -48,7 +48,16 @@ void plat_sdei_setup(void)
 #else
 /* Private event mappings */
 static sdei_ev_map_t arm_sdei_private[] = {
+#ifdef PLATFORM_TEST_RAS_FFH
+	PLAT_ARM_PRIVATE_SDEI_EVENTS,
+	SDEI_EXPLICIT_EVENT(5000, SDEI_MAPF_NORMAL),
+	SDEI_EXPLICIT_EVENT(5001, SDEI_MAPF_NORMAL),
+	SDEI_EXPLICIT_EVENT(5002, SDEI_MAPF_NORMAL),
+	SDEI_EXPLICIT_EVENT(5003, SDEI_MAPF_CRITICAL),
+	SDEI_EXPLICIT_EVENT(5004, SDEI_MAPF_CRITICAL),
+#else
 	PLAT_ARM_PRIVATE_SDEI_EVENTS
+#endif
 };
 
 /* Shared event mappings */
