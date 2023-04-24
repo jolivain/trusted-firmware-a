@@ -46,6 +46,30 @@
       },
       "revId": "97f281a2c8b6884499a0c781ad77703498e49299",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7ce192a_31c03950",
+        "filename": "lib/cpus/aarch64/cortex_x2.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-24T21:48:40Z",
+      "side": 1,
+      "message": "Its covered in the next patch.\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20530.",
+      "parentUuid": "a89ab51a_5de9f392",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 31
+      },
+      "revId": "97f281a2c8b6884499a0c781ad77703498e49299",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
