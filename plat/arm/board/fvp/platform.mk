@@ -514,3 +514,8 @@ $(eval $(call add_define,PLATFORM_TEST_EA_FFH))
 ifeq (${PLATFORM_TEST_EA_FFH}, 1)
 BL31_SOURCES	+= plat/arm/board/fvp/aarch64/fvp_ea.c
 endif
+
+$(eval $(call add_define,PLATFORM_TEST_RAS_FFH))
+ifeq (${PLATFORM_TEST_RAS_FFH}, 1)
+BL31_SOURCES	+= plat/arm/board/fvp/aarch64/fvp_fault.S
+endif
