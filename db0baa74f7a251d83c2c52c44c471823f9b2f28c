@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c06acb0_52d7e6e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-04-24T20:07:29Z",
+      "side": 1,
+      "message": "m",
+      "range": {
+        "startLine": 11,
+        "startChar": 15,
+        "endLine": 11,
+        "endChar": 16
+      },
+      "revId": "db0baa74f7a251d83c2c52c44c471823f9b2f28c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4bf93094_1da7aa6f",
@@ -14,6 +37,29 @@
       "writtenOn": "2023-04-21T16:04:53Z",
       "side": 1,
       "message": "All tests passed.",
+      "revId": "db0baa74f7a251d83c2c52c44c471823f9b2f28c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13691eec_e8770c9c",
+        "filename": "include/plat/arm/css/common/css_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-04-24T20:07:29Z",
+      "side": 1,
+      "message": "nit: align",
+      "range": {
+        "startLine": 68,
+        "startChar": 1,
+        "endLine": 68,
+        "endChar": 3
+      },
       "revId": "db0baa74f7a251d83c2c52c44c471823f9b2f28c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
