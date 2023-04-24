@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a2faa11_1876a5fe",
+        "filename": "lib/cpus/aarch64/cortex_x2.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-24T20:25:50Z",
+      "side": 1,
+      "message": "can it be :\n\nsysreg_bit_set CORTEX_X2_CPUECTLR_EL1, CORTEX_X2_CPUECTLR_EL1_PFSTIDIS_BIT",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 31
+      },
+      "revId": "97f281a2c8b6884499a0c781ad77703498e49299",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
