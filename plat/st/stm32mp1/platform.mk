@@ -45,6 +45,9 @@ ifeq (${TRUSTED_BOARD_BOOT},1)
 # PKA algo to include
 PKA_USE_NIST_P256	:=	1
 PKA_USE_BRAINPOOL_P256T1:=	1
+else
+PKA_USE_NIST_P256	:=	0
+PKA_USE_BRAINPOOL_P256T1:=	0
 endif
 
 # STM32 image header version v2.0
