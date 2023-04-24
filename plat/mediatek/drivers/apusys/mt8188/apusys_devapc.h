@@ -10,5 +10,6 @@
 #include "../devapc/apusys_dapc_v1.h"
 
 int apusys_devapc_ao_init(void);
+int apusys_devapc_rcx_init(void);
 
 #endif /* APUSYS_DEVAPC_H */
