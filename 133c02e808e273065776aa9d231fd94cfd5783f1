@@ -16,6 +16,23 @@
       "message": "The test which is changed with this patch has passed here https://ci.trustedfirmware.org/job/tf-a-ci-gateway/35864/",
       "revId": "133c02e808e273065776aa9d231fd94cfd5783f1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e11c1ae_2a0270de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-25T19:14:18Z",
+      "side": 1,
+      "message": "Failure because of newly added file which is already covered in corresponding CI patch",
+      "revId": "133c02e808e273065776aa9d231fd94cfd5783f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
