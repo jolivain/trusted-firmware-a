@@ -135,6 +135,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ca68b1e_762f7fbe",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_ea.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-25T21:23:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "94dcd727_bb426a4b",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 20
+      },
+      "revId": "133c02e808e273065776aa9d231fd94cfd5783f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c86e21e_83f94d73",
@@ -182,6 +206,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bed2cf2_3186f60b",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_ea.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-25T21:23:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "87894054_e1b7b2f0",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "133c02e808e273065776aa9d231fd94cfd5783f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "602a0114_35d408d3",
@@ -219,6 +267,30 @@
       "side": 1,
       "message": "The test in tftf is sync exceptions ELR_EL3 points to the instruction which caused the exception and it always returns to the same instruction which caused it, to let the test continue it need to be moved to next instruction in tftf.\nFor async exceptions  ELR_EL3 points to next instruction so we dont need to move in this case.",
       "parentUuid": "602a0114_35d408d3",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 10
+      },
+      "revId": "133c02e808e273065776aa9d231fd94cfd5783f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "384ce755_f0658715",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_ea.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-25T21:23:08Z",
+      "side": 1,
+      "message": "Ahh ok... maybe comments will keep that info intact if added.",
+      "parentUuid": "fa6d8f03_ae9e8142",
       "range": {
         "startLine": 36,
         "startChar": 0,
