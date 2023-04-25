@@ -1,0 +1,262 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13897415_06732e14",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-25T20:27:58Z",
+      "side": 1,
+      "message": "spmd\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/changelog.yaml#n649",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ad56fc2_85d7a077",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-25T20:27:58Z",
+      "side": 1,
+      "message": "nitpick: since SPMD is strictly a EL3 component, can we simplify the name to\nENABLE_SPMD_LSP",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 18
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a733f16f_bab664ac",
+        "filename": "include/common/bl_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-25T20:27:58Z",
+      "side": 1,
+      "message": "nitpick:\n__SPMD_LSP_DESCS_START__",
+      "range": {
+        "startLine": 89,
+        "startChar": 8,
+        "endLine": 89,
+        "endChar": 35
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13a1aa9b_8ce3b3ef",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-25T20:27:58Z",
+      "side": 1,
+      "message": "do you think a CASSERT on the expected value of this would be helpful.",
+      "range": {
+        "startLine": 42,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 38
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e28e7b19_b35e5771",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-25T20:27:58Z",
+      "side": 1,
+      "message": "Please capture the range of IDs in this comment.\n0xFF9C to 0XFFFE",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 48
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "410672ba_e2b89637",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-25T20:27:58Z",
+      "side": 1,
+      "message": "Curious why 63 , not 64 possible LSPs",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75b68dcd_1f8e6e4a",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-25T20:27:58Z",
+      "side": 1,
+      "message": "Would the following directory be better suited to hold the source code for a logical secure partition?\nservices/lsp/spmd_logical_sp.c",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a8c962a_7c555385",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-25T20:27:58Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "271a5844_96a70149",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-25T20:27:58Z",
+      "side": 1,
+      "message": "nitpick: verbose",
+      "range": {
+        "startLine": 131,
+        "startChar": 1,
+        "endLine": 131,
+        "endChar": 5
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "872d75f3_93c6fff1",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-25T20:27:58Z",
+      "side": 1,
+      "message": "nitpick:\nfailed to initialize",
+      "range": {
+        "startLine": 135,
+        "startChar": 33,
+        "endLine": 135,
+        "endChar": 53
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50235cbc_d02b54fd",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-25T20:27:58Z",
+      "side": 1,
+      "message": "please use initialized. At first glance, inited expanded to initiated in my brain.",
+      "range": {
+        "startLine": 152,
+        "startChar": 30,
+        "endLine": 152,
+        "endChar": 36
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbeb926a_c1160fed",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-25T20:27:58Z",
+      "side": 1,
+      "message": "this doesnt seem to be invoked/used anywhere",
+      "range": {
+        "startLine": 159,
+        "startChar": 5,
+        "endLine": 159,
+        "endChar": 37
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
