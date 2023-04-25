@@ -139,7 +139,7 @@ the following steps should suffice:
 
     .. code:: shell
 
-       $ MEASURED_BOOT=y make -j `nproc`
+       $ MEASURED_BOOT=y MEASURED_BOOT_FTPM=y make -j `nproc`
 
     .. note::
        The build process will likely take a long time. It is strongly recommended to
