@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b61ab8d6_d144b8b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-25T11:41:25Z",
+      "side": 1,
+      "message": "Thanks for introducing this Change.\n\nLGTM, although have few minor comments.",
+      "revId": "5598b3a30db50a18abdbbc7b3fdc6174b358858b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b785ef4_e6825b1c",
+        "filename": "Makefile",
+        "patchSetId": 10
+      },
+      "lineNbr": 912,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-25T11:41:25Z",
+      "side": 1,
+      "message": "This is good.\n\nBut a generic concern/query. Would like to hear opinions from others reviewers too.\n\nInstead of throwing an error, wont it be good to forcibly enable/set the required flag.\nHave seen this approach being followed at few instances. I agree there is no uniformity, but wanted to ensure why we couldn\u0027t do it.\nPlease share your thoughts, if you foresee any issues here, with enabling them.\n\nThanks!",
+      "revId": "5598b3a30db50a18abdbbc7b3fdc6174b358858b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99d6b2b8_d4679a54",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-25T11:41:25Z",
+      "side": 1,
+      "message": "Could you rephrase this sentence? Something similar to below.\nFEAT_SME includes/encompasses FEAT_SVE, hence when enabled, it requires \u0027\u0027ENABLE_SVE_FOR_NS `` also to be set.",
+      "revId": "5598b3a30db50a18abdbbc7b3fdc6174b358858b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d92509d3_2dfa0fad",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-25T11:41:25Z",
+      "side": 1,
+      "message": "nit : \ncould we rephrase it as below? \n\" Note that this option requires  ENABLE_SME_FOR_NS and ENABLE_SVE_FOR_SWD to be enabled. \"\nFeel free to ignore, if not required.",
+      "revId": "5598b3a30db50a18abdbbc7b3fdc6174b358858b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0299a89_b4bce229",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-25T11:41:25Z",
+      "side": 1,
+      "message": "Originally SME2 is not present in the base code.\nIMO, would prefer not to include it here.\nIf in case, this patch gets merged after SME2 patches, this would be good.\nSo for now, better not to include SME2 flag here.",
+      "revId": "5598b3a30db50a18abdbbc7b3fdc6174b358858b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
