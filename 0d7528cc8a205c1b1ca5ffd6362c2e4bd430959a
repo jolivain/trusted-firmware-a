@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90baa700_c4fd61d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-04-25T11:55:19Z",
+      "side": 1,
+      "message": "Hi,\n\nAfter a change in STM32MP1 for PKA algos, it seems all platforms can compile if the assert_boolean\nmacro also checks the flag is not empty, except for a5ds for which ARM_DISABLE_TRUSTED_WDOG is\nempty:\nhttps://ci.trustedfirmware.org/job/tf-a-builder/1987611/console\n@Abdellatif, @Vishnu, could you check what should the value of this flag for this platform?\n\nThanks,\nYann",
+      "revId": "0d7528cc8a205c1b1ca5ffd6362c2e4bd430959a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
