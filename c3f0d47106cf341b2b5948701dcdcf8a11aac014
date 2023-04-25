@@ -182,6 +182,30 @@
       },
       "revId": "c3f0d47106cf341b2b5948701dcdcf8a11aac014",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ea05eb3_18a4ba28",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-04-25T05:21:53Z",
+      "side": 1,
+      "message": "This is not wrong, but for ArmV9 , ARM ARM says \n\n\"The AArch32 state might optionally be implemented at EL0. The AArch32 state is not implemented at EL1, EL2, and EL3\". Given that GCS is Armv9 extension , this check is redundant it seems. \n\nThis will not cause harm, can be merged and fixed up later (it seems this check is inconsistent  in TF-A anyways which will need to be cleaned up).",
+      "parentUuid": "2c34daf5_3e3ca903",
+      "range": {
+        "startLine": 369,
+        "startChar": 34,
+        "endLine": 369,
+        "endChar": 66
+      },
+      "revId": "c3f0d47106cf341b2b5948701dcdcf8a11aac014",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
