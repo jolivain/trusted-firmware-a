@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42c427f5_dd59a05d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-25T13:53:04Z",
+      "side": 1,
+      "message": "LGTM otherwise",
+      "revId": "1d01761d72400513453e560edf31febaa4aebaac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8b52746_7632bae0",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-25T13:53:04Z",
+      "side": 1,
+      "message": "I\u0027m not sure if the CI will pass, but if it does it would be good if this could go in the tspd list above for the time being. It will reduce code size a tiny bit",
+      "revId": "1d01761d72400513453e560edf31febaa4aebaac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
