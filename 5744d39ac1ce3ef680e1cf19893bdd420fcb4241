@@ -16,6 +16,29 @@
       "message": "@Sona Mathew\n\nCheck this.\n\nNew source files have been identified in your patch..\nservices/std_svc/errata_abi/errata_abi_main.c\n\nOther fails are cleared with the rebase and the fix for the static check fail.",
       "revId": "5744d39ac1ce3ef680e1cf19893bdd420fcb4241",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "227d89fc_6adb22df",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 27
+      },
+      "lineNbr": 1120,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-25T18:08:57Z",
+      "side": 1,
+      "message": "minor tweak,\n\nBoolean option to enable support for Errata management firmware interface for the BL31 Image.\nBy default is disabled(``0``)",
+      "range": {
+        "startLine": 1118,
+        "startChar": 26,
+        "endLine": 1120,
+        "endChar": 0
+      },
+      "revId": "5744d39ac1ce3ef680e1cf19893bdd420fcb4241",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
