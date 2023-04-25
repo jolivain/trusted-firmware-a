@@ -13,7 +13,9 @@
 #include <drivers/io/io_storage.h>
 #include <drivers/st/bsec.h>
 #include <drivers/st/stm32_hash.h>
+#if !STM32MP_CRYPTO_ROM_LIB
 #include <drivers/st/stm32_pka.h>
+#endif
 #include <drivers/st/stm32_rng.h>
 #include <drivers/st/stm32_saes.h>
 #include <lib/utils.h>
