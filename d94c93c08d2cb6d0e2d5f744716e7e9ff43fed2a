@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "035b35f1_655b31c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-04-25T13:06:38Z",
+      "side": 1,
+      "message": "I have asked Akshay to send this patch as it is but I think it should be integrated with current hook added by:\n\ncommit 6bb49c876c7593ed5f61c20ef3d989dcff8e8d8c\nAuthor:     Maksims Svecovs \u003cmaksims.svecovs@arm.com\u003e\nAuthorDate: Wed Mar 15 13:24:44 2023 +0000\nCommit:     Maksims Svecovs \u003cmaksims.svecovs@arm.com\u003e\nCommitDate: Wed Mar 15 13:32:00 2023 +0000\n\n    style(hooks): adds Arm copyright style fix\n    \n    Adds a check to pre-commit hook that makes sure \"Arm\" is written in a\n    correct case and not \"arm\" or \"ARM\". Same as a copyright-year check, the\n    hook will fix the issue and prompt user to stage the fix.\n    \n    Change-Id: I39db148d6621d542193f3ee703bddc23c7e8dc27\n    Signed-off-by: Maksims Svecovs \u003cmaksims.svecovs@arm.com\u003e\n\nBut I wanted to have discussion about this patch first before any integration happens.",
+      "revId": "d94c93c08d2cb6d0e2d5f744716e7e9ff43fed2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
