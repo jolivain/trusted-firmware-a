@@ -14,3 +14,21 @@
 
 [section "TF-A-Tests: Pending merge for >7 days"]
   query = age:7d branch:master project:TF-A/tf-a-tests is:submittable
+
+[section "TF-A CI: Inactive for >21 days"]
+  query = age:21d branch:master (project:ci/tf-a-ci-scripts OR project:ci/tf-a-job-configs)
+
+[section "TF-A CI: Pending merge for >7 days"]
+  query = age:7d branch:master (project:ci/tf-a-ci-scripts OR project:ci/tf-a-job-configs) is:submittable
+
+[section "TF-RMM: Inactive for >21 days"]
+  query = age:21d branch:integration project:TF-RMM/tf-rmm
+
+[section "TF-RMM: Pending merge for >7 days"]
+  query = age:7d branch:integration project:TF-RMM/tf-rmm is:submittable
+
+[section "Hafnium: Inactive for >21 days"]
+  query = age:21d branch:master project:hafnium/hafnium
+
+[section "Hafnium: Pending merge for >7 days"]
+  query = age:7d branch:master project:hafnium/hafnium is:submittable
