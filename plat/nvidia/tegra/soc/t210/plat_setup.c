@@ -255,7 +255,6 @@ void plat_late_platform_setup(void)
 		mmio_write_32(TEGRA_MISC_BASE + APB_SLAVE_SECURITY_ENABLE, val);
 	}
 }
-
 /*******************************************************************************
  * Initialize the GIC and SGIs
  ******************************************************************************/
@@ -291,6 +290,7 @@ bool plat_supports_system_suspend(void)
 		return false;
 	}
 }
+
 /*******************************************************************************
  * Platform specific runtime setup.
  ******************************************************************************/
