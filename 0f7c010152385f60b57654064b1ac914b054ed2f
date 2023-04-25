@@ -22,6 +22,30 @@
       },
       "revId": "0f7c010152385f60b57654064b1ac914b054ed2f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98ac0cc8_1624a60f",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-25T18:51:38Z",
+      "side": 1,
+      "message": "Manish suggested to move the change in this file to the next patch in the stack. Hence, no need for copyright change in this patch.",
+      "parentUuid": "abe4f2f7_f5f564a5",
+      "range": {
+        "startLine": 2,
+        "startChar": 25,
+        "endLine": 2,
+        "endChar": 31
+      },
+      "revId": "0f7c010152385f60b57654064b1ac914b054ed2f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
