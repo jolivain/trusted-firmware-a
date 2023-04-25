@@ -14,6 +14,7 @@
 #include "apusys.h"
 #include "apusys_rv.h"
 #include "apusys_rv_mbox_mpu.h"
+#include "emi_mpu.h"
 
 static spinlock_t apusys_rv_lock;
 
@@ -172,4 +173,28 @@ int apusys_kernel_apusys_rv_stop_mp(void)
 	spin_unlock(&apusys_rv_lock);
 
 	return 0;
+}
+
+int apusys_kernel_apusys_rv_setup_sec_mem(void)
+{
+	static bool apusys_rv_setup_sec_mem_called;
+	int ret;
+
+	spin_lock(&apusys_rv_lock);
+
+	if (apusys_rv_setup_sec_mem_called) {
+		ERROR(MODULE_TAG "%s: only permitted called once\n", __func__);
+		spin_unlock(&apusys_rv_lock);
+		return -1;
+	}
+
+	apusys_rv_setup_sec_mem_called = true;
+
+	ret = set_apu_emi_mpu_region();
+	if (ret != 0) {
+		ERROR(MODULE_TAG "%s: set emimpu protect failed\n", __func__);
+	}
+
+	spin_unlock(&apusys_rv_lock);
+	return ret;
 }
