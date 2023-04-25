@@ -273,6 +273,7 @@ void plat_gic_setup(void)
 	 */
 	tegra_fc_enable_fiq_to_ccplex_routing();
 }
+
 /*******************************************************************************
  * Handler to indicate support for System Suspend
  ******************************************************************************/
@@ -291,6 +292,7 @@ bool plat_supports_system_suspend(void)
 		return false;
 	}
 }
+
 /*******************************************************************************
  * Platform specific runtime setup.
  ******************************************************************************/
