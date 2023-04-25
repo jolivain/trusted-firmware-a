@@ -16,6 +16,98 @@
       "message": "Thanks Boyan for the feedback!",
       "revId": "8416f88be13aeb5523b72fa8ac7a8c69c069b6d5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8df8fde2_ae9b95fa",
+        "filename": "docs/perf/psci-performance-instr.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-25T12:26:34Z",
+      "side": 1,
+      "message": "You can divide it in following ways\n\nparagraph #1 \nExplain about PMF and how it uses PMU(you first para is good), and continue about PMU details(2nd sentence onward of 2nd para).\n\nparagraph #2\nYou can introduce two types of instrumentation in TF-A which use PMF as backend. \"Runtime instrumentation\" and \"PSCI residency statistics\".",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 73
+      },
+      "revId": "8416f88be13aeb5523b72fa8ac7a8c69c069b6d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aa11e7d_c9febdb8",
+        "filename": "docs/perf/psci-performance-instr.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-25T12:26:34Z",
+      "side": 1,
+      "message": "PSCI Statistics, give a brief introduction like you have done for runtime instrumentation.\nAnd then move on to build options \n\nIt is worth mentioning that PSCI_STAT is part PSCI specification.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 9
+      },
+      "revId": "8416f88be13aeb5523b72fa8ac7a8c69c069b6d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5a66743_b2928e56",
+        "filename": "docs/perf/psci-performance-n1sdp.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-25T12:26:34Z",
+      "side": 1,
+      "message": "is it really required?",
+      "range": {
+        "startLine": 26,
+        "startChar": 45,
+        "endLine": 26,
+        "endChar": 59
+      },
+      "revId": "8416f88be13aeb5523b72fa8ac7a8c69c069b6d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9c5eec8_1a942595",
+        "filename": "docs/perf/psci-performance-n1sdp.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-25T12:26:34Z",
+      "side": 1,
+      "message": "Are these terms explained somewhere?",
+      "range": {
+        "startLine": 94,
+        "startChar": 25,
+        "endLine": 94,
+        "endChar": 51
+      },
+      "revId": "8416f88be13aeb5523b72fa8ac7a8c69c069b6d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
