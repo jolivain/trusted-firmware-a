@@ -121,6 +121,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cc3acde4_6ebcc896",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-04-25T18:44:09Z",
+      "side": 1,
+      "message": "After further discussions internally it looks like we are also agreeing that enforcing these checks is the way forward to prevent confusion and additionally, similar such checks should also be added to other partition manager (PM) implementations for consistency.\n\nThe concern here is that before any such changes are merged to the PMs, we should ensure that the FF-A client implementations are informed to ensure they are in a position to handle the tightening of this behavior and that existing systems do not break without a fix being available. \n\nI don\u0027t want to delay these patches further so could I suggest that the MBZ checks in the relevant patches are either rebased to the top of the patch stack or perhaps ideally refactored into separate patches that could be merged after all these changes as part of the next TF-A release. This would allow for client implementations to have the chance to respond to this upcoming change without delaying the rest of the changes.\n\nPlease let me know if this seems reasonable.",
+      "parentUuid": "bf8b7420_2a8692f2",
+      "revId": "bd97292b3833c02129006abe46f45d2de183f7e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96ed4fbd_9d255e69",
         "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
         "patchSetId": 5
