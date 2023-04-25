@@ -33,6 +33,98 @@
       "message": "Failure because of newly added file which is already covered in corresponding CI patch",
       "revId": "133c02e808e273065776aa9d231fd94cfd5783f1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfb2665e_41608430",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_ea.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-25T19:36:23Z",
+      "side": 1,
+      "message": "minor: to avoid accidental usage may be using naming convention like:\n\n`plat_test_ea_handler` or `test_plat_ea_handler` ?",
+      "range": {
+        "startLine": 22,
+        "startChar": 5,
+        "endLine": 22,
+        "endChar": 20
+      },
+      "revId": "133c02e808e273065776aa9d231fd94cfd5783f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c86e21e_83f94d73",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_ea.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-25T19:36:23Z",
+      "side": 1,
+      "message": "LGTM, Minor comment since entire file is built only when we have PLATFORM_TEST_EA_FFH\nenabled from makefile, secondary enforcement here looks unnecessary.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 27
+      },
+      "revId": "133c02e808e273065776aa9d231fd94cfd5783f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "602a0114_35d408d3",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_ea.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-25T19:36:23Z",
+      "side": 1,
+      "message": "sorry trying to understand why are we doing this here? modifying reg value?\nmaybe a minor comment will helpout?",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 10
+      },
+      "revId": "133c02e808e273065776aa9d231fd94cfd5783f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "275e2307_bb567371",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-25T19:36:23Z",
+      "side": 1,
+      "message": "minor nit: tab here?",
+      "range": {
+        "startLine": 515,
+        "startChar": 15,
+        "endLine": 515,
+        "endChar": 16
+      },
+      "revId": "133c02e808e273065776aa9d231fd94cfd5783f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
