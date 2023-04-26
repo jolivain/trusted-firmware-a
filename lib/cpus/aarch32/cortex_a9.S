@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -35,55 +35,24 @@ func cortex_a9_enable_smp
 	bx	lr
 endfunc cortex_a9_enable_smp
 
-func check_errata_a9_794073
-#if ERRATA_A9_794073
-	mov	r0, #ERRATA_APPLIES
-#else
-	mov	r0, #ERRATA_MISSING
-#endif
-	bx	lr
-endfunc check_errata_cve_2017_5715
+check_erratum_chosen cortex_a9, ERRATUM(794073), ERRATA_A9_794073
 
-func check_errata_cve_2017_5715
-#if WORKAROUND_CVE_2017_5715
-	mov	r0, #ERRATA_APPLIES
-#else
-	mov	r0, #ERRATA_MISSING
-#endif
-	bx	lr
-endfunc check_errata_cve_2017_5715
+check_erratum_chosen cortex_a9, CVE(2017, 5715), WORKAROUND_CVE_2017_5715
 
-#if REPORT_ERRATA
-/*
- * Errata printing function for Cortex A9. Must follow AAPCS.
- */
-func cortex_a9_errata_report
-	push	{r12, lr}
-
-	bl	cpu_get_rev_var
-	mov	r4, r0
-
-	/*
-	 * Report all errata. The revision-variant information is passed to
-	 * checking functions of each errata.
-	 */
-	report_errata WORKAROUND_CVE_2017_5715, cortex_a9, cve_2017_5715
-	report_errata ERRATA_A9_794073, cortex_a9, a9_79407
-
-	pop	{r12, lr}
-	bx	lr
-endfunc cortex_a9_errata_report
-#endif
-
-func cortex_a9_reset_func
-#if IMAGE_BL32 && WORKAROUND_CVE_2017_5715
+workaround_reset_start cortex_a9, CVE(2017, 5715), WORKAROUND_CVE_2017_5715
+#if IMAGE_BL32
 	ldr	r0, =workaround_bpiall_runtime_exceptions
 	stcopr	r0, VBAR
 	stcopr	r0, MVBAR
 	/* isb will be applied in the course of the reset func */
-#endif
+#endif /* IMAGE_BL2 */
+workaround_reset_end cortex_a9, CVE(2017, 5715)
+
+errata_report_shim cortex_a9
+
+cpu_reset_func_start cortex_a9
 	b	cortex_a9_enable_smp
-endfunc cortex_a9_reset_func
+cpu_reset_func_end cortex_a9
 
 func cortex_a9_core_pwr_dwn
 	push	{r12, lr}
