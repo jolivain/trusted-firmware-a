@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d80dfa50_062dd0e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-26T13:23:47Z",
+      "side": 1,
+      "message": "I would rather phrase it as something like:\n\n reduce the number of cpu libraries included by default\n\nbecause when I initially read this, I thought we were throttling the number of emulated CPUs and restrict the platform topology.\n\nThis headline will appear in the changelog so that\u0027s why I am raising it.\n\nAlso, I would argue that this is not a fix() but rather a build() change. Looking at the commit style documentation [1], the \"build\" scope is for \"Changes that affect the build system or external dependencies\", which seems more appropriate to me.\n\n[1] https://trustedfirmware-a.readthedocs.io/en/latest/process/commit-style.html",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "1f46d092db7176ff865b7fed3d3871abcab2459b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "097a6229_52e89d3f",
