@@ -1024,9 +1024,6 @@ ENABLE_FEAT_RNG		=	$(if $(findstring rng,${arch-features}),1,0)
 # Determine if FEAT_SB is supported
 ENABLE_FEAT_SB		=	$(if $(findstring sb,${arch-features}),1,0)
 
-#SVE_VECTOR_LEN
-$(eval $(call add_define,SVE_VECTOR_LEN))
-
 ################################################################################
 # Process platform overrideable behaviour
 ################################################################################
@@ -1390,6 +1387,7 @@ $(eval $(call add_defines,\
 	ENABLE_FEAT_TWED \
 	CONDITIONAL_CMO \
 	IMPDEF_SYSREG_TRAP \
+	SVE_VECTOR_LEN \
 )))
 
 ifeq (${SANITIZE_UB},trap)
