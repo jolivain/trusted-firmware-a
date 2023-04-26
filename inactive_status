@@ -37,4 +37,4 @@
   query = age:21d branch:master (project:ci/hafnium-ci-scripts OR project:ci/hafnium-job-configs)
 
 [section "Hafnium CI: Pending merge for >7 days"]
-  query = age:7d branch:master (project:ci/tf-a-ci-scripts OR project:ci/tf-a-job-configs) is:submittable
+  query = age:7d branch:master (project:ci/hafnium-ci-scripts OR project:ci/hafnium-job-configs) is:submittable
