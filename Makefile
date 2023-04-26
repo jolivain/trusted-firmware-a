@@ -939,14 +939,17 @@ ifeq (${ENABLE_RME},1)
 ifneq (${ENABLE_PIE},0)
 	$(error ENABLE_RME does not support PIE)
 endif
+
 # RME doesn't support BRBE
 ifneq (${ENABLE_BRBE_FOR_NS},0)
 	$(error ENABLE_RME does not support BRBE.)
 endif
+
 # RME requires AARCH64
 ifneq (${ARCH},aarch64)
 	$(error ENABLE_RME requires AArch64)
 endif
+
 # RME requires el2 context to be saved for now.
 CTX_INCLUDE_EL2_REGS := 1
 CTX_INCLUDE_AARCH32_REGS := 0
@@ -954,22 +957,25 @@ ARM_ARCH_MAJOR := 8
 ARM_ARCH_MINOR := 5
 ENABLE_FEAT_ECV = 1
 ENABLE_FEAT_FGT = 1
-
 # RME enables CSV2_2 extension by default.
 ENABLE_FEAT_CSV2_2 = 1
 
-endif #(RME)
-
 # Ensure ENABLE_RME is not used with SME
-ifeq (${ENABLE_RME},1)
-    ifneq (${ENABLE_SME_FOR_NS},0)
+ifneq (${ENABLE_SME_FOR_NS},0)
 	$(error "ENABLE_SME_FOR_NS cannot be used with ENABLE_RME")
-    endif
 endif
 
+# Ensure SEPARATE_CODE_AND_RODATA is set with RME
+ifneq (${SEPARATE_CODE_AND_RODATA},1)
+	$(error `ENABLE_RME=1` requires `SEPARATE_CODE_AND_RODATA=1`)
+endif
+
+endif #(FEAT_RME)
+
+# Ensure SVE is set with SME
 ifneq (${ENABLE_SME_FOR_NS},0)
     ifeq (${ENABLE_SVE_FOR_NS},0)
-        $(error "ENABLE_SME_FOR_NS requires ENABLE_SVE_FOR_NS")
+	$(error "ENABLE_SME_FOR_NS requires ENABLE_SVE_FOR_NS")
     endif
 endif #(ENABLE_SME_FOR_NS)
 
@@ -980,7 +986,7 @@ ifeq (${ENABLE_SME_FOR_SWD},1)
     endif
 
     ifeq (${ENABLE_SVE_FOR_SWD},0)
-        $(error "ENABLE_SME_FOR_SWD requires ENABLE_SVE_FOR_SWD")
+	$(error "ENABLE_SME_FOR_SWD requires ENABLE_SVE_FOR_SWD")
     endif
 endif #(ENABLE_SME_FOR_SWD)
 
@@ -1007,12 +1013,6 @@ endif #(CTX_INCLUDE_FPREGS)
 
 ifeq ($(DRTM_SUPPORT),1)
     $(info DRTM_SUPPORT is an experimental feature)
-endif
-
-ifeq (${ENABLE_RME},1)
-    ifneq (${SEPARATE_CODE_AND_RODATA},1)
-	$(error `ENABLE_RME=1` requires `SEPARATE_CODE_AND_RODATA=1`)
-    endif
 endif
 
 # Determine if FEAT_RNG is supported
