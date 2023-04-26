@@ -53,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73df1db3_6979b521",
+        "filename": "Makefile",
+        "patchSetId": 10
+      },
+      "lineNbr": 912,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-26T14:23:24Z",
+      "side": 1,
+      "message": "I have raised the issue with the team, saying a generic decision needs to be reached so hopefully someone will pick it tup",
+      "parentUuid": "9e3ba762_783fe926",
+      "revId": "5598b3a30db50a18abdbbc7b3fdc6174b358858b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99d6b2b8_d4679a54",
@@ -66,6 +84,24 @@
       "writtenOn": "2023-04-25T11:41:25Z",
       "side": 1,
       "message": "Could you rephrase this sentence? Something similar to below.\nFEAT_SME includes/encompasses FEAT_SVE, hence when enabled, it requires \u0027\u0027ENABLE_SVE_FOR_NS `` also to be set.",
+      "revId": "5598b3a30db50a18abdbbc7b3fdc6174b358858b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88bececd_3f0a0e8f",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-26T14:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99d6b2b8_d4679a54",
       "revId": "5598b3a30db50a18abdbbc7b3fdc6174b358858b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -89,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c5505950_5a223fd0",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-26T14:23:24Z",
+      "side": 1,
+      "message": "to me this sentence reads the same way you suggest just in different words. I don\u0027t think there\u0027s anything to be done here",
+      "parentUuid": "d92509d3_2dfa0fad",
+      "revId": "5598b3a30db50a18abdbbc7b3fdc6174b358858b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d0299a89_b4bce229",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 10
@@ -100,6 +154,24 @@
       "writtenOn": "2023-04-25T11:41:25Z",
       "side": 1,
       "message": "Originally SME2 is not present in the base code.\nIMO, would prefer not to include it here.\nIf in case, this patch gets merged after SME2 patches, this would be good.\nSo for now, better not to include SME2 flag here.",
+      "revId": "5598b3a30db50a18abdbbc7b3fdc6174b358858b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69f4b76a_f59691c6",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 10
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-26T14:23:24Z",
+      "side": 1,
+      "message": "oops, yes I was basing it there but no longer. Fixed",
+      "parentUuid": "d0299a89_b4bce229",
       "revId": "5598b3a30db50a18abdbbc7b3fdc6174b358858b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
