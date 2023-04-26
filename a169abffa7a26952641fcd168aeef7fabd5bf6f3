@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dc3e192_3386a9a8",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-26T17:05:39Z",
+      "side": 1,
+      "message": "We could use below example, \n\n[...]\n .cpu_errata_list \u003d {\n                [0 ... MAX_ERRATA_ENTRIES] \u003d {UNDEF_ERRATA},\n\t\t[0] \u003d {794073, 0x00, 0xFF, ERRATA_A9_794073},\n\t\t[1] \u003d {123456, 0x00, 0xFF, ERRATA_A9_123456},\n\t}\n[...]\n\nThis makes struct future proof for adding things and avoid editing entire file if \nMAX_ERRATA_ENTRIES changes.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 32
+      },
+      "revId": "a169abffa7a26952641fcd168aeef7fabd5bf6f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
