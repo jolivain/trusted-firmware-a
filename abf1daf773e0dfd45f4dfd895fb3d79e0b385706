@@ -45,6 +45,30 @@
       },
       "revId": "abf1daf773e0dfd45f4dfd895fb3d79e0b385706",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6123b5f_15c406df",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-26T19:09:20Z",
+      "side": 1,
+      "message": "well this search defeats the purpose of binary search below 😞",
+      "parentUuid": "3a9c2a97_a44d2564",
+      "range": {
+        "startLine": 459,
+        "startChar": 1,
+        "endLine": 459,
+        "endChar": 37
+      },
+      "revId": "abf1daf773e0dfd45f4dfd895fb3d79e0b385706",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
