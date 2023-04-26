@@ -93,6 +93,24 @@
       "parentUuid": "29ad5c50_39eea034",
       "revId": "6c00cce6ae0055a8ebcf0addd69feceea621cb38",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a99bf0e_eeb9de9f",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-26T14:16:37Z",
+      "side": 1,
+      "message": "well IMAGE_AT_EL3 and IMAGE_AT_EL1 are image dependent (Makefile:710) which is why I brought it up in the first place",
+      "parentUuid": "d42f110e_36d2bcdb",
+      "revId": "6c00cce6ae0055a8ebcf0addd69feceea621cb38",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
