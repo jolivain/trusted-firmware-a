@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be052a90_0df4a551",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-26T19:01:34Z",
+      "side": 1,
+      "message": "minor: /* flag to indicate if errata query is based out of non-arm interconnect */",
+      "range": {
+        "startLine": 60,
+        "startChar": 31,
+        "endLine": 60,
+        "endChar": 49
+      },
+      "revId": "abf1daf773e0dfd45f4dfd895fb3d79e0b385706",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a9c2a97_a44d2564",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-26T19:01:34Z",
+      "side": 1,
+      "message": "high index can be first entry were we encounter `UNDEF_ERRATA` \n\nexample:\n\n[...]\nint i \u003d 0;\n\nfor (i \u003d0; i \u003c MAX_ERRATA_ENTRIES - 1; i++)\n  if ptr-\u003ecpu_errata_list[i] \u003d\u003d UNDEF_ERRATA;\n     break;\n\nhigh_index \u003d i;\n\n[...]\n\nwe could run binary search only on valid elements?",
+      "range": {
+        "startLine": 459,
+        "startChar": 1,
+        "endLine": 459,
+        "endChar": 37
+      },
+      "revId": "abf1daf773e0dfd45f4dfd895fb3d79e0b385706",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
