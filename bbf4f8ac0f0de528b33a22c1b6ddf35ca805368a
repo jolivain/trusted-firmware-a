@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "900a1456_92e0ab38",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-04-26T22:45:52Z",
+      "side": 1,
+      "message": "TTA does not belong to MDCR_EL3 but to CPTR_EL3. \n\nSuggestion: \n\"Bits MDCR_EL3.{NSTB, NSTBE, TTRF, TPM} and CPTR_EL3.TTA only...\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 45
+      },
+      "revId": "bbf4f8ac0f0de528b33a22c1b6ddf35ca805368a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6709f477_1aeebf9f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-04-26T22:45:52Z",
+      "side": 1,
+      "message": "call",
+      "range": {
+        "startLine": 10,
+        "startChar": 33,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "bbf4f8ac0f0de528b33a22c1b6ddf35ca805368a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da6daa53_2bb87cd7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-04-26T22:45:52Z",
+      "side": 1,
+      "message": "*intention",
+      "range": {
+        "startLine": 15,
+        "startChar": 22,
+        "endLine": 15,
+        "endChar": 31
+      },
+      "revId": "bbf4f8ac0f0de528b33a22c1b6ddf35ca805368a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c346eef_1270d73e",
+        "filename": "lib/extensions/sys_reg_trace/aarch64/sys_reg_trace.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-04-26T22:45:52Z",
+      "side": 1,
+      "message": "This seems to be redundant.",
+      "range": {
+        "startLine": 30,
+        "startChar": 18,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "bbf4f8ac0f0de528b33a22c1b6ddf35ca805368a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
