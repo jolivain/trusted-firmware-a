@@ -28,13 +28,7 @@
   query = age:7d branch:integration project:TF-RMM/tf-rmm is:submittable
 
 [section "Hafnium: Inactive for >21 days"]
-  query = age:21d branch:master project:hafnium/hafnium
+  query = age:21d branch:master (project:hafnium/hafnium OR project:ci/hafnium-ci-scripts OR project:ci/hafnium-job-configs)
 
 [section "Hafnium: Pending merge for >7 days"]
-  query = age:7d branch:master project:hafnium/hafnium is:submittable
-
-[section "Hafnium CI: Inactive for >21 days"]
-  query = age:21d branch:master (project:ci/hafnium-ci-scripts OR project:ci/hafnium-job-configs)
-
-[section "Hafnium CI: Pending merge for >7 days"]
-  query = age:7d branch:master (project:ci/hafnium-ci-scripts OR project:ci/hafnium-job-configs) is:submittable
+  query = age:7d branch:master (project:hafnium/hafnium OR project:ci/hafnium-ci-scripts OR project:ci/hafnium-job-configs) is:submittable
