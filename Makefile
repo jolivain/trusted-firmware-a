@@ -978,6 +978,14 @@ ifeq (${ENABLE_RME},1)
 	endif
 endif
 
+# Ensure SEPARATE_CODE_AND_RODATA is set with RME
+ifneq (${SEPARATE_CODE_AND_RODATA},1)
+	$(error `ENABLE_RME=1` requires `SEPARATE_CODE_AND_RODATA=1`)
+endif
+
+endif #(FEAT_RME)
+
+# Ensure SVE is set with SME
 ifneq (${ENABLE_SME_FOR_NS},0)
 	ifeq (${ENABLE_SVE_FOR_NS},0)
                 $(error "ENABLE_SME_FOR_NS requires ENABLE_SVE_FOR_NS")
