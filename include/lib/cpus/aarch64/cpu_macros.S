@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2023, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -476,7 +476,6 @@
 	.if \_chosen
 		bl	erratum_\_cpu\()_\_id\()_wa
 		mov	x30, x9
-
 	.endif
 .endm
 
