@@ -33,6 +33,23 @@
       "message": "If CI has passed earlier, please provide verified votes manually, as the change in the latest patch\nis miminal.",
       "revId": "b9c7d7b49dfef6e5917fc414fd6d9fb4912fc44b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34cbb550_8af0705b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-26T14:34:44Z",
+      "side": 1,
+      "message": "CI+2 already passed, changes are only in makefile and docs so triggering +1",
+      "revId": "b9c7d7b49dfef6e5917fc414fd6d9fb4912fc44b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
