@@ -111,6 +111,24 @@
       "parentUuid": "d42f110e_36d2bcdb",
       "revId": "6c00cce6ae0055a8ebcf0addd69feceea621cb38",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57d6e782_b435cc54",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-26T14:28:59Z",
+      "side": 1,
+      "message": "Mmmh, sure, but they are somewhat obvious, and don\u0027t really convey much information beyond the stage name, which you already know because you specified it? So the idea of dump_define would *not* be to be able to replicate the command line exactly (V\u003d1 does this already), but to check for enabled *features*, or #defines in general. This was triggered by the new feature scheme (\u003d2), especially features that are enabled by default (SPE, SVE), even though many platforms don\u0027t have them.",
+      "parentUuid": "9a99bf0e_eeb9de9f",
+      "revId": "6c00cce6ae0055a8ebcf0addd69feceea621cb38",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
