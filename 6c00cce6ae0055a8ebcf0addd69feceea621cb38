@@ -75,6 +75,24 @@
       "parentUuid": "15f6191a_c6169578",
       "revId": "6c00cce6ae0055a8ebcf0addd69feceea621cb38",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d42f110e_36d2bcdb",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-26T13:27:34Z",
+      "side": 1,
+      "message": "ACK for .PHONY, forgot about that.\nI tried the other expressions, but they didn\u0027t output anything for me (for fvp).\nIf my makefile knowledge doesn\u0027t let me down, your idea was to say \"make dump-defines-bl1\", and it would also dump $BL1_DEFINES? But I don\u0027t see anything using that prefixed DEFINES pattern.\nAlso CPPFLAGS is constructed using $DEFINES, so that wouldn\u0027t add anything, unless I miss something. The filter expression doesn\u0027t seem to work at all for me anyway.\n\nIn general I am a bit wary of requiring to specify the bootloader stage explicitly on the command line. The relevant -D options seem to be invariant for the BL stages, at least from what I saw. So do we really need that?",
+      "parentUuid": "29ad5c50_39eea034",
+      "revId": "6c00cce6ae0055a8ebcf0addd69feceea621cb38",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
