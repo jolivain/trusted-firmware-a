@@ -22,6 +22,30 @@
       },
       "revId": "5dcef16036e54f2b2c1bc11a057ac401ffc49433",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b39eb784_014a7fc3",
+        "filename": "docs/design_documents/measured_boot_poc.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-04-27T06:29:05Z",
+      "side": 1,
+      "message": "Done. It was missed somehow (though it is redundant). To avoid putting the same information in multiple places, it would be better to say \"you need to set the following build options.\"",
+      "parentUuid": "31a13555_b1da3921",
+      "range": {
+        "startLine": 137,
+        "startChar": 64,
+        "endLine": 138,
+        "endChar": 43
+      },
+      "revId": "5dcef16036e54f2b2c1bc11a057ac401ffc49433",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
