@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0ef1222_6ac4ef66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 29
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-27T21:09:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f0833194_b99734a6",
+      "revId": "0918fef8707ecd1a710d70ab0524717b33b77cdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4de93e24_e0014e77",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-04-26T20:44:09Z",
       "side": 1,
       "message": "why is this needed here? It has been defined and initialized in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20076/20/make_helpers/defaults.mk#295",
+      "revId": "0918fef8707ecd1a710d70ab0524717b33b77cdc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b75edde_3ef0c3f2",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 29
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-27T21:09:53Z",
+      "side": 1,
+      "message": "Ack, yes these can be removed. Tested by removing these flags.",
+      "parentUuid": "4de93e24_e0014e77",
       "revId": "0918fef8707ecd1a710d70ab0524717b33b77cdc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
