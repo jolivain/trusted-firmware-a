@@ -50,6 +50,23 @@
       "message": "Hello,\n\nSorry for the long delay... I\u0027m not doing ARM stuff at work so it\u0027s mainly during my spare time.\n\nI tried to push modification to this \"pull request\" but I failed and it creates a new one (already abandoned).\n\nHow can I update it? I\u0027m not so familiar with Gerrit...",
       "revId": "f758e698e0747ed7bdbd48ce4fc5c3629719e9bb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c24bd883_095524d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-27T15:12:51Z",
+      "side": 1,
+      "message": "Adding Andre as platform owner, you can fix the static failures (include order) and i will post a patch for CI",
+      "revId": "f758e698e0747ed7bdbd48ce4fc5c3629719e9bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
