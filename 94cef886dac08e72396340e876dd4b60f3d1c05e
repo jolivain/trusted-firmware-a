@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5f5bdd8_a6de6518",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-27T16:49:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "783713d6_771b43d6",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "94cef886dac08e72396340e876dd4b60f3d1c05e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb1eaedf_7b31bf78",
@@ -55,6 +79,24 @@
       "side": 1,
       "message": "yeah, just fixing it.",
       "parentUuid": "cb1eaedf_7b31bf78",
+      "revId": "94cef886dac08e72396340e876dd4b60f3d1c05e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "198551cb_aa9a70fa",
+        "filename": "lib/cpus/aarch32/cortex_a9.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-04-27T16:49:16Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "57d0cba7_be9e3452",
       "revId": "94cef886dac08e72396340e876dd4b60f3d1c05e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
