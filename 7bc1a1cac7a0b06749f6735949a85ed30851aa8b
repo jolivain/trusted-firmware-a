@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f18645b_28331454",
+        "filename": "Makefile",
+        "patchSetId": 28
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-27T13:27:18Z",
+      "side": 1,
+      "message": "Wouldn\u0027t this require an ENABLE_FEAT_RAS check too?",
+      "revId": "7bc1a1cac7a0b06749f6735949a85ed30851aa8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44c35be2_075170fd",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 28
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-27T13:27:18Z",
+      "side": 1,
+      "message": "maybe a link?",
+      "range": {
+        "startLine": 10,
+        "startChar": 21,
+        "endLine": 10,
+        "endChar": 43
+      },
+      "revId": "7bc1a1cac7a0b06749f6735949a85ed30851aa8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdfcbf3b_0bba5fcc",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 28
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-27T13:27:18Z",
+      "side": 1,
+      "message": "would be nice to say what else they may be taken as",
+      "range": {
+        "startLine": 22,
+        "startChar": 12,
+        "endLine": 22,
+        "endChar": 18
+      },
+      "revId": "7bc1a1cac7a0b06749f6735949a85ed30851aa8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57b9c20b_cc4cd251",
+        "filename": "include/arch/aarch64/asm_macros.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-27T13:27:18Z",
+      "side": 1,
+      "message": "nit: could you add a comment (or better yet a macro) saying what this is?",
+      "range": {
+        "startLine": 191,
+        "startChar": 7,
+        "endLine": 191,
+        "endChar": 17
+      },
+      "revId": "7bc1a1cac7a0b06749f6735949a85ed30851aa8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2787be1b_9f05c199",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 28
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-27T13:27:18Z",
+      "side": 1,
+      "message": "nit: whitespace looks off",
+      "range": {
+        "startLine": 278,
+        "startChar": 16,
+        "endLine": 278,
+        "endChar": 17
+      },
+      "revId": "7bc1a1cac7a0b06749f6735949a85ed30851aa8b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
