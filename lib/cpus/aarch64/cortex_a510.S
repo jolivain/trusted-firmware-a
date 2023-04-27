@@ -11,6 +11,11 @@
 #include <cpu_macros.S>
 #include <plat_macros.S>
 
+.global mpmm_disable_for_errata
+.data
+mpmm_disable_for_errata:
+	.word 0x0
+
 /* Hardware handled coherency */
 #if HW_ASSISTED_COHERENCY == 0
 #error "Cortex-A510 must be compiled with HW_ASSISTED_COHERENCY enabled"
@@ -180,7 +185,10 @@ func errata_cortex_a510_2250311_wa
 
 #if ENABLE_MPMM && IMAGE_BL31
 	/* If ENABLE_MPMM is set, tell the runtime lib to skip enabling it. */
-	bl mpmm_errata_disable
+	adrp	x0, mpmm_disable_for_errata
+        add	x0, x0, :lo12:mpmm_disable_for_errata
+	ldr	x1, =0x1
+	str	w1, [x0]
 #endif
 
 1:
