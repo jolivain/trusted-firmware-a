@@ -32,6 +32,7 @@ SECTIONS {
         *entrypoint.o(.text*)
         *(SORT_BY_ALIGNMENT(.text*))
         *(.vectors)
+        __TEXT_END_UNALIGNED__ = .;
 
         . = ALIGN(PAGE_SIZE);
 
@@ -56,6 +57,7 @@ SECTIONS {
         . = ALIGN(8);
 
 #   include <lib/el3_runtime/pubsub_events.h>
+        __RODATA_END_UNALIGNED__ = .;
 
         . = ALIGN(PAGE_SIZE);
 
