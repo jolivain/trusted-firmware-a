@@ -28,6 +28,7 @@ SECTIONS {
         *tsp_entrypoint.o(.text*)
         *(.text*)
         *(.vectors)
+        __TEXT_END_UNALIGNED__ = .;
 
         . = ALIGN(PAGE_SIZE);
 
@@ -41,6 +42,7 @@ SECTIONS {
 
         RODATA_COMMON
 
+        __RODATA_END_UNALIGNED__ = .;
         . = ALIGN(PAGE_SIZE);
 
         __RODATA_END__ = .;
