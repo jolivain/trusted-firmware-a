@@ -89,6 +89,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d15cd0c0_c61c78a1",
+        "filename": "Makefile",
+        "patchSetId": 10
+      },
+      "lineNbr": 912,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-04-27T16:01:17Z",
+      "side": 1,
+      "message": "So I would also opt for forcing enablement. That is actually also what we get promised in the last paragraph of the commit message? So one of them is wrong here.\nI understand that\u0027s not what is currently implemented elsewhere, and we instead complain about missing *requirements*, but I strongly believe this needs to change, since it\u0027s pointless:\nIf there is no way to use SME without SVE, then the build system should just force SVE on if SME is requested. The same goes for a lot of other features, where it\u0027s even more broken (thinking of internal features like EL3_EXCEPTION_HANDLING, for instance). I always feel a bit snubbed by the build system, when it says: you missed that bit, now go back and try again!",
+      "parentUuid": "a97820b6_7c493bca",
+      "revId": "5598b3a30db50a18abdbbc7b3fdc6174b358858b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99d6b2b8_d4679a54",
