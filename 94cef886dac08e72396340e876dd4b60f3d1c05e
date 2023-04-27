@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "783713d6_771b43d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-27T13:35:09Z",
+      "side": 1,
+      "message": "please state which cpus",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "94cef886dac08e72396340e876dd4b60f3d1c05e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb1eaedf_7b31bf78",
+        "filename": "lib/cpus/aarch32/cortex_a9.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-27T13:35:09Z",
+      "side": 1,
+      "message": "just to double check, this fixes a build error, right?",
+      "revId": "94cef886dac08e72396340e876dd4b60f3d1c05e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
