@@ -49,6 +49,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6900a2f_016fe32e",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-27T23:30:25Z",
+      "side": 1,
+      "message": "Can spmd_lp_sync_req_ongoing be made bool? This operation and the next one can be simplified:\n\nctx-\u003espmd_lp_sync_req_ongoing \u003d true;",
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49983095_2e9f0ca5",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-27T23:30:25Z",
+      "side": 1,
+      "message": "ctx-\u003espmd_lp_sync_req_ongoing \u003d false;",
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ade58d4f_e5811386",
         "filename": "services/std_svc/spmd/spmd_logical_sp.c",
         "patchSetId": 1
@@ -106,6 +140,29 @@
       "writtenOn": "2023-04-25T23:37:47Z",
       "side": 1,
       "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96b30b87_5d14d105",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-04-27T23:30:25Z",
+      "side": 1,
+      "message": "perhaps just\nreturn ctx-\u003espmd_lp_sync_req_ongoing;",
+      "range": {
+        "startLine": 386,
+        "startChar": 1,
+        "endLine": 387,
+        "endChar": 34
+      },
       "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
