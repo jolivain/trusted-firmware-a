@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a3a4c8b_ce69d87a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 27
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-27T21:09:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "baf23cdb_4f2359fb",
+      "range": {
+        "startLine": 11,
+        "startChar": 13,
+        "endLine": 11,
+        "endChar": 15
+      },
+      "revId": "d49a383a1f38077680751c028aff3d208b0ad952",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c0b113f_36ac1b80",
@@ -49,6 +73,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "43a70241_a9888d11",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 27
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-27T21:09:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3c0b113f_36ac1b80",
+      "range": {
+        "startLine": 13,
+        "startChar": 52,
+        "endLine": 13,
+        "endChar": 56
+      },
+      "revId": "d49a383a1f38077680751c028aff3d208b0ad952",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "05ad94b5_e129f5e9",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 27
@@ -60,6 +108,24 @@
       "writtenOn": "2023-04-25T20:51:00Z",
       "side": 1,
       "message": "Curious if the errata in this patch will these be added after the errata framework or before? ",
+      "revId": "d49a383a1f38077680751c028aff3d208b0ad952",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e747251f_4fa699f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 27
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-27T21:09:40Z",
+      "side": 1,
+      "message": "Hi Lauren, these Errata affect platforms that do not use an ARM Interconnect. \nIn this case, EL3 only sends affected to the OS if the Errata is enabled by a platform that does not use an Arm Interconnect and OS applies the mitigation.",
+      "parentUuid": "05ad94b5_e129f5e9",
       "revId": "d49a383a1f38077680751c028aff3d208b0ad952",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -100,6 +166,30 @@
       "writtenOn": "2023-04-27T21:09:11Z",
       "side": 1,
       "message": "Done",
+      "parentUuid": "1c078ccd_9ad5328f",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 16
+      },
+      "revId": "d49a383a1f38077680751c028aff3d208b0ad952",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd91ba91_d1c713fb",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-04-27T21:09:40Z",
+      "side": 1,
+      "message": "Ack",
       "parentUuid": "1c078ccd_9ad5328f",
       "range": {
         "startLine": 33,
