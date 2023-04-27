@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c881633b_2368eed4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-27T13:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "900a1456_92e0ab38",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 45
+      },
+      "revId": "bbf4f8ac0f0de528b33a22c1b6ddf35ca805368a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6709f477_1aeebf9f",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-26T22:45:52Z",
       "side": 1,
       "message": "call",
+      "range": {
+        "startLine": 10,
+        "startChar": 33,
+        "endLine": 10,
+        "endChar": 34
+      },
+      "revId": "bbf4f8ac0f0de528b33a22c1b6ddf35ca805368a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d0267e2_ea0b11b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-27T13:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6709f477_1aeebf9f",
       "range": {
         "startLine": 10,
         "startChar": 33,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ca87b0b_e7a112a1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-27T13:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da6daa53_2bb87cd7",
+      "range": {
+        "startLine": 15,
+        "startChar": 22,
+        "endLine": 15,
+        "endChar": 31
+      },
+      "revId": "bbf4f8ac0f0de528b33a22c1b6ddf35ca805368a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c346eef_1270d73e",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-04-26T22:45:52Z",
       "side": 1,
       "message": "This seems to be redundant.",
+      "range": {
+        "startLine": 30,
+        "startChar": 18,
+        "endLine": 30,
+        "endChar": 35
+      },
+      "revId": "bbf4f8ac0f0de528b33a22c1b6ddf35ca805368a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51bd7ca8_a7547783",
+        "filename": "lib/extensions/sys_reg_trace/aarch64/sys_reg_trace.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-27T13:45:28Z",
+      "side": 1,
+      "message": "sadly not, one is EL1, the other is EL2",
+      "parentUuid": "3c346eef_1270d73e",
       "range": {
         "startLine": 30,
         "startChar": 18,
