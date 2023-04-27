@@ -186,11 +186,9 @@
 	.space	SPINLOCK_ASM_SIZE
 	.endm
 
-#if RAS_EXTENSION
 	.macro esb
 	.inst	0xd503221f
 	.endm
-#endif
 
 	/*
 	 * Helper macro to read system register value into x0
