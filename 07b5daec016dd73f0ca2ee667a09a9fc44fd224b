@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16090544_c0622f5f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-27T05:58:55Z",
+      "side": 1,
+      "message": "Please fix commitlint issues reported by the CI:\n\n✖   subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]\n✖   type must be lower-case [type-case]\n✖   type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test] [type-enum]",
+      "revId": "07b5daec016dd73f0ca2ee667a09a9fc44fd224b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
