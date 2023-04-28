@@ -227,6 +227,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64c9b954_0996a617",
+        "filename": "tools/memory/src/memmap.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-28T12:34:05Z",
+      "side": 1,
+      "message": "Or maybe the -f option (introduced in a subsequent patch) should be the default, as its output is more concise than -s.",
+      "parentUuid": "cf120883_2b2f5a5b",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 1
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "77d0b86c_fffcac79",
         "filename": "tools/memory/src/printer.py",
         "patchSetId": 39
