@@ -107,6 +107,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40f3603f_e636de52",
+        "filename": "Makefile",
+        "patchSetId": 10
+      },
+      "lineNbr": 912,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-04-28T07:38:42Z",
+      "side": 1,
+      "message": "Apologies, I had a change of heart after I wrote the last paragraph of the commit message, the code is what I intended. I\u0027ll change it when we finish this thread\n\nAnd I don\u0027t mind forcing SVE on when SME is enabled, I do agree it\u0027s probably the right thing. However as there isn\u0027t really a pattern to do this at the moment (or how/where), I wanted to stick to the current most used pattern instead of generating more garbage to be refactored later.",
+      "parentUuid": "d15cd0c0_c61c78a1",
+      "revId": "5598b3a30db50a18abdbbc7b3fdc6174b358858b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99d6b2b8_d4679a54",
