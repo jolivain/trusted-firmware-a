@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1012c8e4_ae889c99",
+        "filename": "tools/memory/readme.md",
+        "patchSetId": 39
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-28T12:19:48Z",
+      "side": 1,
+      "message": "Any reason why this file uses Markdown format rather than RestructuredText? The rest of TF-A documentation uses RestructuredText so I think it would be good to make it consistent, if possible.",
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffac7d8e_9e6afdf8",
+        "filename": "tools/memory/readme.md",
+        "patchSetId": 39
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-28T12:19:48Z",
+      "side": 1,
+      "message": "(minor) \"TF-A Memory Map Tool\", or \"TF-A Memory Layout Tool\" would sound less ambiguous to me. For me, the word \"Mapping\" evokes a tool that could map memory somehow.",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 26
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3d53a4d_b235f4cd",
+        "filename": "tools/memory/readme.md",
+        "patchSetId": 39
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-28T12:19:48Z",
+      "side": 1,
+      "message": "Is the tool actually analysing the *physical* memory layout? Or the *virtual* memory layout? I would have bet on the latter. Arguably this does not matter because in most cases TF-A uses an identity mapping, thus virtual address \u003d\u003d physical address. But technically speaking, I think the ELF files provides virtual addresses, doesn\u0027t it?\n\nAlso, \"poetry run tools/memory/src/memmap.py -sx\" prints the following headline:\n\n Virtual Address Map:\n\nLet\u0027s just say that the tool analyses the memory layout, without saying whether it\u0027s virtual or physical?",
+      "range": {
+        "startLine": 3,
+        "startChar": 71,
+        "endLine": 3,
+        "endChar": 79
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "866d5f6f_0169367c",
+        "filename": "tools/memory/readme.md",
+        "patchSetId": 39
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-28T12:19:48Z",
+      "side": 1,
+      "message": "Actually I would make -x the default behaviour. I think it\u0027s very unusual to print addresses in decimal format...",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 29
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03d403e5_2550ae40",
+        "filename": "tools/memory/src/__init__.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-28T12:19:48Z",
+      "side": 1,
+      "message": "For new files, please drop the \"and Contributors\" part. Just keep:\n\n # Copyright (c) 2023, Arm Limited. All rights reserved.",
+      "range": {
+        "startLine": 3,
+        "startChar": 21,
+        "endLine": 3,
+        "endChar": 50
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81d3821d_5c35e0b2",
+        "filename": "tools/memory/src/buildparser.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-28T12:19:48Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 2,
+        "startChar": 34,
+        "endLine": 2,
+        "endChar": 50
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "960fb37d_9f30d256",
+        "filename": "tools/memory/src/elfparser.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-28T12:19:48Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 2,
+        "startChar": 34,
+        "endLine": 2,
+        "endChar": 50
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9eca4b9c_9d1a54cc",
+        "filename": "tools/memory/src/memmap.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-28T12:19:48Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 3,
+        "startChar": 34,
+        "endLine": 3,
+        "endChar": 50
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b080be2_3c6308c7",
+        "filename": "tools/memory/src/memmap.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-28T12:19:48Z",
+      "side": 1,
+      "message": "\"typically\"? Is there any other value we support beyond debug or release?",
+      "range": {
+        "startLine": 32,
+        "startChar": 33,
+        "endLine": 32,
+        "endChar": 42
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf120883_2b2f5a5b",
+        "filename": "tools/memory/src/memmap.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-28T12:19:48Z",
+      "side": 1,
+      "message": "Should -s be the default action? Right now, \u0027poetry run tools/memory/src/memmap.py\u0027 does not print anything.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 1
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77d0b86c_fffcac79",
+        "filename": "tools/memory/src/printer.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-28T12:19:48Z",
+      "side": 1,
+      "message": "drop",
+      "range": {
+        "startLine": 2,
+        "startChar": 34,
+        "endLine": 2,
+        "endChar": 50
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
