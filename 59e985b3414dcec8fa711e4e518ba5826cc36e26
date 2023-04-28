@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b4aec36_7593509d",
+        "filename": "bl1/bl1.ld.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-04-28T12:54:01Z",
+      "side": 1,
+      "message": "Should there be a \"RAM_REGION_START \u003d .;\u0027 line here (at line 107)?",
+      "revId": "59e985b3414dcec8fa711e4e518ba5826cc36e26",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
