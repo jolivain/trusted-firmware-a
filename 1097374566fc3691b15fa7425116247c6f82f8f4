@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bf0db02_07c60f21",
+        "filename": "tools/memory/readme.md",
+        "patchSetId": 39
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-04-28T16:06:47Z",
+      "side": 1,
+      "message": "No reason, I assumed rst files were what we used for documentation we expected to publish in our documentation. But makes sense to be consistent here, factored everything into a rst file.",
+      "parentUuid": "1012c8e4_ae889c99",
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffac7d8e_9e6afdf8",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-04-28T12:19:48Z",
       "side": 1,
       "message": "(minor) \"TF-A Memory Map Tool\", or \"TF-A Memory Layout Tool\" would sound less ambiguous to me. For me, the word \"Mapping\" evokes a tool that could map memory somehow.",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 26
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89b295fa_0e154a46",
+        "filename": "tools/memory/readme.md",
+        "patchSetId": 39
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-04-28T16:06:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ffac7d8e_9e6afdf8",
       "range": {
         "startLine": 1,
         "startChar": 2,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c1c5723_d3bec916",
+        "filename": "tools/memory/readme.md",
+        "patchSetId": 39
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-04-28T16:06:47Z",
+      "side": 1,
+      "message": "That\u0027s right, looked at ELF files long enough that I should know this! In any case, cleared up the bits that refer to physical memory layouts.",
+      "parentUuid": "e3d53a4d_b235f4cd",
+      "range": {
+        "startLine": 3,
+        "startChar": 71,
+        "endLine": 3,
+        "endChar": 79
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "866d5f6f_0169367c",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-04-28T12:19:48Z",
       "side": 1,
       "message": "Actually I would make -x the default behaviour. I think it\u0027s very unusual to print addresses in decimal format...",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 29
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d144093e_24f94b71",
+        "filename": "tools/memory/readme.md",
+        "patchSetId": 39
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-04-28T16:06:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "866d5f6f_0169367c",
       "range": {
         "startLine": 101,
         "startChar": 0,
@@ -110,6 +200,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb930ede_bfa86e24",
+        "filename": "tools/memory/src/__init__.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-04-28T16:06:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03d403e5_2550ae40",
+      "range": {
+        "startLine": 3,
+        "startChar": 21,
+        "endLine": 3,
+        "endChar": 50
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81d3821d_5c35e0b2",
@@ -123,6 +237,30 @@
       "writtenOn": "2023-04-28T12:19:48Z",
       "side": 1,
       "message": "drop",
+      "range": {
+        "startLine": 2,
+        "startChar": 34,
+        "endLine": 2,
+        "endChar": 50
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "848021b9_f21041e2",
+        "filename": "tools/memory/src/buildparser.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-04-28T16:06:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81d3821d_5c35e0b2",
       "range": {
         "startLine": 2,
         "startChar": 34,
@@ -156,6 +294,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfe9df87_2b7fc249",
+        "filename": "tools/memory/src/elfparser.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-04-28T16:06:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "960fb37d_9f30d256",
+      "range": {
+        "startLine": 2,
+        "startChar": 34,
+        "endLine": 2,
+        "endChar": 50
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9eca4b9c_9d1a54cc",
@@ -179,6 +341,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "effd8341_bbc15018",
+        "filename": "tools/memory/src/memmap.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-04-28T16:06:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9eca4b9c_9d1a54cc",
+      "range": {
+        "startLine": 3,
+        "startChar": 34,
+        "endLine": 3,
+        "endChar": 50
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b080be2_3c6308c7",
@@ -192,6 +378,30 @@
       "writtenOn": "2023-04-28T12:19:48Z",
       "side": 1,
       "message": "\"typically\"? Is there any other value we support beyond debug or release?",
+      "range": {
+        "startLine": 32,
+        "startChar": 33,
+        "endLine": 32,
+        "endChar": 42
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "574af3f0_95eef484",
+        "filename": "tools/memory/src/memmap.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-04-28T16:06:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b080be2_3c6308c7",
       "range": {
         "startLine": 32,
         "startChar": 33,
@@ -251,6 +461,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a65b2f22_8a9071ed",
+        "filename": "tools/memory/src/memmap.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-04-28T16:06:47Z",
+      "side": 1,
+      "message": "I\u0027ve made -s the default action in this patch, but in later patches the footprint view becomes the default. One thing I wasn\u0027t sure about was what to do about the default generated with `make memmap`. In the past we\u0027ve generated the memory layout here, wondering if for performing diffs it may be better to use the footprint table.",
+      "parentUuid": "64c9b954_0996a617",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 1
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "77d0b86c_fffcac79",
         "filename": "tools/memory/src/printer.py",
         "patchSetId": 39
@@ -262,6 +496,30 @@
       "writtenOn": "2023-04-28T12:19:48Z",
       "side": 1,
       "message": "drop",
+      "range": {
+        "startLine": 2,
+        "startChar": 34,
+        "endLine": 2,
+        "endChar": 50
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ac04aae_351c0849",
+        "filename": "tools/memory/src/printer.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-04-28T16:06:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77d0b86c_fffcac79",
       "range": {
         "startLine": 2,
         "startChar": 34,
