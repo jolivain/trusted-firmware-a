@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "584d4896_1afa9c9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 38
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-04-28T07:01:21Z",
+      "side": 1,
+      "message": "Overall CI results :\nCI+1 passed here( https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/3367/ ).\nCI+2 ( https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/929/)\n* Only 2 test_configs failed, which were infra-related. \n* Passed when executed on internal CI.(https://jenkins.oss.arm.com/view/TF/job/tf-ci-gateway/127704/)\n\nHence Manually providing Verified +1 vote.",
+      "revId": "03d3c0d729e24713d657209bedf74d255550babb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
