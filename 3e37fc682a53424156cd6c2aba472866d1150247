@@ -65,6 +65,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70fb0f51_beddbdb9",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_ea.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-28T12:06:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "062a93a2_20f0fde5",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 27
+      },
+      "revId": "3e37fc682a53424156cd6c2aba472866d1150247",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e7ff61b_130a2ff8",
@@ -78,6 +102,24 @@
       "writtenOn": "2023-04-27T23:26:25Z",
       "side": 1,
       "message": "Firmware First handling requires EAs are handled in EL3 first. So shouldn\u0027t we enforce that HANDLE_EA_EL3_FIRST_NS\u003d\u003d1 when PLATFORM_TEST_EA_FFH\u003d1",
+      "revId": "3e37fc682a53424156cd6c2aba472866d1150247",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2486b3f4_e124d3e9",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 12
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-04-28T12:06:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e7ff61b_130a2ff8",
       "revId": "3e37fc682a53424156cd6c2aba472866d1150247",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
