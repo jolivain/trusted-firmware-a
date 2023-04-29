@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "635c83f4_cb9cce66",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-04-29T01:23:07Z",
+      "side": 1,
+      "message": "Isn\u0027t it better to define and initialize here instead of in line 388?",
+      "range": {
+        "startLine": 390,
+        "startChar": 1,
+        "endLine": 390,
+        "endChar": 11
+      },
+      "revId": "c647991eb7e7c91dd117b00b5dbf4aff07ba20d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "573829b0_37443ea5",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-04-29T01:23:07Z",
+      "side": 1,
+      "message": "Although it is possible to define this here, I would define outside the function for better readability. Maybe at the beginning of the file is a good idea.",
+      "range": {
+        "startLine": 424,
+        "startChar": 1,
+        "endLine": 424,
+        "endChar": 38
+      },
+      "revId": "c647991eb7e7c91dd117b00b5dbf4aff07ba20d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
