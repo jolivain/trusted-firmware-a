@@ -174,7 +174,7 @@
 # define PLAT_ARM_MMAP_ENTRIES		12
 # if (defined(SPD_tspd) || defined(SPD_opteed) || defined(SPD_spmd)) && \
 defined(IMAGE_BL2) && MEASURED_BOOT
-#  define MAX_XLAT_TABLES		7
+#  define MAX_XLAT_TABLES		8
 # else
 #  define MAX_XLAT_TABLES		6
 # endif /* (SPD_tspd || SPD_opteed || SPD_spmd) && IMAGE_BL2 && MEASURED_BOOT */
