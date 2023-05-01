@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e316a6d_d96624e2",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-05-01T15:22:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "635c83f4_cb9cce66",
+      "range": {
+        "startLine": 390,
+        "startChar": 1,
+        "endLine": 390,
+        "endChar": 11
+      },
+      "revId": "c647991eb7e7c91dd117b00b5dbf4aff07ba20d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "573829b0_37443ea5",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-29T01:23:07Z",
       "side": 1,
       "message": "Although it is possible to define this here, I would define outside the function for better readability. Maybe at the beginning of the file is a good idea.",
+      "range": {
+        "startLine": 424,
+        "startChar": 1,
+        "endLine": 424,
+        "endChar": 38
+      },
+      "revId": "c647991eb7e7c91dd117b00b5dbf4aff07ba20d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "add57c16_83682a95",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-05-01T15:22:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "573829b0_37443ea5",
       "range": {
         "startLine": 424,
         "startChar": 1,
