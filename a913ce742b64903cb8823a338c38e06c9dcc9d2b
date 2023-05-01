@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9794f232_518e1549",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-01T16:15:05Z",
+      "side": 1,
+      "message": "ERRATA_LIST_END is 15. So this is a bit strange syntax where the lower and higher index of the array range specifier are the same.",
+      "revId": "a913ce742b64903cb8823a338c38e06c9dcc9d2b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
