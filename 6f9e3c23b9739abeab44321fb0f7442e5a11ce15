@@ -106,6 +106,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8a3f9665_a2c1c597",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-01T22:48:08Z",
+      "side": 1,
+      "message": "This is contradicting the commit message which says SPMC_AT_EL3 is not supported with SPMD LSPs.",
+      "range": {
+        "startLine": 226,
+        "startChar": 44,
+        "endLine": 226,
+        "endChar": 52
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44ec97a5_0d3d972f",
         "filename": "services/std_svc/spmd/spmd_logical_sp.c",
         "patchSetId": 1
@@ -122,6 +145,29 @@
         "startChar": 13,
         "endLine": 230,
         "endChar": 23
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca971ec3_51c630de",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-01T22:48:08Z",
+      "side": 1,
+      "message": "Is it necessary to initialize rc here?",
+      "range": {
+        "startLine": 248,
+        "startChar": 10,
+        "endLine": 248,
+        "endChar": 25
       },
       "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -146,6 +192,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0df4c0ff_d62ad39d",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-01T22:48:08Z",
+      "side": 1,
+      "message": "what about the scenario related to the use of FFA_EL3_INTR_HANDLE_32 for handling Group0 interrupt? Isn\u0027t there a possibility for EL3 firmware(through SPMD LSP) to request an SP (like S-EL0 partition) for bottom half handling?",
+      "range": {
+        "startLine": 285,
+        "startChar": 41,
+        "endLine": 285,
+        "endChar": 63
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "beef2df9_4ccad43b",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-01T22:48:08Z",
+      "side": 1,
+      "message": "I am concerned if panic is the right approach. Can\u0027t we put the context into a degraded mode similar to the approach in the patch https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/17833 ?",
+      "range": {
+        "startLine": 348,
+        "startChar": 2,
+        "endLine": 348,
+        "endChar": 10
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96b30b87_5d14d105",
         "filename": "services/std_svc/spmd/spmd_logical_sp.c",
         "patchSetId": 1
@@ -162,6 +254,69 @@
         "startChar": 1,
         "endLine": 387,
         "endChar": 34
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cb2930a_519c2e0e",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-01T22:48:08Z",
+      "side": 1,
+      "message": "If SPMD LSP can initiate direct req messages, doesnt it mean the source of direct req could belong to SPMD LSP ID range? Perhaps, I might be mistaken.",
+      "range": {
+        "startLine": 970,
+        "startChar": 6,
+        "endLine": 970,
+        "endChar": 47
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0d65dd6_f8914723",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1018,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-01T22:48:08Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we check if the receiver VM ID of the direct resp message belongs to SPMD LSP range?",
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "352ed9bc_90c37060",
+        "filename": "services/std_svc/spmd/spmd_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-01T22:48:08Z",
+      "side": 1,
+      "message": "This field is related to an LSP (managed by SPMD). I am a bit confused why is this field part of the data structure that tracks the context of SPMC(lets say Hafnium at S-EL2).",
+      "range": {
+        "startLine": 56,
+        "startChar": 9,
+        "endLine": 56,
+        "endChar": 33
       },
       "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
