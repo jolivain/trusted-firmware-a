@@ -169,6 +169,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15ff0a05_b1f19775",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-01T22:27:19Z",
+      "side": 1,
+      "message": "The function spmd_logical_sp_init() is invoked exactly in one spmd function(spmd_init), that too after spmd_logical_sp_set_spmc_inited(). Is there any chance \"is_spmc_inited\" is false?",
+      "range": {
+        "startLine": 119,
+        "startChar": 5,
+        "endLine": 119,
+        "endChar": 28
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "271a5844_96a70149",
         "filename": "services/std_svc/spmd/spmd_logical_sp.c",
         "patchSetId": 1
@@ -209,6 +232,23 @@
         "endLine": 135,
         "endChar": 53
       },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50f3a525_7984b770",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-01T22:27:19Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
       "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
