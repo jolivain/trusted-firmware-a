@@ -16,6 +16,24 @@
       "message": "ERRATA_LIST_END is 15. So this is a bit strange syntax where the lower and higher index of the array range specifier are the same.",
       "revId": "a913ce742b64903cb8823a338c38e06c9dcc9d2b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9c1bd86_f0b328f9",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-01T16:17:33Z",
+      "side": 1,
+      "message": "I am fine if you wish to keep it this way. It would be better if we are consistent. For example, in line 325, the array range specifier syntax was not used. Feel free to ignore.",
+      "parentUuid": "9794f232_518e1549",
+      "revId": "a913ce742b64903cb8823a338c38e06c9dcc9d2b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
