@@ -34,6 +34,24 @@
       "parentUuid": "9794f232_518e1549",
       "revId": "a913ce742b64903cb8823a338c38e06c9dcc9d2b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a70cf154_5947b9c2",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-05-01T21:20:50Z",
+      "side": 1,
+      "message": "Ack, since there were 16 errata entries in A710, I think we ran into this issue. There is no free space in the array for any default entries. Increasing the size can make it consistent.",
+      "parentUuid": "b9c1bd86_f0b328f9",
+      "revId": "a913ce742b64903cb8823a338c38e06c9dcc9d2b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
