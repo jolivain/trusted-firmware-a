@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26aa49c1_03ca3bbc",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 882,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2023-05-01T20:20:12Z",
+      "side": 1,
+      "message": "This seems inconsistent with use of this variable farther down the function. Further, if this is how we should do things, we don\u0027t need the initialization above the if statement.",
+      "revId": "51831dd2476ecce76f1e010c0f32cf9ece31a999",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
