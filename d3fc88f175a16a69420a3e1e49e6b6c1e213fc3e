@@ -22,6 +22,30 @@
       },
       "revId": "d3fc88f175a16a69420a3e1e49e6b6c1e213fc3e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "335c19df_b9fadc48",
+        "filename": "bl31/bl31.mk",
+        "patchSetId": 26
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-02T15:04:09Z",
+      "side": 1,
+      "message": "The platform cannot and should not override these. Common code in BL31 requires both the CPU helpers and the DSU helpers unconditionally.\n\nThere are, though, cases where the CPU or DSU helpers are not required by individual images or libraries that themselves depend on the CPUs library, in which case one or more of these variables becomes 0 e.g.:\n\n- https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20352/26/bl2/bl2.mk\n- https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20352/26/bl2u/bl2u.mk\n- https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20352/26/plat/marvell/armada/a8k/common/ble/ble.mk\n\nIt\u0027s quite a lot of build system spaghetti that we\u0027re disentangling here so these build system changes inevitably don\u0027t necessarily exactly match the conceptual model of all of the components that these sources represent nor all of the ways that these sources are used by the various platforms and images, but it\u0027s a decent approximation.",
+      "parentUuid": "174c30f1_3ecae7fa",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 31
+      },
+      "revId": "d3fc88f175a16a69420a3e1e49e6b6c1e213fc3e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
