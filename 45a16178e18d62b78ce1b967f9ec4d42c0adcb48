@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87b312d6_cb0035ec",
+        "filename": "pyproject.toml",
+        "patchSetId": 40
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-02T07:53:40Z",
+      "side": 1,
+      "message": "We should be able to add the memmap script as a Poetry script with something like:\n\n    [tool.poetry.scripts]\n    memory \u003d \"tools.memory:main\"\n\nThat\u0027s allow us to use:\n\n    poetry run memory",
+      "revId": "45a16178e18d62b78ce1b967f9ec4d42c0adcb48",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "417a343b_7bfc78ff",
+        "filename": "tools/memory/readme.rst",
+        "patchSetId": 40
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-02T07:53:40Z",
+      "side": 1,
+      "message": "analyzing (US English)",
+      "range": {
+        "startLine": 4,
+        "startChar": 57,
+        "endLine": 4,
+        "endChar": 66
+      },
+      "revId": "45a16178e18d62b78ce1b967f9ec4d42c0adcb48",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fc75070_30e573ec",
+        "filename": "tools/memory/readme.rst",
+        "patchSetId": 40
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-02T07:53:40Z",
+      "side": 1,
+      "message": "Memory layout tool, per the title",
+      "range": {
+        "startLine": 4,
+        "startChar": 7,
+        "endLine": 4,
+        "endChar": 27
+      },
+      "revId": "45a16178e18d62b78ce1b967f9ec4d42c0adcb48",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ad24c2e_f67e0b95",
+        "filename": "tools/memory/readme.rst",
+        "patchSetId": 40
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-02T07:53:40Z",
+      "side": 1,
+      "message": "Python script",
+      "range": {
+        "startLine": 4,
+        "startChar": 33,
+        "endLine": 4,
+        "endChar": 52
+      },
+      "revId": "45a16178e18d62b78ce1b967f9ec4d42c0adcb48",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84ae0c13_742d8b61",
+        "filename": "tools/memory/readme.rst",
+        "patchSetId": 40
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-02T07:53:40Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 5,
+        "startChar": 71,
+        "endLine": 5,
+        "endChar": 78
+      },
+      "revId": "45a16178e18d62b78ce1b967f9ec4d42c0adcb48",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
