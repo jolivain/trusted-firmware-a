@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b764f06_76643808",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-05-02T19:13:54Z",
+      "side": 1,
+      "message": "assert(ptr !\u003d NULL);",
+      "revId": "36b2bf169434a33d4d452b1dace0d9b1ade9f1f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16c0bfb4_9754a624",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-05-02T19:13:54Z",
+      "side": 1,
+      "message": "could be named as just `errata_list`",
+      "range": {
+        "startLine": 396,
+        "startChar": 16,
+        "endLine": 396,
+        "endChar": 31
+      },
+      "revId": "36b2bf169434a33d4d452b1dace0d9b1ade9f1f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac9941d6_dbbf9d24",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-05-02T19:13:54Z",
+      "side": 1,
+      "message": "assert(errata_list !\u003d NULL);",
+      "revId": "36b2bf169434a33d4d452b1dace0d9b1ade9f1f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
