@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1378e533_02d0da2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-02T13:02:32Z",
+      "side": 1,
+      "message": "@Yann, do you really think we need CI+2 for this change to be verified or we can cover it under CI+1(considering it does all possible builds).\nI am asking this because CI is precious resource and dont want to waste on unwanted jobs. If that is the case then could you please cancel this job and run just CI+1 ",
+      "revId": "f6852265bef1e9050e970955b35e3dc795886a2f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
