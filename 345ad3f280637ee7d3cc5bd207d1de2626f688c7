@@ -16,6 +16,23 @@
       "message": "@Abdel, no need for both allow CI and legacy CI. ALso, please change your vote to Code Owner vote",
       "revId": "345ad3f280637ee7d3cc5bd207d1de2626f688c7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a2803ec_7b2e0437",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-05-02T15:07:06Z",
+      "side": 1,
+      "message": "It seems the modification is not enough, see build logs:\n16:43:59 arm-none-eabi-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/a5ds/debug/bl1/arm_bl1_setup.o: in function `arm_bl1_early_platform_setup\u0027:\n16:43:59 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/plat/arm/common/arm_bl1_setup.c:77: undefined reference to `plat_arm_secure_wdt_start\u0027",
+      "revId": "345ad3f280637ee7d3cc5bd207d1de2626f688c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
