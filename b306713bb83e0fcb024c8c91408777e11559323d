@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3938780_ab42c708",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-02T15:06:53Z",
+      "side": 1,
+      "message": "Build Error hinted by the CI:\n9:04:52 services/std_svc/spm/el3_spmc/spmc_shared_mem.c: In function \u0027spmc_shmem_check_obj\u0027:\n19:04:52 services/std_svc/spm/el3_spmc/spmc_shared_mem.c:826:52: error: \u0027emad_num\u0027 undeclared (first use in this function)\n19:04:52   826 |         emad \u003d spmc_shmem_obj_get_emad(\u0026obj-\u003edesc, emad_num,\n19:04:52       |                                                    ^~~~~~~~\n19:04:52 services/std_svc/spm/el3_spmc/spmc_shared_mem.c:826:52: note: each undeclared identifier is reported only once for each function it appears in\n19:04:52 services/std_svc/spm/el3_spmc/spmc_shared_mem.c:827:54: error: \u0027emad_size\u0027 undeclared (first use in this function)\n19:04:52   827 |                                        ffa_version, \u0026emad_size);\n19:04:52       |                                                      ^~~~~~~~~\n19:04:52 services/std_svc/spm/el3_spmc/spmc_shared_mem.c:829:21: error: declaration of \u0027emad_num\u0027 shadows previous non-variable [-Werror\u003dshadow]\n19:04:52   829 |         for (size_t emad_num \u003d 0; emad_num \u003c obj-\u003edesc.emad_count; emad_num++) {\n19:04:52       |                     ^~~~~~~~\n19:04:52 services/std_svc/spm/el3_spmc/spmc_shared_mem.c:834:24: error: declaration of \u0027emad_size\u0027 shadows previous non-variable [-Werror\u003dshadow]\n19:04:52   834 |                 size_t emad_size;\n19:04:52       |                        ^~~~~~~~~\n19:04:52 cc1: all warnings being treated as errors\n19:04:52 make: *** [Makefile:1431: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl31/spmc_shared_mem.o] Error 1\n19:04:52 + echo\n19:04:52 \n19:04:52 + echo \u0027See http://ci.trustedfirmware.org/job/tf-a-builder/1990370//artifact/artefacts/build.log for full output\u0027\n19:04:52 See http://ci.trustedfirmware.org/job/tf-a-builder/1990370//artifact/artefacts/build.log for full output\n19:04:52 + echo\n19:04:52 \n19:04:52 + cp -t /home/buildslave/workspace/tf-a-builder/workspace/artefacts/debug /home/buildslave/workspace/tf-a-builder/workspace/artefacts/build.log\n19:04:52 + exit 1",
+      "revId": "b306713bb83e0fcb024c8c91408777e11559323d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
