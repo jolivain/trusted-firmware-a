@@ -156,6 +156,24 @@
       "parentUuid": "3bebce43_fb9e0eeb",
       "revId": "034a2e3ef8a9e8e58f7cb7fab6db4ee60b2f9c29",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce1299a7_65ea976f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000283
+      },
+      "writtenOn": "2023-05-02T08:12:27Z",
+      "side": 1,
+      "message": "I think it should be possible, but it\u0027d weaken the benefits of unifying this for all platforms. For what it\u0027s worth, I had a go and can\u0027t reproduce an lx2162aqds compile error. Possibly it\u0027s just an issue with a local environment?\n\nLet me know if you want me to submit a new patchset with the NXP changes reverted",
+      "parentUuid": "24cd62e7_9ee3199b",
+      "revId": "034a2e3ef8a9e8e58f7cb7fab6db4ee60b2f9c29",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
