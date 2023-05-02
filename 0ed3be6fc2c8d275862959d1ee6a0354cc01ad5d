@@ -16,6 +16,24 @@
       "message": "No need for CI+2 on this patch, considering all the code is under the macro, if you could just add a test in tftf(for tegra) to test this configuration, it should be enough (just to ensure that this code path is exercised).\nEven you can provide manual verified+1",
       "revId": "0ed3be6fc2c8d275862959d1ee6a0354cc01ad5d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e411e63_08ccd355",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-05-02T14:13:29Z",
+      "side": 1,
+      "message": "Sure. Do you expect the TFTF test to unblock this merge? I am worried we will miss the merge window, so just checking.",
+      "parentUuid": "d06f0b81_88903121",
+      "revId": "0ed3be6fc2c8d275862959d1ee6a0354cc01ad5d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
