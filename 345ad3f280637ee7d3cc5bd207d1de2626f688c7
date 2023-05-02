@@ -33,6 +33,24 @@
       "message": "It seems the modification is not enough, see build logs:\n16:43:59 arm-none-eabi-ld.bfd: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/a5ds/debug/bl1/arm_bl1_setup.o: in function `arm_bl1_early_platform_setup\u0027:\n16:43:59 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/plat/arm/common/arm_bl1_setup.c:77: undefined reference to `plat_arm_secure_wdt_start\u0027",
       "revId": "345ad3f280637ee7d3cc5bd207d1de2626f688c7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b32388a1_3805c4d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-05-02T15:13:00Z",
+      "side": 1,
+      "message": "The CI was run there:\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/36556/\n\nI wonder if the flag shouldn\u0027t be set to 1?",
+      "parentUuid": "2a2803ec_7b2e0437",
+      "revId": "345ad3f280637ee7d3cc5bd207d1de2626f688c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
