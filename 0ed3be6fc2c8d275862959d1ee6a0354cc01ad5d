@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d06f0b81_88903121",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-02T09:31:45Z",
+      "side": 1,
+      "message": "No need for CI+2 on this patch, considering all the code is under the macro, if you could just add a test in tftf(for tegra) to test this configuration, it should be enough (just to ensure that this code path is exercised).\nEven you can provide manual verified+1",
+      "revId": "0ed3be6fc2c8d275862959d1ee6a0354cc01ad5d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
