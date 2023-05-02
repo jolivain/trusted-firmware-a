@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "174c30f1_3ecae7fa",
+        "filename": "bl31/bl31.mk",
+        "patchSetId": 26
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-05-02T14:08:58Z",
+      "side": 1,
+      "message": "Why do we need these variables if they are set to 1 always? Do we expect platforms to override it to 0 somehow?",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 31
+      },
+      "revId": "d3fc88f175a16a69420a3e1e49e6b6c1e213fc3e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
