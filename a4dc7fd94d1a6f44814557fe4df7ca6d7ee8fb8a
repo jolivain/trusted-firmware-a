@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce2f667b_64033c78",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-05-02T19:59:30Z",
+      "side": 1,
+      "message": "OK. This is better, but what I was suggesting was something like \n\n  struct em_cpu *errata \u003d \u0026ptr-\u003ecpu_errata_list[mid_index];\n\ndefined in line 407. Then you can use variable \u0027errata\u0027 instead of ptr-\u003ecpu_errata_list[mid_index]. Therefore you\u0027ll have: \n\n  errata-\u003eerrata_id\n  errata-\u003eem_rxpx_lo\n\nand so on.\n\nSorry if I wasn\u0027t clear :(",
+      "range": {
+        "startLine": 399,
+        "startChar": 16,
+        "endLine": 399,
+        "endChar": 27
+      },
+      "revId": "a4dc7fd94d1a6f44814557fe4df7ca6d7ee8fb8a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
