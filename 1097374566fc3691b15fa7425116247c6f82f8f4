@@ -503,6 +503,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "37bcbc61_8ccd2b83",
+        "filename": "tools/memory/src/memmap.py",
+        "patchSetId": 39
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-02T09:16:44Z",
+      "side": 1,
+      "message": "Yes, I think \u0027make memmap\u0027 should print the footprint table as well.\n\nBut perhaps this should be proposed as a separate patch, just so that it is more obvious, as some of TF-A users might rely on the old layout in their own CI scripts and might raise some concerns if we change that. You could also send a short courtesy email to announce this change on the TF-A mailing list.",
+      "parentUuid": "a65b2f22_8a9071ed",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 1
+      },
+      "revId": "1097374566fc3691b15fa7425116247c6f82f8f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "77d0b86c_fffcac79",
         "filename": "tools/memory/src/printer.py",
         "patchSetId": 39
