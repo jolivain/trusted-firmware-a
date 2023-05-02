@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfd07e70_3d4e83c5",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 33
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-05-02T22:20:45Z",
+      "side": 1,
+      "message": "Can you assume that the value of the non_arm_interconnect field is 0(false) in all these cases when it is not explicitly assigned?",
+      "range": {
+        "startLine": 194,
+        "startChar": 1,
+        "endLine": 202,
+        "endChar": 50
+      },
+      "revId": "4d9324753ab6c969dfdc4be2a78ff57e948c5234",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
