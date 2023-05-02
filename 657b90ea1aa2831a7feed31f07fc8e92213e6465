@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a17857b3_975b9185",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-02T11:09:36Z",
+      "side": 1,
+      "message": "The CI failed for the following 2 test configs:\n\ntf-l1-boot-tests-misc/fvp-mb_hash384-optee-romlib:fvp-optee.mb-linux.rootfs+ftpm_384-romlib-fip.ftpm-aemv8a\ntf-l1-boot-tests-misc/fvp-mb_hash256-tbb_hash384-optee-romlib:fvp-optee.mb-linux.rootfs+ftpm-romlib-fip.ftpm-aemv8a\n\nHowever, I think we can safely ignore them because:\n1. They are not related to TC platform.\n2. I\u0027ve seen these 2 configs failing for other patches in review, which makes me believe they are broken right now.\n\n",
+      "revId": "657b90ea1aa2831a7feed31f07fc8e92213e6465",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
