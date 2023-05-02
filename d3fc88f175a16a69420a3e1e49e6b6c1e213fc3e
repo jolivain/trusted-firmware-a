@@ -46,6 +46,30 @@
       },
       "revId": "d3fc88f175a16a69420a3e1e49e6b6c1e213fc3e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cb4554c_7cce4cb8",
+        "filename": "bl31/bl31.mk",
+        "patchSetId": 26
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-02T15:08:59Z",
+      "side": 1,
+      "message": "To add, if a platform needs to add additional sources which do depend on these additional libraries, then it can do that similarly to how I\u0027ve done it in Juno: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20352/26/plat/arm/board/juno/platform.mk#213\n\nI\u0027ve combed through all of the platforms already though, and there were very few platforms where that was truly the case.",
+      "parentUuid": "335c19df_b9fadc48",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 31
+      },
+      "revId": "d3fc88f175a16a69420a3e1e49e6b6c1e213fc3e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
