@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c0addca_41291148",
+        "filename": "tools/memory/readme.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-02T07:32:04Z",
+      "side": 1,
+      "message": "Remove spurious comma",
+      "range": {
+        "startLine": 157,
+        "startChar": 44,
+        "endLine": 157,
+        "endChar": 45
+      },
+      "revId": "87503eb16455d0e92f766e86935f42207ca09ffb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12898616_bc1a0456",
+        "filename": "tools/memory/readme.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-02T07:32:04Z",
+      "side": 1,
+      "message": "\"ELF segments\"? \"Component segments\" is a bit vague without that context, particularly because each ELF segment does not necessarily revolve around a single component.",
+      "range": {
+        "startLine": 157,
+        "startChar": 14,
+        "endLine": 157,
+        "endChar": 32
+      },
+      "revId": "87503eb16455d0e92f766e86935f42207ca09ffb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3f41a6d_1af10e15",
+        "filename": "tools/memory/readme.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-02T07:32:04Z",
+      "side": 1,
+      "message": "Do depths less than 2 or greater than 3 make sense? If not, maybe it\u0027d be clearer to have a flag like \"--sections\" (defaulting to true).",
+      "range": {
+        "startLine": 214,
+        "startChar": 47,
+        "endLine": 214,
+        "endChar": 56
+      },
+      "revId": "87503eb16455d0e92f766e86935f42207ca09ffb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b3d6bb8_84b4ea08",
+        "filename": "tools/memory/src/printer.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-02T07:32:04Z",
+      "side": 1,
+      "message": "These numbers look pretty magical. Can we make them named constants?",
+      "range": {
+        "startLine": 124,
+        "startChar": 31,
+        "endLine": 124,
+        "endChar": 38
+      },
+      "revId": "87503eb16455d0e92f766e86935f42207ca09ffb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43cdca4c_d35073d8",
+        "filename": "tools/memory/src/printer.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-02T07:32:04Z",
+      "side": 1,
+      "message": "With this expression being 8 lines, we could probably benefit from assigning a name to this array of columns",
+      "range": {
+        "startLine": 130,
+        "startChar": 44,
+        "endLine": 130,
+        "endChar": 68
+      },
+      "revId": "87503eb16455d0e92f766e86935f42207ca09ffb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
