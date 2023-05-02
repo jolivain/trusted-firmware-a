@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -21,7 +21,8 @@
 #define TRUSTED_FW_NVCOUNTER_OID		"1.3.6.1.4.1.4128.2100.1"
 /* NonTrustedFirmwareNVCounter - Non-volatile counter extension */
 #define NON_TRUSTED_FW_NVCOUNTER_OID		"1.3.6.1.4.1.4128.2100.2"
-
+/* CCANVCounter - CCA counter extension */
+#define CCA_NVCOUNTER_OID			"1.3.6.1.4.1.4128.2100.3"
 
 /*
  * Non-Trusted Firmware Updater Certificate
