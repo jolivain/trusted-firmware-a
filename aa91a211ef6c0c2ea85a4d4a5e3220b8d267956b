@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f6dd591_4356ba05",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-02T06:13:28Z",
+      "side": 1,
+      "message": "Please double-check by running the commitlint tools on your local machine as documented here [1], but I am pretty sure you need to use parentheses around the scope (not a colon), as in:\n\n fix(measured-boot):\n\nAlso, there was a comment from DavidV, which I\u0027ve not seen any resolution for:\n\n The measured_boot_extend function\u0027s documentation was updated in TF-A,\nclarifying that the version_size/sw_type_size parameters hold the size of the\nactual data and not the size of their buffer. I think this should be\nupdated/clarified here as well.\n\nCould you please incorporate this documentation update in the present patch? I think David refers to the \"(with \\0)\" part in these comments:\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/lib/psa/measured_boot.h#n39\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/lib/psa/measured_boot.h#n42\n\n[1] https://trustedfirmware-a.readthedocs.io/en/latest/process/commit-style.html#commit-style",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 18
+      },
+      "revId": "aa91a211ef6c0c2ea85a4d4a5e3220b8d267956b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
