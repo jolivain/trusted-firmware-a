@@ -68,6 +68,24 @@
       "parentUuid": "5f6025d2_deb2d04d",
       "revId": "6cf4ae979a5f8be23927b97ecfe789dabcb53dbd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28d0a336_4376b047",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-05-02T11:09:26Z",
+      "side": 1,
+      "message": "Sounds good. This handler is optional, so other platforms don\u0027t have to implement it, if there is no use case. For Tegra platforms, we have a specific use case demonstrated in the next commit in the dependency chain.",
+      "parentUuid": "4e9eb6bf_3f4185b4",
+      "revId": "6cf4ae979a5f8be23927b97ecfe789dabcb53dbd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
