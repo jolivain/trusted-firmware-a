@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e1b4850_2f81ea1d",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 406,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-05-02T01:12:56Z",
+      "side": 1,
+      "message": "This should be the \u0027if\u0027 condition. Otherwise you always return EM_AFFECTED.",
+      "range": {
+        "startLine": 405,
+        "startChar": 6,
+        "endLine": 406,
+        "endChar": 64
+      },
+      "revId": "26bdb1e602fee3735c1afdb2457e05a3c559c0ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9527d8c8_91f9264a",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-05-02T01:12:56Z",
+      "side": 1,
+      "message": "it looks like you are using \n  ptr-\u003ecpu_errata_list[mid_index]\n\nmultiple times. Maybe it\u0027s a good idea to define a pointer to em_cpu_list variable at the beginning of this block and then use it instead to improve readability and maintainability of the code.",
+      "range": {
+        "startLine": 395,
+        "startChar": 2,
+        "endLine": 412,
+        "endChar": 3
+      },
+      "revId": "26bdb1e602fee3735c1afdb2457e05a3c559c0ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
