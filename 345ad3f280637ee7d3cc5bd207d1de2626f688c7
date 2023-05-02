@@ -51,6 +51,24 @@
       "parentUuid": "2a2803ec_7b2e0437",
       "revId": "345ad3f280637ee7d3cc5bd207d1de2626f688c7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "457f9eaa_1301333c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-02T15:20:00Z",
+      "side": 1,
+      "message": "I have updated the flag, i was not sure if secure watchdog is used by this platform or not.\nAnd considering there is no documentation on how to build this platform i just pushed it. Now after this failure i build it again its fine with 1.\n\n@Abdel need to confirm if a5ds is not using secure WD and also request you to please provide a minimum documentation at \"docs/plat/arm/... \"",
+      "parentUuid": "b32388a1_3805c4d9",
+      "revId": "345ad3f280637ee7d3cc5bd207d1de2626f688c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
