@@ -16,6 +16,29 @@
       "message": "Minor change from previous version, removing a residual line.",
       "revId": "42ef3017a9709d66e1de46f7eebb1720328094ec",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "debe01f7_6a4ac740",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_ras.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-03T07:31:34Z",
+      "side": 1,
+      "message": "This is marked as maybe-unused but it is written to on L32 and read from on L35. Is there a reason for that?",
+      "range": {
+        "startLine": 18,
+        "startChar": 9,
+        "endLine": 18,
+        "endChar": 17
+      },
+      "revId": "42ef3017a9709d66e1de46f7eebb1720328094ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
