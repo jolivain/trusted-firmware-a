@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "318f8479_10a2fc41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 39
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-05-03T20:34:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1ce3c143_a5bf7167",
+      "range": {
+        "startLine": 9,
+        "startChar": 72,
+        "endLine": 10,
+        "endChar": 5
+      },
+      "revId": "75bb90bdc2e8d05f3018e489f04b141e0fe58d69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a99874c3_6deb63db",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-02T22:27:38Z",
       "side": 1,
       "message": "the",
+      "range": {
+        "startLine": 1135,
+        "startChar": 67,
+        "endLine": 1135,
+        "endChar": 68
+      },
+      "revId": "75bb90bdc2e8d05f3018e489f04b141e0fe58d69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e3f951b_c6df4dba",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 39
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-05-03T20:34:05Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a99874c3_6deb63db",
       "range": {
         "startLine": 1135,
         "startChar": 67,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66247f7e_8c94efac",
+        "filename": "docs/global_substitutions.txt",
+        "patchSetId": 39
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-05-03T20:34:05Z",
+      "side": 1,
+      "message": "I kept it consistent with the Feature flag in both the files.",
+      "parentUuid": "53c67808_a7c95352",
+      "range": {
+        "startLine": 72,
+        "startChar": 32,
+        "endLine": 72,
+        "endChar": 44
+      },
+      "revId": "75bb90bdc2e8d05f3018e489f04b141e0fe58d69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7508b646_f95c9256",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-05-02T22:27:38Z",
       "side": 1,
       "message": "Errata ABI",
+      "range": {
+        "startLine": 73,
+        "startChar": 3,
+        "endLine": 73,
+        "endChar": 13
+      },
+      "revId": "75bb90bdc2e8d05f3018e489f04b141e0fe58d69",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "978df4ae_596239f8",
+        "filename": "docs/glossary.rst",
+        "patchSetId": 39
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-05-03T20:34:05Z",
+      "side": 1,
+      "message": "I kept it consistent with the feature flag. Not sure if this is incorrect.",
+      "parentUuid": "7508b646_f95c9256",
       "range": {
         "startLine": 73,
         "startChar": 3,
