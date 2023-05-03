@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ac73dc2_74b065fb",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-05-03T17:32:32Z",
+      "side": 1,
+      "message": "I would actually initialiize it as NULL at this point. The rest is perfect.",
+      "range": {
+        "startLine": 399,
+        "startChar": 0,
+        "endLine": 401,
+        "endChar": 29
+      },
+      "revId": "f28892ccb5a1b5847c4d2b69df8da39ab8ac0622",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
