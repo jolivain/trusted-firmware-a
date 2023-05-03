@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39046362_22ac47a0",
+        "filename": "Makefile",
+        "patchSetId": 43
+      },
+      "lineNbr": 1624,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-03T17:18:50Z",
+      "side": 1,
+      "message": "We can limit the scope of PYTHONPATH this way. Works fine on Linux at least. \n\n\u003e JFYI that neither of these will work on Windows, so we might need to work around that\n\n@Chris, could you provide some more detail into why this doesn\u0027t work on Windows?",
+      "parentUuid": "e7d74b81_3a681fe2",
+      "range": {
+        "startLine": 1624,
+        "startChar": 1,
+        "endLine": 1624,
+        "endChar": 41
+      },
+      "revId": "c049599b5ca2d7d8898947f009b545fb070844c1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bbb73c94_de9f1abe",
         "filename": "docs/tools/index.rst",
         "patchSetId": 43
@@ -61,6 +85,24 @@
       "writtenOn": "2023-05-03T11:50:00Z",
       "side": 1,
       "message": "I think it\u0027s a good idea to add a \"tools\" section within TF-A documentation. We should eventually move the documentation related to fiptool and cert_create tools there. For example this page: https://ci-builds.trustedfirmware.org/static-files/f1H2P_0gbDvC9PXL5gfKvg251PyKQNm9F__ecbRuye8xNjgzMTEzODkxNzI1Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvMjAyNDExMC9hcnRpZmFjdA\u003d\u003d/artefacts/debug/build/html/getting_started/tools-build.html\n\nI am not saying you should do this now! I am just making a note of it for the future.",
+      "revId": "c049599b5ca2d7d8898947f009b545fb070844c1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2b4e3d0_2df87689",
+        "filename": "docs/tools/index.rst",
+        "patchSetId": 43
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-03T17:18:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bbb73c94_de9f1abe",
       "revId": "c049599b5ca2d7d8898947f009b545fb070844c1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -78,6 +120,30 @@
       "writtenOn": "2023-05-03T11:50:00Z",
       "side": 1,
       "message": "Could you please check the rst syntax to get a proper numbered list? If you look at the rendered output right now [1], you can see all 3 bullet points are number 1... Perhaps the \".. code:: shell\" directives need to be indented at the same level as the curl/poetry commands for them to be considered part of the list item body?  \n\nhttps://ci-builds.trustedfirmware.org/static-files/f1H2P_0gbDvC9PXL5gfKvg251PyKQNm9F__ecbRuye8xNjgzMTEzODkxNzI1Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvMjAyNDExMC9hcnRpZmFjdA\u003d\u003d/artefacts/debug/build/html/tools/memory-layout-tool.html",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 28
+      },
+      "revId": "c049599b5ca2d7d8898947f009b545fb070844c1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7592188f_97485c16",
+        "filename": "docs/tools/memory-layout-tool.rst",
+        "patchSetId": 43
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-03T17:18:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "91df3fe7_c0a1be35",
       "range": {
         "startLine": 18,
         "startChar": 0,

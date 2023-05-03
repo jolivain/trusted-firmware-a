@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f66e3b2_c8968307",
+        "filename": "docs/tools/memory-layout-tool.rst",
+        "patchSetId": 41
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-03T17:18:50Z",
+      "side": 1,
+      "message": "Sandrine raised a similar point in an earlier thread:\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18890/comment/e3d53a4d_b235f4cd/\n\nThe original wording referred to a physical address layout, but was changed to reflect what we are actually analyzing.",
+      "parentUuid": "afbc9652_d9300124",
+      "range": {
+        "startLine": 4,
+        "startChar": 63,
+        "endLine": 4,
+        "endChar": 70
+      },
+      "revId": "d534fa216555fb49410f4c97421960cc1be5a6a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6413b03_a46b97a5",
         "filename": "docs/tools/memory-layout-tool.rst",
         "patchSetId": 41
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-03T11:56:53Z",
       "side": 1,
       "message": "Unnecessary implementation detail",
+      "range": {
+        "startLine": 5,
+        "startChar": 30,
+        "endLine": 6,
+        "endChar": 43
+      },
+      "revId": "d534fa216555fb49410f4c97421960cc1be5a6a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe1af7da_15828ff4",
+        "filename": "docs/tools/memory-layout-tool.rst",
+        "patchSetId": 41
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-03T17:18:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6413b03_a46b97a5",
       "range": {
         "startLine": 5,
         "startChar": 30,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f24db57_4f82348a",
+        "filename": "docs/tools/memory-layout-tool.rst",
+        "patchSetId": 41
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-03T17:18:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2ca6448_bb8bab3e",
+      "range": {
+        "startLine": 13,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 32
+      },
+      "revId": "d534fa216555fb49410f4c97421960cc1be5a6a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b98f9e21_31e308d7",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-05-03T11:56:53Z",
       "side": 1,
       "message": "Is it possible to make this memory tool an actual Poetry script? e.g. with:\n\n    [tool.poetry.scripts]\n    memory \u003d { callable \u003d \"tools.memory:main\", extras \u003d [\"memory\"] }\n\n    [tool.poetry.group.tools.dependencies]\n    anytree \u003d { version \u003d \"^2.8.0\", optional \u003d true }\n    click \u003d { version \u003d \"^8.1.3\", optional \u003d true }\n    prettytable \u003d { version \u003d \"^3.5.0\", optional \u003d true }\n    pyelftools \u003d { version \u003d \"^0.29\", optional \u003d true }\n\n    [tool.poetry.extras]\n    memory \u003d [\"anytree\", \"click\", \"prettytable\", \"pyelftools\"]\n\nI think then you can simply `poetry run` and it will automatically install them, avoiding the need to explicitly install dependencies.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "d534fa216555fb49410f4c97421960cc1be5a6a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c3fc5d7_8c4d4835",
+        "filename": "pyproject.toml",
+        "patchSetId": 41
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-03T17:18:50Z",
+      "side": 1,
+      "message": "I\u0027ve made it into a callable in later patches. However, I\u0027m not seeing the behavior you\u0027ve described for the extra functionality. So far, I have to run `poetry install -E memory` to get all the dependencies the scripts have.",
+      "parentUuid": "b98f9e21_31e308d7",
       "range": {
         "startLine": 22,
         "startChar": 0,
