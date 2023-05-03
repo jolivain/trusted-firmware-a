@@ -39,6 +39,30 @@
       },
       "revId": "223d8a0ab5f2e4b0b2753b7f3d37ca38af12a1bc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b693236d_acb8d835",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-05-03T19:00:56Z",
+      "side": 1,
+      "message": "It\u0027s needed because we only include the libfdt package in opteed.mk if that option is set.\n\nHere\u0027s a failure that demonstrates it:\n\nhttps://ci.trustedfirmware.org/job/tf-a-builder/2005683/",
+      "parentUuid": "ba9bb157_f7392469",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 24
+      },
+      "revId": "223d8a0ab5f2e4b0b2753b7f3d37ca38af12a1bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
