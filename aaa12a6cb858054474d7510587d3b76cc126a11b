@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e56e8b7_af4c26df",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_ras.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-03T14:38:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69008a71_c686bd17",
+      "range": {
+        "startLine": 13,
+        "startChar": 7,
+        "endLine": 13,
+        "endChar": 16
+      },
+      "revId": "aaa12a6cb858054474d7510587d3b76cc126a11b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23f83f8f_e02fca05",
@@ -79,6 +103,24 @@
       "side": 1,
       "message": "To do it just for fvp i need to duplicate this file in fvp, \nBTW its private to Arm platforms and i doubt any other platform than fvp uses it even if it does it won\u0027t be impacted and can be used by them if they wish.",
       "parentUuid": "23f83f8f_e02fca05",
+      "revId": "aaa12a6cb858054474d7510587d3b76cc126a11b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93b5238b_fcc6bcaa",
+        "filename": "plat/arm/common/aarch64/arm_sdei.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-03T14:38:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd36d040_23bb5b2b",
       "revId": "aaa12a6cb858054474d7510587d3b76cc126a11b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
