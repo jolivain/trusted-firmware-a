@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -174,5 +174,18 @@
  * Ticks elapsed in one second with a signal of 1 KHz
  */
 #define KHZ_TICKS_PER_SEC U(1000)
+
+
+/*
+ * Bit manipulation macros.
+ */
+#define INPLACE(regfield, val) \
+	(((val) + UL(0)) << (regfield##_SHIFT))
+
+#define MASK(regfield) \
+	((~0ULL >> (64ULL - (regfield##_WIDTH))) << (regfield##_SHIFT))
+
+#define EXTRACT(regfield, reg) \
+	(((reg) & MASK(regfield)) >> (regfield##_SHIFT))
 
 #endif /* UTILS_DEF_H */
