@@ -125,6 +125,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a93cbf1_763b3728",
+        "filename": "Makefile",
+        "patchSetId": 10
+      },
+      "lineNbr": 912,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-05-03T09:52:37Z",
+      "side": 1,
+      "message": "Just to update all other reviewers,\nTF-A team has agreed to retain this check of throwing error message for now. \nHowever, forcing the feature enablement is not ruled out. Since this needs to be cleaned up for other features too, It will be picked and worked on explicitly in an other patch.\nHence closing this comment.",
+      "parentUuid": "40f3603f_e636de52",
+      "revId": "5598b3a30db50a18abdbbc7b3fdc6174b358858b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99d6b2b8_d4679a54",
