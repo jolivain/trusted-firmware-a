@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1be069f3_a1164588",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 29
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2023-05-03T13:59:21Z",
+      "side": 1,
+      "message": "The check today in lib/cpus/ is the inverse. CPU types that support HW coherency *must* enable this, not CPUs that do not *must not*:\n\n\"Cortex-x must be compiled with HW_ASSISTED_COHERENCY enabled\"\n\nWhat do we do if we have a platform family with some CPUs which do support HW coherency and some that do not? How about TI K3 plats that have CPUs that on paper do not support HW coherency but we have custom infra to enable it anyway?\n\nNot to block this series on questions without good answers, how about we change this from an \"error\" to a \"warning\" for now.",
+      "revId": "544193c460c0a94c63e9db6545a599ee574ba95c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
