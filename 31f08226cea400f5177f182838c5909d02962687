@@ -1,0 +1,267 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35f71e91_7cf0077f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 30
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-03T03:26:01Z",
+      "side": 1,
+      "message": "should we provide some compatibility for old option ? i.e set the new flags to one if the old value flag is set in Makefile ? This may help for compatibility. The old flag can then be marked for deprecation for next release.",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 30
+      },
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6eb0596_9050f831",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 30
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-03T03:26:01Z",
+      "side": 1,
+      "message": "The current usage of RAS_EXTENSION in TF-A codebase is to cater for 3 things in TF-A : \n\n1. Pull in necessary framework and platform hooks for Firmware first handling(FFH) of RAS errors\n\n2. Manage the FEAT_RAS extension when switching the worlds.\n\nFFH means that all the EAs from NS are trapped in EL3 in EL3 first and signaled to NS world later after the first handling is done in firmware. There is an alternate way of handling\nRAS errors viz Kernel First handling(KFH). Tying FEAT_RAS to RAS_EXTENSION build flag was not correct as the feature is needed for proper handling KFH as well.\n\nThis patch breaks down the RAS_EXTENSION flag into a flag to denote the CPU architecture `ENABLE_FEAT_RAS` which is used in context management during world switch and another flag `RAS_FFH_SUPPORT` to pull in required framework and platform hooks for FFH.\n\nProper support for KFH will be added in future patches.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25347139_ff053082",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-03T03:26:01Z",
+      "side": 1,
+      "message": "comments on doc and wording for commit message. Overall providing a compatibility for older option in Makefile will be helpful.\n",
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8025f962_6eeed2e1",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-03T03:26:01Z",
+      "side": 1,
+      "message": "This document generally would need a better re-org when KFH is introduced as many platform APIs will not be needed for KFH handling.\n\nSince TF-A does not fully support KFH , is it worth not mentioning KFH for now and just modify the doc for flag changes ? I think the doc will need larger rework with KFH.",
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32bbaaa8_2536eb23",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-03T03:26:01Z",
+      "side": 1,
+      "message": "this is not correct. RAS errors can be from within PE as well.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 34
+      },
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22283dfd_61971670",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-03T03:26:01Z",
+      "side": 1,
+      "message": "Error exception can be an interrupt as well. RAS Arch specification mentions these details and this document need to just point to it.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 81
+      },
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb6b3253_783e456e",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-03T03:26:01Z",
+      "side": 1,
+      "message": "This is not correct as TF-A can handle RAS errors via interrupts as well",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 7
+      },
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13944f39_a66b21fa",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-03T03:26:01Z",
+      "side": 1,
+      "message": "This patch does not support kernel first handling yet. Would be worth pulling out this doc change and add it when KFH support has been added later.",
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bb70fb9_cbce2b7c",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-03T03:26:01Z",
+      "side": 1,
+      "message": "add: Firmware signals error back to Kernel via SDEI.",
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c07cfc97_e8fceda6",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-03T03:26:01Z",
+      "side": 1,
+      "message": "This is talkin about error interrupts whereas FFH section does not mention interrupts.  Would need similar info in FFH section as well.",
+      "range": {
+        "startLine": 74,
+        "startChar": 3,
+        "endLine": 74,
+        "endChar": 85
+      },
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aa94ca1_dc05caf4",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-03T03:26:01Z",
+      "side": 1,
+      "message": "Need to elaborate what this support is.",
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "998acabb_dfcd1e3d",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-03T03:26:01Z",
+      "side": 1,
+      "message": "I am not sure whether this flag will default to KFH. The EA routing is what determines whether Aborts are handled first in firmware or kernel.",
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44ebdfb5_a9fb679e",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-03T03:26:01Z",
+      "side": 1,
+      "message": "... and FEAT_RAS_ENABLE must also be set to 1",
+      "range": {
+        "startLine": 783,
+        "startChar": 55,
+        "endLine": 783,
+        "endChar": 56
+      },
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
