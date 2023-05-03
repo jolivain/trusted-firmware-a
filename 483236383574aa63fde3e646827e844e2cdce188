@@ -46,6 +46,30 @@
       },
       "revId": "483236383574aa63fde3e646827e844e2cdce188",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82e337d4_465c4fff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-03T15:38:37Z",
+      "side": 1,
+      "message": "Hi Yann, `build` is an additional commit type to categorise commits that represent changes to the build system, but not necessarily to the product itself.\n\nWe use the commitlint recommendations that the CC spec specifically mentions:\n\n\u003e 4. types other than fix: and feat: are allowed, for example @commitlint/config-conventional (based on the Angular convention) recommends build:, chore:, ci:, docs:, style:, refactor:, perf:, test:, and others.\n\nMore concretely we define our supported types and scopes in `changelog.yaml`, and these are forwarded to all of  the CC-related tooling we have: https://github.com/ARM-software/arm-trusted-firmware/blob/master/changelog.yaml#L15-L67",
+      "parentUuid": "b44bc5ca_15acfc67",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "483236383574aa63fde3e646827e844e2cdce188",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
