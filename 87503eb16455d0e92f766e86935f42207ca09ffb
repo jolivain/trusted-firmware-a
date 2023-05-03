@@ -47,6 +47,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18cf8187_f7ef2099",
+        "filename": "tools/memory/readme.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-03T08:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c0addca_41291148",
+      "range": {
+        "startLine": 157,
+        "startChar": 44,
+        "endLine": 157,
+        "endChar": 45
+      },
+      "revId": "87503eb16455d0e92f766e86935f42207ca09ffb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4abe4320_c5016329",
+        "filename": "tools/memory/readme.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-03T08:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12898616_bc1a0456",
+      "range": {
+        "startLine": 157,
+        "startChar": 14,
+        "endLine": 157,
+        "endChar": 32
+      },
+      "revId": "87503eb16455d0e92f766e86935f42207ca09ffb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3f41a6d_1af10e15",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-05-02T07:32:04Z",
       "side": 1,
       "message": "Do depths less than 2 or greater than 3 make sense? If not, maybe it\u0027d be clearer to have a flag like \"--sections\" (defaulting to true).",
+      "range": {
+        "startLine": 214,
+        "startChar": 47,
+        "endLine": 214,
+        "endChar": 56
+      },
+      "revId": "87503eb16455d0e92f766e86935f42207ca09ffb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a611959_4f7e7885",
+        "filename": "tools/memory/readme.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-03T08:30:55Z",
+      "side": 1,
+      "message": "What I had in mind in choosing `depth` to constrain the view is that we may decide in future to add function level information. With this a user may also want to toggle between condensed and verbose views. In my view the `--depth` option provides a clear and intuitive way to traverse between these views quickly.",
+      "parentUuid": "e3f41a6d_1af10e15",
       "range": {
         "startLine": 214,
         "startChar": 47,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "156bd6cb_d24cf1df",
+        "filename": "tools/memory/src/printer.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-03T08:30:55Z",
+      "side": 1,
+      "message": "How does it look now?",
+      "parentUuid": "7b3d6bb8_84b4ea08",
+      "range": {
+        "startLine": 124,
+        "startChar": 31,
+        "endLine": 124,
+        "endChar": 38
+      },
+      "revId": "87503eb16455d0e92f766e86935f42207ca09ffb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "43cdca4c_d35073d8",
         "filename": "tools/memory/src/printer.py",
         "patchSetId": 13
@@ -106,6 +202,30 @@
       "writtenOn": "2023-05-02T07:32:04Z",
       "side": 1,
       "message": "With this expression being 8 lines, we could probably benefit from assigning a name to this array of columns",
+      "range": {
+        "startLine": 130,
+        "startChar": 44,
+        "endLine": 130,
+        "endChar": 68
+      },
+      "revId": "87503eb16455d0e92f766e86935f42207ca09ffb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82afe9c9_7477f98a",
+        "filename": "tools/memory/src/printer.py",
+        "patchSetId": 13
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-03T08:30:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43cdca4c_d35073d8",
       "range": {
         "startLine": 130,
         "startChar": 44,
