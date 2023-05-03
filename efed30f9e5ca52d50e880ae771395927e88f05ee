@@ -16,6 +16,24 @@
       "message": "Writing to global data with cache disabled and reading back with cache enabled has the risk of reading back stale value. It is not recommended to do this type of writes or else cache maintenance need to be performed as required.\n\nMight be easier to disable the build flag ENABLE_MPMM for this errata.",
       "revId": "efed30f9e5ca52d50e880ae771395927e88f05ee",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84517e57_ad1a5b69",
+        "filename": "lib/cpus/aarch64/cortex_a510.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-05-03T20:36:57Z",
+      "side": 1,
+      "message": "Disabling the build flag is not easy as we have the version check.\n\nOn the assembly side, the variable is updated before data caches are enabled and hence it would update the external memory as it would be device attributes then. By the time it reaches the mpmm enable, the cache is enabled, the updated line is filled into the cache. How does it get stale unless there is some spurious write to the same location. If so, could you explain how could this be possible? Also, the need for the maintenance instruction?",
+      "parentUuid": "e509ec80_9983e161",
+      "revId": "efed30f9e5ca52d50e880ae771395927e88f05ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
