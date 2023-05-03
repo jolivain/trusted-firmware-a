@@ -47,6 +47,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0050086_5736818d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 30
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-03T14:52:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6eb0596_9050f831",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 33
+      },
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25347139_ff053082",
@@ -81,6 +105,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "feb559fc_62c12630",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-03T14:52:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8025f962_6eeed2e1",
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32bbaaa8_2536eb23",
@@ -94,6 +136,30 @@
       "writtenOn": "2023-05-03T03:26:01Z",
       "side": 1,
       "message": "this is not correct. RAS errors can be from within PE as well.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 34
+      },
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbac267f_2d9cd89d",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-03T14:52:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32bbaaa8_2536eb23",
       "range": {
         "startLine": 13,
         "startChar": 0,
@@ -127,6 +193,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cf0ecc0_eb663d36",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-03T14:52:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22283dfd_61971670",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 81
+      },
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb6b3253_783e456e",
@@ -140,6 +230,30 @@
       "writtenOn": "2023-05-03T03:26:01Z",
       "side": 1,
       "message": "This is not correct as TF-A can handle RAS errors via interrupts as well",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 7
+      },
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "067c1e21_31b5a68e",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-03T14:52:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb6b3253_783e456e",
       "range": {
         "startLine": 27,
         "startChar": 0,
@@ -169,6 +283,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f86a2bb_8ce296dd",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-03T14:52:54Z",
+      "side": 1,
+      "message": "I am just keeping the name here and mention that it will be done in future.",
+      "parentUuid": "13944f39_a66b21fa",
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2bb70fb9_cbce2b7c",
         "filename": "docs/components/ras.rst",
         "patchSetId": 30
@@ -180,6 +312,24 @@
       "writtenOn": "2023-05-03T03:26:01Z",
       "side": 1,
       "message": "add: Firmware signals error back to Kernel via SDEI.",
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f39a3d4_050a69bb",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-03T14:52:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bb70fb9_cbce2b7c",
       "revId": "31f08226cea400f5177f182838c5909d02962687",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -207,6 +357,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34c90291_e744295d",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-03T14:52:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c07cfc97_e8fceda6",
+      "range": {
+        "startLine": 74,
+        "startChar": 3,
+        "endLine": 74,
+        "endChar": 85
+      },
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5aa94ca1_dc05caf4",
@@ -220,6 +394,24 @@
       "writtenOn": "2023-05-03T03:26:01Z",
       "side": 1,
       "message": "Need to elaborate what this support is.",
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed721fda_7eee8e70",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-03T14:52:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5aa94ca1_dc05caf4",
       "revId": "31f08226cea400f5177f182838c5909d02962687",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -241,6 +433,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15103981_d00b759e",
+        "filename": "docs/components/ras.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-03T14:52:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "998acabb_dfcd1e3d",
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44ebdfb5_a9fb679e",
@@ -254,6 +464,30 @@
       "writtenOn": "2023-05-03T03:26:01Z",
       "side": 1,
       "message": "... and FEAT_RAS_ENABLE must also be set to 1",
+      "range": {
+        "startLine": 783,
+        "startChar": 55,
+        "endLine": 783,
+        "endChar": 56
+      },
+      "revId": "31f08226cea400f5177f182838c5909d02962687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a504ebc8_eb4a6398",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-03T14:52:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44ebdfb5_a9fb679e",
       "range": {
         "startLine": 783,
         "startChar": 55,
