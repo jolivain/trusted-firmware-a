@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
-ifeq (${PLATFORM_TEST},tfm-testsuite)
+ifeq (${PLATFORM_TEST_TFM_TESTSUITE},1)
 
     # The variables need to be set to compile the platform test:
     ifeq (${TF_M_TESTS_PATH},)
