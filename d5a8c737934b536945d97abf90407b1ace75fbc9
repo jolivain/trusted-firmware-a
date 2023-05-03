@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97900a36_84fdf79a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-03T10:51:02Z",
+      "side": 1,
+      "message": "I would rather say:\n\n mock support for CCA NV counter\n\nto highlight the limitation that we only have 2 counters on the AEM FVP.",
+      "range": {
+        "startLine": 7,
+        "startChar": 11,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "d5a8c737934b536945d97abf90407b1ace75fbc9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9088d4c_0fb64903",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-03T10:51:02Z",
+      "side": 1,
+      "message": "(minor) Sounds redundant with the commit title...",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 39
+      },
+      "revId": "d5a8c737934b536945d97abf90407b1ace75fbc9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8853fa63_d6de49ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-03T10:51:02Z",
+      "side": 1,
+      "message": "Suggest adding a sentence to explain what this buys us, something like:\n\n This allows us to use the CCA CoT on AEM FVP nonetheless.\n\nAnd we could also mention that with this commit, the FVP platform port gets its own version of plat_get_nv_ctr() as it now needs to diverge from the common implementation provided at the Arm development platforms level.",
+      "revId": "d5a8c737934b536945d97abf90407b1ace75fbc9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfa1d667_1af9f208",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-03T10:51:02Z",
+      "side": 1,
+      "message": "I think we need a comment above line 70. We could say something like:\n\n\"The CCA non-volatile counter only exists on some Arm development platforms. On others, we mock it by aliasing it to the Trusted Firmware Non-Volatile counter, hence we set both counters to the same default value.\"",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 19
+      },
+      "revId": "d5a8c737934b536945d97abf90407b1ace75fbc9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da738915_fe96b9d2",
+        "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-03T10:51:02Z",
+      "side": 1,
+      "message": "This code is identical to the one in plat_set_nv_ctr() so I think there is an opportunity to factorize this out into a static helper function to be called by both platform interfaces.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 2
+      },
+      "revId": "d5a8c737934b536945d97abf90407b1ace75fbc9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
