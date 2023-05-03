@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4fd2563_63ee1d55",
+        "filename": "Makefile",
+        "patchSetId": 43
+      },
+      "lineNbr": 1624,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-03T11:50:00Z",
+      "side": 1,
+      "message": "(minor) AFAIK, this will put PYTHONPATH in the environment for the rest of the make command lifetime, which could be undesirable... Is there a way to bind the PYTHONPATH variable lifetime to the below python command lifetime instead? Would the following work?\n\n PYTHONPATH\u003d$(CURDIR)/tools/memory \\\n   ${Q}${PYTHON} -m memory.memmap -sr ${BUILD_PLAT}",
+      "range": {
+        "startLine": 1624,
+        "startChar": 1,
+        "endLine": 1624,
+        "endChar": 41
+      },
+      "revId": "c049599b5ca2d7d8898947f009b545fb070844c1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbb73c94_de9f1abe",
+        "filename": "docs/tools/index.rst",
+        "patchSetId": 43
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-03T11:50:00Z",
+      "side": 1,
+      "message": "I think it\u0027s a good idea to add a \"tools\" section within TF-A documentation. We should eventually move the documentation related to fiptool and cert_create tools there. For example this page: https://ci-builds.trustedfirmware.org/static-files/f1H2P_0gbDvC9PXL5gfKvg251PyKQNm9F__ecbRuye8xNjgzMTEzODkxNzI1Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvMjAyNDExMC9hcnRpZmFjdA\u003d\u003d/artefacts/debug/build/html/getting_started/tools-build.html\n\nI am not saying you should do this now! I am just making a note of it for the future.",
+      "revId": "c049599b5ca2d7d8898947f009b545fb070844c1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91df3fe7_c0a1be35",
+        "filename": "docs/tools/memory-layout-tool.rst",
+        "patchSetId": 43
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-03T11:50:00Z",
+      "side": 1,
+      "message": "Could you please check the rst syntax to get a proper numbered list? If you look at the rendered output right now [1], you can see all 3 bullet points are number 1... Perhaps the \".. code:: shell\" directives need to be indented at the same level as the curl/poetry commands for them to be considered part of the list item body?  \n\nhttps://ci-builds.trustedfirmware.org/static-files/f1H2P_0gbDvC9PXL5gfKvg251PyKQNm9F__ecbRuye8xNjgzMTEzODkxNzI1Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvMjAyNDExMC9hcnRpZmFjdA\u003d\u003d/artefacts/debug/build/html/tools/memory-layout-tool.html",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 28
+      },
+      "revId": "c049599b5ca2d7d8898947f009b545fb070844c1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
