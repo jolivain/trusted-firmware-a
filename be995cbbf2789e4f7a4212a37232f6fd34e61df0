@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "eccbeac7_90672462",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-05-03T10:27:52Z",
+      "side": 1,
+      "message": "I understand that it *should* be the responsibility of the platform to validate the MPIDR, and that the platform is the only place that can reasonably do that.\n\nBUT in this case the PSCI library code is going to index an array internal to the PSCI library, based on the returned core index. So in the interest of security, I think it is not violating anything by briefly checking that against that array size. After all this is critical code (since the input comes from NS world), and we have a safe and clean way out there: simply returning an error code.\n\nWe could even change the asserts in psci_cpu_on_start() into regular checks, and return -PSCI_E_INVALID_PARAMS, but that would be double checking.",
+      "parentUuid": "5b68f2ff_79f49c40",
+      "range": {
+        "startLine": 29,
+        "startChar": 3,
+        "endLine": 29,
+        "endChar": 38
+      },
+      "revId": "be995cbbf2789e4f7a4212a37232f6fd34e61df0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d2162c92_c34e6640",
