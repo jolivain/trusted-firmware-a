@@ -670,4 +670,23 @@ static inline bool is_feat_sme2_supported(void)
 	return read_feat_sme_id_field() >= ID_AA64PFR1_EL1_SME2_SUPPORTED;
 }
 
+/*******************************************************************************
+ * Function to get hardware granularity support
+ ******************************************************************************/
+
+static inline u_register_t get_id_aa64mmfr0_el0_tgran4(void)
+{
+	return EXTRACT(ID_AA64MMFR0_EL1_TGRAN4, read_id_aa64mmfr0_el1());
+}
+
+static inline u_register_t get_id_aa64mmfr0_el0_tgran16(void)
+{
+	return EXTRACT(ID_AA64MMFR0_EL1_TGRAN16, read_id_aa64mmfr0_el1());
+}
+
+static inline u_register_t get_id_aa64mmfr0_el0_tgran64(void)
+{
+	return EXTRACT(ID_AA64MMFR0_EL1_TGRAN64, read_id_aa64mmfr0_el1());
+}
+
 #endif /* ARCH_FEATURES_H */
