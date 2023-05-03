@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd57e021_c34ac50d",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 27
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-03T03:36:29Z",
+      "side": 1,
+      "message": "Is this rename necessary ? \nI mean , this rename is not adding much and preferable we should not rename build flags without adequate reason. Also since FFH is not default, the default for this flag also should be \"do not trap\".\n\n\" If this flag is set, then SCR_EL3.TERR will be set to 1 for NS world which will trap access to RAS error record registers by NS world. For RAS FFH mode, this flag should be set to 1 NS world is not supposed to access record registers. Default is 0.\"",
+      "range": {
+        "startLine": 785,
+        "startChar": 35,
+        "endLine": 787,
+        "endChar": 59
+      },
+      "revId": "ef164e3d461ddb448277aab6cffa91b7b71a8c81",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
