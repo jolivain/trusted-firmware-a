@@ -23,11 +23,15 @@
 bool xlat_arch_is_granule_size_supported(size_t size)
 {
 	u_register_t id_aa64mmfr0_el1 = read_id_aa64mmfr0_el1();
+	u_register_t tgran4;
 
 	if (size == PAGE_SIZE_4KB) {
-		return ((id_aa64mmfr0_el1 >> ID_AA64MMFR0_EL1_TGRAN4_SHIFT) &
-			 ID_AA64MMFR0_EL1_TGRAN4_MASK) ==
-			 ID_AA64MMFR0_EL1_TGRAN4_SUPPORTED;
+		/* TF-A supports FEAT_LPA2 for 4KB granularity */
+		tgran4 = (id_aa64mmfr0_el1 >> ID_AA64MMFR0_EL1_TGRAN4_SHIFT) &
+			 ID_AA64MMFR0_EL1_TGRAN4_MASK;
+
+		return ((tgran4 == ID_AA64MMFR0_EL1_TGRAN4_SUPPORTED) ||
+			(tgran4 == ID_AA64MMFR0_EL1_TGRAN4_52B_SUPPORTED));
 	} else if (size == PAGE_SIZE_16KB) {
 		return ((id_aa64mmfr0_el1 >> ID_AA64MMFR0_EL1_TGRAN16_SHIFT) &
 			 ID_AA64MMFR0_EL1_TGRAN16_MASK) ==
