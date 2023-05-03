@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7d74b81_3a681fe2",
+        "filename": "Makefile",
+        "patchSetId": 43
+      },
+      "lineNbr": 1624,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-03T11:56:53Z",
+      "side": 1,
+      "message": "JFYI that neither of these will work on Windows, so we might need to work around that",
+      "parentUuid": "a4fd2563_63ee1d55",
+      "range": {
+        "startLine": 1624,
+        "startChar": 1,
+        "endLine": 1624,
+        "endChar": 41
+      },
+      "revId": "c049599b5ca2d7d8898947f009b545fb070844c1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bbb73c94_de9f1abe",
         "filename": "docs/tools/index.rst",
         "patchSetId": 43

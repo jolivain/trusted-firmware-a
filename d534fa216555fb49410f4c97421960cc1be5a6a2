@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afbc9652_d9300124",
+        "filename": "docs/tools/memory-layout-tool.rst",
+        "patchSetId": 41
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-03T11:56:53Z",
+      "side": 1,
+      "message": "ELF uses the term \"virtual\" in a way that conflicts with TF-A\u0027s usage, but if we tell people that this script visualises the virtual memory layout then they\u0027re going to be very confused when they find that it what it actually describes is the physical memory layout (i.e. the memory layout behind the MMU).",
+      "range": {
+        "startLine": 4,
+        "startChar": 63,
+        "endLine": 4,
+        "endChar": 70
+      },
+      "revId": "d534fa216555fb49410f4c97421960cc1be5a6a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6413b03_a46b97a5",
+        "filename": "docs/tools/memory-layout-tool.rst",
+        "patchSetId": 41
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-03T11:56:53Z",
+      "side": 1,
+      "message": "Unnecessary implementation detail",
+      "range": {
+        "startLine": 5,
+        "startChar": 30,
+        "endLine": 6,
+        "endChar": 43
+      },
+      "revId": "d534fa216555fb49410f4c97421960cc1be5a6a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2ca6448_bb8bab3e",
+        "filename": "docs/tools/memory-layout-tool.rst",
+        "patchSetId": 41
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-03T11:56:53Z",
+      "side": 1,
+      "message": "If they\u0027re using Poetry then we don\u0027t need to include this as a prerequisite",
+      "range": {
+        "startLine": 13,
+        "startChar": 1,
+        "endLine": 13,
+        "endChar": 32
+      },
+      "revId": "d534fa216555fb49410f4c97421960cc1be5a6a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b98f9e21_31e308d7",
+        "filename": "pyproject.toml",
+        "patchSetId": 41
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-03T11:56:53Z",
+      "side": 1,
+      "message": "Is it possible to make this memory tool an actual Poetry script? e.g. with:\n\n    [tool.poetry.scripts]\n    memory \u003d { callable \u003d \"tools.memory:main\", extras \u003d [\"memory\"] }\n\n    [tool.poetry.group.tools.dependencies]\n    anytree \u003d { version \u003d \"^2.8.0\", optional \u003d true }\n    click \u003d { version \u003d \"^8.1.3\", optional \u003d true }\n    prettytable \u003d { version \u003d \"^3.5.0\", optional \u003d true }\n    pyelftools \u003d { version \u003d \"^0.29\", optional \u003d true }\n\n    [tool.poetry.extras]\n    memory \u003d [\"anytree\", \"click\", \"prettytable\", \"pyelftools\"]\n\nI think then you can simply `poetry run` and it will automatically install them, avoiding the need to explicitly install dependencies.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "d534fa216555fb49410f4c97421960cc1be5a6a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
