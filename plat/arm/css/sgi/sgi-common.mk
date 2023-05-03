@@ -8,7 +8,8 @@ CSS_USE_SCMI_SDS_DRIVER		:=	1
 
 CSS_ENT_BASE			:=	plat/arm/css/sgi
 
-ENABLE_FEAT_RAS			:=	0
+ENABLE_FEAT_RAS			:=	1
+RAS_FFH_SUPPORT			:=	0
 
 SDEI_SUPPORT			:=	0
 
