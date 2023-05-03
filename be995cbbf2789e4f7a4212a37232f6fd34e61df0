@@ -39,6 +39,24 @@
       "message": "TF-A platform code must honor expectations as set out in porting guide. Asserts can be used to catch issues with platform code but runtime validation of platform API contract should be avoided.",
       "revId": "be995cbbf2789e4f7a4212a37232f6fd34e61df0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b84123e_fe947e71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-03T08:34:25Z",
+      "side": 1,
+      "message": "Hi Soby, stepping back, the change in question https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20444 that current change is amending, was a naive attempt to fix a coverity finding which looked a possible buffer overflow opportunity (https://lists.trustedfirmware.org/archives/list/tf-a@lists.trustedfirmware.org/thread/PE4TOYXAU43343S2HVKVVDH2M3JIS64I/). We got pinged by a partner who was concerned about such possible issue in the psci lib.\nI agree with you we expect the platform port to be \u0027correct\u0027 and implement the mpdir conversion routine properly (and so omit runtime checks). Still, it is questionable whether we want to harden against the reported buffer overflow. Replacing with asserts is reasonable, although would be discarded in release builds and the potential issue be left?\nAlso in general should TF-A generic code be robust against an improperly designed platform port?",
+      "parentUuid": "d2162c92_c34e6640",
+      "revId": "be995cbbf2789e4f7a4212a37232f6fd34e61df0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
