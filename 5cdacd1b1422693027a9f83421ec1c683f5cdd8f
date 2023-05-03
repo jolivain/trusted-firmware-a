@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fec59209_a906c48d",
+        "filename": ".husky/pre-commit.copyright",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-03T10:16:51Z",
+      "side": 1,
+      "message": "Some TF-A contributors have multi-part domains (e.g. \"oss.amd.com\", which in this case would yield \"oss\"). I think it\u0027d be simpler to just split at the @ and switch on the entire domain.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 92
+      },
+      "revId": "5cdacd1b1422693027a9f83421ec1c683f5cdd8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d00216c8_d8d2a255",
+        "filename": ".husky/pre-commit.copyright",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-03T10:16:51Z",
+      "side": 1,
+      "message": "I think this warning is probably unnecessary, and will just confuse newcomers - better we just operate quietly unless there\u0027s a problem",
+      "range": {
+        "startLine": 28,
+        "startChar": 2,
+        "endLine": 28,
+        "endChar": 46
+      },
+      "revId": "5cdacd1b1422693027a9f83421ec1c683f5cdd8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "389a7c3c_bc863b42",
+        "filename": ".husky/pre-commit.copyright",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-03T10:16:51Z",
+      "side": 1,
+      "message": "This will prevent the Arm copyright check from running. Was this intentional?",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 29,
+        "endChar": 17
+      },
+      "revId": "5cdacd1b1422693027a9f83421ec1c683f5cdd8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acb193cb_07ac2699",
+        "filename": ".husky/pre-commit.copyright",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-03T10:16:51Z",
+      "side": 1,
+      "message": "organization",
+      "range": {
+        "startLine": 71,
+        "startChar": 43,
+        "endLine": 71,
+        "endChar": 46
+      },
+      "revId": "5cdacd1b1422693027a9f83421ec1c683f5cdd8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcc0b3b8_5b5eade1",
+        "filename": ".husky/pre-commit.copyright",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-03T10:16:51Z",
+      "side": 1,
+      "message": "# Check",
+      "range": {
+        "startLine": 71,
+        "startChar": 1,
+        "endLine": 71,
+        "endChar": 7
+      },
+      "revId": "5cdacd1b1422693027a9f83421ec1c683f5cdd8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75bd60e0_22203342",
+        "filename": ".husky/pre-commit.copyright",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-03T10:16:51Z",
+      "side": 1,
+      "message": "# Check",
+      "range": {
+        "startLine": 77,
+        "startChar": 1,
+        "endLine": 77,
+        "endChar": 7
+      },
+      "revId": "5cdacd1b1422693027a9f83421ec1c683f5cdd8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
