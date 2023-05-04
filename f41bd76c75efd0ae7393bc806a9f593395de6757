@@ -34,6 +34,24 @@
       "parentUuid": "e22e3b51_765cb824",
       "revId": "f41bd76c75efd0ae7393bc806a9f593395de6757",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c19bfd09_49489870",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-04T12:48:54Z",
+      "side": 1,
+      "message": "I wanted to highlight the point why these platforms have put RAS_EXTENSION\u003d0, these are only 2 platform which does this.\nAlso, wanted this independent of the original change and get votes from platform owner separately but i agree we can squash them together and explain it to platform owners.",
+      "parentUuid": "bb8ce838_040175a1",
+      "revId": "f41bd76c75efd0ae7393bc806a9f593395de6757",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
