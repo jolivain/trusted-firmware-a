@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9abea45_e11fabe0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 39
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-04T14:16:42Z",
+      "side": 1,
+      "message": "Can this patch use anything from the CPU support library patchset I currently have in Gerrit? https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20352\n\nI notice it sets some preprocessor definitions which look like they might duplicate what the library patch does.",
+      "revId": "8e5e019a3296b6f4ce651ada9ee6c40f778b5d0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
