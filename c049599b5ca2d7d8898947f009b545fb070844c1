@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3cc1711_93b24047",
+        "filename": "Makefile",
+        "patchSetId": 43
+      },
+      "lineNbr": 1624,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-04T15:40:49Z",
+      "side": 1,
+      "message": "IIRC cmd.exe doesn\u0027t support `X\u003dY program` syntax - you usually need to set the environment variable with `set`. I\u0027ve not got a machine to try this on, though.",
+      "parentUuid": "39046362_22ac47a0",
+      "range": {
+        "startLine": 1624,
+        "startChar": 1,
+        "endLine": 1624,
+        "endChar": 41
+      },
+      "revId": "c049599b5ca2d7d8898947f009b545fb070844c1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bbb73c94_de9f1abe",
         "filename": "docs/tools/index.rst",
         "patchSetId": 43
