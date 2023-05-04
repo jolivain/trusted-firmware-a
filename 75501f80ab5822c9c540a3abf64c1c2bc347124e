@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80229ff5_8321360e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-04T10:58:12Z",
+      "side": 1,
+      "message": "I launched a CI job with all RME configs, as these are the ones supposed to use the RMMd:\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/36773/\n\nThis raised the following build error:\n\n plat/arm/board/fvp/fvp_realm_attest_key.c:9:10: fatal error: psa/crypto_types.h: No such file or directory\n    9 | #include \u003cpsa/crypto_types.h\u003e\n      |          ^~~~~~~~~~~~~~~~~~~~",
+      "revId": "75501f80ab5822c9c540a3abf64c1c2bc347124e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
