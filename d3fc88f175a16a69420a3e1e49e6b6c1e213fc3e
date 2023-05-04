@@ -70,6 +70,30 @@
       },
       "revId": "d3fc88f175a16a69420a3e1e49e6b6c1e213fc3e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac2428b6_60359e9b",
+        "filename": "bl31/bl31.mk",
+        "patchSetId": 26
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-04T14:40:31Z",
+      "side": 1,
+      "message": "FYI in the latest version of the patchset I\u0027ve replaced these two options with a single `CPUS_ENABLE_CPU_OPERATIONS`. These individual sources were not as hermetic as I first noticed so I\u0027ve combined them into a single \"CPU Operations\" component, which I think *is* mostly hermetic.",
+      "parentUuid": "6cb4554c_7cce4cb8",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 188,
+        "endChar": 31
+      },
+      "revId": "d3fc88f175a16a69420a3e1e49e6b6c1e213fc3e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
