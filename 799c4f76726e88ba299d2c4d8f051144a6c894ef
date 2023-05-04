@@ -33,6 +33,24 @@
       "message": "could this be formalized in arch_features.h with a read_feat_tgran4_id_field()?",
       "revId": "799c4f76726e88ba299d2c4d8f051144a6c894ef",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80ae5a53_88a59673",
+        "filename": "lib/xlat_tables_v2/aarch64/xlat_tables_arch.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2023-05-04T09:52:28Z",
+      "side": 1,
+      "message": "It could, yes, but then I would need to formalize the rest of accesses in this function for tgran16 and tgran64 as well for the sake of consistency and I think that is outside the scope of this patch.\n\nStill can do it if we agree that it is needed",
+      "parentUuid": "13797277_ee23d93d",
+      "revId": "799c4f76726e88ba299d2c4d8f051144a6c894ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
