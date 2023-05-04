@@ -16,6 +16,24 @@
       "message": "Actually I don\u0027t think we need this patch. The build system can continue using strings of the form PLATFORM_TEST\u003drss-nv-counters, so long as it converts this into the appropriate \"-D macro\" flag when compiling TF-A source code (which it does already). I don\u0027t see anything wrong with that, and in fact I much prefer typing \u0027make PLATFORM_TEST\u003drss-nv-counters\u0027 rather than \u0027make PLATFORM_TEST_NV_COUNTERS\u003d1\u0027.\n\nDid I miss anything? Is this fixing actually fixing a build issue?",
       "revId": "eed5db9672152314349a168ecc54437a286a47c4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88ba64fa_e7affb0d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-05-04T15:16:33Z",
+      "side": 1,
+      "message": "Ah I missed that, that makes more sense! Will abandon",
+      "parentUuid": "13cc35a3_a664458e",
+      "revId": "eed5db9672152314349a168ecc54437a286a47c4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
