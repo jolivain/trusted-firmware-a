@@ -16,6 +16,23 @@
       "message": "The build option names need to be sorted out later.",
       "revId": "5602ce1d8db3256a7766776cb908b1f716c2d463",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39ee8021_d2cd29a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-05-04T19:41:36Z",
+      "side": 1,
+      "message": "13:07:40 In file included from plat/rpi/common/rpi3_pm.c:14:\n13:07:40 In function \u0027mmio_write_64\u0027,\n13:07:40     inlined from \u0027rpi3_pwr_down_wfi\u0027 at plat/rpi/common/rpi3_pm.c:182:3:\n13:07:40 include/lib/mmio.h:51:35: error: array subscript 0 is outside array bounds of \u0027volatile uint64_t[0]\u0027 {aka \u0027volatile long unsigned int[]\u0027} [-Werror\u003darray-bounds]\n13:07:40    51 |         *(volatile uint64_t*)addr \u003d value;\n13:07:40       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~\n13:07:40 plat/rpi/common/rpi3_pm.c: In function \u0027plat_setup_psci_ops\u0027:\n13:07:40 plat/rpi/common/rpi3_pm.c:270:9: error: array subscript 0 is outside array bounds of \u0027uintptr_t[0]\u0027 {aka \u0027long unsigned int[]\u0027} [-Werror\u003darray-bounds]\n13:07:40   270 |         *entrypoint \u003d sec_entrypoint;\n13:07:40       |         ^~~~~~~~~~~\n13:07:40 cc1: all warnings being treated as errors\n13:07:40 make: *** [Makefile:1443: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/rpi4/debug/bl31/rpi3_pm.o] Error 1\n\nThere is also the hikey fails discussed earlier today. See the threads.\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19540\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20364\n",
+      "revId": "5602ce1d8db3256a7766776cb908b1f716c2d463",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
