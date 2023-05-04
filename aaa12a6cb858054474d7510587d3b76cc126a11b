@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a31d84f8_8a421a19",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_ras.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-04T13:55:02Z",
+      "side": 1,
+      "message": "Let\u0027s keep it same for this patch. If need be i will push a separate patch to modify the namespaces of all PLATFORM_TEST macros.",
+      "parentUuid": "f73d701e_83164747",
+      "range": {
+        "startLine": 13,
+        "startChar": 7,
+        "endLine": 13,
+        "endChar": 16
+      },
+      "revId": "aaa12a6cb858054474d7510587d3b76cc126a11b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "23f83f8f_e02fca05",
         "filename": "plat/arm/common/aarch64/arm_sdei.c",
         "patchSetId": 8
@@ -163,6 +187,24 @@
       "side": 1,
       "message": "I have given a soln to make this specific to FVP",
       "parentUuid": "93b5238b_fcc6bcaa",
+      "revId": "aaa12a6cb858054474d7510587d3b76cc126a11b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a504d1a_9ed0f714",
+        "filename": "plat/arm/common/aarch64/arm_sdei.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-04T13:55:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8c0e16dd_27b2f7d4",
       "revId": "aaa12a6cb858054474d7510587d3b76cc126a11b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
