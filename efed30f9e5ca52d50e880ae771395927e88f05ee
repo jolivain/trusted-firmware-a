@@ -34,6 +34,24 @@
       "parentUuid": "e509ec80_9983e161",
       "revId": "efed30f9e5ca52d50e880ae771395927e88f05ee",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26a6f0c7_ab6dbb81",
+        "filename": "lib/cpus/aarch64/cortex_a510.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-04T12:30:11Z",
+      "side": 1,
+      "message": "Th system is an SMP system, which means that we have think that there are other CPUs running at the same time with caches enabled and hence it is possible for a stale value to exist in the cache network. A read or a speculation can pull a line into cache. It usually requires very careful design to allow this kind of misatched attributes to work correctly (See Arm ARM for accessing memory with mismatched attributes).",
+      "parentUuid": "84517e57_ad1a5b69",
+      "revId": "efed30f9e5ca52d50e880ae771395927e88f05ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
