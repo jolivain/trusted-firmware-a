@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c45c1be_0007653c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000159
+      },
+      "writtenOn": "2023-05-05T14:18:24Z",
+      "side": 1,
+      "message": "I\u0027ve tested the patch with `make [...] ARM_BL2_SP_LIST_DTS\u003d../bl2_sp_list.dtsi SP_DTS_LIST_FRAGMENT\u003d../out/bl2_sp_list.dtsi SP_LAYOUT_FILE\u003d../sp_layout.json all fip` and it worked nicely. I had to set both ARM_BL2_SP_LIST_DTS and SP_DTS_LIST_FRAGMENT to the same file, so the fvp_tb_fw_config.dts can include the generated DTS fragment.\nMy only concern is that I can\u0027t see how is it ensured that the fragment is ready when the build system processes fvp_tb_fw_config.dts. This applies to other dts files which might include ARM_BL2_SP_LIST_DTS. The fragment should be a prerequisite of target which processes the dts files.",
+      "revId": "585a158236085af6ea4b38fed7431197d4866b27",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
