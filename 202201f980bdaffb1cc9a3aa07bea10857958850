@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e13b70d6_7c1da7b5",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-05T15:20:35Z",
+      "side": 1,
+      "message": "You can use same mechanism as `ld_option`\nThis is more scalable as we dont need to keep track of GCC version or even differentiate between LLVM/GCC",
+      "range": {
+        "startLine": 437,
+        "startChar": 0,
+        "endLine": 437,
+        "endChar": 62
+      },
+      "revId": "202201f980bdaffb1cc9a3aa07bea10857958850",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
