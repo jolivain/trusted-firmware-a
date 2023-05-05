@@ -208,6 +208,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7a7fe67_d0d4b51a",
+        "filename": "docs/about/release-information.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-05T14:59:35Z",
+      "side": 1,
+      "message": "Thanks for clarifying guys. I originally misunderstood your question, Bipin.\n\nI think it\u0027s best to stick to the timeline at the top of the file and plan for 4 weeks, like Harrison did. We can always adjust the release date again closer to the release window?\n\nIf we feel 2 weeks is enough nowadays, then we should update the process at the top of the file after the v2.9 release (and before v3.0!). This probably needs some discussion with TF-A community to get some consensus, as this also affects how much time partners get to run their release checks on their platform.",
+      "parentUuid": "676fd94b_403d20ee",
+      "range": {
+        "startLine": 57,
+        "startChar": 20,
+        "endLine": 57,
+        "endChar": 68
+      },
+      "revId": "63adcbddc0c4a81cad7439ca38b252c3f8b3111b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "255a0aca_9e29bcd3",
@@ -245,6 +269,30 @@
       "side": 1,
       "message": "Cautiously targeting 3.0 for the next release, updated the line above to reflect this.",
       "parentUuid": "255a0aca_9e29bcd3",
+      "range": {
+        "startLine": 89,
+        "startChar": 51,
+        "endLine": 89,
+        "endChar": 54
+      },
+      "revId": "63adcbddc0c4a81cad7439ca38b252c3f8b3111b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8200b4a7_d785563a",
+        "filename": "docs/about/release-information.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-05T14:59:35Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "efd418dd_df1bccc4",
       "range": {
         "startLine": 89,
         "startChar": 51,
