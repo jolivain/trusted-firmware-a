@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25a7567f_98ef8b25",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-05-05T19:47:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "283c6c61_eaa8617a",
+      "revId": "9934ee623fa0378e9404a6ddd5e85e098bf11076",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7dfb9432_8b12df6a",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-05-03T09:29:57Z",
       "side": 1,
       "message": "As explained in the comment at the top of the file (see lines 13-16), tbbr_oid.h is for OIDs defined in the TBBR specification. The CCA Non-volatile counter OID is not one of them so I think we should move it into a new file (such as include/tools_share/cca_oid.h). This would be consistent with what we\u0027ve done with the PROT_PK_OID macro definition in include/tools_share/dualroot_oid.h.\n\nAlso, I wonder if we should rather call it CCA_FW_NVCOUNTER_OID for consistency with the other 2 macros... I don\u0027t feel strongly about it. And this renaming would need to be applied in many places throughout the patch - I\u0027ve pointed out a few places but then got tired of it ;) Your call!",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 53
+      },
+      "revId": "9934ee623fa0378e9404a6ddd5e85e098bf11076",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2af7680_4cfa6d20",
+        "filename": "include/tools_share/tbbr_oid.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-05-05T19:47:21Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7dfb9432_8b12df6a",
       "range": {
         "startLine": 24,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52e85e1a_1ff42eaf",
+        "filename": "tools/cert_create/include/cca/cca_cot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-05-05T19:47:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f6635aa_0db27c5d",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 18
+      },
+      "revId": "9934ee623fa0378e9404a6ddd5e85e098bf11076",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90c92f2d_5cec92e0",
@@ -87,6 +153,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9911e35_792e5d1e",
+        "filename": "tools/cert_create/include/ext.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-05-05T19:47:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90c92f2d_5cec92e0",
+      "range": {
+        "startLine": 24,
+        "startChar": 1,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "9934ee623fa0378e9404a6ddd5e85e098bf11076",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a825d360_f83f1ee1",
@@ -100,6 +190,30 @@
       "writtenOn": "2023-05-03T09:29:57Z",
       "side": 1,
       "message": "ccafw-nvctr?",
+      "range": {
+        "startLine": 144,
+        "startChar": 10,
+        "endLine": 144,
+        "endChar": 19
+      },
+      "revId": "9934ee623fa0378e9404a6ddd5e85e098bf11076",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42acae27_be74fbce",
+        "filename": "tools/cert_create/src/cca/cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-05-05T19:47:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a825d360_f83f1ee1",
       "range": {
         "startLine": 144,
         "startChar": 10,
