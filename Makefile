@@ -433,6 +433,10 @@ TF_CFLAGS		+=	$(CPPFLAGS) $(TF_CFLAGS_$(ARCH))		\
 				-ffreestanding -fno-builtin -fno-common		\
 				-Os -std=gnu99
 
+# https://gcc.gnu.org/bugzilla/show_bug.cgi?id=105523
+
+TF_CFLAGS		+= 	$(call cc_option, --param=min-pagesize=0)
+
 $(eval $(call add_define,SVE_VECTOR_LEN))
 
 ifeq (${SANITIZE_UB},on)
