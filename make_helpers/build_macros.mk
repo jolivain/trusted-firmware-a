@@ -104,6 +104,12 @@ define ld_option
 	$(shell if $(LD) $(1) -v >/dev/null 2>&1; then echo $(1); fi )
 endef
 
+# Convenience function to check for a given compiler option. An call to
+# $(call cc_option, --no-XYZ) will return --no-XYZ if supported by the compiler
+define cc_option
+	$(shell if [ -z $($(CC) $(1) -c -x c /dev/null -o -dev/null 2>&1) ]; then echo $(1); fi )
+endef
+
 # CREATE_SEQ is a recursive function to create sequence of numbers from 1 to
 # $(2) and assign the sequence to $(1)
 define CREATE_SEQ
