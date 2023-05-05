@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38a71602_72e6c273",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-05T07:28:28Z",
+      "side": 1,
+      "message": "To avoid repeating this line for every PLATFORM_TESTS_* variant and taking the risk of forgetting it for new variants we add in the future, I would suggest defining it once here. We can define it when ${PLATFORM_TEST} is *not* the empty string. This should something like this (untested):\n\n ifneq (${PLATFORM_TEST},)\n   $(eval $(call add_define,PLATFORM_TESTS))\n\n   ifeq (${PLATFORM_TEST},rss-nv-counters)\n     #...\n   else ifeq (${PLATFORM_TEST},tfm-testsuite)\n     #...\n   else\n     $(error \"Unsupported PLATFORM_TEST value\")\n   endif\n endif",
+      "range": {
+        "startLine": 209,
+        "startChar": 4,
+        "endLine": 209,
+        "endChar": 45
+      },
+      "revId": "e1b8ff190a331cb754c897093d6875da018f70aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
