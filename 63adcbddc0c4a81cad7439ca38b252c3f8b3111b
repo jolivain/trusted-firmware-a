@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af1e7baf_b8343c80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-05-05T23:28:18Z",
+      "side": 1,
+      "message": "Traditionally it took around 4 weeks when I started but over time the team has developed some efficiencies and it generally has come down. The last two releases have been completed quicker each time with the last one just over 7 or 8 Working Days IIRC, so elapse was a little longer.\n\nI thought leaving it at 4 weeks gave us a bit more cushion in case of issues. If we do well less then 4 this time maybe we could shorten this.",
+      "revId": "63adcbddc0c4a81cad7439ca38b252c3f8b3111b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08587540_30b9ae91",
@@ -227,6 +244,30 @@
         "startChar": 20,
         "endLine": 57,
         "endChar": 68
+      },
+      "revId": "63adcbddc0c4a81cad7439ca38b252c3f8b3111b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62276eb0_4471fce1",
+        "filename": "docs/about/release-information.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-05-05T23:28:18Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "d6d4f242_f1a3658a",
+      "range": {
+        "startLine": 57,
+        "startChar": 48,
+        "endLine": 57,
+        "endChar": 67
       },
       "revId": "63adcbddc0c4a81cad7439ca38b252c3f8b3111b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
