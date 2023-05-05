@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f494574d_9e37b834",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-05T11:51:01Z",
+      "side": 1,
+      "message": "seems acceptable with the understanding that the errata list will go away in favor of the errata framework as soon as possible",
+      "revId": "826a2fe55db675e3d98d30e5ab299d9ee8df4c06",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8daefcc_84057570",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-05T11:51:01Z",
+      "side": 1,
+      "message": "nit: newline",
+      "revId": "826a2fe55db675e3d98d30e5ab299d9ee8df4c06",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e93e9451_9e13ebd3",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-05T11:51:01Z",
+      "side": 1,
+      "message": "nit: the two returns can be one outside the #if",
+      "revId": "826a2fe55db675e3d98d30e5ab299d9ee8df4c06",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
