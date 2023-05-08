@@ -167,13 +167,14 @@ bl_params_t *plat_get_next_bl_params(void)
 	struct morello_plat_info plat_info;
 	struct morello_firmware_version fw_version;
 
-	ret = sds_init();
+	ret = sds_init(SDS_SCP_AP_REGION_ID);
 	if (ret != SDS_OK) {
 		ERROR("SDS initialization failed. ret:%d\n", ret);
 		panic();
 	}
 
-	ret = sds_struct_read(MORELLO_SDS_PLATFORM_INFO_STRUCT_ID,
+	ret = sds_struct_read(SDS_SCP_AP_REGION_ID,
+				MORELLO_SDS_PLATFORM_INFO_STRUCT_ID,
 				MORELLO_SDS_PLATFORM_INFO_OFFSET,
 				&plat_info,
 				MORELLO_SDS_PLATFORM_INFO_SIZE,
