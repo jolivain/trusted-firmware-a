@@ -16,6 +16,69 @@
       "message": "@Thomas @Omkar @Varun could you please provide your votes for your platforms.\n@Soby, squashed the changes in tc/sgi as part of this patch",
       "revId": "3d051e716552a0e64fa5c2d96a7776c68a5ac58c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c71ec06_0dcb719c",
+        "filename": "Makefile",
+        "patchSetId": 34
+      },
+      "lineNbr": 1173,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-08T21:44:59Z",
+      "side": 1,
+      "message": "Shouldn\u0027t RAS_FFH_SUPPORT be added to this list",
+      "revId": "3d051e716552a0e64fa5c2d96a7776c68a5ac58c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ee0efa3_31552cca",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 34
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-08T21:44:59Z",
+      "side": 1,
+      "message": "ENABLE_FEAT_RAS",
+      "range": {
+        "startLine": 780,
+        "startChar": 5,
+        "endLine": 780,
+        "endChar": 20
+      },
+      "revId": "3d051e716552a0e64fa5c2d96a7776c68a5ac58c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3072b86_aadf325d",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 34
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-08T21:44:59Z",
+      "side": 1,
+      "message": "ENABLE_FEAT_RAS",
+      "range": {
+        "startLine": 787,
+        "startChar": 36,
+        "endLine": 787,
+        "endChar": 51
+      },
+      "revId": "3d051e716552a0e64fa5c2d96a7776c68a5ac58c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
