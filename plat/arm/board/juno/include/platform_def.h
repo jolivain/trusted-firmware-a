@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2023, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -261,7 +261,10 @@
 #define PLAT_CSS_SCP_COM_SHARED_MEM_BASE	(ARM_TRUSTED_SRAM_BASE + UL(0x80))
 #define PLAT_CSS_PRIMARY_CPU_SHIFT		8
 #define PLAT_CSS_PRIMARY_CPU_BIT_WIDTH		4
-#endif
+#else
+/* Index of SDS region used in the communication with SCP */
+#define SDS_SCP_AP_REGION_ID			U(0)
+#endif /* !CSS_USE_SCMI_SDS_DRIVER */
 
 /*
  * SCP_BL2 uses up whatever remaining space is available as it is loaded before
