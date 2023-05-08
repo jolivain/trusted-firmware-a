@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <drivers/arm/css/css_mhu_doorbell.h>
 #include <drivers/arm/css/scmi.h>
+#include <drivers/arm/css/sds.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/arm/css/common/css_pm.h>
 #include <plat/common/platform.h>
@@ -25,7 +26,19 @@ scmi_channel_plat_info_t *plat_css_get_scmi_info(unsigned int channel_id)
 	return &juno_scmi_plat_info;
 }
 
-#endif
+static sds_region_desc_t juno_sds_regions[] = {
+	{ .base = PLAT_ARM_SDS_MEM_BASE },
+};
+
+sds_region_desc_t *plat_sds_get_regions(unsigned int *region_count)
+{
+	*region_count = sizeof(juno_sds_regions) /
+			sizeof((juno_sds_regions)[0]);
+
+	return juno_sds_regions;
+}
+#endif /* CSS_USE_SCMI_SDS_DRIVER */
+
 /*
  * On Juno, the system power level is the highest power level.
  * The first entry in the power domain descriptor specifies the
