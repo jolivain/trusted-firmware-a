@@ -21,6 +21,23 @@
 
 #define PLAT_ARM_TRUSTED_SRAM_SIZE	0x00080000	/* 512 KB */
 
+/* Overwrite the original values in plat/arm/css/common/css_def.h */
+#undef PLAT_ARM_SDS_MEM_BASE
+#undef PLAT_ARM_SDS_MEM_SIZE_MAX
+/* Alloc two SDS regions (1760 bytes both) */
+#define PLAT_ARM_SDS_MEM_SIZE_MAX	(0xDC0 / 2)
+
+/* Memory regions for shared data storage
+ * - RSS-AP: 0x4000000 - 0x40006E0
+ * - SCP-AP: 0x40006E0 - 0x4000DC0
+ */
+
+/* SCP - AP */
+#define PLAT_ARM_SDS_MEM_BASE		(ARM_SHARED_RAM_BASE + \
+					 PLAT_ARM_SDS_MEM_SIZE_MAX)
+/* RSS - AP */
+#define PLAT_ARM_SDS_MEM_BASE_2		ARM_SHARED_RAM_BASE
+
 /*
  * The top 16MB of ARM_DRAM1 is configured as secure access only using the TZC,
  * its base is ARM_AP_TZC_DRAM1_BASE.
