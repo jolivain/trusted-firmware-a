@@ -55,6 +55,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e276c49c_5016a53e",
+        "filename": "docs/about/maintainers.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-08T15:00:42Z",
+      "side": 1,
+      "message": "extend till the last character in previous line",
+      "range": {
+        "startLine": 559,
+        "startChar": 0,
+        "endLine": 559,
+        "endChar": 21
+      },
+      "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dbe21aaa_ce4dafc6",
         "filename": "docs/plat/npcm845x.rst",
         "patchSetId": 3
@@ -149,6 +172,70 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dc7496ac_a7ecd56c",
+        "filename": "docs/plat/npcm845x.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-08T15:00:42Z",
+      "side": 1,
+      "message": "reminder",
+      "parentUuid": "1f792113_e2402fab",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 38
+      },
+      "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be26c386_dfff6843",
+        "filename": "include/drivers/nuvoton/npcm845x/npcm845x_clock.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-08T15:00:42Z",
+      "side": 1,
+      "message": "remove extra tab",
+      "range": {
+        "startLine": 214,
+        "startChar": 19,
+        "endLine": 214,
+        "endChar": 20
+      },
+      "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c309970_19ff9dcc",
+        "filename": "include/drivers/nuvoton/npcm845x/npcm845x_clock.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-08T15:00:42Z",
+      "side": 1,
+      "message": "same as above",
+      "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3adbd8cf_f248c960",
         "filename": "include/drivers/nuvoton/npcm845x/npcm845x_lpuart.h",
         "patchSetId": 3
@@ -196,6 +283,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f259558_486c7308",
+        "filename": "include/drivers/nuvoton/npcm845x/npcm845x_lpuart.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-08T15:00:42Z",
+      "side": 1,
+      "message": "The comment was not fixed in latest patchset.",
+      "parentUuid": "996cfbb0_7a191a17",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6ead4315_a59e4df3",
         "filename": "include/drivers/nuvoton/npcm845x/npcm845x_lpuart.h",
         "patchSetId": 3
@@ -225,6 +336,24 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "6ead4315_a59e4df3",
+      "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e2bff61_89911ced",
+        "filename": "include/drivers/nuvoton/npcm845x/npcm845x_lpuart.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-08T15:00:42Z",
+      "side": 1,
+      "message": "reminder.",
+      "parentUuid": "bf63d88f_825e3656",
       "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -278,6 +407,115 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "94e8ff10_b417470a",
+        "filename": "include/plat/nuvoton/common/npcm845x_arm_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-08T15:00:42Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 575,
+        "startChar": 25,
+        "endLine": 575,
+        "endChar": 26
+      },
+      "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3c7ee37_8a9d10b2",
+        "filename": "include/plat/nuvoton/common/npcm845x_arm_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-08T15:00:42Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 579,
+        "startChar": 19,
+        "endLine": 579,
+        "endChar": 20
+      },
+      "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7e4d2ab_33475a94",
+        "filename": "plat/nuvoton/common/SVC/nuvoton_sdei.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-08T15:00:42Z",
+      "side": 1,
+      "message": "why is this required",
+      "range": {
+        "startLine": 4,
+        "startChar": 1,
+        "endLine": 4,
+        "endChar": 26
+      },
+      "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "335d4f15_5f8c8d29",
+        "filename": "plat/nuvoton/common/nuvoton_topology.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-08T15:00:42Z",
+      "side": 1,
+      "message": "remove lines 50 through 56",
+      "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec66f7f8_39c3058b",
+        "filename": "plat/nuvoton/common/plat_nuvoton_gic.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-08T15:00:42Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 1
+      },
+      "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "520ed90a_d34fd3e2",
         "filename": "plat/nuvoton/npcm845x/npcm845x_bl31_setup.c",
         "patchSetId": 3
@@ -317,6 +555,29 @@
         "startLine": 275,
         "startChar": 0,
         "endLine": 275,
+        "endChar": 1
+      },
+      "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d5e552d_ad0b9c9a",
+        "filename": "plat/nuvoton/npcm845x/npcm845x_serial_port.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-08T15:00:42Z",
+      "side": 1,
+      "message": "remove. \nThere are multiple instances though out this file",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
         "endChar": 1
       },
       "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
