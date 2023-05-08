@@ -263,6 +263,8 @@
 #define PLAT_CSS_PRIMARY_CPU_BIT_WIDTH		4
 #endif
 
+#define PLAT_ARM_SDS_MEM_BASE		ARM_SHARED_RAM_BASE
+
 /*
  * SCP_BL2 uses up whatever remaining space is available as it is loaded before
  * anything else in this memory region and is handed over to the SCP before
