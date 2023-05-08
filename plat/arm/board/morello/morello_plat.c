@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2020-2023, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2024, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <assert.h>
 
+#include <drivers/arm/css/sds.h>
 #include <drivers/arm/sbsa.h>
 #include <plat/arm/common/plat_arm.h>
 
@@ -68,3 +69,17 @@ void plat_arm_secure_wdt_stop(void)
 {
 	sbsa_wdog_stop(SBSA_SECURE_WDOG_BASE);
 }
+
+#if CSS_USE_SCMI_SDS_DRIVER
+static sds_region_desc_t morello_sds_regions[] = {
+	{ .base = PLAT_ARM_SDS_MEM_BASE },
+};
+
+sds_region_desc_t *plat_sds_get_regions(unsigned int *region_count)
+{
+	*region_count = sizeof(morello_sds_regions) /
+			sizeof((morello_sds_regions)[0]);
+
+	return morello_sds_regions;
+}
+#endif /* CSS_USE_SCMI_SDS_DRIVER */
