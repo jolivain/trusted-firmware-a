@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -79,12 +79,15 @@ typedef enum {
 	SDS_ACCESS_MODE_CACHED,
 } sds_access_mode_t;
 
-int sds_init(void);
-int sds_struct_exists(unsigned int structure_id);
-int sds_struct_read(uint32_t structure_id, unsigned int fld_off, void *data,
-		size_t size, sds_access_mode_t mode);
-int sds_struct_write(uint32_t structure_id, unsigned int fld_off, void *data,
-		size_t size, sds_access_mode_t mode);
+#define SDS_SCP_AP_REGION_ID		0
+#define SDS_RSS_AP_REGION_ID		1
+
+int sds_init(unsigned int region_id);
+int sds_struct_exists(unsigned int region_id, unsigned int structure_id);
+int sds_struct_read(unsigned int region_id, uint32_t structure_id,
+	unsigned int fld_off, void *data, size_t size, sds_access_mode_t mode);
+int sds_struct_write(unsigned int region_id, uint32_t structure_id,
+	unsigned int fld_off, void *data, size_t size, sds_access_mode_t mode);
 #endif /*__ASSEMBLER__ */
 
 #endif /* SDS_H */
