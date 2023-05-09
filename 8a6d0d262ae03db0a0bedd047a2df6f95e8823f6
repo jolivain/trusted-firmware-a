@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01e269fd_e2131b17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-05-09T13:40:29Z",
+      "side": 1,
+      "message": "Soby, are we OK with this version? I can drop the extra check in psci_validate_mpidr(), but I think it\u0027s good to have, doesn\u0027t hurt, and supports the idea of the term \"validate\" in the function name.\nPlus the PSCI library code is going to use that position as an index into arrays sized by PLATFORM_CORE_COUNT, so it serves as some kind of assert for the PSCI lib code, with the added benefit of handling this gracefully: by returning an error code to the caller (instead of panicking).",
+      "revId": "8a6d0d262ae03db0a0bedd047a2df6f95e8823f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
