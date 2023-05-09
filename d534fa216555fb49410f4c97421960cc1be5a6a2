@@ -259,6 +259,30 @@
       },
       "revId": "d534fa216555fb49410f4c97421960cc1be5a6a2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7681605_4feb802b",
+        "filename": "pyproject.toml",
+        "patchSetId": 41
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-09T15:45:43Z",
+      "side": 1,
+      "message": "I wouldn\u0027t - I\u0027d avoid trying to treat it like a hierarchy, really. Better to be explicit about precisely what each component needs.",
+      "parentUuid": "da2d17c5_4198ba73",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "d534fa216555fb49410f4c97421960cc1be5a6a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
