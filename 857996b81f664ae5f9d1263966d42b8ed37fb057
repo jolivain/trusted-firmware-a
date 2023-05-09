@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36475bd7_97b819e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-09T16:01:03Z",
+      "side": 1,
+      "message": "I think TF-A has been assuming PMUv3 since the beginning and it seems all platforms implement this. It is better to not provide variability in TF-A where is not needed, just to avoid all the extra config options and code need to provide this variation.\n\nAlso PMUv3 is mandated by SBSA, so it is unlikely anyone builds a platform without this.\n\nRMM has also taken the path to assume PMUv3 and this can be asserted during boot.\n",
+      "revId": "857996b81f664ae5f9d1263966d42b8ed37fb057",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
