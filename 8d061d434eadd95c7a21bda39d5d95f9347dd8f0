@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "880d78ab_222fd816",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-05-09T13:39:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df6defec_5033ea8f",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "8d061d434eadd95c7a21bda39d5d95f9347dd8f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "163171bc_8249c199",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -37,6 +61,24 @@
       "writtenOn": "2023-05-09T12:59:27Z",
       "side": 1,
       "message": "Hi Michal,\nThanks for updating all binaries.\nIt seems bl2.ld.S is missing.\nAnd I have a minor comment.",
+      "revId": "8d061d434eadd95c7a21bda39d5d95f9347dd8f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d741dba5_01c018bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-05-09T13:39:37Z",
+      "side": 1,
+      "message": "Add bl2.ld.S too.",
+      "parentUuid": "163171bc_8249c199",
       "revId": "8d061d434eadd95c7a21bda39d5d95f9347dd8f0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
