@@ -16,6 +16,24 @@
       "message": "It looks CI is failing because the patch is not rebased on latest integration \nAlso, do you really think we need CI+2 or +1 is enough?",
       "revId": "042d5ad3ac2a0cd6369e85ef89a290b3ccb8de8f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "184f0997_822a90a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-05-09T20:17:53Z",
+      "side": 1,
+      "message": "Just rebased. \nI don\u0027t remember if CI+1 has all the optee configs, so I triggered CI+2 just in case.",
+      "parentUuid": "751102ad_c7e2a9f9",
+      "revId": "042d5ad3ac2a0cd6369e85ef89a290b3ccb8de8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
