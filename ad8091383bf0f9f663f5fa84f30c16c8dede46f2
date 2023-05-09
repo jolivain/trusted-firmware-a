@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b968e5e1_8b5d059d",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 734,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-05-09T09:30:16Z",
+      "side": 1,
+      "message": "It doesn\u0027t seem right to me. The previous increment (i.e. SZ_2M + SZ_256K) was legitimate. In order to map BL32 region correctly, we need to increase the XLAT tables as follows -\n\n--- a/plat/arm/board/fvp/include/platform_def.h\n+++ b/plat/arm/board/fvp/include/platform_def.h\n@@ -174,7 +174,7 @@\n # define PLAT_ARM_MMAP_ENTRIES         12\n # if (defined(SPD_tspd) || defined(SPD_opteed) || defined(SPD_spmd)) \u0026\u0026 \\\n defined(IMAGE_BL2) \u0026\u0026 MEASURED_BOOT\n-#  define MAX_XLAT_TABLES              7\n+#  define MAX_XLAT_TABLES              8\n # else\n #  define MAX_XLAT_TABLES              6\n\nPlease try with this change and see if this resolves CI assert reported.",
+      "range": {
+        "startLine": 734,
+        "startChar": 8,
+        "endLine": 734,
+        "endChar": 13
+      },
+      "revId": "ad8091383bf0f9f663f5fa84f30c16c8dede46f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
