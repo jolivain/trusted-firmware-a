@@ -16,6 +16,23 @@
       "message": "the change addresses some issues with the code but is not sufficient to prevent PMU counting at EL3. Need further review before merge.",
       "revId": "1d6d6802dd547c8b378a9a47572ee72e68cceb3b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf263f57_1f3a784c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-09T15:52:47Z",
+      "side": 1,
+      "message": "I seemed to have misunderstood this patch. This is not undoing any EL3 bit setting , but rather removes an optimization which is unnecessary and could have IMPDEF behavior. From that PoV, it is not risky and I dont have any objection .\n\nPerhaps the commit message can reflect that this is removing an optimization which was not needed.",
+      "revId": "1d6d6802dd547c8b378a9a47572ee72e68cceb3b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
