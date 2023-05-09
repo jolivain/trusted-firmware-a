@@ -87,6 +87,24 @@
       "parentUuid": "cfa74636_dc89876a",
       "revId": "799c4f76726e88ba299d2c4d8f051144a6c894ef",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2751a3e3_030e4966",
+        "filename": "lib/xlat_tables_v2/aarch64/xlat_tables_arch.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2023-05-09T12:04:08Z",
+      "side": 1,
+      "message": "Ack. I will make the changes. \n\nWRT Manish question, Have TF-A support for 16KB granularity on the translation tables? My understanding is that it doesn\u0027t, that\u0027s why I didn\u0027t check for TGRAN16_52B",
+      "parentUuid": "cdd468b6_312b746d",
+      "revId": "799c4f76726e88ba299d2c4d8f051144a6c894ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
