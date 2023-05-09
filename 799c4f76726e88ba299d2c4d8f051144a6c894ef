@@ -105,6 +105,24 @@
       "parentUuid": "cdd468b6_312b746d",
       "revId": "799c4f76726e88ba299d2c4d8f051144a6c894ef",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "191e7b9e_68ce4017",
+        "filename": "lib/xlat_tables_v2/aarch64/xlat_tables_arch.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-05-09T13:30:29Z",
+      "side": 1,
+      "message": "Adding it inline with 4KB support wouldn\u0027t hurt, even though we don\u0027t support it. Here, I don\u0027t have a strong opinion to add. Ignore if you wish.",
+      "parentUuid": "2751a3e3_030e4966",
+      "revId": "799c4f76726e88ba299d2c4d8f051144a6c894ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
