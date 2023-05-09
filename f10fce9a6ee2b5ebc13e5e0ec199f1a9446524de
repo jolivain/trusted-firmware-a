@@ -49,6 +49,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "74e52d26_ccf883af",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1144,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-09T14:11:42Z",
+      "side": 1,
+      "message": "Can you add a default value (e.g. ENABLE_SPMD_EL3_LP\u003d0) in make_helpers/defaults.mk ?",
+      "range": {
+        "startLine": 1144,
+        "startChar": 8,
+        "endLine": 1144,
+        "endChar": 26
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a733f16f_bab664ac",
         "filename": "include/common/bl_common.h",
         "patchSetId": 1
@@ -66,6 +89,86 @@
         "endLine": 89,
         "endChar": 35
       },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86861578_e4f339d3",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-09T14:11:42Z",
+      "side": 1,
+      "message": "Should this be conditioned by SPD\u003dspmd \u0026\u0026 SPMD_SPM_AT_SEL1\u003d\u003d1 ?\n\nSPMD_SPM_AT_SEL1\u003d\u003d0 could be covered if we think SPMD LSPs might exist in context e.g. of OP-TEE SPMC ?..",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 22
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "871b00aa_092a56b8",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-09T14:11:42Z",
+      "side": 1,
+      "message": "Should this be exclusive? Either EL3_LP_DESCS or EL3_SPMD_LP_DESCS can be defined but not both..",
+      "range": {
+        "startLine": 112,
+        "startChar": 1,
+        "endLine": 113,
+        "endChar": 18
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6699188_511c56d2",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-09T14:11:42Z",
+      "side": 1,
+      "message": "It\u0027s unfortunate to have forked include/services/el3_spmc_logical_sp.h\nAny chance to reconcile common structures/macros between EL3 SPMC LSPs and SPMD LSPs?",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a40edf1_4ba530d4",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-09T14:11:42Z",
+      "side": 1,
+      "message": "Missing copyright header.",
       "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -135,6 +238,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b022fe1c_67604bed",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-09T14:11:42Z",
+      "side": 1,
+      "message": "I believe this is because 0xffff is already reserved as invalid id?",
+      "parentUuid": "410672ba_e2b89637",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75b68dcd_1f8e6e4a",
         "filename": "services/std_svc/spmd/spmd_logical_sp.c",
         "patchSetId": 1
@@ -146,6 +267,98 @@
       "writtenOn": "2023-04-25T20:27:58Z",
       "side": 1,
       "message": "Would the following directory be better suited to hold the source code for a logical secure partition?\nservices/lsp/spmd_logical_sp.c",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12bcd9ea_7f706f6b",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-09T14:11:42Z",
+      "side": 1,
+      "message": "What is the purpose?",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55d85574_d05f6d39",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-09T14:11:42Z",
+      "side": 1,
+      "message": "Where is this used?",
+      "range": {
+        "startLine": 17,
+        "startChar": 12,
+        "endLine": 17,
+        "endChar": 26
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98209e53_6d2f0be7",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-09T14:11:42Z",
+      "side": 1,
+      "message": "This logic is similar to EL3 SPMC\u0027s get_el3_lp_array ..\nI sense using a unique way of defining LSPs is worth\nProvided EL3 SPMC managed LSPs and SPMD managed LSPs are exclusive...",
+      "range": {
+        "startLine": 23,
+        "startChar": 32,
+        "endLine": 23,
+        "endChar": 53
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eaecc1d_8f480813",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-09T14:11:42Z",
+      "side": 1,
+      "message": "Unfortunate code duplication with el3_sp_desc_validate, again is there a way to commonalize?",
+      "range": {
+        "startLine": 33,
+        "startChar": 11,
+        "endLine": 33,
+        "endChar": 36
+      },
       "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -294,6 +507,29 @@
         "startChar": 5,
         "endLine": 159,
         "endChar": 37
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86a78701_c6a6d32c",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-09T14:11:42Z",
+      "side": 1,
+      "message": "Why does this happen after the SPMC has been entered for init?\n\nI wonder that LSP init should happen at spmd_setup or spmd_spmc_init?",
+      "range": {
+        "startLine": 195,
+        "startChar": 1,
+        "endLine": 195,
+        "endChar": 29
       },
       "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
