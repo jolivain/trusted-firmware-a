@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65ac6f19_4b6d112a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000737
+      },
+      "writtenOn": "2023-05-09T17:50:23Z",
+      "side": 1,
+      "message": "This change is fine per me given the fact that other console drivers seem to also prepend the \\r in the putc, yet I was confused why one can\u0027t just do this in the common putc wrapper when initially looking at this prior being sent...\n\nLooking at it in more depth again it seems like CONSOLE_FLAG_TRANSLATE_CRLF is already a thing that implements the same behaviour in multi_console, but afaict only stm32 console makes use of it?\n\n@Stephan maybe it\u0027s easier to set the flag and use the common code instead?",
+      "revId": "6ebf527185385119c372f78de15f3bde4354324d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
