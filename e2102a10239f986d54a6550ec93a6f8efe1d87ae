@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31ff4a75_6cd9f88a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-05-09T12:15:50Z",
+      "side": 1,
+      "message": "When you have vendor copyright and then also old ARM one. The old is also updated. I am not a lawyer but it doesn\u0027t sound right to me.\nI would only keep \nsed -i \"s/\\(opyright.*\\)\\(ARM\\|arm\\)/\\1Arm/\" $FILE\nfor all. \nThe rest should be the same for all.",
+      "revId": "e2102a10239f986d54a6550ec93a6f8efe1d87ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
