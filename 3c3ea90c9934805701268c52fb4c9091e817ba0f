@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eee55cf_25daca67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-05-10T16:06:37Z",
+      "side": 1,
+      "message": "Looks alright, thanks for the quick changes.\nI did some experiments, and the .ro section seems to be the changing part here. When removing cores, its size decreased by a multiple of 4K pages. Before that patch, it\u0027s three pages over limit, with this patch there is 704 bytes left, though due to alignment reasons this is only available to .BSS, which never changes.\nWe can actually remove Cortex-A75/A55 as well, I think I have never run an image with those cores. Even if there would be images somewhere, they would probably be too old to go with some assumptions we now make about the platform (UART interrupt coming to mind, but there is probably more). Doing so would free up one page in .ro, so we have some wiggle room for upcoming expansion.\nIn the long run it would be interesting to see why exactly we exceed the rather generous 448KB, but this is something for another day.",
+      "revId": "3c3ea90c9934805701268c52fb4c9091e817ba0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
