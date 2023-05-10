@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c5c1544_97d091dd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13897415_06732e14",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ad56fc2_85d7a077",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-04-25T20:27:58Z",
       "side": 1,
       "message": "nitpick: since SPMD is strictly a EL3 component, can we simplify the name to\nENABLE_SPMD_LSP",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 18
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30720d75_41d28b12",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ad56fc2_85d7a077",
       "range": {
         "startLine": 14,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f873d8b0_ee967b18",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1144,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74e52d26_ccf883af",
+      "range": {
+        "startLine": 1144,
+        "startChar": 8,
+        "endLine": 1144,
+        "endChar": 26
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a733f16f_bab664ac",
@@ -93,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c807c71_7a1e8b02",
+        "filename": "include/common/bl_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a733f16f_bab664ac",
+      "range": {
+        "startLine": 89,
+        "startChar": 8,
+        "endLine": 89,
+        "endChar": 35
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86861578_e4f339d3",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-05-09T14:11:42Z",
       "side": 1,
       "message": "Should this be conditioned by SPD\u003dspmd \u0026\u0026 SPMD_SPM_AT_SEL1\u003d\u003d1 ?\n\nSPMD_SPM_AT_SEL1\u003d\u003d0 could be covered if we think SPMD LSPs might exist in context e.g. of OP-TEE SPMC ?..",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 22
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60667f4c_7dd8d42e",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "Hi Olivier, not sure what this has to do with SPMD_SPM_AT_SEL1? The SPMD LSPs live in EL3, and doesnt care where the SPMC is at...",
+      "parentUuid": "86861578_e4f339d3",
       "range": {
         "startLine": 51,
         "startChar": 0,
@@ -158,6 +278,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a7dee93_ef15e635",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "right, thats how i started off, but the SPMC LSPs and SPMD LSPs are entirely independent and the code looks pretty ugly when i tried to reconcile it.\nThe descriptor looks same but any future extensions would be specific to the type of LSP and i did not think mixing those was a good idea.\nI realize this is mostly similiar, but mixing SPMC at EL3 and SPMD logical partitions seems like it causes more coupling that there really is.\nI would recommend you go through the patch set to see other new extensions that are made to this file and making things common seems to cause unnecessary complications. It seemed clean to keep spmc lsp and spmd lsp separate.",
+      "parentUuid": "a6699188_511c56d2",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a40edf1_4ba530d4",
         "filename": "include/services/el3_spmd_logical_sp.h",
         "patchSetId": 1
@@ -169,6 +307,24 @@
       "writtenOn": "2023-05-09T14:11:42Z",
       "side": 1,
       "message": "Missing copyright header.",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c436e673_2fa6a966",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a40edf1_4ba530d4",
       "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -198,6 +354,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4ba9873_0263184f",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "sorry what would i CASSERT?",
+      "parentUuid": "13a1aa9b_8ce3b3ef",
+      "range": {
+        "startLine": 42,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 38
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e28e7b19_b35e5771",
         "filename": "include/services/el3_spmd_logical_sp.h",
         "patchSetId": 1
@@ -209,6 +389,30 @@
       "writtenOn": "2023-04-25T20:27:58Z",
       "side": 1,
       "message": "Please capture the range of IDs in this comment.\n0xFF9C to 0XFFFE",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 48
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80cab575_9f09ff95",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e28e7b19_b35e5771",
       "range": {
         "startLine": 43,
         "startChar": 0,
@@ -254,6 +458,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33ffc681_0f27f298",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "olivier is correct.",
+      "parentUuid": "b022fe1c_67604bed",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75b68dcd_1f8e6e4a",
@@ -267,6 +489,24 @@
       "writtenOn": "2023-04-25T20:27:58Z",
       "side": 1,
       "message": "Would the following directory be better suited to hold the source code for a logical secure partition?\nservices/lsp/spmd_logical_sp.c",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f3a002d_d27f187c",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "there is only one file. did not think it was messy enough yet to create a separate directory. Prefer to leave unless you feel strongly. Will resolve, but feel free to reopen.",
+      "parentUuid": "75b68dcd_1f8e6e4a",
       "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -294,6 +534,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5edc2f11_fffe686e",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "to say if all the lsp\u0027s initialized successfully. it is a simple function call to attempt to send el3 direct message so this flag helps check that the initialization of the lsps actually succeeded before allowing sending direct message or discoverying.",
+      "parentUuid": "12bcd9ea_7f706f6b",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55d85574_d05f6d39",
@@ -307,6 +571,30 @@
       "writtenOn": "2023-05-09T14:11:42Z",
       "side": 1,
       "message": "Where is this used?",
+      "range": {
+        "startLine": 17,
+        "startChar": 12,
+        "endLine": 17,
+        "endChar": 26
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c5cf5db_9675f30c",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "in this file? the flag is used to state whether the spmc is inited. The spec requires spmc to be inited before lsps can send messages.",
+      "parentUuid": "55d85574_d05f6d39",
       "range": {
         "startLine": 17,
         "startChar": 12,
@@ -342,6 +630,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e052049_9e355151",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "yeah, el3 spmc lsps and spmd lsps are entirely separate and i did not want to couple them together. One is managed by the spmc and has different properties (allows only receiving direct messages) and other allows different properties. They have different rules (such as LSPs direct message will cause SPMC to disable interrupts/run to completion etc) and if/when they evolve, they will likely evolve with separate rules. it did not seem worth it try and unify them even though they are similar today..\nFor example, i plan to add callbacks that apply to SPMD LPs for handling interrupts and smcs in future patches, but they dont apply to SPMC LSPs..so it just seemed clearner that they remaining independent and evolve..i see the repetition/patterns, but conciously decided to not unify.\nIt also means if i make changes to SPMD LSPs, i have to test SPMC LSPs to make sure nothing is broken..that did not seem like a complexity worth at this point.",
+      "parentUuid": "98209e53_6d2f0be7",
+      "range": {
+        "startLine": 23,
+        "startChar": 32,
+        "endLine": 23,
+        "endChar": 53
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4eaecc1d_8f480813",
         "filename": "services/std_svc/spmd/spmd_logical_sp.c",
         "patchSetId": 1
@@ -353,6 +665,30 @@
       "writtenOn": "2023-05-09T14:11:42Z",
       "side": 1,
       "message": "Unfortunate code duplication with el3_sp_desc_validate, again is there a way to commonalize?",
+      "range": {
+        "startLine": 33,
+        "startChar": 11,
+        "endLine": 33,
+        "endChar": 36
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2719dff_8baffac8",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "it looks sinmilar, closer look will reveal there are different checks between the two. Not to mention creating a directory hierarchy for common files seems ugly at best and this would lead to if/elses or ifdefery in source to account for SPMC vs SPMD LSPs..",
+      "parentUuid": "4eaecc1d_8f480813",
       "range": {
         "startLine": 33,
         "startChar": 11,
@@ -380,6 +716,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51044b23_877ad52e",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a8c962a_7c555385",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15ff0a05_b1f19775",
@@ -393,6 +747,30 @@
       "writtenOn": "2023-05-01T22:27:19Z",
       "side": 1,
       "message": "The function spmd_logical_sp_init() is invoked exactly in one spmd function(spmd_init), that too after spmd_logical_sp_set_spmc_inited(). Is there any chance \"is_spmc_inited\" is false?",
+      "range": {
+        "startLine": 119,
+        "startChar": 5,
+        "endLine": 119,
+        "endChar": 28
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1517b768_276f2004",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "yes. if SPMC initialization fails spmd_logical_sp_set_spmc_inited() will not be called and the spec requires spmd lsps not be able to communicate if the spmc failed init.",
+      "parentUuid": "15ff0a05_b1f19775",
       "range": {
         "startLine": 119,
         "startChar": 5,
@@ -426,6 +804,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2daec4d6_fc486693",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "271a5844_96a70149",
+      "range": {
+        "startLine": 131,
+        "startChar": 1,
+        "endLine": 131,
+        "endChar": 5
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "872d75f3_93c6fff1",
@@ -439,6 +841,30 @@
       "writtenOn": "2023-04-25T20:27:58Z",
       "side": 1,
       "message": "nitpick:\nfailed to initialize",
+      "range": {
+        "startLine": 135,
+        "startChar": 33,
+        "endLine": 135,
+        "endChar": 53
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b742231_fe31ad2c",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "872d75f3_93c6fff1",
       "range": {
         "startLine": 135,
         "startChar": 33,
@@ -466,6 +892,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "411d00ed_d1663901",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50f3a525_7984b770",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50235cbc_d02b54fd",
@@ -479,6 +923,30 @@
       "writtenOn": "2023-04-25T20:27:58Z",
       "side": 1,
       "message": "please use initialized. At first glance, inited expanded to initiated in my brain.",
+      "range": {
+        "startLine": 152,
+        "startChar": 30,
+        "endLine": 152,
+        "endChar": 36
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64d2c4a7_0a38246c",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50235cbc_d02b54fd",
       "range": {
         "startLine": 152,
         "startChar": 30,
@@ -512,6 +980,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0f67e40_ceb3f47d",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "yes, future patches will use this",
+      "parentUuid": "dbeb926a_c1160fed",
+      "range": {
+        "startLine": 159,
+        "startChar": 5,
+        "endLine": 159,
+        "endChar": 37
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86a78701_c6a6d32c",
@@ -525,6 +1017,30 @@
       "writtenOn": "2023-05-09T14:11:42Z",
       "side": 1,
       "message": "Why does this happen after the SPMC has been entered for init?\n\nI wonder that LSP init should happen at spmd_setup or spmd_spmc_init?",
+      "range": {
+        "startLine": 195,
+        "startChar": 1,
+        "endLine": 195,
+        "endChar": 29
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79f6c03d_a1cfefdc",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T17:54:43Z",
+      "side": 1,
+      "message": "spec requires spmc init to complete successfully for spmd lsps.\n\nThe SPMD must not allow an LSP to send a direct message before the SPMC has completed initializing.\nR If the messaging API is invoked before the SPMC has completed initializing the SPMD must reject the call with\nthe error NOT_INITIALIZED.",
+      "parentUuid": "86a78701_c6a6d32c",
       "range": {
         "startLine": 195,
         "startChar": 1,
