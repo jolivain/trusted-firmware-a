@@ -50,6 +50,24 @@
       "message": "Please don\u0027t trigger anymore CI+2, let me post you the error reports here",
       "revId": "20bc2678ad84190ad35f79785764ad3a1b505bc4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "378ac91c_4f6d8555",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-10T09:38:20Z",
+      "side": 1,
+      "message": "One failure which i can see is about loading of optee image, for rest of there is no visible logs. \nhttps://ci-builds.trustedfirmware.org/static-files/zHxaNFi_uX8q-E1tPRFQAaoHalUPtQ--SGnGRjeaz5wxNjgzNzExMzc0MTE4OjE3Om1hbmlzaC1wYW5kZXktYXJtOmpvYi90Zi1hLWJ1aWxkZXIvMjA1MTIxOC9hcnRpZmFjdA\u003d\u003d/lava-uart0.log",
+      "parentUuid": "147ee6b9_bda9e3e9",
+      "revId": "20bc2678ad84190ad35f79785764ad3a1b505bc4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
