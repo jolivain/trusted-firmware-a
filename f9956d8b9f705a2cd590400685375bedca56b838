@@ -34,6 +34,24 @@
       "parentUuid": "22d786ae_26a854e4",
       "revId": "f9956d8b9f705a2cd590400685375bedca56b838",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79fc8bbb_9f29d1ba",
+        "filename": "plat/arm/board/tc/rss_ap_tests.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2023-05-10T16:56:37Z",
+      "side": 1,
+      "message": "I think, that run_tests return value is meant to indicate if any tests failed to run and this test here is meant to indicated that a test failure is recorded. Note that we\u0027re switching over suite-\u003eval instead of ret.",
+      "parentUuid": "9ffac19b_4ca96b04",
+      "revId": "f9956d8b9f705a2cd590400685375bedca56b838",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
