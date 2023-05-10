@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69d54276_bf8fcce5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-05-10T20:26:13Z",
+      "side": 1,
+      "message": "This nothing in CI +1 or +2 to catch this fix or original build failure\n\nTested locally using build options:\n\nmake realclean -j4; make -j8 -s PLAT\u003dqemu -j 40 DEBUG\u003d1 -s BL32\u003dMakefile BL32_RAM_LOCATION\u003dtdram ARM_BL31_IN_DRAM\u003d1 SPD\u003dspmd CTX_INCLUDE_EL2_REGS\u003d0 SPMD_SPM_AT_SEL2\u003d0 SPMC_OPTEE\u003d1\n",
+      "revId": "f78e154eacde8b38a49cd7496b3d279292ecd95a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
