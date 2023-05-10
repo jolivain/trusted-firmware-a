@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a06d8742_ee808747",
+        "filename": "plat/arm/board/arm_fpga/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-05-10T14:31:06Z",
+      "side": 0,
+      "message": "So the oldest image I still have for testing is a Neoverse V1. Can we keep this as well?\nIt still compiled for me with (on top of your new list):\n                                lib/cpus/aarch64/neoverse_n_common.S    \\\n                                lib/cpus/aarch64/neoverse_n1.S          \\\n                                lib/cpus/aarch64/neoverse_n2.S          \\\n                                lib/cpus/aarch64/neoverse_e1.S          \\\n                                lib/cpus/aarch64/neoverse_v1.S          \\\nSo we don\u0027t need any Cortex-A76, A77, A78 or A65 variants, but I\u0027d like to keep the infra systems.",
+      "revId": "41914de338c486595845b438a2459b3bf951d9cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
