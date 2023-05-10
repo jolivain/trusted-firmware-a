@@ -19,6 +19,10 @@ const mmap_region_t *plat_qemu_get_mmap(void);
 
 void qemu_console_init(void);
 
+#ifdef PLAT_QEMU_SBSA
+void sip_svc_init(void);
+#endif
+
 void plat_qemu_gic_init(void);
 void qemu_pwr_gic_on_finish(void);
 void qemu_pwr_gic_off(void);
