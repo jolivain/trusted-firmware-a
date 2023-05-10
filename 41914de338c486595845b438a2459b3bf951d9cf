@@ -16,6 +16,24 @@
       "message": "I unintentionally introduced this bug in other platforms as well when I added support for Group0 interrupt delegation. Please extend the fix to them as well. The impacted platforms are the ones modified in the following patch:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19899",
       "revId": "41914de338c486595845b438a2459b3bf951d9cf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dc45298_c9821c61",
+        "filename": "plat/qemu/common/qemu_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-10T22:44:43Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "6b18c07f_69cbc697",
+      "revId": "41914de338c486595845b438a2459b3bf951d9cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
