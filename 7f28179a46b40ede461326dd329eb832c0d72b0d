@@ -33,6 +33,24 @@
       "message": "We may miss updating plat/arm/board/tc/fdts/tc_spmc_optee_sp_manifest.dts used in context of TC2 SW stack. Here\u0027s what I used and validated:\n\n\tmemory@0 {\n\t\tdevice_type \u003d \"memory\";\n\t\treg \u003d \u003c0x0 0xfd000000 0x0 0x2000000\u003e;\n\t};\n\n\tmemory@1 {\n\t\tdevice_type \u003d \"ns-memory\";\n\t\treg \u003d \u003c0x0 0x80000000 0x0 0x79000000 0x80 0x80000000 0x1 0x80000000\u003e;\n\t};\n\nAs lower priority plat/arm/board/fvp/fdts/fvp_spmc_optee_sp_manifest.dts might also have to be amended.\n",
       "revId": "7f28179a46b40ede461326dd329eb832c0d72b0d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfe33f6a_4a535f6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-10T10:32:48Z",
+      "side": 1,
+      "message": "https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20870\nCheck the patch.",
+      "parentUuid": "9c6a6766_087314e9",
+      "revId": "7f28179a46b40ede461326dd329eb832c0d72b0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
