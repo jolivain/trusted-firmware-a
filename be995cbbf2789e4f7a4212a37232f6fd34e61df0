@@ -98,6 +98,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8e5312df_ff2ad027",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-10T16:56:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "200bde48_f62cd7fe",
+      "range": {
+        "startLine": 29,
+        "startChar": 3,
+        "endLine": 29,
+        "endChar": 38
+      },
+      "revId": "be995cbbf2789e4f7a4212a37232f6fd34e61df0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d2162c92_c34e6640",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -145,6 +169,24 @@
       "side": 1,
       "message": "hmm , I can see the reasoning. The issue here is that, generic code cannot check for all cases of a platform API not behaving correctly. This is a simple case and hence we could implement a check but there are plenty of other cases where we cannot easily verify the correctness of return values. So where do we draw the line of verifying return arguments of a platform API ? (and we cannot verify full correctness in any case).\n\nOne possible angle to view this particular issue is :\n\n1. The args to this platform API is from NS world, which could justify extra validation in generic code.\n\n2. The platform API is doing 2 things implicitly : Verify the mpidr \u0026 calc core pos.  Thus, we could argue this is not a well designed platform API and hence this justifies the extra validation from generic code.\n\nBoth of these can be used as criteria to justify extra checks for some platform APIs in generic code. Once a criteria for the additional validation is in place, then we can avoid the slippery slope of applying it to other APIs.\n\nIf this can be added to platform porting guide or coding guidelines, then we all have a baseline understanding of where to add additional checks for platform API return values (can someone take an AI to add this ?).\n\nIn summary, I agree these checks for this particular API can be justified based on the above criteria.",
       "parentUuid": "4b84123e_fe947e71",
+      "revId": "be995cbbf2789e4f7a4212a37232f6fd34e61df0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3310b58_d7382d13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-10T16:56:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "86cabed2_87bd7a87",
       "revId": "be995cbbf2789e4f7a4212a37232f6fd34e61df0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
