@@ -116,9 +116,14 @@
 		};
 	};
 
-	/* 32MB of TC_TZC_DRAM1_BASE */
-	memory@fd000000 {
+	memory@0 {
 		device_type = "memory";
-		reg = <0x0 0xfd000000 0x2000000>;
+		reg = <0x0 0xfd000000 0x0 0x2000000>;
+	};
+
+	memory@1 {
+		device_type = "ns-memory";
+		reg = <0x0 0x80000000 0x0 0x79000000>,
+		      <0x80 0x80000000 0x1 0x80000000>;
 	};
 };
