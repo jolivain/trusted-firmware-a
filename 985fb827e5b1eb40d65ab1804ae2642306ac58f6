@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa2bcc0f_ce623d2a",
+        "filename": "tools/memory/memory/buildparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-10T12:01:02Z",
+      "side": 1,
+      "message": "Add type hint - is this a str, a Path, or possibly both?",
+      "range": {
+        "startLine": 11,
+        "startChar": 23,
+        "endLine": 11,
+        "endChar": 27
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef55b653_5b20cf67",
+        "filename": "tools/memory/memory/buildparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-10T12:01:02Z",
+      "side": 1,
+      "message": "Add type hint",
+      "range": {
+        "startLine": 16,
+        "startChar": 26,
+        "endLine": 16,
+        "endChar": 32
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1296280_325e0535",
+        "filename": "tools/memory/memory/buildparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-10T12:01:02Z",
+      "side": 1,
+      "message": "We allow the build path to be set after the constructor runs, by which point it has already parsed the modules from the previous path, which puts it now in an inconsistent state. To avoid this the class ought to be immutable (i.e. don\u0027t allow any part of it to be modified after construction, possibly freeze it [https://docs.python.org/3/library/dataclasses.html#frozen-instances]).",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "318c2e9b_72fb7a6b",
+        "filename": "tools/memory/memory/buildparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-10T12:01:02Z",
+      "side": 1,
+      "message": "Is this part of the public or private interface? I see that it\u0027s called from the constructor and that it mutates - maybe it should be underscore-prefixed?",
+      "range": {
+        "startLine": 23,
+        "startChar": 8,
+        "endLine": 23,
+        "endChar": 21
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64d0d29d_f9a02a8e",
+        "filename": "tools/memory/memory/buildparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-10T12:01:02Z",
+      "side": 1,
+      "message": "This can be split up into two utility methods - one for retrieving the symbol names, and optionally one for filtering them by regular expression (though maybe this should be the responsibility of the caller, given it is not inherent to the build parser).\n\n    @property\n    def symbols(self) -\u003e list[str]:\n        ...\n\n    @staticmethod\n    def filter_symbols(regex: str \u003d None, symbols: list[str]) -\u003e list[str]:\n        ...",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 53
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6398cb2_15a40962",
+        "filename": "tools/memory/memory/buildparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-10T12:01:02Z",
+      "side": 1,
+      "message": "This can be a property:\n\n    @property\n    def module_names(self) -\u003e list[str]:\n        return sorted(self._modules.keys())",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 35
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2306e36_52026eb4",
+        "filename": "tools/memory/memory/elfparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-10T12:01:02Z",
+      "side": 1,
+      "message": "I had a quick look through pyelftools with PyCharm and it looks like the underlying type here is `typing.BinaryIO` (i.e. anything with binary stream-like operations).\n\n    from typing import BinaryIO\n\n    def __init__(self, elf_file: BinaryIO):",
+      "range": {
+        "startLine": 20,
+        "startChar": 33,
+        "endLine": 20,
+        "endChar": 39
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61afcb48_0ad65c13",
+        "filename": "tools/memory/memory/elfparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-10T12:01:02Z",
+      "side": 1,
+      "message": "Similar to my comments on `buildparser.py`\n\nFWIW most Python style guides recommend against using `get_` prefixes for getters with parameters (and getters without parameters can be properties).",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 28
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f51fc4_ad6e6059",
+        "filename": "tools/memory/memory/elfparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-10T12:01:02Z",
+      "side": 1,
+      "message": "This seems to be the `Pattern` type, so `expr: Pattern`",
+      "range": {
+        "startLine": 31,
+        "startChar": 35,
+        "endLine": 31,
+        "endChar": 39
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a070659c_6814c437",
+        "filename": "tools/memory/memory/memmap.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-10T12:01:02Z",
+      "side": 1,
+      "message": "We can tell Click exactly what values to expect here (and avoid having to document it in the help message too):\n\n    type\u003dclick.Choice([\u0027debug\u0027, \u0027release\u0027], case_sensitive\u003dFalse))",
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94db6164_0e81def0",
+        "filename": "tools/memory/memory/memmap.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-10T12:01:02Z",
+      "side": 1,
+      "message": "Missing type hints",
+      "range": {
+        "startLine": 50,
+        "startChar": 9,
+        "endLine": 50,
+        "endChar": 55
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
