@@ -70,6 +70,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f40e2988_b524776d",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "no, we extend this to 18 args for ffa_info_get_regs in the next few patches.",
+      "parentUuid": "1aa1528c_ee2a8c7d",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 2
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa75876b_4cce4fe8",
@@ -83,6 +107,30 @@
       "writtenOn": "2023-05-09T14:11:08Z",
       "side": 1,
       "message": "should this be moved to a generic ffa header?",
+      "range": {
+        "startLine": 69,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 1
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad89f775_76dfab2a",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "can be moved, but i wanted to keep it scoped to el3_spmd_logical sps for now and move it when the use case shows up. otherwise there is no other use for this, so did not want to pollute those files. let mek now if you strongly feel this should move.",
+      "parentUuid": "aa75876b_4cce4fe8",
       "range": {
         "startLine": 69,
         "startChar": 0,
@@ -116,6 +164,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2968b4cc_66fe7006",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "nothing other than simplicity. We can easily take in an ffa_value as input and encode it but i just did it for simplicity. if there is a use case, i\u0027m more than happy to expand.\nLet me know if you feel strongly and cannot live with this limitation.",
+      "parentUuid": "7a82fc64_ad9fd4ad",
+      "range": {
+        "startLine": 123,
+        "startChar": 42,
+        "endLine": 125,
+        "endChar": 32
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6900a2f_016fe32e",
@@ -129,6 +201,24 @@
       "writtenOn": "2023-04-27T23:30:25Z",
       "side": 1,
       "message": "Can spmd_lp_sync_req_ongoing be made bool? This operation and the next one can be simplified:\n\nctx-\u003espmd_lp_sync_req_ongoing \u003d true;",
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba9687c8_9ed6e0cd",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "thats how it was originally. there are 2 requests that go in a synchronous manner - one is direct message, the other is ffa_info_get_regs in future patches.\nto avoid having to take 2 full bytes in an expensive context, i just made it a bit field",
+      "parentUuid": "c6900a2f_016fe32e",
       "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -150,6 +240,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f687a9df_27871058",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "same as above.",
+      "parentUuid": "49983095_2e9f0ca5",
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ade58d4f_e5811386",
@@ -163,6 +271,30 @@
       "writtenOn": "2023-04-25T23:37:47Z",
       "side": 1,
       "message": "nitpick: please move to the previous patch where spmd_logical_sp_init was introduced.",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 3
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "198de6e5_8a6f2010",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade58d4f_e5811386",
       "range": {
         "startLine": 163,
         "startChar": 0,
@@ -196,6 +328,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "703ad1e8_3b0868c2",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "fixed.",
+      "parentUuid": "8a3f9665_a2c1c597",
+      "range": {
+        "startLine": 226,
+        "startChar": 44,
+        "endLine": 226,
+        "endChar": 52
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44ec97a5_0d3d972f",
@@ -209,6 +365,30 @@
       "writtenOn": "2023-04-25T23:37:47Z",
       "side": 1,
       "message": "Isnt it always a Group0 interrupt?",
+      "range": {
+        "startLine": 230,
+        "startChar": 13,
+        "endLine": 230,
+        "endChar": 23
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3deb0921_e63271f0",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "practically yes. from the implementation perspective, i dont really care whether it is group0 or not. i;ve added group0 to avoid confusion.",
+      "parentUuid": "44ec97a5_0d3d972f",
       "range": {
         "startLine": 230,
         "startChar": 13,
@@ -242,6 +422,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fb8311f_933d607e",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "good secure coding practice to initialize variables. if left unitialized and some path returns without setting it, it can look like the function succeeded.",
+      "parentUuid": "ca971ec3_51c630de",
+      "range": {
+        "startLine": 248,
+        "startChar": 10,
+        "endLine": 248,
+        "endChar": 25
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cba75d8d_6608188c",
@@ -259,6 +463,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c963f8a6_fc0a42df",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "done. not sure why checkpatch is not flagging this.",
+      "parentUuid": "cba75d8d_6608188c",
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0df4c0ff_d62ad39d",
@@ -272,6 +494,30 @@
       "writtenOn": "2023-05-01T22:48:08Z",
       "side": 1,
       "message": "what about the scenario related to the use of FFA_EL3_INTR_HANDLE_32 for handling Group0 interrupt? Isn\u0027t there a possibility for EL3 firmware(through SPMD LSP) to request an SP (like S-EL0 partition) for bottom half handling?",
+      "range": {
+        "startLine": 285,
+        "startChar": 41,
+        "endLine": 285,
+        "endChar": 63
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e69ad05_9351486a",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "at least per the spec, this is for two purposes, interrupts that occur in nwd and that need to be delegated and then for translating vendor sips to ffa direct message. For the scenario you mentioned, we cannot send direct message in the middle of EL3_INTR_HANDLE since we are not re-entrant anyway and need to return back in that call. Any direct message has to come after secure world has unwound fully any way..\nso my answer is no, the scenario isnt supported...we can double check with MarkB..",
+      "parentUuid": "0df4c0ff_d62ad39d",
       "range": {
         "startLine": 285,
         "startChar": 41,
@@ -307,6 +553,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "45d09958_d9938081",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "i cant think of a good reason why the sync entry would fail ever. It should be some catastrophic failure to reach this path..If we do put it in a degraded mode, we just cannot use that context, but enter via other means? what is the guarantee that will work? \nI see what you are seeing, but cant think of a good reason why an error in the return code, that is not an error should be anything but a panic..if there is a good scenario, happy to do it, but otherwise seems like simplest approach is good for now..\nhappy to debate further..",
+      "parentUuid": "beef2df9_4ccad43b",
+      "range": {
+        "startLine": 348,
+        "startChar": 2,
+        "endLine": 348,
+        "endChar": 10
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96b30b87_5d14d105",
         "filename": "services/std_svc/spmd/spmd_logical_sp.c",
         "patchSetId": 1
@@ -318,6 +588,30 @@
       "writtenOn": "2023-04-27T23:30:25Z",
       "side": 1,
       "message": "perhaps just\nreturn ctx-\u003espmd_lp_sync_req_ongoing;",
+      "range": {
+        "startLine": 386,
+        "startChar": 1,
+        "endLine": 387,
+        "endChar": 34
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb3161fd_b9e3bc84",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "this is a bitmask. today it is direct emssaging. in a future patch, we instroduce ffa_info_get_regs, so we need to know exactly which sync request is ongoing.",
+      "parentUuid": "96b30b87_5d14d105",
       "range": {
         "startLine": 386,
         "startChar": 1,
@@ -351,6 +645,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9205885_77b84dd8",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 970,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "this is to protect against the case where the normal world makes an smc call and tries to spoof as an Spdm lsp. if this is from secure world, the source cannot be an spmd_lp id either..",
+      "parentUuid": "7cb2930a_519c2e0e",
+      "range": {
+        "startLine": 970,
+        "startChar": 6,
+        "endLine": 970,
+        "endChar": 47
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0d65dd6_f8914723",
@@ -368,6 +686,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d3a64d5_dbac4598",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1018,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "this is checked by spmc and by the caller in el3. i dont know we could see a non spmd lsp id in el3 when the direct response arrives and a direct_req is in progress..",
+      "parentUuid": "e0d65dd6_f8914723",
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "352ed9bc_90c37060",
@@ -381,6 +717,30 @@
       "writtenOn": "2023-05-01T22:48:08Z",
       "side": 1,
       "message": "This field is related to an LSP (managed by SPMD). I am a bit confused why is this field part of the data structure that tracks the context of SPMC(lets say Hafnium at S-EL2).",
+      "range": {
+        "startLine": 56,
+        "startChar": 9,
+        "endLine": 56,
+        "endChar": 33
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e998106_cbae030f",
+        "filename": "services/std_svc/spmd/spmd_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-05-10T20:08:29Z",
+      "side": 1,
+      "message": "this flag has the same purpose as secure_interrupt_ongoing. for the spmd to detect that a sync_entry was performed from EL3, and the corresponding sync exit needs to be called.\nwihtout the flag, how would we know that we need to do a sync exit when the SPMC gets a request?",
+      "parentUuid": "352ed9bc_90c37060",
       "range": {
         "startLine": 56,
         "startChar": 9,
