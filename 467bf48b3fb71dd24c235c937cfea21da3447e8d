@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a9b056e_c9bc4132",
+        "filename": "tools/memory/__init__.py",
+        "patchSetId": 47
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-10T10:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e7bdc89_60edcb50",
+      "revId": "467bf48b3fb71dd24c235c937cfea21da3447e8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca3a835b_73c59940",
@@ -35,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94dc9b53_d5da357c",
+        "filename": "tools/memory/memory/__init__.py",
+        "patchSetId": 47
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-10T10:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca3a835b_73c59940",
+      "revId": "467bf48b3fb71dd24c235c937cfea21da3447e8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6ec53fc_cba7c844",
@@ -48,6 +84,30 @@
       "writtenOn": "2023-05-09T15:45:43Z",
       "side": 1,
       "message": "This appears to be used on line 26, and it\u0027s not a private member of the class - what does the underscore signify? Could we call it \"module\" in the name of avoiding over-brevity?",
+      "range": {
+        "startLine": 25,
+        "startChar": 12,
+        "endLine": 25,
+        "endChar": 14
+      },
+      "revId": "467bf48b3fb71dd24c235c937cfea21da3447e8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69104b0f_37fde251",
+        "filename": "tools/memory/memory/buildparser.py",
+        "patchSetId": 47
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-10T10:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6ec53fc_cba7c844",
       "range": {
         "startLine": 25,
         "startChar": 12,
@@ -81,6 +141,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f84c019_4b196ca0",
+        "filename": "tools/memory/memory/buildparser.py",
+        "patchSetId": 47
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-10T10:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98930b14_7cbff5b7",
+      "range": {
+        "startLine": 35,
+        "startChar": 33,
+        "endLine": 35,
+        "endChar": 37
+      },
+      "revId": "467bf48b3fb71dd24c235c937cfea21da3447e8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbb64baa_b7c9e087",
@@ -94,6 +178,30 @@
       "writtenOn": "2023-05-09T15:45:43Z",
       "side": 1,
       "message": "A type hint would be useful for comprehension, even if it\u0027s just \"object\" - I initially assumed this was a file path. Maybe additional documentation to specify that the file can be a file-like object.",
+      "range": {
+        "startLine": 13,
+        "startChar": 23,
+        "endLine": 13,
+        "endChar": 27
+      },
+      "revId": "467bf48b3fb71dd24c235c937cfea21da3447e8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fddd7741_5945aadc",
+        "filename": "tools/memory/memory/elfparser.py",
+        "patchSetId": 47
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-10T10:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbb64baa_b7c9e087",
       "range": {
         "startLine": 13,
         "startChar": 23,
@@ -129,6 +237,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0cd871f_9662f964",
+        "filename": "tools/memory/memory/memmap.py",
+        "patchSetId": 47
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-10T10:35:31Z",
+      "side": 1,
+      "message": "Is there a particular style guide we plan to follow? I\u0027ve reordered the imports and run linters on the code with the following commands:\n\nautoflake -ir --remove-all-unused-imports --expand-star-imports --remove-duplicate-keys --remove-unused-variables tools/memory\nisort tools/memory\nblack tools/memory --line-length 79\nflake8 tools/memory --max-line-length 79\n\nAnd this overrides any hand written changes I make to the import ordering.",
+      "parentUuid": "7cdc4911_95a6351d",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 43
+      },
+      "revId": "467bf48b3fb71dd24c235c937cfea21da3447e8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eb2d85ff_926367b8",
         "filename": "tools/memory/memory/printer.py",
         "patchSetId": 47
@@ -140,6 +272,30 @@
       "writtenOn": "2023-05-09T15:45:43Z",
       "side": 1,
       "message": "Can we provide type hints here?",
+      "range": {
+        "startLine": 9,
+        "startChar": 23,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "467bf48b3fb71dd24c235c937cfea21da3447e8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "303c41b8_1557940f",
+        "filename": "tools/memory/memory/printer.py",
+        "patchSetId": 47
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-10T10:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb2d85ff_926367b8",
       "range": {
         "startLine": 9,
         "startChar": 23,
@@ -163,6 +319,30 @@
       "writtenOn": "2023-05-09T15:45:43Z",
       "side": 1,
       "message": "Same again for type hints",
+      "range": {
+        "startLine": 21,
+        "startChar": 8,
+        "endLine": 21,
+        "endChar": 73
+      },
+      "revId": "467bf48b3fb71dd24c235c937cfea21da3447e8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1dbef44_c14bb597",
+        "filename": "tools/memory/memory/printer.py",
+        "patchSetId": 47
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-10T10:35:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bebd1507_5c0f60c9",
       "range": {
         "startLine": 21,
         "startChar": 8,
