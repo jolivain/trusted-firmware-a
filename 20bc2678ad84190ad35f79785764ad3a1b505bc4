@@ -85,6 +85,24 @@
       "message": "It seems that failure is because optee image is too large, there is a patch under review which increase BL32 size, most likely it will fix these issues.\nLet\u0027s wait until this patch gets merged\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20810",
       "revId": "20bc2678ad84190ad35f79785764ad3a1b505bc4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d158100b_24b99644",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-10T21:48:05Z",
+      "side": 1,
+      "message": "Are you saying that this patch made that test fail? But this patch doesn\u0027t change anything about the OP-TEE image itself? (In fact, this patch should have no effect on any of the configurations tested in the CI.)",
+      "parentUuid": "378ac91c_4f6d8555",
+      "revId": "20bc2678ad84190ad35f79785764ad3a1b505bc4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
