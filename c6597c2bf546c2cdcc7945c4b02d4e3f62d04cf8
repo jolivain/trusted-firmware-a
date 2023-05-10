@@ -39,6 +39,30 @@
       },
       "revId": "c6597c2bf546c2cdcc7945c4b02d4e3f62d04cf8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "649707e2_bfe6c804",
+        "filename": "bl1/bl1.ld.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-05-10T07:22:18Z",
+      "side": 1,
+      "message": "I am happy to move that symbol above comment if that helps but adding alignment should be done as you said by another patch because it is unrelated to change. Let me know if you want me to change symbol location.",
+      "parentUuid": "c4c7ee46_0d923876",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 0
+      },
+      "revId": "c6597c2bf546c2cdcc7945c4b02d4e3f62d04cf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
