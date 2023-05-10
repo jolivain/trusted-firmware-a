@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78e5ad79_0356deed",
+        "filename": "lib/cpus/aarch64/cortex_a77.S",
+        "patchSetId": 34
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-05-10T20:58:01Z",
+      "side": 1,
+      "message": "why dont we use the macro here ? \n\ncheck_erratum_chosen cortex_a77, CVE(2022, 23960), WORKAROUND_CVE_2022_23960",
+      "revId": "a072d95778aa14ccf29bc1758afba8ab272241a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
