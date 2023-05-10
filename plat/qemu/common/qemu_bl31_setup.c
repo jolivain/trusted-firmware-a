@@ -55,6 +55,10 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	/* Initialize the console to provide early debug support */
 	qemu_console_init();
 
+#ifdef PLAT_QEMU_SBSA
+	sip_svc_init();
+#endif
+
 	/*
 	 * Check params passed from BL2
 	 */

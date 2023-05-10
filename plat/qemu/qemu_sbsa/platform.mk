@@ -97,6 +97,7 @@ BL31_SOURCES		+=	${QEMU_CPU_LIBS}				\
 				lib/semihosting/${ARCH}/semihosting_call.S	\
 				plat/common/plat_psci_common.c			\
 				${PLAT_QEMU_PATH}/sbsa_pm.c			\
+				${PLAT_QEMU_PATH}/sbsa_sip_svc.c		\
 				${PLAT_QEMU_PATH}/sbsa_topology.c		\
 				${PLAT_QEMU_COMMON_PATH}/aarch64/plat_helpers.S	\
 				${PLAT_QEMU_COMMON_PATH}/qemu_bl31_setup.c	\
