@@ -371,6 +371,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdae3e52_a40ff961",
+        "filename": "include/drivers/nuvoton/npcm845x/npcm845x_lpuart.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-11T18:46:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f259558_486c7308",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ead4315_a59e4df3",
@@ -420,6 +444,24 @@
       "side": 1,
       "message": "reminder.",
       "parentUuid": "bf63d88f_825e3656",
+      "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b09bf200_635a67b1",
+        "filename": "include/drivers/nuvoton/npcm845x/npcm845x_lpuart.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-11T18:46:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e2bff61_89911ced",
       "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -802,6 +844,30 @@
       "writtenOn": "2023-05-08T15:00:42Z",
       "side": 1,
       "message": "remove. \nThere are multiple instances though out this file",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 1
+      },
+      "revId": "fed81c6b975d0d64039f272fa9b4f9bd3d5aab30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4af41a06_892b639b",
+        "filename": "plat/nuvoton/npcm845x/npcm845x_serial_port.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-11T18:46:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d5e552d_ad0b9c9a",
       "range": {
         "startLine": 110,
         "startChar": 0,
