@@ -664,6 +664,8 @@ void plat_fwu_set_images_source(const struct fwu_metadata *metadata)
 	const uuid_t *img_uuid __maybe_unused;
 	io_block_spec_t *image_spec;
 
+	const uint16_t boot_itf = stm32mp_get_boot_itf_selected();
+
 	boot_idx = plat_fwu_get_boot_idx();
 	assert(boot_idx < NR_OF_FW_BANKS);
 
@@ -678,30 +680,43 @@ void plat_fwu_set_images_source(const struct fwu_metadata *metadata)
 			panic();
 		}
 
+		switch (boot_itf) {
 #if (STM32MP_SDMMC || STM32MP_EMMC)
-		entry = get_partition_entry_by_uuid(img_uuid);
-		if (entry == NULL) {
-			ERROR("Unable to find the partition with the uuid mentioned in metadata\n");
-			panic();
-		}
+		case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_SD:
+		case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_EMMC:
+			entry = get_partition_entry_by_uuid(img_uuid);
+			if (entry == NULL) {
+				ERROR("Unable to find the partition with the uuid mentioned in metadata\n");
+				panic();
+			}
 
-		image_spec->offset = entry->start;
-		image_spec->length = entry->length;
+			image_spec->offset = entry->start;
+			image_spec->length = entry->length;
+			break;
 #endif
 #if STM32MP_SPI_NOR
-		if (guidcmp(img_uuid, &STM32MP_NOR_FIP_A_GUID) == 0) {
-			image_spec->offset = STM32MP_NOR_FIP_A_OFFSET;
-		} else if (guidcmp(img_uuid, &STM32MP_NOR_FIP_B_GUID) == 0) {
-			image_spec->offset = STM32MP_NOR_FIP_B_OFFSET;
-		} else {
-			ERROR("Invalid uuid mentioned in metadata\n");
-			panic();
-		}
+		case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_NOR_QSPI:
+			if (guidcmp(img_uuid, &STM32MP_NOR_FIP_A_GUID) == 0) {
+				image_spec->offset = STM32MP_NOR_FIP_A_OFFSET;
+			} else if (guidcmp(img_uuid, &STM32MP_NOR_FIP_B_GUID) == 0) {
+				image_spec->offset = STM32MP_NOR_FIP_B_OFFSET;
+			} else {
+				ERROR("Invalid uuid mentioned in metadata\n");
+				panic();
+			}
+			break;
 #endif
 #if (STM32MP_SPI_NAND || STM32MP_RAW_NAND)
 #error "FWU NAND not yet implemented"
-		panic();
+		case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_NAND_FMC:
+		case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_NAND_QSPI:
+			panic();
+			break;
 #endif
+		default:
+			break;
+		}
+		INFO("FWU Image: offset=0x%08x, length=0x%08x\n", image_spec->offset, image_spec->length);
 	}
 }
 
@@ -713,36 +728,55 @@ static int plat_set_image_source(unsigned int image_id,
 	io_block_spec_t *spec __maybe_unused;
 	const partition_entry_t *entry __maybe_unused;
 
+	const uint16_t boot_itf = stm32mp_get_boot_itf_selected();
+
 	policy = &policies[image_id];
 	spec = (io_block_spec_t *)policy->image_spec;
 
+	switch (boot_itf) {
 #if (STM32MP_SDMMC || STM32MP_EMMC)
-	partition_init(GPT_IMAGE_ID);
+	case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_SD:
+	case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_EMMC:
+		partition_init(GPT_IMAGE_ID);
 
-	if (image_id == FWU_METADATA_IMAGE_ID) {
-		entry = get_partition_entry(METADATA_PART_1);
-	} else {
-		entry = get_partition_entry(METADATA_PART_2);
-	}
+		if (image_id == FWU_METADATA_IMAGE_ID) {
+			entry = get_partition_entry(METADATA_PART_1);
+		} else {
+			entry = get_partition_entry(METADATA_PART_2);
+		}
 
-	if (entry == NULL) {
-		ERROR("Unable to find a metadata partition\n");
-		return -ENOENT;
-	}
+		if (entry == NULL) {
+			ERROR("Unable to find a metadata partition\n");
+			return -ENOENT;
+		}
 
-	spec->offset = entry->start;
-	spec->length = entry->length;
+		spec->offset = entry->start;
+		spec->length = entry->length;
+		break;
 #endif
 
 #if STM32MP_SPI_NOR
-	if (image_id == FWU_METADATA_IMAGE_ID) {
-		spec->offset = STM32MP_NOR_METADATA1_OFFSET;
-	} else {
-		spec->offset = STM32MP_NOR_METADATA2_OFFSET;
-	}
+	case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_NOR_QSPI:
+		if (image_id == FWU_METADATA_IMAGE_ID) {
+			spec->offset = STM32MP_NOR_METADATA1_OFFSET;
+		} else {
+			spec->offset = STM32MP_NOR_METADATA2_OFFSET;
+		}
 
-	spec->length = sizeof(struct fwu_metadata);
+		spec->length = sizeof(struct fwu_metadata);
+		break;
 #endif
+#if (STM32MP_RAW_NAND || STM32MP_SPI_NAND)
+#error "FWU NAND not yet implemented"
+	case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_NAND_FMC:
+	case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_NAND_QSPI:
+		panic();
+		break;
+#endif
+	default:
+		break;
+	}
+	INFO("FWU Metadata: offset=0x%08x, length=0x%08x\n", spec->offset, spec->length);
 	*image_spec = policy->image_spec;
 	*handle = *policy->dev_handle;
 
