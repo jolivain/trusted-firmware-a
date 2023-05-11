@@ -503,8 +503,7 @@ int bl2_plat_handle_pre_image_load(unsigned int image_id)
 			if (entry == NULL) {
 				entry = get_partition_entry(FIP_IMAGE_NAME);
 				if (entry == NULL) {
-					ERROR("Could NOT find the %s partition!\n",
-					      FIP_IMAGE_NAME);
+					ERROR("Could NOT find the %s partition!\n", FIP_IMAGE_NAME);
 
 					return -ENOENT;
 				}
@@ -538,6 +537,11 @@ int bl2_plat_handle_pre_image_load(unsigned int image_id)
 
 #if STM32MP_SPI_NOR
 	case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_NOR_QSPI:
+/*
+ * With FWU Multi Bank feature enabled, the selection of
+ * the image to boot will be done by fwu_init calling the
+ * platform hook, plat_fwu_set_images_source.
+ */
 		image_block_spec.offset = STM32MP_NOR_FIP_OFFSET;
 		break;
 #endif
@@ -591,7 +595,7 @@ int plat_get_image_source(unsigned int image_id, uintptr_t *dev_handle,
 	return rc;
 }
 
-#if (STM32MP_SDMMC || STM32MP_EMMC) && PSA_FWU_SUPPORT
+#if PSA_FWU_SUPPORT
 /*
  * In each boot in non-trial mode, we set the BKP register to
  * FWU_MAX_TRIAL_REBOOT, and return the active_index from metadata.
@@ -656,50 +660,113 @@ void plat_fwu_set_images_source(const struct fwu_metadata *metadata)
 	const uuid_t *img_type_uuid, *img_uuid;
 	io_block_spec_t *image_spec;
 
+	uint16_t boot_itf = stm32mp_get_boot_itf_selected();
+
 	boot_idx = plat_fwu_get_boot_idx();
 	assert(boot_idx < NR_OF_FW_BANKS);
 
 	for (i = 0U; i < NR_OF_IMAGES_IN_FW_BANK; i++) {
 		img_type_uuid = &metadata->img_entry[i].img_type_uuid;
+
+		img_uuid = &metadata->img_entry[i].img_props[boot_idx].img_uuid;
+
 		image_spec = stm32_get_image_spec(img_type_uuid);
 		if (image_spec == NULL) {
 			ERROR("Unable to get image spec for the image in the metadata\n");
 			panic();
 		}
 
-		img_uuid =
-			&metadata->img_entry[i].img_props[boot_idx].img_uuid;
-
-		entry = get_partition_entry_by_uuid(img_uuid);
-		if (entry == NULL) {
-			ERROR("Unable to find the partition with the uuid mentioned in metadata\n");
+		switch (boot_itf) {
+#if STM32MP_SDMMC || STM32MP_EMMC
+		case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_SD:
+		case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_EMMC:
+			entry = get_partition_entry_by_uuid(img_uuid);
+			if (entry == NULL) {
+				ERROR("Unable to find the partition with the uuid mentioned in metadata\n");
+				panic();
+			}
+			image_spec->offset = entry->start;
+			image_spec->length = entry->length;
+			break;
+#endif
+#if STM32MP_SPI_NOR
+		case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_NOR_QSPI:
+			if (guidcmp(img_uuid, &STM32MP_NOR_FIP_A_GUID) == 0) {
+				image_spec->offset = STM32MP_NOR_FIP_A_OFFSET;
+			} else if (guidcmp(img_uuid, &STM32MP_NOR_FIP_B_GUID) == 0) {
+				image_spec->offset = STM32MP_NOR_FIP_B_OFFSET;
+			} else {
+				ERROR("Invalid uuid mentioned in metadata\n");
+				panic();
+			}
+			break;
+#endif
+#if (STM32MP_RAW_NAND || STM32MP_SPI_NAND)
+		case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_NAND_FMC:
+		case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_NAND_QSPI:
 			panic();
+			break;
+#error "FWU NAND not yet implemented"
+#endif
+		default:
+			break;
 		}
-
-		image_spec->offset = entry->start;
-		image_spec->length = entry->length;
+		INFO("FWU Image: offset=0x%08x, length=0x%08x\n", image_spec->offset, image_spec->length);
 	}
 }
 
 static int plat_set_image_source(unsigned int image_id,
 				 uintptr_t *handle,
-				 uintptr_t *image_spec,
-				 const char *part_name)
+				 uintptr_t *image_spec)
 {
 	struct plat_io_policy *policy;
 	io_block_spec_t *spec;
-	const partition_entry_t *entry = get_partition_entry(part_name);
+	const partition_entry_t *entry;
 
-	if (entry == NULL) {
-		ERROR("Unable to find the %s partition\n", part_name);
-		return -ENOENT;
-	}
+	uint16_t boot_itf = stm32mp_get_boot_itf_selected();
 
 	policy = &policies[image_id];
-
 	spec = (io_block_spec_t *)policy->image_spec;
-	spec->offset = entry->start;
-	spec->length = entry->length;
+
+	switch (boot_itf) {
+#if STM32MP_SDMMC || STM32MP_EMMC
+	case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_SD:
+	case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_EMMC:
+		partition_init(GPT_IMAGE_ID);
+		if (image_id == FWU_METADATA_IMAGE_ID) {
+			entry = get_partition_entry(METADATA_PART_1);
+		} else {
+			entry = get_partition_entry(METADATA_PART_2);
+		}
+		if (entry == NULL) {
+			ERROR("Unable to find a metadata partition\n");
+			return -ENOENT;
+		}
+		spec->offset = entry->start;
+		spec->length = entry->length;
+		break;
+#endif
+#if STM32MP_SPI_NOR
+	case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_NOR_QSPI:
+		if (image_id == FWU_METADATA_IMAGE_ID) {
+			spec->offset = STM32MP_NOR_METADATA1_OFFSET;
+		} else {
+			spec->offset = STM32MP_NOR_METADATA2_OFFSET;
+		}
+		spec->length = sizeof(struct fwu_metadata);
+		break;
+#endif
+#if (STM32MP_RAW_NAND || STM32MP_SPI_NAND)
+	case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_NAND_FMC:
+	case BOOT_API_CTX_BOOT_INTERFACE_SEL_FLASH_NAND_QSPI:
+		panic();
+		break;
+#error "FWU NAND not yet implemented"
+#endif
+	default:
+		break;
+	}
+	INFO("FWU Metadata: offset=0x%08x, length=0x%08x\n", spec->offset, spec->length);
 
 	*image_spec = policy->image_spec;
 	*handle = *policy->dev_handle;
@@ -711,20 +778,9 @@ int plat_fwu_set_metadata_image_source(unsigned int image_id,
 				       uintptr_t *handle,
 				       uintptr_t *image_spec)
 {
-	char *part_name;
-
 	assert((image_id == FWU_METADATA_IMAGE_ID) ||
 	       (image_id == BKUP_FWU_METADATA_IMAGE_ID));
 
-	partition_init(GPT_IMAGE_ID);
-
-	if (image_id == FWU_METADATA_IMAGE_ID) {
-		part_name = METADATA_PART_1;
-	} else {
-		part_name = METADATA_PART_2;
-	}
-
-	return plat_set_image_source(image_id, handle, image_spec,
-				     part_name);
+	return plat_set_image_source(image_id, handle, image_spec);
 }
-#endif /* (STM32MP_SDMMC || STM32MP_EMMC) && PSA_FWU_SUPPORT */
+#endif /* PSA_FWU_SUPPORT */
