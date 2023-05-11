@@ -1371,6 +1371,7 @@ $(eval $(call add_defines,\
         ENABLE_FEAT_TWED \
 	CONDITIONAL_CMO \
 	IMPDEF_SYSREG_TRAP \
+        FWU_STM32MP_FALLBACK_BOOT \
 )))
 
 ifeq (${SANITIZE_UB},trap)

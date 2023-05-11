@@ -492,7 +492,7 @@ int bl2_plat_handle_pre_image_load(unsigned int image_id)
  * the image to boot will be done by fwu_init calling the
  * platform hook, plat_fwu_set_images_source.
  */
-#if !PSA_FWU_SUPPORT
+#if !PSA_FWU_SUPPORT || FWU_STM32MP_FALLBACK_BOOT
 			const partition_entry_t *entry;
 			const struct efi_guid img_type_guid = STM32MP_FIP_GUID;
 			uuid_t img_type_uuid;

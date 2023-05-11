@@ -184,7 +184,11 @@ void fwu_init(void)
 		result = fwu_metadata_load(BKUP_FWU_METADATA_IMAGE_ID);
 		if (result != 0) {
 			ERROR("loading of Bkup-FWU-Metadata failed\n");
+#if FWU_STM32MP_FALLBACK_BOOT /* Proceed anyway to boot default FIP image */
+			return;
+#else
 			panic();
+#endif
 		}
 	}
 
