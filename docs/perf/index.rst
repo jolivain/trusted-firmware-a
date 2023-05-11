@@ -7,6 +7,8 @@ Performance & Testing
 
    psci-performance-instr
    psci-performance-juno
+   psci-performance-n1sdp
+   psci-performance-methodology
    tsp
    performance-monitoring-unit
 
