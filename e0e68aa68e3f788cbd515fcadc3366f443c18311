@@ -77,6 +77,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4026eb2c_521cba4e",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-05-12T22:33:17Z",
+      "side": 1,
+      "message": "Correct, we did decide that using the OP-TEE device tree for passing all of these in would be a cleaner solution unless there is some reason you need to query these values after OP-TEE is initialized (since the device tree only exists during init).  The other advantage to doing that is we can erase these values from EL3 memory after we pass them into OP-TEE w/ the device tree (not that EL3 wouldn\u0027t be able to still read them from OP-TEE\u0027s secure RAM...but it wouldn\u0027t hurt to remove them from extra secure RAM locations).",
+      "parentUuid": "87da6fcb_27f54ad6",
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44c77ca3_db0fcdc4",
         "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
         "patchSetId": 8
@@ -220,6 +238,24 @@
       "writtenOn": "2023-05-12T22:16:54Z",
       "side": 1,
       "message": "Depthcharge runs in non-secure EL2.",
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6087a131_77255a0c",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-05-12T22:33:17Z",
+      "side": 1,
+      "message": "And then if we remove the GET functions and shift them to a device tree...then it won\u0027t matter if the SET functions are called from NS world since it would only be invalidating the DRM keys (and that only matters if they get invoked before we load OP-TEE).",
+      "parentUuid": "1b94281d_b5ec187e",
       "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
