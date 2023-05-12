@@ -198,3 +198,50 @@ int apusys_kernel_apusys_rv_setup_sec_mem(void)
 	spin_unlock(&apusys_rv_lock);
 	return ret;
 }
+
+int apusys_kernel_apusys_rv_disable_wdt_isr(void)
+{
+	spin_lock(&apusys_rv_lock);
+	mmio_clrbits_32(WDT_CTRL0, WDT_EN);
+	spin_unlock(&apusys_rv_lock);
+
+	return 0;
+}
+
+int apusys_kernel_apusys_rv_clear_wdt_isr(void)
+{
+	spin_lock(&apusys_rv_lock);
+	mmio_clrbits_32(UP_INT_EN2, DBG_APB_EN);
+	mmio_write_32(WDT_INT, WDT_INT_W1C);
+	spin_unlock(&apusys_rv_lock);
+
+	return 0;
+}
+
+int apusys_kernel_apusys_rv_cg_gating(void)
+{
+	if (mmio_read_32(WDT_INT) != WDT_INT_W1C) {
+		ERROR(MODULE_TAG "%s: WDT not timeout\n", __func__);
+		return -1;
+	}
+
+	spin_lock(&apusys_rv_lock);
+	mmio_write_32(MD32_CLK_CTRL, MD32_CLK_DIS);
+	spin_unlock(&apusys_rv_lock);
+
+	return 0;
+}
+
+int apusys_kernel_apusys_rv_cg_ungating(void)
+{
+	if (mmio_read_32(WDT_INT) != WDT_INT_W1C) {
+		ERROR(MODULE_TAG "%s: WDT not timeout\n", __func__);
+		return -1;
+	}
+
+	spin_lock(&apusys_rv_lock);
+	mmio_write_32(MD32_CLK_CTRL, MD32_CLK_EN);
+	spin_unlock(&apusys_rv_lock);
+
+	return 0;
+}
