@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "470ace57_828f76ed",
+        "filename": "tools/memory/memory/buildparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-12T13:30:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa2bcc0f_ce623d2a",
+      "range": {
+        "startLine": 11,
+        "startChar": 23,
+        "endLine": 11,
+        "endChar": 27
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef55b653_5b20cf67",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-10T12:01:02Z",
       "side": 1,
       "message": "Add type hint",
+      "range": {
+        "startLine": 16,
+        "startChar": 26,
+        "endLine": 16,
+        "endChar": 32
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b325d237_2bc65504",
+        "filename": "tools/memory/memory/buildparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-12T13:30:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef55b653_5b20cf67",
       "range": {
         "startLine": 16,
         "startChar": 26,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a02b6c69_1ac3bad8",
+        "filename": "tools/memory/memory/buildparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-12T13:30:12Z",
+      "side": 1,
+      "message": "iirc we would have to make this a `dataclass` in order to freeze it. What is the benefit of doing so, rather than just representing it as a common class with no setters and the path a private member? Or, can you freeze common classes?",
+      "parentUuid": "d1296280_325e0535",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 25
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "318c2e9b_72fb7a6b",
         "filename": "tools/memory/memory/buildparser.py",
         "patchSetId": 48
@@ -83,6 +155,30 @@
       "writtenOn": "2023-05-10T12:01:02Z",
       "side": 1,
       "message": "Is this part of the public or private interface? I see that it\u0027s called from the constructor and that it mutates - maybe it should be underscore-prefixed?",
+      "range": {
+        "startLine": 23,
+        "startChar": 8,
+        "endLine": 23,
+        "endChar": 21
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ac148e1_9107b2f7",
+        "filename": "tools/memory/memory/buildparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-12T13:30:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "318c2e9b_72fb7a6b",
       "range": {
         "startLine": 23,
         "startChar": 8,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7c7ec4e_d5b67da0",
+        "filename": "tools/memory/memory/buildparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-12T13:30:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64d0d29d_f9a02a8e",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 35,
+        "endChar": 53
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6398cb2_15a40962",
@@ -139,6 +259,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5d2590d_88c159a5",
+        "filename": "tools/memory/memory/buildparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-12T13:30:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6398cb2_15a40962",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 35
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2306e36_52026eb4",
@@ -152,6 +296,30 @@
       "writtenOn": "2023-05-10T12:01:02Z",
       "side": 1,
       "message": "I had a quick look through pyelftools with PyCharm and it looks like the underlying type here is `typing.BinaryIO` (i.e. anything with binary stream-like operations).\n\n    from typing import BinaryIO\n\n    def __init__(self, elf_file: BinaryIO):",
+      "range": {
+        "startLine": 20,
+        "startChar": 33,
+        "endLine": 20,
+        "endChar": 39
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1955fcc3_3e6e72b4",
+        "filename": "tools/memory/memory/elfparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-12T13:30:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2306e36_52026eb4",
       "range": {
         "startLine": 20,
         "startChar": 33,
@@ -208,6 +376,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f06514d9_8d89a184",
+        "filename": "tools/memory/memory/elfparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-12T13:30:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61afcb48_0ad65c13",
+      "range": {
+        "startLine": 31,
+        "startChar": 8,
+        "endLine": 31,
+        "endChar": 28
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9529018_f1cfcd3d",
+        "filename": "tools/memory/memory/elfparser.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-12T13:30:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85f51fc4_ad6e6059",
+      "range": {
+        "startLine": 31,
+        "startChar": 35,
+        "endLine": 31,
+        "endChar": 39
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a070659c_6814c437",
@@ -225,6 +441,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0acf5860_375d31d2",
+        "filename": "tools/memory/memory/memmap.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-12T13:30:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a070659c_6814c437",
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94db6164_0e81def0",
@@ -238,6 +472,30 @@
       "writtenOn": "2023-05-10T12:01:02Z",
       "side": 1,
       "message": "Missing type hints",
+      "range": {
+        "startLine": 50,
+        "startChar": 9,
+        "endLine": 50,
+        "endChar": 55
+      },
+      "revId": "985fb827e5b1eb40d65ab1804ae2642306ac58f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84120031_3cfb4560",
+        "filename": "tools/memory/memory/memmap.py",
+        "patchSetId": 48
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-12T13:30:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94db6164_0e81def0",
       "range": {
         "startLine": 50,
         "startChar": 9,
