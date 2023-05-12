@@ -1,0 +1,250 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1db8ea55_8da10a8a",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-12T22:16:54Z",
+      "side": 1,
+      "message": "Since the definition of \"OEM\" isn\u0027t super clear in this case and a Chromebook also always has another entity besides Google that could lay claim to that title, I think it would be good if we only used a subrange of the entire OEM range for ChromeOS that was least likely to clash with other ID allocations (i.e. somewhere randomly in the middle). Maybe pick a value like 0xC300C050 (\"COS\" \u003d ChromeOS) and start counting up from there?\n\nThis also means that you wouldn\u0027t have the call count, UID and version calls. (From my reading it seems like these are deprecated in the latest version of the SMCCC anyway?)",
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e45577ee_b50512bb",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-12T22:16:54Z",
+      "side": 1,
+      "message": "Why not 64? On CrOS we never run 32-bit kernels on 64-bit machines. (Note that since you\u0027re assuming your register inputs are u_register_t sized, which is 64-bit here, you are effectively building a 64-bit API, but you\u0027re here declaring that it was a 32-bit API which is bad.)",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 10
+      },
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82e61505_dbb7152e",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-12T22:16:54Z",
+      "side": 1,
+      "message": "Each of these should document the exact API (register in/out parameters, etc) of that SMC in comments.",
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87da6fcb_27f54ad6",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-12T22:16:54Z",
+      "side": 1,
+      "message": "I believe we decided to not have \"getters\" for these and instead pass them to OP-TEE through the device tree. You should check with Jeffrey.",
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44c77ca3_db0fcdc4",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-12T22:16:54Z",
+      "side": 1,
+      "message": "I think it would be good to prefix all these names with some common thing that identifies them as belonging to Widevine DRM (e.g. CROS_OEM_SMC_DRM_SET_TPM_AUTH_PUB, maybe?), so if we later add ChromeOS calls that have nothing to do with that it\u0027s easier to tell them apart.",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 37
+      },
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc41fcd1_e0fe87df",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-12T22:16:54Z",
+      "side": 1,
+      "message": "Might be cleaner to keep this FID running number in an enum?",
+      "range": {
+        "startLine": 52,
+        "startChar": 35,
+        "endLine": 52,
+        "endChar": 39
+      },
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb2cee98_8db48bb0",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-12T22:16:54Z",
+      "side": 1,
+      "message": "I\u0027m not really sure what this is supposed to mean? Are you trying to test whether an FID is in the OEM range (as opposed to, say, the architecture or SiP range)? In that case, this check does not look right. You\u0027d want the mask to be 0x3F000000 and the value 0x3000000.",
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d203712_c161ec4e",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-12T22:16:54Z",
+      "side": 1,
+      "message": "So with 48 bytes per SMC this takes 22 SMCs to transfer... that seems pretty inefficient. Why are we not just passing a pointer and mapping in memory?",
+      "range": {
+        "startLine": 22,
+        "startChar": 34,
+        "endLine": 22,
+        "endChar": 38
+      },
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8df2a094_87f426c7",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-12T22:16:54Z",
+      "side": 1,
+      "message": "Why is this 30 and not 31 (or 63)? Seems a bit odd. Does 31 have another meaning that\u0027s not implemented here? (Since your length can\u0027t be longer than 48 anyway, maybe just limit the length field to 16 bits or something and mask out everything else to be possible other fields or flags for future expansion?)\n\nOr, if you want to optimize for maximum data packing, go the other way and put the length (and this flag bit) into bits 63-56 of x1, and use bits 55-0 of x1 as the first 7 bytes of data already.",
+      "range": {
+        "startLine": 23,
+        "startChar": 35,
+        "endLine": 23,
+        "endChar": 37
+      },
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45c35d42_8cc6194b",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-12T22:16:54Z",
+      "side": 1,
+      "message": "nit: \"Unknown\" has a specific meaning and shouldn\u0027t be the generic error type for everything. You can make up error values, but for simplicity I\u0027d maybe just adopt the PSCI ones (e.g. this could be PSCI_E_ALREADY_ON).",
+      "range": {
+        "startLine": 98,
+        "startChar": 19,
+        "endLine": 98,
+        "endChar": 26
+      },
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b94281d_b5ec187e",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-12T22:16:54Z",
+      "side": 1,
+      "message": "Depthcharge runs in non-secure EL2.",
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03dbb293_6b78617c",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-12T22:16:54Z",
+      "side": 1,
+      "message": "Pretty sure you can just pass NULL here if you don\u0027t want a setup handler.",
+      "range": {
+        "startLine": 199,
+        "startChar": 8,
+        "endLine": 199,
+        "endChar": 26
+      },
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
