@@ -85,6 +85,24 @@
       "message": "FVP tests are failing in the CI. FVP should not be impacted with this Tegra platform patch. Re-triggered the failing tests to see if they pass.",
       "revId": "cb6c8efc4f2dd951b2b51801a12ba1755d49fe79",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2efc53d6_8244528a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-12T16:31:35Z",
+      "side": 1,
+      "message": "Don\u0027t re-trigger we can provide manual verified +1 if its unrelated",
+      "parentUuid": "2428dae6_5d92b092",
+      "revId": "cb6c8efc4f2dd951b2b51801a12ba1755d49fe79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
