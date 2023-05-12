@@ -36,6 +36,32 @@ int plat_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
 }
 
 /*
+ * Return the non-volatile counter address stored in the platform. The cookie
+ * will contain the OID of the counter in the certificate.
+ *
+ * Return: 0 = success, Otherwise = error
+ */
+static int plat_get_nv_ctr_addr(void *cookie, uint32_t **nv_ctr_addr)
+{
+	const char *oid = (const char *)cookie;
+
+	if (strcmp(oid, TRUSTED_FW_NVCOUNTER_OID) == 0) {
+		*nv_ctr_addr = (uint32_t *)FCONF_GET_PROPERTY(cot, nv_cntr_addr,
+						TRUSTED_NV_CTR_ID);
+	} else if (strcmp(oid, NON_TRUSTED_FW_NVCOUNTER_OID) == 0) {
+		*nv_ctr_addr = (uint32_t *)FCONF_GET_PROPERTY(cot, nv_cntr_addr,
+						NON_TRUSTED_NV_CTR_ID);
+	} else if (strcmp(oid, CCA_FW_NVCOUNTER_OID) == 0) {
+		/* FVP does not support the CCA NV Counter so use the Trusted NV */
+		*nv_ctr_addr = (uint32_t *)FCONF_GET_PROPERTY(cot, nv_cntr_addr,
+						TRUSTED_NV_CTR_ID);
+	} else {
+		return 1;
+	}
+	return 0;
+}
+
+/*
  * Store a new non-volatile counter value.
  *
  * On some FVP versions, the non-volatile counters are read-only so this
@@ -45,33 +71,23 @@ int plat_get_rotpk_info(void *cookie, void **key_ptr, unsigned int *key_len,
  */
 int plat_set_nv_ctr(void *cookie, unsigned int nv_ctr)
 {
-	const char *oid;
-	uintptr_t nv_ctr_addr;
+	uint32_t *nv_ctr_addr = 0;
+	int rc;
 
 	assert(cookie != NULL);
 
-	oid = (const char *)cookie;
-	if (strcmp(oid, TRUSTED_FW_NVCOUNTER_OID) == 0) {
-		nv_ctr_addr = FCONF_GET_PROPERTY(cot, nv_cntr_addr,
-						TRUSTED_NV_CTR_ID);
-	} else if (strcmp(oid, NON_TRUSTED_FW_NVCOUNTER_OID) == 0) {
-		nv_ctr_addr = FCONF_GET_PROPERTY(cot, nv_cntr_addr,
-						NON_TRUSTED_NV_CTR_ID);
-	} else if (strcmp(oid, CCA_FW_NVCOUNTER_OID) == 0) {
-		/* FVP does not support the CCA NV Counter so use the Trusted NV */
-		nv_ctr_addr = FCONF_GET_PROPERTY(cot, nv_cntr_addr,
-						TRUSTED_NV_CTR_ID);
-	} else {
-		return 1;
+	rc = plat_get_nv_ctr_addr(cookie, &nv_ctr_addr);
+	if (rc != 0) {
+		return rc;
 	}
 
-	mmio_write_32(nv_ctr_addr, nv_ctr);
+	mmio_write_32((uintptr_t)nv_ctr_addr, nv_ctr);
 
 	/*
 	 * If the FVP models a locked counter then its value cannot be updated
 	 * and the above write operation has been silently ignored.
 	 */
-	return (mmio_read_32(nv_ctr_addr) == nv_ctr) ? 0 : 1;
+	return (mmio_read_32((uintptr_t)nv_ctr_addr) == nv_ctr) ? 0 : 1;
 }
 
 /*
@@ -82,25 +98,15 @@ int plat_set_nv_ctr(void *cookie, unsigned int nv_ctr)
  */
 int plat_get_nv_ctr(void *cookie, unsigned int *nv_ctr)
 {
-	const char *oid;
-	uint32_t *nv_ctr_addr;
+	uint32_t *nv_ctr_addr = 0;
+	int rc;
 
 	assert(cookie != NULL);
 	assert(nv_ctr != NULL);
 
-	oid = (const char *)cookie;
-	if (strcmp(oid, TRUSTED_FW_NVCOUNTER_OID) == 0) {
-		nv_ctr_addr = (uint32_t *)FCONF_GET_PROPERTY(cot, nv_cntr_addr,
-							TRUSTED_NV_CTR_ID);
-	} else if (strcmp(oid, NON_TRUSTED_FW_NVCOUNTER_OID) == 0) {
-		nv_ctr_addr = (uint32_t *)FCONF_GET_PROPERTY(cot, nv_cntr_addr,
-							NON_TRUSTED_NV_CTR_ID);
-	} else if (strcmp(oid, CCA_FW_NVCOUNTER_OID) == 0) {
-		/* FVP does not support the CCA NV Counter so use the Trusted NV */
-		nv_ctr_addr = (uint32_t *)FCONF_GET_PROPERTY(cot, nv_cntr_addr,
-							TRUSTED_NV_CTR_ID);
-	} else {
-		return 1;
+	rc = plat_get_nv_ctr_addr(cookie, &nv_ctr_addr);
+	if (rc != 0) {
+		return rc;
 	}
 
 	*nv_ctr = (unsigned int)(*nv_ctr_addr);
