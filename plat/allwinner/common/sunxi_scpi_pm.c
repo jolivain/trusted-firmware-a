@@ -125,6 +125,21 @@ static void __dead2 sunxi_system_reset(void)
 	psci_power_down_wfi();
 }
 
+static int sunxi_system_reset2(int is_vendor, int reset_type, u_register_t cookie)
+{
+	int ret = PSCI_E_SUCCESS;
+
+	gicv2_cpuif_disable();
+
+	/* Send the system reset request to the SCP. */
+	if (scpi_sys_power_state(scpi_system_reset) != SCP_OK) {
+		ret = PSCI_E_INTERN_FAIL;
+		ERROR("PSCI: SCPI %s failed: %d\n", "reset", ret);
+	}
+
+	return ret;
+}
+
 static int sunxi_validate_power_state(unsigned int power_state,
 				      psci_power_state_t *req_state)
 {
@@ -177,6 +192,7 @@ static const plat_psci_ops_t sunxi_scpi_psci_ops = {
 	.pwr_domain_suspend_finish	= sunxi_pwr_domain_on_finish,
 	.system_off			= sunxi_system_off,
 	.system_reset			= sunxi_system_reset,
+	.system_reset2			= sunxi_system_reset2,
 	.validate_power_state		= sunxi_validate_power_state,
 	.validate_ns_entrypoint		= sunxi_validate_ns_entrypoint,
 	.get_sys_suspend_power_state	= sunxi_get_sys_suspend_power_state,
