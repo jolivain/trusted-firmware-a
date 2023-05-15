@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14601043_1a007a18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-05-15T08:50:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8e531c01_ed765d06",
+      "revId": "4d9e101ca95ff867e455a8ce380649360b2e06e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1c81249_a2cb056d",
@@ -31,6 +49,41 @@
       "writtenOn": "2023-05-12T15:59:57Z",
       "side": 1,
       "message": "typo: cleans up",
+      "revId": "4d9e101ca95ff867e455a8ce380649360b2e06e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70afa2f7_f582aeeb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-05-15T08:50:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c1c81249_a2cb056d",
+      "revId": "4d9e101ca95ff867e455a8ce380649360b2e06e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "110b8771_0346d273",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-05-15T08:50:31Z",
+      "side": 1,
+      "message": "Thanks for your comments.\nWill address them all in my next patch.",
       "revId": "4d9e101ca95ff867e455a8ce380649360b2e06e2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -58,6 +111,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f3bdc9e_51cc4d75",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 974,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-05-15T08:50:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9bf7c4b0_49db780d",
+      "range": {
+        "startLine": 943,
+        "startChar": 0,
+        "endLine": 974,
+        "endChar": 17
+      },
+      "revId": "4d9e101ca95ff867e455a8ce380649360b2e06e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c76466d_afbdc451",
@@ -71,6 +148,30 @@
       "writtenOn": "2023-05-12T15:59:57Z",
       "side": 1,
       "message": "If you\u0027re fixing below, the entire expression should be using tabs (8 characters spacing).\n\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#indentation",
+      "range": {
+        "startLine": 989,
+        "startChar": 0,
+        "endLine": 989,
+        "endChar": 4
+      },
+      "revId": "4d9e101ca95ff867e455a8ce380649360b2e06e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dc64aed_218d2bea",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-05-15T08:50:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8c76466d_afbdc451",
       "range": {
         "startLine": 989,
         "startChar": 0,
