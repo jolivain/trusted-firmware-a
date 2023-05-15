@@ -10,6 +10,9 @@
 #include <libfdt.h>
 #include <smccc_helpers.h>
 
+#include <drivers/arm/gicv3.h>
+#include <plat/common/platform.h>
+
 static int platform_version_major;
 static int platform_version_minor;
 
@@ -19,6 +22,39 @@ static int platform_version_minor;
 #define SIP_FUNCTION_ID(n) (SIP_FUNCTION   | (n))
 
 #define SIP_SVC_VERSION  SIP_FUNCTION_ID(1)
+
+#define SIP_SVC_GET_GIC  SIP_FUNCTION_ID(100)
+
+void sbsa_set_gic_bases(const uintptr_t gicd_base, const uintptr_t gicr_base);
+uintptr_t sbsa_get_gicd(void);
+uintptr_t sbsa_get_gicr(void);
+
+void read_platform_config_from_dt(void *dtb)
+{
+	int node;
+	const fdt64_t *data;
+
+	/*
+	 * QEMU gives us this DeviceTree node:
+	 *
+	 * intc {
+		reg = < 0x00 0x40060000 0x00 0x10000
+			0x00 0x40080000 0x00 0x4000000>;
+	};
+	 */
+	node = fdt_path_offset(dtb, "/intc");
+	if (node >= 0) {
+		data = fdt_getprop(dtb, node, "reg", NULL);
+		if (data != NULL) {
+			INFO("GICD base = 0x%lx\n", fdt64_to_cpu(*(data + 0)));
+			INFO("GICD size = 0x%lx\n", fdt64_to_cpu(*(data + 1)));
+			INFO("GICR base = 0x%lx\n", fdt64_to_cpu(*(data + 2)));
+			INFO("GICR size = 0x%lx\n", fdt64_to_cpu(*(data + 3)));
+
+			sbsa_set_gic_bases(fdt64_to_cpu(*(data + 0)), fdt64_to_cpu(*(data + 2)));
+		}
+	}
+}
 
 void read_platform_version(void *dtb)
 {
@@ -52,6 +88,8 @@ void sip_svc_init(void)
 
 	read_platform_version(dtb);
 	INFO("Platform version: %d.%d\n", platform_version_major, platform_version_minor);
+
+	read_platform_config_from_dt(dtb);
 }
 
 /*
@@ -79,6 +117,9 @@ uintptr_t sbsa_sip_smc_handler(uint32_t smc_fid,
 	case SIP_SVC_VERSION:
 		INFO("Platform version requested\n");
 		SMC_RET3(handle, NULL, platform_version_major, platform_version_minor);
+
+	case SIP_SVC_GET_GIC:
+		SMC_RET3(handle, NULL, sbsa_get_gicd(), sbsa_get_gicr());
 
 	default:
 		ERROR("%s: unhandled SMC (0x%x)\n", __func__, smc_fid);
