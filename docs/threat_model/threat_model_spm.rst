@@ -1326,6 +1326,53 @@ element of the data flow diagram.
 |                        | FFA_INVALID_PARAMETERS. The permissiveness rules   |
 |                        | are enforced in any call to share/lend or donate   |
 |                        | the memory, and in retrieve requests.              |
+|                        | Security state attributes are provided by the SPMC |
+|                        | as set in S2 translation regime, without requiring |
+|                        | the configurariton of the lender.                  |
++------------------------+----------------------------------------------------+
+
++------------------------+----------------------------------------------------+
+| ID                     | 29                                                 |
++========================+====================================================+
+| ``Threat``             | **A rogue NS FF-A endpoint may attempt to share    |
+|                        | memory that belongs to another system component.** |
+|                        | E.g. the secure memory belonging to the monitor,   |
+|                        | or the SPMC, as well as other SP.                  |
++------------------------+----------------------------------------------------+
+| ``Diagram Elements``   | DF1, DF2                                           |
++------------------------+----------------------------------------------------+
+| ``Affected TF-A        | SPMC, FF-A endpoint                                |
+| Components``           |                                                    |
++------------------------+----------------------------------------------------+
+| ``Assets``             | SP state                                           |
++------------------------+----------------------------------------------------+
+| ``Threat Agent``       | NS-Endpoint, S-Endpoint                            |
++------------------------+----------------------------------------------------+
+| ``Threat Type``        | Denial of Service, Tampering                       |
++------------------------+------------------+-----------------+---------------+
+| ``Application``        |   ``Server``     |   ``Mobile``    |               |
++------------------------+------------------+-----------------+---------------+
+| ``Impact``             | High (4)         | Low (2)         |               |
++------------------------+------------------+-----------------+---------------+
+| ``Likelihood``         | Medium (3)       | Low (2)         |               |
++------------------------+------------------+-----------------+---------------+
+| ``Total Risk Rating``  | High (12)        | Low (2)         |               |
++------------------------+------------------+-----------------+---------------+
+| ``Mitigations``        | The system integrator shall configure memory       |
+|                        | ranges in the SPMC manifest, which limit the       |
+|                        | memory that can be used by SPs in their address    |
+|                        | space. This includes both secure and non-secure    |
+|                        | memory. All non-secure memory that is not          |
+|                        | assigned to SPs is used to create a page table     |
+|                        | that the SPMC relates to the NWd, which is used to |
+|                        | contain the memory sharing operations from the     |
+|                        | NWd to SPs. I.e. if the SPMC handles a request     |
+|                        | from the NWd to lend or donate memory that is not  |
+|                        | mapped in the referred page table, the operation   |
+|                        | will fail with FFA_ERROR. No secure memory shall   |
+|                        | be mapped, thus mitigating the possibility of      |
+|                        | an NWd component circunventing the sandoxing       |
+|                        | enforced by the SPMC.                              |
 +------------------------+----------------------------------------------------+
 
 --------------
