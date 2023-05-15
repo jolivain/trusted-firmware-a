@@ -577,6 +577,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6bafec72_3c0b956a",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-15T21:32:35Z",
+      "side": 1,
+      "message": "Honestly, I dont know the answer. But I am thinking out loud: should we compromise the entire system just because one LSP context failed. Is it the most resilient approach?",
+      "parentUuid": "45d09958_d9938081",
+      "range": {
+        "startLine": 348,
+        "startChar": 2,
+        "endLine": 348,
+        "endChar": 10
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "96b30b87_5d14d105",
         "filename": "services/std_svc/spmd/spmd_logical_sp.c",
         "patchSetId": 1
@@ -700,6 +724,24 @@
       "side": 1,
       "message": "this is checked by spmc and by the caller in el3. i dont know we could see a non spmd lsp id in el3 when the direct response arrives and a direct_req is in progress..",
       "parentUuid": "e0d65dd6_f8914723",
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bd8f956_29dbff9c",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1018,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-15T21:32:35Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we wary of SPMC? Also, \"by the caller in el3\", did you mean the asserts in lines 363 through 368 ?\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20667/2/services/std_svc/spmd/spmd_logical_sp.c#363",
+      "parentUuid": "4d3a64d5_dbac4598",
       "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },

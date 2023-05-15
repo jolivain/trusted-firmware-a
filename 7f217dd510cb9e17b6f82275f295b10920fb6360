@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43a7c26e_7137af49",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-15T21:32:35Z",
+      "side": 1,
+      "message": "curious what you meant by gracefully. asserts get compiled out for release builds.",
+      "range": {
+        "startLine": 358,
+        "startChar": 42,
+        "endLine": 359,
+        "endChar": 47
+      },
+      "revId": "7f217dd510cb9e17b6f82275f295b10920fb6360",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
