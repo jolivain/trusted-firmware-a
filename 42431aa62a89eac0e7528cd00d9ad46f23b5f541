@@ -34,6 +34,23 @@
       "parentUuid": "a25d6c53_e15036d7",
       "revId": "42431aa62a89eac0e7528cd00d9ad46f23b5f541",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c574b4a9_e2d4ad5c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-15T06:05:48Z",
+      "side": 1,
+      "message": "Overriding Verified score because:\n* the Allow-CI+1 run only raised some build issues for Hikey board and RaspberryPi, which clearly are unrelated to this patch.\n* the ad-hoc CI run [1] succeeded.\n\n[1] https://ci.trustedfirmware.org/job/tf-a-ci-gateway/36951/",
+      "revId": "42431aa62a89eac0e7528cd00d9ad46f23b5f541",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
