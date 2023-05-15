@@ -503,6 +503,9 @@ As per SMCCCv1.2, x4 must be preserved if not being used as return argument by t
 and it is the responsibility of RMM to preserve this or use this as a return argument.
 EL3 will always copy x0-x4 from Realm context to NS Context.
 
+As part of SMC forwarding between the NS world and Realm world,
+EL3 will save and restore NS/RMM PAUTH keys APIA, APIB, APDA, APDB, APGA.
+
 EL3 will not save some registers as mentioned in the below list. It is the
 responsibility of RMM to ensure that these are appropriately saved if the
 Realm World makes use of them:
