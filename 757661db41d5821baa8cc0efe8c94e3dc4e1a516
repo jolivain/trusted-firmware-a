@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f484b46_c43cfb1f",
+        "filename": "services/std_svc/spm/common/spm_xlat_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-05-15T19:36:00Z",
+      "side": 1,
+      "message": "IIUC this is only required for S-EL0 partitions? Should this newly common code be behind a build flag only for EL3 SPMC EL0 SPs?\n\nThis is currently causing build errors for an S-EL1 SP setup.",
+      "revId": "757661db41d5821baa8cc0efe8c94e3dc4e1a516",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
