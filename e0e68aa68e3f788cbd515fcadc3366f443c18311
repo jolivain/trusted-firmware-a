@@ -262,6 +262,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f6b6524_8fa742da",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2023-05-15T11:29:33Z",
+      "side": 1,
+      "message": "hmmm, not sure what\u0027s going on, but the depthcharge can call these SMC successfully currently...",
+      "parentUuid": "6087a131_77255a0c",
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03dbb293_6b78617c",
         "filename": "services/oem/chromeos/widevine_smc_handlers.c",
         "patchSetId": 8
