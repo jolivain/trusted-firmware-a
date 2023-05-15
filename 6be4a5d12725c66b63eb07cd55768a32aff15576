@@ -16,6 +16,24 @@
       "message": "there\u0027s the ISOLATE_FIELD macro that all the others use. Why not use that? And would be nice to stick to the naming convention",
       "revId": "6be4a5d12725c66b63eb07cd55768a32aff15576",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85599ea6_d1bb4f2f",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2023-05-15T09:51:21Z",
+      "side": 1,
+      "message": "I didn\u0027t realize about the ISOLATE_FIELD macro. It actually has the same functionality as the EXTRACT one that I introduced so I will remove it.\n\nWRT the naming convention, are you referring to the function name? I see there are other get_xxx APIs in this file, and that is the reason why I chose that naming convention, it made sense to me.",
+      "parentUuid": "a36b5bc1_4858298c",
+      "revId": "6be4a5d12725c66b63eb07cd55768a32aff15576",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
