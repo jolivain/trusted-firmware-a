@@ -119,6 +119,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5bd7d027_a1009993",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-15T11:07:45Z",
+      "side": 1,
+      "message": "why not keep it here? That\u0027s what it\u0027s whole purpose is and all feature related stuff happens quite late so it shouldn\u0027t blow up before we get here. Maybe just have it as a constant\n\nBut I still don\u0027t understand why remove the flag. I took special care to default it to 1, and it\u0027s otherwise feat_detect compliant. It\u0027s fully backwards compatible, and only adds the standard means of controlling it. Otherwise it would stick out as the only big feature with no flag.",
+      "parentUuid": "4be73057_05178158",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 48
+      },
+      "revId": "857996b81f664ae5f9d1263966d42b8ed37fb057",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "966dea3d_335b7545",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 14
@@ -174,6 +198,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18adc541_b1064a3d",
+        "filename": "include/arch/aarch32/el3_common_macros.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-15T11:07:45Z",
+      "side": 1,
+      "message": "please see the reply to aarch64 comment.",
+      "parentUuid": "f5049019_da6ae698",
+      "revId": "857996b81f664ae5f9d1263966d42b8ed37fb057",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "422b2892_bb11049d",
@@ -210,6 +252,24 @@
       "writtenOn": "2023-05-15T09:14:59Z",
       "side": 1,
       "message": "keep the unconditional SCCD and MCCD bit settings",
+      "revId": "857996b81f664ae5f9d1263966d42b8ed37fb057",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0232835_a2ed460c",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-15T11:07:45Z",
+      "side": 1,
+      "message": "why? This patchstack\u0027s whole purpose is to do away with this. These are set in the pmuv3_enable_el3() function, which will run not much after this runs. And with the higher patches it will be moved to be pretty much one of the first things tf-a does.",
+      "parentUuid": "37e54ebf_6a8f2f49",
       "revId": "857996b81f664ae5f9d1263966d42b8ed37fb057",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
