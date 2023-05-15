@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a36b5bc1_4858298c",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-15T08:46:51Z",
+      "side": 1,
+      "message": "there\u0027s the ISOLATE_FIELD macro that all the others use. Why not use that? And would be nice to stick to the naming convention",
+      "revId": "6be4a5d12725c66b63eb07cd55768a32aff15576",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
