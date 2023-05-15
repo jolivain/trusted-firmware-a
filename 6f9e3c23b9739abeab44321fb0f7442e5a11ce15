@@ -190,6 +190,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe9e7902_365b6ff6",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-15T22:06:05Z",
+      "side": 1,
+      "message": "I am not yet sure what would a partition message between an SPMD LSP and an SP look like but I believe it would need more than 2 parameters. It would be great if you can extend support for x5, x6, x7.",
+      "parentUuid": "2968b4cc_66fe7006",
+      "range": {
+        "startLine": 123,
+        "startChar": 42,
+        "endLine": 125,
+        "endChar": 32
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6900a2f_016fe32e",
         "filename": "services/std_svc/spmd/spmd_logical_sp.c",
         "patchSetId": 1
@@ -219,6 +243,24 @@
       "side": 1,
       "message": "thats how it was originally. there are 2 requests that go in a synchronous manner - one is direct message, the other is ffa_info_get_regs in future patches.\nto avoid having to take 2 full bytes in an expensive context, i just made it a bit field",
       "parentUuid": "c6900a2f_016fe32e",
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdac9961_3bd895be",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-15T22:06:05Z",
+      "side": 1,
+      "message": "Don\u0027t both direct message and ffa_info_get_regs behave as if they are blocking calls? Can we have both of them in flight simultaneously for a particular context?",
+      "parentUuid": "ba9687c8_9ed6e0cd",
       "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
