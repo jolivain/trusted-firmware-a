@@ -527,8 +527,9 @@ static int bl1_fwu_image_execute(unsigned int image_id,
 	INFO("BL1-FWU: Executing Secure image\n");
 
 #ifdef __aarch64__
-	/* Save NS-EL1 system registers. */
+	/* Save NS-EL1/EL2 system registers. */
 	cm_el1_sysregs_context_save(NON_SECURE);
+	cm_el2_sysregs_context_save(NON_SECURE);
 #endif
 
 	/* Prepare the image for execution. */
@@ -591,11 +592,13 @@ static register_t bl1_fwu_image_resume(register_t image_param,
 		(resume_sec_state == SECURE) ? "secure" : "normal");
 
 #ifdef __aarch64__
-	/* Save the EL1 system registers of calling world. */
+	/* Save the EL1/EL2 system registers of calling world. */
 	cm_el1_sysregs_context_save(caller_sec_state);
+	cm_el2_sysregs_context_save(caller_sec_state);
 
-	/* Restore the EL1 system registers of resuming world. */
+	/* Restore the EL1/EL2 system registers of resuming world. */
 	cm_el1_sysregs_context_restore(resume_sec_state);
+	cm_el2_sysregs_context_restore(resume_sec_state);
 
 	/* Update the next context. */
 	cm_set_next_eret_context(resume_sec_state);
@@ -653,6 +656,7 @@ static int bl1_fwu_sec_image_done(void **handle, unsigned int flags)
 	 * Just restore the Non-Secure context.
 	 */
 	cm_el1_sysregs_context_restore(NON_SECURE);
+	cm_el2_sysregs_context_restore(NON_SECURE);
 
 	/* Update the next context. */
 	cm_set_next_eret_context(NON_SECURE);
