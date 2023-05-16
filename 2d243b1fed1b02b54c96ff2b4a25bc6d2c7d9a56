@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12bf2e8c_77aacc36",
+        "filename": "plat/qemu/common/qemu_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-05-16T13:05:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ca8132d7_fe993a12",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "2d243b1fed1b02b54c96ff2b4a25bc6d2c7d9a56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14e52c08_c32f9628",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-05-16T08:41:08Z",
       "side": 1,
       "message": "nit: Read DeviceTree",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 12
+      },
+      "revId": "2d243b1fed1b02b54c96ff2b4a25bc6d2c7d9a56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07d39804_39ce219c",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-05-16T13:05:32Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "14e52c08_c32f9628",
       "range": {
         "startLine": 37,
         "startChar": 4,
