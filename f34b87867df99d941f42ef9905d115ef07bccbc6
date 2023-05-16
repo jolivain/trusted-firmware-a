@@ -54,6 +54,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9afa8292_13c02861",
+        "filename": "changelog.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-05-16T11:49:15Z",
+      "side": 1,
+      "message": "This is wrong, this platform is not an ST platform, but an Arm one. Unless I really missed something! ;-)",
+      "revId": "f34b87867df99d941f42ef9905d115ef07bccbc6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da9be499_4a9106d6",
+        "filename": "changelog.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-05-16T11:49:15Z",
+      "side": 1,
+      "message": "This shouldn\u0027t be added again IMHO, it was renamed to GUID Partition Tables Support in TF-A v2.7 release. See this comment from Olivier:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/15282/comment/b2791e49_4220ab47/",
+      "revId": "f34b87867df99d941f42ef9905d115ef07bccbc6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58d8c1f1_36bc0dc6",
+        "filename": "changelog.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-05-16T11:49:15Z",
+      "side": 1,
+      "message": "This shouldn\u0027t exist, but it is my fault, I wrongly filled scope in this commit:\n029f81e04c fix(st-sdmmc): check transfer size before filling register\nIt should have been st-sdmmc2",
+      "revId": "f34b87867df99d941f42ef9905d115ef07bccbc6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "055dd067_4f98c89e",
         "filename": "docs/change-log.md",
         "patchSetId": 1
