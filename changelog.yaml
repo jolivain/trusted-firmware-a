@@ -170,6 +170,7 @@ subsections:
 
             deprecated:
               - plat/arm/css
+              - plat/css
 
           - title: FPGA
             scope: fpga
@@ -208,6 +209,9 @@ subsections:
             scope: rd
 
             subsections:
+              - title: RD-N1 Edge
+                scope: rdn1edge
+
               - title: RD-N2
                 scope: rdn2
 
@@ -223,6 +227,9 @@ subsections:
 
           - title: TC
             scope: tc
+
+            deprecated:
+              - plat/tc
 
             subsections:
               - title: TC0
@@ -335,6 +342,9 @@ subsections:
               - title: Tegra 194
                 scope: tegra194
 
+              - title: Tegra 210
+                scope: tegra210
+
       - title: NXP
         scope: nxp
 
@@ -382,6 +392,9 @@ subsections:
 
                     deprecated:
                       - plat/imx/imx8m/imx8mq
+
+              - title: i.MX 8
+                scope: imx8
 
           - title: Layerscape
             scope: layerscape
@@ -465,6 +478,10 @@ subsections:
         deprecated:
           - plat/qemu
 
+        subsections:
+          - title: SBSA
+            scope: qemu-sbsa
+
       - title: QTI
         scope: qti
 
@@ -542,6 +559,9 @@ subsections:
           - plat/st
 
         subsections:
+          - title: A5DS
+            scope: a5ds
+
           - title: STM32MP1
             scope: stm32mp1
 
@@ -639,6 +659,9 @@ subsections:
 
           - title: RMMD
             scope: rmmd
+
+          - title: RMM
+            scope: rmm
 
       - title: SPM
         scope: spm
@@ -810,6 +833,9 @@ subsections:
 
       - title: GUID Partition Tables Support
         scope: guid-partition
+
+      - title: Partition
+        scope: partition
 
       - title: SCMI
         scope: scmi
@@ -1065,6 +1091,9 @@ subsections:
           - title: GPIO
             scope: st-gpio
 
+          - title: SDMMC
+            scope: st-sdmmc
+
           - title: SDMMC2
             scope: st-sdmmc2
 
@@ -1113,6 +1142,11 @@ subsections:
 
         deprecated:
           - drivers/usb
+
+  - title: Style
+
+    deprecated:
+      - tree
 
   - title: Miscellaneous
 
@@ -1177,6 +1211,9 @@ subsections:
 
       - title: PIE
         scope: pie
+
+      - title: PIE/POR
+        scope: pie/por
 
       - title: Security
         scope: security
@@ -1247,6 +1284,9 @@ subsections:
     subsections:
       - title: Git Hooks
         scope: hooks
+
+        deprecated:
+          - git-hooks
 
   - title: Tools
 
