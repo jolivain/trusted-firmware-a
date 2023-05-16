@@ -147,7 +147,6 @@
  * EL2 register set
  */
 
-#if CTX_INCLUDE_EL2_REGS
 /* For later discussion
  * ICH_AP0R<n>_EL2
  * ICH_AP1R<n>_EL2
@@ -157,6 +156,7 @@
  */
 #define CTX_EL2_SYSREGS_OFFSET	(CTX_EL1_SYSREGS_OFFSET + CTX_EL1_SYSREGS_END)
 
+#if CTX_INCLUDE_EL2_REGS && IMAGE_BL31
 #define CTX_ACTLR_EL2		U(0x0)
 #define CTX_AFSR0_EL2		U(0x8)
 #define CTX_AFSR1_EL2		U(0x10)
@@ -240,17 +240,19 @@
 /* Align to the next 16 byte boundary */
 #define CTX_EL2_SYSREGS_END	U(0x210)
 
-#endif /* CTX_INCLUDE_EL2_REGS */
+#else /* !(CTX_INCLUDE_EL2_REGS && IMAGE_BL31) */
+#define CTX_SCTLR_EL2		U(0x0)
+// Register for FEAT_HCX
+#define CTX_HCRX_EL2            U(0x8)
+/* Align to the next 16 byte boundary */
+#define CTX_EL2_SYSREGS_END	U(0x10)
+#endif /* !(CTX_INCLUDE_EL2_REGS && IMAGE_BL31) */
 
 /*******************************************************************************
  * Constants that allow assembler code to access members of and the 'fp_regs'
  * structure at their correct offsets.
  ******************************************************************************/
-#if CTX_INCLUDE_EL2_REGS
 # define CTX_FPREGS_OFFSET	(CTX_EL2_SYSREGS_OFFSET + CTX_EL2_SYSREGS_END)
-#else
-# define CTX_FPREGS_OFFSET	(CTX_EL1_SYSREGS_OFFSET + CTX_EL1_SYSREGS_END)
-#endif
 #if CTX_INCLUDE_FPREGS
 #define CTX_FP_Q0		U(0x0)
 #define CTX_FP_Q1		U(0x10)
@@ -342,9 +344,7 @@
 /* Constants to determine the size of individual context structures */
 #define CTX_GPREG_ALL		(CTX_GPREGS_END >> DWORD_SHIFT)
 #define CTX_EL1_SYSREGS_ALL	(CTX_EL1_SYSREGS_END >> DWORD_SHIFT)
-#if CTX_INCLUDE_EL2_REGS
 # define CTX_EL2_SYSREGS_ALL	(CTX_EL2_SYSREGS_END >> DWORD_SHIFT)
-#endif
 #if CTX_INCLUDE_FPREGS
 # define CTX_FPREG_ALL		(CTX_FPREGS_END >> DWORD_SHIFT)
 #endif
@@ -374,9 +374,7 @@ DEFINE_REG_STRUCT(el1_sysregs, CTX_EL1_SYSREGS_ALL);
  * AArch64 EL2 system register context structure for preserving the
  * architectural state during world switches.
  */
-#if CTX_INCLUDE_EL2_REGS
 DEFINE_REG_STRUCT(el2_sysregs, CTX_EL2_SYSREGS_ALL);
-#endif
 
 /*
  * AArch64 floating point register context structure for preserving
@@ -421,9 +419,7 @@ typedef struct cpu_context {
 	gp_regs_t gpregs_ctx;
 	el3_state_t el3state_ctx;
 	el1_sysregs_t el1_sysregs_ctx;
-#if CTX_INCLUDE_EL2_REGS
 	el2_sysregs_t el2_sysregs_ctx;
-#endif
 #if CTX_INCLUDE_FPREGS
 	fp_regs_t fpregs_ctx;
 #endif
@@ -439,9 +435,7 @@ typedef struct cpu_context {
 # define get_fpregs_ctx(h)	(&((cpu_context_t *) h)->fpregs_ctx)
 #endif
 #define get_el1_sysregs_ctx(h)	(&((cpu_context_t *) h)->el1_sysregs_ctx)
-#if CTX_INCLUDE_EL2_REGS
 # define get_el2_sysregs_ctx(h)	(&((cpu_context_t *) h)->el2_sysregs_ctx)
-#endif
 #define get_gpregs_ctx(h)	(&((cpu_context_t *) h)->gpregs_ctx)
 #define get_cve_2018_3639_ctx(h)	(&((cpu_context_t *) h)->cve_2018_3639_ctx)
 #if CTX_INCLUDE_PAUTH_REGS
@@ -457,10 +451,8 @@ CASSERT(CTX_GPREGS_OFFSET == __builtin_offsetof(cpu_context_t, gpregs_ctx),
 	assert_core_context_gp_offset_mismatch);
 CASSERT(CTX_EL1_SYSREGS_OFFSET == __builtin_offsetof(cpu_context_t, el1_sysregs_ctx),
 	assert_core_context_el1_sys_offset_mismatch);
-#if CTX_INCLUDE_EL2_REGS
 CASSERT(CTX_EL2_SYSREGS_OFFSET == __builtin_offsetof(cpu_context_t, el2_sysregs_ctx),
 	assert_core_context_el2_sys_offset_mismatch);
-#endif
 #if CTX_INCLUDE_FPREGS
 CASSERT(CTX_FPREGS_OFFSET == __builtin_offsetof(cpu_context_t, fpregs_ctx),
 	assert_core_context_fp_offset_mismatch);
