@@ -52,6 +52,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d7ee891_dd85c367",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-05-16T19:09:53Z",
+      "side": 1,
+      "message": "I see. I thought that the changelog was re-generated every time, not that the v2.9 part was prepended to the existing document.",
+      "parentUuid": "055fcb7d_5b0d6178",
+      "revId": "f34b87867df99d941f42ef9905d115ef07bccbc6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9afa8292_13c02861",
@@ -65,6 +83,24 @@
       "writtenOn": "2023-05-16T11:49:15Z",
       "side": 1,
       "message": "This is wrong, this platform is not an ST platform, but an Arm one. Unless I really missed something! ;-)",
+      "revId": "f34b87867df99d941f42ef9905d115ef07bccbc6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58557932_05292e87",
+        "filename": "changelog.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-05-16T19:09:53Z",
+      "side": 1,
+      "message": "I probably checked the patch and somehow inferred it was an ST platform. My bad.",
+      "parentUuid": "9afa8292_13c02861",
       "revId": "f34b87867df99d941f42ef9905d115ef07bccbc6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -86,6 +122,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1241c8f2_1ca3a0a2",
+        "filename": "changelog.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-05-16T19:09:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da9be499_4a9106d6",
+      "revId": "f34b87867df99d941f42ef9905d115ef07bccbc6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58d8c1f1_36bc0dc6",
@@ -99,6 +153,24 @@
       "writtenOn": "2023-05-16T11:49:15Z",
       "side": 1,
       "message": "This shouldn\u0027t exist, but it is my fault, I wrongly filled scope in this commit:\n029f81e04c fix(st-sdmmc): check transfer size before filling register\nIt should have been st-sdmmc2",
+      "revId": "f34b87867df99d941f42ef9905d115ef07bccbc6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10453d43_ac056c19",
+        "filename": "changelog.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1096,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-05-16T19:09:53Z",
+      "side": 1,
+      "message": "Hi Yann,\n\nI added a deprecated scope to solve the issue. Let me know if it works for you or you prefer another solution.",
+      "parentUuid": "58d8c1f1_36bc0dc6",
       "revId": "f34b87867df99d941f42ef9905d115ef07bccbc6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -138,6 +210,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "707463be_a22fd742",
+        "filename": "docs/change-log.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 1035,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-05-16T19:09:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24f13696_fa0fe59b",
+      "revId": "f34b87867df99d941f42ef9905d115ef07bccbc6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71562a04_71d7f773",
@@ -151,6 +241,24 @@
       "writtenOn": "2023-05-16T10:36:26Z",
       "side": 1,
       "message": "Remove this section (duyplicate). Maybe by mistake I guess.",
+      "revId": "f34b87867df99d941f42ef9905d115ef07bccbc6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc698bf0_edb7f057",
+        "filename": "docs/change-log.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 2064,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-05-16T19:09:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71562a04_71d7f773",
       "revId": "f34b87867df99d941f42ef9905d115ef07bccbc6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
