@@ -41,6 +41,22 @@ CASSERT(((TWED_DELAY & ~SCR_TWEDEL_MASK) == 0U), assert_twed_delay_value_check);
 static void manage_extensions_ns(cpu_context_t *ctx);
 static void manage_extensions_secure(cpu_context_t *ctx);
 
+/* Sets up common bits accross SCTLR_EL1 and SCTLR_EL2 */
+static u_register_t get_sctlr_common(const struct entry_point_info *ep)
+{
+	/* SCTLR_ELx.EE: set to the value specified in the  entrypoint */
+	u_register_t sctlr = (EP_GET_EE(ep->h.attr) != 0U) ? SCTLR_EE_BIT : 0UL;
+#if ERRATA_A75_764081
+	/*
+	 * If workaround of errata 764081 for Cortex-A75 is used then set
+	 * SCTLR_EL1.IESB to enable Implicit Error Synchronization Barrier.
+	 */
+	sctlr_elx |= SCTLR_IESB_BIT;
+#endif
+
+	return sctlr;
+}
+
 static void setup_el1_context(cpu_context_t *ctx, const struct entry_point_info *ep)
 {
 	u_register_t sctlr_elx, actlr_elx;
@@ -51,12 +67,10 @@ static void setup_el1_context(cpu_context_t *ctx, const struct entry_point_info 
 	 * Some fields have architecturally UNKNOWN reset values and these are
 	 * set to zero.
 	 *
-	 * SCTLR.EE: Endianness is taken from the entrypoint attributes.
-	 *
 	 * SCTLR.M, SCTLR.C and SCTLR.I: These fields must be zero (as
 	 * required by PSCI specification)
 	 */
-	sctlr_elx = (EP_GET_EE(ep->h.attr) != 0U) ? SCTLR_EE_BIT : 0UL;
+	sctlr_elx = get_sctlr_common(ep);
 	if (GET_RW(ep->spsr) == MODE_RW_64) {
 		sctlr_elx |= SCTLR_EL1_RES1;
 	} else {
@@ -76,14 +90,6 @@ static void setup_el1_context(cpu_context_t *ctx, const struct entry_point_info 
 		sctlr_elx |= SCTLR_AARCH32_EL1_RES1 | SCTLR_CP15BEN_BIT
 					| SCTLR_NTWI_BIT | SCTLR_NTWE_BIT;
 	}
-
-#if ERRATA_A75_764081
-	/*
-	 * If workaround of errata 764081 for Cortex-A75 is used then set
-	 * SCTLR_EL1.IESB to enable Implicit Error Synchronization Barrier.
-	 */
-	sctlr_elx |= SCTLR_IESB_BIT;
-#endif
 	/* Store the initialised SCTLR_EL1 value in the cpu_context */
 	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_SCTLR_EL1, sctlr_elx);
 
@@ -262,30 +268,22 @@ static void setup_ns_context(cpu_context_t *ctx, const struct entry_point_info *
 	setup_el1_context(ctx, ep);
 
 	/* Initialize EL2 context registers */
-#if CTX_INCLUDE_EL2_REGS
+	el2_sysregs_t *el2_ctx = get_el2_sysregs_ctx(ctx);
 
+	write_ctx_reg(el2_ctx, CTX_SCTLR_EL2,
+		      SCTLR_EL2_RES1 | get_sctlr_common(ep));
+
+#if ENABLE_FEAT_HCX
 	/*
-	 * Initialize SCTLR_EL2 context register using Endianness value
-	 * taken from the entrypoint attribute.
+	 * Initialize register HCRX_EL2 with its init value. As the value of
+	 * HCRX_EL2 is UNKNOWN on reset, there is a chance that this can lead to
+	 * unexpected behavior in lower ELs that have not been updated since the
+	 * introduction of this feature if not properly initialized, especially
+	 * when it comes to those bits that enable/disable traps. Will only be
+	 * written if the feature is present.
 	 */
-	u_register_t sctlr_el2 = (EP_GET_EE(ep->h.attr) != 0U) ? SCTLR_EE_BIT : 0UL;
-	sctlr_el2 |= SCTLR_EL2_RES1;
-	write_ctx_reg(get_el2_sysregs_ctx(ctx), CTX_SCTLR_EL2,
-			sctlr_el2);
-
-	if (is_feat_hcx_supported()) {
-		/*
-		 * Initialize register HCRX_EL2 with its init value.
-		 * As the value of HCRX_EL2 is UNKNOWN on reset, there is a
-		 * chance that this can lead to unexpected behavior in lower
-		 * ELs that have not been updated since the introduction of
-		 * this feature if not properly initialized, especially when
-		 * it comes to those bits that enable/disable traps.
-		 */
-		write_ctx_reg(get_el2_sysregs_ctx(ctx), CTX_HCRX_EL2,
-			HCRX_EL2_INIT_VAL);
-	}
-#endif /* CTX_INCLUDE_EL2_REGS */
+	write_ctx_reg(el2_ctx, CTX_HCRX_EL2, HCRX_EL2_INIT_VAL);
+#endif /* ENABLE_FEAT_HCX */
 
 	manage_extensions_ns(ctx);
 }
@@ -749,7 +747,7 @@ void cm_init_my_context(const entry_point_info_t *ep)
 	cm_setup_context(ctx, ep);
 }
 
-/* EL2 present but unused, need to disable safely. SCTLR_EL2 can be ignored */
+/* EL2 present but unused, need to disable safely */
 static __unused void init_el2_no_hypervisor(cpu_context_t *ctx)
 {
 	u_register_t hcr_el2 = HCR_RESET_VAL;
@@ -862,48 +860,21 @@ static __unused void init_el2_no_hypervisor(cpu_context_t *ctx)
  ******************************************************************************/
 void cm_prepare_el3_exit(uint32_t security_state)
 {
-	u_register_t sctlr_elx, scr_el3;
+	u_register_t scr_el3;
 	cpu_context_t *ctx = cm_get_context(security_state);
 
 	assert(ctx != NULL);
+	scr_el3 = read_ctx_reg(get_el3state_ctx(ctx), CTX_SCR_EL3);
 
 	if (security_state == NON_SECURE) {
-		uint64_t el2_implemented = el_implemented(2);
-
-		scr_el3 = read_ctx_reg(get_el3state_ctx(ctx),
-						 CTX_SCR_EL3);
-
-		if (((scr_el3 & SCR_HCE_BIT) != 0U)
-			|| (el2_implemented != EL_IMPL_NONE)) {
-			/*
-			 * If context is not being used for EL2, initialize
-			 * HCRX_EL2 with its init value here.
-			 */
-			if (is_feat_hcx_supported()) {
-				write_hcrx_el2(HCRX_EL2_INIT_VAL);
-			}
-		}
-
-		if ((scr_el3 & SCR_HCE_BIT) != 0U) {
-			/* Use SCTLR_EL1.EE value to initialise sctlr_el2 */
-			sctlr_elx = read_ctx_reg(get_el1_sysregs_ctx(ctx),
-							   CTX_SCTLR_EL1);
-			sctlr_elx &= SCTLR_EE_BIT;
-			sctlr_elx |= SCTLR_EL2_RES1;
-#if ERRATA_A75_764081
-			/*
-			 * If workaround of errata 764081 for Cortex-A75 is used
-			 * then set SCTLR_EL2.IESB to enable Implicit Error
-			 * Synchronization Barrier.
-			 */
-			sctlr_elx |= SCTLR_IESB_BIT;
-#endif
-			write_sctlr_el2(sctlr_elx);
-		} else if (el2_implemented != EL_IMPL_NONE) {
+		/* EL2 will be empty */
+		if (el_implemented(2U) != EL_IMPL_NONE &&
+		   (scr_el3 & SCR_HCE_BIT) == 0U) {
 			init_el2_no_hypervisor(ctx);
 		}
 	}
 
+	cm_el2_sysregs_context_restore(security_state);
 	cm_el1_sysregs_context_restore(security_state);
 	cm_set_next_eret_context(security_state);
 }
@@ -922,7 +893,7 @@ static void el2_sysregs_context_save_fgt(el2_sysregs_t *ctx)
 	write_ctx_reg(ctx, CTX_HFGWTR_EL2, read_hfgwtr_el2());
 }
 
-static void el2_sysregs_context_restore_fgt(el2_sysregs_t *ctx)
+static __unused void el2_sysregs_context_restore_fgt(el2_sysregs_t *ctx)
 {
 	write_hdfgrtr_el2(read_ctx_reg(ctx, CTX_HDFGRTR_EL2));
 	if (is_feat_amu_supported()) {
@@ -985,7 +956,7 @@ static void el2_sysregs_context_save_mpam(el2_sysregs_t *ctx)
 	}
 }
 
-static void el2_sysregs_context_restore_mpam(el2_sysregs_t *ctx)
+static __unused void el2_sysregs_context_restore_mpam(el2_sysregs_t *ctx)
 {
 	u_register_t mpam_idr = read_mpamidr_el1();
 
@@ -1082,7 +1053,7 @@ static void el2_sysregs_context_save_common(el2_sysregs_t *ctx)
 	write_ctx_reg(ctx, CTX_VTTBR_EL2, read_vttbr_el2());
 }
 
-static void el2_sysregs_context_restore_common(el2_sysregs_t *ctx)
+static __unused void el2_sysregs_context_restore_common(el2_sysregs_t *ctx)
 {
 	write_actlr_el2(read_ctx_reg(ctx, CTX_ACTLR_EL2));
 	write_afsr0_el2(read_ctx_reg(ctx, CTX_AFSR0_EL2));
@@ -1119,7 +1090,6 @@ static void el2_sysregs_context_restore_common(el2_sysregs_t *ctx)
 	write_ich_vmcr_el2(read_ctx_reg(ctx, CTX_ICH_VMCR_EL2));
 	write_mair_el2(read_ctx_reg(ctx, CTX_MAIR_EL2));
 	write_mdcr_el2(read_ctx_reg(ctx, CTX_MDCR_EL2));
-	write_sctlr_el2(read_ctx_reg(ctx, CTX_SCTLR_EL2));
 	write_spsr_el2(read_ctx_reg(ctx, CTX_SPSR_EL2));
 	write_sp_el2(read_ctx_reg(ctx, CTX_SP_EL2));
 	write_tcr_el2(read_ctx_reg(ctx, CTX_TCR_EL2));
@@ -1204,9 +1174,13 @@ void cm_el2_sysregs_context_save(uint32_t security_state)
 		write_ctx_reg(el2_sysregs_ctx, CTX_GCSCR_EL2, read_gcscr_el2());
 	}
 }
+#endif /* CTX_INCLUDE_EL2_REGS */
 
 /*******************************************************************************
- * Restore EL2 sysreg context
+ * Restore EL2 sysreg context. Will always restore SCTLR_EL2 as it's needed for
+ * all contexts as well as HCRX_EL2 which is required for compatibility. The
+ * rest are only restored as expected with CTX_INCLUDE_EL2_REGS. BL2 runs at EL1
+ * so BL1 doesn't need to restore them too.
  ******************************************************************************/
 void cm_el2_sysregs_context_restore(uint32_t security_state)
 {
@@ -1218,6 +1192,12 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 
 	el2_sysregs_ctx = get_el2_sysregs_ctx(ctx);
 
+	write_sctlr_el2(read_ctx_reg(el2_sysregs_ctx, CTX_SCTLR_EL2));
+	if (is_feat_hcx_supported()) {
+		write_hcrx_el2(read_ctx_reg(el2_sysregs_ctx, CTX_HCRX_EL2));
+	}
+
+#if CTX_INCLUDE_EL2_REGS && IMAGE_BL31
 	el2_sysregs_context_restore_common(el2_sysregs_ctx);
 #if CTX_INCLUDE_MTE_REGS
 	write_tfsr_el2(read_ctx_reg(el2_sysregs_ctx, CTX_TFSR_EL2));
@@ -1255,9 +1235,6 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 		write_scxtnum_el2(read_ctx_reg(el2_sysregs_ctx, CTX_SCXTNUM_EL2));
 	}
 
-	if (is_feat_hcx_supported()) {
-		write_hcrx_el2(read_ctx_reg(el2_sysregs_ctx, CTX_HCRX_EL2));
-	}
 	if (is_feat_tcr2_supported()) {
 		write_tcr2_el2(read_ctx_reg(el2_sysregs_ctx, CTX_TCR2_EL2));
 	}
@@ -1275,8 +1252,8 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 		write_gcscr_el2(read_ctx_reg(el2_sysregs_ctx, CTX_GCSCR_EL2));
 		write_gcspr_el2(read_ctx_reg(el2_sysregs_ctx, CTX_GCSPR_EL2));
 	}
+#endif /* CTX_INCLUDE_EL2_REGS && IMAGE_BL31 */
 }
-#endif /* CTX_INCLUDE_EL2_REGS */
 
 /*******************************************************************************
  * This function is used to exit to Non-secure world. If CTX_INCLUDE_EL2_REGS
