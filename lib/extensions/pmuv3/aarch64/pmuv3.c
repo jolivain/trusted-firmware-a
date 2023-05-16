@@ -23,13 +23,13 @@ static u_register_t init_mdcr_el2_hpmn(u_register_t mdcr_el2)
 
 void pmuv3_enable(cpu_context_t *ctx)
 {
-#if CTX_INCLUDE_EL2_REGS
+#if CTX_INCLUDE_EL2_REGS && IMAGE_BL31
 	u_register_t mdcr_el2;
 
 	mdcr_el2 = read_ctx_reg(get_el2_sysregs_ctx(ctx), CTX_MDCR_EL2);
 	mdcr_el2 = init_mdcr_el2_hpmn(mdcr_el2);
 	write_ctx_reg(get_el2_sysregs_ctx(ctx), CTX_MDCR_EL2, mdcr_el2);
-#endif /* CTX_INCLUDE_EL2_REGS */
+#endif /* CTX_INCLUDE_EL2_REGS && IMAGE_BL31 */
 }
 
 static u_register_t mtpmu_disable_el3(u_register_t mdcr_el3)
