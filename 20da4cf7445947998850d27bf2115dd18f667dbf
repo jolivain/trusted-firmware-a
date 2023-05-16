@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "666ebda6_8ef679fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-16T15:20:22Z",
+      "side": 1,
+      "message": "Regarding the CI failures...\n\nBeyond the coding style violations reported - which need to be fixed, the failure of the tf-plat-tests group does not look like a worry. The LAVA log [1] shows that the tests actually passed. I believe the failures are due to me merging patch [2]. These failures should go away if this patch stack is rebased.\n\n[1] https://tf.validation.linaro.org/scheduler/job/1603511\n[2] https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/20828",
+      "revId": "20da4cf7445947998850d27bf2115dd18f667dbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbd5ee28_63df26c9",
