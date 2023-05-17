@@ -238,6 +238,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3996fbda_5fd4b025",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-17T20:14:51Z",
+      "side": 1,
+      "message": "Sorry, the correct variable name is SPMD_SPM_AT_SEL2.\nDo we want to allow SPMD LSPs when the SPMC is OP-TEE at S-EL1? Provided that this configuration is unlikely to be supported (AFAIK) I was suggesting to only permit supporting SPMD LSPs when the SPMC is SEL2/Hafnium. But I believe that\u0027s ok to keep the implementation generic, and add a doc change somewhere to state this otherwise?",
+      "parentUuid": "60667f4c_7dd8d42e",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 22
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "871b00aa_092a56b8",
         "filename": "include/common/bl_common.ld.h",
         "patchSetId": 1
@@ -290,6 +314,24 @@
       "side": 1,
       "message": "right, thats how i started off, but the SPMC LSPs and SPMD LSPs are entirely independent and the code looks pretty ugly when i tried to reconcile it.\nThe descriptor looks same but any future extensions would be specific to the type of LSP and i did not think mixing those was a good idea.\nI realize this is mostly similiar, but mixing SPMC at EL3 and SPMD logical partitions seems like it causes more coupling that there really is.\nI would recommend you go through the patch set to see other new extensions that are made to this file and making things common seems to cause unnecessary complications. It seemed clean to keep spmc lsp and spmd lsp separate.",
       "parentUuid": "a6699188_511c56d2",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5649ae4c_c9bd3ad5",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-17T20:14:51Z",
+      "side": 1,
+      "message": "Hi Raghu we\u0027ve had internal discussions and afaiu FF-A v1.2 has unified into a single LSP concept. The arch starts from this consideration that LSPs have similar properties whichever managed by the SPMC at same or lower EL. From there it looked natural the implementation follows with the same unification. As things stand, Nishant had done this work in context of the EL3 SPMC but we think it can extend to an SPMC at lower EL.\nWould you mind taking a look and let us know your opinion?\nhttps://review.trustedfirmware.org/q/topic:%22ns%252Fspmc_at_el3%22+(status:open%20OR%20status:merged)\n(if that helps we can discuss live in one of our forum)",
+      "parentUuid": "4a7dee93_ef15e635",
       "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -642,6 +684,30 @@
       "side": 1,
       "message": "yeah, el3 spmc lsps and spmd lsps are entirely separate and i did not want to couple them together. One is managed by the spmc and has different properties (allows only receiving direct messages) and other allows different properties. They have different rules (such as LSPs direct message will cause SPMC to disable interrupts/run to completion etc) and if/when they evolve, they will likely evolve with separate rules. it did not seem worth it try and unify them even though they are similar today..\nFor example, i plan to add callbacks that apply to SPMD LPs for handling interrupts and smcs in future patches, but they dont apply to SPMC LSPs..so it just seemed clearner that they remaining independent and evolve..i see the repetition/patterns, but conciously decided to not unify.\nIt also means if i make changes to SPMD LSPs, i have to test SPMC LSPs to make sure nothing is broken..that did not seem like a complexity worth at this point.",
       "parentUuid": "98209e53_6d2f0be7",
+      "range": {
+        "startLine": 23,
+        "startChar": 32,
+        "endLine": 23,
+        "endChar": 53
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a73b0327_9453fdec",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-17T20:14:51Z",
+      "side": 1,
+      "message": "\u003e One is managed by the spmc and has different properties (allows only receiving direct messages) and other allows different properties.\nWe were thinking such callback can be null in the LSP declaration when said callback doesn\u0027t apply.\n\n\u003e They have different rules (such as LSPs direct message will cause SPMC to disable interrupts/run to completion etc) \nThis is contained in the SPMC and should not affect the SPMD design right?\n\n\u003e i plan to add callbacks that apply to SPMD LPs for handling interrupts and smcs in future patches, but they dont apply to SPMC LSPs\n\nOk we may relay this to Marc.\nSimilarly to above would such callbacks just be null in case of an EL3 SPMC LSP?\n\n\u003e i have to test SPMC LSPs to make sure nothing is broken..that did not seem like a complexity worth at this point.\nTo be fair the CI is there, and shall be augmented anyways with the appropriate test coverage for the code we add at EL3.",
+      "parentUuid": "1e052049_9e355151",
       "range": {
         "startLine": 23,
         "startChar": 32,
