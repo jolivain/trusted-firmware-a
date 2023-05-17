@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e839b1e_2f9ba7ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-05-17T08:31:36Z",
+      "side": 1,
+      "message": "Top child patch in the stack covers testing all parents so manually setting.\n\nSometime manually revising all patches in the stack is needed to ensure non related failures are avoided. This may be automated in the future but at this time it needs to be done manually.",
+      "revId": "b2258ce30cf720d71b1022c9cbee135c879027c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
