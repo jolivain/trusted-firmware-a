@@ -1,12 +1,17 @@
 /*
- * Copyright (c) 2019-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
 #include <arch_helpers.h>
 #include <common/debug.h>
+#include "socfpga_plat_def.h"
+#ifdef SOCFPGA_GIC_V3
+#include <drivers/arm/gicv3.h>
+#else
 #include <drivers/arm/gicv2.h>
+#endif
 #include <lib/mmio.h>
 #include <lib/psci/psci.h>
 #include <plat/common/platform.h>
@@ -146,11 +151,11 @@ static void __dead2 socfpga_system_reset(void)
 
 	memcpy(addr_buf, &intel_rsu_update_address,
 			sizeof(intel_rsu_update_address));
-
-	if (intel_rsu_update_address)
+	if (intel_rsu_update_address) {
 		mailbox_rsu_update(addr_buf);
-	else
+	} else {
 		mailbox_reset_cold();
+	}
 
 	while (1)
 		wfi();
