@@ -338,6 +338,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5fd56145_ce2e1ab9",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-05-17T21:11:23Z",
+      "side": 1,
+      "message": "Scratch that, the changes pointed above relate to SEL0 partition support in the EL3 SPMC. Unifying LSPs is another set of changes building on top, but still held internally to Arm.\nSo for now this is still an open question, that we\u0027d want to discuss more in details.",
+      "parentUuid": "5649ae4c_c9bd3ad5",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a40edf1_4ba530d4",
         "filename": "include/services/el3_spmd_logical_sp.h",
         "patchSetId": 1
