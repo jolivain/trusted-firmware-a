@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c917540a_eacd8dff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-05-17T16:29:53Z",
+      "side": 1,
+      "message": "Hi folks, I\u0027ve pushed this change in response to the review comments on the v2.9 changelog relating to where breaking build system changes are placed when they have no scope (i.e. `build!:`). This change ensures that changes without a scope using the `build` type are redirected to the Build System section of the breaking changes (which is the only place `build` changes are shown).",
+      "revId": "08b4cc34c8a8df5f7a489cf68077cdace4fdb92f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
