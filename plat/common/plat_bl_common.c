@@ -15,6 +15,7 @@
 #include <smccc_helpers.h>
 #include <tools_share/firmware_encrypted.h>
 
+
 /*
  * The following platform functions are weakly defined. The Platforms
  * may redefine with strong definition.
