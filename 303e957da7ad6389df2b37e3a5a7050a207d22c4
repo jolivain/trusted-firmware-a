@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8522f85_21bb6b10",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2625,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-17T09:05:49Z",
+      "side": 1,
+      "message": "build",
+      "range": {
+        "startLine": 2625,
+        "startChar": 0,
+        "endLine": 2625,
+        "endChar": 4
+      },
+      "revId": "303e957da7ad6389df2b37e3a5a7050a207d22c4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58b73c78_d9742562",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2632,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-17T09:05:49Z",
+      "side": 1,
+      "message": "up to",
+      "range": {
+        "startLine": 2632,
+        "startChar": 44,
+        "endLine": 2632,
+        "endChar": 48
+      },
+      "revId": "303e957da7ad6389df2b37e3a5a7050a207d22c4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1ef16ba_fd175a4a",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2633,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-17T09:05:49Z",
+      "side": 1,
+      "message": "nit: maybe say enabled as FEAT_STATE_ALWAYS?",
+      "range": {
+        "startLine": 2633,
+        "startChar": 16,
+        "endLine": 2633,
+        "endChar": 23
+      },
+      "revId": "303e957da7ad6389df2b37e3a5a7050a207d22c4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f1dac3f_837071e4",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2639,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-17T09:05:49Z",
+      "side": 1,
+      "message": "isn\u0027t that not true if set to ALWAYS? It would be if it\u0027s CHECKED, but it would blow up otherwise on older revisions.",
+      "range": {
+        "startLine": 2639,
+        "startChar": 0,
+        "endLine": 2639,
+        "endChar": 75
+      },
+      "revId": "303e957da7ad6389df2b37e3a5a7050a207d22c4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
