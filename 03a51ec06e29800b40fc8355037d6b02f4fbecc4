@@ -18,6 +18,46 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a963503d_a3bbd66e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-05-17T11:38:39Z",
+      "side": 1,
+      "message": "minor comment, other than that LGTM",
+      "revId": "03a51ec06e29800b40fc8355037d6b02f4fbecc4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53683df3_76296918",
+        "filename": "docs/change-log.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-05-17T11:38:39Z",
+      "side": 1,
+      "message": "minor: should all of those be under a \u0027Build\u0027 section? I know it is not the scope of those patches, it\u0027s their type, but it may clarify things a bit IMHO.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 0
+      },
+      "revId": "03a51ec06e29800b40fc8355037d6b02f4fbecc4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67c5d8dd_d7b64624",
