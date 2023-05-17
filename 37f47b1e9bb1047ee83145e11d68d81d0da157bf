@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef848048_3c490046",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-05-17T13:10:15Z",
+      "side": 1,
+      "message": "Hi Frank,\n\nThe current upstream does not fully represent the capability of ST SW ecosystem. In order to get the full information, it is recommended to get through the ST Support local people (all reference inside the ST web portal).\n\nConcerning your patch proposal, we will unfortunately have to NAK it, because it is not fully compatible with our current internal implementation for the FOTA mechanism.\nThat will be uptsreamed in the near future (and before v2.10 release).\n(more detail can be available with you local ST support team)\n\nThe patch to be upstream\u0027ed might be this one (or a slightly reworked version of it):\nhttps://github.com/Yann-lms/arm-trusted-firmware/commit/daad3469dbd6317c2e81468174567acc71d6996d\n\nBest Regards,\nYann\n",
+      "revId": "37f47b1e9bb1047ee83145e11d68d81d0da157bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
