@@ -33,6 +33,46 @@
       "message": "Hi Chris, \n\nIn addition to this, maybe it is a good idea to have the items in \"Breaking Changes\" listed under their corresponding section as well.",
       "revId": "08b4cc34c8a8df5f7a489cf68077cdace4fdb92f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "060c8f95_f2591bee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-18T08:39:20Z",
+      "side": 1,
+      "message": "Minor nit, other than that lgtm ",
+      "revId": "08b4cc34c8a8df5f7a489cf68077cdace4fdb92f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76811f33_064c239f",
+        "filename": "tools/conventional-changelog-tf-a/index.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-05-18T08:39:20Z",
+      "side": 1,
+      "message": "nit: scopeless",
+      "range": {
+        "startLine": 172,
+        "startChar": 19,
+        "endLine": 172,
+        "endChar": 29
+      },
+      "revId": "08b4cc34c8a8df5f7a489cf68077cdace4fdb92f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
