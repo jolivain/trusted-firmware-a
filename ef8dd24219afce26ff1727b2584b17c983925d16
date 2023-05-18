@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20f62024_905ca94a",
+        "filename": "plat/mediatek/drivers/apusys/devapc/apusys_dapc_v1.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-05-18T06:07:48Z",
+      "side": 1,
+      "message": "enum apusys_apc_err_status",
+      "range": {
+        "startLine": 18,
+        "startChar": 1,
+        "endLine": 18,
+        "endChar": 8
+      },
+      "revId": "ef8dd24219afce26ff1727b2584b17c983925d16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1e79931_92f2cafb",
+        "filename": "plat/mediatek/drivers/apusys/mt8188/apusys_devapc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-05-18T06:07:48Z",
+      "side": 1,
+      "message": "use `enum apusys_apc_err_status` ?",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 14
+      },
+      "revId": "ef8dd24219afce26ff1727b2584b17c983925d16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a49fa626_49d6999c",
+        "filename": "plat/mediatek/drivers/apusys/mt8188/apusys_devapc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-05-18T06:07:48Z",
+      "side": 1,
+      "message": "can you explain why the return value is not used ?",
+      "range": {
+        "startLine": 93,
+        "startChar": 1,
+        "endLine": 93,
+        "endChar": 13
+      },
+      "revId": "ef8dd24219afce26ff1727b2584b17c983925d16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21ecb77b_263e20b0",
+        "filename": "plat/mediatek/drivers/apusys/mt8188/apusys_devapc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-05-18T06:07:48Z",
+      "side": 1,
+      "message": "`enum apusys_apc_err_status`  ?",
+      "range": {
+        "startLine": 99,
+        "startChar": 1,
+        "endLine": 99,
+        "endChar": 8
+      },
+      "revId": "ef8dd24219afce26ff1727b2584b17c983925d16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7627e5d3_5fc29af6",
+        "filename": "plat/mediatek/drivers/apusys/mt8188/apusys_devapc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-05-18T06:07:48Z",
+      "side": 1,
+      "message": "This can be removed. We can also dump the DAPC setting in failure case.",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 13
+      },
+      "revId": "ef8dd24219afce26ff1727b2584b17c983925d16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
