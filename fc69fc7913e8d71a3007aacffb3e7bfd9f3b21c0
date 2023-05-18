@@ -16,6 +16,24 @@
       "message": "Similar question as the previous patch, are these newly enabled options going to conflict with S-EL1 setups?",
       "revId": "fc69fc7913e8d71a3007aacffb3e7bfd9f3b21c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbcc2d62_61cf86c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-05-18T12:34:53Z",
+      "side": 1,
+      "message": "Please correct me if I am wrong. I think it would not because S-EL1 setup is done by SPMD and these flags only affect SPMC at EL3.\nArchitectural wise EL3 SPMC is similar to SPM_MM at EL3 only communication protocol format is changing. That is why we are reusing SPM_MM defines.",
+      "parentUuid": "57c14c7a_40572593",
+      "revId": "fc69fc7913e8d71a3007aacffb3e7bfd9f3b21c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
