@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a643b544_33c453df",
+        "filename": "plat/mediatek/drivers/apusys/security_ctrl/1.0/apusys_security_ctrl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-05-18T06:45:08Z",
+      "side": 1,
+      "message": "Does it mean that if a platform uses v1.0 security control, the platform will follow this remapping ?\n\nIf this is platform-specific remapping, then we should move this to mt8188 folder.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 29
+      },
+      "revId": "d31d9e8d886ad884155e66b0c4faab7e923d72b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
