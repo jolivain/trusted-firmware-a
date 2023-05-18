@@ -51,6 +51,40 @@
       "parentUuid": "f548eed0_5e4a3967",
       "revId": "a069534a9cd5b592b06319ea84389849f05acc1b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0425ae2c_e11639f1",
+        "filename": "docs/change-log.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-05-18T09:46:47Z",
+      "side": 1,
+      "message": "lines 10 to 24 should be under a Build Systems subsection in the Breaking changes section not standalone.",
+      "revId": "a069534a9cd5b592b06319ea84389849f05acc1b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b94e30ca_62222f3e",
+        "filename": "docs/change-log.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-05-18T09:46:47Z",
+      "side": 1,
+      "message": "Move the lines 82 to 87 to the Miscellaneous sub section unless there is a better place for any of these.",
+      "revId": "a069534a9cd5b592b06319ea84389849f05acc1b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
