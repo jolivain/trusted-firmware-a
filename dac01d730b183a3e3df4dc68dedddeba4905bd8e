@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30c18ded_7f541ff9",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-05-19T21:21:54Z",
+      "side": 1,
+      "message": "should this be replaced with a macro whose implementation leverages esb when possible?\n\n.macro error_sync_barrier\n#if ENABLE_FEAT_RAS\n  esb\n#else\n  dsb sy\n#endif\n.endmacro",
+      "range": {
+        "startLine": 365,
+        "startChar": 1,
+        "endLine": 365,
+        "endChar": 7
+      },
+      "revId": "dac01d730b183a3e3df4dc68dedddeba4905bd8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
