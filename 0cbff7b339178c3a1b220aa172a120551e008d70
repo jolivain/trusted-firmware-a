@@ -33,6 +33,24 @@
       "message": "Support for errata management firmware interface.\nSupport for enabling encryption of BL31 firmware and secure BL32 payload.",
       "revId": "0cbff7b339178c3a1b220aa172a120551e008d70",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dac027b5_d6875589",
+        "filename": "docs/about/features.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-19T14:45:47Z",
+      "side": 1,
+      "message": "\u003e Support for errata management firmware interface.\nHas this been done for all the CPUs? and this is not a big feature but a helper to implement Errata, do you Errata ABI?\n\n\u003e Support for enabling encryption of BL31 firmware and secure BL32 payload.\n\nIs it something introduced recently?",
+      "parentUuid": "743ba0c0_6d271f54",
+      "revId": "0cbff7b339178c3a1b220aa172a120551e008d70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
