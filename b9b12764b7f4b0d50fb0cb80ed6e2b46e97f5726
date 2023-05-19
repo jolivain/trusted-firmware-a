@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d89ec03d_9e9d8b92",
+        "filename": "lib/cpus/aarch64/cortex_a65ae.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2023-05-19T18:04:45Z",
+      "side": 1,
+      "message": "should be ERRATA_DSU_936184",
+      "range": {
+        "startLine": 32,
+        "startChar": 56,
+        "endLine": 32,
+        "endChar": 61
+      },
+      "revId": "b9b12764b7f4b0d50fb0cb80ed6e2b46e97f5726",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
