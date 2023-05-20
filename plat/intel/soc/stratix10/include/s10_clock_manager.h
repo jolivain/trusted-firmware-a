@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2022, Intel Corporation. All rights reserved.
+ * Copyright (c) 2019-2023, Intel Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,7 @@
 #define __CLOCKMANAGER_H__
 
 #include "socfpga_handoff.h"
+#include "s10_system_manager.h"
 
 #define ALT_CLKMGR				0xffd10000
 

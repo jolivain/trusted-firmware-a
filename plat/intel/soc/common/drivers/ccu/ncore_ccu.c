@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2022, Intel Corporation. All rights reserved.
+ * Copyright (c) 2019-2023, Intel Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,7 @@
 #include <common/debug.h>
 #include <errno.h>
 #include <lib/mmio.h>
+#include <platform_def.h>
 
 #include "ncore_ccu.h"
 //TODO: temp using this. Shall move to individual product folder
