@@ -16,6 +16,23 @@
       "message": "I apologize, I\u0027ll re-run this thru Allow-CI+2 to verify https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/20972 ",
       "revId": "e7cc3e4330b4c6d8cf07e80bba29ffe5a8fdae32",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2167082a_0dfbef3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000709
+      },
+      "writtenOn": "2023-05-21T21:07:30Z",
+      "side": 1,
+      "message": "Sorry, this failed on rebuild, but it\u0027s due to https://ci.trustedfirmware.org/job/tf-a-builder/2092546/console :\n\n00:07:15.994 \u003d\u003d\u003d Starting expect-post tests \u003d\u003d\u003d\n00:07:16.443 expect/hold_uart.exp(UART0): PASS\n00:07:16.500 expect/crash_passed_test.exp(UART1): FAIL\n00:07:16.554 expect/hold_uart.exp(UART2): PASS\n00:07:16.554 Post-LAVA Expect scripts results: total\u003d3 failed\u003d1\n\nI.e. it\u0027s only an expect-post test. It in its turn is likely due to https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/20828 . I.e. this change is based on the old master, while in the meantime the change above (and corresponding TF-A) changes was pushed. A rebase should fix it.\n",
+      "revId": "e7cc3e4330b4c6d8cf07e80bba29ffe5a8fdae32",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
