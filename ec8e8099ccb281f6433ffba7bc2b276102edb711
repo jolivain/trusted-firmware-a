@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46c4e442_f979a628",
+        "filename": "lib/psa/measured_boot.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-22T12:27:25Z",
+      "side": 1,
+      "message": "Here we are accessing the contents of the sw_type[] array but further down at line 106 there is a NULL pointer check. It sounds like we need to reorder and reconcile these 2 checks...\n\nPerhaps we should only keep the checks on \u0027version\u0027 and \u0027version_size\u0027 here - since they are needed to fill in the in_vec[] array at line 98 - and move the checks on \u0027sw_type\u0027 and \u0027sw_type_size\u0027 further down?\n\nBasically this is what I have in mind (this is untested code):\n\n \tstruct measured_boot_extend_iovec_t extend_iov \u003d {\n\t\t.index \u003d index,\n\t\t.lock_measurement \u003d lock_measurement,\n\t\t.measurement_algo \u003d measurement_algo,\n\t\t.sw_type \u003d {0},\n\t\t.sw_type_size \u003d sw_type_size,\n\t};\n\n\tif (version_size \u003e VERSION_MAX_SIZE) {\n\t\treturn PSA_ERROR_INVALID_ARGUMENT;\n\t}\n\n\tif ((version_size \u003e 0) \u0026\u0026 (version[version_size - 1] \u003d\u003d \u0027\\0\u0027)) {\n\t\tversion_size--;\n\t}\n\n\tpsa_invec in_vec[] \u003d {\n\t\t{.base \u003d \u0026extend_iov,\n\t\t\t.len \u003d sizeof(struct measured_boot_extend_iovec_t)},\n\t\t{.base \u003d signer_id, .len \u003d signer_id_size},\n\t\t{.base \u003d version, .len \u003d version_size },\n\t\t{.base \u003d measurement_value, .len \u003d measurement_value_size}\n\t};\n\n\tif (sw_type !\u003d NULL) {\n  \t        if ((sw_type_size \u003e 0) \u0026\u0026 (sw_type[sw_type_size - 1] \u003d\u003d \u0027\\0\u0027) {\n\t\t        extend_iov.sw_type_size--;\n\t        }\n\n\t\tif (extend_iov.sw_type_size \u003e SW_TYPE_MAX_SIZE) {\n\t\t\treturn PSA_ERROR_INVALID_ARGUMENT;\n\t\t}\n\n\t\tmemcpy(extend_iov.sw_type, sw_type, extend_iov.sw_type_size);\n\t}\n\n\tlog_measurement(index, signer_id, signer_id_size,\n\t\t\tversion, version_size, sw_type, sw_type_size,\n\t\t\tmeasurement_algo, measurement_value,\n\t\t\tmeasurement_value_size, lock_measurement);",
+      "range": {
+        "startLine": 90,
+        "startChar": 25,
+        "endLine": 90,
+        "endChar": 50
+      },
+      "revId": "ec8e8099ccb281f6433ffba7bc2b276102edb711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
