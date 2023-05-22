@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a116a1c_e9fc6f10",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-22T13:25:50Z",
+      "side": 1,
+      "message": "I am afraid introducing STM32 specific code in a generic file like drivers/fwu/fwu.c is not acceptable, as this will become hard to maintain over time if all platforms follow this pattern...\n\nIf there is a need to let platforms decide what do when we fail to load the FWU metadata then this should go through some kind of platform interface. Perhaps we can introduce a new plat_fwu_post_metadata_load() interface, that each platform can tailor to their needs. Or maybe fwu_init() as a whole needs to be converted as a platform hook. This needs more thoughts and discussion.",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 187,
+        "endChar": 29
+      },
+      "revId": "3d12deb32c0655eb0993a46aef7bae04271bead1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
