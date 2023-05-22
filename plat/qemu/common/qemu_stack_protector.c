@@ -14,11 +14,12 @@
 
 u_register_t plat_get_stack_protector_canary(void)
 {
+#ifdef __aarch64__
 	/* Use the RNDR instruction if the CPU supports it */
 	if (is_feat_rng_supported()) {
 		return read_rndr();
 	}
-
+#endif
 	/*
 	 * Ideally, a random number should be returned above. If a random
 	 * number generator is not supported, return instead a
