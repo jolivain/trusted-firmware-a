@@ -22,6 +22,30 @@
       },
       "revId": "dac01d730b183a3e3df4dc68dedddeba4905bd8e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c3640c7_3a1316bb",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-22T08:22:37Z",
+      "side": 1,
+      "message": "Not actually, the reason being esb along with doing error synchronization also might consume the error(as per Arm ARM) but FVP always consumes it.",
+      "parentUuid": "30c18ded_7f541ff9",
+      "range": {
+        "startLine": 365,
+        "startChar": 1,
+        "endLine": 365,
+        "endChar": 7
+      },
+      "revId": "dac01d730b183a3e3df4dc68dedddeba4905bd8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
