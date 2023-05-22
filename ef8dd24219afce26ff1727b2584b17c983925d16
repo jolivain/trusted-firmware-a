@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cee9a0ea_45188cd2",
+        "filename": "plat/mediatek/drivers/apusys/devapc/apusys_dapc_v1.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001050
+      },
+      "writtenOn": "2023-05-22T02:06:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20f62024_905ca94a",
+      "range": {
+        "startLine": 18,
+        "startChar": 1,
+        "endLine": 18,
+        "endChar": 8
+      },
+      "revId": "ef8dd24219afce26ff1727b2584b17c983925d16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1e79931_92f2cafb",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-18T06:07:48Z",
       "side": 1,
       "message": "use `enum apusys_apc_err_status` ?",
+      "range": {
+        "startLine": 57,
+        "startChar": 7,
+        "endLine": 57,
+        "endChar": 14
+      },
+      "revId": "ef8dd24219afce26ff1727b2584b17c983925d16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19304589_418dae23",
+        "filename": "plat/mediatek/drivers/apusys/mt8188/apusys_devapc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1001050
+      },
+      "writtenOn": "2023-05-22T02:06:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1e79931_92f2cafb",
       "range": {
         "startLine": 57,
         "startChar": 7,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13aa4223_727134d2",
+        "filename": "plat/mediatek/drivers/apusys/mt8188/apusys_devapc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1001050
+      },
+      "writtenOn": "2023-05-22T02:06:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a49fa626_49d6999c",
+      "range": {
+        "startLine": 93,
+        "startChar": 1,
+        "endLine": 93,
+        "endChar": 13
+      },
+      "revId": "ef8dd24219afce26ff1727b2584b17c983925d16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21ecb77b_263e20b0",
@@ -93,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e129bb85_96ad5806",
+        "filename": "plat/mediatek/drivers/apusys/mt8188/apusys_devapc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1001050
+      },
+      "writtenOn": "2023-05-22T02:06:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21ecb77b_263e20b0",
+      "range": {
+        "startLine": 99,
+        "startChar": 1,
+        "endLine": 99,
+        "endChar": 8
+      },
+      "revId": "ef8dd24219afce26ff1727b2584b17c983925d16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7627e5d3_5fc29af6",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-05-18T06:07:48Z",
       "side": 1,
       "message": "This can be removed. We can also dump the DAPC setting in failure case.",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 13
+      },
+      "revId": "ef8dd24219afce26ff1727b2584b17c983925d16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa8dd175_bf5a9efa",
+        "filename": "plat/mediatek/drivers/apusys/mt8188/apusys_devapc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1001050
+      },
+      "writtenOn": "2023-05-22T02:06:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7627e5d3_5fc29af6",
       "range": {
         "startLine": 106,
         "startChar": 2,
