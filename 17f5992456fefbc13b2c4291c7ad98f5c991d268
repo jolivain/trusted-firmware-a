@@ -3,6 +3,121 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4f7739f6_8233c26a",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-05-22T15:05:10Z",
+      "side": 1,
+      "message": "leave one space space between operand and operator",
+      "range": {
+        "startLine": 58,
+        "startChar": 46,
+        "endLine": 58,
+        "endChar": 47
+      },
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d417e3f_4c4bec8a",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-05-22T15:05:10Z",
+      "side": 1,
+      "message": "bool",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 8
+      },
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed6997a1_b5c698f9",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-05-22T15:05:10Z",
+      "side": 1,
+      "message": "are they the same ?",
+      "range": {
+        "startLine": 79,
+        "startChar": 21,
+        "endLine": 79,
+        "endChar": 44
+      },
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27af9e0f_494a0cd7",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-05-22T15:05:10Z",
+      "side": 1,
+      "message": "static uintptr_t",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 10
+      },
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0675135_1b0e5ef4",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-05-22T15:05:10Z",
+      "side": 1,
+      "message": "static uintptr_t",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 9
+      },
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab3d83ae_5ac37fa8",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 10
