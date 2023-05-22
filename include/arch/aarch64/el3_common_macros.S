@@ -55,18 +55,14 @@
 	/* ---------------------------------------------------------------------
 	 * Initialise SCR_EL3, setting all fields rather than relying on hw.
 	 * All fields are architecturally UNKNOWN on reset. The following fields
-	 * do not change during the TF lifetime. The remaining fields are set to
-	 * zero here but are updated ahead of transitioning to a lower EL in the
-	 * function cm_init_context_common().
-	 *
-	 * SCR_EL3.SIF: Set to one to disable instruction fetches from
-	 *  Non-secure memory.
+	 * are neeeded until context management overwrites them. The remaining
+	 * fields are set to zero.
 	 *
 	 * SCR_EL3.EA: Set to one to route External Aborts and SError Interrupts
 	 *  to EL3 when executing at any EL.
 	 * ---------------------------------------------------------------------
 	 */
-	mov_imm	x0, (SCR_RESET_VAL | SCR_EA_BIT | SCR_SIF_BIT)
+	mov_imm	x0, (SCR_RESET_VAL | SCR_EA_BIT)
 #if ENABLE_RME
 	/*
 	 * TODO: Settting the EEL2 bit to allow EL3 access to secure only registers
