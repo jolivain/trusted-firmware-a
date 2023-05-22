@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7562fa1_2f1dfb97",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2023-05-22T05:52:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1db8ea55_8da10a8a",
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e45577ee_b50512bb",
@@ -41,6 +59,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b651d54_059710b5",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2023-05-22T05:52:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e45577ee_b50512bb",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 10
+      },
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82e61505_dbb7152e",
@@ -54,6 +96,24 @@
       "writtenOn": "2023-05-12T22:16:54Z",
       "side": 1,
       "message": "Each of these should document the exact API (register in/out parameters, etc) of that SMC in comments.",
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb02e39a_858890c6",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2023-05-22T05:52:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82e61505_dbb7152e",
       "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -93,6 +153,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80303c93_aa41229e",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2023-05-22T05:52:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4026eb2c_521cba4e",
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44c77ca3_db0fcdc4",
@@ -106,6 +184,30 @@
       "writtenOn": "2023-05-12T22:16:54Z",
       "side": 1,
       "message": "I think it would be good to prefix all these names with some common thing that identifies them as belonging to Widevine DRM (e.g. CROS_OEM_SMC_DRM_SET_TPM_AUTH_PUB, maybe?), so if we later add ChromeOS calls that have nothing to do with that it\u0027s easier to tell them apart.",
+      "range": {
+        "startLine": 42,
+        "startChar": 8,
+        "endLine": 42,
+        "endChar": 37
+      },
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37a1c5b5_5695a1c1",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2023-05-22T05:52:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44c77ca3_db0fcdc4",
       "range": {
         "startLine": 42,
         "startChar": 8,
@@ -156,6 +258,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "641790bc_f72bdf62",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2023-05-22T05:52:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb2cee98_8db48bb0",
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d203712_c161ec4e",
@@ -169,6 +289,30 @@
       "writtenOn": "2023-05-12T22:16:54Z",
       "side": 1,
       "message": "So with 48 bytes per SMC this takes 22 SMCs to transfer... that seems pretty inefficient. Why are we not just passing a pointer and mapping in memory?",
+      "range": {
+        "startLine": 22,
+        "startChar": 34,
+        "endLine": 22,
+        "endChar": 38
+      },
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bb1bbba_da7575f4",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2023-05-22T05:52:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d203712_c161ec4e",
       "range": {
         "startLine": 22,
         "startChar": 34,
@@ -202,6 +346,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80a14a3e_c9e00594",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2023-05-22T05:52:37Z",
+      "side": 1,
+      "message": "Oh, that\u0027s because `1\u003c\u003c31` will cause the signed int overflow.\nResolved by `1U \u003c\u003c 31`.",
+      "parentUuid": "8df2a094_87f426c7",
+      "range": {
+        "startLine": 23,
+        "startChar": 35,
+        "endLine": 23,
+        "endChar": 37
+      },
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45c35d42_8cc6194b",
@@ -215,6 +383,30 @@
       "writtenOn": "2023-05-12T22:16:54Z",
       "side": 1,
       "message": "nit: \"Unknown\" has a specific meaning and shouldn\u0027t be the generic error type for everything. You can make up error values, but for simplicity I\u0027d maybe just adopt the PSCI ones (e.g. this could be PSCI_E_ALREADY_ON).",
+      "range": {
+        "startLine": 98,
+        "startChar": 19,
+        "endLine": 98,
+        "endChar": 26
+      },
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "581f83f7_ffae2d02",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2023-05-22T05:52:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45c35d42_8cc6194b",
       "range": {
         "startLine": 98,
         "startChar": 19,
@@ -278,6 +470,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "029e8b52_4ae9c41a",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2023-05-22T05:52:37Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "1f6b6524_8fa742da",
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03dbb293_6b78617c",
@@ -291,6 +501,30 @@
       "writtenOn": "2023-05-12T22:16:54Z",
       "side": 1,
       "message": "Pretty sure you can just pass NULL here if you don\u0027t want a setup handler.",
+      "range": {
+        "startLine": 199,
+        "startChar": 8,
+        "endLine": 199,
+        "endChar": 26
+      },
+      "revId": "e0e68aa68e3f788cbd515fcadc3366f443c18311",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c5ab76b_08efb58f",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2023-05-22T05:52:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03dbb293_6b78617c",
       "range": {
         "startLine": 199,
         "startChar": 8,
