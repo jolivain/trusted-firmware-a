@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af7fbfdf_fb24d785",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-22T07:41:57Z",
+      "side": 1,
+      "message": "In the header file (plat/intel/soc/common/include/socfpga_mailbox.h), resp_buf_len was a uint32_t in the function prototype. Here it is unsigned int. Consider using the same type in both places for consistency.",
+      "range": {
+        "startLine": 673,
+        "startChar": 47,
+        "endLine": 673,
+        "endChar": 59
+      },
+      "revId": "89f3d4ef5ad6f2e7d14422e4e60b4ed96405b9ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a23307ab_49db0913",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-22T07:41:57Z",
+      "side": 1,
+      "message": "(minor) It seems to me that this code could be shortened into:\n\n return mailbox_send_cmd(MBOX_JOB_ID, MBOX_CMD_SEU_ERR_READ, NULL, 0U,\n\t\t\t\tCMD_CASUAL, resp_buf,\n\t\t\t\t\u0026resp_buf_len);",
+      "range": {
+        "startLine": 677,
+        "startChar": 0,
+        "endLine": 685,
+        "endChar": 12
+      },
+      "revId": "89f3d4ef5ad6f2e7d14422e4e60b4ed96405b9ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70ad7109_de415e1e",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-22T07:41:57Z",
+      "side": 1,
+      "message": "I am a bit confused here so please let me check whether the code does what you intended it to do...\n\nIf I am not mistaken, this function is called at line 1184 with respbuf_sz \u003d\u003d ARRAY_SIZE(seu_respbuf) \u003d\u003d 3. In other words, we\u0027re saying that the respbuf pointer points to an array of 3 64-bit integers. But then here at line 654 we cast respbuf into a (uint32_t *) so should we multiply respbuf_sz by 2 in order to tell mailbox_seu_err_status() that respbuf is a pointer to an array of 6 (not 3) 32-bit integers?",
+      "range": {
+        "startLine": 654,
+        "startChar": 49,
+        "endLine": 654,
+        "endChar": 59
+      },
+      "revId": "89f3d4ef5ad6f2e7d14422e4e60b4ed96405b9ad",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
