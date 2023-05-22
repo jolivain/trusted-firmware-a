@@ -110,6 +110,12 @@ static void setup_secure_context(cpu_context_t *ctx, const struct entry_point_in
 	state = get_el3state_ctx(ctx);
 	scr_el3 = read_ctx_reg(state, CTX_SCR_EL3);
 
+	/*
+	 * SCR_EL3.SIF: Set to one to disable secure instruction execution from
+	 *  Non-secure memory.
+	 */
+	scr_el3 |= SCR_SIF_BIT;
+
 #if defined(IMAGE_BL31) && !defined(SPD_spmd)
 	/*
 	 * SCR_EL3.IRQ, SCR_EL3.FIQ: Enable the physical FIQ and IRQ routing as
