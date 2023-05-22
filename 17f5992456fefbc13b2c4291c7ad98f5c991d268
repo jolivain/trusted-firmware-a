@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab3d83ae_5ac37fa8",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-05-22T14:25:09Z",
+      "side": 1,
+      "message": "This should probably use the \"chosen\" node to be compliant with the Linux device tree specification.",
+      "range": {
+        "startLine": 268,
+        "startChar": 28,
+        "endLine": 268,
+        "endChar": 36
+      },
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63f88601_9afbe61e",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-05-22T14:25:09Z",
+      "side": 1,
+      "message": "You should probably rename these to be something like \"chromeos,tpm_auth_pk\" to align with the linux device tree specification better; same with other properties below.",
+      "range": {
+        "startLine": 272,
+        "startChar": 26,
+        "endLine": 272,
+        "endChar": 37
+      },
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
