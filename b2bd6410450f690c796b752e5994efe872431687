@@ -16,6 +16,24 @@
       "message": "Hi Andre,\n\nI wonder if an easiest solution would just be to put lines 17-20 of plat/qemu/common/qemu_stack_protector.c under #ifdef __aarch64__, like this is the case when trying to read Aarch64 only register?\nThere are examples in bl1/bl1_main.c, drivers/arm/gic/v3/gicv3_main.c, or include/lib/el3_runtime/cpu_data.h.",
       "revId": "b2bd6410450f690c796b752e5994efe872431687",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1347ef7_85c12fec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-05-23T11:53:43Z",
+      "side": 1,
+      "message": "I have pushed a patch for this, we can opt for either of the solution.\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21069",
+      "parentUuid": "ae259a5a_d00613a2",
+      "revId": "b2bd6410450f690c796b752e5994efe872431687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
