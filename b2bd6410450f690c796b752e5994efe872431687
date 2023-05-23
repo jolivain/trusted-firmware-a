@@ -52,6 +52,24 @@
       "parentUuid": "a1347ef7_85c12fec",
       "revId": "b2bd6410450f690c796b752e5994efe872431687",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29e32b6d_04ad8608",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-05-23T14:02:49Z",
+      "side": 1,
+      "message": "For the feature check, I totally agree, and your new patch \"feat(cpufeat): deny AArch64-only features when building for AArch32\" is fine.\nFor this patch, should we also extend the helper for this particular register, to all Aarch64 registers not existing on Aarch32, and not just the one used by QEMU?\nThat\u0027s mainly why I first proposed to put the code under __aarch64__ flag, as this could be a huge task.\nAnother question: is the assert really needed?",
+      "parentUuid": "4dab66ee_14ff8742",
+      "revId": "b2bd6410450f690c796b752e5994efe872431687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
