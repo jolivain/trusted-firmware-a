@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17d70a5b_32a56381",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-23T00:35:07Z",
+      "side": 1,
+      "message": "Please also specify maximum size expectations.",
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f7739f6_8233c26a",
         "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
         "patchSetId": 10
@@ -49,6 +66,64 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "08dea9b8_e780a65f",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-23T00:35:07Z",
+      "side": 1,
+      "message": "Is this needed if you can just check length !\u003d 0?",
+      "parentUuid": "7d417e3f_4c4bec8a",
+      "range": {
+        "startLine": 64,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 8
+      },
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45c026da_2b039646",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-23T00:35:07Z",
+      "side": 1,
+      "message": "Shouldn\u0027t data-\u003elength always be 0 here anyway?",
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86f294de_95e6ae84",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-23T00:35:07Z",
+      "side": 1,
+      "message": "PSCI_E_INVALID_ADDRESS? (considering failure here most likely means the passed in pointer is bad)",
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ed6997a1_b5c698f9",
         "filename": "services/oem/chromeos/widevine_smc_handlers.c",
         "patchSetId": 10
@@ -65,6 +140,29 @@
         "startChar": 21,
         "endLine": 79,
         "endChar": 44
+      },
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d163a507_ed236ca1",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-23T00:35:07Z",
+      "side": 1,
+      "message": "see above",
+      "range": {
+        "startLine": 81,
+        "startChar": 22,
+        "endLine": 81,
+        "endChar": 34
       },
       "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -95,6 +193,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "278b99c9_31da851c",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-23T00:35:07Z",
+      "side": 1,
+      "message": "It\u0027s a bit unclear what the point of the extra indirection between oem_svc_smc_handler() and cros_oem_svc_smc_handler() is. Why not just let all unknown FIDs be handled here? (It\u0027s basically the same error message anyway...)",
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0675135_1b0e5ef4",
         "filename": "services/oem/chromeos/widevine_smc_handlers.c",
         "patchSetId": 10
@@ -112,6 +227,80 @@
         "endLine": 114,
         "endChar": 9
       },
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbc49664_da053f2b",
+        "filename": "services/oem/chromeos/widevine_smc_handlers.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-23T00:35:07Z",
+      "side": 1,
+      "message": "Why not just narrow the start and end bounds right here to the range you picked?",
+      "range": {
+        "startLine": 131,
+        "startChar": 37,
+        "endLine": 131,
+        "endChar": 63
+      },
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "134f2393_984895e3",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-23T00:35:07Z",
+      "side": 1,
+      "message": "Is the preprocessor guard needed here? In general, prefer to avoid guarding header includes unless it will really not compile without.",
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43c997d7_b294d1d0",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-23T00:35:07Z",
+      "side": 1,
+      "message": "If we\u0027re the only ones using this atm and we don\u0027t have a need for the non-widevine version, let\u0027s not add more complications here, let\u0027s just bump the number to 2K across the board. (Although it looks like 1.5K might maybe be enough?)",
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e95a1da_ad04bda8",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-23T00:35:07Z",
+      "side": 1,
+      "message": "There should be some general checks here on whether all the expected buffers have been filled, and if not you should decide whether it makes more sense to only add a subset of the properties or to just leave out the widevine information completely.",
       "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -141,6 +330,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "16003c95_f0f8584e",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-23T00:35:07Z",
+      "side": 1,
+      "message": "I mean, I\u0027ll let the device tree experts here chime in if they disagree, but I think since the \"coreboot\" (and \"chromeos\") stuff is already under \"firmware\" (and not \"chosen\"), it would make a lot of sense to put this here as well.",
+      "parentUuid": "ab3d83ae_5ac37fa8",
+      "range": {
+        "startLine": 268,
+        "startChar": 28,
+        "endLine": 268,
+        "endChar": 36
+      },
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "63f88601_9afbe61e",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 10
@@ -152,6 +365,30 @@
       "writtenOn": "2023-05-22T14:25:09Z",
       "side": 1,
       "message": "You should probably rename these to be something like \"chromeos,tpm_auth_pk\" to align with the linux device tree specification better; same with other properties below.",
+      "range": {
+        "startLine": 272,
+        "startChar": 26,
+        "endLine": 272,
+        "endChar": 37
+      },
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55bee9ea_0323dded",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-05-23T00:35:07Z",
+      "side": 1,
+      "message": "Again, happy to be corrected if other people are more familiar, but the way I understand it I think properties only have the vendor prefix if they are properties that are specific to a single vendor when the whole node is not. But in our case, the whole node is specific to us, so the vendor name should only be listed in the compatible string (which still needs to be added here).\n\nSo, basically, you want to add a property with the name \"compatible\" and the value \"google,widevine\" or something like that (we tend to use \"google\", not \"chromeos\", for our other compatible strings too), and then I think the other property names should be fine the way they are (except for the underscores, I think the normal style in device tree names is to use dashes \u0027-\u0027 instead of underscores \u0027_\u0027).",
+      "parentUuid": "63f88601_9afbe61e",
       "range": {
         "startLine": 272,
         "startChar": 26,
