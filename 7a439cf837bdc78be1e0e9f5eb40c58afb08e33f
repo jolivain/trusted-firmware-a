@@ -121,6 +121,24 @@
       "parentUuid": "18f97f25_973ff48f",
       "revId": "7a439cf837bdc78be1e0e9f5eb40c58afb08e33f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16cfe261_92218868",
+        "filename": "plat/qemu/qemu/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1001018
+      },
+      "writtenOn": "2023-05-23T09:32:42Z",
+      "side": 1,
+      "message": "Thanks you answer.\n\nI have do below change to use the defaults and conditionally compile the file\ndiff --git a/plat/qemu/qemu/platform.mk b/plat/qemu/qemu/platform.mk\nindex dfed3bd4d..5b8ddc32b 100644\n--- a/plat/qemu/qemu/platform.mk\n+++ b/plat/qemu/qemu/platform.mk\n@@ -224,13 +224,17 @@ BL31_SOURCES              +\u003d      ${QEMU_CPU_LIBS}                        \\\n                                plat/common/plat_psci_common.c          \\\n                                drivers/arm/pl061/pl061_gpio.c          \\\n                                drivers/gpio/gpio.c                     \\\n-                               plat/qemu/common/qemu_sdei.c            \\\n                                ${PLAT_QEMU_COMMON_PATH}/qemu_pm.c                      \\\n                                ${PLAT_QEMU_COMMON_PATH}/topology.c                     \\\n                                ${PLAT_QEMU_COMMON_PATH}/aarch64/plat_helpers.S \\\n                                ${PLAT_QEMU_COMMON_PATH}/qemu_bl31_setup.c              \\\n                                ${QEMU_GIC_SOURCES}\n\n+\n+ifeq (${SDEI_SUPPORT}, 1)\n+BL31_SOURCES           +\u003d      plat/qemu/common/qemu_sdei.c\n+endif\n+",
+      "parentUuid": "0f22d39d_f5a0aa59",
+      "revId": "7a439cf837bdc78be1e0e9f5eb40c58afb08e33f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
