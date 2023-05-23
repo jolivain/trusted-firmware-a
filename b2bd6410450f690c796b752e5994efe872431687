@@ -34,6 +34,24 @@
       "parentUuid": "ae259a5a_d00613a2",
       "revId": "b2bd6410450f690c796b752e5994efe872431687",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dab66ee_14ff8742",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-05-23T12:48:48Z",
+      "side": 1,
+      "message": "But that\u0027s fixing this one particular code usage, in the simplest possible fashion. In fact this points to that we forgot to have those helper functions defined for both ISAs in the first place.\nThe majority of new features are only valid for AArch64 nowadays, so we can have those trivial implementations for AArch32. I will extend the patch to just cover all of them.",
+      "parentUuid": "a1347ef7_85c12fec",
+      "revId": "b2bd6410450f690c796b752e5994efe872431687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
