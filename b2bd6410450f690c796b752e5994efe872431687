@@ -70,6 +70,24 @@
       "parentUuid": "4dab66ee_14ff8742",
       "revId": "b2bd6410450f690c796b752e5994efe872431687",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0dba574_78071657",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-05-23T15:24:06Z",
+      "side": 1,
+      "message": "On a first glance this code is indeed really missing some __aarch64__ clamps: RNDR is AArch64 only, so it shouldn\u0027t be used in C code if we expect QEMU to compile for AArch32 as well(do we, actually?)\nBut I think a better solution is to avoid any #ifdefs, since they make the code hard to read, and hide lines from the compiler.\nAnother alternative would be to implement some generic \"get_random_number()\" routine, per AArch, since this task is not really QEMU specific. So we would put these routines into two different files, one for AArch32, and one for AArch64. But this random number generation gets quickly into platform specific territory, and I am not sure if that\u0027s really worth the effort, for this simple piece of code here.\n\nRegarding: \"extend the helper ... to all Aarch64 registers not existing on Aarch32\": well yes, eventually we should do this - if there is no better solution in avoiding ISA specific access in the first place (like above).\n\nBut between the extremes \"just hack some #ifdefs in\" and \"provide proper wrappers for all system registers\" there are middle grounds: provide a sane wrapper, but do it one-by-one, so only if there is a need, and when we can review and test it properly.\nIn this case someone compiled QEMU for AArch32, which triggered the build failure, so we fix this now, but in the proper way.",
+      "parentUuid": "29e32b6d_04ad8608",
+      "revId": "b2bd6410450f690c796b752e5994efe872431687",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
