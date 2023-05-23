@@ -16,6 +16,29 @@
       "message": "only change is in comments, reapplying verified",
       "revId": "d026c9b74eb84292ce0cec309175bc592fe78bd6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4ab855a_e2d05c86",
+        "filename": "include/arch/aarch64/asm_macros.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-05-23T16:50:23Z",
+      "side": 1,
+      "message": "dont we need to provide:\n\n.cfi_startproc\n.....\n.cfi_endproc\n\n\nTo define the boundaries?",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 13
+      },
+      "revId": "d026c9b74eb84292ce0cec309175bc592fe78bd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
