@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60a344d9_c8df0ddf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-05-23T15:10:33Z",
+      "side": 1,
+      "message": "It is actually any address even out of OCM.",
+      "revId": "e3af11cd60c45ee7187959d4d71faeda295a6a8a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c5549cd_f5a8dfe0",
+        "filename": "plat/xilinx/zynqmp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-05-23T15:10:33Z",
+      "side": 1,
+      "message": "This -1 should be also removed.",
+      "revId": "e3af11cd60c45ee7187959d4d71faeda295a6a8a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2667846_d3c52fc5",
+        "filename": "plat/xilinx/zynqmp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-05-23T15:10:33Z",
+      "side": 1,
+      "message": "And this +1 likely too.",
+      "revId": "e3af11cd60c45ee7187959d4d71faeda295a6a8a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
