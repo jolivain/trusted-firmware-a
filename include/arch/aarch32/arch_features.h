@@ -116,4 +116,10 @@ static inline bool is_feat_spe_supported(void)
 	return false;
 }
 
+static inline bool is_feat_rng_supported(void)
+{
+	/* FEAT_RNG is AArch64 only */
+	return false;
+}
+
 #endif /* ARCH_FEATURES_H */
