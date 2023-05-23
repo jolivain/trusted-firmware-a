@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cf9cab8_7f1708d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-23T15:42:50Z",
+      "side": 1,
+      "message": "Even though this patch didn\u0027t pass the build tests in the CI, but considering that these issues are fixed in the following commit, I\u0027ll give this patch a waiver by overriding the Verified score and I will merge both patches at the same time.",
+      "revId": "6197dc98feba98c3e123256424d2d33d5de997b8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
