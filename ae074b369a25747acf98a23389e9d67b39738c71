@@ -16,6 +16,24 @@
       "message": "would it be beneficial if a similar operation is performed at the end of other functions in this file?",
       "revId": "ae074b369a25747acf98a23389e9d67b39738c71",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e41b8d50_c10b562b",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-05-23T19:25:01Z",
+      "side": 1,
+      "message": "Not really, since only this function has a \u0027NOTICE\u0027 rest are all INFO which are suppressed in release builds and thus aligned with most TF-A _main code which uses a \u0027NOTICE\u0027",
+      "parentUuid": "50426b5f_06db7b0f",
+      "revId": "ae074b369a25747acf98a23389e9d67b39738c71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
