@@ -309,5 +309,8 @@ int plat_setup_psci_ops(uintptr_t sec_entrypoint,
 		*psci_ops = &plat_qti_psci_pm_ops;
 	}
 
+	INFO("Crashing the system deliberately to test the CI\n");
+	INFO("%d", *(uint32_t *)0);
+
 	return err;
 }
