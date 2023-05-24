@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6f8500a_14be4e2e",
+        "filename": "include/lib/psa/measured_boot.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-24T15:12:42Z",
+      "side": 1,
+      "message": "Is this correct? Sorry I am confused now... But I think rss_measured_boot_extend_measurement() might receive the size of the version string with or without the final \\0. It will figure out whether there is a \\0 or not by itself, and adjust the version_size value it receives in argument accordingly before it passes it to the RSS over MHU.\n\nIs my understanding correct? If yes, then I suggest we just drop the text in parentheses. Alternatively we could explain the whole thing I wrote in the previous paragraph.",
+      "range": {
+        "startLine": 39,
+        "startChar": 54,
+        "endLine": 39,
+        "endChar": 66
+      },
+      "revId": "427ad3e0c1459b91e0e8940d02a19afd48214743",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76881567_363d8e07",
+        "filename": "lib/psa/measured_boot.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-05-24T15:12:42Z",
+      "side": 1,
+      "message": "Isn\u0027t this check redundant with the one at line 104?",
+      "range": {
+        "startLine": 86,
+        "startChar": 5,
+        "endLine": 86,
+        "endChar": 36
+      },
+      "revId": "427ad3e0c1459b91e0e8940d02a19afd48214743",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
