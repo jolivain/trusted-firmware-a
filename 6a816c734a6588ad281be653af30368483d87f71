@@ -68,6 +68,41 @@
       "message": "Post v2.9 target.",
       "revId": "6a816c734a6588ad281be653af30368483d87f71",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9d76b8c_c596bd4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-05-24T14:19:22Z",
+      "side": 1,
+      "message": "Just marking it better because of OCM size issue. There are other patches which can make this work but let\u0027s see when they are applied first. ",
+      "revId": "6a816c734a6588ad281be653af30368483d87f71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "696500ac_abf0c9d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-05-24T14:19:22Z",
+      "side": 1,
+      "message": "That\u0027s fine. We are still trying to shrink tfa size to fit to OCM.",
+      "parentUuid": "82a0c425_c57d7dee",
+      "revId": "6a816c734a6588ad281be653af30368483d87f71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
