@@ -60,10 +60,19 @@
 #define CTX_SPSR_EL3		U(0x18)
 #define CTX_ELR_EL3		U(0x20)
 #define CTX_PMCR_EL0		U(0x28)
-#define CTX_IS_IN_EL3		U(0x30)
-#define CTX_CPTR_EL3		U(0x38)
-#define CTX_ZCR_EL3		U(0x40)
-#define CTX_EL3STATE_END	U(0x50) /* Align to the next 16 byte boundary */
+#define CTX_CPTR_EL3		U(0x30)
+#define CTX_ZCR_EL3		U(0x38)
+/* Constants required in supporting nested exception in EL3 */
+#define CTX_SAVED_ELR_EL3	U(0x40)
+#define CTX_NESTED_EA_FLAG1	U(0x48)
+#if HANDLE_EA_EL3_FIRST_NS
+ #define CTX_SAVED_ESR_EL3	U(0x50)
+ #define CTX_SAVED_SPSR_EL3	U(0x58)
+ #define CTX_SAVED_GPREG_LR	U(0x60)
+ #define CTX_EL3STATE_END	U(0x70) /* Align to the next 16 byte boundary */
+#else
+ #define CTX_EL3STATE_END	U(0x50) /* Align to the next 16 byte boundary */
+#endif
 
 /*******************************************************************************
  * Constants that allow assembler code to access members of and the
