@@ -608,6 +608,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d58f0c70_86f35fc1",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2023-05-25T18:09:51Z",
+      "side": 1,
+      "message": "You should also add changes like these two so we get proper coverage in CI:\n\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/19022\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/19023\n\nIt\u0027s likely fine to get just add the CROS_WIDEVINE_SMC to the above.  But, that also means putting this #if back won\u0027t fix the problem.\n\nCan we increase the BL31 size limit?",
+      "parentUuid": "66b1b5c7_baf3d883",
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4e95a1da_ad04bda8",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 10
