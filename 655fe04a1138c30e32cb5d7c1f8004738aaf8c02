@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0f6df07_a7d30709",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-05-25T12:46:48Z",
+      "side": 1,
+      "message": "So I manually compared the assembly code and the C code, next to each other, for each register, and that\u0027s a match. Also the register and structure offset seem to match.\nThere is a build error with AArch32 regs enabled, and the question of whether we can avoid the #ifdef for MTE.",
+      "revId": "655fe04a1138c30e32cb5d7c1f8004738aaf8c02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eaae20e7_f61fa255",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1042,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-05-25T12:46:48Z",
+      "side": 1,
+      "message": "If I set this to 1, it doesn\u0027t build: there is apparently no definition of the read/write wrappers for this register.\nWhich actually brings me to another point, that would have shown this earlier:\nCan\u0027t we make those conditions proper \"C\" if statements?",
+      "revId": "655fe04a1138c30e32cb5d7c1f8004738aaf8c02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "568c2150_fcbbebdd",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1127,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-05-25T12:46:48Z",
+      "side": 1,
+      "message": "Shouldn\u0027t those become either proper C \"if\" statements, or even better use the is_feat_xxx_supported() scheme?",
+      "revId": "655fe04a1138c30e32cb5d7c1f8004738aaf8c02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
