@@ -48,71 +48,21 @@
 	.endm
 
 	/*
-	 * Macro that prepares entry to EL3 upon taking an exception.
+	 * Macro that syncronizes errors on entry to EL3.
 	 *
-	 * With RAS_FFH_SUPPORT, this macro synchronizes pending errors with an
-	 * ESB instruction. When an error is thus synchronized, the handling is
-	 * delegated to platform EA handler.
-	 *
-	 * Without RAS_FFH_SUPPORT, this macro synchronizes pending errors using
-	 * a DSB, unmasks Asynchronous External Aborts and saves X30 before
-	 * setting the flag CTX_IS_IN_EL3.
+	 * If there is a pending EA in lower EL, it will either reflect it back(KFH) or
+	 * handle in EL3(FFH). In FFH after handling the EA it will continue to handle
+	 * the original exception.
 	 */
 	.macro check_and_unmask_ea
-#if RAS_FFH_SUPPORT
-	/* Synchronize pending External Aborts */
-	esb
-
-	/* Unmask the SError interrupt */
-	msr	daifclr, #DAIF_ABT_BIT
-
-	/* Check for SErrors synchronized by the ESB instruction */
-	mrs	x30, DISR_EL1
-	tbz	x30, #DISR_A_BIT, 1f
-
-	/*
-	 * Save general purpose and ARMv8.3-PAuth registers (if enabled).
-	 * Also save PMCR_EL0 and  set the PSTATE to a known state.
-	 */
-	bl	prepare_el3_entry
-
-	bl	handle_lower_el_ea_esb
-
-	/* Restore general purpose, PMCR_EL0 and ARMv8.3-PAuth registers */
-	bl	restore_gp_pmcr_pauth_regs
-1:
-#else
-	/*
-	 * Note 1: The explicit DSB at the entry of various exception vectors
-	 * for handling exceptions from lower ELs can inadvertently trigger an
-	 * SError exception in EL3 due to pending asynchronous aborts in lower
-	 * ELs. This will end up being handled by serror_sp_elx which will
-	 * ultimately panic and die.
-	 * The way to workaround is to update a flag to indicate if the exception
-	 * truly came from EL3. This flag is allocated in the cpu_context
-	 * structure and located at offset "CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3"
-	 * This is not a bullet proof solution to the problem at hand because
-	 * we assume the instructions following "isb" that help to update the
-	 * flag execute without causing further exceptions.
-	 */
-
-	/*
-	 * For SoCs which do not implement RAS, use DSB as a barrier to
-	 * synchronize pending external aborts.
-	 */
 	dsb	sy
-
-	/* Unmask the SError interrupt */
+	mrs	x30, ISR_EL1
+	tbz	x30, #ISR_A_SHIFT, 1f
+	/* Not expected to return but this function uses LR so do branch with link */
+	bl	reflect_ea_to_lower_el
+1:
 	msr	daifclr, #DAIF_ABT_BIT
-
-	/* Use ISB for the above unmask operation to take effect immediately */
 	isb
-
-	/* Refer Note 1. */
-	mov 	x30, #1
-	str	x30, [sp, #CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3]
-	dmb	sy
-#endif
 	.endm
 
 	/* ---------------------------------------------------------------------
@@ -303,21 +253,6 @@ vector_entry fiq_sp_elx
 end_vector_entry fiq_sp_elx
 
 vector_entry serror_sp_elx
-#if !RAS_FFH_SUPPORT
-	/*
-	 * This will trigger if the exception was taken due to SError in EL3 or
-	 * because of pending asynchronous external aborts from lower EL that got
-	 * triggered due to explicit synchronization in EL3. Refer Note 1.
-	 */
-	/* Assumes SP_EL3 on entry */
-	save_x30
-	ldr	x30, [sp, #CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3]
-	cbnz	x30, 1f
-
-	/* Handle asynchronous external abort from lower EL */
-	b	handle_lower_el_async_ea
-1:
-#endif
 	no_ret	plat_handle_el3_ea
 end_vector_entry serror_sp_elx
 
@@ -353,15 +288,19 @@ vector_entry fiq_aarch64
 end_vector_entry fiq_aarch64
 
 vector_entry serror_aarch64
+	/*
+	 * Serror from lower EL is only expected if scr_el3.EA is set.
+	 * It is fatal and unexpected, if it reaches here for platforms which
+	 * has not configured SErrors to be routed to EL3. The platform will
+	 * eventually panic for the later case with reason being "elx_panic".
+	 */
 	save_x30
 	apply_at_speculative_wa
-#if RAS_FFH_SUPPORT
+	/* Sync all outstanding errors */
+	dsb	sy
 	msr	daifclr, #DAIF_ABT_BIT
-#else
-	check_and_unmask_ea
-#endif
+	isb
 	b	handle_lower_el_async_ea
-
 end_vector_entry serror_aarch64
 
 	/* ---------------------------------------------------------------------
@@ -396,15 +335,19 @@ vector_entry fiq_aarch32
 end_vector_entry fiq_aarch32
 
 vector_entry serror_aarch32
+	/*
+	 * Serror from lower EL is only expected if scr_el3.EA is set.
+	 * It is fatal and unexpected, if it reaches here for platforms which
+	 * has not configured SErrors to be routed to EL3. The platform will
+	 * eventually panic for the later case with reason being "elx_panic".
+	 */
 	save_x30
 	apply_at_speculative_wa
-#if RAS_FFH_SUPPORT
+	/* Sync all outstanding errors */
+	dsb	sy
 	msr	daifclr, #DAIF_ABT_BIT
-#else
-	check_and_unmask_ea
-#endif
+	isb
 	b	handle_lower_el_async_ea
-
 end_vector_entry serror_aarch32
 
 #ifdef MONITOR_TRAPS
