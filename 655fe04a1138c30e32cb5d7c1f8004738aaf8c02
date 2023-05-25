@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a45ef9e_6e800ccf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-25T13:31:19Z",
+      "side": 1,
+      "message": "Thanks for double checking! I\u0027ve fixed the error. The CI \"passed\" but shows as failed because of coverity for the PMU patch below.",
+      "parentUuid": "d0f6df07_a7d30709",
+      "revId": "655fe04a1138c30e32cb5d7c1f8004738aaf8c02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eaae20e7_f61fa255",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8a9c857_69009f31",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1042,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-25T13:31:19Z",
+      "side": 1,
+      "message": "Damn, I could have sworn I added it, must have got lost in a rebase. I\u0027ll put it back.\n\nAnd I don\u0027t see why I couldn\u0027t do an `if (CTX_INCLUDE_AARCH32_REGS)` so I\u0027ll add it.",
+      "parentUuid": "eaae20e7_f61fa255",
+      "revId": "655fe04a1138c30e32cb5d7c1f8004738aaf8c02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "568c2150_fcbbebdd",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 2
@@ -48,6 +84,24 @@
       "writtenOn": "2023-05-25T12:46:48Z",
       "side": 1,
       "message": "Shouldn\u0027t those become either proper C \"if\" statements, or even better use the is_feat_xxx_supported() scheme?",
+      "revId": "655fe04a1138c30e32cb5d7c1f8004738aaf8c02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58a29866_2a3dfdb1",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1127,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-25T13:31:19Z",
+      "side": 1,
+      "message": "I can do the simple `if (CTX_INCLUDE_MTE_REGS)` here too, but I want to leave it like that to make it a little more apparent the MTE porting needs to be done. And MTE porting needs to be done :D. That\u0027s a little out of scope for this, as it is mostly out of necessity.",
+      "parentUuid": "568c2150_fcbbebdd",
       "revId": "655fe04a1138c30e32cb5d7c1f8004738aaf8c02",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
