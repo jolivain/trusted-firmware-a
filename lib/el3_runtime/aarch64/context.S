@@ -811,10 +811,6 @@ sve_not_enabled:
 	bl	restore_gp_pmcr_pauth_regs
 	ldr	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
 
-#ifdef IMAGE_BL31
-	str	xzr, [sp, #CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3]
-#endif /* IMAGE_BL31 */
-
 	exception_return
 
 endfunc el3_exit
