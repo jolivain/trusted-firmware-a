@@ -15,25 +15,9 @@
 #include <cpu_macros.S>
 #include <context.h>
 
-	.globl	handle_lower_el_ea_esb
 	.globl	handle_lower_el_sync_ea
 	.globl	handle_lower_el_async_ea
-
-
-/*
- * Function to delegate External Aborts synchronized by ESB instruction at EL3
- * vector entry. This function assumes GP registers x0-x29 have been saved, and
- * are available for use. It delegates the handling of the EA to platform
- * handler, and returns only upon successfully handling the EA; otherwise
- * panics. On return from this function, the original exception handler is
- * expected to resume.
- */
-func handle_lower_el_ea_esb
-	mov	x0, #ERROR_EA_ESB
-	mrs	x1, DISR_EL1
-	b	ea_proceed
-endfunc handle_lower_el_ea_esb
-
+	.globl	reflect_pending_serror_to_lower_el
 
 /*
  * This function forms the tail end of Synchronous Exception entry from lower
@@ -140,6 +124,75 @@ func handle_lower_el_async_ea
 	b	el3_exit
 endfunc handle_lower_el_async_ea
 
+func reflect_pending_serror_to_lower_el
+	/*
+	 * Must be called from exception vector directly.
+	 *
+	 * This special handling is required to cater for handling SError from
+	 * lower EL being triggered in EL3 during exception level switch.
+	 *
+	 * This scenario may arise when there is an error in the system which is
+	 * not yet signaled to PE while executing in lower EL. During entry into
+	 * EL3 the errors are synchronized either implicitly or explicitly causing
+	 * SError to trigger.
+	 *
+	 * On encountering SError we reflect this back to lower EL to handle it as
+	 * per its routing model KFH (handled in lower EL) or FFH (route it back to EL3).
+	 * As the original exception was not handled we need to ensure that we return
+	 * back to the instruction which caused the exception. To acheive that eret
+	 * to "elr-4" for sync exception or simply eret otherwise (Lable "2").
+	 *
+	 * NOTE: As the architecture does not specify the priority among async exception,
+	 * This solution would not work if the priority of SError is lower than IRQ/FIQ.
+	 * In this scenario it will keep on doing to-and-fro between lower EL and EL3.
+	 * To get away from this infinte loop use a counter value to keep the track of
+	 * previous ELR and break if it reaches 100. Label "1" handles that.
+	 * However, this solution will work perfectly fine if SError priority is higher
+	 * than IRQ/FIQ and we assume that this is going to be true for this scenario
+	 * based on pseudocode of AArch64.TakeException (arm ARM) where in the errors
+	 * caused by IESB are taken first and this code path is meant for errors caused
+	 * by IESB (with RAS extension).
+	 * TODO: In future if EL3 gets a capability to inject a virtual SError to lower
+	 * ELs, we can remove the el3_panic and handle the original exception first and
+	 * inject SError to lower EL before ereting back.
+	 */
+	stp	x28, x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X28]
+	ldr	x29, [sp, #CTX_GPREGS_OFFSET + CTX_SAVED_ELR_EL3]
+	mrs	x28, elr_el3
+	cmp	x29, x28
+	b.eq	1f
+	str	x28, [sp, #CTX_GPREGS_OFFSET + CTX_SAVED_ELR_EL3]
+	mov	x29, xzr
+	str	x29, [sp, #CTX_GPREGS_OFFSET + CTX_SAVED_ELR_EL3_COUNT]
+	b	2f
+1:
+	ldr	x29, [sp, #CTX_GPREGS_OFFSET + CTX_SAVED_ELR_EL3_COUNT]
+	add	x29, x29, #1
+	str	x29, [sp, #CTX_GPREGS_OFFSET + CTX_SAVED_ELR_EL3_COUNT]
+	cmp	x29, #100
+	b.ge	el3_panic
+2:
+	/*
+	 * Logic to distinguish if we came from sync or async exception.
+	 * Use offsets in vectory entry to get which exception we are handling.
+	 * In each vector entry of size 0x200, address "0x0-0x80" is for sync
+	 * exception and "0x80-0x200" is for async exceptions.
+	 * Use vector base address (vbar_el3) and exception offset (LR) to
+	 * calculate whether the address we came from is any of the following
+	 * "0x0-0x80", "0x200-0x280", "0x400-0x480" or "0x600-0x680"
+	 */
+	mrs	x29, vbar_el3
+	sub	x30, x30, x29
+	and	x30, x30, #0x1ff
+	cmp	x30, #0x80
+	b.ge	3f
+	sub	x28, x28, #4
+3:
+	msr	elr_el3, x28
+	ldp	x28, x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X28]
+	ldr	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
+	exception_return
+endfunc reflect_pending_serror_to_lower_el
 
 /*
  * Prelude for Synchronous External Abort handling. This function assumes that
