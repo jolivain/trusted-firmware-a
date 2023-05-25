@@ -48,73 +48,48 @@
 	.endm
 
 	/*
-	 * Macro that prepares entry to EL3 upon taking an exception.
-	 *
-	 * With RAS_FFH_SUPPORT, this macro synchronizes pending errors with an
-	 * ESB instruction. When an error is thus synchronized, the handling is
-	 * delegated to platform EA handler.
-	 *
-	 * Without RAS_FFH_SUPPORT, this macro synchronizes pending errors using
-	 * a DSB, unmasks Asynchronous External Aborts and saves X30 before
-	 * setting the flag CTX_IS_IN_EL3.
+	 * Macro that synchronizes errors (EA) and checks for pending SError.
+	 * On detecting a pending SError it either reflects it back to lower
+	 * EL (KFH) or handles it in EL3 (FFH) based on EA routing model.
 	 */
-	.macro check_and_unmask_ea
-#if RAS_FFH_SUPPORT
-	/* Synchronize pending External Aborts */
-	esb
-
-	/* Unmask the SError interrupt */
-	msr	daifclr, #DAIF_ABT_BIT
-
-	/* Check for SErrors synchronized by the ESB instruction */
-	mrs	x30, DISR_EL1
-	tbz	x30, #DISR_A_BIT, 1f
-
-	/*
-	 * Save general purpose and ARMv8.3-PAuth registers (if enabled).
-	 * Also save PMCR_EL0 and  set the PSTATE to a known state.
-	 */
-	bl	prepare_el3_entry
-
-	bl	handle_lower_el_ea_esb
-
-	/* Restore general purpose, PMCR_EL0 and ARMv8.3-PAuth registers */
-	bl	restore_gp_pmcr_pauth_regs
-1:
-#else
-	/*
-	 * Note 1: The explicit DSB at the entry of various exception vectors
-	 * for handling exceptions from lower ELs can inadvertently trigger an
-	 * SError exception in EL3 due to pending asynchronous aborts in lower
-	 * ELs. This will end up being handled by serror_sp_elx which will
-	 * ultimately panic and die.
-	 * The way to workaround is to update a flag to indicate if the exception
-	 * truly came from EL3. This flag is allocated in the cpu_context
-	 * structure and located at offset "CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3"
-	 * This is not a bullet proof solution to the problem at hand because
-	 * we assume the instructions following "isb" that help to update the
-	 * flag execute without causing further exceptions.
-	 */
-
-	/*
-	 * For SoCs which do not implement RAS, use DSB as a barrier to
-	 * synchronize pending external aborts.
-	 */
+	.macro	sync_and_handle_pending_serror
 	dsb	sy
-
-	/* Unmask the SError interrupt */
-	msr	daifclr, #DAIF_ABT_BIT
-
-	/* Use ISB for the above unmask operation to take effect immediately */
-	isb
-
-	/* Refer Note 1. */
-	mov 	x30, #1
-	str	x30, [sp, #CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3]
-	dmb	sy
+	mrs	x30, ISR_EL1
+	tbz	x30, #ISR_A_SHIFT, 2f
+#if HANDLE_EA_EL3_FIRST_NS
+	mrs	x30, scr_el3
+	tst	x30, #SCR_EA_BIT
+	b.ne	1f
 #endif
+	/* This function never returns, but need LR for decision making */
+	bl	reflect_pending_async_ea_to_lower_el
+#if HANDLE_EA_EL3_FIRST_NS
+1:
+	bl	handle_pending_async_ea
+#endif
+2:
 	.endm
 
+	/*
+	 * Macro to unmask External Aborts by changing PSTATE.A bit, Do ISB to
+	 * ensure that this takes effect immediately.
+	 */
+	.macro	unmask_ea
+	msr	daifclr, #DAIF_ABT_BIT
+	.endm
+
+	/*
+	 * Macro to ensure that EA is routed to EL3 in FFH mode. SError from
+	 * lower EL will only reach EL3 if scr_el3.EA = 1. It is a fatal error
+	 * in case exception arrives when scr_el3.EA=0."
+	 */
+	.macro	sanitize_ea_routed_to_el3
+#if HANDLE_EA_EL3_FIRST_NS
+	mrs     x30, scr_el3
+        tst     x30, #SCR_EA_BIT
+#endif
+	b.eq	report_unhandled_exception
+	.endm
 	/* ---------------------------------------------------------------------
 	 * This macro handles Synchronous exceptions.
 	 * Only SMC exceptions are supported.
@@ -303,22 +278,31 @@ vector_entry fiq_sp_elx
 end_vector_entry fiq_sp_elx
 
 vector_entry serror_sp_elx
-#if !RAS_FFH_SUPPORT
+#if HANDLE_EA_EL3_FIRST_NS
 	/*
 	 * This will trigger if the exception was taken due to SError in EL3 or
 	 * because of pending asynchronous external aborts from lower EL that got
-	 * triggered due to explicit synchronization in EL3. Refer Note 1.
+	 * triggered during EL3 entry. For the former case we continue with
+	 * "plat_handle_el3_ea". The later case will occur when DAIF.A bit is
+	 * cleared in "handle_pended_async_ea", this function saves all GP registers
+	 * and sets the flag to ensure we are coming from that path. After handling
+	 * the async EA it will eret back to EL3 where we originally came from and
+	 * continue with original exception.
 	 */
-	/* Assumes SP_EL3 on entry */
-	save_x30
-	ldr	x30, [sp, #CTX_EL3STATE_OFFSET + CTX_IS_IN_EL3]
-	cbnz	x30, 1f
-
-	/* Handle asynchronous external abort from lower EL */
-	b	handle_lower_el_async_ea
+	str	x30, [sp, #CTX_EL3STATE_OFFSET + CTX_NESTED_EA_FLAG2]
+	ldr	x30, [sp, #CTX_EL3STATE_OFFSET + CTX_NESTED_EA_FLAG1]
+	cbz	x30, 1f
+	mov	x0, ERROR_EA_ASYNC
+	mrs	x1, esr_el3
+	/* All GP registers saved at this point */
+	bl	delegate_async_ea
+	exception_return
 1:
+	ldr	x30, [sp, #CTX_EL3STATE_OFFSET + CTX_NESTED_EA_FLAG2]
+	str	xzr, [sp, #CTX_EL3STATE_OFFSET + CTX_NESTED_EA_FLAG2]
 #endif
 	no_ret	plat_handle_el3_ea
+
 end_vector_entry serror_sp_elx
 
 	/* ---------------------------------------------------------------------
@@ -334,34 +318,34 @@ vector_entry sync_exception_aarch64
 	 */
 	save_x30
 	apply_at_speculative_wa
-	check_and_unmask_ea
+	sync_and_handle_pending_serror
+	unmask_ea
 	handle_sync_exception
 end_vector_entry sync_exception_aarch64
 
 vector_entry irq_aarch64
 	save_x30
 	apply_at_speculative_wa
-	check_and_unmask_ea
+	sync_and_handle_pending_serror
+	unmask_ea
 	handle_interrupt_exception irq_aarch64
 end_vector_entry irq_aarch64
 
 vector_entry fiq_aarch64
 	save_x30
 	apply_at_speculative_wa
-	check_and_unmask_ea
+	sync_and_handle_pending_serror
+	unmask_ea
 	handle_interrupt_exception fiq_aarch64
 end_vector_entry fiq_aarch64
 
 vector_entry serror_aarch64
 	save_x30
 	apply_at_speculative_wa
-#if RAS_FFH_SUPPORT
-	msr	daifclr, #DAIF_ABT_BIT
-#else
-	check_and_unmask_ea
-#endif
+	sanitize_ea_routed_to_el3
+	sync_and_handle_pending_serror
+	unmask_ea
 	b	handle_lower_el_async_ea
-
 end_vector_entry serror_aarch64
 
 	/* ---------------------------------------------------------------------
@@ -377,34 +361,34 @@ vector_entry sync_exception_aarch32
 	 */
 	save_x30
 	apply_at_speculative_wa
-	check_and_unmask_ea
+	sync_and_handle_pending_serror
+	unmask_ea
 	handle_sync_exception
 end_vector_entry sync_exception_aarch32
 
 vector_entry irq_aarch32
 	save_x30
 	apply_at_speculative_wa
-	check_and_unmask_ea
+	sync_and_handle_pending_serror
+	unmask_ea
 	handle_interrupt_exception irq_aarch32
 end_vector_entry irq_aarch32
 
 vector_entry fiq_aarch32
 	save_x30
 	apply_at_speculative_wa
-	check_and_unmask_ea
+	sync_and_handle_pending_serror
+	unmask_ea
 	handle_interrupt_exception fiq_aarch32
 end_vector_entry fiq_aarch32
 
 vector_entry serror_aarch32
 	save_x30
 	apply_at_speculative_wa
-#if RAS_FFH_SUPPORT
-	msr	daifclr, #DAIF_ABT_BIT
-#else
-	check_and_unmask_ea
-#endif
+	sanitize_ea_routed_to_el3
+	sync_and_handle_pending_serror
+	unmask_ea
 	b	handle_lower_el_async_ea
-
 end_vector_entry serror_aarch32
 
 #ifdef MONITOR_TRAPS
