@@ -52,6 +52,24 @@
       "parentUuid": "f349f064_1476f15e",
       "revId": "4143268a5ca8f91f1014e0d83edf766946ffff76",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "669d4b5f_ab27dca1",
+        "filename": "plat/xilinx/zynqmp/zynqmp_sdei.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-05-25T18:51:51Z",
+      "side": 1,
+      "message": "Hi Michal,\n\nI am able to reproduce the issue sharing details:\n\n[..]\n\ntrusted-firmware-a$ git log --oneline -1\n60df3d75e (HEAD -\u003e master, origin/master, origin/integration, origin/HEAD) Merge \"fix(tsp): flush uart console\" into integration\n\ntrusted-firmware-a$ aarch64-none-elf-gcc --version\naarch64-none-elf-gcc (Arm GNU Toolchain 11.3.Rel1) 11.3.1 20220712\nCopyright (C) 2021 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\ntrusted-firmware-a$ make realclean; make -s PLAT\u003dzynqmp DEBUG\u003d1 RESET_TO_BL31\u003d1 SPD\u003dtspd SDEI_SUPPORT\u003d1 ZYNQMP_ATF_MEM_BASE\u003d0xFFFC0000 ZYNQMP_ATF_MEM_SIZE\u003d0x00040000 all -Werror\u003dlogical-op\n  REALCLEAN\nIncluding services/spd/tspd/tspd.mk\nBuilding zynqmp\nplat/xilinx/zynqmp/zynqmp_sdei.c: In function \u0027arm_validate_ns_entrypoint\u0027:\nplat/xilinx/zynqmp/zynqmp_sdei.c:19:40: error: logical \u0027or\u0027 of collectively exhaustive tests is always true [-Werror\u003dlogical-op]\n   19 |         return (entrypoint \u003c BL31_BASE || entrypoint \u003e BL31_LIMIT) ? 0 : -1;\n      |                                        ^~\ncc1: all warnings being treated as errors\nmake: *** [Makefile:1469: /ssd/tfa/trusted-firmware-a/build/zynqmp/debug/bl31/zynqmp_sdei.o] Error 1\n\n\n[...]",
+      "parentUuid": "52b0420e_3cb407c2",
+      "revId": "4143268a5ca8f91f1014e0d83edf766946ffff76",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
