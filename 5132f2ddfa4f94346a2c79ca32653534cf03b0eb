@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66ffda71_930e8aec",
+        "filename": "plat/mediatek/drivers/apusys/mt8188/apusys_devapc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1001050
+      },
+      "writtenOn": "2023-05-25T01:25:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f60ad07c_95fd05fe",
+      "range": {
+        "startLine": 278,
+        "startChar": 9,
+        "endLine": 278,
+        "endChar": 31
+      },
+      "revId": "5132f2ddfa4f94346a2c79ca32653534cf03b0eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f1636c3_838db204",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-24T10:54:10Z",
       "side": 1,
       "message": "-1",
+      "range": {
+        "startLine": 288,
+        "startChar": 9,
+        "endLine": 288,
+        "endChar": 12
+      },
+      "revId": "5132f2ddfa4f94346a2c79ca32653534cf03b0eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce6ec34b_fa37201a",
+        "filename": "plat/mediatek/drivers/apusys/mt8188/apusys_devapc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1001050
+      },
+      "writtenOn": "2023-05-25T01:25:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f1636c3_838db204",
       "range": {
         "startLine": 288,
         "startChar": 9,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02527655_429cd005",
+        "filename": "plat/mediatek/drivers/apusys/mt8188/apusys_devapc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1001050
+      },
+      "writtenOn": "2023-05-25T01:25:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89a6decc_ca6dd503",
+      "range": {
+        "startLine": 305,
+        "startChar": 8,
+        "endLine": 305,
+        "endChar": 11
+      },
+      "revId": "5132f2ddfa4f94346a2c79ca32653534cf03b0eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01a577f6_a5c01657",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-05-24T10:54:10Z",
       "side": 1,
       "message": "use `int` for consistency and return -1 for an error state.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 26
+      },
+      "revId": "5132f2ddfa4f94346a2c79ca32653534cf03b0eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc3be419_d9fc9786",
+        "filename": "plat/mediatek/drivers/apusys/mt8188/apusys_devapc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001050
+      },
+      "writtenOn": "2023-05-25T01:25:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01a577f6_a5c01657",
       "range": {
         "startLine": 13,
         "startChar": 0,
