@@ -1,0 +1,180 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d27c340_8de03fe9",
+        "filename": "bl2/bl2.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-25T13:19:22Z",
+      "side": 1,
+      "message": "I\u0027m struggling to find where BL2 needs errata reporting. Except in BL1 and PSCI I don\u0027t see any calls to print_errata_status. Does BL2 include PSCI?",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "844d674c_51c373d7",
+        "filename": "bl32/sp_min/sp_min.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-25T13:19:22Z",
+      "side": 1,
+      "message": "Could this option not be attached to the PSCI makefile instead? Same for BL31 I guess",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66536ebb_aa1b4e47",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-25T13:19:22Z",
+      "side": 1,
+      "message": "I feel like this is better places in defaults.mk, especially since it\u0027s a public config.\nSame for AMU/reporting options.\nAlso, shouldn\u0027t they have a build-options.rst mention?",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8330525f_3b72ef31",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-25T13:19:22Z",
+      "side": 1,
+      "message": "why not use the WORKAROUND_CVE_2017_5715 that is already there? This feels like config duplication",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "770b6970_3e2f54df",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-25T13:19:22Z",
+      "side": 1,
+      "message": "why not put this in the dependency check section in the main Makefile?",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9b7398b_2cf0d39c",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-25T13:19:22Z",
+      "side": 1,
+      "message": "From here onward, these depend on CTX_INCLUDE_AARCH32_REGS\u003d0 too. Is that a requirement or an optimisation because I don\u0027t see it checked?",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be08f0bb_67e75d31",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-25T13:19:22Z",
+      "side": 1,
+      "message": "undefine after?",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fb2ce45_ba652f7e",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-25T13:19:22Z",
+      "side": 1,
+      "message": "nit: you know it\u0027s zero from the check, why expand it?",
+      "range": {
+        "startLine": 121,
+        "startChar": 105,
+        "endLine": 121,
+        "endChar": 129
+      },
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99bc1094_5118ac77",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-25T13:19:22Z",
+      "side": 1,
+      "message": "again, why not base this on the ENABLE_FEAT_AMU option? It should be identically set as this one, no? And then intersecting with the enabled cpus it is known whether the files need including or not",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94fd9edf_9e8d90d9",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-25T13:19:22Z",
+      "side": 1,
+      "message": "Can these be specified on the commandline? I understand this is probably a separate patch that will need CI refactoring. Or are we very fixated on the idea that the FVP includes _all_ cpus? I feel like if this is now easy to configure, there\u0027s no need to be wasteful with (BL31 progbits) size.",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
