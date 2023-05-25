@@ -15,25 +15,9 @@
 #include <cpu_macros.S>
 #include <context.h>
 
-	.globl	handle_lower_el_ea_esb
 	.globl	handle_lower_el_sync_ea
 	.globl	handle_lower_el_async_ea
-
-
-/*
- * Function to delegate External Aborts synchronized by ESB instruction at EL3
- * vector entry. This function assumes GP registers x0-x29 have been saved, and
- * are available for use. It delegates the handling of the EA to platform
- * handler, and returns only upon successfully handling the EA; otherwise
- * panics. On return from this function, the original exception handler is
- * expected to resume.
- */
-func handle_lower_el_ea_esb
-	mov	x0, #ERROR_EA_ESB
-	mrs	x1, DISR_EL1
-	b	ea_proceed
-endfunc handle_lower_el_ea_esb
-
+	.globl	reflect_pending_serror_to_lower_el
 
 /*
  * This function forms the tail end of Synchronous Exception entry from lower
@@ -140,6 +124,49 @@ func handle_lower_el_async_ea
 	b	el3_exit
 endfunc handle_lower_el_async_ea
 
+func reflect_pending_serror_to_lower_el
+	/*
+	 * This special handling is required to cater for handling SError from lower EL
+	 * being trapped in EL3 because of exception level switch(sync barriers).
+	 * It need to be reflected back to lower EL.
+	 * For sync exception we eret to elr-4 (Label "2"). For IRQ/FIQ we need to simply eret.
+	 * In this process there is risk of To and fro between EL3  and lower EL. To get away
+	 * from the infinte loop use a counter value to keep the track of previous ELR and break
+	 * if it reaches 100. Label "1" handles that.
+	 */
+	stp	x28, x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X28]
+	ldr	x29, [sp, #CTX_GPREGS_OFFSET + CTX_SAVED_ELR_EL3]
+	mrs	x28, elr_el3
+	cmp	x29, x28
+	b.eq	1f
+	str	x28, [sp, #CTX_GPREGS_OFFSET + CTX_SAVED_ELR_EL3]
+	mov	x29, xzr
+	str	x29, [sp, #CTX_GPREGS_OFFSET + CTX_SAVED_ELR_EL3_COUNT]
+	b	2f
+1:
+	ldr	x29, [sp, #CTX_GPREGS_OFFSET + CTX_SAVED_ELR_EL3_COUNT]
+	add	x29, x29, #1
+	str	x29, [sp, #CTX_GPREGS_OFFSET + CTX_SAVED_ELR_EL3_COUNT]
+	cmp	x29, #100
+	b.ge	el3_panic
+2:
+	/*
+	 * Logic to distinguish if we came from sync exception path
+	 * Use vbar_el3 and LR to get the address from where we came, if the offset
+	 * is less than 0x80 in vector entry it means it came from sync exception.
+	 */
+	mrs	x29, vbar_el3
+	sub	x30, x30, x29
+	and	x30, x30, #0x1ff
+	cmp	x30, #0x80
+	b.ge	3f
+	sub	x28, x28, #4
+3:
+	msr	elr_el3, x28
+	ldp	x28, x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X28]
+	ldr	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
+	exception_return
+endfunc reflect_pending_serror_to_lower_el
 
 /*
  * Prelude for Synchronous External Abort handling. This function assumes that
