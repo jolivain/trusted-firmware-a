@@ -71,6 +71,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33756f42_410530c2",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1042,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-05-25T15:05:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f8a9c857_69009f31",
+      "revId": "655fe04a1138c30e32cb5d7c1f8004738aaf8c02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "568c2150_fcbbebdd",
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "I can do the simple `if (CTX_INCLUDE_MTE_REGS)` here too, but I want to leave it like that to make it a little more apparent the MTE porting needs to be done. And MTE porting needs to be done :D. That\u0027s a little out of scope for this, as it is mostly out of necessity.",
       "parentUuid": "568c2150_fcbbebdd",
+      "revId": "655fe04a1138c30e32cb5d7c1f8004738aaf8c02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a2f41ba_82cd6434",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1127,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-05-25T15:05:57Z",
+      "side": 1,
+      "message": "Fair enough, I already thought so as well.",
+      "parentUuid": "58a29866_2a3dfdb1",
       "revId": "655fe04a1138c30e32cb5d7c1f8004738aaf8c02",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
