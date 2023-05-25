@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82524626_d44b6188",
+        "filename": "plat/xilinx/zynqmp/zynqmp_sdei.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-05-25T15:52:29Z",
+      "side": 1,
+      "message": "unfortunately this causes a build failure,\n\n[...]\n\n18:13:30 Building zynqmp\n18:13:54 plat/xilinx/zynqmp/zynqmp_sdei.c: In function \u0027arm_validate_ns_entrypoint\u0027:\n18:13:54 plat/xilinx/zynqmp/zynqmp_sdei.c:19:40: error: logical \u0027or\u0027 of collectively exhaustive tests is always true [-Werror\u003dlogical-op]\n18:13:54    19 |         return (entrypoint \u003c BL31_BASE || entrypoint \u003e BL31_LIMIT) ? 0 : -1;\n18:13:54       |                                        ^~\n18:13:54 cc1: all warnings being treated as errors\n18:13:54 Makefile:1468: recipe for target \u0027/home/buildslave/workspace/tf-a-coverity/trusted-firmware-a/build/zynqmp/debug/bl31/zynqmp_sdei.o\u0027 failed\n18:13:54 make: *** [/home/buildslave/workspace/tf-a-coverity/trusted-firmware-a/build/zynqmp/debug/bl31/zynqmp_sdei.o] Error 1\n18:13:54 make: *** Waiting for unfinished jobs....\n18:13:55 make: *** wait: No child processes.  Stop.\n\n[...]\n\nhttps://ci.trustedfirmware.org/job/tf-a-coverity/601/console",
+      "revId": "4143268a5ca8f91f1014e0d83edf766946ffff76",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
