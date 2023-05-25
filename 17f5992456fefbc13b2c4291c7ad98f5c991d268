@@ -590,6 +590,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "66b1b5c7_baf3d883",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2023-05-25T08:52:37Z",
+      "side": 1,
+      "message": "hmmm, looks like we don\u0027t have enough RAM on mt8195, maybe we should still preserve this to save the ram on mt8195.",
+      "parentUuid": "64d2a8df_406b94dc",
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4e95a1da_ad04bda8",
         "filename": "services/spd/opteed/opteed_main.c",
         "patchSetId": 10
