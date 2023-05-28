@@ -56,4 +56,60 @@ typedef struct cmd {
 	void             (*usage)(int);
 } cmd_t;
 
+int info_cmd(int argc, char *argv[]);
+int create_cmd(int argc, char *argv[]);
+void create_usage(int exit_status);
+int update_cmd(int argc, char *argv[]);
+void parse_plat_toc_flags(const char *arg,
+    unsigned long long *toc_flags);
+void update_fip(void);
+int unpack_cmd(int argc, char *argv[]);
+void unpack_usage(int exit_status);
+int parse_fip(const char *filename, fip_toc_header_t *toc_header_out);
+image_desc_t *lookup_image_desc_from_uuid(const uuid_t *uuid);
+image_desc_t *new_image_desc(const uuid_t *uuid,
+    const char *name, const char *cmdline_name);
+void add_image_desc(image_desc_t *desc);
+void set_image_desc_action(image_desc_t *desc, int action,
+    const char *arg);
+int pack_images(const char *filename, uint64_t toc_flags,
+    unsigned long align);
+int write_image_to_file(const image_t *image, const char *filename);
+int remove_cmd(int argc, char *argv[]);
+void remove_usage(int exit_status);
+struct option *fill_common_opts(struct option *opts, size_t *nr_opts,
+    int has_arg);
+struct option *add_opt(struct option *opts, size_t *nr_opts,
+    const char *name, int has_arg, int val);
+image_desc_t *lookup_image_desc_from_opt(const char *opt);
+unsigned long get_image_align(char *arg);
+void parse_blob_opt(char *arg, uuid_t *uuid, char *filename,
+    size_t len);
+void update_usage(int exit_status);
+image_t *read_image_from_file(const uuid_t *uuid, const char *filename);
+void md_print(const unsigned char *md, size_t len);
+void fill_image_descs(void);
+void free_image_descs(void);
+void free_image_desc(image_desc_t *desc);
+image_desc_t *lookup_image_desc_from_opt(const char *opt);
+void info_usage(int exit_status);
+int version_cmd(int argc, char *argv[]);
+void version_usage(int exit_status);
+int help_cmd(int argc, char *argv[]);
+void usage(void);
+
+/* TODO: move these to separate library files */
+void uuid_from_str(uuid_t *u, const char *s);
+void vlog(int prio, const char *msg, va_list ap);
+void log_dbgx(const char *msg, ...);
+void log_warnx(const char *msg, ...);
+void log_err(const char *msg, ...);
+void log_errx(const char *msg, ...);
+char *xstrdup(const char *s, const char *msg);
+void *xmalloc(size_t size, const char *msg);
+void *xzalloc(size_t size, const char *msg);
+void xfwrite(void *buf, size_t size, FILE *fp, const char *filename);
+void uuid_to_str(char *s, size_t len, const uuid_t *u);
+int is_power_of_2(unsigned long x);
+
 #endif /* FIPTOOL_H */
