@@ -23,6 +23,12 @@
 #define STRING_FIP_CORRUPT_ENTRY_SIZE \
 	"FIP %s corrupted: entry size exceeds FIP file size"
 
+#define OPT_TOC_ENTRY 0
+#define OPT_PLAT_TOC_FLAGS 1
+#define OPT_ALIGN 2
+
+#define IS_POWER_OF_2(x) (x && !(x & (x - 1)))
+
 enum {
 	DO_UNSPEC = 0,
 	DO_PACK   = 1,
@@ -106,7 +112,6 @@ void xfread(void *buf, size_t size, FILE *fp, const char *filename);
 void xfwrite(void *buf, size_t size, FILE *fp, const char *filename);
 void xfclose(FILE *fp, const char *filename);
 void uuid_to_str(char *s, size_t len, const uuid_t *u);
-int is_power_of_2(unsigned long x);
 
 void
 usage_main(void)
