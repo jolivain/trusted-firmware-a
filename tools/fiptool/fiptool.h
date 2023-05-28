@@ -17,6 +17,11 @@
 
 #define NELEM(x) (sizeof (x) / sizeof *(x))
 
+#define STRING_FIP_CORRUPT_ADDR_SPACE \
+	"FIP %s corrupted: entry size exceeds 64 bit address space"
+#define STRING_FIP_CORRUPT_ENTRY_SIZE \
+	"FIP %s corrupted: entry size exceeds FIP file size"
+
 enum {
 	DO_UNSPEC = 0,
 	DO_PACK   = 1,

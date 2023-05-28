@@ -279,9 +279,12 @@ create_usage(int exit_status)
 	printf("fiptool create [opts] FIP_FILENAME\n");
 	printf("\n");
 	printf("Options:\n");
-	printf("  --align <value>\t\tEach image is aligned to <value> (default: 1).\n");
-	printf("  --blob uuid=...,file=...\tAdd an image with the given UUID pointed to by file.\n");
-	printf("  --plat-toc-flags <value>\t16-bit platform specific flag field occupying bits 32-47 in 64-bit ToC header.\n");
+	printf("  --align <value>\t\tEach image is aligned to <value> ");
+	printf("(default: 1).\n");
+	printf("  --blob uuid=...,file=...\tAdd an image with the given UUID");
+	printf(" pointed to by file.\n");
+	printf("  --plat-toc-flags <value>\t16-bit platform specific flag ");
+	printf("field occupying bits 32-47 in 64-bit ToC header.\n");
 	printf("\n");
 	printf("Specific images are packed with the following options:\n");
 	for (; toc_entry->cmdline_name != NULL; toc_entry++)
@@ -552,8 +555,9 @@ unpack_cmd(int argc, char *argv[])
 			if (verbose)
 				log_dbgx("Unpacking %s", file);
 			write_image_to_file(image, file);
+			continue;
 		} else {
-			log_warnx("File %s already exists, use --force to overwrite it",
+			log_warnx("File %s exists, use --force to overwrite",
 			    file);
 		}
 	}
@@ -569,8 +573,10 @@ unpack_usage(int exit_status)
 	printf("fiptool unpack [opts] FIP_FILENAME\n");
 	printf("\n");
 	printf("Options:\n");
-	printf("  --blob uuid=...,file=...\tUnpack an image with the given UUID to file.\n");
-	printf("  --force\t\t\tIf the output file already exists, use --force to overwrite it.\n");
+	printf("  --blob uuid=...,file=...\tUnpack an image with the given ");
+	printf("UUID to file.\n");
+	printf("  --force\t\t\tIf the output file already exists, use ");
+	printf("--force to overwrite it.\n");
 	printf("  --out path\t\t\tSet the output directory path.\n");
 	printf("\n");
 	printf("Specific images are unpacked with the following options:\n");
@@ -655,11 +661,9 @@ parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 		    "failed to allocate image buffer, is FIP file corrupted?");
 		/* Overflow checks before memory copy. */
 		if (toc_entry->size > (uint64_t)-1 - toc_entry->offset_address)
-			log_errx("FIP %s is corrupted: entry size exceeds 64 bit address space",
-				filename);
+			log_errx(STRING_FIP_CORRUPT_ADDR_SPACE, filename);
 		if (toc_entry->size + toc_entry->offset_address > st_size)
-			log_errx("FIP %s is corrupted: entry size exceeds FIP file size",
-				filename);
+			log_errx(STRING_FIP_CORRUPT_ENTRY_SIZE, filename);
 
 		memcpy(image->buffer, buf + toc_entry->offset_address,
 		    toc_entry->size);
@@ -961,9 +965,11 @@ remove_usage(int exit_status)
 	printf("fiptool remove [opts] FIP_FILENAME\n");
 	printf("\n");
 	printf("Options:\n");
-	printf("  --align <value>\tEach image is aligned to <value> (default: 1).\n");
+	printf("  --align <value>\tEach image is aligned to <value> (default:");
+	printf(" 1).\n");
 	printf("  --blob uuid=...\tRemove an image with the given UUID.\n");
-	printf("  --force\t\tIf the output FIP file already exists, use --force to overwrite it.\n");
+	printf("  --force\t\tIf the output FIP file already exists, use ");
+	printf("--force to overwrite it.\n");
 	printf("  --out FIP_FILENAME\tSet an alternative output FIP file.\n");
 	printf("\n");
 	printf("Specific images are removed with the following options:\n");
@@ -1055,10 +1061,13 @@ update_usage(int exit_status)
 	printf("fiptool update [opts] FIP_FILENAME\n");
 	printf("\n");
 	printf("Options:\n");
-	printf("  --align <value>\t\tEach image is aligned to <value> (default: 1).\n");
-	printf("  --blob uuid=...,file=...\tAdd or update an image with the given UUID pointed to by file.\n");
+	printf("  --align <value>\t\tEach image is aligned to <value> ");
+	printf("(default: 1).\n");
+	printf("  --blob uuid=...,file=...\tAdd or update an image with the ");
+	printf("given UUID pointed to by file.\n");
 	printf("  --out FIP_FILENAME\t\tSet an alternative output FIP file.\n");
-	printf("  --plat-toc-flags <value>\t16-bit platform specific flag field occupying bits 32-47 in 64-bit ToC header.\n");
+	printf("  --plat-toc-flags <value>\t16-bit platform specific flag ");
+	printf("field occupying bits 32-47 in 64-bit ToC header.\n");
 	printf("\n");
 	printf("Specific images are packed with the following options:\n");
 	for (; toc_entry->cmdline_name != NULL; toc_entry++)
