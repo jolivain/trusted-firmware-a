@@ -77,7 +77,6 @@ main(int argc, char *argv[])
 	}
 	if (i == NELEM(cmds))
 		usage();
-	free_image_descs();
 	return ret;
 }
 
@@ -1060,33 +1059,6 @@ fill_image_descs(void)
 		add_image_desc(desc);
 	}
 #endif
-}
-
-void
-free_image_descs(void)
-{
-	image_desc_t *desc = image_desc_head, *tmp;
-
-	while (desc != NULL) {
-		tmp = desc->next;
-		free_image_desc(desc);
-		desc = tmp;
-		nr_image_descs--;
-	}
-	assert(nr_image_descs == 0);
-}
-
-void
-free_image_desc(image_desc_t *desc)
-{
-	free(desc->name);
-	free(desc->cmdline_name);
-	free(desc->action_arg);
-	if (desc->image) {
-		free(desc->image->buffer);
-		free(desc->image);
-	}
-	free(desc);
 }
 
 void

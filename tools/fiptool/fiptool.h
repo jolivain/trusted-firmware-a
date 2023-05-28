@@ -89,8 +89,6 @@ void update_usage(int exit_status);
 image_t *read_image_from_file(const uuid_t *uuid, const char *filename);
 void md_print(const unsigned char *md, size_t len);
 void fill_image_descs(void);
-void free_image_descs(void);
-void free_image_desc(image_desc_t *desc);
 image_desc_t *lookup_image_desc_from_opt(const char *opt);
 void info_usage(int exit_status);
 int version_cmd(int argc, char *argv[]);
