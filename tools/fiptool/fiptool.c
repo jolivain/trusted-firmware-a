@@ -1134,9 +1134,11 @@ vlog(int prio, const char *msg, va_list ap)
 {
 	char *prefix[] = { "DEBUG", "WARN", "ERROR" };
 
-	fprintf(stderr, "%s: ", prefix[prio]);
-	vfprintf(stderr, msg, ap);
-	fputc('\n', stderr);
+	if (msg != NULL) {
+		fprintf(stderr, "%s: ", prefix[prio]);
+		vfprintf(stderr, msg, ap);
+		fputc('\n', stderr);
+	}
 }
 
 void
@@ -1166,8 +1168,10 @@ log_err(const char *msg, ...)
 	va_list ap;
 
 	va_start(ap, msg);
-	snprintf(buf, sizeof(buf), "%s: %s", msg, strerror(errno));
-	vlog(LOG_ERR, buf, ap);
+	if (msg != NULL) {
+		snprintf(buf, sizeof(buf), "%s: %s", msg, strerror(errno));
+		vlog(LOG_ERR, buf, ap);
+	}
 	va_end(ap);
 	exit(1);
 }
