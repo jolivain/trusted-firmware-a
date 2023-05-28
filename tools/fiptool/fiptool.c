@@ -536,7 +536,7 @@ parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 	buf = xmalloc(st_size, "failed to load file into memory");
 	xfread(buf, st_size, fp, filename);
 	bufend = buf + st_size;
-	fclose(fp);
+	xfclose(fp, filename);
 
 	if (st_size < sizeof(fip_toc_header_t))
 		log_errx("FIP %s is truncated", filename);
@@ -745,7 +745,7 @@ pack_images(const char *filename, uint64_t toc_flags,
 		fputc(0x0, fp);
 
 	free(buf);
-	fclose(fp);
+	xfclose(fp, filename);
 	return 0;
 }
 
@@ -757,7 +757,7 @@ write_image_to_file(const image_t *image, const char *filename)
 	if ((fp = fopen(filename, "wb")) == NULL)
 		log_err("fopen");
 	xfwrite(image->buffer, image->toc_e.size, fp, filename);
-	fclose(fp);
+	xfclose(fp, filename);
 	return 0;
 }
 
@@ -1004,7 +1004,7 @@ image_t
 	xfread(image->buffer, st.st_size, fp, filename);
 	image->toc_e.size = st.st_size;
 
-	fclose(fp);
+	xfclose(fp, filename);
 	return image;
 }
 
@@ -1230,6 +1230,13 @@ xfwrite(void *buf, size_t size, FILE *fp, const char *filename)
 {
 	if (fwrite(buf, 1, size, fp) != size)
 		log_errx("Failed to write %s", filename);
+}
+
+void
+xfclose(FILE *fp, const char *filename)
+{
+	if (fclose(fp) == EOF)
+		log_err("%s", filename);
 }
 
 void

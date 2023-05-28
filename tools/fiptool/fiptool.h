@@ -108,6 +108,7 @@ void *xmalloc(size_t size, const char *msg);
 void *xzalloc(size_t size, const char *msg);
 void xfread(void *buf, size_t size, FILE *fp, const char *filename);
 void xfwrite(void *buf, size_t size, FILE *fp, const char *filename);
+void xfclose(FILE *fp, const char *filename);
 void uuid_to_str(char *s, size_t len, const uuid_t *u);
 int is_power_of_2(unsigned long x);
 
