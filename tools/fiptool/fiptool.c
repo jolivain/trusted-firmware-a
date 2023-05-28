@@ -33,13 +33,13 @@ int verbose;
 
 /* Available subcommands. */
 cmd_t cmds[] = {
-	{ .name = "info",    .handler = info_cmd,    .usage = info_usage    },
-	{ .name = "create",  .handler = create_cmd,  .usage = create_usage  },
-	{ .name = "update",  .handler = update_cmd,  .usage = update_usage  },
-	{ .name = "unpack",  .handler = unpack_cmd,  .usage = unpack_usage  },
-	{ .name = "remove",  .handler = remove_cmd,  .usage = remove_usage  },
-	{ .name = "version", .handler = version_cmd, .usage = version_usage },
-	{ .name = "help",    .handler = help_cmd,    .usage = NULL          },
+{ .name = "info",    .handler = cmd_info,    .usage = cmd_info_usage	},
+{ .name = "create",  .handler = cmd_create,  .usage = cmd_create_usage	},
+{ .name = "update",  .handler = cmd_update,  .usage = cmd_update_usage	},
+{ .name = "unpack",  .handler = cmd_unpack,  .usage = cmd_unpack_usage	},
+{ .name = "remove",  .handler = cmd_remove,  .usage = cmd_remove_usage	},
+{ .name = "version", .handler = cmd_version, .usage = cmd_version_usage	},
+{ .name = "help",    .handler = cmd_help,    .usage = NULL		},
 };
 
 int
@@ -57,7 +57,7 @@ main(int argc, char *argv[])
 			verbose = 1;
 			break;
 		default:
-			usage();
+			usage_main();
 		}
 	}
 	argc -= optind;
@@ -66,7 +66,7 @@ main(int argc, char *argv[])
 	optind = 0;
 
 	if (argc == 0)
-		usage();
+		usage_main();
 
 	fill_image_descs();
 	for (i = 0; i < NELEM(cmds); i++) {
@@ -76,18 +76,36 @@ main(int argc, char *argv[])
 		}
 	}
 	if (i == NELEM(cmds))
-		usage();
+		usage_main();
 	return ret;
 }
 
+void
+usage_main(void)
+{
+	printf("usage: fiptool [--verbose] <command> [<args>]\n");
+	printf("Global options supported:\n");
+	printf("  --verbose\tEnable verbose output for all commands.\n");
+	printf("\n");
+	printf("Commands supported:\n");
+	printf("  info\t\tList images contained in FIP.\n");
+	printf("  create\tCreate a new FIP with the given images.\n");
+	printf("  update\tUpdate an existing FIP with the given images.\n");
+	printf("  unpack\tUnpack images from FIP.\n");
+	printf("  remove\tRemove images from FIP.\n");
+	printf("  version\tShow fiptool version.\n");
+	printf("  help\t\tShow help for given command.\n");
+	exit(EXIT_SUCCESS);
+}
+
 int
-info_cmd(int argc, char *argv[])
+cmd_info(int argc, char *argv[])
 {
 	image_desc_t *desc;
 	fip_toc_header_t toc_header;
 
 	if (argc != 2)
-		info_usage(EXIT_FAILURE);
+		cmd_info_usage(EXIT_FAILURE);
 	argc--, argv++;
 
 	parse_fip(argv[0], &toc_header);
@@ -127,7 +145,7 @@ info_cmd(int argc, char *argv[])
 }
 
 int
-create_cmd(int argc, char *argv[])
+cmd_create(int argc, char *argv[])
 {
 	int c, opt_index = 0;
 	struct option *opts = NULL;
@@ -136,7 +154,7 @@ create_cmd(int argc, char *argv[])
 	unsigned long align = 1;
 
 	if (argc < 2)
-		create_usage(EXIT_FAILURE);
+		cmd_create_usage(EXIT_FAILURE);
 
 	opts = fill_common_opts(opts, &nr_opts, required_argument);
 	opts = add_opt(opts, &nr_opts, "plat-toc-flags", required_argument,
@@ -171,7 +189,7 @@ create_cmd(int argc, char *argv[])
 
 			if (memcmp(&uuid, &uuid_null, sizeof(uuid_t)) == 0 ||
 			    filename[0] == '\0')
-				create_usage(EXIT_FAILURE);
+				cmd_create_usage(EXIT_FAILURE);
 
 			desc = lookup_image_desc_from_uuid(&uuid);
 			if (desc == NULL) {
@@ -183,14 +201,14 @@ create_cmd(int argc, char *argv[])
 			break;
 		}
 		default:
-			create_usage(EXIT_FAILURE);
+			cmd_create_usage(EXIT_FAILURE);
 		}
 	}
 	argc -= optind;
 	argv += optind;
 
 	if (argc == 0)
-		create_usage(EXIT_SUCCESS);
+		cmd_create_usage(EXIT_SUCCESS);
 
 	update_fip();
 
@@ -199,7 +217,7 @@ create_cmd(int argc, char *argv[])
 }
 
 void
-create_usage(int exit_status)
+cmd_create_usage(int exit_status)
 {
 	toc_entry_t *toc_entry = toc_entries;
 
@@ -227,7 +245,7 @@ create_usage(int exit_status)
 }
 
 int
-update_cmd(int argc, char *argv[])
+cmd_update(int argc, char *argv[])
 {
 	int c, opt_index = 0;
 	struct option *opts = NULL;
@@ -239,7 +257,7 @@ update_cmd(int argc, char *argv[])
 	int pflag = 0;
 
 	if (argc < 2)
-		update_usage(EXIT_FAILURE);
+		cmd_update_usage(EXIT_FAILURE);
 
 	opts = fill_common_opts(opts, &nr_opts, required_argument);
 	opts = add_opt(opts, &nr_opts, "align", required_argument, OPT_ALIGN);
@@ -273,7 +291,7 @@ update_cmd(int argc, char *argv[])
 
 			if (memcmp(&uuid, &uuid_null, sizeof(uuid_t)) == 0 ||
 			    filename[0] == '\0')
-				update_usage(EXIT_FAILURE);
+				cmd_update_usage(EXIT_FAILURE);
 
 			desc = lookup_image_desc_from_uuid(&uuid);
 			if (desc == NULL) {
@@ -291,14 +309,14 @@ update_cmd(int argc, char *argv[])
 			snprintf(outfile, sizeof(outfile), "%s", optarg);
 			break;
 		default:
-			update_usage(EXIT_FAILURE);
+			cmd_update_usage(EXIT_FAILURE);
 		}
 	}
 	argc -= optind;
 	argv += optind;
 
 	if (argc == 0)
-		update_usage(EXIT_SUCCESS);
+		cmd_update_usage(EXIT_SUCCESS);
 
 	if (outfile[0] == '\0')
 		snprintf(outfile, sizeof(outfile), "%s", argv[0]);
@@ -369,7 +387,7 @@ update_fip(void)
 }
 
 int
-unpack_cmd(int argc, char *argv[])
+cmd_unpack(int argc, char *argv[])
 {
 	int c, opt_index = 0;
 	struct option *opts = NULL;
@@ -380,7 +398,7 @@ unpack_cmd(int argc, char *argv[])
 	int unpack_all = 1;
 
 	if (argc < 2)
-		unpack_usage(EXIT_FAILURE);
+		cmd_unpack_usage(EXIT_FAILURE);
 
 	opts = fill_common_opts(opts, &nr_opts, required_argument);
 	opts = add_opt(opts, &nr_opts, "blob", required_argument, 'b');
@@ -409,7 +427,7 @@ unpack_cmd(int argc, char *argv[])
 
 			if (memcmp(&uuid, &uuid_null, sizeof(uuid_t)) == 0 ||
 			    filename[0] == '\0')
-				unpack_usage(EXIT_FAILURE);
+				cmd_unpack_usage(EXIT_FAILURE);
 
 			desc = lookup_image_desc_from_uuid(&uuid);
 			if (desc == NULL) {
@@ -428,14 +446,14 @@ unpack_cmd(int argc, char *argv[])
 			snprintf(outdir, sizeof(outdir), "%s", optarg);
 			break;
 		default:
-			unpack_usage(EXIT_FAILURE);
+			cmd_unpack_usage(EXIT_FAILURE);
 		}
 	}
 	argc -= optind;
 	argv += optind;
 
 	if (argc == 0)
-		unpack_usage(EXIT_SUCCESS);
+		cmd_unpack_usage(EXIT_SUCCESS);
 
 	parse_fip(argv[0], NULL);
 
@@ -480,7 +498,7 @@ unpack_cmd(int argc, char *argv[])
 }
 
 void
-unpack_usage(int exit_status)
+cmd_unpack_usage(int exit_status)
 {
 	toc_entry_t *toc_entry = toc_entries;
 
@@ -756,7 +774,7 @@ write_image_to_file(const image_t *image, const char *filename)
 }
 
 int
-remove_cmd(int argc, char *argv[])
+cmd_remove(int argc, char *argv[])
 {
 	int c, opt_index = 0;
 	struct option *opts = NULL;
@@ -768,7 +786,7 @@ remove_cmd(int argc, char *argv[])
 	int fflag = 0;
 
 	if (argc < 2)
-		remove_usage(EXIT_FAILURE);
+		cmd_remove_usage(EXIT_FAILURE);
 
 	opts = fill_common_opts(opts, &nr_opts, no_argument);
 	opts = add_opt(opts, &nr_opts, "align", required_argument, OPT_ALIGN);
@@ -798,7 +816,7 @@ remove_cmd(int argc, char *argv[])
 			    filename, sizeof(filename));
 
 			if (memcmp(&uuid, &uuid_null, sizeof(uuid_t)) == 0)
-				remove_usage(EXIT_FAILURE);
+				cmd_remove_usage(EXIT_FAILURE);
 
 			desc = lookup_image_desc_from_uuid(&uuid);
 			if (desc == NULL) {
@@ -816,14 +834,14 @@ remove_cmd(int argc, char *argv[])
 			snprintf(outfile, sizeof(outfile), "%s", optarg);
 			break;
 		default:
-			remove_usage(EXIT_FAILURE);
+			cmd_remove_usage(EXIT_FAILURE);
 		}
 	}
 	argc -= optind;
 	argv += optind;
 
 	if (argc == 0)
-		remove_usage(EXIT_SUCCESS);
+		cmd_remove_usage(EXIT_SUCCESS);
 
 	if (outfile[0] != '\0' && access(outfile, F_OK) == 0 && !fflag)
 		log_errx("File %s already exists, use --force to overwrite it",
@@ -855,7 +873,7 @@ remove_cmd(int argc, char *argv[])
 }
 
 void
-remove_usage(int exit_status)
+cmd_remove_usage(int exit_status)
 {
 	toc_entry_t *toc_entry = toc_entries;
 
@@ -948,7 +966,7 @@ parse_blob_opt(char *arg, uuid_t *uuid, char *filename, size_t len)
 }
 
 void
-update_usage(int exit_status)
+cmd_update_usage(int exit_status)
 {
 	toc_entry_t *toc_entry = toc_entries;
 
@@ -1036,14 +1054,14 @@ fill_image_descs(void)
 }
 
 void
-info_usage(int exit_status)
+cmd_info_usage(int exit_status)
 {
 	printf("fiptool info FIP_FILENAME\n");
 	exit(exit_status);
 }
 
 int
-version_cmd(int argc, char *argv[])
+cmd_version(int argc, char *argv[])
 {
 #ifdef VERSION
 	puts(VERSION);
@@ -1055,19 +1073,19 @@ version_cmd(int argc, char *argv[])
 }
 
 void
-version_usage(int exit_status)
+cmd_version_usage(int exit_status)
 {
 	printf("fiptool version\n");
 	exit(exit_status);
 }
 
 int
-help_cmd(int argc, char *argv[])
+cmd_help(int argc, char *argv[])
 {
 	int i;
 
 	if (argc < 2)
-		usage();
+		usage_main();
 	argc--, argv++;
 
 	for (i = 0; i < NELEM(cmds); i++) {
@@ -1078,24 +1096,6 @@ help_cmd(int argc, char *argv[])
 	if (i == NELEM(cmds))
 		printf("No help for subcommand '%s'\n", argv[0]);
 	return 0;
-}
-
-void
-usage(void)
-{
-	printf("usage: fiptool [--verbose] <command> [<args>]\n");
-	printf("Global options supported:\n");
-	printf("  --verbose\tEnable verbose output for all commands.\n");
-	printf("\n");
-	printf("Commands supported:\n");
-	printf("  info\t\tList images contained in FIP.\n");
-	printf("  create\tCreate a new FIP with the given images.\n");
-	printf("  update\tUpdate an existing FIP with the given images.\n");
-	printf("  unpack\tUnpack images from FIP.\n");
-	printf("  remove\tRemove images from FIP.\n");
-	printf("  version\tShow fiptool version.\n");
-	printf("  help\t\tShow help for given command.\n");
-	exit(EXIT_SUCCESS);
 }
 
 /*
