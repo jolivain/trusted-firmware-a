@@ -470,7 +470,6 @@ unpack_cmd(int argc, char *argv[])
 			if (verbose)
 				log_dbgx("Unpacking %s", file);
 			write_image_to_file(image, file);
-			continue;
 		} else {
 			log_warnx("File %s exists, use --force to overwrite",
 			    file);
@@ -520,8 +519,7 @@ parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 	int terminated = 0;
 	size_t st_size;
 
-	fp = fopen(filename, "rb");
-	if (fp == NULL)
+	if ((fp = fopen(filename, "rb")) == NULL)
 		log_err("fopen %s", filename);
 
 	if (fstat(fileno(fp), &st) == -1)
@@ -685,8 +683,7 @@ pack_images(const char *filename, uint64_t toc_flags,
 
 	buf_size = sizeof(fip_toc_header_t) +
 	    sizeof(fip_toc_entry_t) * (nr_images + 1);
-	buf = calloc(1, buf_size);
-	if (buf == NULL)
+	if ((buf = calloc(1, buf_size)) == NULL)
 		log_err("calloc");
 
 	/* Build up header and ToC entries from the image table. */
@@ -719,8 +716,7 @@ pack_images(const char *filename, uint64_t toc_flags,
 	toc_entry->offset_address = (entry_offset + align - 1) & ~(align - 1);
 
 	/* Generate the FIP file. */
-	fp = fopen(filename, "wb");
-	if (fp == NULL)
+	if ((fp = fopen(filename, "wb")) == NULL)
 		log_err("fopen %s", filename);
 
 	if (verbose)
@@ -759,8 +755,7 @@ write_image_to_file(const image_t *image, const char *filename)
 {
 	FILE *fp;
 
-	fp = fopen(filename, "wb");
-	if (fp == NULL)
+	if ((fp = fopen(filename, "wb")) == NULL)
 		log_err("fopen");
 	xfwrite(image->buffer, image->toc_e.size, fp, filename);
 	fclose(fp);
@@ -910,8 +905,7 @@ struct option
 *add_opt(struct option *opts, size_t *nr_opts,
     const char *name, int has_arg, int val)
 {
-	opts = realloc(opts, (*nr_opts + 1) * sizeof(*opts));
-	if (opts == NULL)
+	if ((opts = realloc(opts, (*nr_opts + 1) * sizeof(*opts))) == NULL)
 		log_err("realloc");
 	opts[*nr_opts].name = name;
 	opts[*nr_opts].has_arg = has_arg;
@@ -949,9 +943,7 @@ get_image_align(char *arg)
 void
 parse_blob_opt(char *arg, uuid_t *uuid, char *filename, size_t len)
 {
-	char *p;
-
-	for (p = strtok(arg, ","); p != NULL; p = strtok(NULL, ",")) {
+	for (char *p = strtok(arg, ","); p != NULL; p = strtok(NULL, ",")) {
 		if (strncmp(p, "uuid=", strlen("uuid=")) == 0) {
 			p += strlen("uuid=");
 			uuid_from_str(uuid, p);
@@ -1001,8 +993,7 @@ image_t
 	assert(uuid != NULL);
 	assert(filename != NULL);
 
-	fp = fopen(filename, "rb");
-	if (fp == NULL)
+	if ((fp = fopen(filename, "rb")) == NULL)
 		log_err("fopen %s", filename);
 
 	if (fstat(fileno(fp), &st) == -1)
@@ -1022,9 +1013,7 @@ image_t
 void
 md_print(const unsigned char *md, size_t len)
 {
-	size_t i;
-
-	for (i = 0; i < len; i++)
+	for (size_t i = 0; i < len; i++)
 		printf("%02x", md[i]);
 }
 
@@ -1210,8 +1199,7 @@ char
 {
 	char *d;
 
-	d = strdup(s);
-	if (d == NULL)
+	if ((d = strdup(s)) == NULL)
 		log_errx("strdup: %s", msg);
 	return d;
 }
@@ -1221,8 +1209,7 @@ void
 {
 	void *d;
 
-	d = malloc(size);
-	if (d == NULL)
+	if ((d = malloc(size)) == NULL)
 		log_errx("malloc: %s", msg);
 	return d;
 }
