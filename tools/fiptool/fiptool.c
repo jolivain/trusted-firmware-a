@@ -401,7 +401,7 @@ cmd_unpack(int argc, char *argv[])
 				    file, argv[0]);
 			continue;
 		}
-		if (access(file, F_OK) != 0 || fflag) {
+		if (fflag || access(file, F_OK) != 0) {
 			if (verbose)
 				log_dbgx("Unpacking %s", file);
 			write_image_to_file(image, file);
