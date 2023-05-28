@@ -45,23 +45,13 @@ cmd_t cmds[] = {
 int
 main(int argc, char *argv[])
 {
-	int i, ret = 0;
+	int i, c, opt_index = 0, ret = 0;
+	struct option opts[] = {
+		{ "verbose", no_argument, NULL, 'v' },
+		{ NULL, no_argument, NULL, 0 }
+	};
 
-	while (1) {
-		int c, opt_index = 0;
-		struct option opts[] = {
-			{ "verbose", no_argument, NULL, 'v' },
-			{ NULL, no_argument, NULL, 0 }
-		};
-
-		/*
-		 * Set POSIX mode so getopt stops at the first non-option
-		 * which is the subcommand.
-		 */
-		c = getopt_long(argc, argv, "+v", opts, &opt_index);
-		if (c == -1)
-			break;
-
+	while ((c = getopt_long(argc, argv, "+v", opts, &opt_index)) != -1) {
 		switch (c) {
 		case 'v':
 			verbose = 1;
@@ -140,6 +130,7 @@ info_cmd(int argc, char *argv[])
 int
 create_cmd(int argc, char *argv[])
 {
+	int c, opt_index = 0;
 	struct option *opts = NULL;
 	size_t nr_opts = 0;
 	unsigned long long toc_flags = 0;
@@ -155,13 +146,7 @@ create_cmd(int argc, char *argv[])
 	opts = add_opt(opts, &nr_opts, "blob", required_argument, 'b');
 	opts = add_opt(opts, &nr_opts, NULL, 0, 0);
 
-	while (1) {
-		int c, opt_index = 0;
-
-		c = getopt_long(argc, argv, "b:", opts, &opt_index);
-		if (c == -1)
-			break;
-
+	while ((c = getopt_long(argc, argv, "b:", opts, &opt_index)) != -1) {
 		switch (c) {
 		case OPT_TOC_ENTRY: {
 			image_desc_t *desc;
@@ -246,6 +231,7 @@ create_usage(int exit_status)
 int
 update_cmd(int argc, char *argv[])
 {
+	int c, opt_index = 0;
 	struct option *opts = NULL;
 	size_t nr_opts = 0;
 	char outfile[PATH_MAX] = { 0 };
@@ -265,13 +251,7 @@ update_cmd(int argc, char *argv[])
 	    OPT_PLAT_TOC_FLAGS);
 	opts = add_opt(opts, &nr_opts, NULL, 0, 0);
 
-	while (1) {
-		int c, opt_index = 0;
-
-		c = getopt_long(argc, argv, "b:o:", opts, &opt_index);
-		if (c == -1)
-			break;
-
+	while ((c = getopt_long(argc, argv, "b:o:", opts, &opt_index)) != -1) {
 		switch (c) {
 		case OPT_TOC_ENTRY: {
 			image_desc_t *desc;
@@ -394,6 +374,7 @@ update_fip(void)
 int
 unpack_cmd(int argc, char *argv[])
 {
+	int c, opt_index = 0;
 	struct option *opts = NULL;
 	size_t nr_opts = 0;
 	char outdir[PATH_MAX] = { 0 };
@@ -410,13 +391,7 @@ unpack_cmd(int argc, char *argv[])
 	opts = add_opt(opts, &nr_opts, "out", required_argument, 'o');
 	opts = add_opt(opts, &nr_opts, NULL, 0, 0);
 
-	while (1) {
-		int c, opt_index = 0;
-
-		c = getopt_long(argc, argv, "b:fo:", opts, &opt_index);
-		if (c == -1)
-			break;
-
+	while ((c = getopt_long(argc, argv, "b:fo:", opts, &opt_index)) != -1) {
 		switch (c) {
 		case OPT_TOC_ENTRY: {
 			image_desc_t *desc;
@@ -799,6 +774,7 @@ write_image_to_file(const image_t *image, const char *filename)
 int
 remove_cmd(int argc, char *argv[])
 {
+	int c, opt_index = 0;
 	struct option *opts = NULL;
 	size_t nr_opts = 0;
 	char outfile[PATH_MAX] = { 0 };
@@ -817,13 +793,7 @@ remove_cmd(int argc, char *argv[])
 	opts = add_opt(opts, &nr_opts, "out", required_argument, 'o');
 	opts = add_opt(opts, &nr_opts, NULL, 0, 0);
 
-	while (1) {
-		int c, opt_index = 0;
-
-		c = getopt_long(argc, argv, "b:fo:", opts, &opt_index);
-		if (c == -1)
-			break;
-
+	while ((c = getopt_long(argc, argv, "b:fo:", opts, &opt_index)) != -1) {
 		switch (c) {
 		case OPT_TOC_ENTRY: {
 			image_desc_t *desc;
