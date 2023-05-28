@@ -188,7 +188,6 @@ create_cmd(int argc, char *argv[])
 	}
 	argc -= optind;
 	argv += optind;
-	free(opts);
 
 	if (argc == 0)
 		create_usage(EXIT_SUCCESS);
@@ -297,7 +296,6 @@ update_cmd(int argc, char *argv[])
 	}
 	argc -= optind;
 	argv += optind;
-	free(opts);
 
 	if (argc == 0)
 		update_usage(EXIT_SUCCESS);
@@ -435,7 +433,6 @@ unpack_cmd(int argc, char *argv[])
 	}
 	argc -= optind;
 	argv += optind;
-	free(opts);
 
 	if (argc == 0)
 		unpack_usage(EXIT_SUCCESS);
@@ -836,7 +833,6 @@ remove_cmd(int argc, char *argv[])
 	}
 	argc -= optind;
 	argv += optind;
-	free(opts);
 
 	if (argc == 0)
 		remove_usage(EXIT_SUCCESS);
