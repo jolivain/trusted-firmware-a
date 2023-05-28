@@ -106,6 +106,8 @@ void log_errx(const char *msg, ...);
 char *xstrdup(const char *s, const char *msg);
 void *xmalloc(size_t size, const char *msg);
 void *xzalloc(size_t size, const char *msg);
+FILE *xfopen(const char *filename, const char *mode);
+struct BLD_PLAT_STAT xfstat(FILE *fp, const char *filename);
 void xfread(void *buf, size_t size, FILE *fp, const char *filename);
 void xfwrite(void *buf, size_t size, FILE *fp, const char *filename);
 void xfclose(FILE *fp, const char *filename);

@@ -519,12 +519,8 @@ parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 	int terminated = 0;
 	size_t st_size;
 
-	if ((fp = fopen(filename, "rb")) == NULL)
-		log_err("fopen %s", filename);
-
-	if (fstat(fileno(fp), &st) == -1)
-		log_err("fstat %s", filename);
-
+	fp = xfopen(filename, "rb");
+	st = xfstat(fp, filename);
 	st_size = st.st_size;
 
 #ifdef BLKGETSIZE64
@@ -715,8 +711,7 @@ pack_images(const char *filename, uint64_t toc_flags,
 	toc_entry->offset_address = (entry_offset + align - 1) & ~(align - 1);
 
 	/* Generate the FIP file. */
-	if ((fp = fopen(filename, "wb")) == NULL)
-		log_err("fopen %s", filename);
+	fp = xfopen(filename, "wb");
 
 	if (verbose)
 		log_dbgx("Metadata size: %zu bytes", buf_size);
@@ -754,8 +749,7 @@ write_image_to_file(const image_t *image, const char *filename)
 {
 	FILE *fp;
 
-	if ((fp = fopen(filename, "wb")) == NULL)
-		log_err("fopen");
+	fp = xfopen(filename, "wb");
 	xfwrite(image->buffer, image->toc_e.size, fp, filename);
 	xfclose(fp, filename);
 	return 0;
@@ -992,11 +986,8 @@ image_t
 	assert(uuid != NULL);
 	assert(filename != NULL);
 
-	if ((fp = fopen(filename, "rb")) == NULL)
-		log_err("fopen %s", filename);
-
-	if (fstat(fileno(fp), &st) == -1)
-		log_errx("fstat %s", filename);
+	fp = xfopen(filename, "rb");
+	st = xfstat(fp, filename);
 
 	image = xzalloc(sizeof(*image), "failed to allocate memory for image");
 	image->toc_e.uuid = *uuid;
@@ -1216,6 +1207,24 @@ void
 *xzalloc(size_t size, const char *msg)
 {
 	return memset(xmalloc(size, msg), 0, size);
+}
+
+FILE
+*xfopen(const char *filename, const char *mode)
+{
+	FILE *fp;
+	if ((fp = fopen(filename, mode)) == NULL)
+		log_err("fopen %s, mode %s", filename, mode);
+	return fp;
+}
+
+struct BLD_PLAT_STAT
+xfstat(FILE *fp, const char *filename)
+{
+	struct BLD_PLAT_STAT st;
+	if (fstat(fileno(fp), &st) == -1)
+		log_err("fstat %s", filename);
+	return st;
 }
 
 void
