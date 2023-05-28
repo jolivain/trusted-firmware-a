@@ -98,7 +98,8 @@ static cmd_t cmds[] = {
 	{ .name = "help",    .handler = help_cmd,    .usage = NULL          },
 };
 
-int main(int argc, char *argv[])
+int
+main(int argc, char *argv[])
 {
 	int i, ret = 0;
 
@@ -146,7 +147,8 @@ int main(int argc, char *argv[])
 	return ret;
 }
 
-static int info_cmd(int argc, char *argv[])
+static int
+info_cmd(int argc, char *argv[])
 {
 	image_desc_t *desc;
 	fip_toc_header_t toc_header;
@@ -191,7 +193,8 @@ static int info_cmd(int argc, char *argv[])
 	return 0;
 }
 
-static int create_cmd(int argc, char *argv[])
+static int
+create_cmd(int argc, char *argv[])
 {
 	struct option *opts = NULL;
 	size_t nr_opts = 0;
@@ -268,7 +271,8 @@ static int create_cmd(int argc, char *argv[])
 	return 0;
 }
 
-static void create_usage(int exit_status)
+static void
+create_usage(int exit_status)
 {
 	toc_entry_t *toc_entry = toc_entries;
 
@@ -292,7 +296,8 @@ static void create_usage(int exit_status)
 	exit(exit_status);
 }
 
-static int update_cmd(int argc, char *argv[])
+static int
+update_cmd(int argc, char *argv[])
 {
 	struct option *opts = NULL;
 	size_t nr_opts = 0;
@@ -387,7 +392,8 @@ static int update_cmd(int argc, char *argv[])
 	return 0;
 }
 
-static void parse_plat_toc_flags(const char *arg, unsigned long long *toc_flags)
+static void
+parse_plat_toc_flags(const char *arg, unsigned long long *toc_flags)
 {
 	unsigned long long flags;
 	char *endptr;
@@ -407,7 +413,8 @@ static void parse_plat_toc_flags(const char *arg, unsigned long long *toc_flags)
  * in update_fip() creating the new FIP file from scratch because the
  * internal image table is not populated.
  */
-static void update_fip(void)
+static void
+update_fip(void)
 {
 	image_desc_t *desc;
 
@@ -437,7 +444,8 @@ static void update_fip(void)
 	}
 }
 
-static int unpack_cmd(int argc, char *argv[])
+static int
+unpack_cmd(int argc, char *argv[])
 {
 	struct option *opts = NULL;
 	size_t nr_opts = 0;
@@ -553,7 +561,8 @@ static int unpack_cmd(int argc, char *argv[])
 	return 0;
 }
 
-static void unpack_usage(int exit_status)
+static void
+unpack_usage(int exit_status)
 {
 	toc_entry_t *toc_entry = toc_entries;
 
@@ -579,7 +588,8 @@ static void unpack_usage(int exit_status)
 	exit(exit_status);
 }
 
-static int parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
+static int
+parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 {
 	struct BLD_PLAT_STAT st;
 	FILE *fp;
@@ -682,7 +692,8 @@ static int parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 	return 0;
 }
 
-static image_desc_t *lookup_image_desc_from_uuid(const uuid_t *uuid)
+static image_desc_t
+*lookup_image_desc_from_uuid(const uuid_t *uuid)
 {
 	image_desc_t *desc;
 
@@ -692,7 +703,8 @@ static image_desc_t *lookup_image_desc_from_uuid(const uuid_t *uuid)
 	return NULL;
 }
 
-static image_desc_t *new_image_desc(const uuid_t *uuid,
+static image_desc_t
+*new_image_desc(const uuid_t *uuid,
     const char *name, const char *cmdline_name)
 {
 	image_desc_t *desc;
@@ -708,7 +720,8 @@ static image_desc_t *new_image_desc(const uuid_t *uuid,
 	return desc;
 }
 
-static void add_image_desc(image_desc_t *desc)
+static void
+add_image_desc(image_desc_t *desc)
 {
 	image_desc_t **p = &image_desc_head;
 
@@ -720,7 +733,8 @@ static void add_image_desc(image_desc_t *desc)
 	nr_image_descs++;
 }
 
-static void set_image_desc_action(image_desc_t *desc, int action,
+static void
+set_image_desc_action(image_desc_t *desc, int action,
     const char *arg)
 {
 	assert(desc != NULL);
@@ -734,7 +748,8 @@ static void set_image_desc_action(image_desc_t *desc, int action,
 		    "failed to allocate memory for argument");
 }
 
-static int pack_images(const char *filename, uint64_t toc_flags,
+static int
+pack_images(const char *filename, uint64_t toc_flags,
     unsigned long align)
 {
 	FILE *fp;
@@ -820,7 +835,8 @@ static int pack_images(const char *filename, uint64_t toc_flags,
 	return 0;
 }
 
-static int write_image_to_file(const image_t *image, const char *filename)
+static int
+write_image_to_file(const image_t *image, const char *filename)
 {
 	FILE *fp;
 
@@ -832,7 +848,8 @@ static int write_image_to_file(const image_t *image, const char *filename)
 	return 0;
 }
 
-static int remove_cmd(int argc, char *argv[])
+static int
+remove_cmd(int argc, char *argv[])
 {
 	struct option *opts = NULL;
 	size_t nr_opts = 0;
@@ -936,7 +953,8 @@ static int remove_cmd(int argc, char *argv[])
 	return 0;
 }
 
-static void remove_usage(int exit_status)
+static void
+remove_usage(int exit_status)
 {
 	toc_entry_t *toc_entry = toc_entries;
 
@@ -961,7 +979,8 @@ static void remove_usage(int exit_status)
 	exit(exit_status);
 }
 
-static struct option *fill_common_opts(struct option *opts, size_t *nr_opts,
+static struct option
+*fill_common_opts(struct option *opts, size_t *nr_opts,
     int has_arg)
 {
 	image_desc_t *desc;
@@ -972,7 +991,8 @@ static struct option *fill_common_opts(struct option *opts, size_t *nr_opts,
 	return opts;
 }
 
-static struct option *add_opt(struct option *opts, size_t *nr_opts,
+static struct option
+*add_opt(struct option *opts, size_t *nr_opts,
     const char *name, int has_arg, int val)
 {
 	opts = realloc(opts, (*nr_opts + 1) * sizeof(*opts));
@@ -986,7 +1006,8 @@ static struct option *add_opt(struct option *opts, size_t *nr_opts,
 	return opts;
 }
 
-static image_desc_t *lookup_image_desc_from_opt(const char *opt)
+static image_desc_t
+*lookup_image_desc_from_opt(const char *opt)
 {
 	image_desc_t *desc;
 
@@ -996,7 +1017,8 @@ static image_desc_t *lookup_image_desc_from_opt(const char *opt)
 	return NULL;
 }
 
-static unsigned long get_image_align(char *arg)
+static unsigned long
+get_image_align(char *arg)
 {
 	char *endptr;
 	unsigned long align;
@@ -1009,7 +1031,8 @@ static unsigned long get_image_align(char *arg)
 	return align;
 }
 
-static void parse_blob_opt(char *arg, uuid_t *uuid, char *filename, size_t len)
+static void
+parse_blob_opt(char *arg, uuid_t *uuid, char *filename, size_t len)
 {
 	char *p;
 
@@ -1024,7 +1047,8 @@ static void parse_blob_opt(char *arg, uuid_t *uuid, char *filename, size_t len)
 	}
 }
 
-static void update_usage(int exit_status)
+static void
+update_usage(int exit_status)
 {
 	toc_entry_t *toc_entry = toc_entries;
 
@@ -1049,7 +1073,8 @@ static void update_usage(int exit_status)
 	exit(exit_status);
 }
 
-static image_t *read_image_from_file(const uuid_t *uuid, const char *filename)
+static image_t
+*read_image_from_file(const uuid_t *uuid, const char *filename)
 {
 	struct BLD_PLAT_STAT st;
 	image_t *image;
@@ -1076,7 +1101,8 @@ static image_t *read_image_from_file(const uuid_t *uuid, const char *filename)
 	return image;
 }
 
-static void md_print(const unsigned char *md, size_t len)
+static void
+md_print(const unsigned char *md, size_t len)
 {
 	size_t i;
 
@@ -1084,7 +1110,8 @@ static void md_print(const unsigned char *md, size_t len)
 		printf("%02x", md[i]);
 }
 
-static void fill_image_descs(void)
+static void
+fill_image_descs(void)
 {
 	toc_entry_t *toc_entry;
 
@@ -1112,7 +1139,8 @@ static void fill_image_descs(void)
 #endif
 }
 
-static void free_image_descs(void)
+static void
+free_image_descs(void)
 {
 	image_desc_t *desc = image_desc_head, *tmp;
 
@@ -1125,7 +1153,8 @@ static void free_image_descs(void)
 	assert(nr_image_descs == 0);
 }
 
-static void free_image_desc(image_desc_t *desc)
+static void
+free_image_desc(image_desc_t *desc)
 {
 	free(desc->name);
 	free(desc->cmdline_name);
@@ -1137,13 +1166,15 @@ static void free_image_desc(image_desc_t *desc)
 	free(desc);
 }
 
-static void info_usage(int exit_status)
+static void
+info_usage(int exit_status)
 {
 	printf("fiptool info FIP_FILENAME\n");
 	exit(exit_status);
 }
 
-static int version_cmd(int argc, char *argv[])
+static int
+version_cmd(int argc, char *argv[])
 {
 #ifdef VERSION
 	puts(VERSION);
@@ -1154,13 +1185,15 @@ static int version_cmd(int argc, char *argv[])
 	return 0;
 }
 
-static void version_usage(int exit_status)
+static void
+version_usage(int exit_status)
 {
 	printf("fiptool version\n");
 	exit(exit_status);
 }
 
-static int help_cmd(int argc, char *argv[])
+static int
+help_cmd(int argc, char *argv[])
 {
 	int i;
 
@@ -1178,7 +1211,8 @@ static int help_cmd(int argc, char *argv[])
 	return 0;
 }
 
-static void usage(void)
+static void
+usage(void)
 {
 	printf("usage: fiptool [--verbose] <command> [<args>]\n");
 	printf("Global options supported:\n");
@@ -1199,7 +1233,8 @@ static void usage(void)
  * TODO: Move all functions below to a new file
  */
 
-static void uuid_from_str(uuid_t *u, const char *s)
+static void
+uuid_from_str(uuid_t *u, const char *s)
 {
 	int n;
 
@@ -1225,7 +1260,8 @@ static void uuid_from_str(uuid_t *u, const char *s)
 		log_errx("Invalid UUID: %s", s);
 }
 
-static void vlog(int prio, const char *msg, va_list ap)
+static void
+vlog(int prio, const char *msg, va_list ap)
 {
 	char *prefix[] = { "DEBUG", "WARN", "ERROR" };
 
@@ -1234,7 +1270,8 @@ static void vlog(int prio, const char *msg, va_list ap)
 	fputc('\n', stderr);
 }
 
-static void log_dbgx(const char *msg, ...)
+static void
+log_dbgx(const char *msg, ...)
 {
 	va_list ap;
 
@@ -1243,7 +1280,8 @@ static void log_dbgx(const char *msg, ...)
 	va_end(ap);
 }
 
-static void log_warnx(const char *msg, ...)
+static void
+log_warnx(const char *msg, ...)
 {
 	va_list ap;
 
@@ -1252,7 +1290,8 @@ static void log_warnx(const char *msg, ...)
 	va_end(ap);
 }
 
-static void log_err(const char *msg, ...)
+static void
+log_err(const char *msg, ...)
 {
 	char buf[512];
 	va_list ap;
@@ -1264,7 +1303,8 @@ static void log_err(const char *msg, ...)
 	exit(1);
 }
 
-static void log_errx(const char *msg, ...)
+static void
+log_errx(const char *msg, ...)
 {
 	va_list ap;
 
@@ -1274,7 +1314,8 @@ static void log_errx(const char *msg, ...)
 	exit(1);
 }
 
-static char *xstrdup(const char *s, const char *msg)
+static char
+*xstrdup(const char *s, const char *msg)
 {
 	char *d;
 
@@ -1284,7 +1325,8 @@ static char *xstrdup(const char *s, const char *msg)
 	return d;
 }
 
-static void *xmalloc(size_t size, const char *msg)
+static void
+*xmalloc(size_t size, const char *msg)
 {
 	void *d;
 
@@ -1294,18 +1336,21 @@ static void *xmalloc(size_t size, const char *msg)
 	return d;
 }
 
-static void *xzalloc(size_t size, const char *msg)
+static void
+*xzalloc(size_t size, const char *msg)
 {
 	return memset(xmalloc(size, msg), 0, size);
 }
 
-static void xfwrite(void *buf, size_t size, FILE *fp, const char *filename)
+static void
+xfwrite(void *buf, size_t size, FILE *fp, const char *filename)
 {
 	if (fwrite(buf, 1, size, fp) != size)
 		log_errx("Failed to write %s", filename);
 }
 
-static void uuid_to_str(char *s, size_t len, const uuid_t *u)
+static void
+uuid_to_str(char *s, size_t len, const uuid_t *u)
 {
 	assert(len >= (_UUID_STR_LEN + 1));
 
@@ -1320,7 +1365,8 @@ static void uuid_to_str(char *s, size_t len, const uuid_t *u)
 	    (u->node[4] << 8) | u->node[5]);
 }
 
-static int is_power_of_2(unsigned long x)
+static int
+is_power_of_2(unsigned long x)
 {
 	return x && !(x & (x - 1));
 }
