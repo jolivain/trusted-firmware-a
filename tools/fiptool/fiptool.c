@@ -26,69 +26,69 @@
 #define OPT_PLAT_TOC_FLAGS 1
 #define OPT_ALIGN 2
 
-static image_desc_t *image_desc_head;
-static size_t nr_image_descs;
-static const uuid_t uuid_null;
-static int verbose;
+image_desc_t *image_desc_head;
+size_t nr_image_descs;
+const uuid_t uuid_null;
+int verbose;
 
-static int info_cmd(int argc, char *argv[]);
-static int create_cmd(int argc, char *argv[]);
-static void create_usage(int exit_status);
-static int update_cmd(int argc, char *argv[]);
-static void parse_plat_toc_flags(const char *arg,
+int info_cmd(int argc, char *argv[]);
+int create_cmd(int argc, char *argv[]);
+void create_usage(int exit_status);
+int update_cmd(int argc, char *argv[]);
+void parse_plat_toc_flags(const char *arg,
     unsigned long long *toc_flags);
-static void update_fip(void);
-static int unpack_cmd(int argc, char *argv[]);
-static void unpack_usage(int exit_status);
-static int parse_fip(const char *filename, fip_toc_header_t *toc_header_out);
-static image_desc_t *lookup_image_desc_from_uuid(const uuid_t *uuid);
-static image_desc_t *new_image_desc(const uuid_t *uuid,
+void update_fip(void);
+int unpack_cmd(int argc, char *argv[]);
+void unpack_usage(int exit_status);
+int parse_fip(const char *filename, fip_toc_header_t *toc_header_out);
+image_desc_t *lookup_image_desc_from_uuid(const uuid_t *uuid);
+image_desc_t *new_image_desc(const uuid_t *uuid,
     const char *name, const char *cmdline_name);
-static void add_image_desc(image_desc_t *desc);
-static void set_image_desc_action(image_desc_t *desc, int action,
+void add_image_desc(image_desc_t *desc);
+void set_image_desc_action(image_desc_t *desc, int action,
     const char *arg);
-static int pack_images(const char *filename, uint64_t toc_flags,
+int pack_images(const char *filename, uint64_t toc_flags,
     unsigned long align);
-static int write_image_to_file(const image_t *image, const char *filename);
-static int remove_cmd(int argc, char *argv[]);
-static void remove_usage(int exit_status);
-static struct option *fill_common_opts(struct option *opts, size_t *nr_opts,
+int write_image_to_file(const image_t *image, const char *filename);
+int remove_cmd(int argc, char *argv[]);
+void remove_usage(int exit_status);
+struct option *fill_common_opts(struct option *opts, size_t *nr_opts,
     int has_arg);
-static struct option *add_opt(struct option *opts, size_t *nr_opts,
+struct option *add_opt(struct option *opts, size_t *nr_opts,
     const char *name, int has_arg, int val);
-static image_desc_t *lookup_image_desc_from_opt(const char *opt);
-static unsigned long get_image_align(char *arg);
-static void parse_blob_opt(char *arg, uuid_t *uuid, char *filename,
+image_desc_t *lookup_image_desc_from_opt(const char *opt);
+unsigned long get_image_align(char *arg);
+void parse_blob_opt(char *arg, uuid_t *uuid, char *filename,
     size_t len);
-static void update_usage(int exit_status);
-static image_t *read_image_from_file(const uuid_t *uuid, const char *filename);
-static void md_print(const unsigned char *md, size_t len);
-static void fill_image_descs(void);
-static void free_image_descs(void);
-static void free_image_desc(image_desc_t *desc);
-static image_desc_t *lookup_image_desc_from_opt(const char *opt);
-static void info_usage(int exit_status);
-static int version_cmd(int argc, char *argv[]);
-static void version_usage(int exit_status);
-static int help_cmd(int argc, char *argv[]);
-static void usage(void);
+void update_usage(int exit_status);
+image_t *read_image_from_file(const uuid_t *uuid, const char *filename);
+void md_print(const unsigned char *md, size_t len);
+void fill_image_descs(void);
+void free_image_descs(void);
+void free_image_desc(image_desc_t *desc);
+image_desc_t *lookup_image_desc_from_opt(const char *opt);
+void info_usage(int exit_status);
+int version_cmd(int argc, char *argv[]);
+void version_usage(int exit_status);
+int help_cmd(int argc, char *argv[]);
+void usage(void);
 
 /* TODO: move these to separate library files */
-static void uuid_from_str(uuid_t *u, const char *s);
-static void vlog(int prio, const char *msg, va_list ap);
-static void log_dbgx(const char *msg, ...);
-static void log_warnx(const char *msg, ...);
-static void log_err(const char *msg, ...);
-static void log_errx(const char *msg, ...);
-static char *xstrdup(const char *s, const char *msg);
-static void *xmalloc(size_t size, const char *msg);
-static void *xzalloc(size_t size, const char *msg);
-static void xfwrite(void *buf, size_t size, FILE *fp, const char *filename);
-static void uuid_to_str(char *s, size_t len, const uuid_t *u);
-static int is_power_of_2(unsigned long x);
+void uuid_from_str(uuid_t *u, const char *s);
+void vlog(int prio, const char *msg, va_list ap);
+void log_dbgx(const char *msg, ...);
+void log_warnx(const char *msg, ...);
+void log_err(const char *msg, ...);
+void log_errx(const char *msg, ...);
+char *xstrdup(const char *s, const char *msg);
+void *xmalloc(size_t size, const char *msg);
+void *xzalloc(size_t size, const char *msg);
+void xfwrite(void *buf, size_t size, FILE *fp, const char *filename);
+void uuid_to_str(char *s, size_t len, const uuid_t *u);
+int is_power_of_2(unsigned long x);
 
 /* Available subcommands. */
-static cmd_t cmds[] = {
+cmd_t cmds[] = {
 	{ .name = "info",    .handler = info_cmd,    .usage = info_usage    },
 	{ .name = "create",  .handler = create_cmd,  .usage = create_usage  },
 	{ .name = "update",  .handler = update_cmd,  .usage = update_usage  },
@@ -105,7 +105,7 @@ main(int argc, char *argv[])
 
 	while (1) {
 		int c, opt_index = 0;
-		static struct option opts[] = {
+		struct option opts[] = {
 			{ "verbose", no_argument, NULL, 'v' },
 			{ NULL, no_argument, NULL, 0 }
 		};
@@ -147,7 +147,7 @@ main(int argc, char *argv[])
 	return ret;
 }
 
-static int
+int
 info_cmd(int argc, char *argv[])
 {
 	image_desc_t *desc;
@@ -193,7 +193,7 @@ info_cmd(int argc, char *argv[])
 	return 0;
 }
 
-static int
+int
 create_cmd(int argc, char *argv[])
 {
 	struct option *opts = NULL;
@@ -271,7 +271,7 @@ create_cmd(int argc, char *argv[])
 	return 0;
 }
 
-static void
+void
 create_usage(int exit_status)
 {
 	toc_entry_t *toc_entry = toc_entries;
@@ -296,7 +296,7 @@ create_usage(int exit_status)
 	exit(exit_status);
 }
 
-static int
+int
 update_cmd(int argc, char *argv[])
 {
 	struct option *opts = NULL;
@@ -392,7 +392,7 @@ update_cmd(int argc, char *argv[])
 	return 0;
 }
 
-static void
+void
 parse_plat_toc_flags(const char *arg, unsigned long long *toc_flags)
 {
 	unsigned long long flags;
@@ -413,7 +413,7 @@ parse_plat_toc_flags(const char *arg, unsigned long long *toc_flags)
  * in update_fip() creating the new FIP file from scratch because the
  * internal image table is not populated.
  */
-static void
+void
 update_fip(void)
 {
 	image_desc_t *desc;
@@ -444,7 +444,7 @@ update_fip(void)
 	}
 }
 
-static int
+int
 unpack_cmd(int argc, char *argv[])
 {
 	struct option *opts = NULL;
@@ -561,7 +561,7 @@ unpack_cmd(int argc, char *argv[])
 	return 0;
 }
 
-static void
+void
 unpack_usage(int exit_status)
 {
 	toc_entry_t *toc_entry = toc_entries;
@@ -588,7 +588,7 @@ unpack_usage(int exit_status)
 	exit(exit_status);
 }
 
-static int
+int
 parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 {
 	struct BLD_PLAT_STAT st;
@@ -692,7 +692,7 @@ parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 	return 0;
 }
 
-static image_desc_t
+image_desc_t
 *lookup_image_desc_from_uuid(const uuid_t *uuid)
 {
 	image_desc_t *desc;
@@ -703,7 +703,7 @@ static image_desc_t
 	return NULL;
 }
 
-static image_desc_t
+image_desc_t
 *new_image_desc(const uuid_t *uuid,
     const char *name, const char *cmdline_name)
 {
@@ -720,7 +720,7 @@ static image_desc_t
 	return desc;
 }
 
-static void
+void
 add_image_desc(image_desc_t *desc)
 {
 	image_desc_t **p = &image_desc_head;
@@ -733,7 +733,7 @@ add_image_desc(image_desc_t *desc)
 	nr_image_descs++;
 }
 
-static void
+void
 set_image_desc_action(image_desc_t *desc, int action,
     const char *arg)
 {
@@ -748,7 +748,7 @@ set_image_desc_action(image_desc_t *desc, int action,
 		    "failed to allocate memory for argument");
 }
 
-static int
+int
 pack_images(const char *filename, uint64_t toc_flags,
     unsigned long align)
 {
@@ -835,7 +835,7 @@ pack_images(const char *filename, uint64_t toc_flags,
 	return 0;
 }
 
-static int
+int
 write_image_to_file(const image_t *image, const char *filename)
 {
 	FILE *fp;
@@ -848,7 +848,7 @@ write_image_to_file(const image_t *image, const char *filename)
 	return 0;
 }
 
-static int
+int
 remove_cmd(int argc, char *argv[])
 {
 	struct option *opts = NULL;
@@ -953,7 +953,7 @@ remove_cmd(int argc, char *argv[])
 	return 0;
 }
 
-static void
+void
 remove_usage(int exit_status)
 {
 	toc_entry_t *toc_entry = toc_entries;
@@ -979,7 +979,7 @@ remove_usage(int exit_status)
 	exit(exit_status);
 }
 
-static struct option
+struct option
 *fill_common_opts(struct option *opts, size_t *nr_opts,
     int has_arg)
 {
@@ -991,7 +991,7 @@ static struct option
 	return opts;
 }
 
-static struct option
+struct option
 *add_opt(struct option *opts, size_t *nr_opts,
     const char *name, int has_arg, int val)
 {
@@ -1006,7 +1006,7 @@ static struct option
 	return opts;
 }
 
-static image_desc_t
+image_desc_t
 *lookup_image_desc_from_opt(const char *opt)
 {
 	image_desc_t *desc;
@@ -1017,7 +1017,7 @@ static image_desc_t
 	return NULL;
 }
 
-static unsigned long
+unsigned long
 get_image_align(char *arg)
 {
 	char *endptr;
@@ -1031,7 +1031,7 @@ get_image_align(char *arg)
 	return align;
 }
 
-static void
+void
 parse_blob_opt(char *arg, uuid_t *uuid, char *filename, size_t len)
 {
 	char *p;
@@ -1047,7 +1047,7 @@ parse_blob_opt(char *arg, uuid_t *uuid, char *filename, size_t len)
 	}
 }
 
-static void
+void
 update_usage(int exit_status)
 {
 	toc_entry_t *toc_entry = toc_entries;
@@ -1073,7 +1073,7 @@ update_usage(int exit_status)
 	exit(exit_status);
 }
 
-static image_t
+image_t
 *read_image_from_file(const uuid_t *uuid, const char *filename)
 {
 	struct BLD_PLAT_STAT st;
@@ -1101,7 +1101,7 @@ static image_t
 	return image;
 }
 
-static void
+void
 md_print(const unsigned char *md, size_t len)
 {
 	size_t i;
@@ -1110,7 +1110,7 @@ md_print(const unsigned char *md, size_t len)
 		printf("%02x", md[i]);
 }
 
-static void
+void
 fill_image_descs(void)
 {
 	toc_entry_t *toc_entry;
@@ -1139,7 +1139,7 @@ fill_image_descs(void)
 #endif
 }
 
-static void
+void
 free_image_descs(void)
 {
 	image_desc_t *desc = image_desc_head, *tmp;
@@ -1153,7 +1153,7 @@ free_image_descs(void)
 	assert(nr_image_descs == 0);
 }
 
-static void
+void
 free_image_desc(image_desc_t *desc)
 {
 	free(desc->name);
@@ -1166,14 +1166,14 @@ free_image_desc(image_desc_t *desc)
 	free(desc);
 }
 
-static void
+void
 info_usage(int exit_status)
 {
 	printf("fiptool info FIP_FILENAME\n");
 	exit(exit_status);
 }
 
-static int
+int
 version_cmd(int argc, char *argv[])
 {
 #ifdef VERSION
@@ -1185,14 +1185,14 @@ version_cmd(int argc, char *argv[])
 	return 0;
 }
 
-static void
+void
 version_usage(int exit_status)
 {
 	printf("fiptool version\n");
 	exit(exit_status);
 }
 
-static int
+int
 help_cmd(int argc, char *argv[])
 {
 	int i;
@@ -1211,7 +1211,7 @@ help_cmd(int argc, char *argv[])
 	return 0;
 }
 
-static void
+void
 usage(void)
 {
 	printf("usage: fiptool [--verbose] <command> [<args>]\n");
@@ -1233,7 +1233,7 @@ usage(void)
  * TODO: Move all functions below to a new file
  */
 
-static void
+void
 uuid_from_str(uuid_t *u, const char *s)
 {
 	int n;
@@ -1260,7 +1260,7 @@ uuid_from_str(uuid_t *u, const char *s)
 		log_errx("Invalid UUID: %s", s);
 }
 
-static void
+void
 vlog(int prio, const char *msg, va_list ap)
 {
 	char *prefix[] = { "DEBUG", "WARN", "ERROR" };
@@ -1270,7 +1270,7 @@ vlog(int prio, const char *msg, va_list ap)
 	fputc('\n', stderr);
 }
 
-static void
+void
 log_dbgx(const char *msg, ...)
 {
 	va_list ap;
@@ -1280,7 +1280,7 @@ log_dbgx(const char *msg, ...)
 	va_end(ap);
 }
 
-static void
+void
 log_warnx(const char *msg, ...)
 {
 	va_list ap;
@@ -1290,7 +1290,7 @@ log_warnx(const char *msg, ...)
 	va_end(ap);
 }
 
-static void
+void
 log_err(const char *msg, ...)
 {
 	char buf[512];
@@ -1303,7 +1303,7 @@ log_err(const char *msg, ...)
 	exit(1);
 }
 
-static void
+void
 log_errx(const char *msg, ...)
 {
 	va_list ap;
@@ -1314,7 +1314,7 @@ log_errx(const char *msg, ...)
 	exit(1);
 }
 
-static char
+char
 *xstrdup(const char *s, const char *msg)
 {
 	char *d;
@@ -1325,7 +1325,7 @@ static char
 	return d;
 }
 
-static void
+void
 *xmalloc(size_t size, const char *msg)
 {
 	void *d;
@@ -1336,20 +1336,20 @@ static void
 	return d;
 }
 
-static void
+void
 *xzalloc(size_t size, const char *msg)
 {
 	return memset(xmalloc(size, msg), 0, size);
 }
 
-static void
+void
 xfwrite(void *buf, size_t size, FILE *fp, const char *filename)
 {
 	if (fwrite(buf, 1, size, fp) != size)
 		log_errx("Failed to write %s", filename);
 }
 
-static void
+void
 uuid_to_str(char *s, size_t len, const uuid_t *u)
 {
 	assert(len >= (_UUID_STR_LEN + 1));
@@ -1365,7 +1365,7 @@ uuid_to_str(char *s, size_t len, const uuid_t *u)
 	    (u->node[4] << 8) | u->node[5]);
 }
 
-static int
+int
 is_power_of_2(unsigned long x)
 {
 	return x && !(x & (x - 1));
