@@ -534,8 +534,7 @@ parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 #endif
 
 	buf = xmalloc(st_size, "failed to load file into memory");
-	if (fread(buf, 1, st_size, fp) != st_size)
-		log_errx("Failed to read %s", filename);
+	xfread(buf, st_size, fp, filename);
 	bufend = buf + st_size;
 	fclose(fp);
 
@@ -1002,8 +1001,7 @@ image_t
 	image = xzalloc(sizeof(*image), "failed to allocate memory for image");
 	image->toc_e.uuid = *uuid;
 	image->buffer = xmalloc(st.st_size, "failed to allocate image buffer");
-	if (fread(image->buffer, 1, st.st_size, fp) != st.st_size)
-		log_errx("Failed to read %s", filename);
+	xfread(image->buffer, st.st_size, fp, filename);
 	image->toc_e.size = st.st_size;
 
 	fclose(fp);
@@ -1218,6 +1216,13 @@ void
 *xzalloc(size_t size, const char *msg)
 {
 	return memset(xmalloc(size, msg), 0, size);
+}
+
+void
+xfread(void *buf, size_t size, FILE *fp, const char *filename)
+{
+	if (fread(buf, 1, size, fp) != size)
+		log_errx("Failed to read %s", filename);
 }
 
 void
