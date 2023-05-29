@@ -86,11 +86,11 @@ cmd_info(int argc, char *argv[])
 
 	parse_fip(argv[0], &toc_header);
 	if (verbose) {
-		log_dbgx("toc_header[name]: 0x%llX",
+		err(DBG, "toc_header[name]: 0x%llX",
 		    (unsigned long long)toc_header.name);
-		log_dbgx("toc_header[serial_number]: 0x%llX",
+		err(DBG, "toc_header[serial_number]: 0x%llX",
 		    (unsigned long long)toc_header.serial_number);
-		log_dbgx("toc_header[flags]: 0x%llX",
+		err(DBG, "toc_header[flags]: 0x%llX",
 		    (unsigned long long)toc_header.flags);
 	}
 
@@ -276,7 +276,7 @@ parse_plat_toc_flags(const char *arg, unsigned long long *toc_flags)
 	errno = 0;
 	unsigned long long flags = strtoull(arg, &endptr, 16);
 	if (*endptr != '\0' || flags > UINT16_MAX || errno != 0)
-		log_errx(1, "Invalid platform ToC flags: %s", arg);
+		err(ERR, "Invalid platform ToC flags: %s", arg);
 	/* Platform ToC flags is a 16-bit field occupying bits [32-47]. */
 	*toc_flags |= flags << 32;
 }
@@ -300,12 +300,12 @@ update_fip(void)
 		    desc->action_arg);
 		if (desc->image != NULL) {
 			if (verbose)
-				log_dbgx("Replacing %s with %s",
+				err(DBG, "Replacing %s with %s",
 				    desc->cmdline_name,
 				    desc->action_arg);
 			free(desc->image);
 		} else if (verbose)
-			log_dbgx("Adding image %s", desc->action_arg);
+			err(DBG, "Adding image %s", desc->action_arg);
 		desc->image = image;
 	}
 }
@@ -379,7 +379,7 @@ cmd_unpack(int argc, char *argv[])
 
 	if (outdir[0] != '\0')
 		if (chdir(outdir) == -1)
-			log_err(1, "chdir %s", outdir);
+			err(ERR, "chdir %s", outdir);
 
 	/* Unpack all specified images. */
 	for (desc = image_desc_head; desc != NULL; desc = desc->next) {
@@ -397,16 +397,16 @@ cmd_unpack(int argc, char *argv[])
 			    desc->action_arg);
 		if (image == NULL) {
 			if (!unpack_all)
-				log_warnx("%s does not exist in %s",
+				err(WARN, "%s does not exist in %s",
 				    file, argv[0]);
 			continue;
 		}
 		if (fflag || access(file, F_OK) != 0) {
 			if (verbose)
-				log_dbgx("Unpacking %s", file);
+				err(DBG, "Unpacking %s", file);
 			write_image_to_file(image, file);
 		} else
-			log_warnx("File %s exists, use --force to overwrite",
+			err(WARN, "File %s exists, use --force to overwrite",
 			    file);
 	}
 	return 0;
@@ -427,7 +427,7 @@ parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 #ifdef BLKGETSIZE64
 	if ((st.st_mode & S_IFBLK) != 0)
 		if (ioctl(fileno(fp), BLKGETSIZE64, &st_size) == -1)
-			log_err(1, "ioctl %s", filename);
+			err(ERR, "ioctl %s", filename);
 #endif
 	buf = xmalloc(st_size, "failed to load file into memory");
 	xfread(buf, st_size, fp, filename);
@@ -435,12 +435,12 @@ parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 	xfclose(fp, filename);
 
 	if (st_size < sizeof(fip_toc_header_t))
-		log_errx(1, "FIP %s is truncated", filename);
+		err(ERR, "FIP %s is truncated", filename);
 
 	toc_header = (fip_toc_header_t *)buf;
 	toc_entry = (fip_toc_entry_t *)(toc_header + 1);
 	if (toc_header->name != TOC_HEADER_NAME)
-		log_errx(1, "%s is not a FIP file", filename);
+		err(ERR, "%s is not a FIP file", filename);
 	/* Return the ToC header if the caller wants it. */
 	if (toc_header_out != NULL)
 		*toc_header_out = *toc_header;
@@ -466,9 +466,9 @@ parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 		    "failed to allocate image buffer, is FIP file corrupted?");
 		/* Overflow checks before memory copy. */
 		if (toc_entry->size > (uint64_t)-1 - toc_entry->offset_address)
-			log_errx(1, STRING_FIP_CORRUPT_ADDR_SPACE, filename);
+			err(ERR, STRING_FIP_CORRUPT_ADDR_SPACE, filename);
 		if (toc_entry->size + toc_entry->offset_address > st_size)
-			log_errx(1, STRING_FIP_CORRUPT_ENTRY_SIZE, filename);
+			err(ERR, STRING_FIP_CORRUPT_ENTRY_SIZE, filename);
 
 		memcpy(image->buffer, buf + toc_entry->offset_address,
 		    toc_entry->size);
@@ -492,7 +492,7 @@ parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 		toc_entry++;
 	}
 	if (terminated == 0)
-		log_errx(1, "FIP %s does not have a ToC terminator entry",
+		err(ERR, "FIP %s does not have a ToC terminator entry",
 		    filename);
 	free(buf);
 	return 0;
@@ -567,7 +567,7 @@ pack_images(const char *filename, uint64_t toc_flags,
 	buf_size = sizeof(fip_toc_header_t) +
 	    sizeof(fip_toc_entry_t) * (nr_images + 1);
 	if ((buf = calloc(1, buf_size)) == NULL)
-		log_err(1, "calloc");
+		err(ERR, "calloc");
 
 	/* Build up header and ToC entries from the image table. */
 	toc_header = (fip_toc_header_t *)buf;
@@ -599,22 +599,22 @@ pack_images(const char *filename, uint64_t toc_flags,
 	/* Generate the FIP file. */
 	fp = xfopen(filename, "wb");
 	if (verbose)
-		log_dbgx("Metadata size: %zu bytes", buf_size);
+		err(DBG, "Metadata size: %zu bytes", buf_size);
 
 	xfwrite(buf, buf_size, fp, filename);
 	if (verbose)
-		log_dbgx("Payload size: %zu bytes", payload_size);
+		err(DBG, "Payload size: %zu bytes", payload_size);
 
 	for (desc = image_desc_head; desc != NULL; desc = desc->next) {
 		image_t *image = desc->image;
 		if (image == NULL)
 			continue;
 		if (fseek(fp, image->toc_e.offset_address, SEEK_SET))
-			log_errx(1, "Failed to set file position");
+			err(ERR, "Failed to set file position");
 		xfwrite(image->buffer, image->toc_e.size, fp, filename);
 	}
 	if (fseek(fp, entry_offset, SEEK_SET))
-		log_errx(1, "Failed to set file position");
+		err(ERR, "Failed to set file position");
 
 	pad_size = toc_entry->offset_address - entry_offset;
 	while (pad_size--)
@@ -702,7 +702,7 @@ cmd_remove(int argc, char *argv[])
 	if (argc == 0)
 		cmd_remove_usage(EXIT_SUCCESS);
 	if (outfile[0] != '\0' && access(outfile, F_OK) == 0 && !fflag)
-		log_errx(1, "File %s exists, use --force to overwrite it",
+		err(ERR, "File %s exists, use --force to overwrite it",
 		    outfile);
 	if (outfile[0] == '\0')
 		snprintf(outfile, sizeof(outfile), "%s", argv[0]);
@@ -714,12 +714,12 @@ cmd_remove(int argc, char *argv[])
 			continue;
 		if (desc->image != NULL) {
 			if (verbose)
-				log_dbgx("Removing %s",
+				err(DBG, "Removing %s",
 				    desc->cmdline_name);
 			free(desc->image);
 			desc->image = NULL;
 		} else
-			log_warnx("%s does not exist in %s",
+			err(WARN, "%s does not exist in %s",
 			    desc->cmdline_name, argv[0]);
 	}
 	pack_images(outfile, toc_header.flags, align);
@@ -742,7 +742,7 @@ struct option
     const char *name, int has_arg, int val)
 {
 	if ((opts = realloc(opts, (*nr_opts + 1) * sizeof(*opts))) == NULL)
-		log_err(1, "realloc");
+		err(ERR, "realloc");
 	opts[*nr_opts].name = name;
 	opts[*nr_opts].has_arg = has_arg;
 	opts[*nr_opts].flag = NULL;
@@ -770,7 +770,7 @@ get_image_align(char *arg)
 	errno = 0;
 	align = strtoul(arg, &endptr, 0);
 	if (*endptr != '\0' || !IS_POWER_OF_2(align) || errno != 0)
-		log_errx(1, "Invalid alignment: %s", arg);
+		err(ERR, "Invalid alignment: %s", arg);
 	return align;
 }
 
@@ -878,9 +878,9 @@ void
 uuid_from_str(uuid_t *u, const char *s)
 {
 	if (s == NULL)
-		log_errx(1, "UUID cannot be NULL");
+		err(ERR, "UUID cannot be NULL");
 	if (strlen(s) != _UUID_STR_LEN)
-		log_errx(1, "Invalid UUID: %s", s);
+		err(ERR, "Invalid UUID: %s", s);
 	int n = sscanf(s,
 	    "%2hhx%2hhx%2hhx%2hhx-%2hhx%2hhx-%2hhx%2hhx-%2hhx%2hhx-%2hhx%2hhx%2hhx%2hhx%2hhx%2hhx",
 	    &u->time_low[0], &u->time_low[1], &u->time_low[2], &u->time_low[3],
@@ -895,61 +895,41 @@ uuid_from_str(uuid_t *u, const char *s)
 	 * for a properly formatted UUID.
 	 */
 	if (n != 16)
-		log_errx(1, "Invalid UUID: %s", s);
+		err(ERR, "Invalid UUID: %s", s);
 }
 
 void
-vlog(int prio, const char *msg, va_list ap)
+err(int prio, const char *msg, ...)
 {
 	char *prefix[] = { "DEBUG", "WARN", "ERROR" };
-	if (msg != NULL) {
-		fprintf(stderr, "%s: ", prefix[prio]);
+	va_list ap;
+	if ((prio < 0) || (prio > 2)) {
+		err(WARN, "Bad error type given: %d", prio);
+		fprintf(stderr, "Assuming error condition.\n");
+		prio = ERR;
+	}
+	if ((prio != ERR) && (!msg)) {
+		err(WARN, "Null log message in non-error condition.");
+		fprintf(stderr, "Assuming error condition.\n");
+		prio = ERR;
+	}
+	va_start(ap, msg);
+	fprintf(stderr, "%s: ", prefix[prio]);
+	if (msg) {
 		vfprintf(stderr, msg, ap);
-		fputc('\n', stderr);
+		if (prio == ERR)
+			fprintf(stderr, ": ");
+		else
+			fprintf(stderr, "\n");
 	}
-}
-
-void
-log_dbgx(const char *msg, ...)
-{
-	va_list ap;
-	va_start(ap, msg);
-	vlog(LOG_DBG, msg, ap);
-	va_end(ap);
-}
-
-void
-log_warnx(const char *msg, ...)
-{
-	va_list ap;
-	va_start(ap, msg);
-	vlog(LOG_WARN, msg, ap);
-	va_end(ap);
-}
-
-void
-log_err(int eval, const char *msg, ...)
-{
-	char buf[512];
-	va_list ap;
-
-	va_start(ap, msg);
-	if (msg != NULL) {
-		snprintf(buf, sizeof(buf), "%s: %s", msg, strerror(errno));
-		vlog(LOG_ERR, buf, ap);
+	if (prio == ERR) {
+		if (!errno) {
+			errno = ECANCELED;
+		}
+		fprintf(stderr, "%s\n", strerror(errno));
+		exit(errno);
 	}
 	va_end(ap);
-	exit(eval);
-}
-
-void
-log_errx(int eval, const char *msg, ...)
-{
-	va_list ap;
-	va_start(ap, msg);
-	vlog(LOG_ERR, msg, ap);
-	va_end(ap);
-	exit(eval);
 }
 
 char
@@ -957,7 +937,7 @@ char
 {
 	char *d;
 	if ((d = strdup(s)) == NULL)
-		log_errx(1, "strdup: %s", msg);
+		err(ERR, "strdup: %s", msg);
 	return d;
 }
 
@@ -966,7 +946,7 @@ void
 {
 	void *d;
 	if ((d = malloc(size)) == NULL)
-		log_errx(1, "malloc: %s", msg);
+		err(ERR, "malloc: %s", msg);
 	return d;
 }
 
@@ -981,7 +961,7 @@ FILE
 {
 	FILE *fp;
 	if ((fp = fopen(filename, mode)) == NULL)
-		log_err(1, "fopen %s, mode %s", filename, mode);
+		err(ERR, "fopen %s, mode %s", filename, mode);
 	return fp;
 }
 
@@ -990,7 +970,7 @@ xfstat(FILE *fp, const char *filename)
 {
 	struct BLD_PLAT_STAT st;
 	if (fstat(fileno(fp), &st) == -1)
-		log_err(1, "fstat %s", filename);
+		err(ERR, "fstat %s", filename);
 	return st;
 }
 
@@ -998,21 +978,21 @@ void
 xfread(void *buf, size_t size, FILE *fp, const char *filename)
 {
 	if (fread(buf, 1, size, fp) != size)
-		log_errx(1, "Failed to read %s", filename);
+		err(ERR, "Failed to read %s", filename);
 }
 
 void
 xfwrite(void *buf, size_t size, FILE *fp, const char *filename)
 {
 	if (fwrite(buf, 1, size, fp) != size)
-		log_errx(1, "Failed to write %s", filename);
+		err(ERR, "Failed to write %s", filename);
 }
 
 void
 xfclose(FILE *fp, const char *filename)
 {
 	if (fclose(fp) == EOF)
-		log_err(1, "%s", filename);
+		err(ERR, "%s", filename);
 }
 
 void

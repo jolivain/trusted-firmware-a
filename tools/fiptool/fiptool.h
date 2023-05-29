@@ -37,9 +37,9 @@ enum {
 };
 
 enum {
-	LOG_DBG,
-	LOG_WARN,
-	LOG_ERR
+	DBG,
+	WARN,
+	ERR
 };
 
 typedef struct image_desc {
@@ -98,11 +98,7 @@ int cmd_help(int argc, char *argv[]);
 
 /* TODO: move these to separate library files */
 void uuid_from_str(uuid_t *u, const char *s);
-void vlog(int prio, const char *msg, va_list ap);
-void log_dbgx(const char *msg, ...);
-void log_warnx(const char *msg, ...);
-void log_err(int eval, const char *msg, ...);
-void log_errx(int eval, const char *msg, ...);
+void err(int prio, const char *msg, ...);
 char *xstrdup(const char *s, const char *msg);
 void *xmalloc(size_t size, const char *msg);
 void *xzalloc(size_t size, const char *msg);
