@@ -99,6 +99,7 @@ int cmd_help(int argc, char *argv[]);
 /* TODO: move these to separate library files */
 void uuid_from_str(uuid_t *u, const char *s);
 void err(int prio, const char *msg, ...);
+int set_errno(void);
 char *xstrdup(const char *s, const char *msg);
 void *xmalloc(size_t size, const char *msg);
 void *xzalloc(size_t size, const char *msg);
@@ -124,7 +125,7 @@ usage_main(void)
 	printf("  remove\tRemove images from FIP.\n");
 	printf("  version\tShow fiptool version.\n");
 	printf("  help\t\tShow help for given command.\n");
-	exit(EXIT_SUCCESS);
+	err(ERR, NULL);
 }
 
 void
@@ -152,7 +153,9 @@ cmd_create_usage(int exit_status)
 		printf("  --%-16s FILENAME\t%s\n", toc_entry->cmdline_name,
 		    toc_entry->name);
 #endif
-	exit(exit_status);
+	if (exit_status)
+		err(ERR, NULL);
+	exit(0);
 }
 
 void
@@ -181,7 +184,9 @@ cmd_unpack_usage(int exit_status)
 #endif
 	printf("\n");
 	printf("If no options are provided, all images will be unpacked.\n");
-	exit(exit_status);
+	if (exit_status)
+		err(ERR, NULL);
+	exit(0);
 }
 
 void
@@ -209,7 +214,9 @@ cmd_remove_usage(int exit_status)
 		printf("  --%-16s\t%s\n", toc_entry->cmdline_name,
 		    toc_entry->name);
 #endif
-	exit(exit_status);
+	if (exit_status)
+		err(ERR, NULL);
+	exit(0);
 }
 
 void
@@ -238,21 +245,27 @@ cmd_update_usage(int exit_status)
 		printf("  --%-16s FILENAME\t%s\n", toc_entry->cmdline_name,
 		    toc_entry->name);
 #endif
-	exit(exit_status);
+	if (exit_status)
+		err(ERR, NULL);
+	exit(0);
 }
 
 void
 cmd_info_usage(int exit_status)
 {
 	printf("fiptool info FIP_FILENAME\n");
-	exit(exit_status);
+	if (exit_status)
+		err(ERR, NULL);
+	exit(0);
 }
 
 void
 cmd_version_usage(int exit_status)
 {
 	printf("fiptool version\n");
-	exit(exit_status);
+	if (exit_status)
+		err(ERR, NULL);
+	exit(0);
 }
 
 #endif /* FIPTOOL_H */

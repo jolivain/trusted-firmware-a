@@ -71,7 +71,11 @@ main(int argc, char *argv[])
 	}
 	if (i == NELEM(cmds))
 		usage_main();
-	return ret;
+	if (ret)
+		(void)set_errno();
+	if (errno)
+		err(ERR, NULL);
+	return 0;
 }
 
 int
@@ -81,7 +85,7 @@ cmd_info(int argc, char *argv[])
 	fip_toc_header_t toc_header;
 
 	if (argc != 2)
-		cmd_info_usage(EXIT_FAILURE);
+		cmd_info_usage(set_errno());
 	argc--, argv++;
 
 	parse_fip(argv[0], &toc_header);
@@ -128,7 +132,7 @@ cmd_create(int argc, char *argv[])
 	unsigned long align = 1;
 
 	if (argc < 2)
-		cmd_create_usage(EXIT_FAILURE);
+		cmd_create_usage(set_errno());
 
 	opts = fill_common_opts(opts, &nr_opts, required_argument);
 	opts = add_opt(opts, &nr_opts, "plat-toc-flags", required_argument,
@@ -162,7 +166,7 @@ cmd_create(int argc, char *argv[])
 
 			if (memcmp(&uuid, &uuid_null, sizeof(uuid_t)) == 0 ||
 			    filename[0] == '\0')
-				cmd_create_usage(EXIT_FAILURE);
+				cmd_create_usage(set_errno());
 
 			desc = lookup_image_desc_from_uuid(&uuid);
 			if (desc == NULL) {
@@ -174,7 +178,7 @@ cmd_create(int argc, char *argv[])
 			break;
 		}
 		default:
-			cmd_create_usage(EXIT_FAILURE);
+			cmd_create_usage(set_errno());
 		}
 	}
 	if ((argc -= optind) == 0)
@@ -198,7 +202,7 @@ cmd_update(int argc, char *argv[])
 	unsigned long align = 1;
 
 	if (argc < 2)
-		cmd_update_usage(EXIT_FAILURE);
+		cmd_update_usage(set_errno());
 
 	opts = fill_common_opts(opts, &nr_opts, required_argument);
 	opts = add_opt(opts, &nr_opts, "align", required_argument, OPT_ALIGN);
@@ -231,7 +235,7 @@ cmd_update(int argc, char *argv[])
 
 			if (memcmp(&uuid, &uuid_null, sizeof(uuid_t)) == 0 ||
 			    filename[0] == '\0')
-				cmd_update_usage(EXIT_FAILURE);
+				cmd_update_usage(set_errno());
 
 			desc = lookup_image_desc_from_uuid(&uuid);
 			if (desc == NULL) {
@@ -249,7 +253,7 @@ cmd_update(int argc, char *argv[])
 			snprintf(outfile, sizeof(outfile), "%s", optarg);
 			break;
 		default:
-			cmd_update_usage(EXIT_FAILURE);
+			cmd_update_usage(set_errno());
 		}
 	}
 	argc -= optind, argv += optind;
@@ -320,7 +324,7 @@ cmd_unpack(int argc, char *argv[])
 	image_desc_t *desc;
 
 	if (argc < 2)
-		cmd_unpack_usage(EXIT_FAILURE);
+		cmd_unpack_usage(set_errno());
 
 	opts = fill_common_opts(opts, &nr_opts, required_argument);
 	opts = add_opt(opts, &nr_opts, "blob", required_argument, 'b');
@@ -349,7 +353,7 @@ cmd_unpack(int argc, char *argv[])
 
 			if (memcmp(&uuid, &uuid_null, sizeof(uuid_t)) == 0 ||
 			    filename[0] == '\0')
-				cmd_unpack_usage(EXIT_FAILURE);
+				cmd_unpack_usage(set_errno());
 
 			desc = lookup_image_desc_from_uuid(&uuid);
 			if (desc == NULL) {
@@ -368,7 +372,7 @@ cmd_unpack(int argc, char *argv[])
 			snprintf(outdir, sizeof(outdir), "%s", optarg);
 			break;
 		default:
-			cmd_unpack_usage(EXIT_FAILURE);
+			cmd_unpack_usage(set_errno());
 		}
 	}
 	argc -= optind, argv += optind;
@@ -646,7 +650,7 @@ cmd_remove(int argc, char *argv[])
 	unsigned long align = 1;
 
 	if (argc < 2)
-		cmd_remove_usage(EXIT_FAILURE);
+		cmd_remove_usage(set_errno());
 
 	opts = fill_common_opts(opts, &nr_opts, no_argument);
 	opts = add_opt(opts, &nr_opts, "align", required_argument, OPT_ALIGN);
@@ -676,7 +680,7 @@ cmd_remove(int argc, char *argv[])
 			    filename, sizeof(filename));
 
 			if (memcmp(&uuid, &uuid_null, sizeof(uuid_t)) == 0)
-				cmd_remove_usage(EXIT_FAILURE);
+				cmd_remove_usage(set_errno());
 
 			desc = lookup_image_desc_from_uuid(&uuid);
 			if (desc == NULL) {
@@ -694,7 +698,7 @@ cmd_remove(int argc, char *argv[])
 			snprintf(outfile, sizeof(outfile), "%s", optarg);
 			break;
 		default:
-			cmd_remove_usage(EXIT_FAILURE);
+			cmd_remove_usage(set_errno());
 		}
 	}
 	argc -= optind, argv += optind;
@@ -923,13 +927,19 @@ err(int prio, const char *msg, ...)
 			fprintf(stderr, "\n");
 	}
 	if (prio == ERR) {
-		if (!errno) {
-			errno = ECANCELED;
-		}
+		(void)set_errno();
 		fprintf(stderr, "%s\n", strerror(errno));
 		exit(errno);
 	}
 	va_end(ap);
+}
+
+int
+set_errno(void)
+{
+	if (!errno)
+		errno = ECANCELED;
+	return errno;
 }
 
 char
