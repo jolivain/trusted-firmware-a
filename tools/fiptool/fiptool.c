@@ -182,7 +182,7 @@ cmd_create(int argc, char *argv[])
 		}
 	}
 	if ((argc -= optind) == 0)
-		cmd_create_usage(EXIT_SUCCESS);
+		cmd_create_usage(0);
 	argv += optind;
 
 	update_fip();
@@ -259,7 +259,7 @@ cmd_update(int argc, char *argv[])
 	argc -= optind, argv += optind;
 
 	if (argc == 0)
-		cmd_update_usage(EXIT_SUCCESS);
+		cmd_update_usage(0);
 	if (outfile[0] == '\0')
 		snprintf(outfile, sizeof(outfile), "%s", argv[0]);
 	if (access(argv[0], F_OK) == 0)
@@ -377,7 +377,7 @@ cmd_unpack(int argc, char *argv[])
 	}
 	argc -= optind, argv += optind;
 	if (argc == 0)
-		cmd_unpack_usage(EXIT_SUCCESS);
+		cmd_unpack_usage(0);
 
 	parse_fip(argv[0], NULL);
 
@@ -704,7 +704,7 @@ cmd_remove(int argc, char *argv[])
 	argc -= optind, argv += optind;
 
 	if (argc == 0)
-		cmd_remove_usage(EXIT_SUCCESS);
+		cmd_remove_usage(0);
 	if (outfile[0] != '\0' && access(outfile, F_OK) == 0 && !fflag)
 		err(ERR, "File %s exists, use --force to overwrite it",
 		    outfile);
@@ -867,16 +867,12 @@ cmd_help(int argc, char *argv[])
 	for (i = 0; i < NELEM(cmds); i++) {
 		if (strcmp(cmds[i].name, argv[0]) == 0 &&
 		    cmds[i].usage != NULL)
-			cmds[i].usage(EXIT_SUCCESS);
+			cmds[i].usage(0);
 	}
 	if (i == NELEM(cmds))
 		printf("No help for subcommand '%s'\n", argv[0]);
 	return 0;
 }
-
-/*
- * TODO: Move all functions below to a new file
- */
 
 void
 uuid_from_str(uuid_t *u, const char *s)
@@ -900,46 +896,6 @@ uuid_from_str(uuid_t *u, const char *s)
 	 */
 	if (n != 16)
 		err(ERR, "Invalid UUID: %s", s);
-}
-
-void
-err(int prio, const char *msg, ...)
-{
-	char *prefix[] = { "DEBUG", "WARN", "ERROR" };
-	va_list ap;
-	if ((prio < 0) || (prio > 2)) {
-		err(WARN, "Bad error type given: %d", prio);
-		fprintf(stderr, "Assuming error condition.\n");
-		prio = ERR;
-	}
-	if ((prio != ERR) && (!msg)) {
-		err(WARN, "Null log message in non-error condition.");
-		fprintf(stderr, "Assuming error condition.\n");
-		prio = ERR;
-	}
-	va_start(ap, msg);
-	fprintf(stderr, "%s: ", prefix[prio]);
-	if (msg) {
-		vfprintf(stderr, msg, ap);
-		if (prio == ERR)
-			fprintf(stderr, ": ");
-		else
-			fprintf(stderr, "\n");
-	}
-	if (prio == ERR) {
-		(void)set_errno();
-		fprintf(stderr, "%s\n", strerror(errno));
-		exit(errno);
-	}
-	va_end(ap);
-}
-
-int
-set_errno(void)
-{
-	if (!errno)
-		errno = ECANCELED;
-	return errno;
 }
 
 char
@@ -1019,3 +975,44 @@ uuid_to_str(char *s, size_t len, const uuid_t *u)
 	    (u->node[2] << 8) | u->node[3],
 	    (u->node[4] << 8) | u->node[5]);
 }
+
+void
+err(int prio, const char *msg, ...)
+{
+	char *prefix[] = { "DEBUG", "WARN", "ERROR" };
+	va_list ap;
+	if ((prio < 0) || (prio > 2)) {
+		err(WARN, "Bad error type given: %d", prio);
+		fprintf(stderr, "Assuming error condition.\n");
+		prio = ERR;
+	}
+	if ((prio != ERR) && (!msg)) {
+		err(WARN, "Null log message in non-error condition.");
+		fprintf(stderr, "Assuming error condition.\n");
+		prio = ERR;
+	}
+	va_start(ap, msg);
+	fprintf(stderr, "%s: ", prefix[prio]);
+	if (msg) {
+		vfprintf(stderr, msg, ap);
+		if (prio == ERR)
+			fprintf(stderr, ": ");
+		else
+			fprintf(stderr, "\n");
+	}
+	if (prio == ERR) {
+		(void)set_errno();
+		fprintf(stderr, "%s\n", strerror(errno));
+		exit(errno);
+	}
+	va_end(ap);
+}
+
+int
+set_errno(void)
+{
+	if (!errno)
+		errno = ECANCELED;
+	return errno;
+}
+

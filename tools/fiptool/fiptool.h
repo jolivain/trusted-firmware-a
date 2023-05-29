@@ -96,10 +96,7 @@ image_desc_t *lookup_image_desc_from_opt(const char *opt);
 int cmd_version(int argc, char *argv[]);
 int cmd_help(int argc, char *argv[]);
 
-/* TODO: move these to separate library files */
 void uuid_from_str(uuid_t *u, const char *s);
-void err(int prio, const char *msg, ...);
-int set_errno(void);
 char *xstrdup(const char *s, const char *msg);
 void *xmalloc(size_t size, const char *msg);
 void *xzalloc(size_t size, const char *msg);
@@ -109,6 +106,8 @@ void xfread(void *buf, size_t size, FILE *fp, const char *filename);
 void xfwrite(void *buf, size_t size, FILE *fp, const char *filename);
 void xfclose(FILE *fp, const char *filename);
 void uuid_to_str(char *s, size_t len, const uuid_t *u);
+void err(int prio, const char *msg, ...);
+int set_errno(void);
 
 void
 usage_main(void)
