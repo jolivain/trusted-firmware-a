@@ -870,7 +870,7 @@ cmd_help(int argc, char *argv[])
 			cmds[i].usage(0);
 	}
 	if (i == NELEM(cmds))
-		printf("No help for subcommand '%s'\n", argv[0]);
+		fprintf(stderr, "No help for subcommand '%s'\n", argv[0]);
 	return 0;
 }
 
