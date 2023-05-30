@@ -79,8 +79,7 @@ main(int argc, char *argv[])
 #endif
 	if (i == NELEM(cmds))
 		usage_main();
-	if (errno)
-		err(ERR, NULL);
+	abort_on_err("Unhandled error at the end of main()");
 	return 0;
 }
 
@@ -984,6 +983,13 @@ uuid_to_str(char *s, size_t len, const uuid_t *u)
 	    (u->node[0] << 8) | u->node[1],
 	    (u->node[2] << 8) | u->node[3],
 	    (u->node[4] << 8) | u->node[5]);
+}
+
+void
+abort_on_err(const char *msg)
+{
+	if (errno)
+		err(ERR, msg);
 }
 
 void

@@ -108,6 +108,7 @@ void xfread(void *buf, size_t size, FILE *fp, const char *filename);
 void xfwrite(void *buf, size_t size, FILE *fp, const char *filename);
 void xfclose(FILE *fp, const char *filename);
 void uuid_to_str(char *s, size_t len, const uuid_t *u);
+void abort_on_err(const char *msg);
 void err(int prio, const char *msg, ...);
 void assert_err(int *prio, int condition, const char *msg);
 
