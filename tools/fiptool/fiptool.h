@@ -122,134 +122,111 @@ usage_exit(int exit_status)
 }
 
 void
+print_toc_entries(const char *argf)
+{
+	toc_entry_t *toc_entry = toc_entries;
+	for (; toc_entry->cmdline_name != NULL; toc_entry++)
+		printf("  --%-16s%s\t%s\n", toc_entry->cmdline_name,
+		    argf, toc_entry->name);
+#ifdef PLAT_DEF_FIP_UUID
+	toc_entry = plat_def_toc_entries;
+	for (; toc_entry->cmdline_name != NULL; toc_entry++)
+		printf("  --%-16s%s\t%s\n", toc_entry->cmdline_name,
+		    argf, toc_entry->name);
+#endif
+}
+
+void
 usage_main(void)
 {
-	printf("usage: fiptool [--verbose] <command> [<args>]\n");
-	printf("Global options supported:\n");
-	printf("  --verbose\tEnable verbose output for all commands.\n");
-	printf("\n");
-	printf("Commands supported:\n");
-	printf("  info\t\tList images contained in FIP.\n");
-	printf("  create\tCreate a new FIP with the given images.\n");
-	printf("  update\tUpdate an existing FIP with the given images.\n");
-	printf("  unpack\tUnpack images from FIP.\n");
-	printf("  remove\tRemove images from FIP.\n");
-	printf("  version\tShow fiptool version.\n");
-	printf("  help\t\tShow help for given command.\n");
+	printf(
+	    "usage: fiptool [--verbose] <command> [<args>]\n\n"
+
+	    "Global options supported:\n"
+	    "  --verbose\tEnable verbose output for all commands.\n\n"
+
+	    "Commands supported:\n"
+	    "  info\t\tList images contained in FIP.\n"
+	    "  create\tCreate a new FIP with the given images.\n"
+	    "  update\tUpdate an existing FIP with the given images.\n"
+	    "  unpack\tUnpack images from FIP.\n"
+	    "  remove\tRemove images from FIP.\n"
+	    "  version\tShow fiptool version.\n"
+	    "  help\t\tShow help for given command.\n");
 	usage_exit(errno = EINVAL);
 }
 
 void
 cmd_create_usage(int exit_status)
 {
-	toc_entry_t *toc_entry = toc_entries;
+	printf(
+	    "fiptool create [opts] FIP_FILENAME\n\n"
 
-	printf("fiptool create [opts] FIP_FILENAME\n");
-	printf("\n");
-	printf("Options:\n");
-	printf("  --align <value>\t\tEach image is aligned to <value> ");
-	printf("(default: 1).\n");
-	printf("  --blob uuid=...,file=...\tAdd an image with the given UUID");
-	printf(" pointed to by file.\n");
-	printf("  --plat-toc-flags <value>\t16-bit platform specific flag ");
-	printf("field occupying bits 32-47 in 64-bit ToC header.\n");
-	printf("\n");
-	printf("Specific images are packed with the following options:\n");
-	for (; toc_entry->cmdline_name != NULL; toc_entry++)
-		printf("  --%-16s FILENAME\t%s\n", toc_entry->cmdline_name,
-		    toc_entry->name);
-#ifdef PLAT_DEF_FIP_UUID
-	toc_entry = plat_def_toc_entries;
-	for (; toc_entry->cmdline_name != NULL; toc_entry++)
-		printf("  --%-16s FILENAME\t%s\n", toc_entry->cmdline_name,
-		    toc_entry->name);
-#endif
+	    "Options:\n"
+	    "  --align <val>\t\tEach image is aligned to <val> (default: 1).\n"
+	    "  --blob uuid=...,file=...\tAdd an image with the given UUID"
+	        " pointed to by file.\n"
+	    "  --plat-toc-flags <value>\t16-bit platform specific flag"
+	        " field occupying bits 32-47 in 64-bit ToC header.\n\n"
+
+	    "Specific images are packed with the following options:\n");
+	print_toc_entries(" FILENAME");
 	usage_exit(exit_status);
 }
 
 void
 cmd_unpack_usage(int exit_status)
 {
-	toc_entry_t *toc_entry = toc_entries;
+	printf(
+	    "fiptool unpack [opts] FIP_FILENAME\n\n"
 
-	printf("fiptool unpack [opts] FIP_FILENAME\n");
-	printf("\n");
-	printf("Options:\n");
-	printf("  --blob uuid=...,file=...\tUnpack an image with the given ");
-	printf("UUID to file.\n");
-	printf("  --force\t\t\tIf the output file already exists, use ");
-	printf("--force to overwrite it.\n");
-	printf("  --out path\t\t\tSet the output directory path.\n");
-	printf("\n");
-	printf("Specific images are unpacked with the following options:\n");
-	for (; toc_entry->cmdline_name != NULL; toc_entry++)
-		printf("  --%-16s FILENAME\t%s\n", toc_entry->cmdline_name,
-		    toc_entry->name);
-#ifdef PLAT_DEF_FIP_UUID
-	toc_entry = plat_def_toc_entries;
-	for (; toc_entry->cmdline_name != NULL; toc_entry++)
-		printf("  --%-16s FILENAME\t%s\n", toc_entry->cmdline_name,
-		    toc_entry->name);
-#endif
-	printf("\n");
-	printf("If no options are provided, all images will be unpacked.\n");
+	    "Options:\n"
+	    "  --blob uuid=...,file=...\tUnpack an image with the given"
+	        " UUID to file.\n"
+	    "  --force\t\t\tOverwrite the file, even if it already exists.\n"
+	    "  --out path\t\t\tSet the output directory path.\n\n"
+
+	    "Specific images are unpacked with the following options:\n");
+	print_toc_entries(" FILENAME");
+	printf(
+	    "\nIf no options are provided, all images will be unpacked.\n");
 	usage_exit(exit_status);
 }
 
 void
 cmd_remove_usage(int exit_status)
 {
-	toc_entry_t *toc_entry = toc_entries;
+	printf(
+	    "fiptool remove [opts] FIP_FILENAME\n\n"
 
-	printf("fiptool remove [opts] FIP_FILENAME\n");
-	printf("\n");
-	printf("Options:\n");
-	printf("  --align <value>\tEach image is aligned to <value> (default:");
-	printf(" 1).\n");
-	printf("  --blob uuid=...\tRemove an image with the given UUID.\n");
-	printf("  --force\t\tIf the output FIP file already exists, use ");
-	printf("--force to overwrite it.\n");
-	printf("  --out FIP_FILENAME\tSet an alternative output FIP file.\n");
-	printf("\n");
-	printf("Specific images are removed with the following options:\n");
-	for (; toc_entry->cmdline_name != NULL; toc_entry++)
-		printf("  --%-16s\t%s\n", toc_entry->cmdline_name,
-		    toc_entry->name);
-#ifdef PLAT_DEF_FIP_UUID
-	toc_entry = plat_def_toc_entries;
-	for (; toc_entry->cmdline_name != NULL; toc_entry++)
-		printf("  --%-16s\t%s\n", toc_entry->cmdline_name,
-		    toc_entry->name);
-#endif
+	    "Options:\n"
+	    "  --align <val>\tEach image is aligned to <val> (default: 1).\n"
+	    "  --blob uuid=...\tRemove an image with the given UUID.\n"
+	    "  --force\t\tIf the output FIP file already exists, use"
+	        " --force to overwrite it.\n"
+	    "  --out FIP_FILENAME\tSet an alternative output FIP file.\n\n"
+
+	    "Specific images are removed with the following options:\n");
+	print_toc_entries(" ");
 	usage_exit(exit_status);
 }
 
 void
 cmd_update_usage(int exit_status)
 {
-	toc_entry_t *toc_entry = toc_entries;
+	printf(
+	    "fiptool update [opts] FIP_FILENAME\n\n"
 
-	printf("fiptool update [opts] FIP_FILENAME\n");
-	printf("\n");
-	printf("Options:\n");
-	printf("  --align <value>\t\tEach image is aligned to <value> ");
-	printf("(default: 1).\n");
-	printf("  --blob uuid=...,file=...\tAdd or update an image with the ");
-	printf("given UUID pointed to by file.\n");
-	printf("  --out FIP_FILENAME\t\tSet an alternative output FIP file.\n");
-	printf("  --plat-toc-flags <value>\t16-bit platform specific flag ");
-	printf("field occupying bits 32-47 in 64-bit ToC header.\n");
-	printf("\n");
-	printf("Specific images are packed with the following options:\n");
-	for (; toc_entry->cmdline_name != NULL; toc_entry++)
-		printf("  --%-16s FILENAME\t%s\n", toc_entry->cmdline_name,
-		    toc_entry->name);
-#ifdef PLAT_DEF_FIP_UUID
-	toc_entry = plat_def_toc_entries;
-	for (; toc_entry->cmdline_name != NULL; toc_entry++)
-		printf("  --%-16s FILENAME\t%s\n", toc_entry->cmdline_name,
-		    toc_entry->name);
-#endif
+	    "Options:\n"
+	    "  --align <val>\t\tEach image is aligned to <val> (default: 1).\n"
+	    "  --blob uuid=...,file=...\tAdd or update an image with the "
+	        "given UUID pointed to by file.\n"
+	    "  --out FIP_FILENAME\t\tSet an alternative output FIP file.\n"
+	    "  --plat-toc-flags <val>\t16-bit platform specific flag"
+	        " field occupying bits 32-47 in 64-bit ToC header.\n\n"
+
+	    "Specific images are packed with the following options:\n");
+	print_toc_entries(" FILENAME");
 	usage_exit(exit_status);
 }
 
