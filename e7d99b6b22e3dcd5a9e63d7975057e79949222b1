@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60f60f07_cc4d7674",
+        "filename": "tools/fiptool/fiptool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-30T15:19:55Z",
+      "side": 1,
+      "message": "Might just be a matter of personal preference... But given that this will be part of the same line in the tool\u0027s output, why not simply breaking the str line, instead of adding another printf call?",
+      "range": {
+        "startLine": 577,
+        "startChar": 1,
+        "endLine": 577,
+        "endChar": 27
+      },
+      "revId": "e7d99b6b22e3dcd5a9e63d7975057e79949222b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "749971ca_0f5a3322",
         "filename": "tools/fiptool/fiptool.h",
         "patchSetId": 1
@@ -19,6 +42,29 @@
         "startChar": 22,
         "endLine": 2,
         "endChar": 26
+      },
+      "revId": "e7d99b6b22e3dcd5a9e63d7975057e79949222b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62f66226_89c4bb5d",
+        "filename": "tools/fiptool/fiptool.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-05-30T15:19:55Z",
+      "side": 1,
+      "message": "any reason not to make these macros local to fiptool.c?",
+      "range": {
+        "startLine": 20,
+        "startChar": 8,
+        "endLine": 20,
+        "endChar": 37
       },
       "revId": "e7d99b6b22e3dcd5a9e63d7975057e79949222b1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
