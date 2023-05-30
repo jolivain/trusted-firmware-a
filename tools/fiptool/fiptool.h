@@ -135,7 +135,7 @@ usage_main(void)
 	printf("  remove\tRemove images from FIP.\n");
 	printf("  version\tShow fiptool version.\n");
 	printf("  help\t\tShow help for given command.\n");
-	usage_exit(1);
+	usage_exit(errno = EINVAL);
 }
 
 void

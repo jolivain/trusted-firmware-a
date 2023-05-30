@@ -85,7 +85,7 @@ cmd_info(int argc, char *argv[])
 	fip_toc_header_t toc_header;
 
 	if (argc != 2)
-		cmd_info_usage(SET_ERRNO());
+		cmd_info_usage(errno = EINVAL);
 	argc--, argv++;
 
 	parse_fip(argv[0], &toc_header);
@@ -132,7 +132,7 @@ cmd_create(int argc, char *argv[])
 	unsigned long align = 1;
 
 	if (argc < 2)
-		cmd_create_usage(SET_ERRNO());
+		cmd_create_usage(errno = EINVAL);
 
 	opts = fill_common_opts(opts, &nr_opts, required_argument);
 	opts = add_opt(opts, &nr_opts, "plat-toc-flags", required_argument,
@@ -178,7 +178,7 @@ cmd_create(int argc, char *argv[])
 			break;
 		}
 		default:
-			cmd_create_usage(SET_ERRNO());
+			cmd_create_usage(errno = EINVAL);
 		}
 	}
 	if ((argc -= optind) == 0)
@@ -202,7 +202,7 @@ cmd_update(int argc, char *argv[])
 	unsigned long align = 1;
 
 	if (argc < 2)
-		cmd_update_usage(SET_ERRNO());
+		cmd_update_usage(errno = EINVAL);
 
 	opts = fill_common_opts(opts, &nr_opts, required_argument);
 	opts = add_opt(opts, &nr_opts, "align", required_argument, OPT_ALIGN);
@@ -253,7 +253,7 @@ cmd_update(int argc, char *argv[])
 			snprintf(outfile, sizeof(outfile), "%s", optarg);
 			break;
 		default:
-			cmd_update_usage(SET_ERRNO());
+			cmd_update_usage(errno = EINVAL);
 		}
 	}
 	argc -= optind, argv += optind;
@@ -324,7 +324,7 @@ cmd_unpack(int argc, char *argv[])
 	image_desc_t *desc;
 
 	if (argc < 2)
-		cmd_unpack_usage(SET_ERRNO());
+		cmd_unpack_usage(errno = EINVAL);
 
 	opts = fill_common_opts(opts, &nr_opts, required_argument);
 	opts = add_opt(opts, &nr_opts, "blob", required_argument, 'b');
@@ -372,7 +372,7 @@ cmd_unpack(int argc, char *argv[])
 			snprintf(outdir, sizeof(outdir), "%s", optarg);
 			break;
 		default:
-			cmd_unpack_usage(SET_ERRNO());
+			cmd_unpack_usage(errno = EINVAL);
 		}
 	}
 	argc -= optind, argv += optind;
@@ -650,7 +650,7 @@ cmd_remove(int argc, char *argv[])
 	unsigned long align = 1;
 
 	if (argc < 2)
-		cmd_remove_usage(SET_ERRNO());
+		cmd_remove_usage(errno = EINVAL);
 
 	opts = fill_common_opts(opts, &nr_opts, no_argument);
 	opts = add_opt(opts, &nr_opts, "align", required_argument, OPT_ALIGN);
@@ -698,7 +698,7 @@ cmd_remove(int argc, char *argv[])
 			snprintf(outfile, sizeof(outfile), "%s", optarg);
 			break;
 		default:
-			cmd_remove_usage(SET_ERRNO());
+			cmd_remove_usage(errno = EINVAL);
 		}
 	}
 	argc -= optind, argv += optind;
