@@ -111,6 +111,16 @@ void err(int prio, const char *msg, ...);
 void assert_err(int *prio, int condition, const char *msg);
 
 void
+usage_exit(int exit_status)
+{
+	if (!exit_status)
+		exit(0);
+	if (errno)
+		err(ERR, NULL);
+	exit(ECANCELED);
+}
+
+void
 usage_main(void)
 {
 	printf("usage: fiptool [--verbose] <command> [<args>]\n");
@@ -125,7 +135,7 @@ usage_main(void)
 	printf("  remove\tRemove images from FIP.\n");
 	printf("  version\tShow fiptool version.\n");
 	printf("  help\t\tShow help for given command.\n");
-	err(ERR, NULL);
+	usage_exit(1);
 }
 
 void
@@ -153,9 +163,7 @@ cmd_create_usage(int exit_status)
 		printf("  --%-16s FILENAME\t%s\n", toc_entry->cmdline_name,
 		    toc_entry->name);
 #endif
-	if (exit_status)
-		err(ERR, NULL);
-	exit(0);
+	usage_exit(exit_status);
 }
 
 void
@@ -184,9 +192,7 @@ cmd_unpack_usage(int exit_status)
 #endif
 	printf("\n");
 	printf("If no options are provided, all images will be unpacked.\n");
-	if (exit_status)
-		err(ERR, NULL);
-	exit(0);
+	usage_exit(exit_status);
 }
 
 void
@@ -214,9 +220,7 @@ cmd_remove_usage(int exit_status)
 		printf("  --%-16s\t%s\n", toc_entry->cmdline_name,
 		    toc_entry->name);
 #endif
-	if (exit_status)
-		err(ERR, NULL);
-	exit(0);
+	usage_exit(exit_status);
 }
 
 void
@@ -245,27 +249,21 @@ cmd_update_usage(int exit_status)
 		printf("  --%-16s FILENAME\t%s\n", toc_entry->cmdline_name,
 		    toc_entry->name);
 #endif
-	if (exit_status)
-		err(ERR, NULL);
-	exit(0);
+	usage_exit(exit_status);
 }
 
 void
 cmd_info_usage(int exit_status)
 {
 	printf("fiptool info FIP_FILENAME\n");
-	if (exit_status)
-		err(ERR, NULL);
-	exit(0);
+	usage_exit(exit_status);
 }
 
 void
 cmd_version_usage(int exit_status)
 {
 	printf("fiptool version\n");
-	if (exit_status)
-		err(ERR, NULL);
-	exit(0);
+	usage_exit(exit_status);
 }
 
 #endif /* FIPTOOL_H */
