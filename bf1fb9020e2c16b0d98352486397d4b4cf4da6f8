@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f571e89_dd382581",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-30T14:55:12Z",
+      "side": 1,
+      "message": "Hmm the trouble is that unlike for other features, the controls in EL3 are to disable the PMU for EL3 execution. So enable PMU for NS is a misnomer.\nMany of the setting of PMU is to protect EL3 from PMU counters being enabled by Lower EL. There is a bit of HPMN initialization to reset values for NS which needs some logic but that\u0027s all. Rest all is part of Root context settings.\n\nMany of the early accesses need not be guarded by feat detection as they operate on global control registers (like MDCR and SDCR) and does not depend on availability of PMUv3. ",
+      "revId": "bf1fb9020e2c16b0d98352486397d4b4cf4da6f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
