@@ -16,6 +16,24 @@
       "message": "Not needed when Hyp is present. Can be part of init_el2_no_hypervisor.",
       "revId": "a8716691c016f40732b6e566ae47109d71b71fcd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c10a162_4740d5ff",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-30T15:33:49Z",
+      "side": 1,
+      "message": "I don\u0027t understand, it is? init_el2_no_hypervisor() calls manage_extensions_ns_el2() which in turn calls this. When (if?) pauth is ported to feat detect, this will hopefully go into the pauth file in lib/extensions.",
+      "parentUuid": "1a36f245_b74661dd",
+      "revId": "a8716691c016f40732b6e566ae47109d71b71fcd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
