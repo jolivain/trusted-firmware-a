@@ -984,10 +984,11 @@ err(int prio, const char *msg, ...)
 	assert_err(&prio, (prio < 0) || (prio > 2), "Bad error type given");
 	assert_err(&prio, (prio != ERR) && (!msg),
 	    "Null log message in non-error condition.");
-	va_start(ap, msg);
 	fprintf(stderr, "%s: ", prefix[prio]);
 	if (msg) {
+		va_start(ap, msg);
 		vfprintf(stderr, msg, ap);
+		va_end(ap);
 		if (prio == ERR)
 			fprintf(stderr, ": ");
 		else
@@ -998,7 +999,6 @@ err(int prio, const char *msg, ...)
 		fprintf(stderr, "%s\n", strerror(errno));
 		exit(errno);
 	}
-	va_end(ap);
 }
 
 void
