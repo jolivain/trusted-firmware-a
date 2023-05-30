@@ -613,11 +613,11 @@ pack_images(const char *filename, uint64_t toc_flags,
 		image_t *image = desc->image;
 		if (image == NULL)
 			continue;
-		if (fseek(fp, image->toc_e.offset_address, SEEK_SET))
+		if (fseek(fp, image->toc_e.offset_address, SEEK_SET) == -1)
 			err(ERR, "Failed to set file position");
 		xfwrite(image->buffer, image->toc_e.size, fp, filename);
 	}
-	if (fseek(fp, entry_offset, SEEK_SET))
+	if (fseek(fp, entry_offset, SEEK_SET) == -1)
 		err(ERR, "Failed to set file position");
 
 	pad_size = toc_entry->offset_address - entry_offset;
