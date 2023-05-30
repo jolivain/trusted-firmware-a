@@ -16,7 +16,7 @@
 
 int arm_validate_ns_entrypoint(uintptr_t entrypoint)
 {
-	return (entrypoint < BL31_BASE || entrypoint > BL31_LIMIT) ? 0 : -1;
+	return ((entrypoint >= BL31_BASE) && (entrypoint < BL31_LIMIT)) ? -1 : 0;
 }
 
 /* Private event mappings */
