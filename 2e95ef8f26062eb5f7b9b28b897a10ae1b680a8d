@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3917ffb_d1a90bb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2023-05-30T11:10:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cecfcc51_506a6dfe",
+      "revId": "2e95ef8f26062eb5f7b9b28b897a10ae1b680a8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfbdaa52_659557e0",
@@ -121,6 +139,30 @@
       "side": 1,
       "message": "That\u0027s why I was originally suggesting using the \"chosen\" node and putting our custom properties underneath it. The device tree spec does account for non-standard property names, which just need a company specific prefix (i.e. \"google,\") on them.  And the \"chosen\" node is for properties that don\u0027t represent a real device in the system. So I would presume they don\u0027t need to be made official if that technique is followed.",
       "parentUuid": "2a56b030_773cdb0a",
+      "range": {
+        "startLine": 263,
+        "startChar": 47,
+        "endLine": 263,
+        "endChar": 62
+      },
+      "revId": "2e95ef8f26062eb5f7b9b28b897a10ae1b680a8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45a492f2_3eb68cc1",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2023-05-30T11:10:28Z",
+      "side": 1,
+      "message": "Changed the node to chosen/widevine",
+      "parentUuid": "64d4a867_0161d8f5",
       "range": {
         "startLine": 263,
         "startChar": 47,
