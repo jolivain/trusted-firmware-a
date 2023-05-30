@@ -12,6 +12,7 @@
 
 #include <firmware_image_package.h>
 #include <uuid.h>
+#include <errno.h>
 
 #include "fiptool_platform.h"
 #include "tbbr_config.h"
