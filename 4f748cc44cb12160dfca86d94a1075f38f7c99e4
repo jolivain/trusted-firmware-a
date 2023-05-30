@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8218e1ad_573492b7",
+        "filename": "lib/cpus/errata_report.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-05-30T20:37:26Z",
+      "side": 1,
+      "message": "nothing major just for sake of code readability,\nmaybe consider using `__maybe_unused` though it translates to same attribute.\n\nconsider this across this file, if you are doing this.",
+      "range": {
+        "startLine": 179,
+        "startChar": 5,
+        "endLine": 179,
+        "endChar": 13
+      },
+      "revId": "4f748cc44cb12160dfca86d94a1075f38f7c99e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
