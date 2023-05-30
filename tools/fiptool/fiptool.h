@@ -28,6 +28,7 @@
 #define OPT_ALIGN 2
 
 #define IS_POWER_OF_2(x) (x && !(x & (x - 1)))
+#define SET_ERRNO() errno = (!errno) ? ECANCELED : errno
 
 enum {
 	DO_UNSPEC = 0,
@@ -108,7 +109,6 @@ void xfclose(FILE *fp, const char *filename);
 void uuid_to_str(char *s, size_t len, const uuid_t *u);
 void err(int prio, const char *msg, ...);
 void assert_err(int *prio, int condition, const char *msg);
-int set_errno(void);
 
 void
 usage_main(void)
