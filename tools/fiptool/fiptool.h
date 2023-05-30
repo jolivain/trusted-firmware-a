@@ -61,17 +61,17 @@ typedef struct image {
 
 typedef struct cmd {
 	char              *name;
-	int              (*handler)(int, char **);
+	void              (*handler)(int, char **);
 	void             (*usage)(int);
 } cmd_t;
 
-int cmd_info(int argc, char *argv[]);
-int cmd_create(int argc, char *argv[]);
-int cmd_update(int argc, char *argv[]);
+void cmd_info(int argc, char *argv[]);
+void cmd_create(int argc, char *argv[]);
+void cmd_update(int argc, char *argv[]);
 void parse_plat_toc_flags(const char *arg,
     unsigned long long *toc_flags);
 void update_fip(void);
-int cmd_unpack(int argc, char *argv[]);
+void cmd_unpack(int argc, char *argv[]);
 int parse_fip(const char *filename, fip_toc_header_t *toc_header_out);
 image_desc_t *lookup_image_desc_from_uuid(const uuid_t *uuid);
 image_desc_t *new_image_desc(const uuid_t *uuid,
@@ -82,7 +82,7 @@ void set_image_desc_action(image_desc_t *desc, int action,
 int pack_images(const char *filename, uint64_t toc_flags,
     unsigned long align);
 int write_image_to_file(const image_t *image, const char *filename);
-int cmd_remove(int argc, char *argv[]);
+void cmd_remove(int argc, char *argv[]);
 struct option *fill_common_opts(struct option *opts, size_t *nr_opts,
     int has_arg);
 struct option *add_opt(struct option *opts, size_t *nr_opts,
@@ -95,8 +95,8 @@ image_t *read_image_from_file(const uuid_t *uuid, const char *filename);
 void md_print(const unsigned char *md, size_t len);
 void fill_image_descs(void);
 image_desc_t *lookup_image_desc_from_opt(const char *opt);
-int cmd_version(int argc, char *argv[]);
-int cmd_help(int argc, char *argv[]);
+void cmd_version(int argc, char *argv[]);
+void cmd_help(int argc, char *argv[]);
 
 void uuid_from_str(uuid_t *u, const char *s);
 char *xstrdup(const char *s, const char *msg);

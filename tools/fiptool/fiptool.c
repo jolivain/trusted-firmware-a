@@ -45,7 +45,7 @@ main(int argc, char *argv[])
 	if (pledge("stdio rpath wpath", NULL) == -1)
 		err(ERR, "pledge");
 #endif
-	int i, c, opt_index = 0, ret = 0;
+	int i, c, opt_index = 0;
 	struct option opts[] = {
 		{ "verbose", no_argument, NULL, 'v' },
 		{ NULL, no_argument, NULL, 0 }
@@ -69,7 +69,7 @@ main(int argc, char *argv[])
 	fill_image_descs();
 	for (i = 0; i < NELEM(cmds); i++) {
 		if (strcmp(cmds[i].name, argv[0]) == 0) {
-			ret = cmds[i].handler(argc, argv);
+			cmds[i].handler(argc, argv);
 			break;
 		}
 	}
@@ -79,14 +79,12 @@ main(int argc, char *argv[])
 #endif
 	if (i == NELEM(cmds))
 		usage_main();
-	if (ret)
-		SET_ERRNO();
 	if (errno)
 		err(ERR, NULL);
 	return 0;
 }
 
-int
+void
 cmd_info(int argc, char *argv[])
 {
 #ifdef __OpenBSD__
@@ -130,10 +128,9 @@ cmd_info(int argc, char *argv[])
 #endif
 		putchar('\n');
 	}
-	return 0;
 }
 
-int
+void
 cmd_create(int argc, char *argv[])
 {
 	int c, opt_index = 0;
@@ -198,10 +195,9 @@ cmd_create(int argc, char *argv[])
 
 	update_fip();
 	pack_images(argv[0], toc_flags, align);
-	return 0;
 }
 
-int
+void
 cmd_update(int argc, char *argv[])
 {
 	int c, opt_index = 0, pflag = 0;
@@ -281,7 +277,6 @@ cmd_update(int argc, char *argv[])
 
 	update_fip();
 	pack_images(outfile, toc_flags, align);
-	return 0;
 }
 
 void
@@ -325,7 +320,7 @@ update_fip(void)
 	}
 }
 
-int
+void
 cmd_unpack(int argc, char *argv[])
 {
 	int c, opt_index = 0, fflag = 0, unpack_all = 1;
@@ -424,7 +419,6 @@ cmd_unpack(int argc, char *argv[])
 		}
 		err(WARN, "File %s exists, use --force to overwrite", file);
 	}
-	return 0;
 }
 
 int
@@ -649,7 +643,7 @@ write_image_to_file(const image_t *image, const char *filename)
 	return 0;
 }
 
-int
+void
 cmd_remove(int argc, char *argv[])
 {
 	int c, opt_index = 0, fflag = 0;
@@ -738,7 +732,6 @@ cmd_remove(int argc, char *argv[])
 			    desc->cmdline_name, argv[0]);
 	}
 	pack_images(outfile, toc_header.flags, align);
-	return 0;
 }
 
 struct option
@@ -856,7 +849,7 @@ fill_image_descs(void)
 #endif
 }
 
-int
+void
 cmd_version(int argc, char *argv[])
 {
 #ifdef __OpenBSD__
@@ -869,10 +862,9 @@ cmd_version(int argc, char *argv[])
 	/* If built from fiptool directory, VERSION is not set. */
 	puts("Unknown version");
 #endif
-	return 0;
 }
 
-int
+void
 cmd_help(int argc, char *argv[])
 {
 #ifdef __OpenBSD__
@@ -890,7 +882,6 @@ cmd_help(int argc, char *argv[])
 	}
 	if (i == NELEM(cmds))
 		fprintf(stderr, "No help for subcommand '%s'\n", argv[0]);
-	return 0;
 }
 
 void
