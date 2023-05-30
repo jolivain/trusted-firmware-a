@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ac3a117_82198e0b",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-30T09:13:46Z",
+      "side": 1,
+      "message": "I don\u0027t feel good about this function. I get this is a short circuit path, but is it expected to be at all hot? If I understand this correctly, quite a few stars have to align so it won\u0027t be happening often. Can\u0027t the prepare_el3_entry happen in the handler directly, just before the call to reflect_pending_serror_to_lower_el? And then this, doesn\u0027t need the dedicated context operations and will only have what\u0027s important. It can also happen in C, as well as all other handlers.",
+      "revId": "5e87d453619efee2be8dc2e2a160c6d61beabb0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c842bbf_31f00e0b",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-30T09:13:46Z",
+      "side": 1,
+      "message": "can\u0027t the esb in the RAS case stay? it would be faster, no?",
+      "revId": "5e87d453619efee2be8dc2e2a160c6d61beabb0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9af9270f_db6c8810",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-30T09:13:46Z",
+      "side": 1,
+      "message": "the way I\u0027m reading this, all of these become a single logical \"thing\". Can\u0027t they be a single macro? The lost names can be comments to explain what\u0027s up",
+      "range": {
+        "startLine": 311,
+        "startChar": 1,
+        "endLine": 314,
+        "endChar": 10
+      },
+      "revId": "5e87d453619efee2be8dc2e2a160c6d61beabb0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
