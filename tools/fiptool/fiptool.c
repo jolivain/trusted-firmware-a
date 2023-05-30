@@ -959,6 +959,7 @@ xfread(void *buf, size_t size, FILE *fp, const char *filename)
 void
 xfwrite(void *buf, size_t size, FILE *fp, const char *filename)
 {
+	abort_on_err("Write to file was aborted due to an unhandled error");
 	if (fwrite(buf, 1, size, fp) != size)
 		err(ERR, "Failed to write %s", filename);
 }
