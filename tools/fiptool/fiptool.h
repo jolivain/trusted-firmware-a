@@ -139,6 +139,10 @@ print_toc_entries(const char *argf)
 void
 usage_main(void)
 {
+#ifdef __OpenBSD__
+	if (pledge("stdio", NULL) == -1)
+		err(ERR, "pledge");
+#endif
 	printf(
 	    "usage: fiptool [--verbose] <command> [<args>]\n\n"
 
@@ -159,6 +163,10 @@ usage_main(void)
 void
 cmd_create_usage(int exit_status)
 {
+#ifdef __OpenBSD__
+	if (pledge("stdio", NULL) == -1)
+		err(ERR, "pledge");
+#endif
 	printf(
 	    "fiptool create [opts] FIP_FILENAME\n\n"
 
@@ -177,6 +185,10 @@ cmd_create_usage(int exit_status)
 void
 cmd_unpack_usage(int exit_status)
 {
+#ifdef __OpenBSD__
+	if (pledge("stdio", NULL) == -1)
+		err(ERR, "pledge");
+#endif
 	printf(
 	    "fiptool unpack [opts] FIP_FILENAME\n\n"
 
@@ -196,6 +208,10 @@ cmd_unpack_usage(int exit_status)
 void
 cmd_remove_usage(int exit_status)
 {
+#ifdef __OpenBSD__
+	if (pledge("stdio", NULL) == -1)
+		err(ERR, "pledge");
+#endif
 	printf(
 	    "fiptool remove [opts] FIP_FILENAME\n\n"
 
@@ -214,6 +230,10 @@ cmd_remove_usage(int exit_status)
 void
 cmd_update_usage(int exit_status)
 {
+#ifdef __OpenBSD__
+	if (pledge("stdio", NULL) == -1)
+		err(ERR, "pledge");
+#endif
 	printf(
 	    "fiptool update [opts] FIP_FILENAME\n\n"
 
@@ -233,6 +253,10 @@ cmd_update_usage(int exit_status)
 void
 cmd_info_usage(int exit_status)
 {
+#ifdef __OpenBSD__
+	if (pledge("stdio", NULL) == -1)
+		err(ERR, "pledge");
+#endif
 	printf("fiptool info FIP_FILENAME\n");
 	usage_exit(exit_status);
 }
@@ -240,6 +264,10 @@ cmd_info_usage(int exit_status)
 void
 cmd_version_usage(int exit_status)
 {
+#ifdef __OpenBSD__
+	if (pledge("stdio", NULL) == -1)
+		err(ERR, "pledge");
+#endif
 	printf("fiptool version\n");
 	usage_exit(exit_status);
 }
