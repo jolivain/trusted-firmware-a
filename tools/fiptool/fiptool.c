@@ -41,6 +41,10 @@ cmd_t cmds[] = {
 int
 main(int argc, char *argv[])
 {
+#ifdef __OpenBSD__
+	if (pledge("stdio rpath wpath", NULL) == -1)
+		err(ERR, "pledge");
+#endif
 	int i, c, opt_index = 0, ret = 0;
 	struct option opts[] = {
 		{ "verbose", no_argument, NULL, 'v' },
@@ -69,6 +73,10 @@ main(int argc, char *argv[])
 			break;
 		}
 	}
+#ifdef __OpenBSD__
+	if (pledge("stdio", NULL) == -1)
+		err(ERR, "pledge");
+#endif
 	if (i == NELEM(cmds))
 		usage_main();
 	if (ret)
@@ -81,9 +89,12 @@ main(int argc, char *argv[])
 int
 cmd_info(int argc, char *argv[])
 {
+#ifdef __OpenBSD__
+	if (pledge("stdio rpath", NULL) == -1)
+		err(ERR, "pledge");
+#endif
 	image_desc_t *desc;
 	fip_toc_header_t toc_header;
-
 	if (argc != 2)
 		cmd_info_usage(errno = EINVAL);
 	argc--, argv++;
@@ -641,6 +652,10 @@ write_image_to_file(const image_t *image, const char *filename)
 int
 cmd_remove(int argc, char *argv[])
 {
+#ifdef __OpenBSD__
+	if (pledge("stdio rpath", NULL) == -1)
+		err(ERR, "pledge");
+#endif
 	int c, opt_index = 0, fflag = 0;
 	struct option *opts = NULL;
 	size_t nr_opts = 0;
@@ -848,6 +863,10 @@ fill_image_descs(void)
 int
 cmd_version(int argc, char *argv[])
 {
+#ifdef __OpenBSD__
+	if (pledge("stdio", NULL) == -1)
+		err(ERR, "pledge");
+#endif
 #ifdef VERSION
 	puts(VERSION);
 #else
@@ -860,6 +879,10 @@ cmd_version(int argc, char *argv[])
 int
 cmd_help(int argc, char *argv[])
 {
+#ifdef __OpenBSD__
+	if (pledge("stdio", NULL) == -1)
+		err(ERR, "pledge");
+#endif
 	int i;
 	if (argc < 2)
 		usage_main();
