@@ -981,16 +981,9 @@ err(int prio, const char *msg, ...)
 {
 	char *prefix[] = { "DEBUG", "WARN", "ERROR" };
 	va_list ap;
-	if ((prio < 0) || (prio > 2)) {
-		err(WARN, "Bad error type given: %d", prio);
-		fprintf(stderr, "Assuming error condition.\n");
-		prio = ERR;
-	}
-	if ((prio != ERR) && (!msg)) {
-		err(WARN, "Null log message in non-error condition.");
-		fprintf(stderr, "Assuming error condition.\n");
-		prio = ERR;
-	}
+	assert_err(&prio, (prio < 0) || (prio > 2), "Bad error type given");
+	assert_err(&prio, (prio != ERR) && (!msg),
+	    "Null log message in non-error condition.");
 	va_start(ap, msg);
 	fprintf(stderr, "%s: ", prefix[prio]);
 	if (msg) {
@@ -1006,6 +999,16 @@ err(int prio, const char *msg, ...)
 		exit(errno);
 	}
 	va_end(ap);
+}
+
+void
+assert_err(int *prio, int condition, const char *msg)
+{
+	if (!condition)
+		return;
+	err(WARN, "%s", msg);
+	fprintf(stderr, "Assuming error condition.\n");
+	*prio = ERR;
 }
 
 int
