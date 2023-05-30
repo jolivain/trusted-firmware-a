@@ -409,9 +409,9 @@ cmd_unpack(int argc, char *argv[])
 			if (verbose)
 				err(DBG, "Unpacking %s", file);
 			write_image_to_file(image, file);
-		} else
-			err(WARN, "File %s exists, use --force to overwrite",
-			    file);
+			continue;
+		}
+		err(WARN, "File %s exists, use --force to overwrite", file);
 	}
 	return 0;
 }
@@ -994,11 +994,11 @@ err(int prio, const char *msg, ...)
 		else
 			fprintf(stderr, "\n");
 	}
-	if (prio == ERR) {
-		(void)set_errno();
-		fprintf(stderr, "%s\n", strerror(errno));
-		exit(errno);
-	}
+	if (prio != ERR)
+		return;
+	(void)set_errno();
+	fprintf(stderr, "%s\n", strerror(errno));
+	exit(errno);
 }
 
 void
