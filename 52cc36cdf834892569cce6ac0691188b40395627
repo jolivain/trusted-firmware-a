@@ -16,6 +16,24 @@
       "message": "We\u0027re now forking the gic init paths of virt and sbsa, which is good and correct. But I think we should then move this file out of the common directory into the plat/qemu/qemu directory.\n*additionally*, I\u0027d then like to move the gic-specific parts of this function into a new file in plat/qemu/qemu_sbsa.\n\nI think it would then make sense to drop all of the \"v3\" references where possible (on this side of the tree, let the virt maintainers make that call for themselves) - we want to keep supporting whatever the most recent version is, even if the architecture descends into CVS-style numbering (all hail GICv5.7.342.7).",
       "revId": "52cc36cdf834892569cce6ac0691188b40395627",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3e006b3_d5ea1be6",
+        "filename": "plat/qemu/qemu_sbsa/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-05-31T12:00:09Z",
+      "side": 0,
+      "message": "Let do move of \"now only qemu/virt\" files in separate change.\n\nv3 references dropped from sbsa_gic_driver_data variable. It is still gicv3 inside.\n\nI added gic stuff into same file to not deal with variables set in one C file and used in other. My C is rusty.",
+      "parentUuid": "3dc59c6d_0a04b58f",
+      "revId": "52cc36cdf834892569cce6ac0691188b40395627",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
