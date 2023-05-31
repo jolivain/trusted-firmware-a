@@ -242,6 +242,24 @@
       "parentUuid": "10a1840d_b61bcbce",
       "revId": "71a71610ffcd2713b6da398421c15c815683c079",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a485a978_15e32956",
+        "filename": "lib/xlat_tables_v2/aarch64/xlat_tables_arch.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-05-31T16:56:53Z",
+      "side": 1,
+      "message": "I dimly remember having this discussion before: definitely the signed property has precedence. Also, the killer argument: the kernel does it the same way ;-)\n\nBesides: we would be *excluding* everything beyond 7, so that would not be worse than what we do already.",
+      "parentUuid": "11e55c55_c3c5d0e9",
+      "revId": "71a71610ffcd2713b6da398421c15c815683c079",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
