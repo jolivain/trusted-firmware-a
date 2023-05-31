@@ -39,6 +39,24 @@
       "message": "The function in this file are a higher level abstraction than read accessors. The other examples above are actually helpers for higher level is_feat__xx_supported(). Perhaps these can move the xlat table file where this functionality is needed.",
       "revId": "71a71610ffcd2713b6da398421c15c815683c079",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e740923_27c59ee2",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-05-31T09:18:29Z",
+      "side": 1,
+      "message": "Both exist, you are right about the is_feat__xx_supported() functions, but they in turn depend on a read_feat_xxx_id_field() function. Some features do not have a compile flag so they can do away with the is_feat__xx_supported() functions. There is precedent for this: read_feat_sme_fa64_id_field(). This is the intended and correct place to put these as it gives a feature library for tf-a.",
+      "parentUuid": "1ee461a9_fe8b13cf",
+      "revId": "71a71610ffcd2713b6da398421c15c815683c079",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
