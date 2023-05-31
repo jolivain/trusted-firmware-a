@@ -486,7 +486,8 @@ parse_fip(const char *filename, fip_toc_header_t *toc_header_out)
 			    "failed to allocate memory for blob filename");
 			add_image_desc(desc);
 		}
-		assert(desc->image == NULL);
+		if (desc->image != NULL)
+			err(ERR, "parse_fip: Non-null image descriptor");
 		desc->image = image;
 		toc_entry++;
 	}
@@ -528,7 +529,8 @@ add_image_desc(image_desc_t *desc)
 	image_desc_t **p = &image_desc_head;
 	while (*p)
 		p = &(*p)->next;
-	assert(*p == NULL);
+	if (*p != NULL)
+		err(ERR, "add_image_desc: Non-null image descriptor");
 	*p = desc;
 	nr_image_descs++;
 }
@@ -537,7 +539,8 @@ void
 set_image_desc_action(image_desc_t *desc, int action,
     const char *arg)
 {
-	assert(desc != NULL);
+	if (desc == NULL)
+		err(ERR, "set_image_desc_action: Null image descriptor");
 	if (desc->action_arg != (char *)DO_UNSPEC)
 		free(desc->action_arg);
 	desc->action = action;
@@ -789,8 +792,10 @@ parse_blob_opt(char *arg, uuid_t *uuid, char *filename, size_t len)
 image_t
 *read_image_from_file(const uuid_t *uuid, const char *filename)
 {
-	assert(uuid != NULL);
-	assert(filename != NULL);
+	if (uuid == NULL)
+		err(ERR, "read_image_from_file: null UUID");
+	if (filename == NULL)
+		err(ERR, "read_image_from_file: null filename");
 
 	FILE *fp = xfopen(filename, "rb");
 	struct BLD_PLAT_STAT st = xfstat(fp, filename);
@@ -960,7 +965,9 @@ xfclose(FILE *fp, const char *filename)
 void
 uuid_to_str(char *s, size_t len, const uuid_t *u)
 {
-	assert(len >= (_UUID_STR_LEN + 1));
+	if (len < (_UUID_STR_LEN + 1))
+		err(ERR, "uuid_to_str: Length below _UUID_STR_LEN + 1 (%lu)",
+		    _UUID_STR_LEN + 1);
 	snprintf(s, len,
 	    "%02X%02X%02X%02X-%02X%02X-%02X%02X-%04X-%04X%04X%04X",
 	    u->time_low[0], u->time_low[1], u->time_low[2], u->time_low[3],
