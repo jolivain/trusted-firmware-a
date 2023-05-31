@@ -41,10 +41,7 @@ cmd_t cmds[] = {
 int
 main(int argc, char *argv[])
 {
-#ifdef __OpenBSD__
-	if (pledge("stdio rpath wpath", NULL) == -1)
-		err(ERR, "pledge");
-#endif
+	xpledge("stdio rpath wpath", NULL);
 	int i, c, opt_index = 0;
 	struct option opts[] = {
 		{ "verbose", no_argument, NULL, 'v' },
@@ -73,10 +70,7 @@ main(int argc, char *argv[])
 			break;
 		}
 	}
-#ifdef __OpenBSD__
-	if (pledge("stdio", NULL) == -1)
-		err(ERR, "pledge");
-#endif
+	xpledge("stdio", NULL);
 	if (i == NELEM(cmds))
 		usage_main();
 	abort_on_err("Unhandled error at the end of main()");
@@ -86,10 +80,7 @@ main(int argc, char *argv[])
 void
 cmd_info(int argc, char *argv[])
 {
-#ifdef __OpenBSD__
-	if (pledge("stdio rpath", NULL) == -1)
-		err(ERR, "pledge");
-#endif
+	xpledge("stdio rpath", NULL);
 	image_desc_t *desc;
 	fip_toc_header_t toc_header;
 	if (argc != 2)
@@ -851,10 +842,7 @@ fill_image_descs(void)
 void
 cmd_version(int argc, char *argv[])
 {
-#ifdef __OpenBSD__
-	if (pledge("stdio", NULL) == -1)
-		err(ERR, "pledge");
-#endif
+	xpledge("stdio", NULL);
 #ifdef VERSION
 	puts(VERSION);
 #else
@@ -866,10 +854,7 @@ cmd_version(int argc, char *argv[])
 void
 cmd_help(int argc, char *argv[])
 {
-#ifdef __OpenBSD__
-	if (pledge("stdio", NULL) == -1)
-		err(ERR, "pledge");
-#endif
+	xpledge("stdio", NULL);
 	int i;
 	if (argc < 2)
 		usage_main();
@@ -992,6 +977,15 @@ abort_on_err(const char *msg)
 {
 	if (errno)
 		err(ERR, msg);
+}
+
+void
+xpledge(const char *promises, const char *execpromises)
+{
+#ifdef __OpenBSD__
+	if (pledge(promises, execpromises) == -1)
+		err(ERR, "pledge");
+#endif
 }
 
 void

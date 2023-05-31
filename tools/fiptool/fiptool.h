@@ -109,6 +109,7 @@ void xfwrite(void *buf, size_t size, FILE *fp, const char *filename);
 void xfclose(FILE *fp, const char *filename);
 void uuid_to_str(char *s, size_t len, const uuid_t *u);
 void abort_on_err(const char *msg);
+void xpledge(const char *promises, const char *execpromises);
 void err(int prio, const char *msg, ...);
 void assert_err(int *prio, int condition, const char *msg);
 
@@ -140,10 +141,7 @@ print_toc_entries(const char *argf)
 void
 usage_main(void)
 {
-#ifdef __OpenBSD__
-	if (pledge("stdio", NULL) == -1)
-		err(ERR, "pledge");
-#endif
+	xpledge("stdio", NULL);
 	printf(
 	    "usage: fiptool [--verbose] <command> [<args>]\n\n"
 
@@ -164,10 +162,7 @@ usage_main(void)
 void
 cmd_create_usage(int exit_status)
 {
-#ifdef __OpenBSD__
-	if (pledge("stdio", NULL) == -1)
-		err(ERR, "pledge");
-#endif
+	xpledge("stdio", NULL);
 	printf(
 	    "fiptool create [opts] FIP_FILENAME\n\n"
 
@@ -186,10 +181,7 @@ cmd_create_usage(int exit_status)
 void
 cmd_unpack_usage(int exit_status)
 {
-#ifdef __OpenBSD__
-	if (pledge("stdio", NULL) == -1)
-		err(ERR, "pledge");
-#endif
+	xpledge("stdio", NULL);
 	printf(
 	    "fiptool unpack [opts] FIP_FILENAME\n\n"
 
@@ -209,10 +201,7 @@ cmd_unpack_usage(int exit_status)
 void
 cmd_remove_usage(int exit_status)
 {
-#ifdef __OpenBSD__
-	if (pledge("stdio", NULL) == -1)
-		err(ERR, "pledge");
-#endif
+	xpledge("stdio", NULL);
 	printf(
 	    "fiptool remove [opts] FIP_FILENAME\n\n"
 
@@ -231,10 +220,7 @@ cmd_remove_usage(int exit_status)
 void
 cmd_update_usage(int exit_status)
 {
-#ifdef __OpenBSD__
-	if (pledge("stdio", NULL) == -1)
-		err(ERR, "pledge");
-#endif
+	xpledge("stdio", NULL);
 	printf(
 	    "fiptool update [opts] FIP_FILENAME\n\n"
 
@@ -254,10 +240,7 @@ cmd_update_usage(int exit_status)
 void
 cmd_info_usage(int exit_status)
 {
-#ifdef __OpenBSD__
-	if (pledge("stdio", NULL) == -1)
-		err(ERR, "pledge");
-#endif
+	xpledge("stdio", NULL);
 	printf("fiptool info FIP_FILENAME\n");
 	usage_exit(exit_status);
 }
@@ -265,10 +248,7 @@ cmd_info_usage(int exit_status)
 void
 cmd_version_usage(int exit_status)
 {
-#ifdef __OpenBSD__
-	if (pledge("stdio", NULL) == -1)
-		err(ERR, "pledge");
-#endif
+	xpledge("stdio", NULL);
 	printf("fiptool version\n");
 	usage_exit(exit_status);
 }
