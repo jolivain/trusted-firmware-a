@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6703134b_a9a5ecb7",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-31T09:05:49Z",
+      "side": 1,
+      "message": "This should be 0x2 as per Arm ARM.",
+      "range": {
+        "startLine": 315,
+        "startChar": 53,
+        "endLine": 315,
+        "endChar": 54
+      },
+      "revId": "71a71610ffcd2713b6da398421c15c815683c079",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ee461a9_fe8b13cf",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-05-31T09:05:49Z",
+      "side": 1,
+      "message": "The function in this file are a higher level abstraction than read accessors. The other examples above are actually helpers for higher level is_feat__xx_supported(). Perhaps these can move the xlat table file where this functionality is needed.",
+      "revId": "71a71610ffcd2713b6da398421c15c815683c079",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
