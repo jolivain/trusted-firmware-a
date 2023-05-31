@@ -206,6 +206,24 @@
       "parentUuid": "9a38c07c_a86de617",
       "revId": "71a71610ffcd2713b6da398421c15c815683c079",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10a1840d_b61bcbce",
+        "filename": "lib/xlat_tables_v2/aarch64/xlat_tables_arch.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-05-31T16:14:41Z",
+      "side": 1,
+      "message": "The ARM ARM says: \"The field holds a signed value.\" That means this is a 2-complement encoding with 4 bits. So everything with bit 3 set is negative, and would mean disabled. The \"\u003c 8\" is just the shortcut to test for bit 3.\nIn Linux we properly sign extend this value to a 32-bit int, then the code becomes clearer. Not sure we want to do this here, though, I don\u0027t seem to find an arbitrary sign_extend() function in TF-A.",
+      "parentUuid": "40c0dcad_e533ccf6",
+      "revId": "71a71610ffcd2713b6da398421c15c815683c079",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
