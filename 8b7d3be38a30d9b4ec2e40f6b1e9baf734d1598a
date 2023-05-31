@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfb96fbc_2efc56f0",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-05-31T09:53:26Z",
+      "side": 1,
+      "message": "some compilers / code analysis tools might complain about the variable being defined here. IMHO the following line should be at the beginning of the function:\n\tu_register_t cptr_el3;",
+      "range": {
+        "startLine": 420,
+        "startChar": 1,
+        "endLine": 420,
+        "endChar": 14
+      },
+      "revId": "8b7d3be38a30d9b4ec2e40f6b1e9baf734d1598a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
