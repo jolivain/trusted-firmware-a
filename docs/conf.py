@@ -10,17 +10,26 @@
 # See the options documentation at http://www.sphinx-doc.org/en/master/config
 
 import os
+from datetime import datetime
 
 # -- Project information -----------------------------------------------------
 
 project = "Trusted Firmware-A"
+author = "Trusted Firmware-A contributors"
+version = "2.9.0"
+release = "2.9.0"
 
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ["myst_parser", "sphinx.ext.autosectionlabel", "sphinxcontrib.plantuml"]
+extensions = [
+    "myst_parser",
+    "sphinx.ext.autosectionlabel",
+    "sphinxcontrib.plantuml",
+    "sphinxcontrib.inkscapeconverter",
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -93,3 +102,11 @@ autosectionlabel_maxdepth = 1
 # -- Options for plantuml ----------------------------------------------------
 
 plantuml_output_format = "svg_img"
+
+# -- Options for latexmk  ----------------------------------------------------
+
+latex_engine = "xelatex"
+latex_elements = {
+    "maxlistdepth": "10",
+    "pointsize": "11pt",
+}
