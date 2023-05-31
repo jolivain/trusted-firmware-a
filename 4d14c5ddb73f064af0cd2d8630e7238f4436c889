@@ -69,6 +69,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5833daa7_57813a66",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-05-31T11:27:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f03404a6_89a72d90",
+      "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e7dfcbd_89624c9a",
@@ -82,6 +100,24 @@
       "writtenOn": "2023-05-31T10:57:18Z",
       "side": 1,
       "message": "I think this function could be more generic. Like \"get_dt_platform_config\". We\u0027ll be wanting to add further calls like retrieving DRAM regions as well before (at a later date) we remove NS access to the DT.\nThis way we can keep all the DT parsing in one place.",
+      "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba5fa74f_a0d14c71",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-05-31T11:27:46Z",
+      "side": 1,
+      "message": "My idea was to have read_gic(), read_pcie() etc - one small function to read another piece of data.\n\nCan go with one function with set of blocks instead.",
+      "parentUuid": "7e7dfcbd_89624c9a",
       "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -103,6 +139,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1224b6b_35ba1dd4",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-05-31T11:27:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e5c10da6_3ad7c771",
+      "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4729e330_c97bb9c3",
@@ -116,6 +170,24 @@
       "writtenOn": "2023-05-31T10:57:18Z",
       "side": 1,
       "message": "Didn\u0027t we strip the unused fields out of the QEMU-generated DT for the version that went in?",
+      "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f8450b1_084ce40f",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-05-31T11:27:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4729e330_c97bb9c3",
       "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -137,6 +209,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5e47f8f_be7c3a3c",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-05-31T11:27:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ba82fb10_60d87d0b",
+      "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38268346_5e9a4a6c",
@@ -150,6 +240,24 @@
       "writtenOn": "2023-05-31T10:57:18Z",
       "side": 1,
       "message": "Could bundle this into a single call. SMCCC defines x0-x17 as result registers (and tf-a defines up to SMC_RET8).",
+      "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47d56d08_f563edee",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-05-31T11:27:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "38268346_5e9a4a6c",
       "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
