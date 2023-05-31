@@ -33,6 +33,125 @@
       "message": "qemu part landed upstream",
       "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c9fa5a9_9bbdf760",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2023-05-31T10:57:18Z",
+      "side": 1,
+      "message": "Apologies, I\u0027m asking for a bit of refactoring here, but I want to maintain similarity between qemu/qemu_sbsa ports, as well as keep the sip_svc file mainly dealing with sip_svc calls.",
+      "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f03404a6_89a72d90",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2023-05-31T10:57:18Z",
+      "side": 1,
+      "message": "We have 24 bits of FIDs, can leave some gaps to let us group related functions together.",
+      "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e7dfcbd_89624c9a",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2023-05-31T10:57:18Z",
+      "side": 1,
+      "message": "I think this function could be more generic. Like \"get_dt_platform_config\". We\u0027ll be wanting to add further calls like retrieving DRAM regions as well before (at a later date) we remove NS access to the DT.\nThis way we can keep all the DT parsing in one place.",
+      "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5c10da6_3ad7c771",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2023-05-31T10:57:18Z",
+      "side": 1,
+      "message": "Should this be fdt64_t, as well as for the accessors below? These are all 64-bit values.",
+      "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4729e330_c97bb9c3",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2023-05-31T10:57:18Z",
+      "side": 1,
+      "message": "Didn\u0027t we strip the unused fields out of the QEMU-generated DT for the version that went in?",
+      "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba82fb10_60d87d0b",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2023-05-31T10:57:18Z",
+      "side": 1,
+      "message": "The version matching shouldn\u0027t be necessary here - the DT will have gic info, or it will not.",
+      "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38268346_5e9a4a6c",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2023-05-31T10:57:18Z",
+      "side": 1,
+      "message": "Could bundle this into a single call. SMCCC defines x0-x17 as result registers (and tf-a defines up to SMC_RET8).",
+      "revId": "4d14c5ddb73f064af0cd2d8630e7238f4436c889",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
