@@ -22,6 +22,30 @@
       },
       "revId": "0432418bf3110e8220ec98779299d74c1a39ecb1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b95e198_d3cadd45",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-05-31T16:07:10Z",
+      "side": 1,
+      "message": "Done\nWell spot\nAs CI was successful, I didn\u0027t check the commitlint warnings. Shouldn\u0027t a wrong scope be an error instead of a warning?",
+      "parentUuid": "16a84ea0_d8377fe2",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "0432418bf3110e8220ec98779299d74c1a39ecb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
