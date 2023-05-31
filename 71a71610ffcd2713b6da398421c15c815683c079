@@ -57,6 +57,41 @@
       "parentUuid": "1ee461a9_fe8b13cf",
       "revId": "71a71610ffcd2713b6da398421c15c815683c079",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9209ccb7_c2ba3fdf",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-05-31T10:00:33Z",
+      "side": 1,
+      "message": "We should keep all those feature test functions in here. I have actually a patch https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20621 that simplifies the creation of those functions, and that would rely on all of them being here.",
+      "parentUuid": "1e740923_27c59ee2",
+      "revId": "71a71610ffcd2713b6da398421c15c815683c079",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8a65153_8e8e2f53",
+        "filename": "lib/xlat_tables_v2/aarch64/xlat_tables_arch.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-05-31T10:00:33Z",
+      "side": 1,
+      "message": "I don\u0027t think we should enumerate the currently supported bits. The ID registers guarantee compatibility, so we should just do a \"\u003e\u003d\" comparison. The negative encoding needs some attention here, though.",
+      "revId": "71a71610ffcd2713b6da398421c15c815683c079",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
