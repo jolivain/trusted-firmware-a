@@ -188,6 +188,24 @@
       "parentUuid": "18c9be94_8e01ec33",
       "revId": "71a71610ffcd2713b6da398421c15c815683c079",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40c0dcad_e533ccf6",
+        "filename": "lib/xlat_tables_v2/aarch64/xlat_tables_arch.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2023-05-31T15:57:06Z",
+      "side": 1,
+      "message": "Yeah, I think the argument of not having to revisit this code is quite strong...\n\nHowever wouldn\u0027t it be more correct to check for 0xf as invalid value instead of 8? 8 is considered reserved by the ARM ARM",
+      "parentUuid": "9a38c07c_a86de617",
+      "revId": "71a71610ffcd2713b6da398421c15c815683c079",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
