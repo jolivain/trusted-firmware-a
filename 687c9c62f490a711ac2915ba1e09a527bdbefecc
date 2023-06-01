@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dd8bbb7_42a438fb",
+        "filename": "plat/intel/soc/common/socfpga_psci.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T14:44:22Z",
+      "side": 1,
+      "message": "Should this dead code be removed?",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 49
+      },
+      "revId": "687c9c62f490a711ac2915ba1e09a527bdbefecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "370b4e47_3910c968",
+        "filename": "plat/intel/soc/common/socfpga_psci.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T14:44:22Z",
+      "side": 1,
+      "message": "(minor) I guess that\u0027s down to personal style but I find the following less error-prone:\n\n #if PLATFORM_MODEL !\u003d PLAT_SOCFPGA_AGILEX5\n\nThe same pattern is used multiple times throughout this file.\n\nFeel free to ignore this comment!",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 5
+      },
+      "revId": "687c9c62f490a711ac2915ba1e09a527bdbefecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a222489_1a1220da",
+        "filename": "plat/intel/soc/common/socfpga_psci.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T14:44:22Z",
+      "side": 1,
+      "message": "Remove this dead code?",
+      "range": {
+        "startLine": 105,
+        "startChar": 1,
+        "endLine": 105,
+        "endChar": 37
+      },
+      "revId": "687c9c62f490a711ac2915ba1e09a527bdbefecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fadc8ff_440eea6a",
+        "filename": "plat/intel/soc/common/socfpga_storage.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T14:44:22Z",
+      "side": 1,
+      "message": "Not directly related to this patch, but should these debug assertions be complemented by \u0027return result;\u0027 statements for release builds (which are by default free of assert())?",
+      "range": {
+        "startLine": 186,
+        "startChar": 1,
+        "endLine": 186,
+        "endChar": 21
+      },
+      "revId": "687c9c62f490a711ac2915ba1e09a527bdbefecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
