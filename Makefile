@@ -212,13 +212,7 @@ target32-directive	= 	-target arm-none-eabi
 else
 target32-directive	= 	-target armv8a-none-eabi
 
-# Set the compiler's target architecture profile based on
-# ARM_ARCH_MAJOR ARM_ARCH_MINOR options
-ifeq (${ARM_ARCH_MINOR},0)
-march-directive	=	-march=armv${ARM_ARCH_MAJOR}-a
-else
-march-directive	=	-march=armv${ARM_ARCH_MAJOR}.${ARM_ARCH_MINOR}-a
-endif
+include ${MAKE_HELPERS_DIRECTORY}march.mk
 
 # Memory tagging is supported in architecture Armv8.5-A AArch64 and onwards
 ifeq ($(ARCH), aarch64)
