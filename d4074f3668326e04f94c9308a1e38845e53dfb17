@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bba2aa20_f33bfaff",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T14:22:14Z",
+      "side": 1,
+      "message": "What is the point of taking \u0027reset_type\u0027 as an argument if it gets overriden before it gets used?",
+      "range": {
+        "startLine": 535,
+        "startChar": 1,
+        "endLine": 535,
+        "endChar": 55
+      },
+      "revId": "d4074f3668326e04f94c9308a1e38845e53dfb17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
