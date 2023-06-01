@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6a1332e_7c475099",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T14:28:22Z",
+      "side": 1,
+      "message": "Should this be an \u0027else if\u0027, rather than a simple \u0027if\u0027? If both conditions at line 255 and 266 can be true at the same time (and I don\u0027t know whether that\u0027s possible) then \u0027ret\u0027 could be set at line 261 and overridden at line 272... Is this a concern?",
+      "range": {
+        "startLine": 266,
+        "startChar": 2,
+        "endLine": 266,
+        "endChar": 31
+      },
+      "revId": "ab43e40caada99bfbc0ea555f86ce5662725ef93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7069dea8_a90a0f4b",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T14:28:22Z",
+      "side": 1,
+      "message": "This assertion will be removed in release builds... Do you need to bail out of the function with a \u0027return\u0027 expression in addition to the assertion here? Or is it fine to continue executing the rest of the function in release builds?",
+      "range": {
+        "startLine": 279,
+        "startChar": 3,
+        "endLine": 279,
+        "endChar": 17
+      },
+      "revId": "ab43e40caada99bfbc0ea555f86ce5662725ef93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "691f2fb3_a881df33",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T14:28:22Z",
+      "side": 1,
+      "message": "Same question here.",
+      "range": {
+        "startLine": 320,
+        "startChar": 3,
+        "endLine": 320,
+        "endChar": 17
+      },
+      "revId": "ab43e40caada99bfbc0ea555f86ce5662725ef93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b37b259_bd03f3a8",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T14:28:22Z",
+      "side": 1,
+      "message": "And here.",
+      "range": {
+        "startLine": 371,
+        "startChar": 3,
+        "endLine": 371,
+        "endChar": 17
+      },
+      "revId": "ab43e40caada99bfbc0ea555f86ce5662725ef93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
