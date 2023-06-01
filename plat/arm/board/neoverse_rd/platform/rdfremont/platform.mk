@@ -43,11 +43,17 @@ PLAT_MHU_VERSION := 3
 
 include plat/arm/board/neoverse_rd/common/nrd-common.mk
 include drivers/arm/rss/rss_comms.mk
+ifeq (${MEASURED_BOOT},1)
+include drivers/measured_boot/rss/rss_measured_boot.mk
+endif
 
 RDFREMONT_BASE	=	plat/arm/board/neoverse_rd/platform/rdfremont
 
 PLAT_INCLUDES	+=	-I${NRD_COMMON_BASE}/include/nrd3/		\
 			-I${RDFREMONT_BASE}/include/
+ifeq (${MEASURED_BOOT},1)
+PLAT_INCLUDES	+=	-Iinclude/lib/psa
+endif
 
 NRD_CPU_SOURCES	:=	lib/cpus/aarch64/neoverse_v3.S
 
@@ -56,19 +62,35 @@ PLAT_BL_COMMON_SOURCES							\
 		+=	${NRD_COMMON_BASE}/nrd_plat3.c			\
 			${RDFREMONT_BASE}/rdfremont_common.c
 
+PLAT_MEASURED_BOOT_SOURCES						\
+		:=	${MEASURED_BOOT_SOURCES} 			\
+			${RSS_COMMS_SOURCES}				\
+			${RDFREMONT_BASE}/rdfremont_common_measured_boot.c \
+			lib/psa/measured_boot.c
+
 BL1_SOURCES	+=	${NRD_CPU_SOURCES}				\
-			${RDFREMONT_BASE}/rdfremont_err.c
+			${RDFREMONT_BASE}/rdfremont_err.c		\
+			${RDFREMONT_BASE}/rdfremont_mhuv3.c
 ifeq (${TRUSTED_BOARD_BOOT}, 1)
 BL1_SOURCES	+=	${RDFREMONT_BASE}/rdfremont_trusted_boot.c
 endif
+ifeq (${MEASURED_BOOT},1)
+BL1_SOURCES	+=	${PLAT_MEASURED_BOOT_SOURCES}			\
+			${RDFREMONT_BASE}/rdfremont_bl1_measured_boot.c
+endif
 
-BL2_SOURCES	+=	${RDFREMONT_BASE}/rdfremont_security.c		\
+BL2_SOURCES	+=	${RDFREMONT_BASE}/rdfremont_bl2_setup.c		\
 			${RDFREMONT_BASE}/rdfremont_err.c		\
-			${RDFREMONT_BASE}/rdfremont_bl2_setup.c		\
+			${RDFREMONT_BASE}/rdfremont_mhuv3.c		\
+			${RDFREMONT_BASE}/rdfremont_security.c		\
 			lib/utils/mem_region.c				\
 			plat/arm/common/arm_nor_psci_mem_protect.c
 ifeq (${TRUSTED_BOARD_BOOT}, 1)
 BL2_SOURCES	+=	${RDFREMONT_BASE}/rdfremont_trusted_boot.c
+endif
+ifeq (${MEASURED_BOOT},1)
+BL2_SOURCES	+=	${PLAT_MEASURED_BOOT_SOURCES}			\
+			${RDFREMONT_BASE}/rdfremont_bl2_measured_boot.c
 endif
 
 BL31_SOURCES	+=	${NRD_CPU_SOURCES}				\
@@ -81,6 +103,7 @@ BL31_SOURCES	+=	${NRD_CPU_SOURCES}				\
 			drivers/arm/smmu/smmu_v3.c			\
 			drivers/cfi/v2m/v2m_flash.c			\
 			lib/utils/mem_region.c				\
+			plat/arm/common/arm_dyn_cfg.c			\
 			plat/arm/common/arm_nor_psci_mem_protect.c
 ifeq (${NRD_PLATFORM_VARIANT}, 2)
 BL31_SOURCES	+=	drivers/arm/gic/v3/gic600_multichip.c
