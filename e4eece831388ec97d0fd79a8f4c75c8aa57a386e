@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bd5d654_2d6d0d3c",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-06-01T10:36:46Z",
+      "side": 1,
+      "message": "this way we get more readable error information:\n\nERROR:   sbsa_sip_smc_handler: unhandled SMC (0xc2000065) (function id: 101)\n\nas in code we use \u0027101\u0027 value rather than \u00270xc2000065\u0027 one",
+      "revId": "e4eece831388ec97d0fd79a8f4c75c8aa57a386e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
