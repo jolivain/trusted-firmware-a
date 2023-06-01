@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b06b5bae_88f7c397",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-06-01T06:56:38Z",
+      "side": 1,
+      "message": "CI failed with:\n```\n10:39:35 plat/arm/board/fvp/fvp_pm.c:455:31: error: initialization of \u0027void (*)(const psci_power_state_t *)\u0027 {aka \u0027void (*)(const struct psci_power_state *)\u0027} from incompatible pointer type \u0027int (*)(const psci_power_state_t *)\u0027 {aka \u0027int (*)(const struct psci_power_state *)\u0027} [-Werror\u003dincompatible-pointer-types]\n10:39:35   455 |         .pwr_domain_suspend \u003d fvp_pwr_domain_suspend,\n10:39:35       |                               ^~~~~~~~~~~~~~~~~~~~~~\n10:39:35 plat/arm/board/fvp/fvp_pm.c:455:31: note: (near initialization for \u0027plat_arm_psci_pm_ops.pwr_domain_suspend\u0027)\n10:39:35 cc1: all warnings being treated as errors\n10:39:35 make: *** [Makefile:1443: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl31/fvp_pm.o] Error 1\n```\nI rebased https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20807 and https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20808 to be parents of this patch, which should fix the error.",
+      "revId": "d34886140c74c0afc48ab20e63523505fcfb4b7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
