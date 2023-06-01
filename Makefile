@@ -271,14 +271,13 @@ ENABLE_FEAT_SB		=	$(if $(findstring sb,${arch-features}),1,0)
 
 ifneq ($(findstring clang,$(notdir $(CC))),)
 	ifneq ($(findstring armclang,$(notdir $(CC))),)
-		TF_CFLAGS_aarch32	:=	-target arm-arm-none-eabi $(march-directive)
-		TF_CFLAGS_aarch64	:=	-target aarch64-arm-none-eabi $(march-directive)
+		TF_CFLAGS_aarch32	:=	-target arm-arm-none-eabi
+		TF_CFLAGS_aarch64	:=	-target aarch64-arm-none-eabi
 		LD			:=	$(LINKER)
 	else
-		TF_CFLAGS_aarch32	=	$(target32-directive) $(march-directive)
-		TF_CFLAGS_aarch64	:=	-target aarch64-elf $(march-directive)
+		TF_CFLAGS_aarch32	=	$(target32-directive)
+		TF_CFLAGS_aarch64	:=	-target aarch64-elf
 		LD			:=	$(shell $(CC) --print-prog-name ld.lld)
-
 		AR			:=	$(shell $(CC) --print-prog-name llvm-ar)
 		OD			:=	$(shell $(CC) --print-prog-name llvm-objdump)
 		OC			:=	$(shell $(CC) --print-prog-name llvm-objcopy)
@@ -288,21 +287,17 @@ ifneq ($(findstring clang,$(notdir $(CC))),)
 	PP		:=	$(CC) -E $(TF_CFLAGS_$(ARCH))
 	AS		:=	$(CC) -c -x assembler-with-cpp $(TF_CFLAGS_$(ARCH))
 else ifneq ($(findstring gcc,$(notdir $(CC))),)
-TF_CFLAGS_aarch32	=	$(march-directive)
-TF_CFLAGS_aarch64	=	$(march-directive)
-ifeq ($(ENABLE_LTO),1)
-	# Enable LTO only for aarch64
-	ifeq (${ARCH},aarch64)
-		LTO_CFLAGS	=	-flto
-		# Use gcc as a wrapper for the ld, recommended for LTO
-		LINKER		:=	${CROSS_COMPILE}gcc
-	endif
-endif
-LD			=	$(LINKER)
+    ifeq ($(ENABLE_LTO),1)
+	    # Enable LTO only for aarch64
+	    ifeq (${ARCH},aarch64)
+		    LTO_CFLAGS	=	-flto
+		    # Use gcc as a wrapper for the ld, recommended for LTO
+		    LINKER		:=	${CROSS_COMPILE}gcc
+	    endif
+    endif
+    LD			=	$(LINKER)
 else
-TF_CFLAGS_aarch32	=	$(march-directive)
-TF_CFLAGS_aarch64	=	$(march-directive)
-LD			=	$(LINKER)
+    LD			=	$(LINKER)
 endif
 
 # Process Debug flag
@@ -650,6 +645,17 @@ endif
 ################################################################################
 
 include ${PLAT_MAKEFILE_FULL}
+
+################################################################################
+# Platform specific Makefile might provide us ARCH_MAJOR/MINOR use that to come
+# up with appropriate march values for compiler.
+################################################################################
+ifeq ($(findstring clang,$(notdir $(CC))),)
+	include ${MAKE_HELPERS_DIRECTORY}march.mk
+
+	TF_CFLAGS_aarch32	+=	$(march-directive)
+	TF_CFLAGS_aarch64	+=	$(march-directive)
+endif
 
 # This internal flag is common option which is set to 1 for scenarios
 # when the BL2 is running in EL3 level. This occurs in two scenarios -
