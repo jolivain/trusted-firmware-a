@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "893a7576_514eae14",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_clock_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T14:05:26Z",
+      "side": 1,
+      "message": "I am bit confused by this condition check. If I am not mistaken, \u0027count\u0027 can be at most 10 when we escape the loop at lines 60-63, due to the loop condition. Thus (count \u003e\u003d 100) will always be false? Did you mean the following instead?\n\n \tif (count \u003e\u003d 10)\n\t\treturn -ETIMEDOUT;",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 20
+      },
+      "revId": "b529fe6898f42df46e357501fda12ef21e66706f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b55a10f_2db8d67b",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_clock_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T14:05:26Z",
+      "side": 1,
+      "message": "Same comment as above.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 20
+      },
+      "revId": "b529fe6898f42df46e357501fda12ef21e66706f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4ef3c5b_28839c5d",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_clock_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T14:05:26Z",
+      "side": 1,
+      "message": "Can \u0027arefclkdiv\u0027 be 0, resulting in a division-by-zero exception here? Do you need to add a validation check on \u0027pllglob\u0027 prior to this division?",
+      "range": {
+        "startLine": 158,
+        "startChar": 12,
+        "endLine": 158,
+        "endChar": 22
+      },
+      "revId": "b529fe6898f42df46e357501fda12ef21e66706f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e8bde82_04917777",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_clock_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T14:05:26Z",
+      "side": 1,
+      "message": "Again, I would advise to remove dead code, or at least add a comment to explain why this line of code cannot be enabled right now.",
+      "range": {
+        "startLine": 203,
+        "startChar": 1,
+        "endLine": 203,
+        "endChar": 41
+      },
+      "revId": "b529fe6898f42df46e357501fda12ef21e66706f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9531688_6c4d6f00",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_clock_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T14:05:26Z",
+      "side": 1,
+      "message": "These lines make all the function code above useless, doesn\u0027t it? Is this intended?",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 27
+      },
+      "revId": "b529fe6898f42df46e357501fda12ef21e66706f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
