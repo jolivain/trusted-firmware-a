@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2db8134f_20c45838",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_memory_controller.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T14:16:58Z",
+      "side": 1,
+      "message": "Would sizeof(ddr_config[0]) be a better fit here? This way, if you ever change the type of elements inside the ddr_config[] array, it would automatically adapt and raise the right result.",
+      "range": {
+        "startLine": 28,
+        "startChar": 48,
+        "endLine": 28,
+        "endChar": 64
+      },
+      "revId": "29c184e6670057f52d2aa64d7cb7717232baf89b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
