@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9cee9f2_6d67281f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-06-01T06:58:20Z",
+      "side": 1,
+      "message": "CI for this patch and https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20808 failed with:\n```\n10:59:38 In file included from plat/hisilicon/hikey/hikey_ddr.c:13:\n10:59:38 In function \u0027mmio_write_32\u0027,\n10:59:38     inlined from \u0027hikey_ddr_init\u0027 at plat/hisilicon/hikey/hikey_ddr.c:1448:2:\n10:59:38 include/lib/mmio.h:41:35: error: array subscript 0 is outside array bounds of \u0027volatile uint32_t[0]\u0027 {aka \u0027volatile unsigned int[]\u0027} [-Werror\u003darray-bounds]\n10:59:38    41 |         *(volatile uint32_t*)addr \u003d value;\n10:59:38       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~\n10:59:38 In function \u0027mmio_read_32\u0027,\n10:59:38     inlined from \u0027hikey_ddr_init\u0027 at plat/hisilicon/hikey/hikey_ddr.c:1449:2:\n10:59:38 include/lib/mmio.h:46:16: error: array subscript 0 is outside array bounds of \u0027volatile uint32_t[0]\u0027 {aka \u0027volatile unsigned int[]\u0027} [-Werror\u003darray-bounds]\n10:59:38    46 |         return *(volatile uint32_t*)addr;\n10:59:38       |                ^~~~~~~~~~~~~~~~~~~~~~~~~\n10:59:38 cc1: all warnings being treated as errors\n10:59:38 make: *** [Makefile:1427: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/hikey/debug/bl2/hikey_ddr.o] Error 1\n```\nand:\n```\n10:58:25 In file included from plat/rpi/common/rpi3_pm.c:14:\n10:58:25 In function \u0027mmio_write_64\u0027,\n10:58:25     inlined from \u0027rpi3_pwr_down_wfi\u0027 at plat/rpi/common/rpi3_pm.c:182:3:\n10:58:25 include/lib/mmio.h:51:35: error: array subscript 0 is outside array bounds of \u0027volatile uint64_t[0]\u0027 {aka \u0027volatile long unsigned int[]\u0027} [-Werror\u003darray-bounds]\n10:58:25    51 |         *(volatile uint64_t*)addr \u003d value;\n10:58:25       |         ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~\n10:58:25 plat/rpi/common/rpi3_pm.c: In function \u0027plat_setup_psci_ops\u0027:\n10:58:25 plat/rpi/common/rpi3_pm.c:270:9: error: array subscript 0 is outside array bounds of \u0027uintptr_t[0]\u0027 {aka \u0027long unsigned int[]\u0027} [-Werror\u003darray-bounds]\n10:58:25   270 |         *entrypoint \u003d sec_entrypoint;\n10:58:25       |         ^~~~~~~~~~~\n10:58:25 cc1: all warnings being treated as errors\n10:58:25 make: *** [Makefile:1443: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/rpi4/debug/bl31/rpi3_pm.o] Error 1\n```\nThese failures look unrelated, and I wasn\u0027t able to reproduce them locally. I rebased the patch stack on the master branch, not sure if this fixed the errors?",
+      "revId": "f51d277de3e5f84eafafb32596ca0b154d11c4d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
