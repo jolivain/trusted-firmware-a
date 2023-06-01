@@ -117,6 +117,23 @@
       },
       "revId": "112f7b26221de8e442c61515fb3ee2faa6ae7f22",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b3301a3_bdd5bfbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T13:22:39Z",
+      "side": 1,
+      "message": "I suspect this patch is no longer needed with the recent rework of the tool from Harrison. I imagine COHERENT_RAM_END_UNALIGNED will automatically get captured by the regexp at [1] and be displayed by the tool.\n\nCould you please double-check?\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/tools/memory/memory/memmap.py?h\u003dintegration#n69",
+      "revId": "112f7b26221de8e442c61515fb3ee2faa6ae7f22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
