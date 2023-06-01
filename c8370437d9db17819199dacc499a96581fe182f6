@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68fe1122_47c91b2b",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T15:59:43Z",
+      "side": 1,
+      "message": "This source file belongs to a generic driver which is used by other platforms, such as Hikey, RaspberryPi, ...\n\nThus, any change in this driver should be justified and isolated from Intel-specific patches so that they can be reviewed more easily with all stakeholders.\n\nPlease pull out these changes in a separate standalone patch, outside of the present patch stack.",
+      "revId": "c8370437d9db17819199dacc499a96581fe182f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6e5a70d_8d27379d",
+        "filename": "include/drivers/mmc.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-01T15:59:43Z",
+      "side": 1,
+      "message": "Same comment for this file, which is part of the same driver.",
+      "revId": "c8370437d9db17819199dacc499a96581fe182f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
