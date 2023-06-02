@@ -9,11 +9,11 @@
 
 #include <context.h>
 
-void pmuv3_disable_el3(void);
-
 #ifdef __aarch64__
 void pmuv3_enable(cpu_context_t *ctx);
 void pmuv3_enable_el2(void);
-#endif /* __aarch64__ */
+#else /* !__aarch64__ */
+void pmuv3_disable_el3(void);
+#endif /* !__aarch64__ */
 
 #endif /* PMUV3_H */
