@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54279749_0bee1899",
+        "filename": "bl2/bl2.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-02T16:35:44Z",
+      "side": 1,
+      "message": "Ah, that was removed in more recent versions of integration - one of the merge conflicts.",
+      "parentUuid": "2d27c340_8de03fe9",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "844d674c_51c373d7",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-05-25T13:19:22Z",
       "side": 1,
       "message": "Could this option not be attached to the PSCI makefile instead? Same for BL31 I guess",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baa1cddf_62ac87e6",
+        "filename": "bl32/sp_min/sp_min.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-02T16:35:44Z",
+      "side": 1,
+      "message": "Is errata reporting in SP_MIN strictly tied to PSCI? It\u0027s not clear from the makefiles today. If it is then I\u0027m happy to move and document it.",
+      "parentUuid": "844d674c_51c373d7",
       "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "470ba28f_d7d7fbcc",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-02T16:35:44Z",
+      "side": 1,
+      "message": "This cannot be part of defaults.mk - the value is reset at the end of the file so that it can be re-configured for another image.",
+      "parentUuid": "66536ebb_aa1b4e47",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8330525f_3b72ef31",
         "filename": "lib/cpus/cpus.mk",
         "patchSetId": 39
@@ -65,6 +119,24 @@
       "writtenOn": "2023-05-25T13:19:22Z",
       "side": 1,
       "message": "why not use the WORKAROUND_CVE_2017_5715 that is already there? This feels like config duplication",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5caaa101_fcb16bc6",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-02T16:35:44Z",
+      "side": 1,
+      "message": "Not all of the images need the workaround - it\u0027s specific to BL31, so only BL31 enables CPUS_ENABLE_CVE_2017_5715_WORKAROUND even though WORKAROUND_CVE_2017_5715 is defined globally. That\u0027s one of the dangers of global configuration options.",
+      "parentUuid": "8330525f_3b72ef31",
       "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -88,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b512e815_cb685caa",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-02T16:35:44Z",
+      "side": 1,
+      "message": "Similarly to the CVE-2017-5715 workaround, CPUS_ENABLE_CPU_AMU changes based on the input configuration to this library, and that input configuration changes based on what depends on it.",
+      "parentUuid": "770b6970_3e2f54df",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d9b7398b_2cf0d39c",
         "filename": "lib/cpus/cpus.mk",
         "patchSetId": 39
@@ -99,6 +189,24 @@
       "writtenOn": "2023-05-25T13:19:22Z",
       "side": 1,
       "message": "From here onward, these depend on CTX_INCLUDE_AARCH32_REGS\u003d0 too. Is that a requirement or an optimisation because I don\u0027t see it checked?",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b52d4173_7c93a653",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-02T16:35:44Z",
+      "side": 1,
+      "message": "Sorry, I\u0027m not quite sure I understand. There are checks on line 132 for the presence of the AArch32 execution state.",
+      "parentUuid": "d9b7398b_2cf0d39c",
       "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -122,6 +230,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ee0dacc_6c712b77",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-02T16:35:44Z",
+      "side": 1,
+      "message": "Undefinition is unnecessary so long as we discard the previous value every time this library is loaded (e.g. by assigning to it with `:\u003d` like here)",
+      "parentUuid": "be08f0bb_67e75d31",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3fb2ce45_ba652f7e",
         "filename": "lib/cpus/cpus.mk",
         "patchSetId": 39
@@ -133,6 +259,30 @@
       "writtenOn": "2023-05-25T13:19:22Z",
       "side": 1,
       "message": "nit: you know it\u0027s zero from the check, why expand it?",
+      "range": {
+        "startLine": 121,
+        "startChar": 105,
+        "endLine": 121,
+        "endChar": 129
+      },
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "549cbec1_67a44740",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-02T16:35:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fb2ce45_ba652f7e",
       "range": {
         "startLine": 121,
         "startChar": 105,
@@ -162,6 +312,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1a393862_892fe553",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-02T16:35:44Z",
+      "side": 1,
+      "message": "Similar situation to the other build options above, the CPU AMU component is only necessary when:\n\n - IMAGE \u003d\u003d bl31\n - ENABLE_AMU !\u003d 0\n - any(CPUS_ENABLED) in CPUS_DEPENDS_CPU_AMU\n\nSo the library takes:\n\n - ENABLE_FEAT_AMU to determine whether the hardware supports an AMU (an IMPDEF one - not FEAT_AMU as the name suggests)\n - CPUS_ENABLE_CPU_AMU to determine whether the image wants to include the CPU AMU support files\n - CPUS_DEPENDS_CPU_AMU to determine which CPU AMU support files to include (if any)",
+      "parentUuid": "99bc1094_5118ac77",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94fd9edf_9e8d90d9",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 39
@@ -173,6 +341,24 @@
       "writtenOn": "2023-05-25T13:19:22Z",
       "side": 1,
       "message": "Can these be specified on the commandline? I understand this is probably a separate patch that will need CI refactoring. Or are we very fixated on the idea that the FVP includes _all_ cpus? I feel like if this is now easy to configure, there\u0027s no need to be wasteful with (BL31 progbits) size.",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53a5e9a4_c7e8b61d",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-02T16:35:44Z",
+      "side": 1,
+      "message": "They can in theory, but I think that\u0027s probably for another patchset for us to decide how best to go about that, whether there are any cores that should be included by default, etc. For now the objective of this patch is just an internal refactor.",
+      "parentUuid": "94fd9edf_9e8d90d9",
       "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
