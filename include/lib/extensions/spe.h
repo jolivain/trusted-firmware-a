@@ -9,12 +9,14 @@
 
 #include <stdbool.h>
 
+#include <context.h>
+
 #if ENABLE_SPE_FOR_NS
-void spe_enable_el3(void);
+void spe_enable(cpu_context_t *ctx);
 void spe_init_el2_unused(void);
 void spe_disable(void);
 #else
-static inline void spe_enable_el3(void)
+static inline void spe_enable(cpu_context_t *ctx)
 {
 }
 static inline void spe_init_el2_unused(void)
