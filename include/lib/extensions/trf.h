@@ -7,16 +7,28 @@
 #ifndef TRF_H
 #define TRF_H
 
+#include <context.h>
+
 #if ENABLE_TRF_FOR_NS
-void trf_enable_el3(void);
+#if __aarch64__
+void trf_enable(cpu_context_t *ctx);
 void trf_init_el2_unused(void);
+#else /* !__aarch64__ */
+void trf_enable_el3(void);
+#endif /* __aarch64__ */
 #else
-static inline void trf_enable_el3(void)
+#if __aarch64__
+static inline void trf_enable(cpu_context_t *ctx)
 {
 }
 static inline void trf_init_el2_unused(void)
 {
 }
+#else /* !__aarch64__ */
+static inline void trf_enable_el3(void)
+{
+}
+#endif /* __aarch64__ */
 #endif /* ENABLE_TRF_FOR_NS */
 
 #endif /* TRF_H */
