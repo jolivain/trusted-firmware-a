@@ -138,6 +138,24 @@
       "message": "We\u0027ve (very recently) merged some patches that completely rework this tool\u0027s code. Symbols names are now handled by the following regular expression:\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/tools/memory/memory/memmap.py?h\u003dintegration#n69\n\nThus, I suspect you don\u0027t need any changes at all in the tool\u0027s code to handle __TEXT_END_UNALIGNED__ and __RODATA_END_UNALIGNED__ but please could you rebase your patch on top of these recent changes and double-check?",
       "revId": "c6597c2bf546c2cdcc7945c4b02d4e3f62d04cf8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0784760c_1d41415e",
+        "filename": "tools/memory/print_memory_map.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-06-02T11:10:24Z",
+      "side": 1,
+      "message": "Actually you need because you are checking START__ or END__. That\u0027s why I also added UNALIGNED__ there too. New version is uploaded.",
+      "parentUuid": "b55636a0_8f3a31db",
+      "revId": "c6597c2bf546c2cdcc7945c4b02d4e3f62d04cf8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
