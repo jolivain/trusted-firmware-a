@@ -16,6 +16,24 @@
       "message": "@Sandrine pointed me to this commit which has been applied before my changes but actually this patch changed origin behaviour which I was using. \n\nOrigin tools/memory/print_memory_map.py didn\u0027t use ELF file but it was using map file which was parsed. \n\nI am dealing with issues on memory size constrained system which ends up with error like this.\nAnd previous script was able to give me memory layout because bl31.map file was generated but ELF not. \n\n  LD      /home/monstr/data/disk/ATF/arm-trusted-firmware/build/zynqmp/release/bl31/bl31.elf\n/opt/Xilinx/Vitis/2022.2/gnu/aarch64/lin/aarch64-linux/bin/../x86_64-petalinux-linux/usr/bin/aarch64-xilinx-linux/aarch64-xilinx-linux-ld.bfd.real: /home/monstr/data/disk/ATF/arm-trusted-firmware/build/zynqmp/release/bl31/bl31.elf section `.xlat_table\u0027 will not fit in region `RAM\u0027\n/opt/Xilinx/Vitis/2022.2/gnu/aarch64/lin/aarch64-linux/bin/../x86_64-petalinux-linux/usr/bin/aarch64-xilinx-linux/aarch64-xilinx-linux-ld.bfd.real: BL31 image has exceeded its limit.\n/opt/Xilinx/Vitis/2022.2/gnu/aarch64/lin/aarch64-linux/bin/../x86_64-petalinux-linux/usr/bin/aarch64-xilinx-linux/aarch64-xilinx-linux-ld.bfd.real: region `RAM\u0027 overflowed by 12288 bytes\nmake: *** [Makefile:1471: /home/monstr/data/disk/ATF/arm-trusted-firmware/build/zynqmp/release/bl31/bl31.elf] Error 1\n\nAnd this version requires ELF file to be generated. It means I am not able with new tool to figure out which section has issue. \n",
       "revId": "af5b49e992de76b9777d1bfa392fb4242c0ff823",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d7cf325_8038f8c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 50
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-02T16:37:37Z",
+      "side": 1,
+      "message": "Apologies for this Michal. Admittedly I ought to have thought of the scenario you find yourself in, where the build has already exceeded its limits. I\u0027m afraid I am not entirely sure how to get around this issue immediately. If you have any suggestions please do let me know. I will get back to you with a fix as soon as possible. In the mean time, can you checkout print_memory_map.py from previous revisions of the tree?",
+      "parentUuid": "6ccfa37d_33cab7cd",
+      "revId": "af5b49e992de76b9777d1bfa392fb4242c0ff823",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
