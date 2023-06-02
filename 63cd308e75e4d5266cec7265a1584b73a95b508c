@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dbc2c189_86f99fc0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-06-02T10:47:41Z",
+      "side": 1,
+      "message": "when I run \nmake realclean; make -j PLAT\u003dzynqmp DEBUG\u003d1 RESET_TO_BL31\u003d1 SPD\u003dtspd SDEI_SUPPORT\u003d1 ZYNQMP_ATF_MEM_BASE\u003d0xFFFC0000 ZYNQMP_ATF_MEM_SIZE\u003d0x0003f000 all -Werror\u003dlogical-op\nit works fine.\nwhen size is 0x40000 it fails.\n\nAnd recently with Ilias we fixed that size calculation by\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21079\n\nIt means I don\u0027t think it is the issue with the code itself. It is issue with addr+size is 4GB.",
+      "parentUuid": "1ea6befb_525cf41a",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 48
+      },
+      "revId": "63cd308e75e4d5266cec7265a1584b73a95b508c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a6ff7a6_9b108734",
         "filename": "plat/xilinx/zynqmp/zynqmp_sdei.c",
         "patchSetId": 1
