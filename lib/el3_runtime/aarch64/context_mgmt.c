@@ -38,6 +38,7 @@
 CASSERT(((TWED_DELAY & ~SCR_TWEDEL_MASK) == 0U), assert_twed_delay_value_check);
 #endif /* ENABLE_FEAT_TWED */
 
+static void manage_extensions_common(cpu_context_t *ctx);
 static void manage_extensions_nonsecure(cpu_context_t *ctx);
 static void manage_extensions_secure(cpu_context_t *ctx);
 
@@ -319,6 +320,7 @@ static void recreate_icc_sre_el2(cpu_context_t *ctx)
 static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *ep)
 {
 	u_register_t cptr_el3;
+	u_register_t mdcr_el3;
 	u_register_t scr_el3;
 	el3_state_t *state;
 	gp_regs_t *gp_regs;
@@ -469,6 +471,30 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 	}
 
 	/*
+	 * Initialise MDCR_EL3, setting all fields rather than relying on hw.
+	 * Some fields are architecturally UNKNOWN on reset.
+	 *
+	 * MDCR_EL3.TDOSA: Set to zero so that EL2 and EL2 System register
+	 *  access to the powerdown debug registers do not trap to EL3.
+	 *
+	 * MDCR_EL3.TDA: Set to zero to allow EL0, EL1 and EL2 access to the
+	 *  debug registers, other than those registers that are controlled by
+	 *  MDCR_EL3.TDOSA.
+	 *
+	 * MDCR_EL3.SDD: Set to one to disable AArch64 Secure self-hosted debug.
+	 *  Debug exceptions, other than Breakpoint Instruction exceptions, are
+	 *  disabled from all ELs in Secure state.
+	 *
+	 * MDCR_EL3.SPD32: Set to 0b10 to disable AArch32 Secure self-hosted
+	 *  privileged debug from S-EL1.
+	 */
+	mdcr_el3 = (MDCR_EL3_RESET_VAL & ~(MDCR_TDA_BIT | MDCR_TDOSA_BIT)) |
+		    MDCR_SDD_BIT | MDCR_SPD32(MDCR_SPD32_DISABLE);
+	write_ctx_reg(state, CTX_MDCR_EL3, mdcr_el3);
+
+	manage_extensions_common(ctx);
+
+	/*
 	 * Populate EL3 state so that we've the right context
 	 * before doing ERET
 	 */
@@ -552,10 +578,6 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 #if IMAGE_BL31
 void cm_manage_extensions_el3(void)
 {
-	if (is_feat_spe_supported()) {
-		spe_enable_el3();
-	}
-
 	if (is_feat_amu_supported()) {
 		amu_enable_el3();
 	}
@@ -568,21 +590,26 @@ void cm_manage_extensions_el3(void)
 		mpam_enable_el3();
 	}
 
-	if (is_feat_trbe_supported()) {
-		trbe_enable_el3();
+	pmuv3_disable_el3();
+}
+#endif
+
+static void manage_extensions_common(cpu_context_t *ctx)
+{
+#if IMAGE_BL31
+	if (is_feat_spe_supported()) {
+		spe_enable(ctx);
 	}
 
-	if (is_feat_brbe_supported()) {
-		brbe_enable_el3();
+	if (is_feat_trbe_supported()) {
+		trbe_enable(ctx);
 	}
 
 	if (is_feat_trf_supported()) {
-		trf_enable_el3();
+		trf_enable(ctx);
 	}
-
-	pmuv3_disable_el3();
-}
 #endif /* IMAGE_BL31 */
+}
 
 /*******************************************************************************
  * Enable architecture extensions on first entry to Non-secure world.
@@ -605,6 +632,10 @@ static void manage_extensions_nonsecure(cpu_context_t *ctx)
 
 	if (is_feat_sys_reg_trace_supported()) {
 		sys_reg_trace_enable(ctx);
+	}
+
+	if (is_feat_brbe_supported()) {
+		brbe_enable(ctx);
 	}
 
 	pmuv3_enable(ctx);

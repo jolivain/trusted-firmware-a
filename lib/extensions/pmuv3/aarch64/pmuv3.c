@@ -21,17 +21,6 @@ static u_register_t init_mdcr_el2_hpmn(u_register_t mdcr_el2)
 	return mdcr_el2;
 }
 
-void pmuv3_enable(cpu_context_t *ctx)
-{
-#if CTX_INCLUDE_EL2_REGS && IMAGE_BL31
-	u_register_t mdcr_el2;
-
-	mdcr_el2 = read_ctx_reg(get_el2_sysregs_ctx(ctx), CTX_MDCR_EL2);
-	mdcr_el2 = init_mdcr_el2_hpmn(mdcr_el2);
-	write_ctx_reg(get_el2_sysregs_ctx(ctx), CTX_MDCR_EL2, mdcr_el2);
-#endif /* CTX_INCLUDE_EL2_REGS && IMAGE_BL31 */
-}
-
 static u_register_t mtpmu_disable_el3(u_register_t mdcr_el3)
 {
 	if (!is_feat_mtpmu_supported()) {
@@ -48,9 +37,10 @@ static u_register_t mtpmu_disable_el3(u_register_t mdcr_el3)
 	return mdcr_el3;
 }
 
-void pmuv3_disable_el3(void)
+void pmuv3_enable(cpu_context_t *ctx)
 {
-	u_register_t mdcr_el3 = read_mdcr_el3();
+	el3_state_t *state = get_el3state_ctx(ctx);
+	u_register_t mdcr_el3 = read_ctx_reg(state, CTX_MDCR_EL3);
 
 	/* ---------------------------------------------------------------------
 	 * Initialise MDCR_EL3, setting all fields rather than relying on hw.
@@ -89,8 +79,19 @@ void pmuv3_disable_el3(void)
 	mdcr_el3 = (mdcr_el3 | MDCR_SCCD_BIT | MDCR_MCCD_BIT) &
 		  ~(MDCR_MPMX_BIT | MDCR_SPME_BIT | MDCR_TPM_BIT);
 	mdcr_el3 = mtpmu_disable_el3(mdcr_el3);
-	write_mdcr_el3(mdcr_el3);
+	write_ctx_reg(state, CTX_MDCR_EL3, mdcr_el3);
 
+#if CTX_INCLUDE_EL2_REGS && IMAGE_BL31
+	u_register_t mdcr_el2;
+
+	mdcr_el2 = read_ctx_reg(get_el2_sysregs_ctx(ctx), CTX_MDCR_EL2);
+	mdcr_el2 = init_mdcr_el2_hpmn(mdcr_el2);
+	write_ctx_reg(get_el2_sysregs_ctx(ctx), CTX_MDCR_EL2, mdcr_el2);
+#endif /* CTX_INCLUDE_EL2_REGS && IMAGE_BL31 */
+}
+
+void pmuv3_disable_el3(void)
+{
 	/* ---------------------------------------------------------------------
 	 * Initialise PMCR_EL0 setting all fields rather than relying
 	 * on hw. Some fields are architecturally UNKNOWN on reset.
