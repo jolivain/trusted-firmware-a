@@ -7,11 +7,13 @@
 #ifndef TRF_H
 #define TRF_H
 
+#include <context.h>
+
 #if ENABLE_TRF_FOR_NS
-void trf_enable_el3(void);
+void trf_enable(cpu_context_t *ctx);
 void trf_enable_el2(void);
 #else
-static inline void trf_enable_el3(void)
+static inline void trf_enable(cpu_context_t *ctx)
 {
 }
 static inline void trf_enable_el2(void)
