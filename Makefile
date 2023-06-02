@@ -137,10 +137,6 @@ ifeq (${ENABLE_RME},1)
 ifneq (${ENABLE_PIE},0)
         $(error ENABLE_RME does not support PIE)
 endif
-# RME doesn't support BRBE
-ifneq (${ENABLE_BRBE_FOR_NS},0)
-        $(error ENABLE_RME does not support BRBE.)
-endif
 # RME requires AARCH64
 ifneq (${ARCH},aarch64)
         $(error ENABLE_RME requires AArch64)
