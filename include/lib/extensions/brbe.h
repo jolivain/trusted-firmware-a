@@ -7,10 +7,16 @@
 #ifndef BRBE_H
 #define BRBE_H
 
+#include <context.h>
+
 #if ENABLE_BRBE_FOR_NS
-static inline void brbe_enable_el3(void);
+static inline void brbe_enable(cpu_context_t *ctx);
+static inline void brbe_disable(cpu_context_t *ctx);
 #else
-static inline void brbe_enable_el3(void)
+static inline void brbe_enable(cpu_context_t *ctx)
+{
+}
+static inline void brbe_disable(cpu_context_t *ctx)
 {
 }
 #endif /* ENABLE_BRBE_FOR_NS */
