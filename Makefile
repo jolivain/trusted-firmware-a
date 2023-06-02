@@ -658,6 +658,15 @@ ifneq (${ENABLE_RME},0)
                         $(error ENABLE_RME is incompatible with SPD=${SPD}. Use SPD=spmd)
 		endif
 	endif
+	ifneq (${MEASURED_BOOT},1)
+	# Certain attestation functionalities are a permanent part of RMM
+	# runtime services provided by EL3. Specifically, RMM can query the
+	# platform attestation token from RSS through TF-A RMMd services.
+	# This token must contain the CCA firmware measurements which are a
+	# necessary part of the complete attestation model.
+                $(error MEASURED_BOOT is required for Arm CCA attestation \
+                (if ENABLE_RME is set))
+	endif
 include services/std_svc/rmmd/rmmd.mk
 $(warning "RME is an experimental feature")
 endif
