@@ -573,6 +573,8 @@ func el3_exit
 	isb
 	msr	S3_6_C1_C2_0, x20 /* zcr_el3 */
 sve_not_enabled:
+	ldr	x20, [sp, #CTX_EL3STATE_OFFSET + CTX_MDCR_EL3]
+	msr	mdcr_el3, x20
 #endif /* IMAGE_BL31 */
 
 #if IMAGE_BL31 && DYNAMIC_WORKAROUND_CVE_2018_3639
