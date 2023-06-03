@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ce391ae_a6c021f6",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-06-03T21:29:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4e02e63e_a0948b9a",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 59
+      },
+      "revId": "e4eece831388ec97d0fd79a8f4c75c8aa57a386e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a23a55fd_060b444d",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-02T10:44:03Z",
       "side": 1,
       "message": "Why is this a WARN(), whereas we had an ERROR() at line 45? Is it any less serious?",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 6
+      },
+      "revId": "e4eece831388ec97d0fd79a8f4c75c8aa57a386e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e4a3895_6ec9191d",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-06-03T21:29:42Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a23a55fd_060b444d",
       "range": {
         "startLine": 50,
         "startChar": 2,
