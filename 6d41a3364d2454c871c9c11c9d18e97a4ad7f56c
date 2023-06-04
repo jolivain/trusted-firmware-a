@@ -123,6 +123,30 @@
       },
       "revId": "6d41a3364d2454c871c9c11c9d18e97a4ad7f56c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc5077a2_467a6ad6",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-06-04T19:11:17Z",
+      "side": 1,
+      "message": "sbsa-ref is virtual hardware platform using one of SoC provided by QEMU. Cortex-A57/A72 and Neoverse-N1 cpu cores were added once and their version/revision would rather not change in QEMU.\n\n\"max\" cpu core can change at any moment as it supports every feature QEMU has. SVE, SME, VHE, FGT, LVA, etc. Once LSE2 gets added \"max\" will have it. And for sbsa-ref platform it only means \"we may need to enable something in TF-A to get booting working again\" (like it was with FGT).\n\nPlatform version is about versioning our hardware platform. My blog post [1] may be better description of what we plan to achieve. There will be changes done to \"virtual hardware platform\" which we cover by bumping \"platform version\" so firmware will know which components are gone (EHCI, AHCI for example can be replaced by PCIe cards), which components are changed (generic \"GICv3\" changed to \"GIC700\" for example) etc.\n\nFor example I locally test whole stack with GIC address moved to check are all components get it properly (via parsing DT in TF-A and passing it via SMC to EDK2).\n\nWhen we will need to break compatibility with previous platform we bump platform version major. And SoC will be still the same.\n\n1. https://marcin.juszkiewicz.com.pl/2023/05/23/versioning-of-sbsa-ref-machine/",
+      "parentUuid": "061c1106_25b6850c",
+      "range": {
+        "startLine": 81,
+        "startChar": 6,
+        "endLine": 81,
+        "endChar": 21
+      },
+      "revId": "6d41a3364d2454c871c9c11c9d18e97a4ad7f56c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
