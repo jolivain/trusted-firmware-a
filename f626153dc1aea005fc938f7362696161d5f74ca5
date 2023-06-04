@@ -16,6 +16,24 @@
       "message": "Please do not change the default value of GICV3_SUPPORT_GIC600 in drivers/arm/gic/v3/gicv3.mk, as this is a generic makefile, and thus such a change would affect all platforms which include it.\n\nInstead, please override GICV3_SUPPORT_GIC600 to 1 only for your platform, through Intel Agilex5 platform makefile.",
       "revId": "f626153dc1aea005fc938f7362696161d5f74ca5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "936d6ac8_460888bf",
+        "filename": "drivers/arm/gic/v3/gicv3.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-04T16:07:14Z",
+      "side": 1,
+      "message": "Agreed. The configuration shall be made in platform.mk from Agilex5 platform.\nThis patch shall be abandon.",
+      "parentUuid": "64423493_f31bd475",
+      "revId": "f626153dc1aea005fc938f7362696161d5f74ca5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
