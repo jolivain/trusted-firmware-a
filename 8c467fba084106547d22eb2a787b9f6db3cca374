@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e308713_e82bcb76",
+        "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-04T14:52:40Z",
+      "side": 1,
+      "message": "set \u0027*nv_ctr_addr \u003d 0U\u0027 that helps to remove initialisation of nv_ctr_addr at line no.75 and 102 right?",
+      "revId": "8c467fba084106547d22eb2a787b9f6db3cca374",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "669ef631_9bcfabd6",
+        "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-04T14:52:40Z",
+      "side": 1,
+      "message": "nit: add blank before this \u0027return\u0027",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 1
+      },
+      "revId": "8c467fba084106547d22eb2a787b9f6db3cca374",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d25b31ef_8835011d",
+        "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-04T14:52:40Z",
+      "side": 1,
+      "message": "nit: remove extra line.",
+      "revId": "8c467fba084106547d22eb2a787b9f6db3cca374",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
