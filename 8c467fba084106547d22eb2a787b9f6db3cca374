@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "34cecec9_ee6c461f",
+        "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-05T12:25:59Z",
+      "side": 1,
+      "message": "\u003e I thought that the initialization of \u0027nv_ctr_addr\u0027 was done explicitly to avoid its access during the error condition (i.e. when plat_get_nv_ctr_addr failed to provide nv_ctr_addr).\n\nThat might be the original intent, maybe Lauren can confirm.\n\nIf we remove all initializations on both sides, and in the future we incorrectly try to access \u0027nv_ctr_addr\u0027 in the error code path nonetheless (which would be a bug, to be clear), I would expect the compiler to flag it (\"variable used before initialization\" type of warning), which is desirable IMO.",
+      "parentUuid": "0e3be5ba_e82f5630",
+      "revId": "8c467fba084106547d22eb2a787b9f6db3cca374",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "669ef631_9bcfabd6",
         "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
         "patchSetId": 7
