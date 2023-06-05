@@ -1377,6 +1377,7 @@ $(eval $(call add_defines,\
         ENABLE_FEAT_TWED \
 	CONDITIONAL_CMO \
 	IMPDEF_SYSREG_TRAP \
+        ARM_FVP_TRUSTED_SRAM_SIZE \
 )))
 
 ifeq (${SANITIZE_UB},trap)
