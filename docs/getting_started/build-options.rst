@@ -1137,6 +1137,9 @@ Common build options
   errata mitigation for platforms with a non-arm interconnect using the errata
   ABI. By default its disabled (``0``).
 
+-  ``FVP_TRUSTED_SRAM_SIZE``: Size (in kilobytes) of the Trusted SRAM region to
+   utilize when building for the FVP platform. This option defaults to 256.
+
 GICv3 driver options
 --------------------
 
