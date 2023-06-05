@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92afaada_6cc3a7ac",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-05T09:23:23Z",
+      "side": 1,
+      "message": "I believe the platform makefile is only included on line 646, much later than this is processed. In the commit message it says \"...given march value from MAJOR/MINOR values from platform...\" which I don\u0027t think is true in that case. Since the goal is for this to have platform inputs, is there anything stopping it from being done after the platform makefile?",
+      "revId": "eb572acbc652ed842a74175359426d0329cada37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0844a6e7_57c8a01f",
+        "filename": "make_helpers/march.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-05T09:23:23Z",
+      "side": 1,
+      "message": "could you provide comments saying what these functions do, like in build_macros.mk? They are hard to decipher\n\nalso a nit: could you put the functions at the top? It kind of splits the procedural bit. Not sure if they could even go in build_macros.mk",
+      "revId": "eb572acbc652ed842a74175359426d0329cada37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18c26306_ec0de752",
+        "filename": "make_helpers/march.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-05T09:23:23Z",
+      "side": 1,
+      "message": "I don\u0027t think this should be put on the console. Auxiliary targets like `realclean` frequently get called without CROSS_COMPILE being set, resulting in this warning.",
+      "revId": "eb572acbc652ed842a74175359426d0329cada37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
