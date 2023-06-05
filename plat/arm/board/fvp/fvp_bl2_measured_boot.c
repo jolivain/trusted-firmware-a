@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2024, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,6 +9,7 @@
 #include <common/tbbr/tbbr_img_def.h>
 #include <drivers/measured_boot/event_log/event_log.h>
 #include <drivers/measured_boot/rss/rss_measured_boot.h>
+#include <drivers/measured_boot/metadata.h>
 #if defined(ARM_COT_cca)
 #include <tools_share/cca_oid.h>
 #else
@@ -29,30 +30,30 @@ static uint64_t event_log_base;
 
 /* FVP table with platform specific image IDs, names and PCRs */
 const event_log_metadata_t fvp_event_log_metadata[] = {
-	{ BL31_IMAGE_ID, EVLOG_BL31_STRING, PCR_0 },
-	{ BL32_IMAGE_ID, EVLOG_BL32_STRING, PCR_0 },
-	{ BL32_EXTRA1_IMAGE_ID, EVLOG_BL32_EXTRA1_STRING, PCR_0 },
-	{ BL32_EXTRA2_IMAGE_ID, EVLOG_BL32_EXTRA2_STRING, PCR_0 },
-	{ BL33_IMAGE_ID, EVLOG_BL33_STRING, PCR_0 },
-	{ HW_CONFIG_ID, EVLOG_HW_CONFIG_STRING, PCR_0 },
-	{ NT_FW_CONFIG_ID, EVLOG_NT_FW_CONFIG_STRING, PCR_0 },
-	{ SCP_BL2_IMAGE_ID, EVLOG_SCP_BL2_STRING, PCR_0 },
-	{ SOC_FW_CONFIG_ID, EVLOG_SOC_FW_CONFIG_STRING, PCR_0 },
-	{ TOS_FW_CONFIG_ID, EVLOG_TOS_FW_CONFIG_STRING, PCR_0 },
-	{ RMM_IMAGE_ID, EVLOG_RMM_STRING, PCR_0},
+	{ BL31_IMAGE_ID, MBOOT_BL31_IMAGE_STRING, PCR_0 },
+	{ BL32_IMAGE_ID, MBOOT_BL32_IMAGE_STRING, PCR_0 },
+	{ BL32_EXTRA1_IMAGE_ID, MBOOT_BL32_EXTRA1_IMAGE_STRING, PCR_0 },
+	{ BL32_EXTRA2_IMAGE_ID, MBOOT_BL32_EXTRA2_IMAGE_STRING, PCR_0 },
+	{ BL33_IMAGE_ID, MBOOT_BL33_IMAGE_STRING, PCR_0 },
+	{ HW_CONFIG_ID, MBOOT_HW_CONFIG_STRING, PCR_0 },
+	{ NT_FW_CONFIG_ID, MBOOT_NT_FW_CONFIG_STRING, PCR_0 },
+	{ SCP_BL2_IMAGE_ID, MBOOT_SCP_BL2_IMAGE_STRING, PCR_0 },
+	{ SOC_FW_CONFIG_ID, MBOOT_SOC_FW_CONFIG_STRING, PCR_0 },
+	{ TOS_FW_CONFIG_ID, MBOOT_TOS_FW_CONFIG_STRING, PCR_0 },
+	{ RMM_IMAGE_ID, MBOOT_RMM_IMAGE_STRING, PCR_0},
 
 #if defined(SPD_spmd)
-	{ SP_PKG1_ID, EVLOG_SP1_STRING, PCR_0 },
-	{ SP_PKG2_ID, EVLOG_SP2_STRING, PCR_0 },
-	{ SP_PKG3_ID, EVLOG_SP3_STRING, PCR_0 },
-	{ SP_PKG4_ID, EVLOG_SP4_STRING, PCR_0 },
-	{ SP_PKG5_ID, EVLOG_SP5_STRING, PCR_0 },
-	{ SP_PKG6_ID, EVLOG_SP6_STRING, PCR_0 },
-	{ SP_PKG7_ID, EVLOG_SP7_STRING, PCR_0 },
-	{ SP_PKG8_ID, EVLOG_SP8_STRING, PCR_0 },
+	{ SP_PKG1_ID, MBOOT_SP1_STRING, PCR_0 },
+	{ SP_PKG2_ID, MBOOT_SP2_STRING, PCR_0 },
+	{ SP_PKG3_ID, MBOOT_SP3_STRING, PCR_0 },
+	{ SP_PKG4_ID, MBOOT_SP4_STRING, PCR_0 },
+	{ SP_PKG5_ID, MBOOT_SP5_STRING, PCR_0 },
+	{ SP_PKG6_ID, MBOOT_SP6_STRING, PCR_0 },
+	{ SP_PKG7_ID, MBOOT_SP7_STRING, PCR_0 },
+	{ SP_PKG8_ID, MBOOT_SP8_STRING, PCR_0 },
 #endif
 
-	{ CRITICAL_DATA_ID, EVLOG_CRITICAL_DATA_STRING, PCR_1 },
+	{ CRITICAL_DATA_ID, MBOOT_EVLOG_CRITICAL_DATA_STRING, PCR_1 },
 
 	{ EVLOG_INVALID_ID, NULL, (unsigned int)(-1) }	/* Terminator */
 };
@@ -65,21 +66,21 @@ struct rss_mboot_metadata fvp_rss_mboot_metadata[] = {
 		.id = BL31_IMAGE_ID,
 		.slot = U(9),
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
-		.sw_type = RSS_MBOOT_BL31_STRING,
+		.sw_type = MBOOT_BL31_IMAGE_STRING,
 		.pk_oid = BL31_IMAGE_KEY_OID,
 		.lock_measurement = true },
 	{
 		.id = HW_CONFIG_ID,
 		.slot = U(10),
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
-		.sw_type = RSS_MBOOT_HW_CONFIG_STRING,
+		.sw_type = MBOOT_HW_CONFIG_STRING,
 		.pk_oid = HW_CONFIG_KEY_OID,
 		.lock_measurement = true },
 	{
 		.id = SOC_FW_CONFIG_ID,
 		.slot = U(11),
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
-		.sw_type = RSS_MBOOT_SOC_FW_CONFIG_STRING,
+		.sw_type = MBOOT_SOC_FW_CONFIG_STRING,
 		.pk_oid = SOC_FW_CONFIG_KEY_OID,
 		.lock_measurement = true },
 #if ENABLE_RME
@@ -87,7 +88,7 @@ struct rss_mboot_metadata fvp_rss_mboot_metadata[] = {
 		.id = RMM_IMAGE_ID,
 		.slot = U(12),
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
-		.sw_type = RSS_MBOOT_RMM_STRING,
+		.sw_type = MBOOT_RMM_IMAGE_STRING,
 		.pk_oid = RMM_IMAGE_KEY_OID,
 		.lock_measurement = true },
 #endif /* ENABLE_RME */
