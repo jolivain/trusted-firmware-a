@@ -34,6 +34,24 @@
       "parentUuid": "6fc275d8_338fcf6b",
       "revId": "0edb83b6d8a936c2a30bc1a73439d0fe605c63b5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b89d75f_45213cdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-06-05T08:44:03Z",
+      "side": 1,
+      "message": "You can squash it.\nThe reasoning is also that we have some scripts as part of the CI that may flag this, preventing previous patches from being merged.\nIf you could please squash to the patch that first changes the file that would be appreciated.\nCheers",
+      "parentUuid": "da42985a_b416a031",
+      "revId": "0edb83b6d8a936c2a30bc1a73439d0fe605c63b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
