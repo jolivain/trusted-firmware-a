@@ -33,6 +33,24 @@
       "message": "hi, what am i supposed to do now? it says \"your turn\" for this patch, in my account.\n\ni\u0027m not quite sure how your practises are, in terms of this. please advise.",
       "revId": "da12f071f0daea79c7da8e0ebf1616afcbb2ab09",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02f126fc_9961f47f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-06-05T07:14:42Z",
+      "side": 1,
+      "message": "Thanks for your contributions.\nThis change passed the simple CI run, there is nothing needed from you just now.\nfiptool owners and maintainers will continue reviews.\n\nThat said it may probably help splitting the 40 changes patch stack into smaller batches of the same common \u0027topic\u0027, it\u0027s in general easier to organize reviews for batches of 5-10 changes as the CI can be run on top of a smaller set of changes, identify issues if any, receive fixes and rebase easily if necessary. Also using gerrit topic branches is helpful to maintainers to figure out and sort their work. It\u0027s just a guidance to ease maintainers\u0027 duties and eventually accelerate reviews. Thanks.",
+      "parentUuid": "6abf7b29_4f688b13",
+      "revId": "da12f071f0daea79c7da8e0ebf1616afcbb2ab09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
