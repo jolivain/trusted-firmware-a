@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "66f9d005_a3d2cc90",
+        "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-05T13:13:55Z",
+      "side": 1,
+      "message": "If the compiler does not flag such bugs then I agree it\u0027s best to clear out the variables just to be on the safe side. Otherwise, one could argue it\u0027s just adding useless instructions in the firmware... In a C codebase, this is a very common pattern/practice - as C does not allow returning more than 1 value - so I am sure we could have this discussion about other pieces of code in TF-A.",
+      "parentUuid": "bc9fbed6_f8c4eee4",
+      "revId": "8c467fba084106547d22eb2a787b9f6db3cca374",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "669ef631_9bcfabd6",
         "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
         "patchSetId": 7
