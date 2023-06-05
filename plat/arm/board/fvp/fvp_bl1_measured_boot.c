@@ -16,9 +16,9 @@ static uint8_t event_log[PLAT_ARM_EVENT_LOG_MAX_SIZE];
 
 /* FVP table with platform specific image IDs, names and PCRs */
 const event_log_metadata_t fvp_event_log_metadata[] = {
-	{ FW_CONFIG_ID, EVLOG_FW_CONFIG_STRING, PCR_0 },
-	{ TB_FW_CONFIG_ID, EVLOG_TB_FW_CONFIG_STRING, PCR_0 },
-	{ BL2_IMAGE_ID, EVLOG_BL2_STRING, PCR_0 },
+	{ FW_CONFIG_ID, FW_CONFIG_STRING, PCR_0 },
+	{ TB_FW_CONFIG_ID, TB_FW_CONFIG_STRING, PCR_0 },
+	{ BL2_IMAGE_ID, BL2_IMAGE_STRING, PCR_0 },
 
 	{ EVLOG_INVALID_ID, NULL, (unsigned int)(-1) }	/* Terminator */
 };
@@ -31,21 +31,21 @@ struct rss_mboot_metadata fvp_rss_mboot_metadata[] = {
 		.id = FW_CONFIG_ID,
 		.slot = U(6),
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
-		.sw_type = RSS_MBOOT_FW_CONFIG_STRING,
+		.sw_type = FW_CONFIG_STRING,
 		.pk_oid = ZERO_OID,
 		.lock_measurement = true },
 	{
 		.id = TB_FW_CONFIG_ID,
 		.slot = U(7),
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
-		.sw_type = RSS_MBOOT_TB_FW_CONFIG_STRING,
+		.sw_type = TB_FW_CONFIG_STRING,
 		.pk_oid = ZERO_OID,
 		.lock_measurement = true },
 	{
 		.id = BL2_IMAGE_ID,
 		.slot = U(8),
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
-		.sw_type = RSS_MBOOT_BL2_STRING,
+		.sw_type = BL2_IMAGE_STRING,
 		.pk_oid = ZERO_OID,
 		.lock_measurement = true },
 
