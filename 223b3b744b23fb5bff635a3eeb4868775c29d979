@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd565e5e_e5e6e86b",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-06-05T09:18:31Z",
+      "side": 1,
+      "message": "Static variables are implicitly zero-initialized, so there\u0027s no need for the \"\u003d 0\"",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 38
+      },
+      "revId": "223b3b744b23fb5bff635a3eeb4868775c29d979",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
