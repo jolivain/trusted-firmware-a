@@ -1376,7 +1376,7 @@ $(eval $(call add_defines,\
         TWED_DELAY \
         ENABLE_FEAT_TWED \
 	CONDITIONAL_CMO \
-	IMPDEF_SYSREG_TRAP \
+	IMPDEF_SYSREG_TRAP
 )))
 
 ifeq (${SANITIZE_UB},trap)
