@@ -505,3 +505,7 @@ DRTM_SUPPORT			:= 0
 # Check platform if cache management operations should be performed.
 # Disabled by default.
 CONDITIONAL_CMO			:= 0
+
+# Size (in kilobytes) of the Trusted SRAM on FVP platforms that support
+# configuring it. This option defaults to 256.
+ARM_FVP_TRUSTED_SRAM_SIZE	:= 256
