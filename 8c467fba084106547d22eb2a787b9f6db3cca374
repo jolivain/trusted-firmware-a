@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "470e6521_5e8e485f",
+        "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-05T06:12:52Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s necessary. If we hit line 59 then the function returns an error code (1 in this case). This indicates to the caller that plat_get_nv_ctr_addr() failed and that they should not look into *nv_ctr_addr at all. So *nv_ctr_addr does not need to be initialized in this case. Even the initializations at lines no.75 \u0026 102 are not needed actually...",
+      "parentUuid": "7e308713_e82bcb76",
+      "revId": "8c467fba084106547d22eb2a787b9f6db3cca374",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "669ef631_9bcfabd6",
         "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
         "patchSetId": 7
