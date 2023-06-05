@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "054273f8_71433e90",
+        "filename": "bl32/sp_min/sp_min.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-05T09:46:11Z",
+      "side": 1,
+      "message": "I can\u0027t speak about the makefiles, but the function which does the reporting, print_errata_status(), is only called in BL1 and PSCI. Which leads me to believe BL31 and SP_MIN get their dependency from there.",
+      "parentUuid": "baa1cddf_62ac87e6",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "66536ebb_aa1b4e47",
         "filename": "lib/cpus/cpus.mk",
         "patchSetId": 39
@@ -211,6 +229,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bd46711_3795d881",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-05T09:46:11Z",
+      "side": 1,
+      "message": "ah, the condition is flipped, I see",
+      "parentUuid": "b52d4173_7c93a653",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be08f0bb_67e75d31",
@@ -242,6 +278,24 @@
       "side": 1,
       "message": "Undefinition is unnecessary so long as we discard the previous value every time this library is loaded (e.g. by assigning to it with `:\u003d` like here)",
       "parentUuid": "be08f0bb_67e75d31",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47c2e0f3_6762dbea",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-05T09:46:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1ee0dacc_6c712b77",
       "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -293,6 +347,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37c207e6_4b2a0897",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-05T09:46:11Z",
+      "side": 1,
+      "message": "btw there are a few more scattered around, could make the lines shorter",
+      "parentUuid": "549cbec1_67a44740",
+      "range": {
+        "startLine": 121,
+        "startChar": 105,
+        "endLine": 121,
+        "endChar": 129
+      },
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99bc1094_5118ac77",
@@ -330,6 +408,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4076aff1_05c4efc0",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-05T09:46:11Z",
+      "side": 1,
+      "message": "I see what you mean now. I suppose since files don\u0027t take arguments, this is the way to do it.\n\nIn that case, why not hard code the dependencies in this file? I feel like this is overengineering as there are only 4 users of this library and there are unlikely to be more. It feels to me that this adds a level of indirection that is hard to read and I don\u0027t see the benefit.",
+      "parentUuid": "1a393862_892fe553",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94fd9edf_9e8d90d9",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 39
@@ -359,6 +455,24 @@
       "side": 1,
       "message": "They can in theory, but I think that\u0027s probably for another patchset for us to decide how best to go about that, whether there are any cores that should be included by default, etc. For now the objective of this patch is just an internal refactor.",
       "parentUuid": "94fd9edf_9e8d90d9",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79135ebe_0422178b",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-05T09:46:11Z",
+      "side": 1,
+      "message": "I suppose you\u0027re right",
+      "parentUuid": "53a5e9a4_c7e8b61d",
       "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
