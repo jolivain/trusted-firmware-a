@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e81d520f_c44236b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-05T06:17:10Z",
+      "side": 1,
+      "message": "\" ****** Newly added files detection check for Coverity Scan analysis on patch(es) ******\nResult: FAILURE\n\nNew source files have been identified in your patch.\nplat/qemu/common/qemu_sdei.c\"\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\nStatic checks are failing because, there is a new file included in this patch, which needs to be covered under our TF-A Coverity analysis CI job.\n\nWe have documented the procedure here on steps to be taken to resolve this failure: \nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#coverity-scan\n\nSo kindly take a look at this and push a corresponding CI-Scripts patch to address this failure.\n\nAn example patch for your reference: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/19152\n\n\nAlso please address or acknowledge the nit comments, in your next patchset.\nThanks!",
+      "revId": "6cab3a28cb4bfbc3cd588b0ccd8aaa83b97c6174",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
