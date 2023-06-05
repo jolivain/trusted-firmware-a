@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e3be5ba_e82f5630",
+        "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-05T07:32:18Z",
+      "side": 1,
+      "message": "I thought that the initialization of \u0027nv_ctr_addr\u0027 was done explicitly to avoid its access during the error condition (i.e. when plat_get_nv_ctr_addr failed to provide nv_ctr_addr).\n\nI\u0027m OK with either clearing out \u0027nv_ctr_addr\u0027 in the function \u0027plat_get_nv_ctr_addr\u0027 during error conditions (it is not harmful I believe) or removing the explicit initialisation of \u0027nv_ctr_addr\u0027 in the caller because \u0027nv_ctr_addr\u0027 is not be accessed during error conditions in the caller as per the current implementation.",
+      "parentUuid": "470e6521_5e8e485f",
+      "revId": "8c467fba084106547d22eb2a787b9f6db3cca374",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "669ef631_9bcfabd6",
         "filename": "plat/arm/board/fvp/fvp_trusted_boot.c",
         "patchSetId": 7
