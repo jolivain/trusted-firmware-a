@@ -34,6 +34,24 @@
       "parentUuid": "e81d520f_c44236b7",
       "revId": "6cab3a28cb4bfbc3cd588b0ccd8aaa83b97c6174",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58bb640c_c55b0f84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-05T08:31:48Z",
+      "side": 1,
+      "message": "Actually we dont run the coverity CI job on every patch. We run it on a daily basis.\n\nCI will not be able to identify your tf-a-scripts patch addressing coverity issue, while we run AllowCI+1 on this patch, code owners and maintainers will manually verify and add the vote.\n\nSo once the tf-a-ci-scripts patch is in place, I will manually overide the verified -1 vote here and give +1 vote.\n\nFrom your side, please keep both the patches with the same topic_name: (enable-qemu-sdei), so that mainatiners will merge both together.\nHope its clear.",
+      "parentUuid": "b771821b_c86ef111",
+      "revId": "6cab3a28cb4bfbc3cd588b0ccd8aaa83b97c6174",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
