@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3be2ea9f_7537c323",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-06T15:18:43Z",
+      "side": 1,
+      "message": "Hi Govindraj,\nHave you taken into account Armv7 CPUs?\nThey also include make_helpers/armv7-a-cpus.mk in which march32-directive is overwritten.",
+      "revId": "e143cecb23c86417c29fa4e0d2c696e4a516fb26",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
