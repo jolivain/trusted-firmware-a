@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9cb0fe32_e534b07f",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2023-06-06T17:59:57Z",
+      "side": 1,
+      "message": "I see what you mean now. I suppose it was unclear to me that \"CPU functions\" as referred to here applies at the top-level (not just to workarounds/checkers) and then further restrictions sort of trickle down as you go further down the call chain. \n\nAs a reader reading what I interpreted as documentation specific to the framework, I was reading \"CPU functions\" as the workaround/checker functions specifically, ie things that a user of the framework would be implementing. \n\nI think my main issue is if someone wants to add an errata using the new macros, they probably will be starting bottom up. IE they wont be looking at how the macros are implemented, how the reset function is implemented etc. The comments indicating the standard they need to adhere to aren\u0027t in the place where the user is writing new code. So it seems very easy for someone to write a new errata (or in my case convert an old one) not noticing that they are making this mistake. I think the documentation could help mitigate that risk by addressing this use case more explicitly/in more detail.\n\nAs you say, it is not that your documentation is wrong, it is that it is roundabout and I think it can be made more clear to avoid issues like the one I ran into in the future.",
+      "parentUuid": "2374bdce_79448827",
+      "range": {
+        "startLine": 1412,
+        "startChar": 0,
+        "endLine": 1412,
+        "endChar": 50
+      },
+      "revId": "ef867576dc158cd86bc92ba4f821e2641c213901",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "136e96ae_93d97e9c",
         "filename": "docs/design/firmware-design.rst",
         "patchSetId": 30
