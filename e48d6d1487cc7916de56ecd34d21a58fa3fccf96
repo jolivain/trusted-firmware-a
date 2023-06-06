@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "16bb5b3e_13e3955b",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-06T19:38:50Z",
+      "side": 1,
+      "message": "Hi Madhu, this would get optimized by the compiler in production builds any way, since both are compile time constants. Thats why i had them as assert..\nLet me know if you stongly feel this should be an if. happy to change but i didnt think the if would make a difference in prod builds given they are compile time constants...",
+      "parentUuid": "80b03239_3400d1ff",
+      "revId": "e48d6d1487cc7916de56ecd34d21a58fa3fccf96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b864c1ed_2abcae58",
         "filename": "services/std_svc/spmd/spmd_logical_sp.c",
         "patchSetId": 2
@@ -58,6 +76,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d00dfa36_57b69b17",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-06T19:38:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16e69fbe_a7068b25",
+      "range": {
+        "startLine": 372,
+        "startChar": 9,
+        "endLine": 372,
+        "endChar": 44
+      },
+      "revId": "e48d6d1487cc7916de56ecd34d21a58fa3fccf96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30ee9431_1b3c0a62",
@@ -81,6 +123,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "feb36f92_164e5513",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-06T19:38:50Z",
+      "side": 1,
+      "message": "Hi Madhu, thanks.. will keep as is. if i remember right, in hafnium reviews, the opposite was suggested for better readability.. can try to find the review..will resolve but if you feel strongly, i am happy to change, so please reopen if you disagree.",
+      "parentUuid": "30ee9431_1b3c0a62",
+      "range": {
+        "startLine": 391,
+        "startChar": 0,
+        "endLine": 399,
+        "endChar": 21
+      },
+      "revId": "e48d6d1487cc7916de56ecd34d21a58fa3fccf96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1fb9f0f_9157d47c",
@@ -94,6 +160,30 @@
       "writtenOn": "2023-05-17T21:07:35Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 416,
+        "startChar": 14,
+        "endLine": 416,
+        "endChar": 18
+      },
+      "revId": "e48d6d1487cc7916de56ecd34d21a58fa3fccf96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffc69470_9009c5a0",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-06T19:38:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f1fb9f0f_9157d47c",
       "range": {
         "startLine": 416,
         "startChar": 14,
