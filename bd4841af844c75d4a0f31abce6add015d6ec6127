@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0132766_5bd87e5c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_shared_mem.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2023-06-06T14:37:05Z",
+      "side": 1,
+      "message": "Why was the name of this variable\u0027s type changed? As I understand it, this is not a functional change.",
+      "revId": "bd4841af844c75d4a0f31abce6add015d6ec6127",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
