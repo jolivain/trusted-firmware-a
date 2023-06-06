@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "008e90ab_b468430c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-06-06T14:00:56Z",
+      "side": 1,
+      "message": "I tried your change above(appending U). I see the same build error. Did you intend to use UL?",
+      "parentUuid": "1dc026d4_51a4a250",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 48
+      },
+      "revId": "63cd308e75e4d5266cec7265a1584b73a95b508c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8a6ff7a6_9b108734",
         "filename": "plat/xilinx/zynqmp/zynqmp_sdei.c",
         "patchSetId": 1
