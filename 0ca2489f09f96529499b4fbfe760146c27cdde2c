@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9f6736c8_09bcb6bf",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-06-06T19:33:07Z",
+      "side": 1,
+      "message": "I understand. I honestly don\u0027t think that one more memory access will hurt in this case. Anyways, I\u0027m adding Jayanth as a reviewer, so he can share his thoughts on this, as he is the one that developed the feature detection mechanism.",
+      "parentUuid": "77f33ec7_1854653f",
+      "range": {
+        "startLine": 276,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 18
+      },
+      "revId": "0ca2489f09f96529499b4fbfe760146c27cdde2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "83ce492f_8d6435ef",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 12
@@ -149,6 +173,30 @@
       "side": 1,
       "message": "I see what you mean, but this register belongs to that structure and I don\u0027t think any other. It is EL2 context after all. Under the current behaviour this happens anyway, but at prepare_el3_exit(). I take the option to be a bit more semantic, as in CTX_INCLUDE_EL2_REGS\u003d1 means \"include the full EL2 context\" and CTX_INCLUDE_EL2_REGS\u003d0 means \"please do the minimal amount of work to get EL2 working\". I don\u0027t really change the function of the option, but just make what happens a bit more explicit.",
       "parentUuid": "83ce492f_8d6435ef",
+      "range": {
+        "startLine": 285,
+        "startChar": 1,
+        "endLine": 285,
+        "endChar": 57
+      },
+      "revId": "0ca2489f09f96529499b4fbfe760146c27cdde2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe67b2aa_36876d68",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-06-06T19:33:07Z",
+      "side": 1,
+      "message": "That\u0027s fair. I also agree that using another structure will add more work and complexity. I\u0027m fine with leaving it as it is.",
+      "parentUuid": "2350f283_34105902",
       "range": {
         "startLine": 285,
         "startChar": 1,
