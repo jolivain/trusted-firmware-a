@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2374bdce_79448827",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-06T17:38:16Z",
+      "side": 1,
+      "message": "So this is a little roundabout, but I don\u0027t think it\u0027s wrong: (this interpretation of) the PCS says that any function may use x15 as it wants. So the reset_func uses x10 through x15 to save things, which is compliant. So any code in the reset_func may safely use x0 through x9, which is stated in its comment. Knowing this, the _workaround_start uses x8 to save things and lets its body use x0 through x7. \n\nSo workarounds do reflect the reset_func constraint which reflects the PCS constraint, but the PCS doesn\u0027t need to reflect theirs.",
+      "parentUuid": "9e1b68a5_252a242e",
+      "range": {
+        "startLine": 1412,
+        "startChar": 0,
+        "endLine": 1412,
+        "endChar": 50
+      },
+      "revId": "ef867576dc158cd86bc92ba4f821e2641c213901",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "136e96ae_93d97e9c",
         "filename": "docs/design/firmware-design.rst",
         "patchSetId": 30
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-06T16:31:20Z",
       "side": 1,
       "message": "Is this accurate? Can you point out where these are used by the linker in the framework? I do not see these in cpu_macros.S at least",
+      "range": {
+        "startLine": 1414,
+        "startChar": 0,
+        "endLine": 1414,
+        "endChar": 50
+      },
+      "revId": "ef867576dc158cd86bc92ba4f821e2641c213901",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24f8def1_22a28cb7",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 1414,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-06T17:38:16Z",
+      "side": 1,
+      "message": "The PCS says \"[R17] The second intra-procedure-call temporary register (can be used by call veneers and PLT code); at other times may be used as a temporary register\". So I played it safe and said do not use, although I suppose it could be allowed?",
+      "parentUuid": "136e96ae_93d97e9c",
       "range": {
         "startLine": 1414,
         "startChar": 0,
