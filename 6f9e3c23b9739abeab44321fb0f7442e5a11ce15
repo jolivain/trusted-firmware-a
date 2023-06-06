@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae48fba9_aa8cc423",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-06T14:40:43Z",
+      "side": 1,
+      "message": "No such support at least for now..may in the future but need to ask FFA arch team.. it could be useful in some cases just to keep logically separate SPs in El3 for example..",
+      "parentUuid": "0f0cd6a1_4f5dd705",
+      "range": {
+        "startLine": 10,
+        "startChar": 41,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f7f9556_73c3913f",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-05-09T14:11:08Z",
       "side": 1,
       "message": "In my mind this is an unsupported case, and actually exclusive.\nEither EL3 LSPs are managed by the EL3 SPMC\nor LSPs are managed by the SPMD when the SPMC is at lower EL..\n\nEventually we may argue that we could conflate the EL3 LSPs logic to be managed by the SPMD, whichever using the EL3 SPMC or the SEL2/SEL1 SPMC.",
+      "range": {
+        "startLine": 14,
+        "startChar": 17,
+        "endLine": 15,
+        "endChar": 31
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2434e0fe_baa3e100",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-06T14:40:43Z",
+      "side": 1,
+      "message": "agree. Wasnt clear in the spec on the future direction. Would you want me to change the commit message? If not what actions should i take to resolve this comment?\u003e",
+      "parentUuid": "7f7f9556_73c3913f",
       "range": {
         "startLine": 14,
         "startChar": 17,
@@ -214,6 +262,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "07c9b0b4_a49ed48c",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-06T14:40:43Z",
+      "side": 1,
+      "message": "Sure. Let me add as separate patch once this patch set merges. Noted down the need but can i resolve for now since it is an extension of functionlaity?",
+      "parentUuid": "fe9e7902_365b6ff6",
+      "range": {
+        "startLine": 123,
+        "startChar": 42,
+        "endLine": 125,
+        "endChar": 32
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6900a2f_016fe32e",
         "filename": "services/std_svc/spmd/spmd_logical_sp.c",
         "patchSetId": 1
@@ -261,6 +333,24 @@
       "side": 1,
       "message": "Don\u0027t both direct message and ffa_info_get_regs behave as if they are blocking calls? Can we have both of them in flight simultaneously for a particular context?",
       "parentUuid": "ba9687c8_9ed6e0cd",
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96420444_7f350d63",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-06T14:40:43Z",
+      "side": 1,
+      "message": "Correct. Only one in flight so only one bit can be set. The point of doing it as a bit field is to avoid one boolean per message and instead use a bit field.",
+      "parentUuid": "bdac9961_3bd895be",
       "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -631,6 +721,30 @@
       "side": 1,
       "message": "Honestly, I dont know the answer. But I am thinking out loud: should we compromise the entire system just because one LSP context failed. Is it the most resilient approach?",
       "parentUuid": "45d09958_d9938081",
+      "range": {
+        "startLine": 348,
+        "startChar": 2,
+        "endLine": 348,
+        "endChar": 10
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4e9fa54_0551dacd",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-06T14:40:43Z",
+      "side": 1,
+      "message": "No, it is not, but i dont see why it can fail. I\u0027d rather take the safer/conservative and simpler approach now and extend if we find that we can actually fail and panic.",
+      "parentUuid": "6bafec72_3c0b956a",
       "range": {
         "startLine": 348,
         "startChar": 2,

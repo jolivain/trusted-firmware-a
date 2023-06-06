@@ -39,6 +39,30 @@
       },
       "revId": "7f217dd510cb9e17b6f82275f295b10920fb6360",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7538f72b_855b6a5a",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 359,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-06T14:40:43Z",
+      "side": 1,
+      "message": "this is to your point above. The below checks can actually fail in normal use cases, so instead of panic\u0027ing we just assert in debug builds to debug and in production, we just return appropriate error codes or sthe caller checks for this.\ncotnrast this with failing a sync exit, an SP cannot do anything if a sync call fails and there is no code that can cause it to fail..",
+      "parentUuid": "43a7c26e_7137af49",
+      "range": {
+        "startLine": 358,
+        "startChar": 42,
+        "endLine": 359,
+        "endChar": 47
+      },
+      "revId": "7f217dd510cb9e17b6f82275f295b10920fb6360",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
