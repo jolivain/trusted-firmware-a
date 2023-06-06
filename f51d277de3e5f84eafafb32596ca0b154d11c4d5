@@ -33,6 +33,24 @@
       "message": "Hi Wing,\n\nCI failed due to the following build error:\n\n15:44:29 plat/arm/board/fvp/fvp_pm.c:443:31: error: initialization of \u0027int (*)(const psci_power_state_t *)\u0027 {aka \u0027int (*)(const struct psci_power_state *)\u0027} from incompatible pointer type \u0027void (*)(const psci_power_state_t *)\u0027 {aka \u0027void (*)(const struct psci_power_state *)\u0027} [-Werror\u003dincompatible-pointer-types]\n15:44:29   443 |         .pwr_domain_suspend \u003d fvp_pwr_domain_suspend,\n15:44:29       |                               ^~~~~~~~~~~~~~~~~~~~~~\n\nPSCI_OS_INIT_MODE is still enabled by default for all FVP platforms.",
       "revId": "f51d277de3e5f84eafafb32596ca0b154d11c4d5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fa51ce7_af9590de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-06-06T17:59:07Z",
+      "side": 1,
+      "message": "Hi Harrison, the above build error is the reverse of what we previously saw in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20806. The patches have a circular dependency on the declaration / definition of pwr_domain_suspend, and I\u0027m wondering if it\u0027s sufficient for the tip of the relation chain to pass CI? Otherwise, we\u0027d have to combine the patches into a single patch. Let me know which approach is preferred. Thanks!",
+      "parentUuid": "44bc9085_054e39cb",
+      "revId": "f51d277de3e5f84eafafb32596ca0b154d11c4d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
