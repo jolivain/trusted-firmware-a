@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a349b5dc_38aa07d4",
+        "filename": "plat/mediatek/mt8195/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-06-06T07:46:00Z",
+      "side": 1,
+      "message": "coreboot reserves 384KB memory for BL31 payload.\nYou can increase this size to 256KB(0x00040000).",
+      "range": {
+        "startLine": 136,
+        "startChar": 21,
+        "endLine": 136,
+        "endChar": 31
+      },
+      "revId": "6a4b9fd28bc6032ded47335c2b713870a16abb8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
