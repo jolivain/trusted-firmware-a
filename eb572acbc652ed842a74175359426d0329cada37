@@ -104,6 +104,24 @@
       "parentUuid": "18c26306_ec0de752",
       "revId": "eb572acbc652ed842a74175359426d0329cada37",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "935d235c_61bdf6fd",
+        "filename": "make_helpers/march.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-06T09:47:04Z",
+      "side": 1,
+      "message": "I don\u0027t think that solves the issue of complaining on `realclean` though?\n\nAnyway, I don\u0027t think it matters much, it\u0027s a very minor detail. I don\u0027t think the kernel tells the user?\n\nI was also thinking if having a platform override might not be useful? Something like `USE_MARCH\u003dxxx` and the build will proper fail if it\u0027s not available?",
+      "parentUuid": "3d1e948f_98d6884d",
+      "revId": "eb572acbc652ed842a74175359426d0329cada37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
