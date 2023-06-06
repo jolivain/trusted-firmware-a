@@ -1,0 +1,197 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c2d693e_05a4c47c",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-06-06T15:43:08Z",
+      "side": 1,
+      "message": "You can remove TODO and check up to v3p9:\n\tcheck_feature(1, read_feat_pmuv3_id_field(),\n\t\t      \"PMUv3\", ID_AA64DFR0_PMUVER_PMUV3, ID_AA64DFR0_PMUVER_PMUV3P9);\n\nAdd ID_AA64DFR0_PMUVER_PMUV3 and ID_AA64DFR0_PMUVER_PMUV3P9 in arch.h",
+      "range": {
+        "startLine": 148,
+        "startChar": 1,
+        "endLine": 149,
+        "endChar": 48
+      },
+      "revId": "093d0ac3816100c6e3ba7560fa83ee4a68ac113c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ece6a105_8e59030d",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-06-06T15:43:08Z",
+      "side": 1,
+      "message": "#define ID_DFR0_PERFMON_PMUV3P9\t\tU(9)\nswap ID_DFR0_PERFMON_PMUV3P9 and ID_DFR0_PERFMON_PMUV3 definitions",
+      "revId": "093d0ac3816100c6e3ba7560fa83ee4a68ac113c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bbec31f_47e02b49",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-06-06T15:43:08Z",
+      "side": 1,
+      "message": "#define ID_AA64DFR0_PMUVER_PMUV3\tU(1)\n#define ID_AA64DFR0_PMUVER_PMUV3P9\tU(9)",
+      "revId": "093d0ac3816100c6e3ba7560fa83ee4a68ac113c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79d3f466_59ff0829",
+        "filename": "include/lib/extensions/pmuv3.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-06-06T15:43:08Z",
+      "side": 1,
+      "message": "add empty line",
+      "revId": "093d0ac3816100c6e3ba7560fa83ee4a68ac113c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7a548d3_2e1f9313",
+        "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-06-06T15:43:08Z",
+      "side": 1,
+      "message": "Start comments with capital letter",
+      "revId": "093d0ac3816100c6e3ba7560fa83ee4a68ac113c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdf12a74_fc021380",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-06-06T15:43:08Z",
+      "side": 1,
+      "message": "add empty line\n\"...is presumed to be always present",
+      "revId": "093d0ac3816100c6e3ba7560fa83ee4a68ac113c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3510606_aa6b2f41",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-06-06T15:43:08Z",
+      "side": 1,
+      "message": "as above",
+      "revId": "093d0ac3816100c6e3ba7560fa83ee4a68ac113c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "471a4989_3ee5b6e9",
+        "filename": "lib/extensions/pmuv3/aarch32/pmuv3.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-06-06T15:43:08Z",
+      "side": 1,
+      "message": "Applies",
+      "revId": "093d0ac3816100c6e3ba7560fa83ee4a68ac113c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94d77b24_f97f8e46",
+        "filename": "lib/extensions/pmuv3/aarch32/pmuv3.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-06-06T15:43:08Z",
+      "side": 1,
+      "message": "This function actually disables PMU in EL3 (PMCR_E_BIT is set to 0).\nShould it be renamed to \"pmuv3_set_el3()\"?",
+      "revId": "093d0ac3816100c6e3ba7560fa83ee4a68ac113c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e462262_e730d878",
+        "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-06-06T15:43:08Z",
+      "side": 1,
+      "message": "This function doesn\u0027t enable PMU, can the name be changed?",
+      "revId": "093d0ac3816100c6e3ba7560fa83ee4a68ac113c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7315b9d_797ad8f6",
+        "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-06-06T15:43:08Z",
+      "side": 1,
+      "message": "Please see my comment for aarch32",
+      "revId": "093d0ac3816100c6e3ba7560fa83ee4a68ac113c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
