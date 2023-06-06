@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e6bbbec0_0360af43",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2023-06-06T18:54:11Z",
+      "side": 1,
+      "message": "Okay, please disregard most of my above comment, I see now that the workarounds etc are addressed more directly below in the errata framework section and that this CPU PCS section is intended to be more general. I wonder if maybe still some comment could be added to this section along the lines of \"all CPU functions should adhere to this PCS but further restrictions may be imposed by the errata framework functions\" \n\nie these are the ones that are available in general, but the framework reserves some of the scratch registers for its own use.",
+      "parentUuid": "9cb0fe32_e534b07f",
+      "range": {
+        "startLine": 1412,
+        "startChar": 0,
+        "endLine": 1412,
+        "endChar": 50
+      },
+      "revId": "ef867576dc158cd86bc92ba4f821e2641c213901",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "136e96ae_93d97e9c",
         "filename": "docs/design/firmware-design.rst",
         "patchSetId": 30
@@ -114,6 +138,52 @@
         "startChar": 0,
         "endLine": 1414,
         "endChar": 50
+      },
+      "revId": "ef867576dc158cd86bc92ba4f821e2641c213901",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41c78893_7f6ca63f",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 1442,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2023-06-06T18:54:11Z",
+      "side": 1,
+      "message": "x14 is the cpu_rev parameter, x15 used for linking, no?",
+      "range": {
+        "startLine": 1442,
+        "startChar": 0,
+        "endLine": 1442,
+        "endChar": 69
+      },
+      "revId": "ef867576dc158cd86bc92ba4f821e2641c213901",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea7a5f31_7cae6560",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 1515,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2023-06-06T18:54:11Z",
+      "side": 1,
+      "message": "This is what I needed to see before :) My mistake for conflating the two.",
+      "range": {
+        "startLine": 1515,
+        "startChar": 0,
+        "endLine": 1515,
+        "endChar": 76
       },
       "revId": "ef867576dc158cd86bc92ba4f821e2641c213901",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
