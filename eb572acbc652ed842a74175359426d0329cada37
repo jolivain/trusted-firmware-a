@@ -122,6 +122,24 @@
       "parentUuid": "3d1e948f_98d6884d",
       "revId": "eb572acbc652ed842a74175359426d0329cada37",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78eec7e9_eb8edabe",
+        "filename": "make_helpers/march.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-06-06T19:43:18Z",
+      "side": 1,
+      "message": "Kernel refuses to try alternative and will deny to use alternative march from what compiler supports, IIUC, for tf-a usecases we need to try to use older compiler with newest archs which may need to try with alternate marchs?\n\nwe already have \u0027MARCH_DIRECTIVE\u0027 macro available platforms can use this?\nI have added to consider MARCH_DIRECTIVE if provided else try to come with major.minor usage else try whats best from compiler as last fallthourgh 😊\n\nI hope these combination will suffice most usecases?",
+      "parentUuid": "935d235c_61bdf6fd",
+      "revId": "eb572acbc652ed842a74175359426d0329cada37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
