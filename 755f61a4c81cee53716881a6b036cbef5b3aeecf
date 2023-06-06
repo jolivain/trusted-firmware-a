@@ -128,6 +128,30 @@
       },
       "revId": "755f61a4c81cee53716881a6b036cbef5b3aeecf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75b2eace_27867096",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_gic.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-06T09:08:32Z",
+      "side": 1,
+      "message": "Yes, sure, we can defer this for a subsequent patch.",
+      "parentUuid": "a4b76867_e3008378",
+      "range": {
+        "startLine": 19,
+        "startChar": 8,
+        "endLine": 19,
+        "endChar": 22
+      },
+      "revId": "755f61a4c81cee53716881a6b036cbef5b3aeecf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
