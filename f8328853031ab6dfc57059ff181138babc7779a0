@@ -39,6 +39,30 @@
       },
       "revId": "f8328853031ab6dfc57059ff181138babc7779a0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "671b8736_79e37a69",
+        "filename": "include/arch/aarch64/asm_macros.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-06-07T08:29:12Z",
+      "side": 1,
+      "message": "Pardon my ignorance, I miss a bit how this works. How is the function author knowing how much of \u0027frame size\u0027 it needs? Is it dependent on how the said asm function is crafted, number of inner function calls, etc.?\nWhat if I always use the default value of 0? What would be the limitation?",
+      "parentUuid": "9823cdf5_5f22a3ea",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 40,
+        "endChar": 53
+      },
+      "revId": "f8328853031ab6dfc57059ff181138babc7779a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
