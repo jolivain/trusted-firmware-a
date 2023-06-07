@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9597ac6b_d0dcd535",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-07T13:36:38Z",
+      "side": 1,
+      "message": "The padding width is statically defined, I haven\u0027t quite worked out how to dynamically do this. For now I\u0027ve increased the padding size to 11 which should increase the range to at least 8GB. Is this sufficient?",
+      "parentUuid": "de5f8b90_68ca38ea",
+      "revId": "d78bb03f5f6041f7a216f385538b4352795cc942",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29f847a9_4111e883",
@@ -54,6 +72,54 @@
       "writtenOn": "2023-06-07T12:54:50Z",
       "side": 1,
       "message": "As the mapfile parser always runs as a fallback, maybe \"--no-elf-images\" might be a more appropriate option?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 6
+      },
+      "revId": "d78bb03f5f6041f7a216f385538b4352795cc942",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a84139f_e8a4a233",
+        "filename": "tools/memory/memory/memmap.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-07T13:36:38Z",
+      "side": 1,
+      "message": "How does it look now?",
+      "parentUuid": "29f847a9_4111e883",
+      "range": {
+        "startLine": 54,
+        "startChar": 37,
+        "endLine": 54,
+        "endChar": 73
+      },
+      "revId": "d78bb03f5f6041f7a216f385538b4352795cc942",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dfb270d_8172b77d",
+        "filename": "tools/memory/memory/memmap.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-07T13:36:38Z",
+      "side": 1,
+      "message": "Agreed!",
+      "parentUuid": "a7d15711_5edb7f9e",
       "range": {
         "startLine": 54,
         "startChar": 0,
