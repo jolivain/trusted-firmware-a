@@ -16,6 +16,29 @@
       "message": "commit lint failed with an internal error. Passed on rebuild: https://ci.trustedfirmware.org/job/tf-a-commitlint/4956/",
       "revId": "f8328853031ab6dfc57059ff181138babc7779a0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9823cdf5_5f22a3ea",
+        "filename": "include/arch/aarch64/asm_macros.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-06-07T08:26:47Z",
+      "side": 1,
+      "message": "Comment removed by: Olivier Deprez; Reason: (fixing typos)",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 40,
+        "endChar": 53
+      },
+      "revId": "f8328853031ab6dfc57059ff181138babc7779a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
