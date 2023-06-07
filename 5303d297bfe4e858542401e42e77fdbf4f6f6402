@@ -16,6 +16,23 @@
       "message": "I think this is correct. Thanks for updating!",
       "revId": "5303d297bfe4e858542401e42e77fdbf4f6f6402",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11c22928_b9f8265c",
+        "filename": "lib/cpus/aarch64/dsu_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-07T11:28:21Z",
+      "side": 1,
+      "message": "build error due to this nested comment. Kindly fix it.",
+      "revId": "5303d297bfe4e858542401e42e77fdbf4f6f6402",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
