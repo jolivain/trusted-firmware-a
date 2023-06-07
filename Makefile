@@ -905,6 +905,9 @@ ifeq ($(MEASURED_BOOT)-$(TRUSTED_BOARD_BOOT),1-1)
 else ifeq ($(DRTM_SUPPORT)-$(TRUSTED_BOARD_BOOT),1-1)
 # Support authentication verification and hash calculation
 	CRYPTO_SUPPORT := 3
+else ifeq ($(DICE_PROTECTION_ENVIRONMENT)-$(TRUSTED_BOARD_BOOT),1-1)
+# Support authentication verification and hash calculation
+	CRYPTO_SUPPORT := 3
 else ifneq ($(filter 1,${MEASURED_BOOT} ${DRTM_SUPPORT}),)
 # Support hash calculation only
 	CRYPTO_SUPPORT := 2
@@ -1359,6 +1362,7 @@ $(eval $(call add_defines,\
 	HW_ASSISTED_COHERENCY \
 	LOG_LEVEL \
 	MEASURED_BOOT \
+	DICE_PROTECTION_ENVIRONMENT \
 	DRTM_SUPPORT \
 	NS_TIMER_SWITCH \
 	PL011_GENERIC_UART \
