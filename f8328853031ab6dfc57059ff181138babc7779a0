@@ -63,6 +63,30 @@
       },
       "revId": "f8328853031ab6dfc57059ff181138babc7779a0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e151795_858d3c80",
+        "filename": "include/arch/aarch64/asm_macros.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-07T09:01:11Z",
+      "side": 1,
+      "message": "because the function author is the one to put each byte on the stack :). From scrolling around tf-a, a lot of functions don\u0027t ever touch the stack and as such don\u0027t use this macro. For some this is valid eg. the reset_funcs since they don\u0027t have stack available when they are called. For others, like the errata_report functions (which got removed recently, I\u0027ll see if I can\u0027t add a different example), are to be called in a properly functioning C environment. So these functions should make a stack frame that the debugger can unwind and show a pretty trace for. This is what this macro would do with _frame_size\u003d0. Some functions want to save registers on the stack and is entirely dependent on the function and its author. The author should tally up how much space they need and pass that number (rounded to x16) to this macro to allocate space in the frame for it. Then it\u0027s once again up to the author to figure out how to lay them out.",
+      "parentUuid": "671b8736_79e37a69",
+      "range": {
+        "startLine": 40,
+        "startChar": 5,
+        "endLine": 40,
+        "endChar": 53
+      },
+      "revId": "f8328853031ab6dfc57059ff181138babc7779a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
