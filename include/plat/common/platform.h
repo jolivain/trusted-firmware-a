@@ -155,7 +155,7 @@ const char *plat_log_get_prefix(unsigned int log_level);
 void bl2_plat_preload_setup(void);
 int plat_try_next_boot_source(void);
 
-#if MEASURED_BOOT
+#if (MEASURED_BOOT || DICE_PROTECTION_ENVIRONMENT)
 int plat_mboot_measure_image(unsigned int image_id, image_info_t *image_data);
 int plat_mboot_measure_critical_data(unsigned int critical_data_id,
 				     const void *base,
@@ -181,7 +181,7 @@ static inline int plat_mboot_measure_key(const void *pk_oid __unused,
 {
 	return 0;
 }
-#endif /* MEASURED_BOOT */
+#endif /* MEASURED_BOOT || DICE_PROTECTION_ENVIRONMENT */
 
 /*******************************************************************************
  * Mandatory BL1 functions
@@ -242,7 +242,7 @@ __dead2 void bl1_plat_fwu_done(void *client_cookie, void *reserved);
 int bl1_plat_handle_pre_image_load(unsigned int image_id);
 int bl1_plat_handle_post_image_load(unsigned int image_id);
 
-#if MEASURED_BOOT
+#if (MEASURED_BOOT || DICE_PROTECTION_ENVIRONMENT)
 void bl1_plat_mboot_init(void);
 void bl1_plat_mboot_finish(void);
 #else
@@ -252,7 +252,7 @@ static inline void bl1_plat_mboot_init(void)
 static inline void bl1_plat_mboot_finish(void)
 {
 }
-#endif /* MEASURED_BOOT */
+#endif /* MEASURED_BOOT || DICE_PROTECTION_ENVIRONMENT */
 
 /*******************************************************************************
  * Mandatory BL2 functions
@@ -272,7 +272,7 @@ int bl2_plat_handle_post_image_load(unsigned int image_id);
 /*******************************************************************************
  * Optional BL2 functions (may be overridden)
  ******************************************************************************/
-#if MEASURED_BOOT
+#if (MEASURED_BOOT || DICE_PROTECTION_ENVIRONMENT)
 void bl2_plat_mboot_init(void);
 void bl2_plat_mboot_finish(void);
 #else
@@ -282,7 +282,7 @@ static inline void bl2_plat_mboot_init(void)
 static inline void bl2_plat_mboot_finish(void)
 {
 }
-#endif /* MEASURED_BOOT */
+#endif /* MEASURED_BOOT || DICE_PROTECTION_ENVIRONMENTs */
 
 /*******************************************************************************
  * Mandatory BL2 at EL3 functions: Must be implemented

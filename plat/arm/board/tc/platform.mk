@@ -191,6 +191,32 @@ PLAT_INCLUDES		+=	-Iinclude/lib/psa
 
 endif
 
+ifeq (${DICE_PROTECTION_ENVIRONMENT},1)
+    $(info Including qcbor.mk)
+    include drivers/measured_boot/rss/qcbor.mk
+    $(info Including dice_prot_env.mk)
+    include drivers/measured_boot/rss/dice_prot_env.mk
+    $(info Including rss_comms.mk)
+    include drivers/arm/rss/rss_comms.mk
+
+    BL1_SOURCES		+=	${QCBOR_SOURCES} \
+				${DPE_SOURCES} \
+				${RSS_COMMS_SOURCES} \
+				plat/arm/board/tc/tc_common_dpe.c \
+				plat/arm/board/tc/tc_bl1_dpe.c \
+				lib/psa/dice_protection_environment.c
+
+    BL2_SOURCES		+=	${QCBOR_SOURCES} \
+				${DPE_SOURCES} \
+				${RSS_COMMS_SOURCES} \
+				plat/arm/board/tc/tc_common_dpe.c \
+				plat/arm/board/tc/tc_bl2_dpe.c \
+				lib/psa/dice_protection_environment.c
+
+    PLAT_INCLUDES	+=	-I${QCBOR_INCLUDES} \
+				-Iinclude/lib/psa
+endif
+
 ifneq (${PLATFORM_TEST},)
     # Add this include as first, before arm_common.mk. This is necessary
     # because arm_common.mk builds Mbed TLS, and platform_test.mk can
