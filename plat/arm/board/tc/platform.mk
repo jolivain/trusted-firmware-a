@@ -208,7 +208,10 @@ ifeq (${DICE_PROTECTION_ENVIRONMENT},1)
 				${RSS_COMMS_SOURCES} \
 				plat/arm/board/tc/tc_common_dpe.c \
 				plat/arm/board/tc/tc_bl1_dpe.c \
-				lib/psa/dice_protection_environment.c
+				lib/psa/dice_protection_environment.c \
+				drivers/arm/css/sds/sds.c \
+				drivers/delay_timer/delay_timer.c \
+				drivers/delay_timer/generic_delay_timer.c
 
     BL2_SOURCES		+=	${QCBOR_SOURCES} \
 				${DPE_SOURCES} \
