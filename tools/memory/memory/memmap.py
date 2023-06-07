@@ -50,6 +50,9 @@ from memory.printer import TfaPrettyPrinter
     default=False,
     help="Display numbers in decimal base.",
 )
+@click.option(
+    "--use-map", is_flag=True, help="Use the TfaMapParser as the backend."
+)
 def main(
     root: Path,
     platform: str,
@@ -57,11 +60,12 @@ def main(
     symbols: bool,
     width: int,
     d: bool,
+    use_map: bool,
 ):
     build_path = root if root else Path("build/", platform, build_type)
     click.echo(f"build-path: {build_path.resolve()}")
 
-    parser = TfaBuildParser(build_path)
+    parser = TfaBuildParser(build_path, map_backend=use_map)
     printer = TfaPrettyPrinter(columns=width, as_decimal=d)
 
     if symbols:
