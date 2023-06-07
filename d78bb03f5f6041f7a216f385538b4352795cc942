@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de5f8b90_68ca38ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-06-07T10:52:43Z",
+      "side": 1,
+      "message": "Looks good to me and working as expected.\nWould it be also possible to align better addresses?\n\nWhen I build our platform by:\n$ make -j8 DEBUG\u003d1 RESET_TO_BL31\u003d1 PLAT\u003dzynqmp bl31 ZYNQMP_ATF_MEM_BASE\u003d0xfffea000 ZYNQMP_ATF_MEM_SIZE\u003d0x14000\n\nThen printing content.\n$ poetry run memory -p zynqmp -b debug\nbuild-path: /home/monstr/data/disk/ATF/arm-trusted-firmware/build/zynqmp/debug\nMemory Layout:\n0x100002000 +--------------------------------------------__COHERENT_RAM_END__--------------------------------------------+\n0x100001070 +---------------------------------------__COHERENT_RAM_END_UNALIGNED__---------------------------------------+\n           +-------------------------------------------__COHERENT_RAM_START__-------------------------------------------+\n0x100001000 +---------------------------------------------__XLAT_TABLE_END__---------------------------------------------+\n0xffffc000 +--------------------------------------------__XLAT_TABLE_START__--------------------------------------------+\n           +------------------------------------------__BASE_XLAT_TABLE_END__-------------------------------------------+\n           +-----------------------------------------__BASE_XLAT_TABLE_START__------------------------------------------+\n           +------------------------------------------------__BSS_END__-------------------------------------------------+\n           +----------------------------------------__PMF_PERCPU_TIMESTAMP_END__----------------------------------------+\n           +-------------------------------------------__PMF_TIMESTAMP_END__--------------------------------------------+\n0xffffb0c0 +------------------------------------------__PMF_TIMESTAMP_START__-------------------------------------------+\n\nIt is visible that upper 3 address (because they are above 4GB) have additional one place for indentation. Would be good to have all aligned the same.",
+      "revId": "d78bb03f5f6041f7a216f385538b4352795cc942",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
