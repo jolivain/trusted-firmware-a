@@ -33,6 +33,24 @@
       "message": "build error due to this nested comment. Kindly fix it.",
       "revId": "5303d297bfe4e858542401e42e77fdbf4f6f6402",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff65bb2f_e99f4e0a",
+        "filename": "lib/cpus/aarch64/dsu_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2023-06-07T19:58:56Z",
+      "side": 1,
+      "message": "Removed for sake of build, but placed that comment there for purpose of discussion so will leave this comment unresolved for time being",
+      "parentUuid": "11c22928_b9f8265c",
+      "revId": "5303d297bfe4e858542401e42e77fdbf4f6f6402",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
