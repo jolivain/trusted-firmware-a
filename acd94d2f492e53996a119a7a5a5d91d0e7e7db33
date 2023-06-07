@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca6336f0_59d0e368",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-07T12:26:00Z",
+      "side": 1,
+      "message": "Hi Demi Marie,\n\nThank you for the patch!\n\nI agree that this will fix the immediate issue at hand so let\u0027s get this merged.\n\nHowever, going forward I think we should store the hash length alongside the hash data we retrieve from the certificate (*). In the commit message, you hinted that this turned out to be quite difficult... Could you please elaborate?\n\n(*) And likewise we should store the key length alongside the key material for AUTH_PARAM_PUB_KEY types of parameters.",
+      "revId": "acd94d2f492e53996a119a7a5a5d91d0e7e7db33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
