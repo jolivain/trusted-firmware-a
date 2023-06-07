@@ -51,6 +51,24 @@
       "parentUuid": "44bc9085_054e39cb",
       "revId": "f51d277de3e5f84eafafb32596ca0b154d11c4d5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d931336_c68b60e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-07T14:06:04Z",
+      "side": 1,
+      "message": "Ah I see, I\u0027m happy to override the -1 vote as long as the higher patch is passing. We just need to be careful to merge both changes together in that case, otherwise we risk bringing the entire CI down.",
+      "parentUuid": "8fa51ce7_af9590de",
+      "revId": "f51d277de3e5f84eafafb32596ca0b154d11c4d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
