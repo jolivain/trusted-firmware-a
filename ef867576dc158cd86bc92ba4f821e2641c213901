@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "684a68b1_d33632a0",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-07T12:32:58Z",
+      "side": 1,
+      "message": "I\u0027ve reworded the \"CPU functions\" and added a link for clarity",
+      "parentUuid": "e6bbbec0_0360af43",
+      "range": {
+        "startLine": 1412,
+        "startChar": 0,
+        "endLine": 1412,
+        "endChar": 50
+      },
+      "revId": "ef867576dc158cd86bc92ba4f821e2641c213901",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "136e96ae_93d97e9c",
         "filename": "docs/design/firmware-design.rst",
         "patchSetId": 30
@@ -156,6 +180,30 @@
       "writtenOn": "2023-06-06T18:54:11Z",
       "side": 1,
       "message": "x14 is the cpu_rev parameter, x15 used for linking, no?",
+      "range": {
+        "startLine": 1442,
+        "startChar": 0,
+        "endLine": 1442,
+        "endChar": 69
+      },
+      "revId": "ef867576dc158cd86bc92ba4f821e2641c213901",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdc48911_dcb44816",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 30
+      },
+      "lineNbr": 1442,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-07T12:32:58Z",
+      "side": 1,
+      "message": "no, that\u0027s x16 and x17. Do you mean somewhere in the framework?",
+      "parentUuid": "41c78893_7f6ca63f",
       "range": {
         "startLine": 1442,
         "startChar": 0,
