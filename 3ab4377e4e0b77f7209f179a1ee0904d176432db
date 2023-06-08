@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0eee5336_0bc61ca5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-08T14:07:05Z",
+      "side": 1,
+      "message": "well, it would help justify why all of this is happening...",
+      "parentUuid": "9ad1b309_3aabe473",
+      "revId": "3ab4377e4e0b77f7209f179a1ee0904d176432db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1eae0abd_da720f8a",
         "filename": "docs/conf.py",
         "patchSetId": 5
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "It does, but the right place to express Python dependencies is the Poetry config.",
       "parentUuid": "1eae0abd_da720f8a",
+      "revId": "3ab4377e4e0b77f7209f179a1ee0904d176432db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c02818ec_21fde654",
+        "filename": "docs/conf.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-08T14:07:05Z",
+      "side": 1,
+      "message": "oh right, so it\u0027s not like plantuml where you need a system dependency?",
+      "parentUuid": "286a942b_9b829b2c",
       "revId": "3ab4377e4e0b77f7209f179a1ee0904d176432db",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
