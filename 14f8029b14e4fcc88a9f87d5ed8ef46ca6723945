@@ -87,6 +87,30 @@
       },
       "revId": "14f8029b14e4fcc88a9f87d5ed8ef46ca6723945",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c477b0fb_84259b9f",
+        "filename": "tools/fiptool/fiptool.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-08T08:44:45Z",
+      "side": 1,
+      "message": "Hi Leah, Thanks for providing these details. IMO, I think it makes sense to add these details in commit message for future reference.\nAlso, I feel it is better to squash this patch and https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21195/1 as both are looks related. Please let me know what do you think?",
+      "parentUuid": "b2d49272_6a2651e8",
+      "range": {
+        "startLine": 34,
+        "startChar": 4,
+        "endLine": 34,
+        "endChar": 12
+      },
+      "revId": "14f8029b14e4fcc88a9f87d5ed8ef46ca6723945",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
