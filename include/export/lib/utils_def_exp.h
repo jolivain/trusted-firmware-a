@@ -27,7 +27,8 @@
 #else
 # define  U_(_x)	(_x##U)
 # define   U(_x)	U_(_x)
-# define  UL(_x)	(_x##UL)
+# define  UL_(_x)	(_x##UL)
+# define  UL(_x)	UL_(_x)
 # define ULL(_x)	(_x##ULL)
 # define   L(_x)	(_x##L)
 # define  LL(_x)	(_x##LL)
