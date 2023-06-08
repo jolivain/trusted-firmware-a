@@ -561,6 +561,18 @@ static int spmd_spmc_init(void *pm_addr)
 	}
 
 	/*
+	 * Permit configurations where the SPM resides at S-EL2 and upon a
+	 * Group0 interrupt triggering while the normal world runs, the
+	 * interrupt is routed either through the EHF or directly to the SPMD:
+	 *
+	 * EL3_EXCEPTION_HANDLING=0: the Group0 interrupt is routed to the SPMD
+	 *     for handling by spmd_group0_interrupt_handler_nwd.
+	 *
+	 * EL3_EXCEPTION_HANDLING=1: the Group0 interrupt is routed to the EHF.
+	 *
+	 */
+#if ((EL3_EXCEPTION_HANDLING == 0) && (SPMD_SPM_AT_SEL2 == 1))
+	/*
 	 * Register an interrupt handler routing Group0 interrupts to SPMD
 	 * while the NWd is running.
 	 */
@@ -570,6 +582,8 @@ static int spmd_spmc_init(void *pm_addr)
 	if (rc != 0) {
 		panic();
 	}
+#endif
+
 	return 0;
 }
 
