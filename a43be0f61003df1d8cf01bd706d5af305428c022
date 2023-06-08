@@ -16,6 +16,24 @@
       "message": "I guess this will fail as well? ",
       "revId": "a43be0f61003df1d8cf01bd706d5af305428c022",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e03d49d_0b29240b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-06-08T17:57:08Z",
+      "side": 1,
+      "message": "Yup, same error as https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20807:\n```\n07:24:45 plat/arm/board/fvp/fvp_pm.c:443:31: error: initialization of \u0027int (*)(const psci_power_state_t *)\u0027 {aka \u0027int (*)(const struct psci_power_state *)\u0027} from incompatible pointer type \u0027void (*)(const psci_power_state_t *)\u0027 {aka \u0027void (*)(const struct psci_power_state *)\u0027} [-Werror\u003dincompatible-pointer-types]\n07:24:45   443 |         .pwr_domain_suspend \u003d fvp_pwr_domain_suspend,\n07:24:45       |                               ^~~~~~~~~~~~~~~~~~~~~~\n07:24:45 plat/arm/board/fvp/fvp_pm.c:443:31: note: (near initialization for \u0027plat_arm_psci_pm_ops.pwr_domain_suspend\u0027)\n07:24:45 cc1: all warnings being treated as errors\n07:24:45 make: *** [Makefile:1469: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl31/fvp_pm.o] Error 1\n```",
+      "parentUuid": "11a7bd8b_0fa431d6",
+      "revId": "a43be0f61003df1d8cf01bd706d5af305428c022",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
