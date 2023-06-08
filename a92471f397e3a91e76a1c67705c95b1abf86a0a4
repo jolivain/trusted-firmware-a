@@ -16,6 +16,161 @@
       "message": "\u003e Patch Set 2:\n\u003e \n\u003e No new MISRA issues detected, good work!\n\u003e http://ci.trustedfirmware.org/job/tf-a-eclair-delta/TF_CONFIG\u003dfvp-default,label\u003ddocker-tf-a-eclair/1620/artifact/\n\nv3 changes:\n - fix outdated header warning\n - fix include order error",
       "revId": "a92471f397e3a91e76a1c67705c95b1abf86a0a4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65620d68_0e60ba66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-08T12:14:47Z",
+      "side": 1,
+      "message": "Thank you for upstreaming this new platform. There were a few comments I provided, mostly minor ones.\nWe recommend that the CoR of this platform reviews these patches first, and then the maintainer takes further action of reviewing and merging them.\nPlease add build support for this platform to our CI repository. Here are the details: https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-ci-configurations",
+      "revId": "a92471f397e3a91e76a1c67705c95b1abf86a0a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78ad302c_d74d7065",
+        "filename": "docs/plat/ast2700.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-08T12:14:47Z",
+      "side": 1,
+      "message": "add one extra \u0027\u003d\u0027 to cover the title.",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 13
+      },
+      "revId": "a92471f397e3a91e76a1c67705c95b1abf86a0a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7b28a36_7f80cc5f",
+        "filename": "docs/plat/ast2700.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-08T12:14:47Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 8,
+        "startChar": 9,
+        "endLine": 8,
+        "endChar": 13
+      },
+      "revId": "a92471f397e3a91e76a1c67705c95b1abf86a0a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1b94a78_4e1df59f",
+        "filename": "docs/plat/ast2700.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-08T12:14:47Z",
+      "side": 1,
+      "message": "Is this really needed?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 2
+      },
+      "revId": "a92471f397e3a91e76a1c67705c95b1abf86a0a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7c833d9_2fbaaa91",
+        "filename": "plat/aspeed/ast2700/include/platform_reg.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-08T12:14:47Z",
+      "side": 1,
+      "message": "nit: #endif /* PLATFORM_REG_H */",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 6
+      },
+      "revId": "a92471f397e3a91e76a1c67705c95b1abf86a0a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ac648e2_d9f77b58",
+        "filename": "plat/aspeed/ast2700/plat_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-08T12:14:47Z",
+      "side": 1,
+      "message": "In this patch, Arm copyright is mentioned for all these newly created files. Is it possible to include your company\u0027s copyright here?",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 73
+      },
+      "revId": "a92471f397e3a91e76a1c67705c95b1abf86a0a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a919b89_ee62fc36",
+        "filename": "plat/aspeed/ast2700/plat_pm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-08T12:14:47Z",
+      "side": 1,
+      "message": "should be 1U and similarly, at line no. 26 and 29.",
+      "range": {
+        "startLine": 23,
+        "startChar": 6,
+        "endLine": 23,
+        "endChar": 7
+      },
+      "revId": "a92471f397e3a91e76a1c67705c95b1abf86a0a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
