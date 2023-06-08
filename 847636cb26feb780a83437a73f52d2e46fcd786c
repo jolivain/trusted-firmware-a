@@ -33,6 +33,24 @@
       "message": "Shouldn\u0027t that be filtered with ${ARM_ARCH_MAJOR} too?\n$(shell if $(CC) --target-help -march\u003dfoo 2\u003e\u00261 | grep -o -P \u0027armv...-a|armv.-a\u0027 | grep armv${ARM_ARCH_MAJOR} | tail -1; then echo $(1); fi)\n\nJust for a test, I tried with STM32MP1, which uses ARM_ARCH_MAJOR\u003d7, and set an ARM_ARCH_MINOR!\u003d0.\nAnd it returned me armv9-a. In this case it is not a problem, as for Armv7, march-directive is overwritten in make_helpers/armv7-a-cpus.mk, but could that be a problem for an Armv8?\n\nFor example, if there was an Armv8.9 (don\u0027t know if that can happen), we will try to compile it with armv9-a, whereas it could have been better to compile it with armv8.8-a?\n\nIf this is changed, line 25 should be updated as well.",
       "revId": "847636cb26feb780a83437a73f52d2e46fcd786c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ec4be57_202479c2",
+        "filename": "make_helpers/march.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-06-08T18:55:58Z",
+      "side": 1,
+      "message": "IIRC, I believe I did consider that situation, the problem I encountered is like situation\nwhen we are requesting for a 9.0 build in 11.3 gcc(supports max 8.6) we would end up in empty march rather I think we should try with max supported march from 11.3 which is 8.6\n\nAlso like stated in cmt-msg I believe TF-A we are using generic instructions and don\u0027t have hard reliance\non arch bit stuffs encoding. so trying with 9.0 when 8.9 is requested should still be ok,\nBut also looking in closely downstream projects there is no hard rule to prevent platforms from\nadding those arch specific encodings leaving to broken builds when trying upstream.\n\nso maybe we should consider try with ARCH_MAJOR if cc_march return empty then try with ARCH_MAJOR-1 ?\nopen to suggestions.",
+      "parentUuid": "92a4fd5a_96f7c26a",
+      "revId": "847636cb26feb780a83437a73f52d2e46fcd786c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
