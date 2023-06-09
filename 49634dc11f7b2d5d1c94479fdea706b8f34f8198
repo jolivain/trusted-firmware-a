@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc69510b_7c776a77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-09T14:14:50Z",
+      "side": 1,
+      "message": "Besides a rebase and some minor modifications, this looks good to me. ",
+      "revId": "49634dc11f7b2d5d1c94479fdea706b8f34f8198",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48c60ce6_d0d77ce7",
+        "filename": "Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-09T14:14:50Z",
+      "side": 1,
+      "message": "Please delete these, point to the old memory mapping script and aren\u0027t used anywhere anymore.",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 21
+      },
+      "revId": "49634dc11f7b2d5d1c94479fdea706b8f34f8198",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c719017a_4d789222",
+        "filename": "Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-09T14:14:50Z",
+      "side": 1,
+      "message": "nit: remove extra line",
+      "revId": "49634dc11f7b2d5d1c94479fdea706b8f34f8198",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17033cae_c50e2312",
+        "filename": "Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-09T14:14:50Z",
+      "side": 1,
+      "message": "nit: please use tabs",
+      "range": {
+        "startLine": 656,
+        "startChar": 0,
+        "endLine": 657,
+        "endChar": 42
+      },
+      "revId": "49634dc11f7b2d5d1c94479fdea706b8f34f8198",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6acccb3_b0caf655",
+        "filename": "Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-09T14:14:50Z",
+      "side": 1,
+      "message": "nit: please use tabs",
+      "range": {
+        "startLine": 691,
+        "startChar": 0,
+        "endLine": 692,
+        "endChar": 41
+      },
+      "revId": "49634dc11f7b2d5d1c94479fdea706b8f34f8198",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20d9853e_e75a93ac",
+        "filename": "Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-09T14:14:50Z",
+      "side": 1,
+      "message": "nit: same here",
+      "range": {
+        "startLine": 765,
+        "startChar": 0,
+        "endLine": 776,
+        "endChar": 13
+      },
+      "revId": "49634dc11f7b2d5d1c94479fdea706b8f34f8198",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eda5521d_91fd78a7",
+        "filename": "Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-09T14:14:50Z",
+      "side": 1,
+      "message": "nit: convert to tabs",
+      "range": {
+        "startLine": 799,
+        "startChar": 0,
+        "endLine": 811,
+        "endChar": 5
+      },
+      "revId": "49634dc11f7b2d5d1c94479fdea706b8f34f8198",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
