@@ -284,6 +284,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c710d14_1cf07cdd",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-06-09T15:03:01Z",
+      "side": 1,
+      "message": "\u003e Not sure why anybody would enable SPMD_EL3_LP with OPTEE if OPTTE does not have support for it.\nRight, just stating what I had off the top of my head but closing the comment. That\u0027s the problem when adding options which can be mix inconsistently. Yes there is no reason atm to enable this option and use the OPTEE SEL1 SPMC. Nothing prevents it by breaking the build. And this eventually remains as an open/untested scenario. A downstream platform can do this and report an issue. So as said it will probably be good to state in docs.",
+      "parentUuid": "8fd38690_9a34b953",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 22
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "871b00aa_092a56b8",
@@ -321,6 +345,30 @@
       "side": 1,
       "message": "No, i dont think there needs to be such a restriction. In theory, there is nothing that stops both from being active at the same time. We have not plumbed those paths so it should practically be a no-op. We may never enable such a path either..",
       "parentUuid": "871b00aa_092a56b8",
+      "range": {
+        "startLine": 112,
+        "startChar": 1,
+        "endLine": 113,
+        "endChar": 18
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d62d656_82242696",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-06-09T15:03:01Z",
+      "side": 1,
+      "message": "\u003e there is nothing that stops both from being active at the same time. \nhum still remains an extreme theoretical case!",
+      "parentUuid": "71ef1ac2_50a4eab3",
       "range": {
         "startLine": 112,
         "startChar": 1,
@@ -416,6 +464,24 @@
       "side": 1,
       "message": "right, do we want to block merge of this patch until then? would prefer if we merge and then make changes on top when details are decided.",
       "parentUuid": "5fd56145_ce2e1ab9",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4f91f64_1d8c73d5",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-06-09T15:03:01Z",
+      "side": 1,
+      "message": "I\u0027m not intending to block the merge, I would just want to have this conversation with the architecture team.",
+      "parentUuid": "836412cf_198673ac",
       "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -888,6 +954,30 @@
       "side": 1,
       "message": "also think of the directory structure that needs to change. all of the EL3 SPMC and EL3 SPMC LSPs are in the el3_spmc directory. The previous patches were probably structure incorrectly if the intent was to unify LSPs. We can pull out the logical partitions in a future patchset and i\u0027m willing to make those changes, i would strongly prefer to not make those kind of invasive changes now and instead get functionality in, and refactor separately..",
       "parentUuid": "ec059410_84382ead",
+      "range": {
+        "startLine": 23,
+        "startChar": 32,
+        "endLine": 23,
+        "endChar": 53
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ae707c8_f5f3716b",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-06-09T15:03:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8d075811_aebc12f7",
       "range": {
         "startLine": 23,
         "startChar": 32,
