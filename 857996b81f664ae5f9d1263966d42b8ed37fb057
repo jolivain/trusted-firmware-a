@@ -420,6 +420,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8a74ee5f_21bb9427",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-09T12:00:12Z",
+      "side": 1,
+      "message": "Yes, I did see that and I believe I have captured that in the new layout. The PMU is left as is until pmuv3_disable_el3() is called at which point these settings will be applied AND the counters will be cleared. I believe this produces the originally desired effect.\n\nThere\u0027s a subtlety in that with this patch, this will only happen just before NS exit with counters counting for S/R worlds. This is rectified in a higher patch (\"move when immutable registers are initialized\") when this function will be called long before _any_ world has ran, completing the full intention of the original.",
+      "parentUuid": "3fe86b81_9dc6a869",
+      "revId": "857996b81f664ae5f9d1263966d42b8ed37fb057",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "68845b2a_a30aee4f",
         "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
         "patchSetId": 14
