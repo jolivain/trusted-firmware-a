@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9ef0789f_11eab4d2",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-09T10:52:50Z",
+      "side": 1,
+      "message": "I am aware, however, the latest version of the Arm ARM I can find (version J.a) does not specify what the PMUv3p9 revision does. Also, the model in the CI does not have this option yet.\n\nThe point of this check is to know we\u0027ve considered newer revisions and we haven\u0027t silently missed something. If you can point me to a spec I will go through the whole revision and bump the flag.\n\nFor day-to-day use, people tend not to have FEATURE_DETECTION\u003d1 so you should not see a failure until someone can go over the revision.",
+      "parentUuid": "fa140417_2dc10c8c",
+      "range": {
+        "startLine": 148,
+        "startChar": 1,
+        "endLine": 149,
+        "endChar": 48
+      },
+      "revId": "093d0ac3816100c6e3ba7560fa83ee4a68ac113c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ece6a105_8e59030d",
         "filename": "include/arch/aarch32/arch.h",
         "patchSetId": 25
