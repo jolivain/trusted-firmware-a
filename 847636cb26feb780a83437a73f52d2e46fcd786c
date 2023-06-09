@@ -87,6 +87,24 @@
       "parentUuid": "77ec5bc0_68e3cd36",
       "revId": "847636cb26feb780a83437a73f52d2e46fcd786c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "646cd9bc_384b84cf",
+        "filename": "make_helpers/march.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-06-09T18:57:00Z",
+      "side": 1,
+      "message": "I have used both logic in latest patchset, find best match with ARCH_MAJOR and if we fail, fall back to latest_match from list of supported archs to try.",
+      "parentUuid": "e1fe80b5_74e0601b",
+      "revId": "847636cb26feb780a83437a73f52d2e46fcd786c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
