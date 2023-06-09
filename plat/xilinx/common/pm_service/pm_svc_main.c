@@ -84,13 +84,13 @@ static uint64_t ipi_fiq_handler(uint32_t id, uint32_t flags, void *handle,
 }
 
 /**
- * pm_register_sgi() - PM register the IPI interrupt
+ * pm_register_sgi() - PM register the IPI interrupt.
+ * @sgi: SGI number to be used for communication.
+ * @reset: Reset to invalid SGI when reset=1.
  *
- * @sgi -  SGI number to be used for communication.
- * @reset -  Reset to invalid SGI when reset=1.
- * @return	On success, the initialization function must return 0.
- *		Any other return value will cause the framework to ignore
- *		the service
+ * Return: On success, the initialization function must return 0.
+ *         Any other return value will cause the framework to ignore
+ *         the service.
  *
  * Update the SGI number to be used.
  *
@@ -115,17 +115,18 @@ int32_t pm_register_sgi(uint32_t sgi_num, uint32_t reset)
 }
 
 /**
- * pm_setup() - PM service setup
+ * pm_setup() - PM service setup.
  *
- * @return	On success, the initialization function must return 0.
- *		Any other return value will cause the framework to ignore
- *		the service
+ * Return: On success, the initialization function must return 0.
+ *         Any other return value will cause the framework to ignore
+ *         the service.
  *
  * Initialization functions for Versal power management for
  * communicaton with PMC.
  *
  * Called from sip_svc_setup initialization function with the
  * rt_svc_init signature.
+ *
  */
 int32_t pm_setup(void)
 {
@@ -152,14 +153,15 @@ int32_t pm_setup(void)
 }
 
 /**
- * eemi_for_compatibility() - EEMI calls handler for deprecated calls
+ * eemi_for_compatibility() - EEMI calls handler for deprecated calls.
  *
- * @return - If EEMI API found then, uintptr_t type address, else 0
+ * Return: If EEMI API found then, uintptr_t type address, else 0.
  *
  * Some EEMI API's use case needs to be changed in Linux driver, so they
  * can take advantage of common EEMI handler in TF-A. As of now the old
  * implementation of these APIs are required to maintain backward compatibility
  * until their use case in linux driver changes.
+ *
  */
 static uintptr_t eemi_for_compatibility(uint32_t api_id, uint32_t *pm_arg,
 					void *handle, uint32_t security_flag)
@@ -221,7 +223,8 @@ static uintptr_t eemi_for_compatibility(uint32_t api_id, uint32_t *pm_arg,
  * These calls require CPU specific processing before sending IPI request to
  * Platform Management Controller. For example enable/disable CPU specific
  * interrupts. This requires separate handler for these calls and may not be
- * handled using common eemi handler
+ * handled using common eemi handler.
+ *
  */
 static uintptr_t eemi_psci_debugfs_handler(uint32_t api_id, uint32_t *pm_arg,
 					   void *handle, uint32_t security_flag)
@@ -258,11 +261,12 @@ static uintptr_t eemi_psci_debugfs_handler(uint32_t api_id, uint32_t *pm_arg,
 }
 
 /**
- * TF_A_specific_handler() - SMC handler for TF-A specific functionality
+ * TF_A_specific_handler() - SMC handler for TF-A specific functionality.
  *
  * These EEMI calls performs functionality that does not require
  * IPI transaction. The handler ends in TF-A and returns requested data to
  * kernel from TF-A.
+ *
  */
 static uintptr_t TF_A_specific_handler(uint32_t api_id, uint32_t *pm_arg,
 				       void *handle, uint32_t security_flag)
@@ -306,7 +310,7 @@ static uintptr_t TF_A_specific_handler(uint32_t api_id, uint32_t *pm_arg,
 }
 
 /**
- * eemi_handler() - Prepare EEMI payload and perform IPI transaction
+ * eemi_handler() - Prepare EEMI payload and perform IPI transaction.
  *
  * EEMI - Embedded Energy Management Interface is Xilinx proprietary protocol
  * to allow communication between power management controller and different
@@ -314,6 +318,7 @@ static uintptr_t TF_A_specific_handler(uint32_t api_id, uint32_t *pm_arg,
  *
  * This handler prepares EEMI protocol payload received from kernel and performs
  * IPI transaction.
+ *
  */
 static uintptr_t eemi_handler(uint32_t api_id, uint32_t *pm_arg,
 			      void *handle, uint32_t security_flag)
@@ -345,20 +350,21 @@ static uintptr_t eemi_handler(uint32_t api_id, uint32_t *pm_arg,
 
 /**
  * pm_smc_handler() - SMC handler for PM-API calls coming from EL1/EL2.
- * @smc_fid - Function Identifier
- * @x1 - x4 - SMC64 Arguments from kernel
- *	      x3 (upper 32-bits) and x4 are Unused
- * @cookie  - Unused
- * @handler - Pointer to caller's context structure
+ * @smc_fid: Function Identifier.
+ * @x1 - x4: SMC64 Arguments from kernel.
+ *           x3 (upper 32-bits) and x4 are Unused.
+ * @cookie: Unused.
+ * @handler: Pointer to caller's context structure
  *
- * @return  - Unused
+ * Return: Unused.
  *
  * Determines that smc_fid is valid and supported PM SMC Function ID from the
  * list of pm_api_ids, otherwise completes the request with
- * the unknown SMC Function ID
+ * the unknown SMC Function ID.
  *
  * The SMC calls for PM service are forwarded from SIP Service SMC handler
- * function with rt_svc_handle signature
+ * function with rt_svc_handle signature.
+ *
  */
 uint64_t pm_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2, uint64_t x3,
 			uint64_t x4, const void *cookie, void *handle, uint64_t flags)

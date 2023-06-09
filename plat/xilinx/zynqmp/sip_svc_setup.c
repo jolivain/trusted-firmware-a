@@ -40,9 +40,10 @@ DEFINE_SVC_UUID2(zynqmp_sip_uuid,
 	0xb9, 0x25, 0x82, 0x2d, 0xe3, 0xa5);
 
 /**
- * sip_svc_setup() - Setup SiP Service
+ * sip_svc_setup() - Setup SiP Service.
  *
- * Invokes PM setup
+ * Invokes PM setup.
+ *
  */
 static int32_t sip_svc_setup(void)
 {
@@ -55,6 +56,7 @@ static int32_t sip_svc_setup(void)
  *
  * Handler for all SiP SMC calls. Handles standard SIP requests
  * and calls PM SMC handler if the call is for a PM-API function.
+ *
  */
 static uintptr_t sip_svc_smc_handler(uint32_t smc_fid,
 			      u_register_t x1,

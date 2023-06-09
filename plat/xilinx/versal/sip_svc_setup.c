@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2018-2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2023, Advanced Micro Devices, Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -55,6 +56,7 @@ static int32_t sip_svc_setup(void)
  *
  * Handler for all SiP SMC calls. Handles standard SIP requests
  * and calls PM SMC handler if the call is for a PM-API function.
+ *
  */
 uintptr_t sip_svc_smc_handler(uint32_t smc_fid,
 			     u_register_t x1,

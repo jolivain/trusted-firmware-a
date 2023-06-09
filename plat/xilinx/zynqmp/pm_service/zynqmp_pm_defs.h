@@ -153,9 +153,10 @@ enum pm_ram_state {
 };
 
 /**
- * @PM_INITIAL_BOOT:	boot is a fresh system startup
- * @PM_RESUME:		boot is a resume
- * @PM_BOOT_ERROR:	error, boot cause cannot be identified
+ * @PM_INITIAL_BOOT: boot is a fresh system startup.
+ * @PM_RESUME: boot is a resume.
+ * @PM_BOOT_ERROR: error, boot cause cannot be identified.
+ *
  */
 enum pm_boot_status {
 	PM_INITIAL_BOOT,
@@ -164,9 +165,10 @@ enum pm_boot_status {
 };
 
 /**
- * @PMF_SHUTDOWN_TYPE_SHUTDOWN:		shutdown
- * @PMF_SHUTDOWN_TYPE_RESET:		reset/reboot
- * @PMF_SHUTDOWN_TYPE_SETSCOPE_ONLY:	set the shutdown/reboot scope
+ * @PMF_SHUTDOWN_TYPE_SHUTDOWN: shutdown.
+ * @PMF_SHUTDOWN_TYPE_RESET: reset/reboot.
+ * @PMF_SHUTDOWN_TYPE_SETSCOPE_ONLY: set the shutdown/reboot scope.
+ *
  */
 enum pm_shutdown_type {
 	PMF_SHUTDOWN_TYPE_SHUTDOWN,
@@ -175,9 +177,10 @@ enum pm_shutdown_type {
 };
 
 /**
- * @PMF_SHUTDOWN_SUBTYPE_SUBSYSTEM:	shutdown/reboot APU subsystem only
- * @PMF_SHUTDOWN_SUBTYPE_PS_ONLY:	shutdown/reboot entire PS (but not PL)
- * @PMF_SHUTDOWN_SUBTYPE_SYSTEM:	shutdown/reboot entire system
+ * @PMF_SHUTDOWN_SUBTYPE_SUBSYSTEM: shutdown/reboot APU subsystem only.
+ * @PMF_SHUTDOWN_SUBTYPE_PS_ONLY: shutdown/reboot entire PS (but not PL).
+ * @PMF_SHUTDOWN_SUBTYPE_SYSTEM: shutdown/reboot entire system.
+ *
  */
 enum pm_shutdown_subtype {
 	PMF_SHUTDOWN_SUBTYPE_SUBSYSTEM,
@@ -186,9 +189,10 @@ enum pm_shutdown_subtype {
 };
 
 /**
- * @PM_PLL_MODE_RESET:		PLL is in reset (not locked)
- * @PM_PLL_MODE_INTEGER:	PLL is locked in integer mode
- * @PM_PLL_MODE_FRACTIONAL:	PLL is locked in fractional mode
+ * @PM_PLL_MODE_RESET: PLL is in reset (not locked).
+ * @PM_PLL_MODE_INTEGER: PLL is locked in integer mode.
+ * @PM_PLL_MODE_FRACTIONAL: PLL is locked in fractional mode.
+ *
  */
 enum pm_pll_mode {
 	PM_PLL_MODE_RESET,
@@ -198,8 +202,8 @@ enum pm_pll_mode {
 };
 
 /**
- * @PM_CLOCK_DIV0_ID:		Clock divider 0
- * @PM_CLOCK_DIV1_ID:		Clock divider 1
+ * @PM_CLOCK_DIV0_ID: Clock divider 0.
+ * @PM_CLOCK_DIV1_ID: Clock divider 1.
  */
 enum pm_clock_div_id {
 	PM_CLOCK_DIV0_ID,

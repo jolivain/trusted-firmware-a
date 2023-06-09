@@ -55,11 +55,13 @@
 #define FSBL_FLAGS_A53_3		3U
 
 /**
- * @partition: Pointer to partition struct
+ * @partition: Pointer to partition struct.
  *
- * Get the target CPU for @partition.
+ * Get the target CPU for partition.
  *
- * Return: FSBL_FLAGS_A53_0, FSBL_FLAGS_A53_1, FSBL_FLAGS_A53_2 or FSBL_FLAGS_A53_3
+ * Return: FSBL_FLAGS_A53_0, FSBL_FLAGS_A53_1, FSBL_FLAGS_A53_2 or
+ *         FSBL_FLAGS_A53_3.
+ *
  */
 static int32_t get_fsbl_cpu(const struct xfsbl_partition *partition)
 {
@@ -69,11 +71,12 @@ static int32_t get_fsbl_cpu(const struct xfsbl_partition *partition)
 }
 
 /**
- * @partition: Pointer to partition struct
+ * @partition: Pointer to partition struct.
  *
- * Get the target exception level for @partition.
+ * Get the target exception level for partition.
  *
- * Return: FSBL_FLAGS_EL0, FSBL_FLAGS_EL1, FSBL_FLAGS_EL2 or FSBL_FLAGS_EL3
+ * Return: FSBL_FLAGS_EL0, FSBL_FLAGS_EL1, FSBL_FLAGS_EL2 or FSBL_FLAGS_EL3.
+ *
  */
 static int32_t get_fsbl_el(const struct xfsbl_partition *partition)
 {
@@ -83,11 +86,12 @@ static int32_t get_fsbl_el(const struct xfsbl_partition *partition)
 }
 
 /**
- * @partition: Pointer to partition struct
+ * @partition: Pointer to partition struct.
  *
- * Get the target security state for @partition.
+ * Get the target security state for partition.
  *
- * Return: FSBL_FLAGS_NON_SECURE or FSBL_FLAGS_SECURE
+ * Return: FSBL_FLAGS_NON_SECURE or FSBL_FLAGS_SECURE.
+ *
  */
 static int32_t get_fsbl_ss(const struct xfsbl_partition *partition)
 {
@@ -97,11 +101,12 @@ static int32_t get_fsbl_ss(const struct xfsbl_partition *partition)
 }
 
 /**
- * @partition: Pointer to partition struct
+ * @partition: Pointer to partition struct.
  *
- * Get the target endianness for @partition.
+ * Get the target endianness for partition.
  *
- * Return: SPSR_E_LITTLE or SPSR_E_BIG
+ * Return: SPSR_E_LITTLE or SPSR_E_BIG.
+ *
  */
 static int32_t get_fsbl_endian(const struct xfsbl_partition *partition)
 {
@@ -117,11 +122,12 @@ static int32_t get_fsbl_endian(const struct xfsbl_partition *partition)
 }
 
 /**
- * @partition: Pointer to partition struct
+ * @partition: Pointer to partition struct.
  *
- * Get the target execution state for @partition.
+ * Get the target execution state for partition.
  *
- * Return: FSBL_FLAGS_ESTATE_A32 or FSBL_FLAGS_ESTATE_A64
+ * Return: FSBL_FLAGS_ESTATE_A32 or FSBL_FLAGS_ESTATE_A64.
+ *
  */
 static int32_t get_fsbl_estate(const struct xfsbl_partition *partition)
 {
@@ -131,16 +137,17 @@ static int32_t get_fsbl_estate(const struct xfsbl_partition *partition)
 }
 
 /**
- * Populates the bl32 and bl33 image info structures
- * @bl32:	BL32 image info structure
- * @bl33:	BL33 image info structure
- * tfa_handoff_addr:  TF-A handoff address
+ * Populates the bl32 and bl33 image info structures.
+ * @bl32: BL32 image info structure.
+ * @bl33: BL33 image info structure.
+ * @tfa_handoff_addr: TF-A handoff address.
  *
  * Process the handoff parameters from the FSBL and populate the BL32 and BL33
  * image info structures accordingly.
  *
  * Return: Return the status of the handoff. The value will be from the
  *         fsbl_handoff enum.
+ *
  */
 enum fsbl_handoff fsbl_tfa_handover(entry_point_info_t *bl32,
 					entry_point_info_t *bl33,
