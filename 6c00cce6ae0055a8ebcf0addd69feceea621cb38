@@ -164,6 +164,24 @@
       "parentUuid": "57d6e782_b435cc54",
       "revId": "6c00cce6ae0055a8ebcf0addd69feceea621cb38",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccd270bc_4350913c",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-06-09T14:30:07Z",
+      "side": 1,
+      "message": "So I am not too fond of covering everyone and their dog with that. The idea was a sweet, but simple line to cover the feature defines, which are hard to collect otherwise. It is not meant to be a exhaustive list of all compiler options in effect, nor an intricate way of various filtered views - this can be done with grep via a pipeline. For the stage dependent defines: I don\u0027t see how they should be all reported, without getting confusing (double listings). And again, this is not the scope. For the same reason I want to avoid an overlong name.\n\nSo if you don\u0027t mind, I\u0027d like to keep the current focus, and the short name (though with an underscore, to match other targets).\nIf people have other suggestions, I am happy to hear them.",
+      "parentUuid": "889db71d_f3a47ee8",
+      "revId": "6c00cce6ae0055a8ebcf0addd69feceea621cb38",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
