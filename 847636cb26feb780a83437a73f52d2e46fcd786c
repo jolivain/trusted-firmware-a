@@ -51,6 +51,24 @@
       "parentUuid": "92a4fd5a_96f7c26a",
       "revId": "847636cb26feb780a83437a73f52d2e46fcd786c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77ec5bc0_68e3cd36",
+        "filename": "make_helpers/march.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-09T07:23:02Z",
+      "side": 1,
+      "message": "Hi Govindraj,\nI didn\u0027t consider that case. So I tested an Armv8 platform, forcing -march\u003darmv9-a. It can compile and it can boot. And as Armv7 case is handled with dedicated mk file, then you function is OK.",
+      "parentUuid": "0ec4be57_202479c2",
+      "revId": "847636cb26feb780a83437a73f52d2e46fcd786c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
