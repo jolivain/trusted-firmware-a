@@ -528,6 +528,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad0fec1f_6133f13f",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-06-09T14:42:21Z",
+      "side": 1,
+      "message": "Apologies for delay. What I wanted to say is that can we determine the size of the LSP descriptor at compile time? For example, the size of partition info descriptor[1] is 24 bytes.\n\n[1] https://git.trustedfirmware.org/hafnium/hafnium.git/tree/src/api.c#n39",
+      "parentUuid": "d4ea7e28_332318f2",
+      "range": {
+        "startLine": 42,
+        "startChar": 7,
+        "endLine": 42,
+        "endChar": 38
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e28e7b19_b35e5771",
         "filename": "include/services/el3_spmd_logical_sp.h",
         "patchSetId": 1
