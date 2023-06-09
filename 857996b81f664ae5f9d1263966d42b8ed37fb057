@@ -402,6 +402,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3fe86b81_9dc6a869",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-06-09T10:56:41Z",
+      "side": 1,
+      "message": "The original idea was to disable PMUv3 counting in EL3 at the very early boot stage.",
+      "parentUuid": "f0232835_a2ed460c",
+      "revId": "857996b81f664ae5f9d1263966d42b8ed37fb057",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "68845b2a_a30aee4f",
         "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
         "patchSetId": 14
