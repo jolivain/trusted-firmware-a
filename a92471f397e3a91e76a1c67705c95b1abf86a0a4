@@ -290,6 +290,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d83cc66_f442f809",
+        "filename": "plat/aspeed/ast2700/plat_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-11T18:38:06Z",
+      "side": 1,
+      "message": "Is Arm copyright really needed in all platform files? IMO, It is better to put \"Aspeed Technology Inc\" copyright in all newly created files.",
+      "parentUuid": "a2186037_4d4511b5",
+      "range": {
+        "startLine": 2,
+        "startChar": 0,
+        "endLine": 2,
+        "endChar": 73
+      },
+      "revId": "a92471f397e3a91e76a1c67705c95b1abf86a0a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7a919b89_ee62fc36",
         "filename": "plat/aspeed/ast2700/plat_pm.c",
         "patchSetId": 3
