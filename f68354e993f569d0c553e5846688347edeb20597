@@ -33,6 +33,24 @@
       "message": "this change should be part of the patch below. We only care about optimisations with this patch and it\u0027s better to have this all at once",
       "revId": "f68354e993f569d0c553e5846688347edeb20597",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d266c9dc_fe7a3931",
+        "filename": "lib/cpus/aarch64/cortex_a75.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2023-06-12T19:49:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db6cf4ed_18cfbf72",
+      "revId": "f68354e993f569d0c553e5846688347edeb20597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
