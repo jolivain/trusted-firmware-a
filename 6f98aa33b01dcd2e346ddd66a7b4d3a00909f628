@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "01ba98fd_ec4beaf4",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-12T13:32:27Z",
+      "side": 1,
+      "message": "I insist on this change. This entire patch stack hinges on removing as many of these bits from here as possible and putting them in a more coherent place. There are several patches above which do just that (eg \"set MDCR_EL3/CPTR_EL3 bits in respective feat_enable_el3() only\").\n\nI would be willing to delay this being removed until the patch that introduces cm_manage_extensions_el3() and calls it in the entrypoints if this would be critical. But cleaning up these redundancies is vital in my opinion and the patches above make sure there is no loss of function (or intention!) by doing all of this.",
+      "parentUuid": "7f3f9e17_7e9f0a54",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "952744ea_d4cd3941",
         "filename": "include/lib/extensions/pmuv3.h",
         "patchSetId": 26
@@ -31,6 +49,30 @@
       "writtenOn": "2023-06-12T13:07:00Z",
       "side": 1,
       "message": "pmuv3_reset_hpmn() seems a better way to describe the operations being done related to PMU in this function. See suggested renames in other files.",
+      "range": {
+        "startLine": 15,
+        "startChar": 11,
+        "endLine": 15,
+        "endChar": 17
+      },
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec7e631a_7495cf07",
+        "filename": "include/lib/extensions/pmuv3.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-12T13:32:27Z",
+      "side": 1,
+      "message": "Ack, will continue discussion in those comments",
+      "parentUuid": "952744ea_d4cd3941",
       "range": {
         "startLine": 15,
         "startChar": 11,
@@ -60,6 +102,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "81164e07_3371088f",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-12T13:32:27Z",
+      "side": 1,
+      "message": "As the PMU is an extension (I understand it is mandatory for practically all armv8+ implementations), I want to treat it as such with this patch. This includes putting it in manage_extensions_\u003cwhichever\u003e() to logically separate things. I would like to not backtrack on this, keep things neat, and leave this for \"core\" stuff.\n\nAgain, I\u0027m trying to establish a pattern for all features. A \"public API\" of ~6 function for each if you will. I think we\u0027d be convoluting the top level manage_extensions_\u003cwhatever\u003e if I did that in each feature.",
+      "parentUuid": "d71002cd_50fa2d01",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee678037_44384081",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 26
@@ -77,6 +137,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "83e45742_793ccba6",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-12T13:32:27Z",
+      "side": 1,
+      "message": "please read the patches above. I clean up _all_ other features in a similar manner to the PMU and then I do approximately what you are suggesting.",
+      "parentUuid": "ee678037_44384081",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "72cefb4e_d295531d",
         "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
         "patchSetId": 26
@@ -88,6 +166,30 @@
       "writtenOn": "2023-06-12T13:07:00Z",
       "side": 1,
       "message": "This is only needed for NS. Call this pmuv3_reset_hpmn() and make this a static inline function in pmuv3.h",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 17
+      },
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b260c73c_1650403e",
+        "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-12T13:32:27Z",
+      "side": 1,
+      "message": "Ack, continuing discussion in the last comment",
+      "parentUuid": "72cefb4e_d295531d",
       "range": {
         "startLine": 24,
         "startChar": 5,
@@ -117,6 +219,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5d84ac2_49c8e1ba",
+        "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-12T13:32:27Z",
+      "side": 1,
+      "message": "what\u0027s the point? EL3 disables the PMU for itself, it will never count during its execution so it doesn\u0027t matter if it overflows on bit 31 or 63. Any lower EL will overwrite this register for its own use.",
+      "parentUuid": "9717d718_a04e7f29",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6618b36f_3a10164d",
         "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
         "patchSetId": 26
@@ -134,6 +254,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e2e2cad_29586f27",
+        "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-12T13:32:27Z",
+      "side": 1,
+      "message": "are you suggesting this just for the PMU or to alter the convention for all features? If it\u0027s for all features, you\u0027re probably right, although I\u0027d rather have something coherent with the top-level function.\n\nI would like to keep it identical for all features though",
+      "parentUuid": "6618b36f_3a10164d",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1ba68c0_51c0ea80",
         "filename": "services/std_svc/rmmd/rmmd_main.c",
         "patchSetId": 26
@@ -145,6 +283,24 @@
       "writtenOn": "2023-06-12T13:07:00Z",
       "side": 1,
       "message": "not needed for realm world. Can be removed.",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39e2f047_8d7b762e",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-12T13:32:27Z",
+      "side": 1,
+      "message": "I\u0027m sorry but I don\u0027t understand. You request it be added here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20470/comment/f41a8b43_d6725ae6/\n\nWhich one?",
+      "parentUuid": "f1ba68c0_51c0ea80",
       "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
