@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "291003e2_9ae8f3f7",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T14:06:17Z",
+      "side": 1,
+      "message": "I just went to the top of stack and I see that there is a new function doing this (cm_manage_extensions_el3())\n\nSo now , we need to define what needs to happen at reset vs within this cm_manage_extensions_el3() and I have given a comment to moves this to top of bl31_main().\n\nAt reset, bits that are essential for correct execution of EL3 firmware, + settings that protect security and prevent debug of EL3 firmware must be applied. \n\nNow whether MCCD and SCCD count as such a security which needs to be applied at reset is the question. \n\nAlso I think the refactoring still applies even if we think MCCD and SCCD are important enough to be applied early.\n\nOne think to keep in mind is that there are platform hooks which run early (which may have confidential computation), so PMU counters running during that time make have some effect. Also some counters can be export events which means even thought the count is reset to zero, the effect of the count can be visible elsewhere. \n\nNow keeping these aspects in mind, and also the above criteria , a decision can be made.",
+      "parentUuid": "01ba98fd_ec4beaf4",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "952744ea_d4cd3941",
         "filename": "include/lib/extensions/pmuv3.h",
         "patchSetId": 26
@@ -237,6 +255,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9f6e69bf_778b0cdd",
+        "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T14:06:17Z",
+      "side": 1,
+      "message": "It is just going by the principle of \"not changing what does not need to be changed\". Since this was done earlier, unless there is a good reason to change it, might as well keep this around. We never know if the lower EL was depending on this behaviour at EL3 and suddenly it finds that the behavior of overflow has chnaged. Hence to avoid unnecessary changes, it is better to keep the same behavior.",
+      "parentUuid": "d5d84ac2_49c8e1ba",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6618b36f_3a10164d",
         "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
         "patchSetId": 26
@@ -272,6 +308,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "626da11c_90900021",
+        "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T14:06:17Z",
+      "side": 1,
+      "message": "I have given a comment in top patch, yes, this would be for all EL2 unused cases.",
+      "parentUuid": "2e2e2cad_29586f27",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f1ba68c0_51c0ea80",
         "filename": "services/std_svc/rmmd/rmmd_main.c",
         "patchSetId": 26
@@ -301,6 +355,24 @@
       "side": 1,
       "message": "I\u0027m sorry but I don\u0027t understand. You request it be added here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20470/comment/f41a8b43_d6725ae6/\n\nWhich one?",
       "parentUuid": "f1ba68c0_51c0ea80",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "208f8fa5_c416e0df",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T14:06:17Z",
+      "side": 1,
+      "message": "The function name is not reflective of the functionality which is part of the problem. This is just reseting the HPMN value rather than \"enabling the PMU\". Although PMU is needed for Realm world, it doesn\u0027t need resetting the HPMN value.",
+      "parentUuid": "39e2f047_8d7b762e",
       "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
