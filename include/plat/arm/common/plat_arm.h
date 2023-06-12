@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -293,6 +293,12 @@ int arm_set_tb_fw_info(uintptr_t log_addr, size_t log_size,
 int arm_get_tb_fw_info(uint64_t *log_addr, size_t *log_size,
 		       size_t *log_max_size);
 #endif /* MEASURED_BOOT */
+
+#ifdef DICE_PROTECTION_ENVIRONMENT
+int arm_set_nt_fw_info(int *ctx_handle);
+int arm_set_tb_fw_info(int *ctx_handle);
+int arm_get_tb_fw_info(int *ctx_handle);
+#endif /* DICE_PROTECTION_ENVIRONMENT */
 
 /*
  * Free the memory storing initialization code only used during an images boot
