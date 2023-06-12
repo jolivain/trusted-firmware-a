@@ -379,6 +379,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c1442a8_a988440a",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-12T00:42:55Z",
+      "side": 1,
+      "message": "agree. the ffa v1.2 spewc says \"Additionally, in each of the above configurations, EL3 LSPs can exist that are managed by the SPM. The division\nof responsibilities of the SPMD and EL3 SPMC in managing EL3 LSPs is IMPLEMENTATION DEFINED.\"\nHappy to make the change if you think this is more theoretical from impl point of view.",
+      "parentUuid": "9d62d656_82242696",
+      "range": {
+        "startLine": 112,
+        "startChar": 1,
+        "endLine": 113,
+        "endChar": 18
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6699188_511c56d2",
