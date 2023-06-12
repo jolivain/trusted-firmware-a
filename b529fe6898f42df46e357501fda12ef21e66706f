@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34c34afe_366bc9e8",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_clock_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:13:04Z",
+      "side": 1,
+      "message": "This is from legacy and you are right. \nIn line 63 the second condition is already blocking \u003e 10. \nShall update the code in 65 to \u003e\u003d10.",
+      "parentUuid": "893a7576_514eae14",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 20
+      },
+      "revId": "b529fe6898f42df46e357501fda12ef21e66706f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b55a10f_2db8d67b",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-01T14:05:26Z",
       "side": 1,
       "message": "Same comment as above.",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 20
+      },
+      "revId": "b529fe6898f42df46e357501fda12ef21e66706f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c911a475_cdf8e497",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_clock_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:13:04Z",
+      "side": 1,
+      "message": "This is from legacy and you are right. \nIn line 63 the second condition is already blocking \u003e 10. \nShall update the code in 65 to \u003e\u003d10.",
+      "parentUuid": "1b55a10f_2db8d67b",
       "range": {
         "startLine": 86,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49c5da74_1953a20b",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_clock_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:13:04Z",
+      "side": 1,
+      "message": "Based on HW spec, it shall not be 0. \nThus, there shall be no chance to div by 0.",
+      "parentUuid": "d4ef3c5b_28839c5d",
+      "range": {
+        "startLine": 158,
+        "startChar": 12,
+        "endLine": 158,
+        "endChar": 22
+      },
+      "revId": "b529fe6898f42df46e357501fda12ef21e66706f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e8bde82_04917777",
@@ -93,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07e7c046_9c849eaf",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_clock_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:13:04Z",
+      "side": 1,
+      "message": "Code removed.",
+      "parentUuid": "9e8bde82_04917777",
+      "range": {
+        "startLine": 203,
+        "startChar": 1,
+        "endLine": 203,
+        "endChar": 41
+      },
+      "revId": "b529fe6898f42df46e357501fda12ef21e66706f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9531688_6c4d6f00",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-06-01T14:05:26Z",
       "side": 1,
       "message": "These lines make all the function code above useless, doesn\u0027t it? Is this intended?",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 27
+      },
+      "revId": "b529fe6898f42df46e357501fda12ef21e66706f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b312354_52d1f71e",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_clock_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:13:04Z",
+      "side": 1,
+      "message": "Yes. This is intended. \nAs the platform we tested on does not have the actual clock manager running. \nThus we are forced to use \"hardcoded\" value now. \nThis shall be updated in the future.",
+      "parentUuid": "a9531688_6c4d6f00",
       "range": {
         "startLine": 205,
         "startChar": 0,
