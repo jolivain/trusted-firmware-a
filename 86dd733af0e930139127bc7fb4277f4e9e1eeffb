@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "844a5cf8_487994be",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-06-12T12:40:37Z",
+      "side": 1,
+      "message": "nit: No need to mention \"when execution at any EL\", may be you can mention \"SError Interrupts to EL3 while executing in EL3\"",
+      "range": {
+        "startLine": 62,
+        "startChar": 12,
+        "endLine": 62,
+        "endChar": 37
+      },
+      "revId": "86dd733af0e930139127bc7fb4277f4e9e1eeffb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
