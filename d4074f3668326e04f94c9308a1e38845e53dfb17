@@ -22,6 +22,30 @@
       },
       "revId": "d4074f3668326e04f94c9308a1e38845e53dfb17",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21de59b8_13742ffc",
+        "filename": "plat/intel/soc/common/soc/socfpga_mailbox.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:12:49Z",
+      "side": 1,
+      "message": "SDM mailbox message shall only support 0x01 as the reset_type now. \nThus we need to override the value but in order to keep the code more robust in the future, \nwe opt to keep the reset_type as input param.",
+      "parentUuid": "bba2aa20_f33bfaff",
+      "range": {
+        "startLine": 535,
+        "startChar": 1,
+        "endLine": 535,
+        "endChar": 55
+      },
+      "revId": "d4074f3668326e04f94c9308a1e38845e53dfb17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
