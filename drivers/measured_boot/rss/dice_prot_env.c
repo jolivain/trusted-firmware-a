@@ -116,7 +116,7 @@ int dpe_measure_and_record(uintptr_t data_base, uint32_t data_size,
 			 */
 			VERBOSE("Share child_context_handle over dtb: 0x%x\n",
 				child_context_handle);
-			/* TODO: share context handle */
+			plat_dpe_share_context_handle(&child_context_handle);
 		}
 	} else {
 		ERROR("dpe_derive_child failed\n");
