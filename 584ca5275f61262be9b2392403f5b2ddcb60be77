@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac3b701a_06881fe3",
+        "filename": "plat/intel/soc/common/drivers/ddr/ddr.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:12:24Z",
+      "side": 1,
+      "message": "Yes, it is safe. \nThis is for debug purpose only.",
+      "parentUuid": "3b3fb656_1ccdac0f",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 23
+      },
+      "revId": "584ca5275f61262be9b2392403f5b2ddcb60be77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc649dc5_2ff5489a",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-01T15:54:37Z",
       "side": 1,
       "message": "Remove this dead code?",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 6
+      },
+      "revId": "584ca5275f61262be9b2392403f5b2ddcb60be77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a785b5fd_5a1edc26",
+        "filename": "plat/intel/soc/common/drivers/ddr/ddr.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:12:24Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "dc649dc5_2ff5489a",
       "range": {
         "startLine": 264,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "defb80e1_ba38b9e6",
+        "filename": "plat/intel/soc/common/drivers/ddr/ddr.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:12:24Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "ee908406_6226a982",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 49
+      },
+      "revId": "584ca5275f61262be9b2392403f5b2ddcb60be77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0702a55e_fcf7f295",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-06-01T15:54:37Z",
       "side": 1,
       "message": "Remove this dead code?",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 307,
+        "endChar": 49
+      },
+      "revId": "584ca5275f61262be9b2392403f5b2ddcb60be77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95144c4e_165b7dc2",
+        "filename": "plat/intel/soc/common/drivers/ddr/ddr.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:12:24Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "0702a55e_fcf7f295",
       "range": {
         "startLine": 300,
         "startChar": 0,
