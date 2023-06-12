@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f3f9e17_7e9f0a54",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:07:00Z",
+      "side": 1,
+      "message": "as discussed previously, keep the redundant PMU init in el3_common_macros.  This is similar to other bit which control features being initialized here (Like TRF, SPME, TPM etc.",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "952744ea_d4cd3941",
+        "filename": "include/lib/extensions/pmuv3.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:07:00Z",
+      "side": 1,
+      "message": "pmuv3_reset_hpmn() seems a better way to describe the operations being done related to PMU in this function. See suggested renames in other files.",
+      "range": {
+        "startLine": 15,
+        "startChar": 11,
+        "endLine": 15,
+        "endChar": 17
+      },
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d71002cd_50fa2d01",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:07:00Z",
+      "side": 1,
+      "message": "Call pmuv3_reset_hpmn() here.",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee678037_44384081",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:07:00Z",
+      "side": 1,
+      "message": "Since this is a function invoked for protection of EL3 and is not specific on NS, it doesn\u0027t have to be here but call this in bl31_main().",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72cefb4e_d295531d",
+        "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:07:00Z",
+      "side": 1,
+      "message": "This is only needed for NS. Call this pmuv3_reset_hpmn() and make this a static inline function in pmuv3.h",
+      "range": {
+        "startLine": 24,
+        "startChar": 5,
+        "endLine": 24,
+        "endChar": 17
+      },
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9717d718_a04e7f29",
+        "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:07:00Z",
+      "side": 1,
+      "message": "Set the LC bit as well as it is configuring the PMU to overflow on 64 bit rather than 31 bit.",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6618b36f_3a10164d",
+        "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:07:00Z",
+      "side": 1,
+      "message": "suggest : \n\npmuv3_init_el2_none() to indicate this is only called when EL2 is disabled.",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1ba68c0_51c0ea80",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:07:00Z",
+      "side": 1,
+      "message": "not needed for realm world. Can be removed.",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
