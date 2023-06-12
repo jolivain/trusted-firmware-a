@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b035b536_2a08e69f",
+        "filename": "bl31/aarch64/bl31_entrypoint.S",
+        "patchSetId": 27
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:37:09Z",
+      "side": 1,
+      "message": "can call this in C code from the start of bl31_main() and psci_warmboot_entrypoint()",
+      "revId": "e8237b0c125913aa561d7913c5a3e04a8ae4b273",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
