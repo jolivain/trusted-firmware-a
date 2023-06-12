@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e72ff8e_84c39c15",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:32:31Z",
+      "side": 1,
+      "message": "if all of the below functions are applying to regsiters in place, then they ahould be called in setup_context_common",
+      "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fd2c2e4_ca2443c2",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:32:31Z",
+      "side": 1,
+      "message": "keep the ctx argument as we might need per world control for this featre.",
+      "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "081cc1df_3451b27d",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:32:31Z",
+      "side": 1,
+      "message": "keep the ctx arg as we need per world control (MPAM to be disabled/default in Secure and enabled for NS/RL).",
+      "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ace5dcc_a42236b4",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:32:31Z",
+      "side": 1,
+      "message": "keep ctx, same comment for all.",
+      "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4aab547_6ca6a720",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:32:31Z",
+      "side": 1,
+      "message": "Not related to this chnage, but all of this code must be deprecated for next release. \nI dont see any point of this functionality anymore\n\nWe need to build flag ENABLE_NS_EL2_INIT which must default to 0 for all of this code. If any platform needs EL2 init, they can enable it but I hope we can remove this soon.\n\nAnd if we are removing this, we dont need to refactor this code and keep it as such under the build flag.",
+      "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcab47dc_8a6fe30f",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:32:31Z",
+      "side": 1,
+      "message": "this should be called in common ctx init.",
+      "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab2f3070_e38538ec",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-12T13:32:31Z",
+      "side": 1,
+      "message": "We should construct values from scratch.",
+      "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
