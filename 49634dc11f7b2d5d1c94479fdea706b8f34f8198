@@ -147,6 +147,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f79e49c_3edacdac",
+        "filename": "Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 657,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-12T08:42:59Z",
+      "side": 1,
+      "message": "@Harrison,\nEror : \" recipe commences before first target. Stop.\"\nHave retained these variable references/substitution lines with spaces, as Make will consider them as recipes if indented with tabs.",
+      "parentUuid": "76b893bc_6965688a",
+      "range": {
+        "startLine": 656,
+        "startChar": 0,
+        "endLine": 657,
+        "endChar": 42
+      },
+      "revId": "49634dc11f7b2d5d1c94479fdea706b8f34f8198",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6acccb3_b0caf655",
