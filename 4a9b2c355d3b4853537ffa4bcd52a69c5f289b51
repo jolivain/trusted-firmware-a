@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b5de7783_ec44fbeb",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-12T13:58:25Z",
+      "side": 1,
+      "message": "we should under no circumstances do that! I really wanted to but the reason it\u0027s not possible is that context initialization is done across cores. If setup_context_common were to call this, it would overwrite the current world\u0027s (probably NS) active running state and it will never affect the target core. This is why, this is currently done (after a lot of indirection) at cm_prepare_el3_exit().\n\nI did want to refactor that but it involved quite deep changes into _all_ SPDs and since we agreed (offline) that secure EL2 context could be zeroed I had no need to do that. It would be a cool thing to do eventually, but it would be a separate and very big project.",
+      "parentUuid": "2e72ff8e_84c39c15",
+      "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3fd2c2e4_ca2443c2",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 26
@@ -31,6 +49,24 @@
       "writtenOn": "2023-06-12T13:32:31Z",
       "side": 1,
       "message": "keep the ctx argument as we might need per world control for this featre.",
+      "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bbc43c4_81add330",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-12T13:58:25Z",
+      "side": 1,
+      "message": "that\u0027s why we have \u003cfeat\u003e_enable(ctx). What you want goes there. These functions are only for stuff that _never_ changes, regardless of which world we end up in. What you want would be done by adding context entries for each register and moving the code to the \u003cfeat\u003e_enable(ctx). This is out of scope for these changes and is a separate task",
+      "parentUuid": "3fd2c2e4_ca2443c2",
       "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17a9f208_513b19b5",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-12T13:58:25Z",
+      "side": 1,
+      "message": "Done, see above",
+      "parentUuid": "081cc1df_3451b27d",
+      "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ace5dcc_a42236b4",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-06-12T13:32:31Z",
       "side": 1,
       "message": "keep ctx, same comment for all.",
+      "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6192971f_4ea9db11",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-12T13:58:25Z",
+      "side": 1,
+      "message": "Done, see above",
+      "parentUuid": "1ace5dcc_a42236b4",
       "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -103,6 +175,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dff2f962_27e16db1",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-12T13:58:25Z",
+      "side": 1,
+      "message": "it\u0027s called where all other functions of this type are called. I\u0027ll address the rest on the manage_extensions_nonsecure_mixed comment",
+      "parentUuid": "dcab47dc_8a6fe30f",
+      "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab2f3070_e38538ec",
@@ -116,6 +206,24 @@
       "writtenOn": "2023-06-12T13:32:31Z",
       "side": 1,
       "message": "We should construct values from scratch.",
+      "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2f5aea9_ae69813d",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-12T13:58:25Z",
+      "side": 1,
+      "message": "I\u0027ll only do for SMCR_EL3 as it\u0027s sme specific and I want these functions to be otherwise idempotent.",
+      "parentUuid": "ab2f3070_e38538ec",
       "revId": "4a9b2c355d3b4853537ffa4bcd52a69c5f289b51",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
