@@ -6,11 +6,13 @@
 
 #include <stdint.h>
 
+#include <common/debug.h>
 #include <drivers/arm/rss_comms.h>
 #include <drivers/measured_boot/rss/dice_prot_env.h>
 #include <lib/psa/measured_boot.h>
 
-#include <plat/common/common_def.h>
+#include <plat/arm/common/plat_arm.h>
+#include <plat/common/platform.h>
 #include <platform_def.h>
 
 /* The content and the values of this array depends on:
@@ -157,6 +159,14 @@ struct dpe_metadata tc_dpe_metadata[] = {
 		.id = DPE_INVALID_ID }
 };
 
+/* Context handle is meant to be used by BL33. Sharing it via NT_FW_CONFIG */
+static int child_ctx_handle;
+
+void plat_dpe_share_context_handle(int *ctx_handle)
+{
+	child_ctx_handle = *ctx_handle;
+}
+
 void bl2_plat_mboot_init(void)
 {
 	/* Initialize the communication channel between AP and RSS */
@@ -168,5 +178,17 @@ void bl2_plat_mboot_init(void)
 
 void bl2_plat_mboot_finish(void)
 {
-	/* Nothing to do. */
+	int rc;
+
+	VERBOSE("Share DPE context handle with BL33: 0x%x\n", child_ctx_handle);
+	rc = arm_set_nt_fw_info(&child_ctx_handle);
+	if (rc != 0) {
+		ERROR("Unable to set DPE context handle in NT_FW_CONFIG\n");
+		/*
+		 * It is a fatal error because on TC platform, BL33 software
+		 * assumes that a valid DPE context_handle is passed through
+		 * the DTB object by BL2.
+		 */
+		plat_panic_handler();
+	}
 }

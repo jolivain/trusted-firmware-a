@@ -31,6 +31,7 @@ struct dpe_metadata {
 
 void dpe_init(void);
 struct dpe_metadata *plat_dpe_get_metadata(void);
+void plat_dpe_share_context_handle(int *ctx_handle);
 int dpe_measure_and_record(uintptr_t data_base, uint32_t data_size,
 			   uint32_t data_id);
 
