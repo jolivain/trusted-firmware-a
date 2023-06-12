@@ -294,6 +294,12 @@ int arm_get_tb_fw_info(uint64_t *log_addr, size_t *log_size,
 		       size_t *log_max_size);
 #endif /* MEASURED_BOOT */
 
+#ifdef DICE_PROTECTION_ENVIRONMENT
+int arm_set_nt_fw_info(int *ctx_handle);
+int arm_set_tb_fw_info(int *ctx_handle);
+int arm_get_tb_fw_info(int *ctx_handle);
+#endif /* DICE_PROTECTION_ENVIRONMENT */
+
 /*
  * Free the memory storing initialization code only used during an images boot
  * time so it can be reclaimed for runtime data
