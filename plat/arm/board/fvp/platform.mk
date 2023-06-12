@@ -43,6 +43,7 @@ FVP_DT_PREFIX		:= fvp-base-gicv3-psci
 # ARM_ARCH_* when the makefile supports it).
 ifneq (${DRTM_SUPPORT}, 1)
 ifneq (${SPD}, tspd)
+ifneq (${RESET_TO_BL2}, 1)
 	ENABLE_FEAT_AMU			:= 2
 	ENABLE_FEAT_AMUv1p1		:= 2
 	ENABLE_FEAT_HCX			:= 2
@@ -58,6 +59,7 @@ ifeq (${ENABLE_RME}, 0)
 ifeq (${CTX_INCLUDE_FPREGS}, 0)
 	ENABLE_SME_FOR_NS		:= 2
 	ENABLE_SME2_FOR_NS		:= 2
+endif
 endif
 endif
 endif
