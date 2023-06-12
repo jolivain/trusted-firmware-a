@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d716e192_370a861b",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:12:45Z",
+      "side": 1,
+      "message": "We have 4 bridges which they can run at the same time. \nif we opt to use if...elseif then it may only allows 1 bridge to run at a time.",
+      "parentUuid": "a6a1332e_7c475099",
+      "range": {
+        "startLine": 266,
+        "startChar": 2,
+        "endLine": 266,
+        "endChar": 31
+      },
+      "revId": "ab43e40caada99bfbc0ea555f86ce5662725ef93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7069dea8_a90a0f4b",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-01T14:28:22Z",
       "side": 1,
       "message": "This assertion will be removed in release builds... Do you need to bail out of the function with a \u0027return\u0027 expression in addition to the assertion here? Or is it fine to continue executing the rest of the function in release builds?",
+      "range": {
+        "startLine": 279,
+        "startChar": 3,
+        "endLine": 279,
+        "endChar": 17
+      },
+      "revId": "ab43e40caada99bfbc0ea555f86ce5662725ef93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd0bf70b_91fb4e71",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:12:45Z",
+      "side": 1,
+      "message": "Yes. The assert is for debug purpose. \nIt is good to print out the \"Error\" in release builds and shall continue to execute.",
+      "parentUuid": "7069dea8_a90a0f4b",
       "range": {
         "startLine": 279,
         "startChar": 3,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0392e13_8e59b9f5",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:12:45Z",
+      "side": 1,
+      "message": "Yes. The assert is for debug purpose. \nIt is good to print out the \"Error\" in release builds and shall continue to execute.",
+      "parentUuid": "691f2fb3_a881df33",
+      "range": {
+        "startLine": 320,
+        "startChar": 3,
+        "endLine": 320,
+        "endChar": 17
+      },
+      "revId": "ab43e40caada99bfbc0ea555f86ce5662725ef93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b37b259_bd03f3a8",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-06-01T14:28:22Z",
       "side": 1,
       "message": "And here.",
+      "range": {
+        "startLine": 371,
+        "startChar": 3,
+        "endLine": 371,
+        "endChar": 17
+      },
+      "revId": "ab43e40caada99bfbc0ea555f86ce5662725ef93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "019d5640_e740df92",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:12:45Z",
+      "side": 1,
+      "message": "Yes. The assert is for debug purpose. \nIt is good to print out the \"Error\" in release builds and shall continue to execute.",
+      "parentUuid": "2b37b259_bd03f3a8",
       "range": {
         "startLine": 371,
         "startChar": 3,
