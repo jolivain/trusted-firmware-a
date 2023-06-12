@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3aaa3ba6_e1f5c5df",
+        "filename": "plat/intel/soc/agilex/platform.mk",
+        "patchSetId": 41
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-12T15:13:31Z",
+      "side": 1,
+      "message": "It does, yes. IIRC each core reads its MPIDR on boot and invokes the CPU setup routine for its particular model.",
+      "parentUuid": "84ad8a3b_f21a014e",
+      "revId": "ff88f6c186f85d6222ca4af453c3604df6f3673e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51bdaedc_4fd8a7b6",
         "filename": "plat/intel/soc/n5x/platform.mk",
         "patchSetId": 41
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d9a131d5_a8ce31f4",
+        "filename": "plat/intel/soc/n5x/platform.mk",
+        "patchSetId": 41
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-12T15:13:31Z",
+      "side": 1,
+      "message": "See previous comments: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20352/41/plat/intel/soc/agilex/platform.mk#33",
+      "parentUuid": "51bdaedc_4fd8a7b6",
+      "revId": "ff88f6c186f85d6222ca4af453c3604df6f3673e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bbc54768_148d2027",
         "filename": "plat/intel/soc/stratix10/platform.mk",
         "patchSetId": 41
@@ -48,6 +84,24 @@
       "writtenOn": "2023-06-12T13:49:43Z",
       "side": 1,
       "message": "Is this supporting multiple different CPUs?\nFor eg: A53, A55 running at the same time?",
+      "revId": "ff88f6c186f85d6222ca4af453c3604df6f3673e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "696d1643_2b4a666a",
+        "filename": "plat/intel/soc/stratix10/platform.mk",
+        "patchSetId": 41
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-12T15:13:31Z",
+      "side": 1,
+      "message": "See previous comments: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20352/41/plat/intel/soc/agilex/platform.mk#33",
+      "parentUuid": "bbc54768_148d2027",
       "revId": "ff88f6c186f85d6222ca4af453c3604df6f3673e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }

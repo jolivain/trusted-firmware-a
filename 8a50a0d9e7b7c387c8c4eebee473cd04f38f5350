@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3cb7887f_63d3f089",
+        "filename": "bl32/sp_min/sp_min.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-12T15:13:31Z",
+      "side": 1,
+      "message": "Alright, let me see what I can do there, then.",
+      "parentUuid": "054273f8_71433e90",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "66536ebb_aa1b4e47",
         "filename": "lib/cpus/cpus.mk",
         "patchSetId": 39
@@ -373,6 +391,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "396efbc7_2fd9f40c",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-12T15:13:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "37c207e6_4b2a0897",
+      "range": {
+        "startLine": 121,
+        "startChar": 105,
+        "endLine": 121,
+        "endChar": 129
+      },
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99bc1094_5118ac77",
         "filename": "lib/cpus/cpus.mk",
         "patchSetId": 39
@@ -420,6 +462,24 @@
       "side": 1,
       "message": "I see what you mean now. I suppose since files don\u0027t take arguments, this is the way to do it.\n\nIn that case, why not hard code the dependencies in this file? I feel like this is overengineering as there are only 4 users of this library and there are unlikely to be more. It feels to me that this adds a level of indirection that is hard to read and I don\u0027t see the benefit.",
       "parentUuid": "1a393862_892fe553",
+      "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4866a65_291e15ba",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 39
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-12T15:13:31Z",
+      "side": 1,
+      "message": "The idea is to build an actual dependency tree, rather than having to connect dots at different levels to identify what might be enabled at the point that the library is included. If you can make the library itself hermetic, then anything above it can do whatever it likes, safe in the confidence that it isn\u0027t impacting another consumer of the library.\n\n(FYI there are seven, rather than four, consumers of this library: FVP-R\u0027s BL1, Juno\u0027s platform headers, and A8K\u0027s BLE image)",
+      "parentUuid": "4076aff1_05c4efc0",
       "revId": "8a50a0d9e7b7c387c8c4eebee473cd04f38f5350",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
