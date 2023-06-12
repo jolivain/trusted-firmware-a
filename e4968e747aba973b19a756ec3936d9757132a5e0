@@ -16,6 +16,24 @@
       "message": "nit: we can merge with next line.",
       "revId": "e4968e747aba973b19a756ec3936d9757132a5e0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc5595ec_7584aae8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2023-06-12T19:52:32Z",
+      "side": 1,
+      "message": "Checkpatch style scripts indicate that 75 characters max is preferred. Instead of merging lines, I just changed where it wraps slightly for readability in gerrit.\nDone",
+      "parentUuid": "b3cee67d_0abc6b8e",
+      "revId": "e4968e747aba973b19a756ec3936d9757132a5e0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
