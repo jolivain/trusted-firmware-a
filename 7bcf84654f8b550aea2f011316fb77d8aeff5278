@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b211a301_e39c0069",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:11:56Z",
+      "side": 1,
+      "message": "Redesign the logic.",
+      "parentUuid": "dc5d2070_e7eced21",
+      "range": {
+        "startLine": 355,
+        "startChar": 0,
+        "endLine": 361,
+        "endChar": 5
+      },
+      "revId": "7bcf84654f8b550aea2f011316fb77d8aeff5278",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "048b7e2e_9b952d4b",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-06-01T16:06:40Z",
       "side": 1,
       "message": "This looks like an Intel platform-specific build option so it should be moved to Intel platform makefile.",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 15
+      },
+      "revId": "7bcf84654f8b550aea2f011316fb77d8aeff5278",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a957cad4_b42dde6c",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-12T09:11:56Z",
+      "side": 1,
+      "message": "Removed the emulator macro",
+      "parentUuid": "048b7e2e_9b952d4b",
       "range": {
         "startLine": 95,
         "startChar": 0,
