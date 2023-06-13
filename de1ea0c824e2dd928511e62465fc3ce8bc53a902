@@ -16,6 +16,24 @@
       "message": "Hi,\n\nSorry if I seemed rude in my last comment. I wasn\u0027t forbidding you to use the MMC framework, just wanted to have something still working for all other platforms using it. When checking the diffs, I still don\u0027t understand the problem you have with CMD55/ACMD51. Was there really an issue? Do you really need to be in ACMD mode when running your prepare function?\nThe SD specs states:\n\"ACMD55 does not exist. If multiple CMD55 are issued continuously, APP_CMD bit in each response\nis set to 1. The command issued immediately after the last CMD55 shall be interpreted as ACMD.\"\n\nSo if you really need to be in ACMD mode you could issue a CMD55 in your prepare command. This could be an issue, as this CMD55 should only be done prior to that ACMD51 command. As I said, I don\u0027t think it should be necessary and potentially hides another bug, timing or cache issue?\n\nBy the way, and it is another good reason to use the default framework, you missed some of the last corrections there (for example: fix(mmc): remove redundant reset_to_idle call).\n\nBest regards,\nYann",
       "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d6f972b_fe2bb6b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-13T13:19:12Z",
+      "side": 1,
+      "message": "Hi Yann, \n\nNo worry. Your point of view is totally valid. \nWe did a feasibility study on utilizing the driver. Unfortunately due to our HW design limitation, we need to tweak a bit on the common flow to make the sdmmc works at our end. \n\nWith this design, as you mentioned; we are not able to fully utilize the benefit of common driver at the moment. We shall redesign to utilize common driver in the near future once everything is sorted out.",
+      "parentUuid": "311aeea9_ea034983",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
