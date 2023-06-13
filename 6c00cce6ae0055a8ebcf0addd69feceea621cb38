@@ -218,6 +218,24 @@
       "parentUuid": "880333e9_894f1c5e",
       "revId": "6c00cce6ae0055a8ebcf0addd69feceea621cb38",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d5a4f56_e8844cb3",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-06-13T16:26:45Z",
+      "side": 1,
+      "message": "@Chris, I am not quite sure what the concerns are here? Are you afraid that we create a Makefile target that people will rely on for the future to come, and that it gets harder and harder to maintain that?\nI don\u0027t really see how we could easily isolate just the feature bits, apart from spelling them out explicitly, and joining them into $DEFINE later, which sounds a bit convoluted. On the other hand, just dumping $DEFINE is literally a one-liner.\n\nThe idea of this dump_define is just a development and debug feature, generating a list that can easily be filtered (line by line), so more symbols than needed is not really a problem. At least that is my perception.\nSo do you want me to just rename the target, or do you have any Makefile magic in mind that would easily implement \"as many of the defines as we know about\", or something more future-proof?",
+      "parentUuid": "8f988884_dd379d63",
+      "revId": "6c00cce6ae0055a8ebcf0addd69feceea621cb38",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
