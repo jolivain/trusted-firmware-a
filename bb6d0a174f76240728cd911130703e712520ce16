@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a987022f_4be31da7",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-06-13T11:35:33Z",
+      "side": 1,
+      "message": "I can change this if you prefer.\nI\u0027ve started to be cautious with the pre-processor because in the case the macro is undefined (no value, that is neither 0 nor 1 because missing -D on the command line), then #if MACRO returns true. This can lead to biased cases like enabling conditional code when we think the MACRO variable is false (because undefined). I appreciate the way it\u0027s written in current change catches this problem because the undefined macro leads to an invalid expression hence breaking the build. It also feels to me this makes it more explicit/readable about the value we intend to test against the macro. \nAdmittedly, in the present case I believe above is arguable because an option supposedly has always a default value from make_helpers/defaults.mk, and is properly checked by the makefile flow to be *defined* *and* only taking one out of two valid values of 0 or 1",
+      "parentUuid": "9460f713_56996c36",
+      "range": {
+        "startLine": 252,
+        "startChar": 4,
+        "endLine": 252,
+        "endChar": 33
+      },
+      "revId": "bb6d0a174f76240728cd911130703e712520ce16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d28fa825_32c59c1a",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 3
