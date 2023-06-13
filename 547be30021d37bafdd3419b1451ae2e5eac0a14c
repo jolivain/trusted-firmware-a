@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c4e55e5_a1290ccb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-06-13T13:06:48Z",
+      "side": 1,
+      "message": "I believe the reason is that the primary consumer for this macro is lib/extensions/sve/sve.c\nCurious to know the reason for using this macro in platform code?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 21
+      },
+      "revId": "547be30021d37bafdd3419b1451ae2e5eac0a14c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ae644b93_ded9d124",
@@ -32,6 +55,23 @@
       "side": 1,
       "message": "Patchset : https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20889/1",
       "parentUuid": "ae644b93_ded9d124",
+      "revId": "547be30021d37bafdd3419b1451ae2e5eac0a14c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51c7b9b4_97b3e72b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-06-13T13:06:48Z",
+      "side": 1,
+      "message": "Hi Okash, can you check open comments?\nI believe the change is ok in general. Thanks.",
       "revId": "547be30021d37bafdd3419b1451ae2e5eac0a14c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
