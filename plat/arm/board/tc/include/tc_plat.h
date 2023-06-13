@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -15,6 +15,10 @@ int run_platform_tests(void);
 
 #ifdef PLATFORM_TEST_NV_COUNTERS
 int nv_counter_test(void);
+#endif
+
+#ifdef PLATFORM_TEST_ROTPK
+int rotpk_test(void);
 #endif
 
 #endif /* TC_PLAT_H */
