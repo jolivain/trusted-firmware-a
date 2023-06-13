@@ -111,6 +111,24 @@
       "message": "nit:/* !EL3_EXCEPTION_HANDLING */, similarly at line no. 587.",
       "revId": "bb6d0a174f76240728cd911130703e712520ce16",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb897167_b2cf6b63",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-13T16:21:36Z",
+      "side": 1,
+      "message": "Not strict on this so can be ignored.",
+      "parentUuid": "d28fa825_32c59c1a",
+      "revId": "bb6d0a174f76240728cd911130703e712520ce16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
