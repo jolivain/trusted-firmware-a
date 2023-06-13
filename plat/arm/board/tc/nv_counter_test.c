@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023, ARM Limited. All rights reserved.
+ * Copyright (c) 2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -54,7 +54,7 @@ int nv_counter_test(void)
 			return -1;
 		}
 	}
-	printf("Passed nv_counter_test\n");
+	printf("Passed platform test: nv_counter_test\n");
 
 	return 0;
 }
