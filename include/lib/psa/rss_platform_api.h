@@ -41,4 +41,20 @@ psa_status_t
 rss_platform_nv_counter_read(uint32_t counter_id,
 		uint32_t size, uint8_t *val);
 
+/*
+ * Reads the public key or the public part of a key pair in binary format.
+ *
+ * key		Identifier of the key to export.
+ * data_size	Size of the data buffer in bytes.
+ *
+ * data		Buffer where the key data is to be written.
+ * data_length	On success, the number of bytes that make up the key data.
+ *
+ * PSA_SUCCESS if the value is read correctly. Otherwise,
+ *	it returns a PSA_ERROR.
+ */
+psa_status_t
+rss_platform_key_read(psa_key_id_t key, uint8_t *data,
+		size_t data_size, size_t *data_length);
+
 #endif /* RSS_PLATFORM_API_H */
