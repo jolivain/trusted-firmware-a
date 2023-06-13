@@ -3,6 +3,63 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2b929b4_42198250",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 26
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-13T13:04:21Z",
+      "side": 1,
+      "message": "Looks like initially build flag had been introduced, but removed in latest patches.\nCommit message need to be updated accordingly.",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffa846f4_7168e97e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 26
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-13T13:04:21Z",
+      "side": 1,
+      "message": "it",
+      "range": {
+        "startLine": 11,
+        "startChar": 38,
+        "endLine": 11,
+        "endChar": 40
+      },
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be575390_fa0679e1",
+        "filename": "Makefile",
+        "patchSetId": 26
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-13T13:04:21Z",
+      "side": 1,
+      "message": "remove this line",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab8e6a46_130e35f6",
         "filename": "include/arch/aarch64/el2_common_macros.S",
         "patchSetId": 26
