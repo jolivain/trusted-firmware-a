@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11ef5d00_e5a5c24e",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-14T22:20:47Z",
+      "side": 1,
+      "message": "I am little confused here.\nThis mechanism is for detecting features, if in case the corresponding feature enable flag is enabled.\nTriggers a panic later if a feature is forcefully enabled, but not available on the PE\n\nWhy are we considering the opposite here. \nIMO, its not right to use it in this API. Because we clearly state the aim of this API is to identify features which have been enabled but not supported by PE.\n\nIn case this flag is set to 1, the user is not trying to enable but disable it.\nSo I would rather not create a confusion, with this new pattern of uisng DISABLE flags under this API.",
+      "revId": "81f987291b5fc4943d4fe02b5d86f948dc30eaa1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
