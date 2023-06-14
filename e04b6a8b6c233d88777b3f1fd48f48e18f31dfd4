@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "091ce665_f67775d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-06-14T11:05:18Z",
+      "side": 1,
+      "message": "FYI, sometimes when a patch has been around for a while a rebase is necessary to avoid some of these CI failures in areas unrelated to your change di to other changes having gone back. Worth trying to ensure things and get the CI to set the Verified+1 flag.\n\nIn theory this rebase could be automated but there are corner cases and so this is not done due to other priority work and the manual rebase is fairly simple workaround.",
+      "revId": "e04b6a8b6c233d88777b3f1fd48f48e18f31dfd4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
