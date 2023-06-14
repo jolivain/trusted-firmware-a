@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f198c4c7_f5a7830b",
+        "filename": "lib/extensions/spe/spe.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-14T22:37:31Z",
+      "side": 1,
+      "message": "Function name is bit verbose and understandable for us.\nBut I guess, for a generic reader may find it a bit hard to follow the usage of this API.\n\nCould you please add a small description on the aim of these APIs, as we haven\u0027t commnented in header\u0027s too (mainly EL3 and EL2 enablement)\nPlease do the same for other features in other files to keep it consistent.\nThanks!",
+      "revId": "60f6064f78cc1e6948c4d0fd04676bce19ebc9ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
