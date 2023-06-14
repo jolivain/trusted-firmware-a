@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "997ad836_33a203f8",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 20
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2023-06-14T18:22:55Z",
+      "side": 1,
+      "message": "nit rather than annoying, which is subjective and not very descriptive, I\u0027d recommend something like \"for errata that don\u0027t fit the common cases\" or something similar",
+      "range": {
+        "startLine": 528,
+        "startChar": 47,
+        "endLine": 528,
+        "endChar": 56
+      },
+      "revId": "b613c09e8d07001917b230d2a61758a1292636e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
