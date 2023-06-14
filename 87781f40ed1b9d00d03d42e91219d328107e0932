@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8fe5a161_37deb547",
+        "filename": "plat/imx/imx93/aarch64/plat_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-14T06:50:31Z",
+      "side": 1,
+      "message": "thx, will fix it.",
+      "parentUuid": "9a0505d6_be849cd3",
+      "range": {
+        "startLine": 50,
+        "startChar": 9,
+        "endLine": 50,
+        "endChar": 17
+      },
+      "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dd6a688f_569484f9",
         "filename": "plat/imx/imx93/imx93_bl31_setup.c",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-13T22:07:59Z",
       "side": 1,
       "message": "nitpick: move to the top of the file",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 0
+      },
+      "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dd9ecd4_d4184aa8",
+        "filename": "plat/imx/imx93/imx93_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-14T06:50:31Z",
+      "side": 1,
+      "message": "ok, will fix it.",
+      "parentUuid": "dd6a688f_569484f9",
       "range": {
         "startLine": 73,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "525fc1d9_2c148698",
+        "filename": "plat/imx/imx93/imx93_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-14T06:50:31Z",
+      "side": 1,
+      "message": "thx, will fix it.",
+      "parentUuid": "0d28042b_316b1795",
+      "range": {
+        "startLine": 80,
+        "startChar": 7,
+        "endLine": 80,
+        "endChar": 16
+      },
+      "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab3902da_bcef583c",
         "filename": "plat/imx/imx93/imx93_psci.c",
         "patchSetId": 1
@@ -89,6 +161,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27aeca5e_a779a4c6",
+        "filename": "plat/imx/imx93/imx93_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-14T06:50:31Z",
+      "side": 1,
+      "message": "thx, will fix it.",
+      "parentUuid": "ab3902da_bcef583c",
+      "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "235f259e_4c8ad290",
         "filename": "plat/imx/imx93/imx93_psci.c",
         "patchSetId": 1
@@ -100,6 +190,24 @@
       "writtenOn": "2023-06-13T22:07:59Z",
       "side": 1,
       "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cb5dc0c_105f07d6",
+        "filename": "plat/imx/imx93/imx93_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-14T06:50:31Z",
+      "side": 1,
+      "message": "thx, will fix it.",
+      "parentUuid": "235f259e_4c8ad290",
       "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -129,6 +237,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf239ac9_33cb4688",
+        "filename": "plat/imx/imx93/imx93_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-14T06:50:31Z",
+      "side": 1,
+      "message": "sure, will fix it.",
+      "parentUuid": "d712514a_509e9eed",
+      "range": {
+        "startLine": 136,
+        "startChar": 18,
+        "endLine": 136,
+        "endChar": 19
+      },
+      "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f165091b_e0d1e97f",
         "filename": "plat/imx/imx93/plat_topology.c",
         "patchSetId": 1
@@ -140,6 +272,24 @@
       "writtenOn": "2023-06-13T22:07:59Z",
       "side": 1,
       "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6897dbff_bf05863d",
+        "filename": "plat/imx/imx93/plat_topology.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-14T06:50:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f165091b_e0d1e97f",
       "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -157,6 +307,30 @@
       "writtenOn": "2023-06-13T22:07:59Z",
       "side": 1,
       "message": "use tabs to align",
+      "range": {
+        "startLine": 41,
+        "startChar": 20,
+        "endLine": 41,
+        "endChar": 21
+      },
+      "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85e2b24a_ee994bc1",
+        "filename": "plat/imx/imx93/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-14T06:50:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d12c3320_8ac3a452",
       "range": {
         "startLine": 41,
         "startChar": 20,
