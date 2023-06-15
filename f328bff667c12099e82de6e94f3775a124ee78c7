@@ -16,6 +16,24 @@
       "message": "Hi Alexei, Sandrine, \n\nMay I know is there any guideline to include the new file (in lib folder) to coverity scan? \nI have checked \"Contributor\u0027s Guide\" but it only mention about new platform build. \n\nCould you please advise?",
       "revId": "f328bff667c12099e82de6e94f3775a124ee78c7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "475b2414_b2ea9921",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-15T12:44:24Z",
+      "side": 1,
+      "message": "Hi Benjamin,\n\nI believe there is nothing to do to include this new memcpy_s.c file to Coverity Scan because libc.mk unconditionally pulls it into the build. Hence it will naturally be covered.\n\nThe warning message issued by the CI is only there to remind you to consider whether you need to add something into the CI scripts to cover new files but in your case you don\u0027t.\n\nPlease ignore this (confusing) warning message in your case.\n\nI am gonna override the Verified+1 score, as this is the only complain from the CI on your patch.",
+      "parentUuid": "5998fa30_0d51ebc6",
+      "revId": "f328bff667c12099e82de6e94f3775a124ee78c7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
