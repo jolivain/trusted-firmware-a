@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58be6e6b_1a6ad394",
+        "filename": "lib/cpus/aarch64/cortex_x2.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-06-15T16:21:21Z",
+      "side": 1,
+      "message": "sysreg_bit_set CORTEX_X2_CPUPWRCTLR_EL1,CORTEX_X2_CPUPWRCTLR_EL1_CORE_PWRDN_BIT",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 33
+      },
+      "revId": "362045f07723f336d31d50ffd5c6df35e2fd2344",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
