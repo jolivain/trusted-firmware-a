@@ -16,6 +16,24 @@
       "message": "I am little confused here.\nThis mechanism is for detecting features, if in case the corresponding feature enable flag is enabled.\nTriggers a panic later if a feature is forcefully enabled, but not available on the PE\n\nWhy are we considering the opposite here. \nIMO, its not right to use it in this API. Because we clearly state the aim of this API is to identify features which have been enabled but not supported by PE.\n\nIn case this flag is set to 1, the user is not trying to enable but disable it.\nSo I would rather not create a confusion, with this new pattern of uisng DISABLE flags under this API.",
       "revId": "81f987291b5fc4943d4fe02b5d86f948dc30eaa1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93b196a2_bd51ef03",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-15T09:36:49Z",
+      "side": 1,
+      "message": "I think this feature is itself confusing but I do think this feature sticks to the pattern. And I think I\u0027ve just found a bug. I\u0027ll address 1 by 1.\n\nThe only thing FEAT_MTPMU does for EL3 is it introduces MDCR_EL3.MTPME which was previously RES0. When FEAT_MTPMU is present, this bit becomes available and resets to 1. What MTPMU_DISABLE is meant to do is flip it back to 0. So MTPMU_DISABLE is a feat enable flag in the sense that it does something when the feature is there, otherwise we don\u0027t. As far as feat_detect is concerned, this is expected behaviour and it\u0027s just flag semantics.\n\nThis brings me to the bug. The MTPME bit is RES0 so MDCR_EL3_RESET_VAL sets it to 0. But when FEAT_MTPMU is present it resets to 1. The current implementation makes the incorrect assumption that this reset behaviour will propagate which it very explicitly doesn\u0027t as we overwrite it in el3_common_macros. So in effect TF-A is running as if DISABLE_MTPMU is always set.\n\nThe fix is simple: MDCR_EL3_RESET_VAL should set the MTPME bit. It\u0027s just a question on whether this fix might not break some platfroms? Maybe @Manish can advise.",
+      "parentUuid": "11ef5d00_e5a5c24e",
+      "revId": "81f987291b5fc4943d4fe02b5d86f948dc30eaa1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
