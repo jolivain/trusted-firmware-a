@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dea46891_e40ba8bc",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-15T23:42:29Z",
+      "side": 1,
+      "message": "hmm, this is where the changes done so far is going to affect performance. If some of the enables can be made static inlines in a header, then the performance impact of bl, ret can be avoided.",
+      "revId": "020840edb8bfbd37cdc9c6bf232ee583dc83cee2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
