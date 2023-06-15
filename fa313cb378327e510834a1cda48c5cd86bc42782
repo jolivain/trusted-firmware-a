@@ -145,6 +145,30 @@
       },
       "revId": "fa313cb378327e510834a1cda48c5cd86bc42782",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c67c2ebd_5f4b3a09",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-15T21:12:46Z",
+      "side": 1,
+      "message": "hmm, I prefer the `unused` to be present in the name that this is something we need to deprecate and remove in future.\n\nGiven the verbosity, `ns` can be used to abbreviate. ns is widely used convention for non-secure so it should be OK.",
+      "parentUuid": "d5e83bb5_ebcff1cd",
+      "range": {
+        "startLine": 871,
+        "startChar": 27,
+        "endLine": 871,
+        "endChar": 30
+      },
+      "revId": "fa313cb378327e510834a1cda48c5cd86bc42782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
