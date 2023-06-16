@@ -16,6 +16,24 @@
       "message": "Just bringing this stuff back to notice. In Arm ARM, below details are mentioned\n\n\"Reserved, Should-Be-Zero (SBZ) or RES0.\n In instruction encoding diagrams, and sometimes in other descriptions, (0) indicates an SBZ bit. If \n the bit is set to 1, behaviour is CONSTRAINED UNPREDICTABLE, and must be one of the following:\n • The instruction is UNDEFINED.\n • The instruction is treated as a NOP.\n • The instruction executes as if the value of the bit was 0.\n • Any destination registers of the instruction become UNKNOWN\"\n\nWe discussed this in another patch and concluded that setting the RES0 bits if it falls under bullets 3 and 4, then it is safe to operate. I\u0027m not sure about the other 2 bullets, it\u0027s better to get clarification from the Arch team. \n\nAlso, this behaviour might have been confirmed in the FVP model, but it is better to confirm it in the actual silicon as well IMO.\n\nHaving said that I\u0027m fine with this change.\n",
       "revId": "2c1abc568491bcd36c7e519c2f23de1899bafc4d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "589d6ac5_097e713f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-16T08:51:58Z",
+      "side": 1,
+      "message": "I spent some time in the arm arm since we talked about this and the above only applies to instruction and register encodings. For register values it boils down to the latter two cases. So it\u0027s a truly safe operation, although no particular value can be expected to be read.",
+      "parentUuid": "3037ee2d_af0314b0",
+      "revId": "2c1abc568491bcd36c7e519c2f23de1899bafc4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
