@@ -100,6 +100,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2097d97_aa682a09",
+        "filename": "Makefile",
+        "patchSetId": 26
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-16T11:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be575390_fa0679e1",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab8e6a46_130e35f6",
@@ -312,6 +330,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eae1e9ce_cf3f817d",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-16T11:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1257b782_aa8ed695",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee678037_44384081",
@@ -361,6 +397,24 @@
       "side": 1,
       "message": "probably it is easier to merge on a piecemeal fashion if the framework to to this early in Bl31_main() and warmboot entry is pulled down the patch stack. else we need all the patches to be approved before it can be merged.",
       "parentUuid": "83e45742_793ccba6",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45bf9c73_0d443015",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-16T11:40:20Z",
+      "side": 1,
+      "message": "I hadn\u0027t thought of that, I\u0027ve squashed the 2 patches to the patch on the bottom.",
+      "parentUuid": "ce6b62ad_b645fad0",
       "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -501,6 +555,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "561b4b2a_71011251",
+        "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-16T11:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26283da9_b2dfcfa7",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6618b36f_3a10164d",
@@ -586,6 +658,24 @@
       "side": 1,
       "message": "I think EL3 should not have anything to do with EL2 regs as the general case. EL2 unused is one exception and this is something we want to deprecate in TF-A. There can be few other exceptions, but generally EL3 need not worry about EL2 initialization.\n\nso _empty, or _none, or _unused will work for me.",
       "parentUuid": "dfdf193d_87e0e0f4",
+      "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b739d94_63d9d401",
+        "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-16T11:40:20Z",
+      "side": 1,
+      "message": "I have renamed all instances as well as the parent calling functions",
+      "parentUuid": "022c9251_aaeb5bcd",
       "revId": "6f98aa33b01dcd2e346ddd66a7b4d3a00909f628",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },

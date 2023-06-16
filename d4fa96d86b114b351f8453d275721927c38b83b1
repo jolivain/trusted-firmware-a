@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0beeada_33220d2a",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-16T11:40:20Z",
+      "side": 1,
+      "message": "Please see this comment: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20470/comment/8c2d693e_05a4c47c/\n\nI would be happy to go over it if anyone can point me to the spec.",
+      "parentUuid": "e7b308e1_9cbc8222",
+      "range": {
+        "startLine": 154,
+        "startChar": 45,
+        "endLine": 154,
+        "endChar": 46
+      },
+      "revId": "d4fa96d86b114b351f8453d275721927c38b83b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "32a9089d_2a6636bd",
         "filename": "include/arch/aarch64/el3_common_macros.S",
         "patchSetId": 29
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-15T23:07:50Z",
       "side": 1,
       "message": "this should be in pmuv3_disable_el3() ?",
+      "range": {
+        "startLine": 143,
+        "startChar": 8,
+        "endLine": 143,
+        "endChar": 21
+      },
+      "revId": "d4fa96d86b114b351f8453d275721927c38b83b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a486aaf1_bed4355b",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 29
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-16T11:40:20Z",
+      "side": 1,
+      "message": "oops it was in the wrong patch, fixed.",
+      "parentUuid": "32a9089d_2a6636bd",
       "range": {
         "startLine": 143,
         "startChar": 8,
@@ -89,6 +137,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "88946ec8_c61f52cc",
+        "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-16T11:40:20Z",
+      "side": 1,
+      "message": "nope, I reverted that change. This is additional",
+      "parentUuid": "e0352206_69719a33",
+      "revId": "d4fa96d86b114b351f8453d275721927c38b83b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "748c5c7a_ccdfa128",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 29
@@ -100,6 +166,24 @@
       "writtenOn": "2023-06-15T23:07:50Z",
       "side": 1,
       "message": "Add a comment that this will move to bl31_main() in a later patch.",
+      "revId": "d4fa96d86b114b351f8453d275721927c38b83b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b738c63_8347d57a",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-16T11:40:20Z",
+      "side": 1,
+      "message": "done, although this change is in the bottom patch as a comment to the manage_extensions_nonsecure_mixed() function",
+      "parentUuid": "748c5c7a_ccdfa128",
       "revId": "d4fa96d86b114b351f8453d275721927c38b83b1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -127,6 +211,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "972e9c97_1e9ff485",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 564,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-16T11:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "820769ef_3c8ed47b",
+      "range": {
+        "startLine": 564,
+        "startChar": 1,
+        "endLine": 564,
+        "endChar": 17
+      },
+      "revId": "d4fa96d86b114b351f8453d275721927c38b83b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f46a014_425ae18e",
@@ -140,6 +248,24 @@
       "writtenOn": "2023-06-15T23:07:50Z",
       "side": 1,
       "message": "I hope AArch32 reset handlers and this is additional PMU disable.",
+      "revId": "d4fa96d86b114b351f8453d275721927c38b83b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c179f7d_4fd1fc03",
+        "filename": "lib/extensions/pmuv3/aarch32/pmuv3.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-16T11:40:20Z",
+      "side": 1,
+      "message": "reset handlers are no longer being refactored. Yes, this is additional",
+      "parentUuid": "1f46a014_425ae18e",
       "revId": "d4fa96d86b114b351f8453d275721927c38b83b1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
