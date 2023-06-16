@@ -169,6 +169,30 @@
       },
       "revId": "fa313cb378327e510834a1cda48c5cd86bc42782",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "594d5e0b_0e2d9c14",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 871,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-16T11:34:07Z",
+      "side": 1,
+      "message": "i\u0027ve renamed it, I think it reads alright.",
+      "parentUuid": "c67c2ebd_5f4b3a09",
+      "range": {
+        "startLine": 871,
+        "startChar": 27,
+        "endLine": 871,
+        "endChar": 30
+      },
+      "revId": "fa313cb378327e510834a1cda48c5cd86bc42782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
