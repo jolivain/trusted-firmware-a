@@ -22,6 +22,30 @@
       },
       "revId": "31e5ce8b5a4b850ccff84ea4aa7b7cfdf0a8c761",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25546355_d34fc435",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-16T09:02:26Z",
+      "side": 1,
+      "message": "I talked about this with Jayanth too, but this is out of scope for this refactor. I am keeping all of this as it is today. Sure, it should probably be deprecated, but this will not happen until next release with an eventual removal the release after. This is in a year\u0027s time.\n\nI\u0027ve already done the work for this, it\u0027s a tiny bit prettier this way, and if it\u0027s expected to be removed soon, can we keep it with less scrutiny? In the case where the deprecation doesn\u0027t move forward it\u0027s a bit more maintainable.",
+      "parentUuid": "324e6d77_17cb34ce",
+      "range": {
+        "startLine": 619,
+        "startChar": 0,
+        "endLine": 621,
+        "endChar": 25
+      },
+      "revId": "31e5ce8b5a4b850ccff84ea4aa7b7cfdf0a8c761",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
