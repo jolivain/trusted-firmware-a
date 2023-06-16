@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9a0b7f8_52dead0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-16T08:40:01Z",
+      "side": 1,
+      "message": "One test config failed:\ntf-l2-boot-tests-misc/fvp-aarch64-only,fvp-cpu-extensions:fvp-tftf-fip.tftf-aemv8a.all\n\nThis is a known issue being worked on right now, and it\u0027s not related to this patch.",
+      "revId": "22a53545aa37c06a1ffd0f3c15e870b256a41cb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
