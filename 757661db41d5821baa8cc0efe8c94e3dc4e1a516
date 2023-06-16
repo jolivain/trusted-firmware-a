@@ -34,6 +34,24 @@
       "parentUuid": "6f484b46_c43cfb1f",
       "revId": "757661db41d5821baa8cc0efe8c94e3dc4e1a516",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4129c7cd_8c6dd803",
+        "filename": "services/std_svc/spm/common/spm_xlat_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-06-16T14:22:24Z",
+      "side": 1,
+      "message": "Again apologies I had meant to say an EL3 SPMC setup running an S-EL1 SP.\n\nIIUC this code is included if either of the 2 build flags are enabled and therefore is causing issues when attempting to build my existing setup (EL3 SPMC with the TSP running at S-EL1), as in that case the EL3 SPMC doesn\u0027t need to manage the translation context on its behalf unlike for S-EL0 partitions.",
+      "parentUuid": "0fbfd49d_d1991242",
+      "revId": "757661db41d5821baa8cc0efe8c94e3dc4e1a516",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
