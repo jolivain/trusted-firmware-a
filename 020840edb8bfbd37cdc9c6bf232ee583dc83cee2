@@ -34,6 +34,24 @@
       "parentUuid": "dea46891_e40ba8bc",
       "revId": "020840edb8bfbd37cdc9c6bf232ee583dc83cee2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb23e8e7_67abf258",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 996,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-16T08:57:22Z",
+      "side": 1,
+      "message": "I only want to point out that this will only run once per core. Also, the majority of the code would have ran in an identical way anyway but at cm_prepare_el3_exit(). Example is the amu enablement which is terribly complex.\n\nIn any case, I would be happy for suggestions.",
+      "parentUuid": "f4bc21fc_efa1cf23",
+      "revId": "020840edb8bfbd37cdc9c6bf232ee583dc83cee2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
