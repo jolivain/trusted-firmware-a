@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44d18b91_a609e541",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-06-16T12:17:22Z",
+      "side": 1,
+      "message": "It would definitely be faster but the problem is esb along with sync also consumes the error which can somehow work in case of FFH(by reading DISR) but in case of KFH lower EL does not have any mechanism to get the error.",
+      "parentUuid": "5c842bbf_31f00e0b",
+      "revId": "5e87d453619efee2be8dc2e2a160c6d61beabb0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9af9270f_db6c8810",
         "filename": "bl31/aarch64/runtime_exceptions.S",
         "patchSetId": 18
