@@ -187,6 +187,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "744d7815_45933f52",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-06-16T19:04:30Z",
+      "side": 1,
+      "message": "nitpick: is_spmd_lsp_inited",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14c90a94_e35b3ef7",
         "filename": "services/std_svc/spmd/spmd_logical_sp.c",
         "patchSetId": 3
@@ -422,6 +445,30 @@
       "writtenOn": "2023-06-14T15:45:26Z",
       "side": 1,
       "message": "Worth checking init not null?",
+      "range": {
+        "startLine": 139,
+        "startChar": 27,
+        "endLine": 139,
+        "endChar": 32
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9f9e19f_5163a84a",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-06-16T19:04:30Z",
+      "side": 1,
+      "message": "I think its take care in line 82",
+      "parentUuid": "a2f88993_907e592f",
       "range": {
         "startLine": 139,
         "startChar": 27,
