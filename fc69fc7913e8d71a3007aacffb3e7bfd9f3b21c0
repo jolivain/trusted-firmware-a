@@ -34,6 +34,24 @@
       "parentUuid": "57c14c7a_40572593",
       "revId": "fc69fc7913e8d71a3007aacffb3e7bfd9f3b21c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e77d541e_e1e3f5c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-06-16T14:14:36Z",
+      "side": 1,
+      "message": "Sorry, by S-EL1 setups I meant to say running the EL3 SPMC with S-EL1 SPs. So the EL3 SPMC is still enabled just not performing the additional operations/includes that are required for S-EL0 partitions. \nDo we have a way to differentiate between the two configurations?",
+      "parentUuid": "dbcc2d62_61cf86c8",
+      "revId": "fc69fc7913e8d71a3007aacffb3e7bfd9f3b21c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
