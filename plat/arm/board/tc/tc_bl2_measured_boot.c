@@ -45,7 +45,7 @@ void bl2_plat_mboot_init(void)
 	(void)rss_comms_init(PLAT_RSS_AP_SND_MHU_BASE,
 			     PLAT_RSS_AP_RCV_MHU_BASE);
 
-	rss_measured_boot_init();
+	rss_measured_boot_init(tc_rss_mboot_metadata);
 }
 
 void bl2_plat_mboot_finish(void)
