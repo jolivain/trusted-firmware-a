@@ -227,6 +227,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3261f148_1e8e9939",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-16T09:08:16Z",
+      "side": 1,
+      "message": "As discussed offline with boyan, we agreed on adding PMU to feature detection mechanism, without a build flag( provided there will be detailed comment on this exceptional case).",
+      "parentUuid": "38a1d6a8_e3b07e08",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 48
+      },
+      "revId": "857996b81f664ae5f9d1263966d42b8ed37fb057",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "966dea3d_335b7545",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 14
