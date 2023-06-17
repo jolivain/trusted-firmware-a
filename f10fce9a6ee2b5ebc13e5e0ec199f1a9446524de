@@ -429,6 +429,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dece6545_cb49e6bc",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "yes it does. But i suppose i was talking from the intent of the future. The code is structured this way assuming it can be extended in the future to allow it. but yes, for now, we have other places in code which assert to ensure we dont have spmc_in_el3..",
+      "parentUuid": "b275ead5_d93244c3",
+      "range": {
+        "startLine": 112,
+        "startChar": 1,
+        "endLine": 113,
+        "endChar": 18
+      },
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6699188_511c56d2",
         "filename": "include/services/el3_spmd_logical_sp.h",
         "patchSetId": 1

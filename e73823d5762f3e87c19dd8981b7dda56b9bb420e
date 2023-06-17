@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "026fc11d_1aa3c863",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd3922bc_dc279c1d",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b7749fe_398bff05",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-14T15:45:26Z",
       "side": 1,
       "message": "The option in the code is ENABLE_SPMD_LSP\n\nAs a nit, actually could we make it ENABLE_SPMD_LP?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 18
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab288a20_0e635570",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b7749fe_398bff05",
       "range": {
         "startLine": 14,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a259bcfb_543e6b73",
+        "filename": "include/common/bl_common.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "470a8575_37276cd5",
+      "range": {
+        "startLine": 89,
+        "startChar": 10,
+        "endLine": 89,
+        "endChar": 18
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acbce125_a54a71f9",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-06-14T15:45:26Z",
       "side": 1,
       "message": "nit: spmd_lp?",
+      "range": {
+        "startLine": 56,
+        "startChar": 9,
+        "endLine": 56,
+        "endChar": 20
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6be48c3_ac801a20",
+        "filename": "include/common/bl_common.ld.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acbce125_a54a71f9",
       "range": {
         "startLine": 56,
         "startChar": 9,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59f07b48_dbdbb6ea",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fc3ec27_144f4e09",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b04efbb_740f85ae",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-06-14T15:45:26Z",
       "side": 1,
       "message": "spmd_lp?",
+      "range": {
+        "startLine": 20,
+        "startChar": 7,
+        "endLine": 20,
+        "endChar": 18
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbb90275_ee982f6a",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b04efbb_740f85ae",
       "range": {
         "startLine": 20,
         "startChar": 7,
@@ -162,6 +306,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cb82ff9_df566a7c",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71e0bc0c_86670e18",
+      "range": {
+        "startLine": 28,
+        "startChar": 34,
+        "endLine": 28,
+        "endChar": 38
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4e0f419_8bc2de0d",
@@ -175,6 +343,30 @@
       "writtenOn": "2023-06-14T15:45:26Z",
       "side": 1,
       "message": "Add conditionally based on ENABLE_SPMD_LSP ?",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 20
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55a7af23_8634155b",
+        "filename": "services/std_svc/spmd/spmd.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "if i do that i have to add a bunch of ifdefs in code to functions that are called from spmd_main.c when ENABLE_SPMD_LP is not enabled. By having it this way (again similar to el3 spmc), function calls are made and all the ifdefery remains mostly in spmd_logical_sp.c..\nI\u0027d rather leave it this way..",
+      "parentUuid": "f4e0f419_8bc2de0d",
       "range": {
         "startLine": 19,
         "startChar": 3,
@@ -208,6 +400,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f2d57f0_dfaea341",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "changed to is_spmd_lp_inited, keeping consistent with what olivier is suggesting in other comments.",
+      "parentUuid": "744d7815_45933f52",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14c90a94_e35b3ef7",
@@ -221,6 +437,24 @@
       "writtenOn": "2023-06-14T15:45:26Z",
       "side": 1,
       "message": "nit: remove one blank",
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0af7af44_34b84fee",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "14c90a94_e35b3ef7",
       "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -248,6 +482,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f0b1377_c11f67fc",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "no, if there are no entries, they will be equal. Same logic as el3 spmc.\nBut alright, it doesnt make sense to have no entries and have all this code without a logical partition.",
+      "parentUuid": "4b384932_e32ab392",
+      "range": {
+        "startLine": 38,
+        "startChar": 27,
+        "endLine": 38,
+        "endChar": 29
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "875bd627_717c77cb",
@@ -261,6 +519,30 @@
       "writtenOn": "2023-06-14T15:45:26Z",
       "side": 1,
       "message": "Return an error? As there is no reason to go beyond line 137?\nUnless this is deliberate to eventually set is_spmd_sp_inited ?",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 10
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32fa4e26_908ccf09",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "it is not an error to have no SPMD logical partitions. Again, same logic as in el3 spmc.\n\nBut changed to return error as it probably doesnt make sense to have all this code with 0 logical partitions.",
+      "parentUuid": "875bd627_717c77cb",
       "range": {
         "startLine": 42,
         "startChar": 2,
@@ -317,6 +599,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b580c56e_6663a4d0",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62993bcf_3fe326af",
+      "range": {
+        "startLine": 47,
+        "startChar": 6,
+        "endLine": 47,
+        "endChar": 18
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ef56054_1ce628ab",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04f95bd8_0f2488ae",
+      "range": {
+        "startLine": 47,
+        "startChar": 27,
+        "endLine": 47,
+        "endChar": 28
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3560642_74358811",
@@ -330,6 +660,30 @@
       "writtenOn": "2023-06-14T15:45:26Z",
       "side": 1,
       "message": "This is rather making sure the ID is within the allowed bounds of SPMD LPs?",
+      "range": {
+        "startLine": 66,
+        "startChar": 5,
+        "endLine": 66,
+        "endChar": 57
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4946f4f_67f52b10",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "Updated comment.",
+      "parentUuid": "d3560642_74358811",
       "range": {
         "startLine": 66,
         "startChar": 5,
@@ -363,6 +717,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50898c67_754910cb",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d5be945_adb22ec0",
+      "range": {
+        "startLine": 89,
+        "startChar": 6,
+        "endLine": 90,
+        "endChar": 38
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3993dd66_d91f4f78",
@@ -376,6 +754,30 @@
       "writtenOn": "2023-06-14T15:45:26Z",
       "side": 1,
       "message": "uint32_t",
+      "range": {
+        "startLine": 97,
+        "startChar": 7,
+        "endLine": 97,
+        "endChar": 19
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cb9e0b5_9dcdb9f1",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3993dd66_d91f4f78",
       "range": {
         "startLine": 97,
         "startChar": 7,
@@ -409,6 +811,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a38b92e5_744ac826",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "dont think so. i prefer to keep the ifdefery to this file and leave it out of other files as much as possible. Code looks very ifdefy otherwise...",
+      "parentUuid": "10ba5ccf_8654c61b",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 19
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03472e42_e57e5fdc",
@@ -422,6 +848,30 @@
       "writtenOn": "2023-06-14T15:45:26Z",
       "side": 1,
       "message": "Move to line 127 and pass to el3_spmd_sp_desc_validate ?",
+      "range": {
+        "startLine": 135,
+        "startChar": 1,
+        "endLine": 135,
+        "endChar": 45
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a171c75_09805e20",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03472e42_e57e5fdc",
       "range": {
         "startLine": 135,
         "startChar": 1,
@@ -479,6 +929,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acaad918_8db05d74",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "correct. resolving.",
+      "parentUuid": "d9f9e19f_5163a84a",
+      "range": {
+        "startLine": 139,
+        "startChar": 27,
+        "endLine": 139,
+        "endChar": 32
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8606ab2_baac8fbc",
@@ -492,6 +966,30 @@
       "writtenOn": "2023-06-14T15:45:26Z",
       "side": 1,
       "message": "Add braces even for single line statements.",
+      "range": {
+        "startLine": 150,
+        "startChar": 1,
+        "endLine": 151,
+        "endChar": 27
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d30f3de_b1b8dbd4",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:39:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8606ab2_baac8fbc",
       "range": {
         "startLine": 150,
         "startChar": 1,
