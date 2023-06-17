@@ -1019,6 +1019,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b63e0e3c_2d48a48b",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:45:45Z",
+      "side": 1,
+      "message": "The intent is not to abort the SPDM. The SPMD can function just fine if the logical partitions initialize but the spmc does not right?\nand if there is such an error, we need prevent el3 SPMDs which initied properly from being able to send direct messages.\nFor example, if SPMD LPs can receive direct messages, no need to kill the entire SPMD because the SPMC failed no? \nLet me know if you feel strongly and how to change it. i think this is fairly simple way to keep SPMD Lps and the logic isolated without creating unnecessary coupling with rest of the code base..",
+      "parentUuid": "7ea8e098_9f43a524",
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "46192690_d66bc0ee",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 3
@@ -1030,6 +1048,30 @@
       "writtenOn": "2023-06-14T15:45:26Z",
       "side": 1,
       "message": "I wonder why this is required here.\nWhy not just omitting the check for is_spmc_inited at spmd_logical_sp_init entry?",
+      "range": {
+        "startLine": 194,
+        "startChar": 1,
+        "endLine": 194,
+        "endChar": 40
+      },
+      "revId": "e73823d5762f3e87c19dd8981b7dda56b9bb420e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e96e8cc_09a9b995",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T20:45:45Z",
+      "side": 1,
+      "message": "spec says spmd logical partitions must only be allwoed to send direct mesasges if spmc initialized properly.",
+      "parentUuid": "46192690_d66bc0ee",
       "range": {
         "startLine": 194,
         "startChar": 1,
