@@ -138,6 +138,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a080a455_44b98c03",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-17T21:00:26Z",
+      "side": 1,
+      "message": "I agree with Juan here.\nIs better to use the custom function (is_feat_hcx_supported) here. \nOur initial thoughts were to replace the #ifs in .c with the proper c functions, which is what has been followed in most of the refactored patches from Andre.\n(https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19278/11/lib/el3_runtime/aarch64/context_mgmt.c#959)\nPlease stick to this pattern for keeping the code consistent.",
+      "parentUuid": "9f6736c8_09bcb6bf",
+      "range": {
+        "startLine": 276,
+        "startChar": 0,
+        "endLine": 276,
+        "endChar": 18
+      },
+      "revId": "0ca2489f09f96529499b4fbfe760146c27cdde2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "83ce492f_8d6435ef",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 12
