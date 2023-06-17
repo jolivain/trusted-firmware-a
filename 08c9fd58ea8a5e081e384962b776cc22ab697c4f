@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11792304_b95746d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T21:28:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "287612a5_d735b99d",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "08c9fd58ea8a5e081e384962b776cc22ab697c4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6faaeb9e_b083a5fd",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-14T16:32:27Z",
       "side": 1,
       "message": "This is defined in spmd_private.h I wonder if redefining here is a bit of a trick?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 61
+      },
+      "revId": "08c9fd58ea8a5e081e384962b776cc22ab697c4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02a6c6e5_9a53e138",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T21:28:24Z",
+      "side": 1,
+      "message": "no tricks. this is just a forward declaration to prevent a web of header files...\nThis needs to be included by SPMD logical partitions as well as the SPMD since it is a shared header file.",
+      "parentUuid": "6faaeb9e_b083a5fd",
       "range": {
         "startLine": 15,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cebbcea7_cc7efb9e",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T21:28:24Z",
+      "side": 1,
+      "message": "as mentioned in the previous review, the ifdef\u0027ery that results from doing so looks pretty bad in spmd_main.c and other files. This way, code in spmd_main for ex, avoids ifdefery and is left to within SPMD logical partition related files.\nMoreover, there is no overhead, since the compiler will optimize out these calls given fixed return values..",
+      "parentUuid": "e2af1918_260cedcc",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 1
+      },
+      "revId": "08c9fd58ea8a5e081e384962b776cc22ab697c4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22acbb65_b7331b02",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-06-14T16:32:27Z",
       "side": 1,
       "message": "int32_t",
+      "range": {
+        "startLine": 111,
+        "startChar": 60,
+        "endLine": 111,
+        "endChar": 63
+      },
+      "revId": "08c9fd58ea8a5e081e384962b776cc22ab697c4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f7a54ab_d4be14c3",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T21:28:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22acbb65_b7331b02",
       "range": {
         "startLine": 111,
         "startChar": 60,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84ceaef3_b85a2d58",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T21:28:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90b82235_71fe2660",
+      "range": {
+        "startLine": 252,
+        "startChar": 5,
+        "endLine": 252,
+        "endChar": 12
+      },
+      "revId": "08c9fd58ea8a5e081e384962b776cc22ab697c4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac79b3f5_35c0943f",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-06-14T16:32:27Z",
       "side": 1,
       "message": "Should we conflate context flags into a single uint32_t ?",
+      "range": {
+        "startLine": 54,
+        "startChar": 1,
+        "endLine": 57,
+        "endChar": 6
+      },
+      "revId": "08c9fd58ea8a5e081e384962b776cc22ab697c4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a846865_0354f6f2",
+        "filename": "services/std_svc/spmd/spmd_private.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T21:28:24Z",
+      "side": 1,
+      "message": "not sure. all of these features are within a build flag ENABLE_SPMD_LP but the interrupt stuff is always present. we might need stricter checks all around other parts of code to make sure ENABLE_SPMD_LP related flags are not set when the define is not set..\nlet me know if you feel strongly, i can push a patch on top of all of this to unify..",
+      "parentUuid": "ac79b3f5_35c0943f",
       "range": {
         "startLine": 54,
         "startChar": 1,
