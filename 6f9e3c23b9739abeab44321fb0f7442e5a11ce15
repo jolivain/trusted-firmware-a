@@ -119,6 +119,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2d4e684_ec10f67b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T21:38:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1a62de5_e6597d44",
+      "range": {
+        "startLine": 14,
+        "startChar": 17,
+        "endLine": 15,
+        "endChar": 31
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1aa1528c_ee2a8c7d",
@@ -915,6 +939,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f4b431e_6d1a793f",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T21:38:02Z",
+      "side": 1,
+      "message": "Good catch. fixed.",
+      "parentUuid": "24b56699_a60db6af",
+      "range": {
+        "startLine": 772,
+        "startChar": 3,
+        "endLine": 772,
+        "endChar": 26
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cb2930a_519c2e0e",
@@ -975,6 +1023,30 @@
       "writtenOn": "2023-06-16T20:10:51Z",
       "side": 1,
       "message": "how can a direct request call originated from NWD while there is an ongoing SPMC LSP direct request?",
+      "range": {
+        "startLine": 984,
+        "startChar": 3,
+        "endLine": 984,
+        "endChar": 26
+      },
+      "revId": "6f9e3c23b9739abeab44321fb0f7442e5a11ce15",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bb33dc2_f7154031",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 984,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-06-17T21:38:02Z",
+      "side": 1,
+      "message": "yep, copy paste error. fixed.",
+      "parentUuid": "46595a71_87496116",
       "range": {
         "startLine": 984,
         "startChar": 3,
