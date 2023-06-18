@@ -16,6 +16,63 @@
       "message": "Static Checks failure is due to new files addition.\nThis has been addressed with a corresponding CI patch here:\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/21519\n\nHence manually overriding the verified -1 vote.",
       "revId": "d40314a7e32de97a953d30d187c4552167b45351",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57a5c1e7_a7042236",
+        "filename": "plat/qemu/common/qemu_sdei.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-18T12:12:08Z",
+      "side": 1,
+      "message": "As its a new file: year should be 2023.",
+      "revId": "d40314a7e32de97a953d30d187c4552167b45351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1896c93_065e8218",
+        "filename": "plat/qemu/qemu/platform.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-18T12:12:08Z",
+      "side": 1,
+      "message": "please remove this additional line.",
+      "revId": "d40314a7e32de97a953d30d187c4552167b45351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f135f96e_cc2b7920",
+        "filename": "plat/qemu/qemu/platform.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-18T12:12:08Z",
+      "side": 1,
+      "message": "indent to tabs instead of spaces.",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 333,
+        "endChar": 62
+      },
+      "revId": "d40314a7e32de97a953d30d187c4552167b45351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
