@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d91ee0f_1802931a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-18T11:10:09Z",
+      "side": 1,
+      "message": "Static Checks failure is due to new files addition.\nThis has been addressed with a corresponding CI patch here:\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/21519\n\nHence manually overriding the verified -1 vote.",
+      "revId": "d40314a7e32de97a953d30d187c4552167b45351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
