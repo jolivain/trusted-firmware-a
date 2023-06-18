@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cac5c77_06dd4529",
+        "filename": "plat/qemu/common/qemu_sdei.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001018
+      },
+      "writtenOn": "2023-06-18T13:15:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57a5c1e7_a7042236",
+      "revId": "d40314a7e32de97a953d30d187c4552167b45351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1896c93_065e8218",
@@ -52,6 +70,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "530b80be_fb81cfef",
+        "filename": "plat/qemu/qemu/platform.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1001018
+      },
+      "writtenOn": "2023-06-18T13:15:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1896c93_065e8218",
+      "revId": "d40314a7e32de97a953d30d187c4552167b45351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f135f96e_cc2b7920",
@@ -65,6 +101,30 @@
       "writtenOn": "2023-06-18T12:12:08Z",
       "side": 1,
       "message": "indent to tabs instead of spaces.",
+      "range": {
+        "startLine": 333,
+        "startChar": 0,
+        "endLine": 333,
+        "endChar": 62
+      },
+      "revId": "d40314a7e32de97a953d30d187c4552167b45351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80fd22ba_e8b7298b",
+        "filename": "plat/qemu/qemu/platform.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1001018
+      },
+      "writtenOn": "2023-06-18T13:15:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f135f96e_cc2b7920",
       "range": {
         "startLine": 333,
         "startChar": 0,
