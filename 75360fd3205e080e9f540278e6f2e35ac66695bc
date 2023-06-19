@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57a4ac1a_e3328c5d",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-19T09:50:43Z",
+      "side": 1,
+      "message": "The file may not be suitable for adding platform-specific options. Instead, it should be handled in the platform file. Look FVP_CLUSTER_COUNT for example [1].\n\nMoreover, it would be better if we asserted that if this variable is greater than 384, because it would not be wise to use the entire SRAM (though we have 512 kilobytes SRAM available). By doing this, we will be able to provide some buffer and manage SRAM more effectively.\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/fvp/platform.mk#n13",
+      "range": {
+        "startLine": 1174,
+        "startChar": 5,
+        "endLine": 1174,
+        "endChar": 30
+      },
+      "revId": "75360fd3205e080e9f540278e6f2e35ac66695bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
