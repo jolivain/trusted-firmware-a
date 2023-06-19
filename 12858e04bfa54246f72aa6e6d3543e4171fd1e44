@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d61cf757_20f8d2b1",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-19T12:23:25Z",
+      "side": 1,
+      "message": "It is better not to put this platform-specific option in generic build option file.\nCan we describe this in platform makefile itself?",
+      "range": {
+        "startLine": 1174,
+        "startChar": 5,
+        "endLine": 1174,
+        "endChar": 26
+      },
+      "revId": "12858e04bfa54246f72aa6e6d3543e4171fd1e44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d02367a_45a8721d",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-19T12:23:25Z",
+      "side": 1,
+      "message": "Do we need \u0027$(eval $(call add_define,FVP_TRUSTED_SRAM_SIZE))\u0027 along with this?\nI\u0027m also not sure why this file contains so many changes other than just adding this option.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 21
+      },
+      "revId": "12858e04bfa54246f72aa6e6d3543e4171fd1e44",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

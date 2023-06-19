@@ -70,6 +70,30 @@
       },
       "revId": "75360fd3205e080e9f540278e6f2e35ac66695bc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "574281ee_2f4952a5",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-19T12:23:25Z",
+      "side": 1,
+      "message": "If this is set to 384 in CI, I\u0027m fine with that. There was only one worry I had: people shouldn\u0027t be liberal with SRAM and assert may help to limit SRAM usage (i.e. though SRAM of 512Kb available but use only 384Kb)",
+      "parentUuid": "64a05fdf_065bc42c",
+      "range": {
+        "startLine": 1174,
+        "startChar": 5,
+        "endLine": 1174,
+        "endChar": 30
+      },
+      "revId": "75360fd3205e080e9f540278e6f2e35ac66695bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
