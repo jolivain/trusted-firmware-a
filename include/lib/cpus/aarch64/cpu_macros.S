@@ -444,6 +444,20 @@
 .endm
 
 /*
+ * BFI : Inserts bitfield into a system register.
+ *
+ * BFI{cond} Rd, Rn, #lsb, #width
+ */
+.macro sysreg_bitfield_insert _reg:req, _src:req, _lsb:req, _width:req
+	/* Source register value for BFI */
+	mov	x1, #\_src
+
+	mrs	x0, \_reg
+	bfi	x0, x1, #\_lsb, #\_width
+	msr	\_reg, x0
+.endm
+
+/*
  * Apply erratum
  *
  * _cpu:
