@@ -52,6 +52,24 @@
       "parentUuid": "dbcc2d62_61cf86c8",
       "revId": "fc69fc7913e8d71a3007aacffb3e7bfd9f3b21c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b043cea_1e480fe6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-06-19T10:18:46Z",
+      "side": 1,
+      "message": "We first need to agree on whether we want to make SPMC at EL3 independent of build time configurations and use SP\u0027s manifest or make it build time configurable only.\nCurrently, it uses the SP manifest, and if SEL0 SP does not exist, it will not use additional operations.\n\n\u003e\u003eDo we have a way to differentiate between the two configurations?\nyes, exception level field in SP manifest.\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20897/2/plat/arm/board/rdn2/fdts/rdn2_stmm_config.dts#35\n\n\u003e\u003eSo the EL3 SPMC is still enabled just not performing the additional operations/includes that are required for S-EL0 partitions.\nYes",
+      "parentUuid": "e77d541e_e1e3f5c9",
+      "revId": "fc69fc7913e8d71a3007aacffb3e7bfd9f3b21c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
