@@ -79,6 +79,30 @@
       },
       "revId": "eaf8514118b65865988b7f8c741e9310cc03c3b8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5742e1d8_9df539ab",
+        "filename": "Makefile",
+        "patchSetId": 9
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-19T16:10:55Z",
+      "side": 1,
+      "message": "This is related to Intel Platform.\nOriginally introduced here. [ https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/14077/10/plat/intel/soc/agilex/platform.mk] \nLater on they have removed it here :[ https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16737]\nLooks like they have missed to remove the changes in Makefile.",
+      "parentUuid": "4a49817b_24b84c88",
+      "range": {
+        "startLine": 153,
+        "startChar": 13,
+        "endLine": 153,
+        "endChar": 15
+      },
+      "revId": "eaf8514118b65865988b7f8c741e9310cc03c3b8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
