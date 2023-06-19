@@ -46,6 +46,30 @@
       },
       "revId": "75360fd3205e080e9f540278e6f2e35ac66695bc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64a05fdf_065bc42c",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1174,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-19T11:58:26Z",
+      "side": 1,
+      "message": "I\u0027m not sure I see much purpose in asserting if the SRAM has been configured to be greater than 384 - it would prevent us from increasing it in the CI in the future if we needed to. We can set it to 384 for CI builds though, which will error out if at any point we exceed that?",
+      "parentUuid": "648f9345_ab9c6039",
+      "range": {
+        "startLine": 1174,
+        "startChar": 5,
+        "endLine": 1174,
+        "endChar": 30
+      },
+      "revId": "75360fd3205e080e9f540278e6f2e35ac66695bc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
