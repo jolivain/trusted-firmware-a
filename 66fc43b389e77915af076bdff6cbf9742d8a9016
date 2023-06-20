@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aea65b06_92893736",
+        "filename": "lib/cpus/aarch64/cortex_x2.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-20T12:01:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15fecf36_8266970d",
+      "revId": "66fc43b389e77915af076bdff6cbf9742d8a9016",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a0b167e_1cf955cb",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-05-23T15:29:44Z",
       "side": 1,
       "message": "nit: it might be good to factor this out into its own macro like check_erratum_single with just one argument",
+      "revId": "66fc43b389e77915af076bdff6cbf9742d8a9016",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50f16643_1cfb6a8a",
+        "filename": "lib/cpus/aarch64/cortex_x2.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-20T12:01:18Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6a0b167e_1cf955cb",
       "revId": "66fc43b389e77915af076bdff6cbf9742d8a9016",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
