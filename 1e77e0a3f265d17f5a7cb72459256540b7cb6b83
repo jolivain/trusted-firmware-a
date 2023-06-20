@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c972fc1_3eb5ffdc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000736
+      },
+      "writtenOn": "2023-06-20T14:48:46Z",
+      "side": 1,
+      "message": "@Manish I checked the CI failure: There are two failures in the static checks:\n\n1. Newly added files: These should be covered by the tf-a-ci-scripts change I already uploaded (https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/21168)\n2. Include order: As far as I can tell, the include order in my changes is correct. I believe this is a bug in the include order check related to assembly *_macros.S includes (rather than typical C *.h header files). I have submitted a possible fix for this at https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/21574\n\nIf you re-run the CI the include order warning should be gone (assuming the CI job also fetches the new tf-a-ci-scripts changes).",
+      "revId": "1e77e0a3f265d17f5a7cb72459256540b7cb6b83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
