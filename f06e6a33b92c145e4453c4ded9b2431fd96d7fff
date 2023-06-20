@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7be33dd6_6090ccf0",
+        "filename": "plat/arm/board/rdn2/rdn2_plat.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-20T08:32:29Z",
+      "side": 1,
+      "message": "I\u0027m fine with this patch but just a suggestion -\nFor FVP and QEMU platforms, this function is duplicated in the same way. Would it be a good idea to make this function available across platforms?\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/fvp/fvp_el3_spmc.c#n19\n[2]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/qemu/common/qemu_common.c#n139",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 0
+      },
+      "revId": "f06e6a33b92c145e4453c4ded9b2431fd96d7fff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
