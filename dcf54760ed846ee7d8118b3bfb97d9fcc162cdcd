@@ -16,6 +16,24 @@
       "message": "How does the layout of the Trsuted SRAM look with the increased size? Does it make more memory available for BL31 progbits? It would be helpful to visualize if the diagrams are updated\nhttps://trustedfirmware-a.readthedocs.io/en/latest/design/firmware-design.html#memory-layout-on-arm-development-platforms",
       "revId": "dcf54760ed846ee7d8118b3bfb97d9fcc162cdcd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5f9f2ca_ce004337",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-21T11:49:39Z",
+      "side": 1,
+      "message": "That\u0027s going to change depending on what you specify for `FVP_TRUSTED_SRAM_SIZE`, but by default the layout remains unchanged (because the SRAM remains 256KB).\n\nBL31 PROGBITS is increased with this change:\n\n - 256KB: 0x4021000\n - 512KB: 0x4061000",
+      "parentUuid": "fda8f08a_188773a0",
+      "revId": "dcf54760ed846ee7d8118b3bfb97d9fcc162cdcd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
