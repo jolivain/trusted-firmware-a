@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00bbe4a2_64d4ae49",
+        "filename": "Makefile",
+        "patchSetId": 17
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-21T20:11:31Z",
+      "side": 1,
+      "message": "Could you just append to TF_CFLAGS directly rather than the 32/64 variants?",
+      "revId": "bed55b4b58fb8305d8ff2e66196b2fc44aa598c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f79767f2_3918bd30",
+        "filename": "make_helpers/march.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-06-21T20:11:31Z",
+      "side": 1,
+      "message": "You\u0027ll need to check if this works on Windows, which doesn\u0027t have /dev/null. most of this can also be done with Makefile if conditions rather than relying on the shell as well - try to minimise reliance on the shell to avoid depending on particular she\u0027ll implementations.",
+      "revId": "bed55b4b58fb8305d8ff2e66196b2fc44aa598c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
