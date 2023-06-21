@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "905f36c4_650b2c4f",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-06-21T09:00:51Z",
+      "side": 1,
+      "message": "Add newline before curly brackets. Check static check failure:\n\n[*] Checking style of \u002710c98fe302958e2e34a0520b672b0c607ebe7d72\u0027\n\nservices/std_svc/spm/el3_spmc/spmc_main.c:265: ERROR: open brace \u0027{\u0027 following function definitions go on the next line\n+static bool direct_msg_validate_dst_id(uint16_t dst_id) {\n\nservices/std_svc/spm/el3_spmc/spmc_main.c:275: WARNING: else is not generally useful after a break or return\n+\t\treturn true;\n+\t} else {",
+      "range": {
+        "startLine": 265,
+        "startChar": 55,
+        "endLine": 265,
+        "endChar": 56
+      },
+      "revId": "10c98fe302958e2e34a0520b672b0c607ebe7d72",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
