@@ -16,6 +16,24 @@
       "message": "Hi Nishant,\n\nThe CI failures are because of newly added files, considering RAS_FFH_SUPPORT is not enabled by default for this platform. These files wont be build.\n\nSo, would you mind adding a config in \"script/tf-coverity/tf-cov-make\" with RAS_FFH_SUPPORT in ci-scripts\n\nAlso, could you please add this config build in plat build (you can refer to \"tf-l1-build-fvp/fvp-rdn2-tbb\")\n",
       "revId": "d9dc9fee4eb38292c71860fd4f2cf1567f3f91cb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02c0e931_9d56cf7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-06-21T11:40:12Z",
+      "side": 1,
+      "message": "Sorry, i mean Omkar",
+      "parentUuid": "96e31cfb_7a4a3a6e",
+      "revId": "d9dc9fee4eb38292c71860fd4f2cf1567f3f91cb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
