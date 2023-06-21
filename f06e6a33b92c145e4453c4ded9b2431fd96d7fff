@@ -45,6 +45,30 @@
       },
       "revId": "f06e6a33b92c145e4453c4ded9b2431fd96d7fff",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f56a2346_061965e0",
+        "filename": "plat/arm/board/rdn2/rdn2_plat.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-06-21T12:42:28Z",
+      "side": 1,
+      "message": "Does it make sense to move it to a common location and then use DATASTORE_SIZE from the platform header file? If yes, then I will make a separate change for it. Please confirm if that sounds okay.",
+      "parentUuid": "7be33dd6_6090ccf0",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 0
+      },
+      "revId": "f06e6a33b92c145e4453c4ded9b2431fd96d7fff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
