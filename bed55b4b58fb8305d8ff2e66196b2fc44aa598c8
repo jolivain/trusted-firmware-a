@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8b4806d_346a9204",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-06-21T21:33:29Z",
+      "side": 1,
+      "message": "*situations",
+      "range": {
+        "startLine": 12,
+        "startChar": 19,
+        "endLine": 12,
+        "endChar": 28
+      },
+      "revId": "bed55b4b58fb8305d8ff2e66196b2fc44aa598c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "643b7e90_0445d3cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 17
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-06-21T21:33:29Z",
+      "side": 1,
+      "message": "I say something more like \"using an\" here instead.",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 15
+      },
+      "revId": "bed55b4b58fb8305d8ff2e66196b2fc44aa598c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "00bbe4a2_64d4ae49",
         "filename": "Makefile",
         "patchSetId": 17
@@ -31,6 +77,29 @@
       "writtenOn": "2023-06-21T20:11:31Z",
       "side": 1,
       "message": "You\u0027ll need to check if this works on Windows, which doesn\u0027t have /dev/null. most of this can also be done with Makefile if conditions rather than relying on the shell as well - try to minimise reliance on the shell to avoid depending on particular she\u0027ll implementations.",
+      "revId": "bed55b4b58fb8305d8ff2e66196b2fc44aa598c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40b6398f_089d835e",
+        "filename": "make_helpers/march.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-06-21T21:33:29Z",
+      "side": 1,
+      "message": "Please use Y to differentiate from ARM_ARCH_MAJOR.",
+      "range": {
+        "startLine": 22,
+        "startChar": 51,
+        "endLine": 22,
+        "endChar": 52
+      },
       "revId": "bed55b4b58fb8305d8ff2e66196b2fc44aa598c8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
