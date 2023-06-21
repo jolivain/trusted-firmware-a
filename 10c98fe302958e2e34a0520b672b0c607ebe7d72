@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00443b1f_f2983df1",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-06-21T21:14:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "905f36c4_650b2c4f",
+      "range": {
+        "startLine": 265,
+        "startChar": 55,
+        "endLine": 265,
+        "endChar": 56
+      },
+      "revId": "10c98fe302958e2e34a0520b672b0c607ebe7d72",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d6d4b29_d31c0d32",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-06-21T09:03:14Z",
       "side": 1,
       "message": "Delete empty line.",
+      "revId": "10c98fe302958e2e34a0520b672b0c607ebe7d72",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13efd4b4_b27b15c6",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-06-21T21:14:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "6d6d4b29_d31c0d32",
       "revId": "10c98fe302958e2e34a0520b672b0c607ebe7d72",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
