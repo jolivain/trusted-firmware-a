@@ -16,6 +16,29 @@
       "message": "based on topic test ci+2 http://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/1077/",
       "revId": "6244cb86428bf7d894c0888b53d3578701602408",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1316798a_b7f8c957",
+        "filename": "Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-22T09:38:17Z",
+      "side": 1,
+      "message": "Can this be instead  ASFLAGS  +\u003d $(march-directive)?",
+      "range": {
+        "startLine": 352,
+        "startChar": 0,
+        "endLine": 353,
+        "endChar": 37
+      },
+      "revId": "6244cb86428bf7d894c0888b53d3578701602408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
