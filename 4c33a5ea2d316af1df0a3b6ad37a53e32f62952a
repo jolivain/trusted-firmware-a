@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff0c054c_2389c624",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-06-22T18:47:42Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "4c33a5ea2d316af1df0a3b6ad37a53e32f62952a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc34c6ff_2adac883",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -50,6 +73,41 @@
       "side": 1,
       "message": "+1. and, eventually we need to remove TC0 code and documentation references from the repository.",
       "parentUuid": "cc34c6ff_2adac883",
+      "revId": "4c33a5ea2d316af1df0a3b6ad37a53e32f62952a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65682075_3831416d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-06-22T18:47:42Z",
+      "side": 1,
+      "message": "TC0 is already marked for deprecation:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/plat/index.html#deprecated-platforms",
+      "parentUuid": "f588d8c8_3742bd73",
+      "revId": "4c33a5ea2d316af1df0a3b6ad37a53e32f62952a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07995d1a_d39f5caf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-06-22T18:47:42Z",
+      "side": 1,
+      "message": "LGTM",
       "revId": "4c33a5ea2d316af1df0a3b6ad37a53e32f62952a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
