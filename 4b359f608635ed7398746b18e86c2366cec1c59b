@@ -53,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeddbeb8_85459d7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-06-23T11:52:17Z",
+      "side": 1,
+      "message": "Patches are part of the same topic https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/21529",
+      "parentUuid": "f3b2b187_b3af7542",
+      "revId": "4b359f608635ed7398746b18e86c2366cec1c59b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc54f81d_791257b7",
@@ -101,6 +119,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "af22150a_69705de1",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-06-23T11:52:17Z",
+      "side": 1,
+      "message": "This is applicable to both FFH and KFH, as we are no longer using esb we need to reflect back to lower EL for SError",
+      "parentUuid": "e3a68794_e1659ec9",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 15
+      },
+      "revId": "4b359f608635ed7398746b18e86c2366cec1c59b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "265d9262_ae7b057c",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 19
@@ -112,6 +154,30 @@
       "writtenOn": "2023-06-23T11:19:05Z",
       "side": 1,
       "message": "Not sure I get this logic, Need to discuss this. Could pass an arg in x30 if needed to distinguish between sync and irq/fix.",
+      "range": {
+        "startLine": 156,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 75
+      },
+      "revId": "4b359f608635ed7398746b18e86c2366cec1c59b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b18c9595_5ad12e25",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-06-23T11:52:17Z",
+      "side": 1,
+      "message": "This is one of the rarest of rare cases and i did not want to clutter the code with populating x30 with this information and use another scratch register for other purpose.\nThe logic here is last 9bits of vector entry address where we came from \n0x00-0x80 : sync exception\nif it is greater than 0x80 we came from sync exception.",
+      "parentUuid": "265d9262_ae7b057c",
       "range": {
         "startLine": 156,
         "startChar": 4,
@@ -158,6 +224,30 @@
       "writtenOn": "2023-06-23T11:19:05Z",
       "side": 1,
       "message": "not sure why is LR being used needs a bl here. might as well do b right ?",
+      "range": {
+        "startLine": 57,
+        "startChar": 45,
+        "endLine": 57,
+        "endChar": 52
+      },
+      "revId": "4b359f608635ed7398746b18e86c2366cec1c59b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "449d4521_8be17ee8",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-06-23T11:52:17Z",
+      "side": 1,
+      "message": "mentioned in other comment.",
+      "parentUuid": "f4d71c1a_02e65e47",
       "range": {
         "startLine": 57,
         "startChar": 45,
