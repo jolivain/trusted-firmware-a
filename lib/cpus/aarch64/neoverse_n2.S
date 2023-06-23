@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -67,32 +67,6 @@ func check_errata_2002655
 endfunc check_errata_2002655
 
 /* ---------------------------------------------------------------
- * Errata Workaround for Neoverse N2 Erratum 2067956.
- * This applies to revision r0p0 of Neoverse N2 and is still open.
- * Inputs:
- * x0: variant[4:7] and revision[0:3] of current cpu.
- * Shall clobber: x0-x17
- * ---------------------------------------------------------------
- */
-func errata_n2_2067956_wa
-	/* Compare x0 against revision r0p0 */
-	mov	x17, x30
-	bl	check_errata_2067956
-	cbz	x0, 1f
-	mrs	x1, NEOVERSE_N2_CPUACTLR_EL1
-	orr	x1, x1, NEOVERSE_N2_CPUACTLR_EL1_BIT_46
-	msr	NEOVERSE_N2_CPUACTLR_EL1, x1
-1:
-	ret	x17
-endfunc errata_n2_2067956_wa
-
-func check_errata_2067956
-	/* Applies to r0p0 */
-	mov	x1, #0x00
-	b	cpu_rev_var_ls
-endfunc check_errata_2067956
-
-/* ---------------------------------------------------------------
  * Errata Workaround for Neoverse N2 Erratum 2025414.
  * This applies to revision r0p0 of Neoverse N2 and is still open.
  * Inputs:
@@ -120,31 +94,59 @@ func check_errata_2025414
 endfunc check_errata_2025414
 
 /* ---------------------------------------------------------------
- * Errata Workaround for Neoverse N2 Erratum 2189731.
+ * Errata Workaround for Neoverse N2 Erratum 2067956.
  * This applies to revision r0p0 of Neoverse N2 and is still open.
  * Inputs:
  * x0: variant[4:7] and revision[0:3] of current cpu.
  * Shall clobber: x0-x17
  * ---------------------------------------------------------------
  */
-func errata_n2_2189731_wa
+func errata_n2_2067956_wa
 	/* Compare x0 against revision r0p0 */
-	mov     x17, x30
-	bl      check_errata_2189731
-	cbz     x0, 1f
-	mrs     x1, NEOVERSE_N2_CPUACTLR5_EL1
-	orr     x1, x1, NEOVERSE_N2_CPUACTLR5_EL1_BIT_44
-	msr     NEOVERSE_N2_CPUACTLR5_EL1, x1
-
+	mov	x17, x30
+	bl	check_errata_2067956
+	cbz	x0, 1f
+	mrs	x1, NEOVERSE_N2_CPUACTLR_EL1
+	orr	x1, x1, NEOVERSE_N2_CPUACTLR_EL1_BIT_46
+	msr	NEOVERSE_N2_CPUACTLR_EL1, x1
 1:
-	ret     x17
-endfunc errata_n2_2189731_wa
+	ret	x17
+endfunc errata_n2_2067956_wa
 
-func check_errata_2189731
+func check_errata_2067956
 	/* Applies to r0p0 */
-	mov     x1, #0x00
-	b       cpu_rev_var_ls
-endfunc check_errata_2189731
+	mov	x1, #0x00
+	b	cpu_rev_var_ls
+endfunc check_errata_2067956
+
+/* --------------------------------------------------
+ * Errata Workaround for Neoverse N2 Erratum 2138953.
+ * This applies to revision r0p0 of Neoverse N2. it is still open.
+ * Inputs:
+ * x0: variant[4:7] and revision[0:3] of current cpu.
+ * Shall clobber: x0-x1, x17
+ * --------------------------------------------------
+ */
+func errata_n2_2138953_wa
+	/* Check revision. */
+	mov	x17, x30
+	bl	check_errata_2138953
+	cbz	x0, 1f
+
+	/* Apply instruction patching sequence */
+	mrs	x1, NEOVERSE_N2_CPUECTLR2_EL1
+	mov	x0, #NEOVERSE_N2_CPUECTLR2_EL1_PF_MODE_CNSRV
+	bfi	x1, x0, #CPUECTLR2_EL1_PF_MODE_LSB, #CPUECTLR2_EL1_PF_MODE_WIDTH
+	msr	NEOVERSE_N2_CPUECTLR2_EL1, x1
+1:
+	ret	x17
+endfunc errata_n2_2138953_wa
+
+func check_errata_2138953
+	/* Applies to r0p0 */
+	mov	x1, #0x00
+	b	cpu_rev_var_ls
+endfunc check_errata_2138953
 
 /* --------------------------------------------------
  * Errata Workaround for Neoverse N2 Erratum 2138956.
@@ -189,63 +191,6 @@ func check_errata_2138956
 endfunc check_errata_2138956
 
 /* --------------------------------------------------
- * Errata Workaround for Neoverse N2 Erratum 2242415.
- * This applies to revision r0p0 of Neoverse N2. it is still open.
- * Inputs:
- * x0: variant[4:7] and revision[0:3] of current cpu.
- * Shall clobber: x0-x1, x17
- * --------------------------------------------------
- */
-func errata_n2_2242415_wa
-	/* Check revision. */
-	mov	x17, x30
-	bl	check_errata_2242415
-	cbz	x0, 1f
-
-	/* Apply instruction patching sequence */
-	mrs	x1, NEOVERSE_N2_CPUACTLR_EL1
-	orr	x1, x1, NEOVERSE_N2_CPUACTLR_EL1_BIT_22
-	msr	NEOVERSE_N2_CPUACTLR_EL1, x1
-1:
-	ret	x17
-endfunc errata_n2_2242415_wa
-
-func check_errata_2242415
-	/* Applies to r0p0 */
-	mov	x1, #0x00
-	b	cpu_rev_var_ls
-endfunc check_errata_2242415
-
-/* --------------------------------------------------
- * Errata Workaround for Neoverse N2 Erratum 2138953.
- * This applies to revision r0p0 of Neoverse N2. it is still open.
- * Inputs:
- * x0: variant[4:7] and revision[0:3] of current cpu.
- * Shall clobber: x0-x1, x17
- * --------------------------------------------------
- */
-func errata_n2_2138953_wa
-	/* Check revision. */
-	mov	x17, x30
-	bl	check_errata_2138953
-	cbz	x0, 1f
-
-	/* Apply instruction patching sequence */
-	mrs	x1, NEOVERSE_N2_CPUECTLR2_EL1
-	mov	x0, #NEOVERSE_N2_CPUECTLR2_EL1_PF_MODE_CNSRV
-	bfi	x1, x0, #CPUECTLR2_EL1_PF_MODE_LSB, #CPUECTLR2_EL1_PF_MODE_WIDTH
-	msr	NEOVERSE_N2_CPUECTLR2_EL1, x1
-1:
-	ret	x17
-endfunc errata_n2_2138953_wa
-
-func check_errata_2138953
-	/* Applies to r0p0 */
-	mov	x1, #0x00
-	b	cpu_rev_var_ls
-endfunc check_errata_2138953
-
-/* --------------------------------------------------
  * Errata Workaround for Neoverse N2 Erratum 2138958.
  * This applies to revision r0p0 of Neoverse N2. it is still open.
  * Inputs:
@@ -272,6 +217,33 @@ func check_errata_2138958
 	mov	x1, #0x00
 	b	cpu_rev_var_ls
 endfunc check_errata_2138958
+
+/* ---------------------------------------------------------------
+ * Errata Workaround for Neoverse N2 Erratum 2189731.
+ * This applies to revision r0p0 of Neoverse N2 and is still open.
+ * Inputs:
+ * x0: variant[4:7] and revision[0:3] of current cpu.
+ * Shall clobber: x0-x17
+ * ---------------------------------------------------------------
+ */
+func errata_n2_2189731_wa
+	/* Compare x0 against revision r0p0 */
+	mov     x17, x30
+	bl      check_errata_2189731
+	cbz     x0, 1f
+	mrs     x1, NEOVERSE_N2_CPUACTLR5_EL1
+	orr     x1, x1, NEOVERSE_N2_CPUACTLR5_EL1_BIT_44
+	msr     NEOVERSE_N2_CPUACTLR5_EL1, x1
+
+1:
+	ret     x17
+endfunc errata_n2_2189731_wa
+
+func check_errata_2189731
+	/* Applies to r0p0 */
+	mov     x1, #0x00
+	b       cpu_rev_var_ls
+endfunc check_errata_2189731
 
 /* --------------------------------------------------
  * Errata Workaround for Neoverse N2 Erratum 2242400.
@@ -309,6 +281,34 @@ func check_errata_2242400
 	mov	x1, #0x00
 	b	cpu_rev_var_ls
 endfunc check_errata_2242400
+
+/* --------------------------------------------------
+ * Errata Workaround for Neoverse N2 Erratum 2242415.
+ * This applies to revision r0p0 of Neoverse N2. it is still open.
+ * Inputs:
+ * x0: variant[4:7] and revision[0:3] of current cpu.
+ * Shall clobber: x0-x1, x17
+ * --------------------------------------------------
+ */
+func errata_n2_2242415_wa
+	/* Check revision. */
+	mov	x17, x30
+	bl	check_errata_2242415
+	cbz	x0, 1f
+
+	/* Apply instruction patching sequence */
+	mrs	x1, NEOVERSE_N2_CPUACTLR_EL1
+	orr	x1, x1, NEOVERSE_N2_CPUACTLR_EL1_BIT_22
+	msr	NEOVERSE_N2_CPUACTLR_EL1, x1
+1:
+	ret	x17
+endfunc errata_n2_2242415_wa
+
+func check_errata_2242415
+	/* Applies to r0p0 */
+	mov	x1, #0x00
+	b	cpu_rev_var_ls
+endfunc check_errata_2242415
 
 /* --------------------------------------------------
  * Errata Workaround for Neoverse N2 Erratum 2280757.
@@ -503,7 +503,6 @@ func neoverse_n2_reset_func
 	mov	x0, x18
 	bl	errata_n2_2189731_wa
 #endif
-
 
 #if ERRATA_N2_2138956
 	mov	x0, x18
