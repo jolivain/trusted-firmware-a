@@ -19,7 +19,7 @@ is the CPUs supported as below:
 
 -  TC0 has support for Cortex A510, Cortex A710 and Cortex X2.
 -  TC1 has support for Cortex A510, Cortex Makalu and Cortex X3.
--  TC2 has support for Hayes and Cortex A720 Arm CPUs.
+-  TC2 has support for A520 and Cortex A720 Arm CPUs.
 
 
 Boot Sequence
