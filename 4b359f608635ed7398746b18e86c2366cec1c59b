@@ -36,6 +36,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3b2b187_b3af7542",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-23T11:23:17Z",
+      "side": 1,
+      "message": "We can have TFTF test for FFH as I think this can be tested using RAS Error inj in FVP.\n\nFor KFH, you need a CI patch to unmask the A bit before returning to lower EL. ",
+      "revId": "4b359f608635ed7398746b18e86c2366cec1c59b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc54f81d_791257b7",
