@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3cc4dd1_ac9db53c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-23T13:54:24Z",
+      "side": 1,
+      "message": "minor naming comment",
+      "revId": "d98eec9c3d96645ec56858a8ed8abb895b6673f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afeef83f_a928118b",
+        "filename": "lib/extensions/pmuv3/aarch32/pmuv3.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-23T13:54:24Z",
+      "side": 1,
+      "message": "it is wierd to have this function report the feature is supported and we go on to disable it.\n\nPerhaps this function should be called is_feat_mtpmu_disable_supported()",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 29
+      },
+      "revId": "d98eec9c3d96645ec56858a8ed8abb895b6673f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
