@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a51cb987_8f0e0be5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-23T10:57:52Z",
+      "side": 1,
+      "message": "No, as far as I\u0027m aware these are never compiled. It seems no one has actually compiled them in 5 years! Obviously if we intend to support these CPUs then that doesn\u0027t really cut it. Is there any reason we wouldn\u0027t want to add them to the platform makefile e.g. size constraints?",
+      "parentUuid": "d5ff21e1_ee5f3f0e",
+      "revId": "fb6bc5599c85049efd864a6167b6da50b96ee6df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b585d94_7385991f",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-06-22T16:41:47Z",
       "side": 1,
       "message": "😮 considering this its never compiled anywhere?",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 34
+      },
+      "revId": "fb6bc5599c85049efd864a6167b6da50b96ee6df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dae91d7_fc533f2f",
+        "filename": "lib/cpus/aarch32/cortex_a9.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-23T10:57:52Z",
+      "side": 1,
+      "message": "This is a bit of weird one, I expected this would trip up too but it seems the macro blindly adds information to the debug frame, irrespective of whether the name provided matches that given to `func`. Even with build tests, something like this would be hard to spot.",
+      "parentUuid": "8b585d94_7385991f",
       "range": {
         "startLine": 45,
         "startChar": 8,
