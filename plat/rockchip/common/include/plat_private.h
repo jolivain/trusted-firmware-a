@@ -11,9 +11,9 @@
 
 #include <stdint.h>
 
-#include <lib/psci/psci.h>
-#include <lib/xlat_tables/xlat_tables.h>
 #include <lib/mmio.h>
+#include <lib/psci/psci.h>
+#include <lib/xlat_tables/xlat_tables_compat.h>
 #include <plat_params.h>
 
 #define __sramdata __attribute__((section(".sram.data")))
