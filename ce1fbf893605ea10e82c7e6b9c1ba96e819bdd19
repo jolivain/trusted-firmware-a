@@ -70,6 +70,30 @@
       },
       "revId": "ce1fbf893605ea10e82c7e6b9c1ba96e819bdd19",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "967c9954_00ce1160",
+        "filename": "lib/extensions/trf/aarch32/trf.c",
+        "patchSetId": 36
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-26T14:08:50Z",
+      "side": 1,
+      "message": "right, yes it is zeroed. But I wish luck on whoever tries to figure it out after me. Half the problem I\u0027ve been trying to tackle with these patches is that it\u0027s *impossible* to trace what context tf-a runs with and when. Things like bit X is set at reset explicitly but overriden in some place in context management and bit Y is set implicitly in context management only while bit Z is all of the above twice over but conditionally.\n\nMaking this bit set explicit in these functions allows for an uninitiated soul to grep for this bit and see exactly what value it will have for practically all of EL3\u0027s execution. That short bit between the reset handler and this function can be left as arcane magic we don\u0027t (usually) have to care about. I especially hate the rampant implicit initialization that goes on. It\u0027s just too hard to trace.",
+      "parentUuid": "dc780d6f_06880efb",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "ce1fbf893605ea10e82c7e6b9c1ba96e819bdd19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
