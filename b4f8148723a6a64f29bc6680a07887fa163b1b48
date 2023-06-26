@@ -33,6 +33,24 @@
       "message": "so the usage for this is \"insert bit sequence `3` into register `CORTEX_A510_CMPXACTLR_EL1` at offset `10` for length `2`\"? Why not prefix the constants with # to make it a bit clearer? I\u0027m just worried that this is convoluted.",
       "revId": "b4f8148723a6a64f29bc6680a07887fa163b1b48",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d117e0e_3db7cc20",
+        "filename": "lib/cpus/aarch64/cortex_a510.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-26T19:04:38Z",
+      "side": 1,
+      "message": "We are passing it as constants, just that passing the numbers might could a bit odd.\nWill replace them with better readable macros. Hope that would make the code look better readable and also from the usage point of view.",
+      "parentUuid": "b0281713_9da70c30",
+      "revId": "b4f8148723a6a64f29bc6680a07887fa163b1b48",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
