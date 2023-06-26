@@ -53,7 +53,7 @@
 	 * EL (KFH) or handles it in EL3 (FFH) based on EA routing model.
 	 */
 	.macro	sync_and_handle_pending_serror
-	dsb	sy
+	synchronize_errors
 	mrs	x30, ISR_EL1
 	tbz	x30, #ISR_A_SHIFT, 2f
 #if HANDLE_EA_EL3_FIRST_NS
@@ -340,7 +340,7 @@ end_vector_entry fiq_aarch64
 vector_entry serror_aarch64
 	save_x30
 	apply_at_speculative_wa
-	dsb	sy
+	synchronize_errors
 	ensure_ffh_mode
 	unmask_ea
 	b	handle_lower_el_async_ea
@@ -383,7 +383,7 @@ end_vector_entry fiq_aarch32
 vector_entry serror_aarch32
 	save_x30
 	apply_at_speculative_wa
-	dsb	sy
+	synchronize_errors
 	ensure_ffh_mode
 	unmask_ea
 	b	handle_lower_el_async_ea
