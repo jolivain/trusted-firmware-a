@@ -16,6 +16,46 @@
       "message": "Propagating Verified+1 from the top patch.\t\t\t\t\nhttp://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/3883/",
       "revId": "cd5e652b616a3dd5e4063bd521a412949843cf84",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df7dfc82_7f720389",
+        "filename": "lib/cpus/aarch64/cortex_a72.S",
+        "patchSetId": 20
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-26T14:45:06Z",
+      "side": 1,
+      "message": "I don\u0027t think this was meant to be left here?",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 2
+      },
+      "revId": "cd5e652b616a3dd5e4063bd521a412949843cf84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fac3890_afb2b32d",
+        "filename": "lib/cpus/aarch64/cortex_a72.S",
+        "patchSetId": 20
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-26T14:45:06Z",
+      "side": 1,
+      "message": "check_erratum_ls",
+      "revId": "cd5e652b616a3dd5e4063bd521a412949843cf84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
