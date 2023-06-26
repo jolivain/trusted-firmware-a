@@ -16,6 +16,23 @@
       "message": "Added for checking L2 tests only. As we agreed the solution is to branch OPTEE for lts.",
       "revId": "f1834ed2810466d9905db64e3f008d2e34290763",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f6e52c0_300c5839",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-06-26T19:44:28Z",
+      "side": 1,
+      "message": "Static check fail expected to fail with errata abi include order changes, marking as verified as the rest of CI passed",
+      "revId": "f1834ed2810466d9905db64e3f008d2e34290763",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
