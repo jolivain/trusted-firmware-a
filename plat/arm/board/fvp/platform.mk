@@ -205,7 +205,6 @@ else
 					lib/cpus/aarch64/cortex_a76ae.S		\
 					lib/cpus/aarch64/cortex_a77.S		\
 					lib/cpus/aarch64/cortex_a78.S		\
-					lib/cpus/aarch64/cortex_a78_ae.S	\
 					lib/cpus/aarch64/cortex_a78c.S		\
 					lib/cpus/aarch64/cortex_a710.S		\
 					lib/cpus/aarch64/neoverse_n_common.S	\
@@ -213,17 +212,26 @@ else
 					lib/cpus/aarch64/neoverse_n2.S		\
 					lib/cpus/aarch64/neoverse_v1.S		\
 					lib/cpus/aarch64/neoverse_e1.S		\
+					lib/cpus/aarch64/cortex_x1.S		\
+					lib/cpus/aarch64/cortex_blackhawk.S	\
+					lib/cpus/aarch64/cortex_chaberton.S	\
+					lib/cpus/aarch64/cortex_a520.S		\
+					lib/cpus/aarch64/cortex_a720.S		\
+					lib/cpus/aarch64/cortex_x4.S		\
 					lib/cpus/aarch64/cortex_x2.S
 	endif
 	# AArch64/AArch32 cores
-	FVP_CPU_LIBS	+=	lib/cpus/aarch64/cortex_a55.S		\
+	FVP_CPU_LIBS	+=	lib/cpus/aarch64/cortex_a55.S			\
 				lib/cpus/aarch64/cortex_a75.S
 endif
 
 else
 FVP_CPU_LIBS		+=	lib/cpus/aarch32/cortex_a32.S			\
 				lib/cpus/aarch32/cortex_a57.S			\
-				lib/cpus/aarch32/cortex_a53.S
+				lib/cpus/aarch32/cortex_a53.S			\
+				lib/cpus/aarch32/cortex_a7.S			\
+				lib/cpus/aarch32/cortex_a9.S			\
+				lib/cpus/aarch32/cortex_a12.S		
 endif
 
 BL1_SOURCES		+=	drivers/arm/smmu/smmu_v3.c			\
