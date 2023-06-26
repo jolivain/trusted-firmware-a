@@ -120,6 +120,11 @@
 	.endm
 #endif
 
+	/* Macro for error synchronization */
+	.macro synchronize_errors
+	dsb	sy
+	.endm
+
 #if (ARM_ARCH_MAJOR == 7)
 	/* ARMv7 does not support stl instruction */
 	.macro stl _reg, _write_lock

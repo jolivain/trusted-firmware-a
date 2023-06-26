@@ -51,7 +51,7 @@
 	 * Macro that checks for pending SError in lower EL and reflects it back.
 	 */
 	.macro	sync_and_handle_pending_serror
-	dsb	sy
+	synchronize_errors
 	mrs	x30, ISR_EL1
 	tbz	x30, #ISR_A_SHIFT, 1f
 	/* Do a bl here to update the x30 with offset in the vector table */
