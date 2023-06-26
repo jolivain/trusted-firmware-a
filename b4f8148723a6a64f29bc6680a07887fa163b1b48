@@ -16,6 +16,23 @@
       "message": "Propagating Verified+1 from the top patch.\t\t\t\t\nhttp://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/3883/",
       "revId": "b4f8148723a6a64f29bc6680a07887fa163b1b48",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0281713_9da70c30",
+        "filename": "lib/cpus/aarch64/cortex_a510.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-26T12:24:20Z",
+      "side": 1,
+      "message": "so the usage for this is \"insert bit sequence `3` into register `CORTEX_A510_CMPXACTLR_EL1` at offset `10` for length `2`\"? Why not prefix the constants with # to make it a bit clearer? I\u0027m just worried that this is convoluted.",
+      "revId": "b4f8148723a6a64f29bc6680a07887fa163b1b48",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
