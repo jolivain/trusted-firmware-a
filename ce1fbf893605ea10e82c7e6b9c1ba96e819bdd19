@@ -118,6 +118,30 @@
       },
       "revId": "ce1fbf893605ea10e82c7e6b9c1ba96e819bdd19",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34eff7f8_42a22855",
+        "filename": "lib/extensions/trf/aarch32/trf.c",
+        "patchSetId": 36
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-26T16:13:16Z",
+      "side": 1,
+      "message": "It can, but it wasn\u0027t and that\u0027s not the correct place for it to be IMO.\n\n\u003e My argument is that if the Architecture mentions that this bit is zero on reset, then initialization can also handle it.\n\nAh, I think this is where the breakdown happens. I spent quite a while discussing this with Soby, and the architecture setting a bit means little for EL3 (and EL2 but not relevant here). We do a blanket overwrite of all bits of all EL3 system registers because we can\u0027t trust what values previous (potentially third-party) BLx images set them to. I would call this sanitization rather than initialization.\n\nAnyway, the proper initialization happens in these \u003cfeat\u003e_enable_el3() functions. They are what I would consider to be the definitive value (re)setters. Anything they don\u0027t explicitly write to me should be left \"floating\" (even though it won\u0027t actually be, due to the previous point, but we should be okay with it being set to either value there IMO).\n\nAnd finally, I am trying to enforce this idea of enforcing ownership of sorts. This bit belongs to FEAT_TRF, so it is FEAT_TRF\u0027s \"driver\" for determining its value. Same for SVE, BRBE, and so on. This is particularly important to me, as without this (i.e. the way it is today) the reset handler becomes cluttered with a bunch of disperate features writing bits which are quite laborious to connect back to the relevant feature. I did the untangling in these patches and I\u0027ve put things in their correct places for all features. This also lays the groundwork for context switching MDCR_EL3 (for aarch64 anyway) and makes it easier for worlds to decide what values they should have.",
+      "parentUuid": "6a960373_9be79864",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "ce1fbf893605ea10e82c7e6b9c1ba96e819bdd19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
