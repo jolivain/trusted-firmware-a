@@ -56,6 +56,30 @@
       },
       "revId": "3d12deb32c0655eb0993a46aef7bae04271bead1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfa681d5_27d36c04",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T11:30:13Z",
+      "side": 1,
+      "message": "I totally agree with that. And I may also need, for low-power purposes, a pre_metadata_load hooks.\nBut I don\u0027t know how to achieve that easily as fwu_init is called from BL2 common code.\nAnd we\u0027d also like to avoid weak functions.\nI\u0027ll try to check that, but not before August.\nAnd maybe update some of the other weak function we have in the common BL2 loading process.\nMainly because I\u0027ll have to add some hooks for FWU on NAND devices.",
+      "parentUuid": "9a116a1c_e9fc6f10",
+      "range": {
+        "startLine": 187,
+        "startChar": 4,
+        "endLine": 187,
+        "endChar": 29
+      },
+      "revId": "3d12deb32c0655eb0993a46aef7bae04271bead1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
