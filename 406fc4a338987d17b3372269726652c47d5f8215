@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bef5801b_d97dd348",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 36
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-26T17:11:16Z",
+      "side": 1,
+      "message": "minor comment",
+      "revId": "406fc4a338987d17b3372269726652c47d5f8215",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a2858d2_cc676883",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 36
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-26T17:11:16Z",
+      "side": 1,
+      "message": "this is sufficient for all other cases? Once it is cleared here, this should remain cleared for the applicable context.",
+      "range": {
+        "startLine": 423,
+        "startChar": 45,
+        "endLine": 423,
+        "endChar": 54
+      },
+      "revId": "406fc4a338987d17b3372269726652c47d5f8215",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d40e448e_d5f2c2bc",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 36
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-26T17:11:16Z",
+      "side": 1,
+      "message": "This is not related to AMU. Already done common init.",
+      "range": {
+        "startLine": 192,
+        "startChar": 25,
+        "endLine": 192,
+        "endChar": 34
+      },
+      "revId": "406fc4a338987d17b3372269726652c47d5f8215",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bf0c38a_231b6215",
+        "filename": "lib/extensions/sys_reg_trace/aarch64/sys_reg_trace.c",
+        "patchSetId": 36
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-26T17:11:16Z",
+      "side": 1,
+      "message": "not specifically related to trace. Already done as common init.",
+      "range": {
+        "startLine": 38,
+        "startChar": 9,
+        "endLine": 38,
+        "endChar": 18
+      },
+      "revId": "406fc4a338987d17b3372269726652c47d5f8215",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
