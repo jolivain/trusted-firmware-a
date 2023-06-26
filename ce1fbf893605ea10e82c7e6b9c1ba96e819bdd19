@@ -94,6 +94,30 @@
       },
       "revId": "ce1fbf893605ea10e82c7e6b9c1ba96e819bdd19",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a960373_9be79864",
+        "filename": "lib/extensions/trf/aarch32/trf.c",
+        "patchSetId": 36
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-26T15:39:39Z",
+      "side": 1,
+      "message": "The code can also be made readable by explicitly setting this bit to zero during init. \nMy argument is that if the Architecture mentions that this bit is zero on reset, then initialization can also handle it.\nExplicitly handling it during the enable routine can also give the wrong impression that this bit was previously set. By leaving the condition of this bit unchanged, it would be as if it had been reset.\n\nI am not strongly against the current approach, but just wondering why it is needed. We will proceed with this change if everyone is okay with this change.",
+      "parentUuid": "967c9954_00ce1160",
+      "range": {
+        "startLine": 22,
+        "startChar": 10,
+        "endLine": 22,
+        "endChar": 22
+      },
+      "revId": "ce1fbf893605ea10e82c7e6b9c1ba96e819bdd19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
