@@ -34,6 +34,978 @@
       "parentUuid": "311aeea9_ea034983",
       "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fd5ce27_d286c85a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "Hi,\n\nI\u0027ve replied to your comment but other than that, I\u0027ve made some remarks about the patch. Some are minor, or very minor and should not prevent the merge if you decide to ignore them.\nI\u0027ll check the other patches in the series, and run the CI tests.\nMaybe some of my remarks will also be pointed by the tools.\n\nBest regards,\nYann",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cf0c052_68ef8624",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "Hi,\n\nSorry for late reply.\nI\u0027m a bit worried that if you have something working in your platform code, you may not use the MMC framework, and keep the bug hidden there for a while.\nAs I said the CMD55 should be done together with the following command to have an ACMD51 command and not a CMD51.",
+      "parentUuid": "1d6f972b_fe2bb6b3",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f2f81ce_3094adb2",
+        "filename": "drivers/cadence/combo_phy/cdns_combo_phy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "minor (feel free to ignore): this could be aligned with open parenthesis",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78964557_b8de5825",
+        "filename": "drivers/cadence/combo_phy/cdns_combo_phy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "minor (feel free to ignore): those values are updated just after and may not need to be set to 0. For example, OP-TEE enforces this rule of initializing variables, it is not mandatory in TF-A.\n\nI don\u0027t know if you want to follow MISRA rules in your platform, but then unsigned values should be suffixed with U (or UL/ULL depending on the type).",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e18b38b_190e456f",
+        "filename": "drivers/cadence/combo_phy/cdns_combo_phy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "see comments about those macros in include/drivers/cadence/cdns_combo_phy.h file",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb7cf9ad_fb812512",
+        "filename": "drivers/cadence/combo_phy/cdns_combo_phy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "weird comment\nThe mdelay should be a delay in milliseconds. Or you didn\u0027t initialized the timer with proper frequency (see cntfrq_el0)?\nAnd you should use C-style comment (/* */) instead of C++ style (//)",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cdd7588_3ce5da2a",
+        "filename": "drivers/cadence/combo_phy/cdns_combo_phy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "I don\u0027t really see the interest of adding an extra delay here. Could the 2 lines be combined in 1 line (udelay(68680))?",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0b06bcf_bb1c7fd0",
+        "filename": "drivers/cadence/combo_phy/cdns_combo_phy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "here again strange comment",
+      "range": {
+        "startLine": 77,
+        "startChar": 17,
+        "endLine": 77,
+        "endChar": 21
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73d52c90_0258a7ab",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "minor: usually operators are put at the end of previous line",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 4
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a83d32f_f99d9680",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 175,
+        "startChar": 3,
+        "endLine": 175,
+        "endChar": 5
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86c196be_097fd992",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "is this sign change awaited?",
+      "range": {
+        "startLine": 190,
+        "startChar": 9,
+        "endLine": 190,
+        "endChar": 10
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40177cc7_6ee2fda4",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "minor: you could directly return ret.",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 10
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ee20f1d_dcf02391",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "could be on previous line",
+      "range": {
+        "startLine": 262,
+        "startChar": 1,
+        "endLine": 262,
+        "endChar": 13
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bc0af82_36d05747",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "(i + 1)\nYou could run checkpatch.pl with --strict option to detect this kind of things.",
+      "range": {
+        "startLine": 290,
+        "startChar": 9,
+        "endLine": 290,
+        "endChar": 12
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51c5b0da_909102f7",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "minor: you could use UINT_MAX, same for other following uses",
+      "range": {
+        "startLine": 294,
+        "startChar": 30,
+        "endLine": 294,
+        "endChar": 40
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20a1c00b_ed1fa70d",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "try to avoid magic numbers in all this function, prefer macros",
+      "range": {
+        "startLine": 328,
+        "startChar": 20,
+        "endLine": 328,
+        "endChar": 23
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3665b0c5_147491bf",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "you could use mmio_clrbits_32, with BIT_32(0), or some macro defining this bit\nFor other lines, you could use mmio_clrsetbits_32 and mmio_setbits_32",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89454101_0b042b8d",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "Here mmio_clrsetbits_32 could be used",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed149bb3_f5321c60",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "this is very confusing. When checking this macro it correspond to BIT(0). I suggest to prefix those macros with something related to the register, or filed of the register being written. Same for BIT4 and BIT8.",
+      "range": {
+        "startLine": 367,
+        "startChar": 50,
+        "endLine": 367,
+        "endChar": 54
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "313f4240_6c7f6edd",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "no need for blank line",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fb37435_4f92f6c0",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35f0d40d_fe0d6cff",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "UINT_MAX?",
+      "range": {
+        "startLine": 787,
+        "startChar": 47,
+        "endLine": 787,
+        "endChar": 49
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48da0115_73a3fe19",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "\u003cplatform_def.h\u003e\nThe file is not in this folder",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b21985ba_43a3dbf6",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "BIT_32(thread_id)?",
+      "range": {
+        "startLine": 46,
+        "startChar": 9,
+        "endLine": 46,
+        "endChar": 25
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80e3b815_3a0d15cd",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "minor: you can remove 1 tab, and maybe align with CNF_ECMD?",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 5
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d058e499_9a63145a",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "(reg \u0026 CNF_CMPLT) \u003d\u003d 0U\n(to comply with MISRA rules)",
+      "range": {
+        "startLine": 74,
+        "startChar": 10,
+        "endLine": 74,
+        "endChar": 28
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13964fd7_12b9be5c",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "same kind of things here for MISRA (if you want to follow MISRA rules)",
+      "range": {
+        "startLine": 77,
+        "startChar": 5,
+        "endLine": 77,
+        "endChar": 19
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eac087d_152106a4",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "You could just have:\n\n\treturn 0;",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 2
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "270d2a50_0ef8c745",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "could be on previous line",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1ec8bf9_1b78f1cd",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "those lines should be in the patch that will introduce these features IMHO",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 3
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7063c1d7_cce3338a",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "Not sure this comment should stay",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27cc6c2a_a10d163f",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "I don\u0027t know if you have tried to interface with MTD/NAND framework (in drivers/mtd/nand/)?",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71aa532d_dd5f80b3",
+        "filename": "include/drivers/cadence/cdns_combo_phy.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "this line shouldn\u0027t be required",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d05ee61_1953d20a",
+        "filename": "include/drivers/cadence/cdns_combo_phy.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "all those very short macros should IMHO be prefixed with something related to what it is about, it could avoid conflicts, and help determine what it is about.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 21
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0e16e03_77b836cd",
+        "filename": "include/drivers/cadence/cdns_nand.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96b49c35_57796abf",
+        "filename": "include/drivers/cadence/cdns_sdmmc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "this is redefined from include/drivers/cadence/cdns_combo_phy.h\nAnd same remark about the macro names that should be prefixed IMO",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc14890f_b7d74dfa",
+        "filename": "include/drivers/cadence/cdns_sdmmc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "most of the following macros are taken from include/drivers/mmc.h, and should then not be required here as you include the file.",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3aba0fe6_fa312527",
+        "filename": "include/drivers/cadence/cdns_sdmmc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "reserved (found with checkpatch)",
+      "range": {
+        "startLine": 420,
+        "startChar": 3,
+        "endLine": 420,
+        "endChar": 10
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f025b7c3_16fc2421",
+        "filename": "plat/intel/soc/common/drivers/combophy/combophy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "use C-style comments /* */",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d4fc1a7_b3a9fefe",
+        "filename": "plat/intel/soc/common/drivers/combophy/combophy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "even if the function is temporary here, maybe a better name could be found?\nWhen will the complete feature be delivered?\nMaybe the function should be static?",
+      "range": {
+        "startLine": 23,
+        "startChar": 5,
+        "endLine": 23,
+        "endChar": 9
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "515cdcd2_eb09276b",
+        "filename": "plat/intel/soc/common/drivers/combophy/combophy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "this could be on previous line",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 7
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d656b426_ee93d0e1",
+        "filename": "plat/intel/soc/common/drivers/combophy/combophy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "minor: could be on one line",
+      "range": {
+        "startLine": 62,
+        "startChar": 1,
+        "endLine": 65,
+        "endChar": 28
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc331c0c_0fdff728",
+        "filename": "plat/intel/soc/common/drivers/combophy/combophy.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "add a blank line between #include \u003clib/mmio.h\u003e and #include \"socfpga_handoff.h\"",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d28f7323_eb0256c2",
+        "filename": "plat/intel/soc/common/drivers/combophy/combophy.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "avoid duplicate blank lines\n(can be seen with checkpatch.pl --strict)",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c45d4aad_737ff592",
+        "filename": "plat/intel/soc/common/drivers/combophy/combophy.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "new typdefs are discouraged in TF-A, see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#avoid-anonymous-typedefs-of-structs-enums-in-headers",
+      "range": {
+        "startLine": 25,
+        "startChar": 19,
+        "endLine": 25,
+        "endChar": 26
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1634d005_bf9642d1",
+        "filename": "plat/intel/soc/common/drivers/combophy/combophy.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f97420a_0bbf5b98",
+        "filename": "plat/intel/soc/common/drivers/nand/nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "should be static?",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "768d156f_6d39e3c9",
+        "filename": "plat/intel/soc/common/drivers/nand/nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "is result really needed? You could directly:\n\n\treturn cdns_nand_host_init();",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b80d486b_7bfbcd7e",
+        "filename": "plat/intel/soc/common/drivers/nand/nand.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-06-26T15:55:22Z",
+      "side": 1,
+      "message": "avoid multiple blank lines",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
