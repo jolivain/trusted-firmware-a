@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2802a42d_d1c84b36",
+        "filename": "lib/cpus/aarch64/cortex_a72.S",
+        "patchSetId": 20
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-26T14:55:12Z",
+      "side": 1,
+      "message": "Yes. Will be cleaning it as part of next patch set.",
+      "parentUuid": "df7dfc82_7f720389",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 2
+      },
+      "revId": "cd5e652b616a3dd5e4063bd521a412949843cf84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fac3890_afb2b32d",
@@ -54,6 +78,24 @@
       "writtenOn": "2023-06-26T14:45:06Z",
       "side": 1,
       "message": "check_erratum_ls",
+      "revId": "cd5e652b616a3dd5e4063bd521a412949843cf84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df077f7b_979035a6",
+        "filename": "lib/cpus/aarch64/cortex_a72.S",
+        "patchSetId": 20
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-26T14:55:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1fac3890_afb2b32d",
       "revId": "cd5e652b616a3dd5e4063bd521a412949843cf84",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
