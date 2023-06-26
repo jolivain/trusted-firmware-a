@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b62ea6c4_ae385ff7",
+        "filename": "lib/extensions/sys_reg_trace/aarch64/sys_reg_trace.c",
+        "patchSetId": 38
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-26T10:15:03Z",
+      "side": 1,
+      "message": "\u003e well the variable holds a register so logically the type should be u_register_t which for aarch64 is the same size as uint64_t. Aren\u0027t we meant to use semantic types wherever available? \nI agree but this is not very well followed in same way in overall code.\n\n\u003e Is there a reason it shouldn\u0027t be u_register_t?\nAs per \u0027el3state\u0027 structure [1], this should be uint64_t so I think it is better to abide with that. This structure hold the context, all context register values are captured as uint64_t.\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/lib/el3_runtime/aarch64/context.h#n339",
+      "parentUuid": "7b97bbfe_9f399b81",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 13
+      },
+      "revId": "2b250a47950e9addc98a4aff7f895d3a6c56d1a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fcf6e5d0_dd4c0dc9",
         "filename": "lib/extensions/sys_reg_trace/aarch64/sys_reg_trace.c",
         "patchSetId": 38
