@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5378bf68_1bfe16a2",
+        "filename": "lib/cpus/aarch64/cortex_a510.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-26T12:39:23Z",
+      "side": 1,
+      "message": "I got \n\naarch64-none-elf-ld.bfd: /home/boykar01/projects/tf-a/build/fvp/debug/bl31/runtime_errata.o: in function `apply_cpu_pwr_dwn_errata\u0027:\n/home/boykar01/projects/tf-a/lib/psci/aarch64/runtime_errata.S:23: undefined reference to `erratum_cortex_a510_2684597_wa\u0027\n\nwhen building.\n\nalso nit: hoist the global to the top",
+      "revId": "497d0b671a740f63d426cc5dfa55799331b9f7d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "806d6ad0_bc828d47",
         "filename": "lib/cpus/aarch64/cortex_a510.S",
         "patchSetId": 17
