@@ -260,7 +260,8 @@ const char *plat_scmi_clock_get_name(unsigned int agent_id,
 }
 
 int32_t plat_scmi_clock_rates_array(unsigned int agent_id, unsigned int scmi_id,
-				    unsigned long *array, size_t *nb_elts)
+				    unsigned long *array, size_t *nb_elts,
+				    uint32_t start_idx)
 {
 	struct stm32_scmi_clk *clock = find_clock(agent_id, scmi_id);
 
