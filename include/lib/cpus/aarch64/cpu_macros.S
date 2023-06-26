@@ -459,12 +459,21 @@
  * _chosen:
  *	Compile time flag on whether the erratum is included
  *
+ * _get_rev:
+ *	Determines whether to insert a call to the CPU revision fetching procedure. Stores the
+ *	result of this in the temporary register x10.
+ *
  * clobbers: x0-x9 (PCS compliant)
  */
-.macro apply_erratum _cpu:req, _cve:req, _id:req, _chosen:req
-	.if \_chosen
+.macro apply_erratum _cpu:req, _cve:req, _id:req, _chosen:req, _get_rev=1
+	.if \_get_rev
 		mov	x9, x30
 		bl	cpu_get_rev_var
+	.else
+		mov	x0, x10
+	.endif
+
+	.if \_chosen
 		bl	erratum_\_cpu\()_\_id\()_wa
 		mov	x30, x9
 
