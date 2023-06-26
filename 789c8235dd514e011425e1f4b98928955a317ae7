@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e2f74a9_14a40389",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-26T10:48:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10c3e98e_ec976a28",
+      "range": {
+        "startLine": 553,
+        "startChar": 34,
+        "endLine": 553,
+        "endChar": 36
+      },
+      "revId": "789c8235dd514e011425e1f4b98928955a317ae7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5ee901c_03c2c1e6",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-21T16:15:53Z",
       "side": 1,
       "message": "nit: full stop",
+      "range": {
+        "startLine": 48,
+        "startChar": 40,
+        "endLine": 48,
+        "endChar": 51
+      },
+      "revId": "789c8235dd514e011425e1f4b98928955a317ae7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5a0dcf9_24fe4e1c",
+        "filename": "lib/extensions/pmuv3/aarch64/pmuv3.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-26T10:48:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5ee901c_03c2c1e6",
       "range": {
         "startLine": 48,
         "startChar": 40,
