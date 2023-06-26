@@ -292,4 +292,22 @@
 #endif
 	.endm
 
+	/*
+	 * Macro for error synchronization on exception boundries.
+	 * Withe FEAT_RAS enabled, it is assumed that FEAT_IESB is also present
+	 * and enabled.
+	 * FEAT_IESB provides implicit error synchronization event at exception
+	 * entry and exception return, so no need for any explicit instruction.
+	 */
+	.macro synchronize_errors
+	/*
+	 * This is a hot path, so we don't want to do some actual FEAT_RAS runtime
+	 * detection here. For ENABLE_FEAT_RAS==2, its not ideal but won't hurt as
+	 * state 2 is mostly used by configurable platforms(fvp/qemu).
+	*/
+#if !(ENABLE_FEAT_RAS == 1)
+	dsb	sy
+#endif
+	.endm
+
 #endif /* ASM_MACROS_S */
