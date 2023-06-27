@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05eb599a_4865d192",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-06-27T20:40:45Z",
+      "side": 1,
+      "message": "Feel free to ignore the below suggestion.\ncan we get away from this runtime approach to find if we came from sync exception path? The macros are created at build time and hence can be suitably adjusted at the exception vector. The sync_and_handle_pending_serror macro can take an additional argument. This means the branch and link operation is not needed in sync_and_handle_pending_serror. The downside of this approach is code duplication.\n\n.macro sync_and_handle_pending_serror _is_sync_exception\n  \u003c........\u003e\n  reflect_pending_serror_to_lower_el \n\n.endmacro\n\nThe code in lines 158 through 163 can be removed. Instead, elr-4 operation can be guarded by _is_sync_exception\n\n.if \\_is_sync_exception\n   sub x28, x28, 4\n.endif\n\nSo the sync_exception_aarch64 exception vector would look like this:\n\nvector_entry sync_exception_aarch64\n        save_x30\n        apply_at_speculative_wa\n        sync_and_handle_pending_serror _is_sync_exception\u003d1\n        unmask_ea\n        handle_sync_exception\nend_vector_entry sync_exception_aarch64\n\nvector_entry irq_aarch64\n        save_x30\n        apply_at_speculative_wa\n        sync_and_handle_pending_serror _is_sync_exception\u003d0\n        unmask_ea\n        handle_interrupt_exception irq_aarch64\nend_vector_entry irq_aarch64",
+      "parentUuid": "b4984b6e_856c8fd0",
+      "range": {
+        "startLine": 156,
+        "startChar": 15,
+        "endLine": 156,
+        "endChar": 38
+      },
+      "revId": "df59526d22937e4f88e91ad714687e063fa15083",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b14401d_05f5198c",
         "filename": "bl31/aarch64/runtime_exceptions.S",
         "patchSetId": 21
