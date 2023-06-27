@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,6 +13,7 @@
 #include <common/debug.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/el3_runtime/pubsub_events.h>
+#include <lib/extensions/ras.h>
 #include <plat/common/platform.h>
 
 #include "psci_private.h"
@@ -199,6 +200,11 @@ void psci_cpu_on_finish(unsigned int cpu_idx, const psci_power_state_t *state_in
 	 * to run in the non-secure address space.
 	 */
 	psci_arch_setup();
+
+#if RAS_FFH_SUPPORT
+	/* Enable core FHI error interrupt for each core. */
+	ras_intr_configure(CORE_FAULT_IRQ);
+#endif
 
 	/*
 	 * Lock the CPU spin lock to make sure that the context initialization
