@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018-2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -10,6 +10,7 @@
 #include <arch_helpers.h>
 #include <bl31/ea_handle.h>
 #include <bl31/ehf.h>
+#include <bl31/interrupt_mgmt.h>
 #include <common/debug.h>
 #include <lib/extensions/ras.h>
 #include <lib/extensions/ras_arch.h>
@@ -58,6 +59,15 @@ const char *ras_serr_to_str(unsigned int serr)
 		return "unknown SERR";
 
 	return str[serr];
+}
+
+/* Setup a specified RAS interrupt as Group0 EL3 interrupt */
+void ras_intr_configure(int intr_id)
+{
+	plat_ic_set_interrupt_type(intr_id, INTR_TYPE_EL3);
+	plat_ic_set_interrupt_priority(intr_id, PLAT_RAS_PRI);
+	plat_ic_clear_interrupt_pending(intr_id);
+	plat_ic_enable_interrupt(intr_id);
 }
 
 /* Handler that receives External Aborts on RAS-capable systems */

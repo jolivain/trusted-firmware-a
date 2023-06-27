@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2018 - 2023, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -13,6 +13,9 @@
 /* Error record access mechanism */
 #define ERR_ACCESS_SYSREG	0
 #define ERR_ACCESS_MEMMAP	1
+
+/* CPU Fault Handling Interrupt(FHI) PPI interrupt ID */
+#define CORE_FAULT_IRQ		17
 
 /*
  * Register all error records on the platform.
@@ -194,6 +197,7 @@ static inline int ras_err_ser_probe_sysreg(const struct err_record_info *info,
 }
 
 const char *ras_serr_to_str(unsigned int serr);
+void ras_intr_configure(int intr_id);
 int ras_ea_handler(unsigned int ea_reason, uint64_t syndrome, void *cookie,
 		void *handle, uint64_t flags);
 void ras_init(void);
