@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8e818a9_6f840dff",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-27T14:48:59Z",
+      "side": 1,
+      "message": "init_icc_sre_el2() should be enough. If more regs are there, we can modify the name later.",
+      "range": {
+        "startLine": 299,
+        "startChar": 12,
+        "endLine": 299,
+        "endChar": 36
+      },
+      "revId": "3582ea56491f9273e21a0916914d07d1fc56ae39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
