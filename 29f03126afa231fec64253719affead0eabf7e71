@@ -34,6 +34,24 @@
       "parentUuid": "b7665dce_64ffb8b9",
       "revId": "29f03126afa231fec64253719affead0eabf7e71",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81a51a96_13bad3e8",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 22
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-27T14:47:35Z",
+      "side": 0,
+      "message": "See later comment, it needs to be set for all contexts globally. Should not change for world switch.",
+      "parentUuid": "02f84356_73097d5a",
+      "revId": "29f03126afa231fec64253719affead0eabf7e71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
