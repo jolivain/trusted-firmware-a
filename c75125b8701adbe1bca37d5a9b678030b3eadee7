@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f02810d8_98cb114e",
+        "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
+        "patchSetId": 34
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-27T15:59:25Z",
+      "side": 1,
+      "message": "Am I missing something here? Shouldn\u0027t we be enabling the PMU on entry into NS?",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 19
+      },
+      "revId": "c75125b8701adbe1bca37d5a9b678030b3eadee7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
