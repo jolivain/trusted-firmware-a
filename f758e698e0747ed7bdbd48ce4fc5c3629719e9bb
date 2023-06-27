@@ -120,6 +120,24 @@
       "parentUuid": "2bf50e85_cf8e14b3",
       "revId": "f758e698e0747ed7bdbd48ce4fc5c3629719e9bb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e8fe463_348a1aad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-06-27T20:14:51Z",
+      "side": 1,
+      "message": "Yes, I believe that is what Manish is referring to. Which would be making sure the new files are covered by Coverity scan (which will fix the static check fail) and adding a test build configuration for the platform.",
+      "parentUuid": "011b9e21_f0745eb5",
+      "revId": "f758e698e0747ed7bdbd48ce4fc5c3629719e9bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
