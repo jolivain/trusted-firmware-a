@@ -22,6 +22,30 @@
       },
       "revId": "62e1fa285a8544f761b5bc12f56a963aec4fe999",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "001aa8a2_9e4de5b9",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-27T12:36:02Z",
+      "side": 1,
+      "message": "why? It clears two bits and sets a bunch more. The brackets are balanced and logically correct.",
+      "parentUuid": "8d209cbf_7179b7d1",
+      "range": {
+        "startLine": 491,
+        "startChar": 34,
+        "endLine": 491,
+        "endChar": 35
+      },
+      "revId": "62e1fa285a8544f761b5bc12f56a963aec4fe999",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
