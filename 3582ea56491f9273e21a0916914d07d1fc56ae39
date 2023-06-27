@@ -22,6 +22,30 @@
       },
       "revId": "3582ea56491f9273e21a0916914d07d1fc56ae39",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0005c5a9_208c72ba",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-27T16:11:18Z",
+      "side": 1,
+      "message": "I will call it recreate_icc_sre_el2() since I want to maintain the pointer that this is not from scratch init.",
+      "parentUuid": "b8e818a9_6f840dff",
+      "range": {
+        "startLine": 299,
+        "startChar": 12,
+        "endLine": 299,
+        "endChar": 36
+      },
+      "revId": "3582ea56491f9273e21a0916914d07d1fc56ae39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
