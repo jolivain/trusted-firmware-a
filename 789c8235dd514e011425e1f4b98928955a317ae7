@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c0a2a7c5_4de50d8f",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 31
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-27T16:05:59Z",
+      "side": 1,
+      "message": "the setting will happen on line 143 below. It\u0027s a bit roundabout, which is another reason why I\u0027m getting rid of it.",
+      "parentUuid": "981536b7_af392158",
+      "range": {
+        "startLine": 138,
+        "startChar": 48,
+        "endLine": 138,
+        "endChar": 61
+      },
+      "revId": "789c8235dd514e011425e1f4b98928955a317ae7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10c3e98e_ec976a28",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 31
