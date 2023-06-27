@@ -34,6 +34,24 @@
       "parentUuid": "d0197a1e_bc13d8bd",
       "revId": "de9855b98ef7cf80bc14e89305b515d6490c1953",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77ea1709_acdbda9c",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 34
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-27T14:52:42Z",
+      "side": 1,
+      "message": "Conceptually El2 save and restore for these cases are not valid. Also concerned about the memory footprint increase being imposed for pre 8.4 systems which are very constrained.",
+      "parentUuid": "a4c162c9_b75b059d",
+      "revId": "de9855b98ef7cf80bc14e89305b515d6490c1953",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
