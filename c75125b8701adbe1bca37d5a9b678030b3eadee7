@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cd1c399_cb77fb82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-27T21:34:00Z",
+      "side": 1,
+      "message": "https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/1089/\n\nOnly Static checks have failed due to the addition of new files (aarch32/pmuv3.c, aarch64/pmuv3.c)\nwhich is included for Coverity by default. No explicit build configs are needed here.\nHence Manually providing Verified +1.",
+      "revId": "c75125b8701adbe1bca37d5a9b678030b3eadee7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f02810d8_98cb114e",
