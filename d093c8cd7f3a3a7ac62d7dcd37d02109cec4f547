@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64a04662_87a9ea11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-27T08:57:38Z",
+      "side": 1,
+      "message": "No need to add EL2 to FWu pat.",
+      "revId": "d093c8cd7f3a3a7ac62d7dcd37d02109cec4f547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "623ca792_ce8530c6",
+        "filename": "bl1/bl1_fwu.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-27T08:57:38Z",
+      "side": 1,
+      "message": "I dont think we should modify the FWU code paths. There is only NS EL2 and S - EL2 is absent in these cases.",
+      "revId": "d093c8cd7f3a3a7ac62d7dcd37d02109cec4f547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
