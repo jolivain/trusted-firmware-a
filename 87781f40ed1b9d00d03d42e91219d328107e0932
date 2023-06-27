@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f91736ca_78393915",
+        "filename": "plat/imx/imx93/aarch64/plat_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-27T09:41:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fe5a161_37deb547",
+      "range": {
+        "startLine": 50,
+        "startChar": 9,
+        "endLine": 50,
+        "endChar": 17
+      },
+      "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd6a688f_569484f9",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "ok, will fix it.",
       "parentUuid": "dd6a688f_569484f9",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 0
+      },
+      "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc07c62f_c5da0144",
+        "filename": "plat/imx/imx93/imx93_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-27T09:41:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6dd9ecd4_d4184aa8",
       "range": {
         "startLine": 73,
         "startChar": 0,
@@ -166,6 +214,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cafa9e57_d360e390",
+        "filename": "plat/imx/imx93/imx93_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-27T09:41:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18107731_6917b3c9",
+      "range": {
+        "startLine": 80,
+        "startChar": 7,
+        "endLine": 80,
+        "endChar": 16
+      },
+      "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "898d8026_9bb189f9",
+        "filename": "plat/imx/imx93/imx93_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-27T09:41:19Z",
+      "side": 1,
+      "message": "Thx for the suggestion.",
+      "parentUuid": "18107731_6917b3c9",
+      "range": {
+        "startLine": 80,
+        "startChar": 7,
+        "endLine": 80,
+        "endChar": 16
+      },
+      "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab3902da_bcef583c",
@@ -201,6 +297,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "637bc1d5_90725f19",
+        "filename": "plat/imx/imx93/imx93_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-27T09:41:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27aeca5e_a779a4c6",
+      "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "235f259e_4c8ad290",
@@ -232,6 +346,24 @@
       "side": 1,
       "message": "thx, will fix it.",
       "parentUuid": "235f259e_4c8ad290",
+      "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f247ab84_33729039",
+        "filename": "plat/imx/imx93/imx93_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-27T09:41:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cb5dc0c_105f07d6",
       "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -273,6 +405,30 @@
       "side": 1,
       "message": "sure, will fix it.",
       "parentUuid": "d712514a_509e9eed",
+      "range": {
+        "startLine": 136,
+        "startChar": 18,
+        "endLine": 136,
+        "endChar": 19
+      },
+      "revId": "87781f40ed1b9d00d03d42e91219d328107e0932",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00e3bde3_e1d2e870",
+        "filename": "plat/imx/imx93/imx93_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-27T09:41:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf239ac9_33cb4688",
       "range": {
         "startLine": 136,
         "startChar": 18,
