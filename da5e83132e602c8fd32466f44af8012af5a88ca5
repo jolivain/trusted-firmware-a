@@ -16,6 +16,23 @@
       "message": "Could you check the failing CI checks?\nEspecially the date for copyright lines.\n\nFor the other warning, is there some patch updating tf-a-ci-scripts, to compile this new platform?\nIt can help if both series in tf-a and tf-a-ci-scripts have the same topic.",
       "revId": "da5e83132e602c8fd32466f44af8012af5a88ca5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffd9dffe_55497c33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-27T08:46:00Z",
+      "side": 1,
+      "message": "Last CI results are gone now so I am kicking off a new one. Also, now that we set the same topic name for this TF-A patch and the companion CI patch [1] we should see a build of Agilex5 platform code introduced by this series.\n\n[1] https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/21160",
+      "revId": "da5e83132e602c8fd32466f44af8012af5a88ca5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
