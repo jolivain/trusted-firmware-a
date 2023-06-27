@@ -51,6 +51,24 @@
       "parentUuid": "623ca792_ce8530c6",
       "revId": "d093c8cd7f3a3a7ac62d7dcd37d02109cec4f547",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b6a90c6_d614fd11",
+        "filename": "bl1/bl1_fwu.c",
+        "patchSetId": 23
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-27T14:51:12Z",
+      "side": 1,
+      "message": "will need to take a closer look at the problem to understand better. Worst case, duplicate code is not an issue to separate legacy from  new architecture.",
+      "parentUuid": "d9a987b0_672967ad",
+      "revId": "d093c8cd7f3a3a7ac62d7dcd37d02109cec4f547",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
