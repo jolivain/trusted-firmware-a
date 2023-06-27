@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0197a1e_bc13d8bd",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 34
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-27T09:01:29Z",
+      "side": 1,
+      "message": "Not sure for the need to EL2 context save and restore in a pre-v8.4 system (ie. no S-El2).",
+      "revId": "de9855b98ef7cf80bc14e89305b515d6490c1953",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
