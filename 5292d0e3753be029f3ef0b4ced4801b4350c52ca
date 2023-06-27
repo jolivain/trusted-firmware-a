@@ -16,6 +16,24 @@
       "message": "EL3 execution is \"Secure\" execution in 2 world case. This should remain at reset and for all other scr_el3 inits.",
       "revId": "5292d0e3753be029f3ef0b4ced4801b4350c52ca",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ee9b26e_0d72c610",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-27T16:25:50Z",
+      "side": 1,
+      "message": "Does it need to be set even before any lower EL has had the chance to execute? I can set it in all contexts but I\u0027m not convinced it needs to remain in reset (and root context by extension).\n\nI can squish this into https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20623/37 after the change",
+      "parentUuid": "0e51f3d9_3475a09d",
+      "revId": "5292d0e3753be029f3ef0b4ced4801b4350c52ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
