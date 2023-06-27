@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f302792_b0f48905",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-27T16:01:01Z",
+      "side": 1,
+      "message": "nit: maybe mention it\u0027s optional?",
+      "revId": "163b5f90de4d79e79d125eb0f97fa7588e3b5d2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "077e0dee_ff835853",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-27T16:01:01Z",
+      "side": 1,
+      "message": "x10",
+      "range": {
+        "startLine": 466,
+        "startChar": 16,
+        "endLine": 466,
+        "endChar": 19
+      },
+      "revId": "163b5f90de4d79e79d125eb0f97fa7588e3b5d2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6796fca_3fcbf539",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-27T16:01:01Z",
+      "side": 1,
+      "message": "x10 is never populated. The workaround will wipe it",
+      "revId": "163b5f90de4d79e79d125eb0f97fa7588e3b5d2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
