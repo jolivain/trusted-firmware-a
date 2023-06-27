@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46af7ef2_2bebda68",
+        "filename": "include/lib/extensions/sme.h",
+        "patchSetId": 35
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-06-27T10:35:11Z",
+      "side": 1,
+      "message": "nit : *enable_el3 may wrongly imply that the feature enablment is for EL3. Is it too verbose if we do something like \"feature_enable_from_el3()\"",
+      "parentUuid": "d86c9245_db35713d",
+      "revId": "4693259ed910ccc3aa73b81a5206f7070cb82402",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c6cec57_62aa4f7c",
