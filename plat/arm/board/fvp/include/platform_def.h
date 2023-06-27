@@ -232,7 +232,9 @@ defined(IMAGE_BL2) && MEASURED_BOOT
  * calculated using the current BL31 PROGBITS debug size plus the sizes of
  * BL2 and BL1-RW
  */
-#define PLAT_ARM_MAX_BL31_SIZE		(UL(0x3D000) - ARM_L0_GPT_SIZE)
+#define PLAT_ARM_MAX_BL31_SIZE		(PLAT_ARM_TRUSTED_SRAM_SIZE - \
+					 ARM_SHARED_RAM_SIZE - \
+					 ARM_FW_CONFIGS_SIZE - ARM_L0_GPT_SIZE)
 #endif /* RESET_TO_BL31 */
 
 #ifndef __aarch64__
