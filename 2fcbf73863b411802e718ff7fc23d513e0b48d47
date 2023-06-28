@@ -674,6 +674,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa18da11_209b4d72",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-28T12:04:29Z",
+      "side": 1,
+      "message": "OK I think I understand. Could we reword as \"Device configuration settings\" maybe? Or alternatively \"Hardware configurations settings\"?",
+      "parentUuid": "8f745456_95277155",
+      "range": {
+        "startLine": 37,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "2fcbf73863b411802e718ff7fc23d513e0b48d47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e33c574e_8f506149",
         "filename": "docs/design_documents/measured_boot.rst",
         "patchSetId": 1
@@ -709,6 +733,30 @@
       "side": 1,
       "message": "The data can be measured before and after update, and then the verifier can take appropriate actions based on the results or it can be useful for Verifier for debugging purposes. The platform will determine which un-deterministic data is critical and and feed the measurement of those data to the Verifier.",
       "parentUuid": "e33c574e_8f506149",
+      "range": {
+        "startLine": 40,
+        "startChar": 3,
+        "endLine": 40,
+        "endChar": 66
+      },
+      "revId": "2fcbf73863b411802e718ff7fc23d513e0b48d47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65dba7a2_4f088ad2",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-28T12:04:29Z",
+      "side": 1,
+      "message": "OK... I am just worried that this might confuse the reader if we don\u0027t expand the explanation...",
+      "parentUuid": "1751e7ef_b5ba2f75",
       "range": {
         "startLine": 40,
         "startChar": 3,
@@ -773,6 +821,30 @@
       "side": 1,
       "message": "I think this is to cover image as well as critical data measurement. Someone may not able to consume \u0027software state\u0027 here. Or Can I rephrase like below-\n\n\"The Measurement Slot is used to provide a method to cryptographically record\n(measure) images and critical data on the platform\"",
       "parentUuid": "e60f8894_938d8661",
+      "range": {
+        "startLine": 48,
+        "startChar": 26,
+        "endLine": 49,
+        "endChar": 41
+      },
+      "revId": "2fcbf73863b411802e718ff7fc23d513e0b48d47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae44827c_78169e54",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-28T12:04:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adf5ce31_5dd4d1f5",
       "range": {
         "startLine": 48,
         "startChar": 26,
@@ -1399,6 +1471,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2396cafa_96db0ed2",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-28T12:04:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "227f3e1a_61a19a99",
+      "revId": "2fcbf73863b411802e718ff7fc23d513e0b48d47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "814ab33e_c167cf2f",
@@ -1653,6 +1743,24 @@
       "side": 1,
       "message": "Yes, you are right. This diagram has been updated to show the measurement performed inside load_auth_image().",
       "parentUuid": "a47499da_ded1163a",
+      "revId": "2fcbf73863b411802e718ff7fc23d513e0b48d47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e9a13ec_356f6375",
+        "filename": "docs/resources/diagrams/measured_boot_design.png",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-06-28T12:04:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1435279_76eaae21",
       "revId": "2fcbf73863b411802e718ff7fc23d513e0b48d47",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
