@@ -135,6 +135,30 @@
       },
       "revId": "c75125b8701adbe1bca37d5a9b678030b3eadee7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6969b66_edf4a43a",
+        "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
+        "patchSetId": 34
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-28T14:05:45Z",
+      "side": 1,
+      "message": "there are no plans to change aarch32. This is very deliberate and I doubt it will be allowed. So far it has worked (I can attest to that, it\u0027s quite beautiful actually) assuming noone wants to change anything, which we don\u0027t for aarch32.\n\nI could extend the comment to say something like \"we disable the pmu at EL3/secure execution for security, but this doesn\u0027t impact loewr ELs\"?",
+      "parentUuid": "584282be_36a3f8d2",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 19
+      },
+      "revId": "c75125b8701adbe1bca37d5a9b678030b3eadee7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
