@@ -190,6 +190,30 @@
       },
       "revId": "7e4948814f3556a89b49aa9f4c11ecd710ba9ac3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db680170_116ed246",
+        "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-28T13:36:35Z",
+      "side": 1,
+      "message": "This goes back to the original comment; how is someone supposed to know that this implementation supports anything other than v3? If the implementation is version agnostic, the naming should make that clear. Having a platform re-using this name in a different context shouldn\u0027t change that. Now, were we to add a separate library for v2, I might feel differently about this. But I\u0027m afraid I can\u0027t see the benefit of tying the architectural implementation to a specific version (even just by name), and how that doesn\u0027t create confusion down the line.",
+      "parentUuid": "376d2437_5b70bb17",
+      "range": {
+        "startLine": 153,
+        "startChar": 1,
+        "endLine": 153,
+        "endChar": 18
+      },
+      "revId": "7e4948814f3556a89b49aa9f4c11ecd710ba9ac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
