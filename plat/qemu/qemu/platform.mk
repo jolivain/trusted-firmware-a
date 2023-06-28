@@ -43,6 +43,9 @@ add-lib-optee 		:= 	yes
 endif
 
 include lib/libfdt/libfdt.mk
+ifeq (${HANDOFF},1)
+include lib/handoff/handoff.mk
+endif
 
 ifeq ($(NEED_BL32),yes)
 $(eval $(call add_define,QEMU_LOAD_BL32))
