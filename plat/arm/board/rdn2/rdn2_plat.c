@@ -169,4 +169,15 @@ int plat_spmc_shmem_reclaim(struct ffa_mtd *desc)
 {
 	return 0;
 }
+
+int plat_spmd_handle_group0_interrupt(uint32_t intid)
+{
+	/*
+	 * As of now, there are no sources of Group0 secure interrupt enabled
+	 * for FVP.
+	 */
+	(void)intid;
+	return -1;
+}
+
 #endif
