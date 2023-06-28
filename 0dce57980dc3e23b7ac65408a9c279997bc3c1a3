@@ -16,6 +16,40 @@
       "message": "Propagating verified+1 from top patch.",
       "revId": "0dce57980dc3e23b7ac65408a9c279997bc3c1a3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "718424ea_fcfa021c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-06-28T23:47:33Z",
+      "side": 1,
+      "message": "some minor comments only.",
+      "revId": "0dce57980dc3e23b7ac65408a9c279997bc3c1a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb12f464_f6977912",
+        "filename": "lib/cpus/aarch64/cortex_a72.S",
+        "patchSetId": 23
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-06-28T23:47:33Z",
+      "side": 1,
+      "message": "nit: can we remove the space between # and if\nSame in line 157 and 159",
+      "revId": "0dce57980dc3e23b7ac65408a9c279997bc3c1a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
