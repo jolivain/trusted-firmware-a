@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -18,6 +18,9 @@
 #include <common/fdt_fixup.h>
 #include <common/fdt_wrappers.h>
 #include <lib/optee_utils.h>
+#if TRANSFER_LIST
+#include <lib/transfer_list.h>
+#endif
 #include <lib/utils.h>
 #include <plat/common/platform.h>
 
@@ -49,6 +52,10 @@
 /* Data structure which holds the extents of the trusted SRAM for BL2 */
 static meminfo_t bl2_tzram_layout __aligned(CACHE_WRITEBACK_GRANULE);
 
+#if TRANSFER_LIST
+static struct transfer_list_header *bl2_tl;
+#endif
+
 void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 			       u_register_t arg2, u_register_t arg3)
 {
@@ -73,6 +80,9 @@ static void security_setup(void)
 
 static void update_dt(void)
 {
+#if TRANSFER_LIST
+	struct transfer_list_entry *te;
+#endif
 	int ret;
 	void *fdt = (void *)(uintptr_t)ARM_PRELOADED_DTB_BASE;
 
@@ -95,14 +105,38 @@ static void update_dt(void)
 	ret = fdt_pack(fdt);
 	if (ret < 0)
 		ERROR("Failed to pack Device Tree at %p: error %d\n", fdt, ret);
+
+#if TRANSFER_LIST
+	// create a TE
+	te = transfer_list_add(bl2_tl, TL_TAG_FDT, fdt_totalsize(fdt), fdt);
+	if (!te) {
+		ERROR("Failed to add FDT entry to Transfer List\n");
+		return;
+	}
+#endif
 }
 
 void bl2_platform_setup(void)
 {
+#if TRANSFER_LIST
+	bl2_tl = transfer_list_init((void *)(uintptr_t)FW_HANDOFF_BASE,
+				    FW_HANDOFF_SIZE);
+	if (!bl2_tl) {
+		ERROR("Failed to initialize Transfer List at 0x%lx\n",
+		      (unsigned long)FW_HANDOFF_BASE);
+	}
+#endif
 	security_setup();
 	update_dt();
 
 	/* TODO Initialize timer */
+}
+
+void qemu_bl2_sync_transfer_list(void)
+{
+#if TRANSFER_LIST
+	transfer_list_update_checksum(bl2_tl);
+#endif
 }
 
 void bl2_plat_arch_setup(void)
@@ -221,6 +255,10 @@ static int qemu_bl2_handle_post_image_load(unsigned int image_id)
 #if defined(SPD_spmd)
 	bl_mem_params_node_t *bl32_mem_params = NULL;
 #endif
+#if TRANSFER_LIST
+	struct transfer_list_header *ns_tl = NULL;
+	struct transfer_list_entry *te = NULL;
+#endif
 
 	assert(bl_mem_params);
 
@@ -288,6 +326,46 @@ static int qemu_bl2_handle_post_image_load(unsigned int image_id)
 		bl_mem_params->ep_info.args.arg2 = 0U;
 		bl_mem_params->ep_info.args.arg3 = 0U;
 #else
+#if TRANSFER_LIST
+		if (bl2_tl) {
+			// relocate the tl to pre-allocate NS memory
+			ns_tl = transfer_list_relocate(bl2_tl,
+					(void *)(uintptr_t)FW_NS_HANDOFF_BASE,
+					bl2_tl->max_size);
+			if (!ns_tl) {
+				ERROR("Relocate TL to 0x%lx failed\n",
+					(unsigned long)FW_NS_HANDOFF_BASE);
+				return -1;
+			}
+			NOTICE("Transfer list handoff to BL33\n");
+			transfer_list_dump(ns_tl);
+
+			te = transfer_list_find(ns_tl, TL_TAG_FDT);
+
+			bl_mem_params->ep_info.args.arg1 =
+				TRANSFER_LIST_SIGNATURE |
+				REGISTER_CONVENTION_VERSION_MASK;
+			bl_mem_params->ep_info.args.arg3 = (uintptr_t)ns_tl;
+
+#ifdef TRANSFER_LIST_AARCH32
+			bl_mem_params->ep_info.args.arg0 = 0;
+			if (te) {
+				bl_mem_params->ep_info.args.arg2 =
+					(uintptr_t)transfer_list_entry_data(te);
+			} else {
+				bl_mem_params->ep_info.args.arg2 = 0;
+			}
+#else
+			if (te) {
+				bl_mem_params->ep_info.args.arg0 =
+					(uintptr_t)transfer_list_entry_data(te);
+			} else {
+				bl_mem_params->ep_info.args.arg0 = 0;
+			}
+			bl_mem_params->ep_info.args.arg2 = 0;
+#endif
+		}
+#endif
 		/* BL33 expects to receive the primary CPU MPID (through r0) */
 		bl_mem_params->ep_info.args.arg0 = 0xffff & read_mpidr();
 #endif
