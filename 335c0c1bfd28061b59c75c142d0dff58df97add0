@@ -16,6 +16,24 @@
       "message": "Here, I think like @Kathleen mentioned in her earlier comment we need to add a check to see if WORKAROUND_CVE_2017_5715 is already applied, because there is a comment in the previous reset function that states that \n/* Skip CVE_2022_23960 mitigation if cve_2017_5715 mitigation applied */\nSorry I overlooked this in my patch too.",
       "revId": "335c0c1bfd28061b59c75c142d0dff58df97add0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da874bd4_6785c5bd",
+        "filename": "lib/cpus/aarch64/cortex_a72.S",
+        "patchSetId": 22
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-28T15:08:32Z",
+      "side": 1,
+      "message": "Have addressed them.",
+      "parentUuid": "a68a9c18_a593f43f",
+      "revId": "335c0c1bfd28061b59c75c142d0dff58df97add0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
