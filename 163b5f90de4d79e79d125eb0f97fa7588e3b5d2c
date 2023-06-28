@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98ab5d54_3feac158",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-28T15:15:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f302792_b0f48905",
+      "revId": "163b5f90de4d79e79d125eb0f97fa7588e3b5d2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "077e0dee_ff835853",
@@ -41,6 +59,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8a8beb4_7a3c613e",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-28T15:15:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "077e0dee_ff835853",
+      "range": {
+        "startLine": 466,
+        "startChar": 16,
+        "endLine": 466,
+        "endChar": 19
+      },
+      "revId": "163b5f90de4d79e79d125eb0f97fa7588e3b5d2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6796fca_3fcbf539",
@@ -54,6 +96,24 @@
       "writtenOn": "2023-06-27T16:01:01Z",
       "side": 1,
       "message": "x10 is never populated. The workaround will wipe it",
+      "revId": "163b5f90de4d79e79d125eb0f97fa7588e3b5d2c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51269a77_a0ed5514",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-28T15:15:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6796fca_3fcbf539",
       "revId": "163b5f90de4d79e79d125eb0f97fa7588e3b5d2c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
