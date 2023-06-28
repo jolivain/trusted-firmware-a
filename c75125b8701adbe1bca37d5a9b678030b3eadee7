@@ -63,6 +63,30 @@
       },
       "revId": "c75125b8701adbe1bca37d5a9b678030b3eadee7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5880e2c8_f4f23730",
+        "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
+        "patchSetId": 34
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-28T11:00:14Z",
+      "side": 1,
+      "message": "Hmm I see. What is preventing us from calling this during the actual initialization of EL3? Without any context its not easy to parse out why we\u0027re configuring the PMU for EL3 in the exit path for the non-secure world.",
+      "parentUuid": "9ee1955e_a7fc275e",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 19
+      },
+      "revId": "c75125b8701adbe1bca37d5a9b678030b3eadee7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
