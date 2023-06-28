@@ -238,6 +238,30 @@
       },
       "revId": "7e4948814f3556a89b49aa9f4c11ecd710ba9ac3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "393de4b2_13f52756",
+        "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-06-28T14:38:45Z",
+      "side": 1,
+      "message": "I don\u0027t have any alternate suggestions here either unfortunately. I\u0027m not really seeing where the hesitance to use \"pmu\" is coming from. These are the only places that I can see PMU used in a different context:\n\n./plat/rockchip/rk3399/drivers/pmu/pmu.c\n./plat/rockchip/rk3288/drivers/pmu/pmu.c\n./plat/rockchip/px30/drivers/pmu/pmu.c\n./plat/rockchip/rk3368/drivers/pmu/pmu.c\n./plat/rockchip/rk3328/drivers/pmu/pmu.c\n./drivers/nxp/pmu/pmu.c\n\nWe aren\u0027t going against an established convention as far as I can tell. I think its clear from the path \"/lib/extensions\" what we are referring to.",
+      "parentUuid": "415eafbc_824da8b8",
+      "range": {
+        "startLine": 153,
+        "startChar": 1,
+        "endLine": 153,
+        "endChar": 18
+      },
+      "revId": "7e4948814f3556a89b49aa9f4c11ecd710ba9ac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
