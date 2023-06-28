@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e59f35a0_fc962ce4",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-28T12:43:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fa102d9_0e08dd48",
+      "range": {
+        "startLine": 10,
+        "startChar": 55,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "e01813f198f4a6ed2d0b373e90b0e91a3ae9d513",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1889e61_8d789130",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-28T12:04:29Z",
       "side": 1,
       "message": "I guess FWU metadata fulfills this criteria, right? Out of curiosity, do we measure them today?",
+      "range": {
+        "startLine": 41,
+        "startChar": 3,
+        "endLine": 42,
+        "endChar": 53
+      },
+      "revId": "e01813f198f4a6ed2d0b373e90b0e91a3ae9d513",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "359dfdaa_072dd0ae",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-28T12:43:11Z",
+      "side": 1,
+      "message": "Yes, that is correct! We are not measuring that today but will plan to do that soon along with some other FWU work.",
+      "parentUuid": "c1889e61_8d789130",
       "range": {
         "startLine": 41,
         "startChar": 3,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63b2b2ca_05ebd95d",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-28T12:43:11Z",
+      "side": 1,
+      "message": "Thanks, yes security-sensitive is keyword here. Let me add it.",
+      "parentUuid": "5c1490ea_097a7362",
+      "range": {
+        "startLine": 47,
+        "startChar": 3,
+        "endLine": 47,
+        "endChar": 41
+      },
+      "revId": "e01813f198f4a6ed2d0b373e90b0e91a3ae9d513",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1964c953_9c8eae61",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-06-28T12:04:29Z",
       "side": 1,
       "message": "Suggest:\n\n The Measurement Slot update calculation, called an **extend** operation, is a one-way\n hash of all the previous measurements and the new measurement. It is the only way to\n change the slot value, thus no measurements can ever be removed or overwritten.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 0
+      },
+      "revId": "e01813f198f4a6ed2d0b373e90b0e91a3ae9d513",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c8aeea5_f378f601",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-28T12:43:11Z",
+      "side": 1,
+      "message": "Done, this is quiet elaborative.",
+      "parentUuid": "1964c953_9c8eae61",
       "range": {
         "startLine": 62,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1521fa50_a0f66fea",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-28T12:43:11Z",
+      "side": 1,
+      "message": "Can we not in some way relate RSS to Hardware TPM today? Since it performs the same \"extend\" operation as hardware TPMs. But let me modify as you mentioned as it is not exactly same as Hardware TPM.",
+      "parentUuid": "7e691e28_387f13f5",
+      "range": {
+        "startLine": 148,
+        "startChar": 16,
+        "endLine": 148,
+        "endChar": 39
+      },
+      "revId": "e01813f198f4a6ed2d0b373e90b0e91a3ae9d513",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bc21453_253f9863",
@@ -129,6 +249,30 @@
       "writtenOn": "2023-06-28T12:04:29Z",
       "side": 1,
       "message": "(style) Personally I think bullet points hurt readability here. I would be happier with distinct paragraphs. Feel free to ignore if you disagree.",
+      "range": {
+        "startLine": 194,
+        "startChar": 1,
+        "endLine": 199,
+        "endChar": 15
+      },
+      "revId": "e01813f198f4a6ed2d0b373e90b0e91a3ae9d513",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c8b46c4_43af650f",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-28T12:43:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bc21453_253f9863",
       "range": {
         "startLine": 194,
         "startChar": 1,
@@ -162,6 +306,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "383c3aef_89d5c523",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-28T12:43:11Z",
+      "side": 1,
+      "message": "Oops, looks like this copy/paste mistake (this statement is applicable to plat_mboot_measure_image). I will remove it.",
+      "parentUuid": "f8313385_66befa59",
+      "range": {
+        "startLine": 200,
+        "startChar": 5,
+        "endLine": 201,
+        "endChar": 14
+      },
+      "revId": "e01813f198f4a6ed2d0b373e90b0e91a3ae9d513",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c760baf2_be0aa659",
@@ -185,6 +353,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86520862_6fc50884",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-28T12:43:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c760baf2_be0aa659",
+      "range": {
+        "startLine": 203,
+        "startChar": 50,
+        "endLine": 203,
+        "endChar": 54
+      },
+      "revId": "e01813f198f4a6ed2d0b373e90b0e91a3ae9d513",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cae1546c_3b5d42dc",
@@ -198,6 +390,30 @@
       "writtenOn": "2023-06-28T12:04:29Z",
       "side": 1,
       "message": "Suggest:\n\n In FVP, Non volatile counters get measured and recorded as Critical data\n using the backend via this interface.",
+      "range": {
+        "startLine": 203,
+        "startChar": 5,
+        "endLine": 204,
+        "endChar": 42
+      },
+      "revId": "e01813f198f4a6ed2d0b373e90b0e91a3ae9d513",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27af9a2b_1a0661f1",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-28T12:43:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cae1546c_3b5d42dc",
       "range": {
         "startLine": 203,
         "startChar": 5,

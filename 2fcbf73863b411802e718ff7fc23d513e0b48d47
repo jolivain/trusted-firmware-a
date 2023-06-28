@@ -696,6 +696,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c835c84_1a7b5ba1",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-28T12:43:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa18da11_209b4d72",
+      "range": {
+        "startLine": 37,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 25
+      },
+      "revId": "2fcbf73863b411802e718ff7fc23d513e0b48d47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e33c574e_8f506149",
@@ -767,6 +791,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d37105d3_1eb1afbb",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-28T12:43:11Z",
+      "side": 1,
+      "message": "I went with \"Security-sensitive data that is being updated by hardware\" as per your latest comment",
+      "parentUuid": "65dba7a2_4f088ad2",
+      "range": {
+        "startLine": 40,
+        "startChar": 3,
+        "endLine": 40,
+        "endChar": 66
+      },
+      "revId": "2fcbf73863b411802e718ff7fc23d513e0b48d47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e01996f_d178ad81",
@@ -780,6 +828,24 @@
       "writtenOn": "2023-06-27T12:57:17Z",
       "side": 1,
       "message": "I came across a good example of critical data the other day: the list of errata workarounds being applied at reset. For example you could have a firmware which embeds code for workarounds A, B, C. On platform X, workarounds A \u0026 C get applied. On platform Y, only workaround B gets applied. On both platforms, the firmware measurement is the same so recording which ones get executed can be useful information to the verifier.\n\nCould you please add this example?\n\nAnother good example is the state of fuses such as whether an SoC is in secure mode.",
+      "revId": "2fcbf73863b411802e718ff7fc23d513e0b48d47",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b816e640_768ab77a",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-06-28T12:43:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e01996f_d178ad81",
       "revId": "2fcbf73863b411802e718ff7fc23d513e0b48d47",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
