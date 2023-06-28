@@ -50,6 +50,23 @@
       "message": "Look good, added some minor comments. ",
       "revId": "4fec27826d7e29584725c85b52a12496041295f2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bf508f1_400c92fc",
+        "filename": "lib/cpus/aarch64/cortex_a65ae.S",
+        "patchSetId": 21
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-06-28T23:06:04Z",
+      "side": 1,
+      "message": "We could use sysreg_bit_set helper here?",
+      "revId": "4fec27826d7e29584725c85b52a12496041295f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
