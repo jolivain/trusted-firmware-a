@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a39f361_9b14dceb",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-06-28T00:16:44Z",
+      "side": 1,
+      "message": "Do you expect these to be used in places other than the EL3 SPMC implementation below? If not just wondering if it makes sense to located them in the spmc.h file instead?",
+      "revId": "813d33d878280ca5d060e1092c7af79af8d1fe23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03ab2ab5_0e35584a",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1487,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-06-28T00:16:44Z",
+      "side": 1,
+      "message": "nit: Might be worth swapping this and the above error checks to prevent having to perform any checks for a caller from an invalid security state.",
+      "revId": "813d33d878280ca5d060e1092c7af79af8d1fe23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "253e5889_decb5159",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1504,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-06-28T00:16:44Z",
+      "side": 1,
+      "message": "I don\u0027t think Not_Supported is the correct error code here. \nChecking the Hafnium implementation it looks like they are using FFA_DENIED here so makes sense to stay aligned here.",
+      "revId": "813d33d878280ca5d060e1092c7af79af8d1fe23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b7dde79_806d71f4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1617,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-06-28T00:16:44Z",
+      "side": 1,
+      "message": "As above, align to us the Denied error code.",
+      "revId": "813d33d878280ca5d060e1092c7af79af8d1fe23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
