@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ef584cc_6e5818aa",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-06-28T00:16:12Z",
+      "side": 1,
+      "message": "Should this only be performed for S-EL0 SPs?",
+      "revId": "a261f7470848d64c10076490aef67203716a85ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
