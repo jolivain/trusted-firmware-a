@@ -16,6 +16,24 @@
       "message": "LGTM.\n\nI believe the CI failure that got reported is unrelated and got fixed in the meantime. Thus I\u0027ve rebased this patch on top of the integration branch and I am kicking another CI run to check everything\u0027s passing.",
       "revId": "4171e981d13e6aa764c2520a2b513beafe449818",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaeae399_c3b59473",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-06-28T11:13:28Z",
+      "side": 1,
+      "message": "Yep - unrelated:\n\n15:53:45 plat/arm/common/aarch64/arm_sdei.c:51:9: error: \u0027PLAT_ARM_PRIVATE_SDEI_EVENTS\u0027 undeclared here (not in a function)\n15:53:45    51 |         PLAT_ARM_PRIVATE_SDEI_EVENTS\n15:53:45       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\n15:53:45 plat/arm/common/aarch64/arm_sdei.c:56:9: error: \u0027PLAT_ARM_SHARED_SDEI_EVENTS\u0027 undeclared here (not in a function)\n15:53:45    56 |         PLAT_ARM_SHARED_SDEI_EVENTS\n15:53:45       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~\n15:53:45 make: *** [Makefile:1504: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/rdn2/debug/bl31/arm_sdei.o] Error 1",
+      "parentUuid": "f4e6ad2b_f96adad1",
+      "revId": "4171e981d13e6aa764c2520a2b513beafe449818",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
