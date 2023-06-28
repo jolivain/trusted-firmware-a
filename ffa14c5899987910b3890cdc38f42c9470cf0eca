@@ -238,6 +238,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de533d01_01452f1b",
+        "filename": "lib/cpus/aarch64/cortex_a75.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-28T10:28:57Z",
+      "side": 1,
+      "message": "sure, but the two still need to be split. I don\u0027t think this dependency makes full sense after the conversion",
+      "parentUuid": "80b6ca3b_1af5fec2",
+      "revId": "ffa14c5899987910b3890cdc38f42c9470cf0eca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0010e968_5d6564a8",
         "filename": "lib/cpus/aarch64/cortex_a75.S",
         "patchSetId": 4
