@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "586f151b_7c37649f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-06-29T21:05:45Z",
+      "side": 1,
+      "message": "el3-spmc\nPlease make similar changes across other patches, if necessary.",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "97febefb768821b0d56dc6ceb72e13ef267c2bf7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ca9f3c4_5957d115",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-06-29T21:05:45Z",
+      "side": 1,
+      "message": "nitpick: S-EL0",
+      "range": {
+        "startLine": 9,
+        "startChar": 28,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "97febefb768821b0d56dc6ceb72e13ef267c2bf7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c44e99bf_1b479048",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1627,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-06-29T21:05:45Z",
+      "side": 1,
+      "message": "if (tf_attr \u003d\u003d 0U) {",
+      "revId": "97febefb768821b0d56dc6ceb72e13ef267c2bf7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b3dd9ee_2806137e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1635,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-06-29T21:05:45Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "range": {
+        "startLine": 1635,
+        "startChar": 5,
+        "endLine": 1635,
+        "endChar": 8
+      },
+      "revId": "97febefb768821b0d56dc6ceb72e13ef267c2bf7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86619fbb_0ece7a7c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1678,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-06-29T21:05:45Z",
+      "side": 1,
+      "message": "There is a lot of code repetition between this function and ffa_mem_perm_set_handler. Can you factor out the common checks?",
+      "revId": "97febefb768821b0d56dc6ceb72e13ef267c2bf7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
