@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -185,8 +185,18 @@ static int load_gpt_entry(uintptr_t image_handle, gpt_entry_t *entry)
 	assert(entry != NULL);
 	result = io_read(image_handle, (uintptr_t)entry, sizeof(gpt_entry_t),
 			 &bytes_read);
-	if (sizeof(gpt_entry_t) != bytes_read)
+
+	if (result != 0) {
+		WARN("Failed to read data (%i)\n", result);
+		return result;
+	}
+
+	if (sizeof(gpt_entry_t) != bytes_read) {
+		WARN("GPT entry read mismatch expected(%zu) and actual(%zu)\n",
+		     sizeof(gpt_entry_t), bytes_read);
 		return -EINVAL;
+	}
+
 	return result;
 }
 
@@ -197,15 +207,18 @@ static int verify_partition_gpt(uintptr_t image_handle)
 
 	for (i = 0; i < list.entry_count; i++) {
 		result = load_gpt_entry(image_handle, &entry);
-		assert(result == 0);
+		if (result != 0) {
+			WARN("Failed to load GPT entry=%i (%i)\n",
+			      i, result);
+			return result;
+		}
+
 		result = parse_gpt_entry(&entry, &list.list[i]);
 		if (result != 0) {
 			break;
 		}
 	}
-	if (i == 0) {
-		return -EINVAL;
-	}
+
 	/*
 	 * Only records the valid partition number that is loaded from
 	 * partition table.
@@ -225,7 +238,7 @@ int load_partition_table(unsigned int image_id)
 	result = plat_get_image_source(image_id, &dev_handle, &image_spec);
 	if (result != 0) {
 		WARN("Failed to obtain reference to image id=%u (%i)\n",
-			image_id, result);
+		     image_id, result);
 		return result;
 	}
 
@@ -237,19 +250,39 @@ int load_partition_table(unsigned int image_id)
 
 	result = load_mbr_header(image_handle, &mbr_entry);
 	if (result != 0) {
-		WARN("Failed to access image id=%u (%i)\n", image_id, result);
-		return result;
+		WARN("Failed to load MBR header from image id=%u (%i)\n",
+		     image_id, result);
+		goto exit;
 	}
 	if (mbr_entry.type == PARTITION_TYPE_GPT) {
 		result = load_gpt_header(image_handle);
-		assert(result == 0);
+		if (result != 0) {
+			WARN("Failed to load GPT header from image id=%u (%i)\n",
+			     image_id, result);
+			goto exit;
+		}
+
 		result = io_seek(image_handle, IO_SEEK_SET, GPT_ENTRY_OFFSET);
-		assert(result == 0);
+		if (result != 0) {
+			WARN("Seek failed in image id=%u (%i)\n", image_id,
+			     result);
+			goto exit;
+		}
+
 		result = verify_partition_gpt(image_handle);
+		if (result != 0) {
+			WARN("Partition verification failed for image \
+			     id=%u (%i)\n", image_id, result);
+		}
 	} else {
 		result = load_mbr_entries(image_handle);
+		if (result != 0) {
+			WARN("Failed to load MBR entries from image \
+			     id=%u (%i)\n", image_id, result);
+		}
 	}
 
+exit:
 	io_close(image_handle);
 	return result;
 }
