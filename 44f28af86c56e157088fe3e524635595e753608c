@@ -1,0 +1,205 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59719fdf_61ae83b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-29T15:48:36Z",
+      "side": 1,
+      "message": "ELR-0x4 to be done only for SMC. Need to filter out other sync exception.\n\n\nThis is very critical part of code and hence wording should be precise and accurate terminology aligned with rest of Arm software ecosystem should be used. Gave comments regarding that.",
+      "revId": "44f28af86c56e157088fe3e524635595e753608c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b309ce0a_6410eedf",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-29T15:48:36Z",
+      "side": 1,
+      "message": "more precise wording to avoid ambiguity is needed.\n\n...handling pending async EA from...",
+      "range": {
+        "startLine": 131,
+        "startChar": 60,
+        "endLine": 131,
+        "endChar": 67
+      },
+      "revId": "44f28af86c56e157088fe3e524635595e753608c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f87d9295_29755453",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-29T15:48:36Z",
+      "side": 1,
+      "message": "\"..synchronized at EL3 entry.\"",
+      "range": {
+        "startLine": 132,
+        "startChar": 13,
+        "endLine": 132,
+        "endChar": 42
+      },
+      "revId": "44f28af86c56e157088fe3e524635595e753608c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc915f72_8b071eec",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-29T15:48:36Z",
+      "side": 1,
+      "message": "...error (EA)..",
+      "range": {
+        "startLine": 134,
+        "startChar": 42,
+        "endLine": 134,
+        "endChar": 50
+      },
+      "revId": "44f28af86c56e157088fe3e524635595e753608c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7468949_e2beb519",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-29T15:48:36Z",
+      "side": 1,
+      "message": "again, more precise terminology needed.\n\n\"..causing the EA to pend at EL3.\"",
+      "range": {
+        "startLine": 136,
+        "startChar": 68,
+        "endLine": 137,
+        "endChar": 22
+      },
+      "revId": "44f28af86c56e157088fe3e524635595e753608c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a490cf_541476d3",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-29T15:48:36Z",
+      "side": 1,
+      "message": "\"\nOn detecting the pending EA (via ISR_EL1.A), we return to lower EL to replay the original entry back to EL3. Depending on SCR_EL3.EA bit setting, the EA will pend at lower EL or be routed to EL3. If the original entry to EL3 was due to SMC, then modify ELR -\u003d 0x4. Then eret to lower EL.\n\nIt could be that EA is masked at the target exception level, or the IMPDEF priority of EA wrt to the original exception is lower, which causes back and forth between lower EL and EL3.\n\nSetting SCR_EL3.IESB \u003d 1, should give priority to SError handling as per AArch64.TakeException pseudo code in Arm ARM.\n\nTODO: There is a choice to consume EA and handle it first in EL3 when SCR_EL3.EA\u003d1 without this replay logic. Reevaluate this based on partner feedback.",
+      "range": {
+        "startLine": 139,
+        "startChar": 4,
+        "endLine": 139,
+        "endChar": 26
+      },
+      "revId": "44f28af86c56e157088fe3e524635595e753608c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57272395_47c7feea",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-29T15:48:36Z",
+      "side": 1,
+      "message": "NOTE: In case of back and forth between lower EL and EL3, we use a loop counter to keep the track of previous ELR and panic to indicate a problem here.",
+      "range": {
+        "startLine": 145,
+        "startChar": 4,
+        "endLine": 157,
+        "endChar": 50
+      },
+      "revId": "44f28af86c56e157088fe3e524635595e753608c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5078531a_431d4e5b",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-29T15:48:36Z",
+      "side": 1,
+      "message": "define a useful macro for this count.",
+      "range": {
+        "startLine": 172,
+        "startChar": 11,
+        "endLine": 172,
+        "endChar": 14
+      },
+      "revId": "44f28af86c56e157088fe3e524635595e753608c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89399fec_d2c80e64",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-29T15:48:36Z",
+      "side": 1,
+      "message": "Actually we need to distinguish if this is an SMC or regular sync exception. ELR-0x4 to be done only for SMC case and do not modify ELR in the latter case.",
+      "range": {
+        "startLine": 176,
+        "startChar": 41,
+        "endLine": 176,
+        "endChar": 64
+      },
+      "revId": "44f28af86c56e157088fe3e524635595e753608c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
