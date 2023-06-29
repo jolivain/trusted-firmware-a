@@ -52,6 +52,24 @@
       "parentUuid": "c6c36a12_2cb9e827",
       "revId": "908b0ffe92c43b75124160eec0472f4e2ac5970c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "972d1d40_d966179f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-06-29T02:01:50Z",
+      "side": 1,
+      "message": "The suggested include order for \u0027imx_trdc.h\u0027 is not good. I will move the trdc driver to driver/nxp/ dir, and header file to include/driver/nxp/, then include in project gropup.",
+      "parentUuid": "c38ef296_6fa9c200",
+      "revId": "908b0ffe92c43b75124160eec0472f4e2ac5970c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
