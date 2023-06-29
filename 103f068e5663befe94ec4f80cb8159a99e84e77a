@@ -16,6 +16,24 @@
       "message": "The macro names used here for the bits, can you please share how you came up with these names? I checked the technical reference manual, but could only find the register name. i.e. CMPXACTLR_EL1",
       "revId": "103f068e5663befe94ec4f80cb8159a99e84e77a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48ccdccd_226cdb0a",
+        "filename": "include/lib/cpus/aarch64/cortex_a510.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-06-29T09:17:59Z",
+      "side": 1,
+      "message": "Well the intention behind replacing the numbers with macro_names was due to the addition of helper_macro\nsysreg_bitfield_insert.\nThe naming is done based on the condition and implication defined in the SDEN of that erratum.\nhttps://developer.arm.com/documentation/SDEN1873361/1500\n\nSo for instance, if you refer to the line number : 54 we already had macros with \nCORTEX_A510_CPUECTLR_EL1_READPREFERUNIQUE_DISABLE\nwhere in the name being picked based on the errtaum workaround.\nwhich is that the \" workaround disables generation of ReadPreferUnique.\"\n\nFollowed similar convention for other erratum as well. Hope this helps.\nLet me know your thoughts on this.\nThanks!",
+      "parentUuid": "a5ee92a1_211cb6b1",
+      "revId": "103f068e5663befe94ec4f80cb8159a99e84e77a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
