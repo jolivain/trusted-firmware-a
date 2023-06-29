@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d6df3fb_062ec8a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-06-29T16:07:15Z",
+      "side": 1,
+      "message": "Got clarification from the Arch team that the pseudo code is bit too conservative compared to the normative text for this prioritization of SError vs other Async exceptions. So to preserve maximum compatibility with existing FFH, we have to revert to consuming the EA at EL3 and handling it first. \n\nThis patch will need to go through the works again to separate out handling when SCR_EL3.EA\u003d1 vs EA\u003d0",
+      "revId": "44f28af86c56e157088fe3e524635595e753608c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b309ce0a_6410eedf",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 24
