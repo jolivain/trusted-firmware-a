@@ -595,6 +595,68 @@ JSON format:
         "CCA_PLATFORM_VERIFICATION_SERVICE": "www.trustedfirmware.org"
     }
 
+RSS OTP Assets Management
+-------------------------
+
+RSS provides access for AP to assets in OTP, which include keys for image signature
+verification and non-volatile counters for anti-rollback protection.
+
+Non-Volatile Counter API
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+AP/RSS interface for retrieving and incrementing non-volatile counters API is as follows.
+
+Defined here:
+
+- ``include/lib/psa/rss_platform_api.h``
+
+.. code-block:: c
+
+    psa_call(RSS_PLATFORM_SERVICE_HANDLE,
+        RSS_PLATFORM_API_ID_NV_READ,
+        in_vec, 1, out_vec, 1);
+
+    psa_call(RSS_PLATFORM_SERVICE_HANDLE,
+        RSS_PLATFORM_API_ID_NV_INCREMENT,
+        in_vec, 1, (psa_outvec *)NULL, 0);
+
+where the in_vec indicates which of the 3 counters we want, and when reading, the
+out_vec stores the counter value we get back from RSS, otherwise we don't get any
+output parameter from RSS.
+
+Through this service, we will be able to get/increment any of the 3 NV
+counters used on a CCA platform:
+
+- ``NV counter for CCA firmware (BL2, BL31, RMM).``
+- ``NV counter for secure firmware.``
+- ``NV counter for non-secure firmware.``
+
+ROTPK API
+^^^^^^^^^
+
+AP/RSS interface for reading the ROTPK API is as follows.
+
+Defined here:
+
+- ``include/lib/psa/rss_platform_api.h``
+
+.. code-block:: c
+
+    psa_call(RSS_CRYPTO_HANDLE, PSA_IPC_CALL,
+        in_vec, IOVEC_LEN(in_vec),
+        out_vec, IOVEC_LEN(out_vec))
+
+
+where the in_vec indicates which of the 3 ROTPKs we want, and the out_vec stores
+the ROTPK value we get back from RSS.
+
+Through this service, we will be able to read any of the 3 ROTPKs used on a CCA
+platform:
+
+- ``ROTPK for CCA firmware (BL2, BL31, RMM).``
+- ``ROTPK for secure firmware.``
+- ``ROTPK for non-secure firmware.``
+
 References
 ----------
 
