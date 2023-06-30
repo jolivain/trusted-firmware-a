@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80f1d4fd_32612082",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_pinmux.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-30T07:32:05Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "848708ad_b915ca72",
+      "revId": "5288e8fbdeff4acd9f93b2583920f774318c9e7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "257d8e07_4b4a9c60",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-06-27T07:41:59Z",
       "side": 1,
       "message": "could be ARRAY_SIZE(hoff_ptr-\u003epinmux_sel_array)?",
+      "range": {
+        "startLine": 199,
+        "startChar": 17,
+        "endLine": 199,
+        "endChar": 19
+      },
+      "revId": "5288e8fbdeff4acd9f93b2583920f774318c9e7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf3f2bc1_edce49c3",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_pinmux.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-30T07:32:05Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "257d8e07_4b4a9c60",
       "range": {
         "startLine": 199,
         "startChar": 17,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4850c004_e459072c",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_pinmux.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-30T07:32:05Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "dab28094_9b0f9f54",
+      "range": {
+        "startLine": 202,
+        "startChar": 30,
+        "endLine": 202,
+        "endChar": 33
+      },
+      "revId": "5288e8fbdeff4acd9f93b2583920f774318c9e7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96a823cc_13b7aae7",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-06-27T07:41:59Z",
       "side": 1,
       "message": "2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5288e8fbdeff4acd9f93b2583920f774318c9e7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b24b5c06_30248518",
+        "filename": "plat/intel/soc/common/include/socfpga_handoff.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-30T07:32:05Z",
+      "side": 1,
+      "message": "Updated.",
+      "parentUuid": "96a823cc_13b7aae7",
       "range": {
         "startLine": 2,
         "startChar": 22,
@@ -110,6 +200,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e8daa5e_1930ede1",
+        "filename": "plat/intel/soc/common/soc/socfpga_handoff.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-30T07:32:05Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "92cac6de_7516ad68",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "5288e8fbdeff4acd9f93b2583920f774318c9e7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6c24bf4_d006836a",
@@ -123,6 +237,30 @@
       "writtenOn": "2023-06-27T07:41:59Z",
       "side": 1,
       "message": "this curly brace should be on next line\nsame for other following lines",
+      "range": {
+        "startLine": 33,
+        "startChar": 12,
+        "endLine": 33,
+        "endChar": 14
+      },
+      "revId": "5288e8fbdeff4acd9f93b2583920f774318c9e7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8d187e7_dd99fc2a",
+        "filename": "plat/intel/soc/common/soc/socfpga_handoff.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-06-30T07:32:05Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "f6c24bf4_d006836a",
       "range": {
         "startLine": 33,
         "startChar": 12,
