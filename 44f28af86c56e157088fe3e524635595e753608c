@@ -35,6 +35,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "553fed8c_346be809",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-30T10:33:45Z",
+      "side": 1,
+      "message": "LGTM for root context",
+      "revId": "44f28af86c56e157088fe3e524635595e753608c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b309ce0a_6410eedf",
@@ -169,6 +186,23 @@
         "endLine": 157,
         "endChar": 50
       },
+      "revId": "44f28af86c56e157088fe3e524635595e753608c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "785023a1_1e43f8c5",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-06-30T10:33:45Z",
+      "side": 1,
+      "message": "the consideration is a loop between the same lower EL instruction and this code path right? In that case, a context will never be saved as that is in the other paths, i.e. all other entries should not be overwritten. Can\u0027t you use one of those instead of adding a new one?",
       "revId": "44f28af86c56e157088fe3e524635595e753608c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
