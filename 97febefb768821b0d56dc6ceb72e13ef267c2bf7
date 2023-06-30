@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "959f9c59_4257c7b9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-06-30T08:50:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "586f151b_7c37649f",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "97febefb768821b0d56dc6ceb72e13ef267c2bf7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ca9f3c4_5957d115",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-29T21:05:45Z",
       "side": 1,
       "message": "nitpick: S-EL0",
+      "range": {
+        "startLine": 9,
+        "startChar": 28,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "97febefb768821b0d56dc6ceb72e13ef267c2bf7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e80e4d9f_04ced7f4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-06-30T08:50:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ca9f3c4_5957d115",
       "range": {
         "startLine": 9,
         "startChar": 28,
@@ -64,6 +112,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5522799b_07e86167",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1627,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-06-30T08:50:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c44e99bf_1b479048",
+      "revId": "97febefb768821b0d56dc6ceb72e13ef267c2bf7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b3dd9ee_2806137e",
@@ -87,6 +153,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc408aa1_15745b00",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1635,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-06-30T08:50:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b3dd9ee_2806137e",
+      "range": {
+        "startLine": 1635,
+        "startChar": 5,
+        "endLine": 1635,
+        "endChar": 8
+      },
+      "revId": "97febefb768821b0d56dc6ceb72e13ef267c2bf7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86619fbb_0ece7a7c",
@@ -100,6 +190,24 @@
       "writtenOn": "2023-06-29T21:05:45Z",
       "side": 1,
       "message": "There is a lot of code repetition between this function and ffa_mem_perm_set_handler. Can you factor out the common checks?",
+      "revId": "97febefb768821b0d56dc6ceb72e13ef267c2bf7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "145f38ec_34c5c936",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1678,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-06-30T08:50:53Z",
+      "side": 1,
+      "message": "Most of the common code is checks. Do you want me to merge that?",
+      "parentUuid": "86619fbb_0ece7a7c",
       "revId": "97febefb768821b0d56dc6ceb72e13ef267c2bf7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
