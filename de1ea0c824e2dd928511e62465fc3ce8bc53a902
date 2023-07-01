@@ -71,6 +71,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6336f29a_25f8e2f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Hi Yann, \n\nAs mentioned, due to HW design limitation, if using CMD55 with ACMD51, we faced error. Thus we shall use this as of now while waiting for next HW release.",
+      "parentUuid": "4cf0c052_68ef8624",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f2f81ce_3094adb2",
@@ -84,6 +102,24 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "minor (feel free to ignore): this could be aligned with open parenthesis",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71a4d782_985f26bb",
+        "filename": "drivers/cadence/combo_phy/cdns_combo_phy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Shall remain as it is.",
+      "parentUuid": "9f2f81ce_3094adb2",
       "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -105,6 +141,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59b94caf_ca21ea2d",
+        "filename": "drivers/cadence/combo_phy/cdns_combo_phy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Update to 0U",
+      "parentUuid": "78964557_b8de5825",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e18b38b_190e456f",
@@ -118,6 +172,24 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "see comments about those macros in include/drivers/cadence/cdns_combo_phy.h file",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78a1ceaf_054f5360",
+        "filename": "drivers/cadence/combo_phy/cdns_combo_phy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Shall resolved in header file",
+      "parentUuid": "7e18b38b_190e456f",
       "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -139,6 +211,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9531446_b3f39d42",
+        "filename": "drivers/cadence/combo_phy/cdns_combo_phy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated to use /* */",
+      "parentUuid": "bb7cf9ad_fb812512",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cdd7588_3ce5da2a",
@@ -156,6 +246,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6604bef1_61338ef6",
+        "filename": "drivers/cadence/combo_phy/cdns_combo_phy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Combined the 2 udelay and mdelay.",
+      "parentUuid": "0cdd7588_3ce5da2a",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0b06bcf_bb1c7fd0",
@@ -169,6 +277,30 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "here again strange comment",
+      "range": {
+        "startLine": 77,
+        "startChar": 17,
+        "endLine": 77,
+        "endChar": 21
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89ac0289_b85ee6a8",
+        "filename": "drivers/cadence/combo_phy/cdns_combo_phy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated the comment to align with udelay value",
+      "parentUuid": "f0b06bcf_bb1c7fd0",
       "range": {
         "startLine": 77,
         "startChar": 17,
@@ -202,6 +334,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df6ddf65_e3cac1fb",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "73d52c90_0258a7ab",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 4
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a83d32f_f99d9680",
@@ -215,6 +371,30 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 175,
+        "startChar": 3,
+        "endLine": 175,
+        "endChar": 5
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39f65867_2c227939",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "5a83d32f_f99d9680",
       "range": {
         "startLine": 175,
         "startChar": 3,
@@ -248,6 +428,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9be0f89_3235c75b",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Yes. It is signed",
+      "parentUuid": "86c196be_097fd992",
+      "range": {
+        "startLine": 190,
+        "startChar": 9,
+        "endLine": 190,
+        "endChar": 10
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40177cc7_6ee2fda4",
@@ -261,6 +465,30 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "minor: you could directly return ret.",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 246,
+        "endChar": 10
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c5aa1fd_c833e53a",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "The return shall be signed. \nSo remain return 0",
+      "parentUuid": "40177cc7_6ee2fda4",
       "range": {
         "startLine": 243,
         "startChar": 0,
@@ -294,6 +522,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fb26340_3e62dfc7",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "2ee20f1d_dcf02391",
+      "range": {
+        "startLine": 262,
+        "startChar": 1,
+        "endLine": 262,
+        "endChar": 13
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6bc0af82_36d05747",
@@ -307,6 +559,30 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "(i + 1)\nYou could run checkpatch.pl with --strict option to detect this kind of things.",
+      "range": {
+        "startLine": 290,
+        "startChar": 9,
+        "endLine": 290,
+        "endChar": 12
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3325092b_d8d35e2f",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated. \nWill run with --strict in the future",
+      "parentUuid": "6bc0af82_36d05747",
       "range": {
         "startLine": 290,
         "startChar": 9,
@@ -340,6 +616,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d13a4c5_2bc9fd86",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "51c5b0da_909102f7",
+      "range": {
+        "startLine": 294,
+        "startChar": 30,
+        "endLine": 294,
+        "endChar": 40
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20a1c00b_ed1fa70d",
@@ -353,6 +653,30 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "try to avoid magic numbers in all this function, prefer macros",
+      "range": {
+        "startLine": 328,
+        "startChar": 20,
+        "endLine": 328,
+        "endChar": 23
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3cce3ab_b278a96f",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated with macro",
+      "parentUuid": "20a1c00b_ed1fa70d",
       "range": {
         "startLine": 328,
         "startChar": 20,
@@ -380,6 +704,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3948ed6_58f868cf",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "We would re-write the entire register value and wish not to retain the existing value. \nThus we would like to remain using write_32",
+      "parentUuid": "3665b0c5_147491bf",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89454101_0b042b8d",
@@ -393,6 +735,24 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "Here mmio_clrsetbits_32 could be used",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c0a6f9a_bbc02e94",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "We would re-write the entire register value and wish not to retain the existing value. \nThus we would like to remain using write_32",
+      "parentUuid": "89454101_0b042b8d",
       "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -420,6 +780,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a603bd4_66c9ef02",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "ed149bb3_f5321c60",
+      "range": {
+        "startLine": 367,
+        "startChar": 50,
+        "endLine": 367,
+        "endChar": 54
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "313f4240_6c7f6edd",
@@ -437,6 +821,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a575a14c_0b19de9f",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Removed blank line",
+      "parentUuid": "313f4240_6c7f6edd",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fb37435_4f92f6c0",
@@ -450,6 +852,24 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "ditto",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9486eabb_a80c81c0",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Removed blank line",
+      "parentUuid": "2fb37435_4f92f6c0",
       "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -477,6 +897,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65c78207_d094b961",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "35f0d40d_fe0d6cff",
+      "range": {
+        "startLine": 787,
+        "startChar": 47,
+        "endLine": 787,
+        "endChar": 49
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48da0115_73a3fe19",
@@ -494,6 +938,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cbde5ae_9b006930",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "48da0115_73a3fe19",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b21985ba_43a3dbf6",
@@ -507,6 +969,30 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "BIT_32(thread_id)?",
+      "range": {
+        "startLine": 46,
+        "startChar": 9,
+        "endLine": 46,
+        "endChar": 25
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bec9fb0_18c4fbde",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated to cast (uint32_t)",
+      "parentUuid": "b21985ba_43a3dbf6",
       "range": {
         "startLine": 46,
         "startChar": 9,
@@ -540,6 +1026,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4a1416d_ce58f15c",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Tab removed",
+      "parentUuid": "80e3b815_3a0d15cd",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 5
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d058e499_9a63145a",
@@ -553,6 +1063,30 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "(reg \u0026 CNF_CMPLT) \u003d\u003d 0U\n(to comply with MISRA rules)",
+      "range": {
+        "startLine": 74,
+        "startChar": 10,
+        "endLine": 74,
+        "endChar": 28
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b514e994_10fbd32f",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "d058e499_9a63145a",
       "range": {
         "startLine": 74,
         "startChar": 10,
@@ -586,6 +1120,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "605853d7_4a9d4aef",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "13964fd7_12b9be5c",
+      "range": {
+        "startLine": 77,
+        "startChar": 5,
+        "endLine": 77,
+        "endChar": 19
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6eac087d_152106a4",
@@ -599,6 +1157,30 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "You could just have:\n\n\treturn 0;",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 2
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "549a02b6_6bf4e554",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "6eac087d_152106a4",
       "range": {
         "startLine": 80,
         "startChar": 0,
@@ -626,6 +1208,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99c4b7e7_4b6000a3",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "270d2a50_0ef8c745",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1ec8bf9_1b78f1cd",
@@ -639,6 +1239,30 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "those lines should be in the patch that will introduce these features IMHO",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 173,
+        "endChar": 3
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37e7e19e_cf54bcc2",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Hi Yann, \n\nWe would like to retain this line. \nAs there will be another developer to implement this features\nand this serve the purpose as a reminder.",
+      "parentUuid": "e1ec8bf9_1b78f1cd",
       "range": {
         "startLine": 170,
         "startChar": 0,
@@ -666,6 +1290,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59542d77_e0e7c41a",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "7063c1d7_cce3338a",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27cc6c2a_a10d163f",
@@ -683,6 +1325,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a7268b4_190ca7da",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Understand that this defeat the purpose of open source. \nHowever, the team has decided not to use the MTD/NAND framework to \nrefrain from having dependency.",
+      "parentUuid": "27cc6c2a_a10d163f",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71aa532d_dd5f80b3",
@@ -696,6 +1356,24 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "this line shouldn\u0027t be required",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19404d9c_97a35f6e",
+        "filename": "include/drivers/cadence/cdns_combo_phy.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "71aa532d_dd5f80b3",
       "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -723,6 +1401,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d098147_744623a4",
+        "filename": "include/drivers/cadence/cdns_combo_phy.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated with comment and description",
+      "parentUuid": "9d05ee61_1953d20a",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 21
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0e16e03_77b836cd",
@@ -736,6 +1438,24 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "ditto",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c619aa7_c089435c",
+        "filename": "include/drivers/cadence/cdns_nand.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Removed ARM limited copyright",
+      "parentUuid": "d0e16e03_77b836cd",
       "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -757,6 +1477,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba4106d1_e5bb338c",
+        "filename": "include/drivers/cadence/cdns_sdmmc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "96b49c35_57796abf",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc14890f_b7d74dfa",
@@ -770,6 +1508,24 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "most of the following macros are taken from include/drivers/mmc.h, and should then not be required here as you include the file.",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37a2489d_392e9fe0",
+        "filename": "include/drivers/cadence/cdns_sdmmc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "bc14890f_b7d74dfa",
       "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -797,6 +1553,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04b8fb1c_e6cd7c5b",
+        "filename": "include/drivers/cadence/cdns_sdmmc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Corrected typo",
+      "parentUuid": "3aba0fe6_fa312527",
+      "range": {
+        "startLine": 420,
+        "startChar": 3,
+        "endLine": 420,
+        "endChar": 10
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f025b7c3_16fc2421",
@@ -814,6 +1594,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aedf5c0_642f4539",
+        "filename": "plat/intel/soc/common/drivers/combophy/combophy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated.",
+      "parentUuid": "f025b7c3_16fc2421",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d4fc1a7_b3a9fefe",
@@ -827,6 +1625,30 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "even if the function is temporary here, maybe a better name could be found?\nWhen will the complete feature be delivered?\nMaybe the function should be static?",
+      "range": {
+        "startLine": 23,
+        "startChar": 5,
+        "endLine": 23,
+        "endChar": 9
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09d83967_ed53cdb5",
+        "filename": "plat/intel/soc/common/drivers/combophy/combophy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated func name. Remain as non-static.",
+      "parentUuid": "6d4fc1a7_b3a9fefe",
       "range": {
         "startLine": 23,
         "startChar": 5,
@@ -860,6 +1682,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "807800f2_215bcbdd",
+        "filename": "plat/intel/soc/common/drivers/combophy/combophy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "515cdcd2_eb09276b",
+      "range": {
+        "startLine": 42,
+        "startChar": 2,
+        "endLine": 42,
+        "endChar": 7
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d656b426_ee93d0e1",
@@ -873,6 +1719,30 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "minor: could be on one line",
+      "range": {
+        "startLine": 62,
+        "startChar": 1,
+        "endLine": 65,
+        "endChar": 28
+      },
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d80e305_99a9e492",
+        "filename": "plat/intel/soc/common/drivers/combophy/combophy.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated to int ret \u003d dfi_select",
+      "parentUuid": "d656b426_ee93d0e1",
       "range": {
         "startLine": 62,
         "startChar": 1,
@@ -900,6 +1770,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dd9b1ba_482fe9d9",
+        "filename": "plat/intel/soc/common/drivers/combophy/combophy.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "dc331c0c_0fdff728",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d28f7323_eb0256c2",
@@ -913,6 +1801,24 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "avoid duplicate blank lines\n(can be seen with checkpatch.pl --strict)",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4168bc1_4f0629f0",
+        "filename": "plat/intel/soc/common/drivers/combophy/combophy.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Removed extra line",
+      "parentUuid": "d28f7323_eb0256c2",
       "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -981,6 +1887,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e1d4eb1_821669f0",
+        "filename": "plat/intel/soc/common/drivers/combophy/combophy.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Removed extra line",
+      "parentUuid": "1634d005_bf9642d1",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f97420a_0bbf5b98",
@@ -994,6 +1918,24 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "should be static?",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "91451ce8_d8673100",
+        "filename": "plat/intel/soc/common/drivers/nand/nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Shall remain non static",
+      "parentUuid": "7f97420a_0bbf5b98",
       "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -1015,6 +1957,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24c05453_a42f9e7e",
+        "filename": "plat/intel/soc/common/drivers/nand/nand.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Removed result declare and return",
+      "parentUuid": "768d156f_6d39e3c9",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b80d486b_7bfbcd7e",
@@ -1028,6 +1988,24 @@
       "writtenOn": "2023-06-26T15:55:22Z",
       "side": 1,
       "message": "avoid multiple blank lines",
+      "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d4cde5a_8416213d",
+        "filename": "plat/intel/soc/common/drivers/nand/nand.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-01T13:02:41Z",
+      "side": 1,
+      "message": "Removed and remain 1 line",
+      "parentUuid": "b80d486b_7bfbcd7e",
       "revId": "de1ea0c824e2dd928511e62465fc3ce8bc53a902",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
