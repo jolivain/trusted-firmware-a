@@ -158,6 +158,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "596a137c_5ee65d56",
+        "filename": "include/lib/psa/rss_platform_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-03T14:59:17Z",
+      "side": 1,
+      "message": "See https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21775",
+      "parentUuid": "90fb2d27_a5d298e8",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 21
+      },
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "afe79ce5_3a7fd63d",
         "filename": "lib/psa/rss_platform.c",
         "patchSetId": 1
