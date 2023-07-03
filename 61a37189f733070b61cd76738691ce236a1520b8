@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9f3dbb3_a1a699e1",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-03T12:29:25Z",
+      "side": 1,
+      "message": "(minor) I feel these interfaces would be more uniform if the struct rss_mboot_metadata was always the first argument being passed. So I would recommend changing the prototypes like that:\n\n int rss_mboot_measure_and_record(struct rss_mboot_metadata *metadata_ptr),\n   uintptr_t data_base, uint32_t data_size, uint32_t data_id)\n\nand\n\n\n int rss_mboot_set_signer_id(struct rss_mboot_metadata *metadata_ptr,\n\t\t\t    unsigned int img_id,\n\t\t\t    const void *pk_ptr,\n\t\t\t    size_t pk_len)\n\nFeel free to ignore if you disagree.",
+      "revId": "61a37189f733070b61cd76738691ce236a1520b8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2795986_4fca2090",
+        "filename": "include/drivers/measured_boot/rss/rss_measured_boot.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-03T12:29:25Z",
+      "side": 1,
+      "message": "(minor) Same comment here, I would make this the first argument to rss_mboot_set_signer_id().",
+      "range": {
+        "startLine": 55,
+        "startChar": 7,
+        "endLine": 55,
+        "endChar": 46
+      },
+      "revId": "61a37189f733070b61cd76738691ce236a1520b8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
