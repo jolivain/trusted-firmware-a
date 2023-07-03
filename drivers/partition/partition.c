@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -172,7 +172,6 @@ static int load_mbr_entries(uintptr_t image_handle)
 		list.list[i].start = mbr_entry.first_lba * 512;
 		list.list[i].length = mbr_entry.sector_nums * 512;
 		list.list[i].name[0] = mbr_entry.type;
-		ERROR("%x %x\n", list.list[i].length, mbr_entry.sector_nums);
 	}
 
 	return 0;
