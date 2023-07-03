@@ -139,7 +139,7 @@ func cortex_a17_reset_func
 #endif
 
 #if IMAGE_BL32 && WORKAROUND_CVE_2017_5715
-	ldr	r0, =workaround_bpiall_runtime_exceptions
+	ldr	r0, =wa_cve_2017_5715_bpiall_vbar
 	stcopr	r0, VBAR
 	stcopr	r0, MVBAR
 	/* isb will be applied in the course of the reset func */
