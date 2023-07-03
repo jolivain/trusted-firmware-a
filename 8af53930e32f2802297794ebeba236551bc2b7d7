@@ -34,6 +34,69 @@
       "parentUuid": "c89c3a98_02b44a96",
       "revId": "8af53930e32f2802297794ebeba236551bc2b7d7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1997d796_a4774f2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T13:38:25Z",
+      "side": 1,
+      "message": "two small comments.",
+      "revId": "8af53930e32f2802297794ebeba236551bc2b7d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fe6d88f_06fe5011",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T13:38:25Z",
+      "side": 1,
+      "message": "align with log.",
+      "range": {
+        "startLine": 136,
+        "startChar": 3,
+        "endLine": 136,
+        "endChar": 4
+      },
+      "revId": "8af53930e32f2802297794ebeba236551bc2b7d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d6e26fb_6202aa2b",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T13:38:25Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 140,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 3
+      },
+      "revId": "8af53930e32f2802297794ebeba236551bc2b7d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
