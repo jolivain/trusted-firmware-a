@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f58f729_f6ab96cf",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-03T20:50:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "065ee2e9_ad23230d",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 5
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75a79714_1787ced4",
@@ -73,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ad49ea9_be513e5b",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-03T20:50:36Z",
+      "side": 1,
+      "message": "actually no, this is defining a pointer to an array of struct ffa_partition_info_v1_1, whose length is EL3_SPMD_MAX_NUM_LP. This allows the compiler to statically type check the pointer being passed in.\nif i dont pass a pointer, the array gets passed by value, and any changes made in this function are not visible outside.\nSo i cant drop line 229 and 415 as you suggested since it would modify the partitions array, which is an output..",
+      "parentUuid": "46707577_32e2fbe0",
+      "range": {
+        "startLine": 208,
+        "startChar": 32,
+        "endLine": 208,
+        "endChar": 66
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0604eb99_8634d868",
         "filename": "services/std_svc/spmd/spmd_logical_sp.c",
         "patchSetId": 7
@@ -84,6 +132,30 @@
       "writtenOn": "2023-07-03T19:26:23Z",
       "side": 1,
       "message": "Nitpick: Start with capital.",
+      "range": {
+        "startLine": 334,
+        "startChar": 4,
+        "endLine": 334,
+        "endChar": 5
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad2611f8_50c5ff2e",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-03T20:50:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0604eb99_8634d868",
       "range": {
         "startLine": 334,
         "startChar": 4,
@@ -117,6 +189,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fb9c13a_acccf33f",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-03T20:50:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7557a1e5_04227e2a",
+      "range": {
+        "startLine": 369,
+        "startChar": 3,
+        "endLine": 369,
+        "endChar": 4
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45f55a8f_4a87b0eb",
@@ -130,6 +226,30 @@
       "writtenOn": "2023-07-03T19:26:23Z",
       "side": 1,
       "message": "align",
+      "range": {
+        "startLine": 375,
+        "startChar": 6,
+        "endLine": 375,
+        "endChar": 14
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7643cbde_ff606364",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-03T20:50:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45f55a8f_4a87b0eb",
       "range": {
         "startLine": 375,
         "startChar": 6,
@@ -163,6 +283,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fedb9180_b1761852",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-03T20:50:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa9f951b_0f691c84",
+      "range": {
+        "startLine": 409,
+        "startChar": 54,
+        "endLine": 409,
+        "endChar": 55
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f69c766_f4b06b64",
@@ -186,6 +330,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdd41bc4_f5116923",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-03T20:50:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f69c766_f4b06b64",
+      "range": {
+        "startLine": 418,
+        "startChar": 48,
+        "endLine": 418,
+        "endChar": 49
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4dffb6ea_d5225281",
@@ -199,6 +367,30 @@
       "writtenOn": "2023-07-03T19:26:23Z",
       "side": 1,
       "message": "align.\nArguments start_index in a new line.",
+      "range": {
+        "startLine": 424,
+        "startChar": 3,
+        "endLine": 425,
+        "endChar": 14
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a506f0d6_5a24832b",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-03T20:50:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dffb6ea_d5225281",
       "range": {
         "startLine": 424,
         "startChar": 3,
