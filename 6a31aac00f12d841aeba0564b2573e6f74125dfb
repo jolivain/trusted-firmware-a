@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "079455b4_dd8517dd",
+        "filename": "plat/arm/board/tc/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-03T14:51:29Z",
+      "side": 1,
+      "message": "JFYI there is already a generic print in the caller function (tc_run_platform_tests), which these expect scripts capture: https://git.trustedfirmware.org/ci/tf-a-ci-scripts.git/tree/expect/crash_passed_test.exp\n\nSo we don\u0027t need to rely on this one from an expect script point of view (as in, this print does not need to gate the success/failure of these tests), although we can keep it for giving useful feedback to the user.\n\nI\u0027ll leave it to you whether you want to update this message anyway but I thought I should mention it for your awareness.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 51
+      },
+      "revId": "6a31aac00f12d841aeba0564b2573e6f74125dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
