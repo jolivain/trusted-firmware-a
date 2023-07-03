@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "065ee2e9_ad23230d",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T19:26:23Z",
+      "side": 1,
+      "message": "align",
+      "range": {
+        "startLine": 131,
+        "startChar": 4,
+        "endLine": 131,
+        "endChar": 5
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75a79714_1787ced4",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T19:26:23Z",
+      "side": 1,
+      "message": "Isn\u0027t this defining it needs an array of pointers to ffa_partition_info_v1_1 of size EL3_SPMD_MAX_NUM_LP? Seems convoluted.\n\nIIUC,\nThe reason why this works (in addition to C\u0027s weak type checking) is because line 229 to 232 (*partitions) always dereferences the first element. Which is the array defined in the caller function.\nSo eventually there is no access to other pointers within the said argument array.\n\nIIUC, the valid definition would like:\nstruct ffa_partition_info_v1_1 partitions[EL3_SPMD_MAX_NUM_LP],\n\nOr, as done in the Hafnium equivalent implementation, to define a pointer and add a size variable.\n\nIn addition:\n- In line 229 you drop the \u0027*\u0027 and parenthesis.\n- In line 415 drop the \u0026 from \u0027\u0026partitions\u0027",
+      "range": {
+        "startLine": 208,
+        "startChar": 32,
+        "endLine": 208,
+        "endChar": 66
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0604eb99_8634d868",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T19:26:23Z",
+      "side": 1,
+      "message": "Nitpick: Start with capital.",
+      "range": {
+        "startLine": 334,
+        "startChar": 4,
+        "endLine": 334,
+        "endChar": 5
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7557a1e5_04227e2a",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T19:26:23Z",
+      "side": 1,
+      "message": "an",
+      "range": {
+        "startLine": 369,
+        "startChar": 3,
+        "endLine": 369,
+        "endChar": 4
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45f55a8f_4a87b0eb",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T19:26:23Z",
+      "side": 1,
+      "message": "align",
+      "range": {
+        "startLine": 375,
+        "startChar": 6,
+        "endLine": 375,
+        "endChar": 14
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa9f951b_0f691c84",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T19:26:23Z",
+      "side": 1,
+      "message": "drop space. Static checks complains",
+      "range": {
+        "startLine": 409,
+        "startChar": 54,
+        "endLine": 409,
+        "endChar": 55
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f69c766_f4b06b64",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T19:26:23Z",
+      "side": 1,
+      "message": "and here.",
+      "range": {
+        "startLine": 418,
+        "startChar": 48,
+        "endLine": 418,
+        "endChar": 49
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dffb6ea_d5225281",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T19:26:23Z",
+      "side": 1,
+      "message": "align.\nArguments start_index in a new line.",
+      "range": {
+        "startLine": 424,
+        "startChar": 3,
+        "endLine": 425,
+        "endChar": 14
+      },
+      "revId": "3273e708ee12eb6fdd7c5b62f2f3082b456f0722",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
