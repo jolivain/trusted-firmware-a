@@ -180,6 +180,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39f90939_3e8d3047",
+        "filename": "include/lib/psa/rss_platform_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-03T15:21:06Z",
+      "side": 1,
+      "message": "Ack, thanks!",
+      "parentUuid": "596a137c_5ee65d56",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 21
+      },
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afe79ce5_3a7fd63d",
@@ -217,6 +241,30 @@
       "side": 1,
       "message": "I\u0027ll let Lauren comment but my personal opinion on this is that it\u0027s ok to keep this local macro, I don\u0027t mind. I don\u0027t think it should be named \"correctly\", so long as its scope is restricted to this file, it\u0027s really just a local helper macro which can improve readability of the code in this case.",
       "parentUuid": "afe79ce5_3a7fd63d",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 31
+      },
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9a31df4_2ee6f8e7",
+        "filename": "lib/psa/rss_platform.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-03T15:21:06Z",
+      "side": 1,
+      "message": "As \u0027psa_call\u0027 appears many times in this file, I think we could make this macro more generic in order to make it more readable in that case. \nIMHO, using it exclusively for \u0027key read\u0027 is a bit odd.",
+      "parentUuid": "d41ed3b8_6cbb326e",
       "range": {
         "startLine": 14,
         "startChar": 0,
