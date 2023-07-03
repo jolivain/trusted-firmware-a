@@ -16,6 +16,24 @@
       "message": "The build failures see unrelated. :/",
       "revId": "03e5d0d0865b9b56158a5a0b1d8f103fb6574160",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99a857f9_34b04ed8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-03T08:33:33Z",
+      "side": 1,
+      "message": "Yes, they were. These failures had already been addressed in mainline so a rebase of your patch fixed the issues.",
+      "parentUuid": "996dd695_42f9fe3f",
+      "revId": "03e5d0d0865b9b56158a5a0b1d8f103fb6574160",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
