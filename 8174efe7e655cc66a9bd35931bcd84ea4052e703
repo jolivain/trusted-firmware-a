@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0900996_b85bac72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "nitpick: FFA_PARTITION_INFO_GET_REGS",
+      "range": {
+        "startLine": 10,
+        "startChar": 28,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34d76e76_1b8c165e",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "nitpick: align arguments.",
+      "range": {
+        "startLine": 130,
+        "startChar": 1,
+        "endLine": 130,
+        "endChar": 2
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3831d0bc_53fbfa9f",
         "filename": "services/std_svc/spmd/spmd_logical_sp.c",
         "patchSetId": 7
@@ -14,6 +60,282 @@
       "writtenOn": "2023-07-03T16:36:19Z",
       "side": 1,
       "message": "Should x4-x17 be zeroed out (MBZ in the spec)?",
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c033a4c_d8d8f550",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "Add doc comment.",
+      "range": {
+        "startLine": 257,
+        "startChar": 5,
+        "endLine": 257,
+        "endChar": 42
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adbe8b06_e331a4e6",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "Start with capital letter and finish with full stop.",
+      "range": {
+        "startLine": 261,
+        "startChar": 4,
+        "endLine": 261,
+        "endChar": 46
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f6aa44f_a6abb6d6",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "prefer explicit booleans.\n\u003d\u003d NULL.",
+      "range": {
+        "startLine": 268,
+        "startChar": 17,
+        "endLine": 268,
+        "endChar": 32
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1a8805b_ebc8d814",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "declare at top of the scope in which they are used as per Misra, and for consistency.\nSame with variables below.",
+      "range": {
+        "startLine": 272,
+        "startChar": 0,
+        "endLine": 272,
+        "endChar": 27
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c8b8f60_5821f38e",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "Add doc comment.",
+      "range": {
+        "startLine": 291,
+        "startChar": 5,
+        "endLine": 291,
+        "endChar": 39
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3246bee_f9252e08",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "align",
+      "range": {
+        "startLine": 292,
+        "startChar": 1,
+        "endLine": 292,
+        "endChar": 2
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bc68236_836f9a37",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "Delete. Static checks complain.",
+      "range": {
+        "startLine": 306,
+        "startChar": 25,
+        "endLine": 306,
+        "endChar": 26
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80917e8a_bd9f1839",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "return true.",
+      "range": {
+        "startLine": 308,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 12
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e70eecd_d2f708b3",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "Similarly to what state in another comment. Could this be asserted at initialisation of the Logical SPs, and removed from here?",
+      "range": {
+        "startLine": 319,
+        "startChar": 1,
+        "endLine": 322,
+        "endChar": 27
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e724a990_7912c3ea",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "align",
+      "range": {
+        "startLine": 336,
+        "startChar": 2,
+        "endLine": 336,
+        "endChar": 3
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fa476fb_c1378aef",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "Not needed, given if the if clause captures an error it panics.",
+      "range": {
+        "startLine": 338,
+        "startChar": 3,
+        "endLine": 338,
+        "endChar": 9
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88c058fc_f893828a",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "drop label.",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 5
+      },
       "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -36,6 +358,75 @@
         "startChar": 0,
         "endLine": 516,
         "endChar": 6
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff6cade0_d0b6c693",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "If",
+      "range": {
+        "startLine": 850,
+        "startChar": 4,
+        "endLine": 850,
+        "endChar": 5
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10a971d6_ab149ace",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "on-going",
+      "range": {
+        "startLine": 850,
+        "startChar": 19,
+        "endLine": 850,
+        "endChar": 26
+      },
+      "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3e24c5d_d2c595d4",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:39:40Z",
+      "side": 1,
+      "message": "don\u0027t",
+      "range": {
+        "startLine": 851,
+        "startChar": 15,
+        "endLine": 851,
+        "endChar": 19
       },
       "revId": "8174efe7e655cc66a9bd35931bcd84ea4052e703",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
