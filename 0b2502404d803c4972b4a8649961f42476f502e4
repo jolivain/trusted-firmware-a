@@ -16,6 +16,24 @@
       "message": "no, something has gone wrong. We\u0027re not porting aarch32 cpus, it was fine before (only register with the framework) it just needed to have the ERRATUM macro replaced with a CVE macro",
       "revId": "0b2502404d803c4972b4a8649961f42476f502e4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a11a7e88_24b08d34",
+        "filename": "lib/cpus/aarch32/cortex_a9.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-07-03T21:16:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c5b41c8_c7e6fcc8",
+      "revId": "0b2502404d803c4972b4a8649961f42476f502e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
