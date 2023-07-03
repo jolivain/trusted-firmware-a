@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "59ebb9b7_40452b33",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-03T19:50:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d95dab1a_15ed2973",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 18
+      },
+      "revId": "8af53930e32f2802297794ebeba236551bc2b7d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c89c3a98_02b44a96",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6
@@ -99,6 +123,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2e4bf45_04b29678",
+        "filename": "Makefile",
+        "patchSetId": 6
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-03T19:50:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a2a72984_5e94a916",
+      "range": {
+        "startLine": 645,
+        "startChar": 6,
+        "endLine": 645,
+        "endChar": 17
+      },
+      "revId": "8af53930e32f2802297794ebeba236551bc2b7d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b4b312a_8d18ade3",
@@ -145,6 +193,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c233b0_99ea34b2",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-03T19:50:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db575c25_9d74badf",
+      "range": {
+        "startLine": 47,
+        "startChar": 68,
+        "endLine": 47,
+        "endChar": 70
+      },
+      "revId": "8af53930e32f2802297794ebeba236551bc2b7d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3d5920f_01387f92",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-03T19:50:40Z",
+      "side": 1,
+      "message": "yes, good catch. ffc0. :) fixed.",
+      "parentUuid": "3b4b312a_8d18ade3",
+      "range": {
+        "startLine": 47,
+        "startChar": 58,
+        "endLine": 47,
+        "endChar": 64
+      },
+      "revId": "8af53930e32f2802297794ebeba236551bc2b7d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4fe6d88f_06fe5011",
@@ -168,6 +264,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e8f4d22_29dbd76e",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-03T19:50:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fe6d88f_06fe5011",
+      "range": {
+        "startLine": 136,
+        "startChar": 3,
+        "endLine": 136,
+        "endChar": 4
+      },
+      "revId": "8af53930e32f2802297794ebeba236551bc2b7d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d6e26fb_6202aa2b",
@@ -181,6 +301,30 @@
       "writtenOn": "2023-07-03T13:38:25Z",
       "side": 1,
       "message": "and here",
+      "range": {
+        "startLine": 140,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 3
+      },
+      "revId": "8af53930e32f2802297794ebeba236551bc2b7d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8598c83_56761660",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-03T19:50:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d6e26fb_6202aa2b",
       "range": {
         "startLine": 140,
         "startChar": 2,
