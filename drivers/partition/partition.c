@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -73,6 +73,7 @@ static int load_mbr_header(uintptr_t image_handle, mbr_entry_t *mbr_entry)
 	}
 	offset = (uintptr_t)&mbr_sector + MBR_PRIMARY_ENTRY_OFFSET;
 	memcpy(mbr_entry, (void *)offset, sizeof(mbr_entry_t));
+	ERROR("0x%x\n", mbr_entry->sector_nums);
 	return 0;
 }
 
@@ -172,6 +173,7 @@ static int load_mbr_entries(uintptr_t image_handle)
 		list.list[i].start = mbr_entry.first_lba * 512;
 		list.list[i].length = mbr_entry.sector_nums * 512;
 		list.list[i].name[0] = mbr_entry.type;
+		ERROR("0x%" PRIx64 " 0x%x\n", list.list[i].length, mbr_entry.sector_nums);
 	}
 
 	return 0;
