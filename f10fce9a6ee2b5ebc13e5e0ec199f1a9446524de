@@ -620,6 +620,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15bc03a2_c139f162",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-07-03T15:08:29Z",
+      "side": 1,
+      "message": "What we said is nothing prevents from the spec perspective to have a unified EL3 SPMC LSP and SPMD LSP implementation. From the implementation it seems code duplication is required. So I believe it\u0027s ok to proceed with current changes as a matter of freezing an early implementation. I believe longer term it would be nice revisiting this approach and make both features common. Would that be ok?",
+      "parentUuid": "d417e153_5a7b2659",
+      "revId": "f10fce9a6ee2b5ebc13e5e0ec199f1a9446524de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a40edf1_4ba530d4",
         "filename": "include/services/el3_spmd_logical_sp.h",
         "patchSetId": 1
