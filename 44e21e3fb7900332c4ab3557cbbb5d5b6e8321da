@@ -158,6 +158,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0baf2187_3cf6ed88",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:07:06Z",
+      "side": 1,
+      "message": "nitpick: align strings",
+      "range": {
+        "startLine": 299,
+        "startChar": 2,
+        "endLine": 299,
+        "endChar": 3
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "112113a5_232e25e2",
         "filename": "services/std_svc/spmd/spmd_logical_sp.c",
         "patchSetId": 7
@@ -174,6 +197,52 @@
         "startChar": 4,
         "endLine": 323,
         "endChar": 10
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e119e1d_b07bb100",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:07:06Z",
+      "side": 1,
+      "message": "Is this this the best place to add this assert?\nCould it better placed at the function initialising the LSPs: spmd_logical_sp_init?",
+      "range": {
+        "startLine": 325,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 27
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9455b98_3e0cf289",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:07:06Z",
+      "side": 1,
+      "message": "nitpick: align arguments.",
+      "range": {
+        "startLine": 344,
+        "startChar": 1,
+        "endLine": 344,
+        "endChar": 2
       },
       "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -243,6 +312,122 @@
         "startChar": 3,
         "endLine": 866,
         "endChar": 25
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aa0680e_46316564",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:07:06Z",
+      "side": 1,
+      "message": "Follow up question here:\nWhat would happen if the NWd calls FFA_ERROR into the SPMD? (asking as I don\u0027t see it considered here)\nIs there any valid case? Couldn\u0027t think of any...",
+      "parentUuid": "115280f0_ad7de27f",
+      "range": {
+        "startLine": 866,
+        "startChar": 3,
+        "endLine": 866,
+        "endChar": 25
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "902d144e_e75531e0",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:07:06Z",
+      "side": 1,
+      "message": "nitpick: align expressions.",
+      "range": {
+        "startLine": 1065,
+        "startChar": 2,
+        "endLine": 1065,
+        "endChar": 3
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e17b5300_64b430c5",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1080,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:07:06Z",
+      "side": 1,
+      "message": "aling arguments.",
+      "range": {
+        "startLine": 1080,
+        "startChar": 2,
+        "endLine": 1080,
+        "endChar": 3
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81162548_75c0a5d1",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:07:06Z",
+      "side": 1,
+      "message": "nitpick: and here.",
+      "range": {
+        "startLine": 1112,
+        "startChar": 1,
+        "endLine": 1112,
+        "endChar": 2
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1268a9c_d1294869",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1162,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-03T18:07:06Z",
+      "side": 1,
+      "message": "Not related to this change.\nBut can\u0027t think of a case in which the Secure World would be able to use any of these into the SPMD if the SPMC is at EL2. Aside from the FFA_MEM_RETRIEVE_RESP...",
+      "range": {
+        "startLine": 1152,
+        "startChar": 1,
+        "endLine": 1162,
+        "endChar": 22
       },
       "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
