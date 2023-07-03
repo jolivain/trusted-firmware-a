@@ -22,6 +22,213 @@
       },
       "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8e23ba1_8bd1f651",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-07-03T16:21:59Z",
+      "side": 1,
+      "message": "SPMD",
+      "range": {
+        "startLine": 40,
+        "startChar": 34,
+        "endLine": 40,
+        "endChar": 38
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d6eb601_db221a79",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-07-03T16:21:59Z",
+      "side": 1,
+      "message": "nit: remove one space",
+      "range": {
+        "startLine": 255,
+        "startChar": 56,
+        "endLine": 255,
+        "endChar": 57
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12d38af6_ada62a1e",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-07-03T16:21:59Z",
+      "side": 1,
+      "message": "Return true straight rather than goto exit? here and other places in this function?",
+      "range": {
+        "startLine": 257,
+        "startChar": 2,
+        "endLine": 257,
+        "endChar": 12
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c8cdee5_f01a4e3f",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-07-03T16:21:59Z",
+      "side": 1,
+      "message": "nit: remove one space",
+      "range": {
+        "startLine": 268,
+        "startChar": 58,
+        "endLine": 268,
+        "endChar": 59
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac2dc999_38937667",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-07-03T16:21:59Z",
+      "side": 1,
+      "message": "nit: remove one space",
+      "range": {
+        "startLine": 291,
+        "startChar": 35,
+        "endLine": 291,
+        "endChar": 36
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "112113a5_232e25e2",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-07-03T16:21:59Z",
+      "side": 1,
+      "message": "May the TODO be removed as I don\u0027t think we want this support moving forward?",
+      "range": {
+        "startLine": 323,
+        "startChar": 4,
+        "endLine": 323,
+        "endChar": 10
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35fa77de_26a6c1e7",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-07-03T16:21:59Z",
+      "side": 1,
+      "message": "Should this be moved after line 341, and before line 342 for consistency (even it\u0027s a dead end line 345)?",
+      "range": {
+        "startLine": 347,
+        "startChar": 2,
+        "endLine": 347,
+        "endChar": 45
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3578b0d0_7a59dd57",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-07-03T16:21:59Z",
+      "side": 1,
+      "message": "Remove inline?\n\nOr perhaps the intent was to move the function as static inline into a header file?",
+      "range": {
+        "startLine": 379,
+        "startChar": 0,
+        "endLine": 379,
+        "endChar": 6
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "115280f0_ad7de27f",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-07-03T16:21:59Z",
+      "side": 1,
+      "message": "should secure_origin be checked in the if statement above?\nassert would go away in debug builds..",
+      "range": {
+        "startLine": 866,
+        "startChar": 3,
+        "endLine": 866,
+        "endChar": 25
+      },
+      "revId": "44e21e3fb7900332c4ab3557cbbb5d5b6e8321da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
