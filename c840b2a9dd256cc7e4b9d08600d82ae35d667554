@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be9ad255_c3ad8fc0",
+        "filename": "include/lib/psa/rss_crypto_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-03T13:22:18Z",
+      "side": 1,
+      "message": "I suspect we can trim this header file down. I\u0027ll have another look later on to see if I can identify things we can remove.",
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdda04bf_7a428336",
+        "filename": "include/lib/psa/rss_crypto_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-03T13:22:18Z",
+      "side": 1,
+      "message": "This should be RSS_CRYPTO_DEFS_H according to TF-A coding guidelines (no underscores at the beginning / end).",
+      "range": {
+        "startLine": 8,
+        "startChar": 8,
+        "endLine": 8,
+        "endChar": 29
+      },
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13656f3f_f2da402f",
+        "filename": "include/lib/psa/rss_crypto_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-03T13:22:18Z",
+      "side": 1,
+      "message": "Let\u0027s keep only these 3 values and remove others. I prefer we introduce the others if and when we need them.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 35
+      },
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18dc19f6_e4b6000e",
+        "filename": "include/lib/psa/rss_crypto_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-03T13:22:18Z",
+      "side": 1,
+      "message": "I suppose the limitation this comment refers to lies within RSS implementation of psa_aead_encrypt and psa_aead_decrypt? If yes, then I think we should make this explicit. For example:\n\n This type is used to overcome a limitation within RSS firmware in the number of maximum\n IOVECs it can use especially in psa_aead_encrypt and psa_aead_decrypt.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 3
+      },
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1ef5cc1_785dc621",
+        "filename": "include/lib/psa/rss_platform_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-03T13:22:18Z",
+      "side": 1,
+      "message": "I would drop this part of the comment, as it refers to the PSA specification and we\u0027ve chosen to make this an RSS interface instead.",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 35
+      },
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1b1dc93_edb05d6a",
+        "filename": "include/lib/psa/rss_platform_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-03T13:22:18Z",
+      "side": 1,
+      "message": "Same comment here. Either let\u0027s remove it or make this information a lot more specific to what key format RSS actually returns.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 57
+      },
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
