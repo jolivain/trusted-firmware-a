@@ -1012,10 +1012,14 @@ ifeq (${ENABLE_SME_FOR_SWD},1)
 	endif
 endif #(ENABLE_SME_FOR_SWD)
 
+# TODO why does enabling SVE for SWD require NS also? can we remove it
+# 	now that we support sve in both worlds?
 ifeq (${ENABLE_SVE_FOR_SWD},1)
-	ifeq (${ENABLE_SVE_FOR_NS},0)
-                $(error "ENABLE_SVE_FOR_SWD requires ENABLE_SVE_FOR_NS")
-	endif
+    ifeq (${ENABLE_SVE_FOR_NS},0)
+        $(error "ENABLE_SVE_FOR_SWD requires ENABLE_SVE_FOR_NS")
+    else ifeq (${CTX_INCLUDE_SVE_REGS},0)
+        $(error "ENABLE_SVE_FOR_SWD and ENABLE_SVE_FOR_NS together require CTX_INCLUDE_SVE_REGS")
+    endif
 endif #(ENABLE_SVE_FOR_SWD)
 
 # SVE and SME cannot be used with CTX_INCLUDE_FPREGS since secure manager does
@@ -1024,14 +1028,18 @@ ifeq (${CTX_INCLUDE_FPREGS},1)
 	ifneq (${ENABLE_SME_FOR_NS},0)
                 $(error "ENABLE_SME_FOR_NS cannot be used with CTX_INCLUDE_FPREGS")
 	endif
-
-	ifeq (${ENABLE_SVE_FOR_NS},1)
-		# Warning instead of error due to CI dependency on this
-                $(warning "ENABLE_SVE_FOR_NS cannot be used with CTX_INCLUDE_FPREGS")
-                $(warning "Forced ENABLE_SVE_FOR_NS=0")
-		override ENABLE_SVE_FOR_NS	:= 0
-	endif
+    ifeq (${ENABLE_SVE_FOR_NS},1)
+	ifeq (${CTX_INCLUDE_SVE_REGS},0)
+	    $(error "CTX_INCLUDE_FPREGS and ENABLE_SVE_FOR_NS together require CTX_INCLUDE_SVE_REGS")
+        endif
+    endif
 endif #(CTX_INCLUDE_FPREGS)
+
+ifeq (${CTX_INCLUDE_SVE_REGS},1)
+    ifeq (${ENABLE_SVE_FOR_NS},0)
+	$(error "CTX_INCLUDE_SVE_REGS requires ENABLE_SVE_FOR_NS to also be enabled")
+    endif
+endif
 
 ifeq ($(DRTM_SUPPORT),1)
         $(info DRTM_SUPPORT is an experimental feature)
@@ -1169,6 +1177,7 @@ $(eval $(call assert_booleans,\
 	CREATE_KEYS \
 	CTX_INCLUDE_AARCH32_REGS \
 	CTX_INCLUDE_FPREGS \
+	CTX_INCLUDE_SVE_REGS \
 	CTX_INCLUDE_EL2_REGS \
 	CTX_INCLUDE_MPAM_REGS \
 	DEBUG \
@@ -1321,6 +1330,7 @@ $(eval $(call add_defines,\
 	COLD_BOOT_SINGLE_CPU \
 	CTX_INCLUDE_AARCH32_REGS \
 	CTX_INCLUDE_FPREGS \
+	CTX_INCLUDE_SVE_REGS \
 	CTX_INCLUDE_PAUTH_REGS \
 	CTX_INCLUDE_MPAM_REGS \
 	EL3_EXCEPTION_HANDLING \
