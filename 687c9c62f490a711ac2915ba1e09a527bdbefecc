@@ -187,6 +187,30 @@
       },
       "revId": "687c9c62f490a711ac2915ba1e09a527bdbefecc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "596afdb5_c41bdb64",
+        "filename": "plat/intel/soc/common/socfpga_storage.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-04T13:35:13Z",
+      "side": 1,
+      "message": "Just to be clear, I was not suggesting to remove the assertion, but rather to keep it and add an extra return statement for release builds.",
+      "parentUuid": "ec3d839d_c85faf1e",
+      "range": {
+        "startLine": 186,
+        "startChar": 1,
+        "endLine": 186,
+        "endChar": 21
+      },
+      "revId": "687c9c62f490a711ac2915ba1e09a527bdbefecc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
