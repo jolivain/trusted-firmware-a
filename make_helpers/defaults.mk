@@ -63,6 +63,9 @@ CTX_INCLUDE_AARCH32_REGS	:= 1
 # Include FP registers in cpu context
 CTX_INCLUDE_FPREGS		:= 0
 
+# Include SVE registers in cpu context
+CTX_INCLUDE_SVE_REGS		:= 0
+
 # Include pointer authentication (ARMv8.3-PAuth) registers in cpu context. This
 # must be set to 1 if the platform wants to use this feature in the Secure
 # world. It is not needed to use it in the Non-secure world.
