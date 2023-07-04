@@ -16,6 +16,24 @@
       "message": "Support for Neoverse-V1 is in review: \n\nhttps://lore.kernel.org/qemu-devel/81e6bf97-b6c6-e09d-51b5-445bdc3a47bb@linaro.org/T/#t",
       "revId": "214de62c92b2fc4b7edda9d9d637b7a4c0ba1fa5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2935ef9b_3c85ed74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-04T14:11:01Z",
+      "side": 1,
+      "message": "Does this mean we should hold off merging this TF-A patch until the corresponding QEMU patches land upstream?",
+      "parentUuid": "3a54450c_5cc59f26",
+      "revId": "214de62c92b2fc4b7edda9d9d637b7a4c0ba1fa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
