@@ -46,6 +46,30 @@
       },
       "revId": "3703b289745e8ae72fdda9945c8f046bc75c382d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6aadfb9_9ce7ac7e",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-07-04T16:32:52Z",
+      "side": 1,
+      "message": "Yes sure I understand. It seems like the build error I had before does no longer apply so ignore this.\n\nI\u0027m thinking perhaps we could add an FVP platform specific SiP. We know of this use case for routing a legacy normal world SMC (not in FF-A range) to a SP through an EL3 FF-A dispatcher like you did in current change. This would help legacy nwd drivers that have not yet migrated to FF-A. Or nwd SMCs requiring firmware handling in the secure world e.g. TRNG SMCs where the back end is implemented in a SP.",
+      "parentUuid": "f42b92bd_f452dd4a",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 22
+      },
+      "revId": "3703b289745e8ae72fdda9945c8f046bc75c382d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
