@@ -875,6 +875,12 @@ Common build options
    support pre-Armv8.4 platforms (aka not implementing the ``FEAT_SEL2``
    extension).
 
+-  ``ENABLE_SPMD_LP`` : This boolean option is used jointly with the SPM
+   Dispatcher option (``SPD=spmd``). When enabled (1) it indicates supports
+   for logical partitions in EL3, managed by the SPMD as defined in the FF-A
+   1.2 specification. This flag is disabled by default. This is an experimental
+   feature.
+
 -  ``SPM_MM`` : Boolean option to enable the Management Mode (MM)-based Secure
    Partition Manager (SPM) implementation. The default value is ``0``
    (disabled). This option cannot be enabled (``1``) when SPM Dispatcher is
