@@ -154,6 +154,8 @@ void bl2_plat_preload_setup(void)
  */
 void arm_bl2_platform_setup(void)
 {
+/* TODO: this is broken for TC3 */
+#if !(PLAT == tc && TARGET_PLATFORM == 3)
 #if !ENABLE_RME
 	/* Initialize the secure environment */
 	plat_arm_security_setup();
@@ -161,6 +163,9 @@ void arm_bl2_platform_setup(void)
 
 #if defined(PLAT_ARM_MEM_PROT_ADDR)
 	arm_nor_psci_do_static_mem_protect();
+#endif
+#else
+	NOTICE("[HACK]: TrustZone not in TC3! This needs to be replaced properly.\n");
 #endif
 
 #if TRANSFER_LIST
