@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19f8a360_0c1c4aa7",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-07-04T09:10:05Z",
+      "side": 1,
+      "message": "if (ret !\u003d 0) {\nret is an int, not an unsigned int, so it should be checked against 0, not 0U\nThis is the case for several other places",
+      "revId": "8b177955e55469109a141a825a322ff01bb6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7f17fed_a3ba3494",
+        "filename": "drivers/cadence/emmc/cdns_sdmmc.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-07-04T09:10:05Z",
+      "side": 1,
+      "message": "cdns_sdmmc_write_phy_reg returns an int (0 or -ENXIO), and this function cdns_program_phy_reg also returns an int, which is just checked against 0. So I don\u0027t really see the interest of changing ret to -ret here. By the way it is not changed at line 177.",
+      "revId": "8b177955e55469109a141a825a322ff01bb6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96995f6b_292a2274",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-07-04T09:10:05Z",
+      "side": 1,
+      "message": "1U",
+      "revId": "8b177955e55469109a141a825a322ff01bb6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab8d4e67_15926363",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-07-04T09:10:05Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 46,
+        "startChar": 17,
+        "endLine": 46,
+        "endChar": 18
+      },
+      "revId": "8b177955e55469109a141a825a322ff01bb6ea3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
