@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4ab3f0a_363bc387",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-04T13:32:54Z",
+      "side": 1,
+      "message": "I am concerned that this loop might be optimized out by the compiler, which is likely to consider it\u0027s not doing anything useful and remove it. This would defeat the original intent to insert a delay.\n\nI would suggest using the delay_timer driver (see include/drivers/delay_timer.h). Or if this driver is not suitable in your case, doing a computation inside the loop which cannot be optimized out, such as something which involves a volatile-qualified read.",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 3
+      },
+      "revId": "bb8e080196af1ef50e7b7379cd17b88071521066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a1e5c05_6e048c32",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-04T13:32:54Z",
+      "side": 1,
+      "message": "Same concern here, I suggest you check whether this gets optimized out by the compiler.",
+      "range": {
+        "startLine": 450,
+        "startChar": 0,
+        "endLine": 452,
+        "endChar": 3
+      },
+      "revId": "bb8e080196af1ef50e7b7379cd17b88071521066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2206961d_653ad8a9",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-04T13:32:54Z",
+      "side": 1,
+      "message": "And here.",
+      "range": {
+        "startLine": 486,
+        "startChar": 0,
+        "endLine": 488,
+        "endChar": 3
+      },
+      "revId": "bb8e080196af1ef50e7b7379cd17b88071521066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39c4754d_9798dbcd",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-04T13:32:54Z",
+      "side": 1,
+      "message": "And here.",
+      "range": {
+        "startLine": 586,
+        "startChar": 0,
+        "endLine": 588,
+        "endChar": 3
+      },
+      "revId": "bb8e080196af1ef50e7b7379cd17b88071521066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
