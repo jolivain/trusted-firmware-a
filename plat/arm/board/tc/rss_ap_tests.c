@@ -48,7 +48,7 @@ static void run_tests(void)
 	printf("\nAll tests are run.\n");
 }
 
-void run_platform_tests(void)
+int run_platform_tests(void)
 {
 	size_t i;
 
