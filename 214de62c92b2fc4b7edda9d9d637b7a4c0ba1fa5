@@ -52,6 +52,24 @@
       "parentUuid": "2935ef9b_3c85ed74",
       "revId": "214de62c92b2fc4b7edda9d9d637b7a4c0ba1fa5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47cde2bd_c4867633",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-04T15:02:16Z",
+      "side": 1,
+      "message": "\u003e Anyway TF-A with Neoverse-V1 enabled boots fine on QEMU without V1 support.\n\nRight then I think we should merge this patch ASAP. This will kill any risk of patch stall.",
+      "parentUuid": "5dc909d3_29a89894",
+      "revId": "214de62c92b2fc4b7edda9d9d637b7a4c0ba1fa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
