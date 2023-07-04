@@ -16,6 +16,24 @@
       "message": "Hi Harrison, \nIn case of the second apply erratum, since we added NO_GET_CPU_REV, the LR will not be saved to x9.\n\t.if \\_chosen\n\t\tbl\terratum_\\_cpu\\()_\\_id\\()_wa\n\t\tmov\tx30, x9\nIn this case, would the correct value of LR be restored at the end?",
       "revId": "f1b51bb283484b5c5a1fc8e4c91ea15eac7a52ce",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db20c9b6_a1780cb5",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-07-04T16:50:25Z",
+      "side": 1,
+      "message": "Ah - yes, that\u0027s a good point, we have no guarantees that x9 contains the link register when we restore it. We have a couple of options to deal with this: conditionally restore the link register at the end of the errata sequence if `get_rev \u003d\u003d 1`; or, unconditionally cache the register in x9 at the start of the function. What do you think?",
+      "parentUuid": "57e2919a_50089191",
+      "revId": "f1b51bb283484b5c5a1fc8e4c91ea15eac7a52ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
