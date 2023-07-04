@@ -255,6 +255,30 @@
       },
       "revId": "6a31aac00f12d841aeba0564b2573e6f74125dfb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45c505f0_b4405dc8",
+        "filename": "plat/arm/board/tc/rotpk_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-04T08:22:48Z",
+      "side": 1,
+      "message": "Is it possible to print the \u0027Key-IDs\u0027 instead? If these prints are really needed, then array of structs can still make it possible, right? I don\u0027t see any complexity here IMHO, this looks easier to read (also, futuristic additions are easily possible without replicating the code, this may not be true for the current implementation).\n\n struct key_id_info key_ids[] \u003d { \n    {.key_id \u003d RSS_BUILTIN_KEY_ID_HOST_S_ROTPK,  .key_id_name \u003d \"Secure-ROTPK\"},\n    {.key_id \u003d RSS_BUILTIN_KEY_ID_HOST_NS_ROTPK,  .key_id_name \u003d \"NS-ROTPK\"},\n    {.key_id \u003d RSS_BUILTIN_KEY_ID_HOST_CCA_ROTPK,  .key_id_name \u003d \"CCA-ROTPK\"}\n }\n\nIt is the developer\u0027s choice 😊.  I am not strongly against the existing approach",
+      "parentUuid": "eeb0ed9f_a3f316af",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 18
+      },
+      "revId": "6a31aac00f12d841aeba0564b2573e6f74125dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
