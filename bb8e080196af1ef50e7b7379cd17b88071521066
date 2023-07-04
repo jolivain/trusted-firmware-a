@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ec625f2_a4136ff2",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-04T13:37:32Z",
+      "side": 1,
+      "message": "Hi Sandrine, \n\nThanks for the reply. \nThe reason of using dummy loop here is due to our product currently is tested on Simics model. The timer of Simics model is not accurate and when we tested using delay_timer lib api, the poll_status in bridge_enable func is not able to work properly. \n\nThis code will be updated once the actual hardware is available with a working timer.",
+      "parentUuid": "d4ab3f0a_363bc387",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 3
+      },
+      "revId": "bb8e080196af1ef50e7b7379cd17b88071521066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a1e5c05_6e048c32",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-04T13:32:54Z",
       "side": 1,
       "message": "Same concern here, I suggest you check whether this gets optimized out by the compiler.",
+      "range": {
+        "startLine": 450,
+        "startChar": 0,
+        "endLine": 452,
+        "endChar": 3
+      },
+      "revId": "bb8e080196af1ef50e7b7379cd17b88071521066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4203157_1cb149b5",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-04T13:37:32Z",
+      "side": 1,
+      "message": "Hi Sandrine, \n\nThanks for the reply. \nThe reason of using dummy loop here is due to our product currently is tested on Simics model. The timer of Simics model is not accurate and when we tested using delay_timer lib api, the poll_status in bridge_enable func is not able to work properly. \n\nThis code will be updated once the actual hardware is available with a working timer.",
+      "parentUuid": "7a1e5c05_6e048c32",
       "range": {
         "startLine": 450,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5432934_5e9c775f",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-04T13:37:32Z",
+      "side": 1,
+      "message": "Hi Sandrine, \n\nThanks for the reply. \nThe reason of using dummy loop here is due to our product currently is tested on Simics model. The timer of Simics model is not accurate and when we tested using delay_timer lib api, the poll_status in bridge_enable func is not able to work properly. \n\nThis code will be updated once the actual hardware is available with a working timer.",
+      "parentUuid": "2206961d_653ad8a9",
+      "range": {
+        "startLine": 486,
+        "startChar": 0,
+        "endLine": 488,
+        "endChar": 3
+      },
+      "revId": "bb8e080196af1ef50e7b7379cd17b88071521066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39c4754d_9798dbcd",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-07-04T13:32:54Z",
       "side": 1,
       "message": "And here.",
+      "range": {
+        "startLine": 586,
+        "startChar": 0,
+        "endLine": 588,
+        "endChar": 3
+      },
+      "revId": "bb8e080196af1ef50e7b7379cd17b88071521066",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d5f102d_0bb229dc",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-07-04T13:37:32Z",
+      "side": 1,
+      "message": "Hi Sandrine, \n\nThanks for the reply. \nThe reason of using dummy loop here is due to our product currently is tested on Simics model. The timer of Simics model is not accurate and when we tested using delay_timer lib api, the poll_status in bridge_enable func is not able to work properly. \n\nThis code will be updated once the actual hardware is available with a working timer.",
+      "parentUuid": "39c4754d_9798dbcd",
       "range": {
         "startLine": 586,
         "startChar": 0,
