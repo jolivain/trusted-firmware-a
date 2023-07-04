@@ -299,6 +299,47 @@
 #endif
 
 /*******************************************************************************
+ * Constants that allow assembler code to access members of and the 'simd_context'
+ * structure at their correct offsets.
+ ******************************************************************************/
+
+/* CTX_INCLUDE_SIMD_REGS a short cut to check if either of FP regs or SVE regs is enabled. */
+#if CTX_INCLUDE_FPREGS || CTX_INCLUDE_SVE_REGS
+#define CTX_INCLUDE_SIMD_REGS	U(1)
+#else
+#define CTX_INCLUDE_SIMD_REGS	U(0)
+#endif
+
+#define SVE_VECTOR_LEN_BYTES	(SVE_VECTOR_LEN / 8) /* Length of vector in bytes */
+
+#if CTX_INCLUDE_SVE_REGS
+#define SIMD_VECTOR_LEN_BYTES	SVE_VECTOR_LEN_BYTES
+#elif CTX_INCLUDE_FPREGS
+#define SIMD_VECTOR_LEN_BYTES	U(16) /* 128 bits fixed vector length for FPE */
+#endif
+
+#if CTX_INCLUDE_SIMD_REGS
+
+#define CTX_SIMD_VECTORS	U(0)
+/* there are 32 vector registers, each of size SVE_VECTOR_LEN_BYTES */
+#define CTX_SIMD_FPSR		(CTX_SIMD_VECTORS + (32 * SIMD_VECTOR_LEN_BYTES))
+#define CTX_SIMD_FPCR		(CTX_SIMD_FPSR + 8)
+
+#if CTX_INCLUDE_FPREGS && CTX_INCLUDE_AARCH32_REGS
+#define CTX_SIMD_FPEXC32	(CTX_SIMD_FPCR + 8)
+#define CTX_SIMD_PREDICATES	(CTX_SIMD_FPEXC32 + 16)
+#else
+#define CTX_SIMD_PREDICATES      (CTX_SIMD_FPCR + 8)
+#endif /* CTX_INCLUDE_FPREGS && CTX_INCLUDE_AARCH32_REGS */
+
+/* each predicate register is 1/8th the size of a vector register and there are 16
+ * predicate registers
+ */
+#define CTX_SIMD_FFR		(CTX_SIMD_PREDICATES + (16 * (SIMD_VECTOR_LEN_BYTES / 8)))
+
+#endif /* CTX_INCLUDE_SIMD_REGS */
+
+/*******************************************************************************
  * Registers related to CVE-2018-3639
  ******************************************************************************/
 #define CTX_CVE_2018_3639_OFFSET	(CTX_FPREGS_OFFSET + CTX_FPREGS_END)
