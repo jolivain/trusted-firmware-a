@@ -89,6 +89,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "06f9c8da_5aa2e985",
+        "filename": "include/lib/psa/rss_crypto_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-04T09:38:27Z",
+      "side": 1,
+      "message": "Although this pre-processor logic surely makes sense in the context of RSS firmware, since they\u0027ve got many service ids to define, this seems a bit over the top to me for TF-A. AFAIU, we\u0027re only interested in the macro RSS_CRYPTO_EXPORT_PUBLIC_KEY_SID in our case and I don\u0027t foresee us needing more service ids in the future. With this in mind, could we hard-code the value of the RSS_CRYPTO_EXPORT_PUBLIC_KEY_SID macro with a simple #define? This would greatly simplify this header file.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 8
+      },
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d1ef5cc1_785dc621",
         "filename": "include/lib/psa/rss_platform_api.h",
         "patchSetId": 1
