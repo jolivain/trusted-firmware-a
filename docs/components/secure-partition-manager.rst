@@ -775,6 +775,7 @@ The following interfaces are exposed to SPs:
 -  ``FFA_RXTX_MAP``
 -  ``FFA_RXTX_UNMAP``
 -  ``FFA_PARTITION_INFO_GET``
+-  ``FFA_PARTITION_INFO_GET_REGS``
 -  ``FFA_ID_GET``
 -  ``FFA_MSG_WAIT``
 -  ``FFA_MSG_SEND_DIRECT_REQ``
@@ -855,6 +856,19 @@ Partition info get call can originate:
 
 - from SP to SPMC
 - from Hypervisor or OS kernel to SPMC. The request is relayed by the SPMD.
+
+FFA_PARTITION_INFO_GET_REGS
+~~~~~~~~~~~~~~~~~~~~~~
+
+This call can originate:
+
+- from SP to SPMC
+- from SPMC to SPMD
+- from Hypervsior or OS kernel to SPMC. The request is related by the SPMD.
+
+The primary use of this ABI is to return partition information via registers
+as opposed to via RX/TX buffers and is useful in cases where sharing memory is
+difficult.
 
 FFA_ID_GET
 ~~~~~~~~~~
