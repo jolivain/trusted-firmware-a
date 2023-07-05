@@ -34,6 +34,24 @@
       "parentUuid": "57e2919a_50089191",
       "revId": "f1b51bb283484b5c5a1fc8e4c91ea15eac7a52ce",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47c4b4b8_d7b3e3ee",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-07-05T08:07:27Z",
+      "side": 1,
+      "message": "First option should be sufficient, it\u0027s a single mov which doesn\u0027t matter in the grand scheme of things. You don\u0027t need the second as once written, x9 isn\u0027t used by anything else",
+      "parentUuid": "db20c9b6_a1780cb5",
+      "revId": "f1b51bb283484b5c5a1fc8e4c91ea15eac7a52ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
