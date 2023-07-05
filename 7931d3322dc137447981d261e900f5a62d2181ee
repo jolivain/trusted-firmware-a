@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75df2eca_c93d7cd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-05T06:53:28Z",
+      "side": 1,
+      "message": "I had a look at CI results and all looks good. There\u0027s only:\n* a build error for fvp-tc0-tbb build config, which is unrelated and will be addressed separately;\n* the Coverity warnings, which should be addressed by CI patch [1].\n\n[1] https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/21160",
+      "revId": "7931d3322dc137447981d261e900f5a62d2181ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
