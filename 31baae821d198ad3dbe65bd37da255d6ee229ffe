@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98820ef1_6ffc0c79",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-07-05T20:53:15Z",
+      "side": 1,
+      "message": "Can the function declaration be moved to el3_spmd_logical_sp.h?",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 22
+      },
+      "revId": "31baae821d198ad3dbe65bd37da255d6ee229ffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
