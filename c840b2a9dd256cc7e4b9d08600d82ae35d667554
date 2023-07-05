@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c692b042_429e2566",
+        "filename": "include/lib/psa/rss_crypto_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-05T20:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdda04bf_7a428336",
+      "range": {
+        "startLine": 8,
+        "startChar": 8,
+        "endLine": 8,
+        "endChar": 29
+      },
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13656f3f_f2da402f",
@@ -77,6 +101,30 @@
       "writtenOn": "2023-07-03T13:22:18Z",
       "side": 1,
       "message": "I suppose the limitation this comment refers to lies within RSS implementation of psa_aead_encrypt and psa_aead_decrypt? If yes, then I think we should make this explicit. For example:\n\n This type is used to overcome a limitation within RSS firmware in the number of maximum\n IOVECs it can use especially in psa_aead_encrypt and psa_aead_decrypt.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 3
+      },
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a9004db_12c74be3",
+        "filename": "include/lib/psa/rss_crypto_defs.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-05T20:56:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18dc19f6_e4b6000e",
       "range": {
         "startLine": 41,
         "startChar": 0,
@@ -133,6 +181,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07703203_d56c1866",
+        "filename": "include/lib/psa/rss_platform_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-05T20:56:16Z",
+      "side": 1,
+      "message": "Whoops, this whole intro to the function was meant to be changed, adding those changes now.",
+      "parentUuid": "d1ef5cc1_785dc621",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 35
+      },
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1b1dc93_edb05d6a",
@@ -146,6 +218,30 @@
       "writtenOn": "2023-07-03T13:22:18Z",
       "side": 1,
       "message": "Same comment here. Either let\u0027s remove it or make this information a lot more specific to what key format RSS actually returns.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 57
+      },
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "459b4d73_69f2999b",
+        "filename": "include/lib/psa/rss_platform_api.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-05T20:56:16Z",
+      "side": 1,
+      "message": "Same as above",
+      "parentUuid": "f1b1dc93_edb05d6a",
       "range": {
         "startLine": 57,
         "startChar": 0,
@@ -288,6 +384,30 @@
       "side": 1,
       "message": "As \u0027psa_call\u0027 appears many times in this file, I think we could make this macro more generic in order to make it more readable in that case. \nIMHO, using it exclusively for \u0027key read\u0027 is a bit odd.",
       "parentUuid": "d41ed3b8_6cbb326e",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 31
+      },
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa559308_874041bd",
+        "filename": "lib/psa/rss_platform.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-05T20:56:16Z",
+      "side": 1,
+      "message": "Ah yes, I actually meant to remove this since I wasn\u0027t sure how to reuse/make more generic since the other PSA calls differ, so for each case you would need to pass the full PSA call info anyway. I have removed at this time, but could add back with a 1:1 call to the macro.\n\ni.e.\nAPI_DISPATCH(RSS_PLATFORM_SERVICE_HANDLE, RSS_PLATFORM_API_ID_NV_READ,\n             in_vec, 1, out_vec, 1)\n\nAPI_DISPATCH(RSS_CRYPTO_HANDLE, PSA_IPC_CALL,\n             in_vec, IOVEC_LEN(in_vec), out_vec, IOVEC_LEN(out_vec))\n\nNot sure that makes the macro valuable though. Thoughts?",
+      "parentUuid": "a9a31df4_2ee6f8e7",
       "range": {
         "startLine": 14,
         "startChar": 0,
