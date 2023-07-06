@@ -16,6 +16,23 @@
       "message": "My preference would be to share less than that - they *are* two different platforms after all.\nI will send out a counterproposal.",
       "revId": "a31f27859444cef5d615705235a2d7b0206a75c5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2fb5733_fb8a9d43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-07-06T17:00:45Z",
+      "side": 1,
+      "message": "I got info that virt (qemu) lacks FEAT_FGT which I enabled in sbsa-ref (qemu_sbsa) some time ago.\n\nMaybe it is time to revive this patch.",
+      "revId": "a31f27859444cef5d615705235a2d7b0206a75c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
