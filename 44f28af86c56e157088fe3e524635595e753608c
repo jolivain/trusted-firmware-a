@@ -209,6 +209,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "848369ac_496f2a88",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 24
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-06T12:32:50Z",
+      "side": 1,
+      "message": "I do not want to confuse people with use of same storage for other purpose. However for future usage i have introduce a new CTX_NESTED_SCRATCH scratch which has can be used for various purpose",
+      "parentUuid": "785023a1_1e43f8c5",
+      "revId": "44f28af86c56e157088fe3e524635595e753608c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5078531a_431d4e5b",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 24
