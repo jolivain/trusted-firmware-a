@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43d2a1ea_ef9c16a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-07-06T10:16:43Z",
+      "side": 1,
+      "message": "Yes, something like that would clarify that they don\u0027t have to recreate the patch.",
+      "revId": "a81042fdacab08296dd6ccab16dce7a41bb6ef77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e4a3803_44f4ae7c",
@@ -32,6 +49,24 @@
       "side": 1,
       "message": "Perhaps I should mention restore instead of resubmit. Something like below -\n\n \"In such a situation, if the author\u0027s patch(es) is/are abandoned, they can restore\n  their work for review by resolving comments, merge-conflicts, and revising their original \n  submissions.\"\n\nwill that work for you?",
       "parentUuid": "2e4a3803_44f4ae7c",
+      "revId": "a81042fdacab08296dd6ccab16dce7a41bb6ef77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c7d7cd3_56cb7be7",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-07-06T10:16:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "483047d4_730b5f57",
       "revId": "a81042fdacab08296dd6ccab16dce7a41bb6ef77",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
