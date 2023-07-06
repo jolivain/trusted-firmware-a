@@ -308,6 +308,9 @@ $(eval $(call add_define,ARM_PRELOADED_DTB_BASE))
 # QEMU will use the RNDR instruction for the stack protector canary.
 ENABLE_FEAT_RNG			:= 2
 
+# QEMU 7.2+ has support for FGT and Linux needs it enabled to boot on max
+ENABLE_FEAT_FGT 		:= 2
+
 # Later QEMU versions support SME and SVE.
 ifneq (${ARCH},aarch32)
 	ENABLE_SVE_FOR_NS	:= 2
