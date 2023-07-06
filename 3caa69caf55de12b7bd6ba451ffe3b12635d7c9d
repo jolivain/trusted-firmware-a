@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d255e7d_07e61f15",
+        "filename": "lib/cpus/aarch64/cortex_a73.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-07-06T15:55:18Z",
+      "side": 1,
+      "message": "Ack, I have added the change in the cpu_helpers patch.",
+      "parentUuid": "b882e107_aad49595",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 62,
+        "endChar": 21
+      },
+      "revId": "3caa69caf55de12b7bd6ba451ffe3b12635d7c9d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4543904b_fbd92cbe",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-05T21:53:43Z",
       "side": 1,
       "message": "override_vector_table ?",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 17
+      },
+      "revId": "3caa69caf55de12b7bd6ba451ffe3b12635d7c9d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ea0c302_785b2812",
+        "filename": "lib/cpus/aarch64/cortex_a73.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-07-06T15:55:18Z",
+      "side": 1,
+      "message": "Ack, I have added the change in the cpu_helpers patch.",
+      "parentUuid": "4543904b_fbd92cbe",
       "range": {
         "startLine": 90,
         "startChar": 0,
