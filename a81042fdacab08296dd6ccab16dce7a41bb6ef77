@@ -16,6 +16,24 @@
       "message": "People can always restore their abandoned change rater than resubmit which is what you may be referring to.\n\nhttps://gerrit-review.googlesource.com/Documentation/user-review-ui.html#abandon\n\nAbandoned is a state of the patch. It\u0027s still there in the gerrit system but won\u0027t be listed as active for review.\n\nThere us WIP (Work in Progress) as another state but I would advise and general meaning is the patch is temporarily WIP while its being revised. However, I\u0027ve seen people put patches in WIP and forget about them. WIP is meant to be for a matter of hours  or a day to two at most. \n\nUse of Abandoned state is best if a patc is going to be put down for sometime as it can always be restored when you are ready to pick it up again.",
       "revId": "a81042fdacab08296dd6ccab16dce7a41bb6ef77",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "483047d4_730b5f57",
+        "filename": "docs/process/code-review-guidelines.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-06T10:14:36Z",
+      "side": 1,
+      "message": "Perhaps I should mention restore instead of resubmit. Something like below -\n\n \"In such a situation, if the author\u0027s patch(es) is/are abandoned, they can restore\n  their work for review by resolving comments, merge-conflicts, and revising their original \n  submissions.\"\n\nwill that work for you?",
+      "parentUuid": "2e4a3803_44f4ae7c",
+      "revId": "a81042fdacab08296dd6ccab16dce7a41bb6ef77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
