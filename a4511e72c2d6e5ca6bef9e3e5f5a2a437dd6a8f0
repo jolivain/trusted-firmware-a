@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d20dca03_66ec8055",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-07-06T10:36:15Z",
+      "side": 1,
+      "message": "We could use override_vector_table helpermacro here.\n\noverride_vector_table wa_cve_vbar_cortex_x3",
+      "revId": "a4511e72c2d6e5ca6bef9e3e5f5a2a437dd6a8f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
