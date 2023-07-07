@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dde559ba_a0c22aee",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1826,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-07-07T22:57:50Z",
+      "side": 1,
+      "message": "Maybe not in this patch, but should we have the complementary check here to ensure the number of execution contexts specified in the manifest for S-EL0 partitions is set to 0?",
+      "revId": "5a186273dd7189edf88efad18e691926dd0b2ced",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3f65019_4a705459",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-07-07T22:57:50Z",
+      "side": 1,
+      "message": "This need to be declared for both S-EL1 and S-EL0 partitions as it is used in the generic get_ec_index function.",
+      "revId": "5a186273dd7189edf88efad18e691926dd0b2ced",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1ee6919_5355cc2e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-07-07T22:57:50Z",
+      "side": 1,
+      "message": "nit: Maybe just say that S-EL0 SPs only use a single context, and remove at a time as I think it implies it could switch between multiple contexts.",
+      "revId": "5a186273dd7189edf88efad18e691926dd0b2ced",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04b3f28f_b5b437e0",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-07-07T22:57:50Z",
+      "side": 1,
+      "message": "These macros will not be defined for S-EL1 builds, therefore perhaps the contents of the this function should also be behind some #ifdefs?",
+      "revId": "5a186273dd7189edf88efad18e691926dd0b2ced",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
