@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "170fec75_64cd8d71",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_config.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-07-07T22:57:34Z",
+      "side": 1,
+      "message": "S-EL0 SPs are UP partitions so should this be 1?",
+      "revId": "ea4ba16093a04e88fb424004c930a9d7d3072b6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
