@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8981be3b_b158c892",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-07-07T22:58:34Z",
+      "side": 1,
+      "message": "Are power messages for S-EL0 partitions just something that this implementation doesn\u0027t support? \nIf so should be we checking as part of the manifest parsing to ensure they don\u0027t subscribe to power messages rather than silently skipping here?",
+      "revId": "14cc23a7b637084b34850e23c6b2742cf62ca6f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
