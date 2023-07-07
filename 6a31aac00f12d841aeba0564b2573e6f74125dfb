@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b40b83b_03b5d628",
+        "filename": "plat/arm/board/tc/nv_counter_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-07T21:55:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7c58643a_095595fe",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 51
+      },
+      "revId": "6a31aac00f12d841aeba0564b2573e6f74125dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "485d2547_364d762c",
@@ -97,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd72ffa3_96ff2ec0",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-07T21:55:13Z",
+      "side": 1,
+      "message": "Going to make this change in another patch",
+      "parentUuid": "18251022_bfd115bb",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 54
+      },
+      "revId": "6a31aac00f12d841aeba0564b2573e6f74125dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "811c6491_c3bd16d9",
         "filename": "plat/arm/board/tc/rotpk_test.c",
         "patchSetId": 1
@@ -108,6 +156,30 @@
       "writtenOn": "2023-07-03T15:12:10Z",
       "side": 1,
       "message": "Should be \"Arm Limited\" (no \"And Contributors\").",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "6a31aac00f12d841aeba0564b2573e6f74125dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c79aeede_274113c3",
+        "filename": "plat/arm/board/tc/rotpk_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-07T21:55:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "811c6491_c3bd16d9",
       "range": {
         "startLine": 2,
         "startChar": 23,
@@ -143,6 +215,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd76de56_ce604e6f",
+        "filename": "plat/arm/board/tc/rotpk_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-07T21:55:13Z",
+      "side": 1,
+      "message": "For this I would need to potentially make changes on how the pass/fail is logged here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20827/2, I\u0027m thinking if we agree, maybe that should be a separate patch with them unified in this way? Thoughts @Sandrine as well?",
+      "parentUuid": "c8bd45b0_f56154e0",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 11
+      },
+      "revId": "6a31aac00f12d841aeba0564b2573e6f74125dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8f989c16_3350f855",
         "filename": "plat/arm/board/tc/rotpk_test.c",
         "patchSetId": 1
@@ -154,6 +250,30 @@
       "writtenOn": "2023-07-03T15:12:10Z",
       "side": 1,
       "message": "\"export\" sounds misleading to me. How about \"Failed to retrieve Secure ROTPK\"?",
+      "range": {
+        "startLine": 30,
+        "startChar": 20,
+        "endLine": 30,
+        "endChar": 26
+      },
+      "revId": "6a31aac00f12d841aeba0564b2573e6f74125dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78e9c1ee_66ac80ac",
+        "filename": "plat/arm/board/tc/rotpk_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-07T21:55:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f989c16_3350f855",
       "range": {
         "startLine": 30,
         "startChar": 20,
@@ -187,6 +307,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ff85013_912bde8f",
+        "filename": "plat/arm/board/tc/rotpk_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-07T21:55:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "539a7814_bb3011a0",
+      "range": {
+        "startLine": 35,
+        "startChar": 10,
+        "endLine": 35,
+        "endChar": 12
+      },
+      "revId": "6a31aac00f12d841aeba0564b2573e6f74125dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8b3b56d_10593b4f",
@@ -200,6 +344,30 @@
       "writtenOn": "2023-07-03T15:12:10Z",
       "side": 1,
       "message": "Perhaps we should move this code to a helper function, something like print_hex(), and reuse it across all 3 ROTPKs?\n\nAlso, I would get rid of the \u0027\\r\u0027 line ending, this is very unusual in TF-A code. And let\u0027s also downcase the loop variable name (I -\u003e i), this would be more customary for TF-A as well.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 18
+      },
+      "revId": "6a31aac00f12d841aeba0564b2573e6f74125dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01854bf4_e1c85889",
+        "filename": "plat/arm/board/tc/rotpk_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-07T21:55:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8b3b56d_10593b4f",
       "range": {
         "startLine": 35,
         "startChar": 0,
@@ -271,6 +439,30 @@
       "side": 1,
       "message": "Is it possible to print the \u0027Key-IDs\u0027 instead? If these prints are really needed, then array of structs can still make it possible, right? I don\u0027t see any complexity here IMHO, this looks easier to read (also, futuristic additions are easily possible without replicating the code, this may not be true for the current implementation).\n\n struct key_id_info key_ids[] \u003d { \n    {.key_id \u003d RSS_BUILTIN_KEY_ID_HOST_S_ROTPK,  .key_id_name \u003d \"Secure-ROTPK\"},\n    {.key_id \u003d RSS_BUILTIN_KEY_ID_HOST_NS_ROTPK,  .key_id_name \u003d \"NS-ROTPK\"},\n    {.key_id \u003d RSS_BUILTIN_KEY_ID_HOST_CCA_ROTPK,  .key_id_name \u003d \"CCA-ROTPK\"}\n }\n\nIt is the developer\u0027s choice 😊.  I am not strongly against the existing approach",
       "parentUuid": "eeb0ed9f_a3f316af",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 64,
+        "endChar": 18
+      },
+      "revId": "6a31aac00f12d841aeba0564b2573e6f74125dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e069405f_889349d6",
+        "filename": "plat/arm/board/tc/rotpk_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-07T21:55:13Z",
+      "side": 1,
+      "message": "Great suggestion! I\u0027ve made some changes, let me know if what I\u0027ve done makes sense",
+      "parentUuid": "45c505f0_b4405dc8",
       "range": {
         "startLine": 27,
         "startChar": 1,
