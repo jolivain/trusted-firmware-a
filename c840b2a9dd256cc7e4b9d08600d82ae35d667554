@@ -482,6 +482,30 @@
       },
       "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10d3bfef_c317ba7f",
+        "filename": "lib/psa/rss_platform.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-07T10:07:20Z",
+      "side": 1,
+      "message": "Dropping it makes sense IMO but I will leave it to you 😊.",
+      "parentUuid": "fa559308_874041bd",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 31
+      },
+      "revId": "c840b2a9dd256cc7e4b9d08600d82ae35d667554",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
