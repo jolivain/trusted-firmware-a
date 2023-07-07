@@ -16,6 +16,24 @@
       "message": "please do the reordering in a spearate patch. We want to preserve the blame",
       "revId": "9287a0e8e7408a3c2bfb386641913ae28c832cfa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78f515ec_2d80c24e",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-07-07T20:36:46Z",
+      "side": 1,
+      "message": "they is no re-ordering unfortunately there is same errata for 3 different errata numbers and if one of them is enabled same errata is used, thus split them into 3 here though they do the same.\n\nnot sure how we could do them even on re-ordering.\n\n\u003e\u003e func errata_a76_1262606_1275112_1868343_wa",
+      "parentUuid": "66565b1d_26797e74",
+      "revId": "9287a0e8e7408a3c2bfb386641913ae28c832cfa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
