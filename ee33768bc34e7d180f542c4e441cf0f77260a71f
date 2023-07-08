@@ -88,6 +88,24 @@
       "parentUuid": "6cf28251_09543dff",
       "revId": "ee33768bc34e7d180f542c4e441cf0f77260a71f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e76534ee_00fa9346",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001013
+      },
+      "writtenOn": "2023-07-08T14:21:34Z",
+      "side": 1,
+      "message": "thanks for rebasing. i do not mean the ci-run,but the summarize of previous comments as olivier asks for their resolved-state.\n\n\"Can you answer questions from Patchset 2 about ddr init (some information here in uboot-Patch https://patchwork.ozlabs.org/project/uboot/patch/20230225190130.2564462-3-jonas@kwiboo.se/) and SCMI (afaik needed for hdmi output)? will this be added in a follow-up Patch?\"\n\nand copyrights in the patchset are still 2022. i know from linux-kernel they should have actual year for new files, i\u0027m not sure this is the case fot atf source too.",
+      "parentUuid": "ababd2d8_076ec581",
+      "revId": "ee33768bc34e7d180f542c4e441cf0f77260a71f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
