@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "47d190a7_84dbe810",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-08T07:50:51Z",
+      "side": 1,
+      "message": "When FFH is enabled, then EA routing has to be dynamically tested. Each world may have its own EA routing and cannot assume the same across the 3 worlds. \n\nCan test for scr_el3.EA bit and select the path KFH path when EA \u003d\u003d 0.",
+      "range": {
+        "startLine": 142,
+        "startChar": 4,
+        "endLine": 142,
+        "endChar": 26
+      },
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35fd6f59_3f6486ec",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-08T07:50:51Z",
+      "side": 1,
+      "message": "CTX_NESTED_EA_FLAG",
+      "range": {
+        "startLine": 152,
+        "startChar": 42,
+        "endLine": 152,
+        "endChar": 60
+      },
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5fe75a5_dad9add3",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 28
@@ -20,6 +66,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f03421c6_79abc70a",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-08T07:50:51Z",
+      "side": 1,
+      "message": "Need a comment here that the pending SError will trigger at current EL.",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0a1cf76d_33c8f639",
         "filename": "bl31/aarch64/runtime_exceptions.S",
         "patchSetId": 28
@@ -31,6 +94,58 @@
       "writtenOn": "2023-07-07T20:28:22Z",
       "side": 1,
       "message": "I think it is beneficial to reset the nested flag here rather than in the line 157 of handle_pended_async_ea",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc307245_510e05f4",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-08T07:50:51Z",
+      "side": 1,
+      "message": "Agree, the flag can be reset at line 172 here",
+      "parentUuid": "0a1cf76d_33c8f639",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc0cc9b0_cabaa63f",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-08T07:50:51Z",
+      "side": 1,
+      "message": "Need to figure out the double fault handling mechanism in ea_proceed. Looks like that logic is broken.",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b3cd5e9_f4605492",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-08T07:50:51Z",
+      "side": 1,
+      "message": "Only needed for FFH ?",
       "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
