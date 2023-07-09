@@ -124,6 +124,24 @@
       "parentUuid": "e76534ee_00fa9346",
       "revId": "ee33768bc34e7d180f542c4e441cf0f77260a71f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4750879_431e9a81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001013
+      },
+      "writtenOn": "2023-07-09T08:26:56Z",
+      "side": 1,
+      "message": "thx for this info\n\nhow about ddr-settings? afair this required an extra binary \n\nhttps://github.com/rockchip-linux/rkbin/tree/master/bin/rk35\n\nrk3568_ddr_XMHz_vY.Z.bin\n\ni\u0027ve seen the merge for the needed scripts (some of the CI errors) is already started\n\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/20480/1\n\n@olivier is 2022 ok for copyright for new files (we are in 2023)?\n\nif i not miss anything we are on a good way now or am i wrong?",
+      "parentUuid": "a5240861_e164959f",
+      "revId": "ee33768bc34e7d180f542c4e441cf0f77260a71f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
