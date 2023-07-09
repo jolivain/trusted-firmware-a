@@ -70,6 +70,30 @@
       },
       "revId": "3703b289745e8ae72fdda9945c8f046bc75c382d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aa94500_77cc0cba",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-09T23:56:25Z",
+      "side": 1,
+      "message": "ack. i fixed up the code review comments. would you like to see something else in this patch ?",
+      "parentUuid": "a6aadfb9_9ce7ac7e",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 22
+      },
+      "revId": "3703b289745e8ae72fdda9945c8f046bc75c382d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
