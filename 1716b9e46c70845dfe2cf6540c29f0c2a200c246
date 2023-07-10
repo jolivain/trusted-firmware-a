@@ -22,6 +22,29 @@
       },
       "revId": "1716b9e46c70845dfe2cf6540c29f0c2a200c246",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2200ec1e_67c30fba",
+        "filename": "lib/extensions/trf/aarch64/trf.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-07-10T17:36:24Z",
+      "side": 1,
+      "message": "Same thing here:\n\n\u003e Trace prohibited in Secure state unless overridden by the IMPLEMENTATION DEFINED authentication interface.",
+      "range": {
+        "startLine": 26,
+        "startChar": 10,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "1716b9e46c70845dfe2cf6540c29f0c2a200c246",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
