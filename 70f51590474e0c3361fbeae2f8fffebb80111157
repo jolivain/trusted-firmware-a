@@ -16,6 +16,24 @@
       "message": "nit: I feel like the comments like this one are a bit redundant in this wording. Why not \"don\u0027t enable BRBE when RME is present\" or something similar? This whole section is \"enable XXX by default\" so having these lines conveys no further info",
       "revId": "70f51590474e0c3361fbeae2f8fffebb80111157",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7abc0d9b_c52f2f6c",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-07-10T13:27:04Z",
+      "side": 1,
+      "message": "While I agree, this patch just restores the original content (including comments)",
+      "parentUuid": "76317afe_0956b12a",
+      "revId": "70f51590474e0c3361fbeae2f8fffebb80111157",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
