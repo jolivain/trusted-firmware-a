@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9ae6776_571836e7",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-07-10T06:34:32Z",
+      "side": 1,
+      "message": "i\u0027m even more confused now, surely this fits in just the ELR context entry? I get the counter, but why significantly increase the context struct when it\u0027s already uncomfortably big?",
+      "range": {
+        "startLine": 148,
+        "startChar": 42,
+        "endLine": 148,
+        "endChar": 59
+      },
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35fd6f59_3f6486ec",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 28
