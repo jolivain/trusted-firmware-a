@@ -213,6 +213,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4306261a_2352ac2d",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-10T15:38:51Z",
+      "side": 1,
+      "message": "\u003e dsb+isb (non RAS case)\n\nWould be worth checking the Kernel team whether dsb+isb is needed or just dsb is sufficient for the Error sync.",
+      "parentUuid": "bb7573f5_4748d422",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "794419ef_59fd3eef",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 28
