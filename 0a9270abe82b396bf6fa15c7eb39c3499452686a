@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b74e1bc_99c06c92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000738
+      },
+      "writtenOn": "2023-07-10T21:15:23Z",
+      "side": 1,
+      "message": "CI failed with:\n```\n09:22:03 make_helpers/plat_helpers.mk:32: *** \"Error: Invalid platform. The following platforms are available: a3700|a5ds|a70x0|a70x0_amc|a70x0_mochabin|a80x0|a80x0_mcbin|a80x0_puzzle|agilex|arm_fpga|ast2700|axg|corstone1000|corstone700|fvp|fvp_r|fvp_ve|g12a|gxbb|gxl|hikey|hikey960|imx8mm|imx8mn|imx8mp|imx8mq|imx8qm|imx8qx|juno|k3|ls1028ardb|ls1043ardb|ls1046afrwy|ls1046aqds|ls1046ardb|ls1088aqds|ls1088ardb|lx2160aqds|lx2160ardb|lx2162aqds|morello|msm8916|mt8173|mt8183|mt8186|mt8188|mt8192|mt8195|n1sdp|n5x|picopi|poplar|px30|qemu|qemu_sbsa|rcar|rde1edge|rdn1edge|rdn2|rdv1|rdv1mc|rk3288|rk3328|rk3368|rk3399|rpi3|rpi4|rzg|sc7180|sc7280|sgi575|stingray|stm32mp1|stratix10|sun50i_a64|sun50i_h6|sun50i_h616|sun50i_r329|synquacer|t9130|t9130_cex7_eval|tc|tegra|uniphier|versal|versal_net|warp7|zynqmp\".  Stop.\n```\nand:\n```\n09:31:37 make_helpers/plat_helpers.mk:32: *** \"Error: Invalid platform. The following platforms are available: a3700|a5ds|a70x0|a70x0_amc|a70x0_mochabin|a80x0|a80x0_mcbin|a80x0_puzzle|agilex|arm_fpga|ast2700|axg|corstone1000|corstone700|fvp|fvp_r|fvp_ve|g12a|gxbb|gxl|hikey|hikey960|imx8mm|imx8mn|imx8mp|imx8mq|imx8qm|imx8qx|juno|k3|ls1028ardb|ls1043ardb|ls1046afrwy|ls1046aqds|ls1046ardb|ls1088aqds|ls1088ardb|lx2160aqds|lx2160ardb|lx2162aqds|morello|msm8916|mt8173|mt8183|mt8186|mt8188|mt8192|mt8195|n1sdp|n5x|picopi|poplar|px30|qemu|qemu_sbsa|rcar|rde1edge|rdn1edge|rdn2|rdv1|rdv1mc|rk3288|rk3328|rk3368|rk3399|rpi3|rpi4|rzg|sc7180|sc7280|sgi575|stingray|stm32mp1|stratix10|sun50i_a64|sun50i_h6|sun50i_h616|sun50i_r329|synquacer|t9130|t9130_cex7_eval|tc|tegra|uniphier|versal|versal_net|warp7|zynqmp\".  Stop.\n```\n\nThese failures are unrelated; I rebased the patch stack on the master branch.",
+      "revId": "0a9270abe82b396bf6fa15c7eb39c3499452686a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
