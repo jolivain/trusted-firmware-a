@@ -287,6 +287,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a0f001a_56ea49e6",
+        "filename": "plat/arm/board/tc/rotpk_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-10T15:24:51Z",
+      "side": 1,
+      "message": "\u003e Current test returns always \u0027-1\u0027 in case of non-volatile counter / ROTPK test failure, which does not indicate the number of tests failed.\n\nIndeed. The number of failed tests is only for TF-M tests.\n\n\u003e Even if we return proper status (instead of always -1), it should still work, right? It still gives the same error message [1]. i.e. Platform tests failed.\n\nYes, the caller is only checking for 0 or not 0. So returning a status code (different from 0) would not break anything. But we won\u0027t gain much from returning a status code if the caller does not do anything useful with it...\n\n\u003e Perhaps this way we can achieve 2 types of returns for \u0027tc_run_platform_tests\u0027 -\n\u003e \n\u003e 1. In case of run_platform_tests() (multiple tests) it will return the number of failed tests. run_platform_tests() can be enhanced internally to print the status of individual test failures.\n\nI seem to recall that we already get detailed results of each test\u0027s result (pass/fail) on the console. I guess that must be printed by the individual tests then, I would need to check further. We could indeed move that logic to run_platform_tests() to centralize it, but only if we don\u0027t lose useful information printed from within the test function right now.\n\nIn summary: yes in principle, but first let\u0027s double check a few things as mentioned above.\n\n\u003e 2. A single test, such as non-volatile counter or ROTPK, will return an actual failure result.\n\nOK but again the caller has to make use of it then. Otherwise I see no gain.",
+      "parentUuid": "4d165370_2b81b09d",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 11
+      },
+      "revId": "6a31aac00f12d841aeba0564b2573e6f74125dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8f989c16_3350f855",
         "filename": "plat/arm/board/tc/rotpk_test.c",
         "patchSetId": 1
