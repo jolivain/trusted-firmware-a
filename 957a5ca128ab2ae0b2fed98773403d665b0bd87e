@@ -173,6 +173,41 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e67b035c_f1912051",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-10T08:29:55Z",
+      "side": 1,
+      "message": "On looking again , this seems to be in place.",
+      "parentUuid": "cc0cc9b0_cabaa63f",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d784e19d_feaf6867",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-10T08:29:55Z",
+      "side": 1,
+      "message": "So SError will not arrive to EL3 from lower EL for KFH. \n\nIn case of FFH, branching off to to nested EA handling does not seem necessary. also if all the errors are handled in the nested loop, then the `handle_lower_el_async_ea` may not have any error outstanding to handle.\n\nSuggest to do el3_panic for KFH and in case of FFH, just sync and handle_lower_el_async_ea from here.",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b3cd5e9_f4605492",
