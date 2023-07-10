@@ -912,6 +912,20 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 			spmd_build_spmc_message(gpregs,
 						SPMD_FWK_MSG_FFA_VERSION_REQ,
 						input_version);
+			write_ctx_reg(gpregs, CTX_GPREG_X4, SMC_GET_GP(handle, CTX_GPREG_X4));
+			write_ctx_reg(gpregs, CTX_GPREG_X5, SMC_GET_GP(handle, CTX_GPREG_X5));
+			write_ctx_reg(gpregs, CTX_GPREG_X6, SMC_GET_GP(handle, CTX_GPREG_X6));
+			write_ctx_reg(gpregs, CTX_GPREG_X7, SMC_GET_GP(handle, CTX_GPREG_X7));
+			write_ctx_reg(gpregs, CTX_GPREG_X8, SMC_GET_GP(handle, CTX_GPREG_X8));
+			write_ctx_reg(gpregs, CTX_GPREG_X9, SMC_GET_GP(handle, CTX_GPREG_X9));
+			write_ctx_reg(gpregs, CTX_GPREG_X10, SMC_GET_GP(handle, CTX_GPREG_X10));
+			write_ctx_reg(gpregs, CTX_GPREG_X11, SMC_GET_GP(handle, CTX_GPREG_X11));
+			write_ctx_reg(gpregs, CTX_GPREG_X12, SMC_GET_GP(handle, CTX_GPREG_X12));
+			write_ctx_reg(gpregs, CTX_GPREG_X13, SMC_GET_GP(handle, CTX_GPREG_X13));
+			write_ctx_reg(gpregs, CTX_GPREG_X14, SMC_GET_GP(handle, CTX_GPREG_X14));
+			write_ctx_reg(gpregs, CTX_GPREG_X15, SMC_GET_GP(handle, CTX_GPREG_X15));
+			write_ctx_reg(gpregs, CTX_GPREG_X16, SMC_GET_GP(handle, CTX_GPREG_X16));
+			write_ctx_reg(gpregs, CTX_GPREG_X17, SMC_GET_GP(handle, CTX_GPREG_X17));
 
 			rc = spmd_spm_core_sync_entry(ctx);
 
