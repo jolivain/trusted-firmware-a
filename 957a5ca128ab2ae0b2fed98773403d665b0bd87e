@@ -427,6 +427,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2c0fabf_408abaab",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-07-10T17:55:06Z",
+      "side": 1,
+      "message": "In patchset 28, you used cbnz instruction but in patchset 29, it changed to cbz. Is it intentional? I think it influences where the flag is reset.",
+      "parentUuid": "8fc90019_f3c77666",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc0cc9b0_cabaa63f",
         "filename": "bl31/aarch64/runtime_exceptions.S",
         "patchSetId": 28
