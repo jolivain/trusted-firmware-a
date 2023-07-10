@@ -33,6 +33,24 @@
       "message": "STM32MP1 platform is only Cortex-A7, could the \u0027+\u003d\u0027 be replaced with \u0027:\u003d\u0027?\nAnd maybe that could be the same for other platforms, and could avoid confusion.\nBut that would mean changing the doc as well",
       "revId": "c4753dc5abea5f8b23d0315434d5c9a1c54fe280",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3976326f_6818ebd1",
+        "filename": "plat/st/stm32mp1/platform.mk",
+        "patchSetId": 43
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-07-10T12:24:56Z",
+      "side": 1,
+      "message": "I suggest that we swoop back through these files a bit later on to clear up that sort of thing - it\u0027s a bit of a fragile patchset at the moment as it touches a few hot areas that keep running into merge conflicts, and it\u0027s begun to block some other high-priority work.",
+      "parentUuid": "2fcb7c23_da9e8e66",
+      "revId": "c4753dc5abea5f8b23d0315434d5c9a1c54fe280",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
