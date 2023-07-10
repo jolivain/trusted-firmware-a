@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2da84ea3_91f429aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 28
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-10T17:31:48Z",
+      "side": 1,
+      "message": "Will post the doc patch soon.",
+      "parentUuid": "4665b908_25a65f03",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "47d190a7_84dbe810",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 28
@@ -31,6 +49,30 @@
       "writtenOn": "2023-07-08T07:50:51Z",
       "side": 1,
       "message": "When FFH is enabled, then EA routing has to be dynamically tested. Each world may have its own EA routing and cannot assume the same across the 3 worlds. \n\nCan test for scr_el3.EA bit and select the path KFH path when EA \u003d\u003d 0.",
+      "range": {
+        "startLine": 142,
+        "startChar": 4,
+        "endLine": 142,
+        "endChar": 26
+      },
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e15b25f6_813f7519",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-10T17:31:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47d190a7_84dbe810",
       "range": {
         "startLine": 142,
         "startChar": 4,
@@ -136,6 +178,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20a6cf47_7efdf9f4",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-10T17:31:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "835cb521_5ade2a0e",
+      "range": {
+        "startLine": 148,
+        "startChar": 42,
+        "endLine": 148,
+        "endChar": 59
+      },
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35fd6f59_3f6486ec",
@@ -159,6 +225,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1f7444c_598b16a4",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-10T17:31:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35fd6f59_3f6486ec",
+      "range": {
+        "startLine": 152,
+        "startChar": 42,
+        "endLine": 152,
+        "endChar": 60
+      },
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5fe75a5_dad9add3",
@@ -172,6 +262,24 @@
       "writtenOn": "2023-07-07T20:28:22Z",
       "side": 1,
       "message": "Is a \"bl pauth_load_bl31_apiakey\" not needed here?",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5db8a8ea_bb116608",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-10T17:31:48Z",
+      "side": 1,
+      "message": "Yes, thanks for pointing out.",
+      "parentUuid": "a5fe75a5_dad9add3",
       "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -231,6 +339,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f53d81a_eec8c285",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-10T17:31:48Z",
+      "side": 1,
+      "message": "Clearing PSTATE.A bit here is to be able to take EAs. Considering there is already a pending error so as soon as this bit is cleared (ISB ensures that the instruction will be in program order, no? ) it will take the exception. IOW this piece of code is not about syncing errors.",
+      "parentUuid": "4306261a_2352ac2d",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "794419ef_59fd3eef",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 28
@@ -277,6 +403,24 @@
       "side": 1,
       "message": "Agree, the flag can be reset at line 172 here",
       "parentUuid": "0a1cf76d_33c8f639",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fc90019_f3c77666",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-10T17:31:48Z",
+      "side": 1,
+      "message": "I can do it, but though of setting and clearing this flag at same place. Moving it to line #272 would not bring any benefit as the first instruction after exception return is to clear this flag.\n\nBringing it before delegate_async_ea is troublesome because, execution after this is considered as EL3 execution and if an SError comes it should be treated as an SError from EL3 and hence call plat_handle_el3_ea.\n\nI don\u0027t have strong preference for clearing this flag but if you guys think then i can move it here.",
+      "parentUuid": "cc307245_510e05f4",
       "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -369,6 +513,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e92bceb8_537f29f9",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-10T17:31:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8255a309_a79089d7",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b3cd5e9_f4605492",
@@ -382,6 +544,24 @@
       "writtenOn": "2023-07-08T07:50:51Z",
       "side": 1,
       "message": "Only needed for FFH ?",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ab20cf9_a1aa4252",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-10T17:31:48Z",
+      "side": 1,
+      "message": "I am using this for counter in KFH",
+      "parentUuid": "9b3cd5e9_f4605492",
       "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
