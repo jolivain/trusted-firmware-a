@@ -39,6 +39,30 @@
       },
       "revId": "b463da41028a52b2963ec7301752b40d6f887a87",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e1de430_da5cf04b",
+        "filename": "plat/st/stm32mp1/stm32mp1_scmi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2023-07-10T08:04:42Z",
+      "side": 1,
+      "message": "I forgot to thank you for the fix in plat_scmi_clock_rates_array() to properly consider start index vlaue.",
+      "parentUuid": "b8cf8430_bed73313",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 264,
+        "endChar": 27
+      },
+      "revId": "b463da41028a52b2963ec7301752b40d6f887a87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
