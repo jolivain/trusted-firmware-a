@@ -239,6 +239,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "69332d0a_478a10f6",
+        "filename": "plat/arm/board/tc/rotpk_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-10T06:21:23Z",
+      "side": 1,
+      "message": "Manish\u0027 suggestion would make sense to me for the non-volatile counter / ROTPK tests, which are just a single test. But it does not fly for run_platform_tests(), which runs multiple tests and cannot possibly return a status code that makes sense in the event where several tests failed. Today, run_platform_tests() rather returns the number of failed tests [1], which I think is more appropriate.\n\nWhat we could do is, we could print the status code in each of the specific test function (nv_counter_test()/rotpk_test()) if we see value in this information.\n\n[1] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20826/2/plat/arm/board/tc/rss_ap_tests.c",
+      "parentUuid": "bd76de56_ce604e6f",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 11
+      },
+      "revId": "6a31aac00f12d841aeba0564b2573e6f74125dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8f989c16_3350f855",
         "filename": "plat/arm/board/tc/rotpk_test.c",
         "patchSetId": 1
