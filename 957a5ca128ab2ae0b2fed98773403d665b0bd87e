@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "835cb521_5ade2a0e",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-10T15:29:38Z",
+      "side": 1,
+      "message": "ah, yes, forgot that we are triggering the Serror at current EL after the isb(). Ok.",
+      "parentUuid": "9f861fcf_3089d4b8",
+      "range": {
+        "startLine": 148,
+        "startChar": 42,
+        "endLine": 148,
+        "endChar": 59
+      },
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35fd6f59_3f6486ec",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 28
@@ -165,6 +189,24 @@
       "writtenOn": "2023-07-08T07:50:51Z",
       "side": 1,
       "message": "Need a comment here that the pending SError will trigger at current EL.",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb7573f5_4748d422",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-10T15:29:38Z",
+      "side": 1,
+      "message": "Thinking further, actually PSTATE updates are self synchronizing, so isb is not particularly not needed for the A bit update.\n\nSince the intention is to synchronize flags to isolate the error to a particular world, it can be argued that dsb+isb (non RAS case), and esb (RAS case) is more useful. \n\nThen , since this is error path, optimizing with esb may not be useful. Can keep it simple with dsb + isb.",
+      "parentUuid": "f03421c6_79abc70a",
       "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -287,6 +329,24 @@
       "side": 1,
       "message": "In patch revision #13, i had similar inline comments. I can add the code but it will make vector entry complicated (which we agreed to keep simple)\n\n\"Serror from lower EL is only expected if scr_el3.EA is set. It is fatal and unexpected, if it reaches here for lower EL which has not configured SErrors to be routed to EL3. We don\u0027t need special handling here but it will eventually panic and die.\"",
       "parentUuid": "d784e19d_feaf6867",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8255a309_a79089d7",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-10T15:29:38Z",
+      "side": 1,
+      "message": "Yes, the logic then was to reflect ack to lower EL for both FFH and KFH. \n\nNow since this is separated, reflection logic for KFH is wrong and should panic at EL3.\n\nfor FFH, as mentioned, the nested handling may handle the error and on return to the main path , there may not be any error to handle which may be unexpected for platform handler.",
+      "parentUuid": "7a064ea4_9405348c",
       "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
