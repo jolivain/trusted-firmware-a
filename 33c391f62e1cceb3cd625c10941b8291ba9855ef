@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "842ef0dd_3e422b3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-10T06:03:19Z",
+      "side": 1,
+      "message": "Thanks for the patch. LGTM, I just have one suggestion of improvement, see my inline comment.",
+      "revId": "33c391f62e1cceb3cd625c10941b8291ba9855ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b2b9814_1ee059e2",
+        "filename": "plat/intel/soc/agilex5/bl2_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-10T06:03:19Z",
+      "side": 1,
+      "message": "I think (not 100%sure) that the C standard allows you to initialize an entire structure to 0 like so:\n\n handoff reverse_handoff_ptr \u003d { 0 };\n\nThis would be more concise and also more future-proof if the structure layout evolves over time.",
+      "range": {
+        "startLine": 71,
+        "startChar": 1,
+        "endLine": 75,
+        "endChar": 26
+      },
+      "revId": "33c391f62e1cceb3cd625c10941b8291ba9855ef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
