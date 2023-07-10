@@ -263,6 +263,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d165370_2b81b09d",
+        "filename": "plat/arm/board/tc/rotpk_test.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-10T08:43:48Z",
+      "side": 1,
+      "message": "Current test returns always \u0027-1\u0027 in case of non-volatile counter / ROTPK test failure, which does not indicate the number of tests failed. Even if we return proper status (instead of always -1), it should still work, right? It still gives the same error message [1]. i.e. Platform tests failed.\n\nPerhaps this way we can achieve 2 types of returns for \u0027tc_run_platform_tests\u0027 -\n\n1. In case of run_platform_tests() (multiple tests) it will return the number of failed tests. run_platform_tests() can be enhanced internally to print the status of individual test failures.\n2. A single test, such as non-volatile counter or ROTPK, will return an actual failure result.\n\nThoughts?\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21773/4/plat/arm/board/tc/tc_bl31_setup.c#68",
+      "parentUuid": "69332d0a_478a10f6",
+      "range": {
+        "startLine": 24,
+        "startChar": 9,
+        "endLine": 24,
+        "endChar": 11
+      },
+      "revId": "6a31aac00f12d841aeba0564b2573e6f74125dfb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8f989c16_3350f855",
         "filename": "plat/arm/board/tc/rotpk_test.c",
         "patchSetId": 1
