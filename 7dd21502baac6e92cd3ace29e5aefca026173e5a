@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f4bb401_41aeadf6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-07-10T23:01:38Z",
+      "side": 1,
+      "message": "LGTM, only one small comment.",
+      "revId": "7dd21502baac6e92cd3ace29e5aefca026173e5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51a7d1ff_3bc3a939",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-07-10T23:01:38Z",
+      "side": 1,
+      "message": "nit: APPLY_AT_RESET instead of 1",
+      "revId": "7dd21502baac6e92cd3ace29e5aefca026173e5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
