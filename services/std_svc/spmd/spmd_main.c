@@ -687,28 +687,29 @@ uint64_t spmd_smc_switch_state(uint32_t smc_fid,
 	 * preserved, so the SPMD passes through these registers and expects the
 	 * SPMC to save and restore (potentially also modify) them.
 	 */
-	SMC_RET18(cm_get_context(secure_state_out), smc_fid, x1, x2, x3, x4,
-			SMC_GET_GP(handle, CTX_GPREG_X5),
-			SMC_GET_GP(handle, CTX_GPREG_X6),
-			SMC_GET_GP(handle, CTX_GPREG_X7),
-			SMC_GET_GP(handle, CTX_GPREG_X8),
-			SMC_GET_GP(handle, CTX_GPREG_X9),
-			SMC_GET_GP(handle, CTX_GPREG_X10),
-			SMC_GET_GP(handle, CTX_GPREG_X11),
-			SMC_GET_GP(handle, CTX_GPREG_X12),
-			SMC_GET_GP(handle, CTX_GPREG_X13),
-			SMC_GET_GP(handle, CTX_GPREG_X14),
-			SMC_GET_GP(handle, CTX_GPREG_X15),
-			SMC_GET_GP(handle, CTX_GPREG_X16),
-			SMC_GET_GP(handle, CTX_GPREG_X17)
-			);
+	if (SMC_GET_GP(handle, CTX_GPREG_X0) == FFA_PARTITION_INFO_GET_REGS_SMC64 && (secure_state_out == NON_SECURE)) {
+		SMC_RET18(cm_get_context(secure_state_out), smc_fid, x1, x2, x3, x4,
+				SMC_GET_GP(handle, CTX_GPREG_X5),
+				SMC_GET_GP(handle, CTX_GPREG_X6),
+				SMC_GET_GP(handle, CTX_GPREG_X7),
+				SMC_GET_GP(handle, CTX_GPREG_X8),
+				SMC_GET_GP(handle, CTX_GPREG_X9),
+				SMC_GET_GP(handle, CTX_GPREG_X10),
+				SMC_GET_GP(handle, CTX_GPREG_X11),
+				SMC_GET_GP(handle, CTX_GPREG_X12),
+				SMC_GET_GP(handle, CTX_GPREG_X13),
+				SMC_GET_GP(handle, CTX_GPREG_X14),
+				SMC_GET_GP(handle, CTX_GPREG_X15),
+				SMC_GET_GP(handle, CTX_GPREG_X16),
+				SMC_GET_GP(handle, CTX_GPREG_X17)
+		);
+	}
+#endif
 
-#else
 	SMC_RET8(cm_get_context(secure_state_out), smc_fid, x1, x2, x3, x4,
 			SMC_GET_GP(handle, CTX_GPREG_X5),
 			SMC_GET_GP(handle, CTX_GPREG_X6),
 			SMC_GET_GP(handle, CTX_GPREG_X7));
-#endif
 }
 
 /*******************************************************************************
