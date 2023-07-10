@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "553368d3_aa755114",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-10T08:32:43Z",
+      "side": 1,
+      "message": "yes, it does seem we need to only stash the ESR_EL3. Any re-entry back to NS (like SDEI) will take care to preserve the elr_el3, spsr_el3 before re-entry and then restore it back on SDEI complete.",
+      "parentUuid": "c9ae6776_571836e7",
+      "range": {
+        "startLine": 148,
+        "startChar": 42,
+        "endLine": 148,
+        "endChar": 59
+      },
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35fd6f59_3f6486ec",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 28
