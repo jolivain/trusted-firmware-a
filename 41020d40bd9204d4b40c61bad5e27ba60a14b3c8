@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eac7cc16_f9539e5b",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-07-11T17:16:01Z",
+      "side": 1,
+      "message": "From the SDEN looks like this erratum is not affected by the interconnect. We can keep the \ndescription the same as 2388450 I think.",
+      "revId": "41020d40bd9204d4b40c61bad5e27ba60a14b3c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8756e19_58091a43",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-07-11T17:16:01Z",
+      "side": 1,
+      "message": "Here the max array size is 16, so we will have to increase the array size in the cpu_errata_info.h file.",
+      "revId": "41020d40bd9204d4b40c61bad5e27ba60a14b3c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
