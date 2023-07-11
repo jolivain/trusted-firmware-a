@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe1d234b_b3aa2a4a",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-11T21:17:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c1f581f_3f4ff923",
+      "range": {
+        "startLine": 338,
+        "startChar": 5,
+        "endLine": 338,
+        "endChar": 12
+      },
+      "revId": "36502cd0514cab4649b63a65100bc6696a636b05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ad333c4_6a6a3381",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-11T16:51:17Z",
       "side": 1,
       "message": "nitpick: FFA_PARTITION_INFO_GET",
+      "range": {
+        "startLine": 852,
+        "startChar": 13,
+        "endLine": 852,
+        "endChar": 31
+      },
+      "revId": "36502cd0514cab4649b63a65100bc6696a636b05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e05be62a_8abb2458",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 852,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-11T21:17:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ad333c4_6a6a3381",
       "range": {
         "startLine": 852,
         "startChar": 13,
