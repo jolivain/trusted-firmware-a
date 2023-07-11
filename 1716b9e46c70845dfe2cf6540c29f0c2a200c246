@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4119bc9_8bfa6093",
+        "filename": "lib/extensions/trf/aarch32/trf.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-07-11T07:30:33Z",
+      "side": 1,
+      "message": "we\u0027re not disabling it for NS, I\u0027m not sure what you mean. I didn\u0027t copy paste this one as it was already reworded so I thought a minimal change was better.",
+      "parentUuid": "d735e9a2_80c4fc95",
+      "range": {
+        "startLine": 17,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 35
+      },
+      "revId": "1716b9e46c70845dfe2cf6540c29f0c2a200c246",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2200ec1e_67c30fba",
         "filename": "lib/extensions/trf/aarch64/trf.c",
         "patchSetId": 46
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-10T17:36:24Z",
       "side": 1,
       "message": "Same thing here:\n\n\u003e Trace prohibited in Secure state unless overridden by the IMPLEMENTATION DEFINED authentication interface.",
+      "range": {
+        "startLine": 26,
+        "startChar": 10,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "1716b9e46c70845dfe2cf6540c29f0c2a200c246",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbb5c2a2_f8c91cb2",
+        "filename": "lib/extensions/trf/aarch64/trf.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-07-11T07:30:33Z",
+      "side": 1,
+      "message": "These blurbs are copy pastes from the Arm ARM as much as possible, this one is verbatim. For the STE bit, the important part is the prohibition in secure state so that\u0027s what\u0027s mentioned.",
+      "parentUuid": "2200ec1e_67c30fba",
       "range": {
         "startLine": 26,
         "startChar": 10,
