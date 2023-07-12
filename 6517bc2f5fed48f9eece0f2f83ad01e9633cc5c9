@@ -64,6 +64,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b038bb88_679071a1",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-12T19:03:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f26b1019_c9baa449",
+      "range": {
+        "startLine": 104,
+        "startChar": 20,
+        "endLine": 104,
+        "endChar": 26
+      },
+      "revId": "6517bc2f5fed48f9eece0f2f83ad01e9633cc5c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b1493c7_fec09b87",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-12T19:03:56Z",
+      "side": 1,
+      "message": "not sure why this is required, but i\u0027ve done it anyway.",
+      "parentUuid": "81c5b7b6_87aee9bc",
+      "range": {
+        "startLine": 104,
+        "startChar": 7,
+        "endLine": 104,
+        "endChar": 8
+      },
+      "revId": "6517bc2f5fed48f9eece0f2f83ad01e9633cc5c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a24c849f_65dda759",
@@ -100,6 +148,54 @@
       "writtenOn": "2023-07-12T13:09:52Z",
       "side": 1,
       "message": "Apply suffix u/U and all to all expressions below.",
+      "range": {
+        "startLine": 310,
+        "startChar": 32,
+        "endLine": 310,
+        "endChar": 38
+      },
+      "revId": "6517bc2f5fed48f9eece0f2f83ad01e9633cc5c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be33c2c7_55eafc4a",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-12T19:03:56Z",
+      "side": 1,
+      "message": "i dont understand the need for explicit cast. The compiler will complain given we have warnings, so cast mostly makes the code less readable..\nI\u0027ve done it anyway..",
+      "parentUuid": "a24c849f_65dda759",
+      "range": {
+        "startLine": 310,
+        "startChar": 25,
+        "endLine": 310,
+        "endChar": 29
+      },
+      "revId": "6517bc2f5fed48f9eece0f2f83ad01e9633cc5c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4d1eb8e_9fcda9e7",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-12T19:03:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28d305e7_9a1257a6",
       "range": {
         "startLine": 310,
         "startChar": 32,
