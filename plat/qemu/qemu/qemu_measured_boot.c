@@ -118,3 +118,8 @@ int plat_mboot_measure_image(unsigned int image_id, image_info_t *image_data)
 
 	return 0;
 }
+
+int plat_mboot_measure_key(void *pk_oid, void *pk_ptr, unsigned int pk_len)
+{
+	return 0;
+}
