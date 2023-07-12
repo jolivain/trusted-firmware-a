@@ -71,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36e19ac9_82efc699",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-12T19:15:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "498a7d10_795b31cd",
+      "range": {
+        "startLine": 423,
+        "startChar": 22,
+        "endLine": 423,
+        "endChar": 32
+      },
+      "revId": "702bab25c4cf1a341d85ab5160657be3e20cf19b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1dd5ab48_10dccd85",
@@ -84,6 +108,30 @@
       "writtenOn": "2023-07-12T13:19:38Z",
       "side": 1,
       "message": "explicit cast and u/U suffix in the literal.\nSame line below.",
+      "range": {
+        "startLine": 433,
+        "startChar": 14,
+        "endLine": 433,
+        "endChar": 15
+      },
+      "revId": "702bab25c4cf1a341d85ab5160657be3e20cf19b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e34cc92_2a57d39e",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-12T19:15:50Z",
+      "side": 1,
+      "message": "can you elaborate the need for explicit type cast? and is it there in the coding guideline? I think this is unnecessary and complicates readability. The implicit type conversions and warnings on the compilers will catch and issues with any type cast.\nI\u0027ve done this, but i think this is not the right approach to our coding style.",
+      "parentUuid": "1dd5ab48_10dccd85",
       "range": {
         "startLine": 433,
         "startChar": 14,
@@ -117,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10a5308c_062e23bb",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-12T19:15:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76dbe97b_91698757",
+      "range": {
+        "startLine": 468,
+        "startChar": 54,
+        "endLine": 468,
+        "endChar": 60
+      },
+      "revId": "702bab25c4cf1a341d85ab5160657be3e20cf19b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ceabbd9a_092a56d0",
@@ -140,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8085aea3_de501627",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-12T19:15:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ceabbd9a_092a56d0",
+      "range": {
+        "startLine": 469,
+        "startChar": 13,
+        "endLine": 469,
+        "endChar": 21
+      },
+      "revId": "702bab25c4cf1a341d85ab5160657be3e20cf19b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a40d115_08e7a8c2",
@@ -153,6 +249,30 @@
       "writtenOn": "2023-07-12T13:19:38Z",
       "side": 1,
       "message": "cast",
+      "range": {
+        "startLine": 470,
+        "startChar": 13,
+        "endLine": 470,
+        "endChar": 20
+      },
+      "revId": "702bab25c4cf1a341d85ab5160657be3e20cf19b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "853a77db_c5ad7bab",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-12T19:15:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a40d115_08e7a8c2",
       "range": {
         "startLine": 470,
         "startChar": 13,
