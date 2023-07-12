@@ -17,6 +17,8 @@
 #include <drivers/console.h>
 #include <drivers/fwu/fwu.h>
 #include <lib/extensions/pauth.h>
+#include <lib/pmf/pmf.h>
+#include <lib/runtime_instr.h>
 #include <plat/common/platform.h>
 
 #include "bl2_private.h"
@@ -25,6 +27,12 @@
 #define NEXT_IMAGE	"BL31"
 #else
 #define NEXT_IMAGE	"BL32"
+#endif
+
+#if ENABLE_PMF
+#define NUM_OF_TIMESTAMPS	2
+#define LOCAL_TIME_STAMP_ID 0
+	PMF_REGISTER_SERVICE(boot_marker_bl2, PMF_PSCI_STAT_SVC_ID, NUME_OF_TIMESTAMPS, PMF_DUMP_ENABLE);
 #endif
 
 #if RESET_TO_BL2
@@ -83,6 +91,10 @@ void bl2_main(void)
 
 	NOTICE("BL2: %s\n", version_string);
 	NOTICE("BL2: %s\n", build_message);
+
+#if ENABLE_PMF
+	PMF_CAPTURE_TIMESTAMP(boot_marker_bl2, LOCAL_TIME_STAMP_ID, PMF_NO_CACHE_MAINT);
+#endif
 
 	/* Perform remaining generic architectural setup in S-EL1 */
 	bl2_arch_setup();
@@ -148,4 +160,10 @@ void bl2_main(void)
 
 	bl2_run_next_image(next_bl_ep_info);
 #endif /* BL2_RUNS_AT_EL3 */
+
+#if ENABLE_PMF
+	PMF_CAPTURE_TIMESTAMP(boot_marker_bl2, LOCAL_TIME_STAMP_ID, PMF_NO_CACHE_MAINT);
+#endif
+
+
 }
