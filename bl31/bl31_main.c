@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -18,6 +18,7 @@
 #include <common/runtime_svc.h>
 #include <drivers/console.h>
 #include <lib/el3_runtime/context_mgmt.h>
+#include <lib/bootmarker_capture.h>
 #include <lib/pmf/pmf.h>
 #include <lib/runtime_instr.h>
 #include <plat/common/platform.h>
@@ -25,7 +26,13 @@
 
 #if ENABLE_RUNTIME_INSTRUMENTATION
 PMF_REGISTER_SERVICE_SMC(rt_instr_svc, PMF_RT_INSTR_SVC_ID,
-	RT_INSTR_TOTAL_IDS, PMF_STORE_ENABLE)
+RT_INSTR_TOTAL_IDS, PMF_STORE_ENABLE)
+#endif
+
+#if ENABLE_RUNTIME_INSTRUMENTATION
+//#include <lib/bootmarker_capture.h>
+PMF_REGISTER_SERVICE(bl_svc, PMF_RT_INSTR_SVC_ID,
+	BL_TOTAL_IDS, PMF_DUMP_ENABLE)
 #endif
 
 /*******************************************************************************
@@ -123,6 +130,10 @@ void bl31_main(void)
 	detect_arch_features();
 #endif /* FEATURE_DETECTION */
 
+#if ENABLE_RUNTIME_INSTRUMENTATION
+PMF_CAPTURE_TIMESTAMP(bl_svc, BL31_ENTRY, PMF_CACHE_MAINT);
+#endif
+
 #ifdef SUPPORT_UNKNOWN_MPID
 	if (unsupported_mpid_flag == 0) {
 		NOTICE("Unsupported MPID detected!\n");
@@ -193,6 +204,10 @@ void bl31_main(void)
 	bl31_prepare_next_image_entry();
 
 	console_flush();
+
+#if ENABLE_RUNTIME_INSTRUMENTATION
+PMF_CAPTURE_TIMESTAMP(bl_svc, BL31_EXIT, PMF_CACHE_MAINT);
+#endif
 
 	/*
 	 * Perform any platform specific runtime setup prior to cold boot exit
