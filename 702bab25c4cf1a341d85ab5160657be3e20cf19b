@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16dac738_a973211d",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-12T13:19:38Z",
+      "side": 1,
+      "message": "Should it be advertised that the LSP can initiate Direct message requests?\n\nThis relates to table 6.2 of FF-A v1.2 specification, bits 3 and 10.",
+      "range": {
+        "startLine": 254,
+        "startChar": 30,
+        "endLine": 254,
+        "endChar": 40
+      },
+      "revId": "702bab25c4cf1a341d85ab5160657be3e20cf19b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "498a7d10_795b31cd",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-12T13:19:38Z",
+      "side": 1,
+      "message": "add the u/U suffix. And to remaining literals below.",
+      "range": {
+        "startLine": 423,
+        "startChar": 22,
+        "endLine": 423,
+        "endChar": 32
+      },
+      "revId": "702bab25c4cf1a341d85ab5160657be3e20cf19b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dd5ab48_10dccd85",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-12T13:19:38Z",
+      "side": 1,
+      "message": "explicit cast and u/U suffix in the literal.\nSame line below.",
+      "range": {
+        "startLine": 433,
+        "startChar": 14,
+        "endLine": 433,
+        "endChar": 15
+      },
+      "revId": "702bab25c4cf1a341d85ab5160657be3e20cf19b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76dbe97b_91698757",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-12T13:19:38Z",
+      "side": 1,
+      "message": "u/U",
+      "range": {
+        "startLine": 468,
+        "startChar": 54,
+        "endLine": 468,
+        "endChar": 60
+      },
+      "revId": "702bab25c4cf1a341d85ab5160657be3e20cf19b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ceabbd9a_092a56d0",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-12T13:19:38Z",
+      "side": 1,
+      "message": "explicit upcast",
+      "range": {
+        "startLine": 469,
+        "startChar": 13,
+        "endLine": 469,
+        "endChar": 21
+      },
+      "revId": "702bab25c4cf1a341d85ab5160657be3e20cf19b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a40d115_08e7a8c2",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-12T13:19:38Z",
+      "side": 1,
+      "message": "cast",
+      "range": {
+        "startLine": 470,
+        "startChar": 13,
+        "endLine": 470,
+        "endChar": 20
+      },
+      "revId": "702bab25c4cf1a341d85ab5160657be3e20cf19b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
