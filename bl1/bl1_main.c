@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -18,6 +18,7 @@
 #include <drivers/auth/crypto_mod.h>
 #include <drivers/console.h>
 #include <lib/cpus/errata.h>
+#include <lib/pmf/pmf.h>
 #include <lib/utils.h>
 #include <plat/common/platform.h>
 #include <smccc_helpers.h>
@@ -29,6 +30,11 @@ static void bl1_load_bl2(void);
 
 #if ENABLE_PAUTH
 uint64_t bl1_apiakey[2];
+#endif
+
+#if ENABLE_RUNTIME_INSTRUMENTATION
+#include <lib/bootmarker_capture.h>
+	PMF_REGISTER_SERVICE(bl_svc, PMF_RT_INSTR_SVC_ID, BL_TOTAL_IDS, PMF_DUMP_ENABLE)
 #endif
 
 /*******************************************************************************
@@ -89,6 +95,10 @@ void bl1_main(void)
 	INFO("BL1: RAM %p - %p\n", (void *)BL1_RAM_BASE, (void *)BL1_RAM_LIMIT);
 
 	print_errata_status();
+
+#if ENABLE_RUNTIME_INSTRUMENTATION
+	PMF_CAPTURE_TIMESTAMP(bl_svc, BL1_ENTRY, PMF_CACHE_MAINT);
+#endif
 
 #if ENABLE_ASSERTIONS
 	u_register_t val;
@@ -157,6 +167,9 @@ void bl1_main(void)
 	bl1_prepare_next_image(image_id);
 
 	console_flush();
+#if ENABLE_RUNTIME_INSTRUMENTATION
+	PMF_CAPTURE_TIMESTAMP(bl_svc, BL1_EXIT, PMF_CACHE_MAINT);
+#endif
 }
 
 /*******************************************************************************

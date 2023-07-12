@@ -17,6 +17,7 @@
 #include <drivers/console.h>
 #include <drivers/fwu/fwu.h>
 #include <lib/extensions/pauth.h>
+#include <lib/pmf/pmf.h>
 #include <plat/common/platform.h>
 
 #include "bl2_private.h"
@@ -25,6 +26,11 @@
 #define NEXT_IMAGE	"BL31"
 #else
 #define NEXT_IMAGE	"BL32"
+#endif
+
+#if ENABLE_RUNTIME_INSTRUMENTATION
+#include <lib/bootmarker_capture.h>
+	PMF_REGISTER_SERVICE(bl_svc, PMF_RT_INSTR_SVC_ID, BL_TOTAL_IDS, PMF_DUMP_ENABLE);
 #endif
 
 #if RESET_TO_BL2
@@ -84,6 +90,10 @@ void bl2_main(void)
 	NOTICE("BL2: %s\n", version_string);
 	NOTICE("BL2: %s\n", build_message);
 
+#if ENABLE_RUNTIME_INSTRUMENTATION
+	PMF_CAPTURE_TIMESTAMP(bl_svc, BL2_ENTRY, PMF_CACHE_MAINT);
+#endif
+
 	/* Perform remaining generic architectural setup in S-EL1 */
 	bl2_arch_setup();
 
@@ -127,6 +137,10 @@ void bl2_main(void)
 	pauth_disable_el1();
 #endif /* ENABLE_PAUTH */
 
+#if ENABLE_RUNTIME_INSTRUMENTATION
+ 	PMF_CAPTURE_TIMESTAMP(bl_svc, BL2_EXIT, PMF_CACHE_MAINT);
+#endif
+
 	/*
 	 * Run next BL image via an SMC to BL1. Information on how to pass
 	 * control to the BL32 (if present) and BL33 software images will
@@ -148,4 +162,7 @@ void bl2_main(void)
 
 	bl2_run_next_image(next_bl_ep_info);
 #endif /* BL2_RUNS_AT_EL3 */
+
+
+
 }
