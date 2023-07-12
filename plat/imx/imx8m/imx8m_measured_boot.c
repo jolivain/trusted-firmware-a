@@ -79,3 +79,8 @@ void bl2_plat_mboot_finish(void)
 
 	dump_event_log((uint8_t *)event_log, event_log_cur_size);
 }
+
+int plat_mboot_measure_key(void *pk_oid, void *pk_ptr, unsigned int pk_len)
+{
+	return 0;
+}
