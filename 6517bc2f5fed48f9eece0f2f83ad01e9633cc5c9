@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3881c3c3_a7d132e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-12T13:09:52Z",
+      "side": 1,
+      "message": "small comments left.",
+      "revId": "6517bc2f5fed48f9eece0f2f83ad01e9633cc5c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f26b1019_c9baa449",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-12T13:09:52Z",
+      "side": 1,
+      "message": "nitpick: Apply suffix u/U. And all masks below.",
+      "range": {
+        "startLine": 104,
+        "startChar": 20,
+        "endLine": 104,
+        "endChar": 26
+      },
+      "revId": "6517bc2f5fed48f9eece0f2f83ad01e9633cc5c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81c5b7b6_87aee9bc",
+        "filename": "include/services/el3_spmd_logical_sp.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-12T13:09:52Z",
+      "side": 1,
+      "message": "nitpick: explicit cast to uint16_t. And remaining expressions bellow.",
+      "range": {
+        "startLine": 104,
+        "startChar": 7,
+        "endLine": 104,
+        "endChar": 8
+      },
+      "revId": "6517bc2f5fed48f9eece0f2f83ad01e9633cc5c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a24c849f_65dda759",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-12T13:09:52Z",
+      "side": 1,
+      "message": "explicit cast?\nAnd to all expressions below?",
+      "range": {
+        "startLine": 310,
+        "startChar": 25,
+        "endLine": 310,
+        "endChar": 29
+      },
+      "revId": "6517bc2f5fed48f9eece0f2f83ad01e9633cc5c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28d305e7_9a1257a6",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-12T13:09:52Z",
+      "side": 1,
+      "message": "Apply suffix u/U and all to all expressions below.",
+      "range": {
+        "startLine": 310,
+        "startChar": 32,
+        "endLine": 310,
+        "endChar": 38
+      },
+      "revId": "6517bc2f5fed48f9eece0f2f83ad01e9633cc5c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
