@@ -39,6 +39,30 @@
       },
       "revId": "f75c77b4a466bdee0f30397a22c86b81dc1e9179",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2149f2c_90c93003",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 915,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-07-12T16:45:27Z",
+      "side": 1,
+      "message": "Let me check again but at first glance I was worried about breaking spmd_cpu_off_handler which uses the same helper.\nIt seems to me the code paths for power management and FFA_VERSION forwarding may have different semantics, and the way spmd_build_spmc_message is factored is independent from the said code paths.",
+      "parentUuid": "ab050166_4653a29f",
+      "range": {
+        "startLine": 915,
+        "startChar": 0,
+        "endLine": 915,
+        "endChar": 73
+      },
+      "revId": "f75c77b4a466bdee0f30397a22c86b81dc1e9179",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
