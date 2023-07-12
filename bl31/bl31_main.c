@@ -28,6 +28,10 @@ PMF_REGISTER_SERVICE_SMC(rt_instr_svc, PMF_RT_INSTR_SVC_ID,
 	RT_INSTR_TOTAL_IDS, PMF_STORE_ENABLE)
 #endif
 
+#if ENABLE_PMF
+PMF_REGISTER_SERVICE(boot_marker_bl3,PMF_PSCI_STAT_SVC_ID,2,PMF_DUMP_ENABLE);
+#endif
+
 /*******************************************************************************
  * This function pointer is used to initialise the BL32 image. It's initialized
  * by SPD calling bl31_register_bl32_init after setting up all things necessary
@@ -123,6 +127,11 @@ void bl31_main(void)
 	detect_arch_features();
 #endif /* FEATURE_DETECTION */
 
+#if ENABLE_PMF
+	INFO("BL3: Entry\n");
+	PMF_CAPTURE_TIMESTAMP(boot_marker_bl3, 0, PMF_NO_CACHE_MAINT);
+#endif
+
 #ifdef SUPPORT_UNKNOWN_MPID
 	if (unsupported_mpid_flag == 0) {
 		NOTICE("Unsupported MPID detected!\n");
@@ -194,6 +203,10 @@ void bl31_main(void)
 
 	console_flush();
 
+#if ENABLE_PMF
+	INFO("BL3: Exit\n");
+	PMF_CAPTURE_TIMESTAMP(boot_marker_bl3, 0, PMF_NO_CACHE_MAINT);
+#endif
 	/*
 	 * Perform any platform specific runtime setup prior to cold boot exit
 	 * from BL31

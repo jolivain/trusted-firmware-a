@@ -18,7 +18,9 @@
 #include <drivers/auth/crypto_mod.h>
 #include <drivers/console.h>
 #include <lib/cpus/errata.h>
+#include <lib/pmf/pmf.h>
 #include <lib/utils.h>
+#include <lib/runtime_instr.h>
 #include <plat/common/platform.h>
 #include <smccc_helpers.h>
 #include <tools_share/uuid.h>
@@ -29,6 +31,10 @@ static void bl1_load_bl2(void);
 
 #if ENABLE_PAUTH
 uint64_t bl1_apiakey[2];
+#endif
+
+#if ENABLE_PMF
+	PMF_REGISTER_SERVICE(boot_marker_bl1, PMF_PSCI_STAT_SVC_ID, 2, PMF_DUMP_ENABLE);
 #endif
 
 /*******************************************************************************
@@ -89,6 +95,11 @@ void bl1_main(void)
 	INFO("BL1: RAM %p - %p\n", (void *)BL1_RAM_BASE, (void *)BL1_RAM_LIMIT);
 
 	print_errata_status();
+
+#if ENABLE_PMF
+	INFO("BL1: Entry\n");
+	PMF_CAPTURE_TIMESTAMP(boot_marker_bl1,0, PMF_NO_CACHE_MAINT);
+#endif
 
 #if ENABLE_ASSERTIONS
 	u_register_t val;
@@ -157,6 +168,11 @@ void bl1_main(void)
 	bl1_prepare_next_image(image_id);
 
 	console_flush();
+
+#if ENABLE_PMF
+	INFO("BL1: Exit\n");
+	PMF_CAPTURE_TIMESTAMP(boot_marker_bl1, 0, PMF_NO_CACHE_MAINT);
+#endif
 }
 
 /*******************************************************************************
