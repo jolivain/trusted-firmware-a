@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "888d3c35_81e86968",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2023-07-13T10:51:00Z",
+      "side": 1,
+      "message": "Well, there were other coverity issues reported as well, but not related to the xlat library so I did not fix those.\n\nI think removing the \"some\" as you suggest should be right. The message specifies that this patch only affects the xlat library.",
+      "parentUuid": "d9acc357_4005a11d",
+      "range": {
+        "startLine": 7,
+        "startChar": 14,
+        "endLine": 7,
+        "endChar": 20
+      },
+      "revId": "26d36c148a47f41065da37df7b6ec99a676fe7ed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e8dd92f_ff21cdf3",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-07-12T21:05:32Z",
       "side": 1,
       "message": "nit: It would be good if you mention the coverity error in the commit message. In this case it is:\n\n ** CID 394601:  Integer handling issues  (NO_EFFECT)\n /lib/xlat_tables_v2/aarch64/xlat_tables_arch.c: 30 in \n xlat_arch_is_granule_size_supported()",
+      "revId": "26d36c148a47f41065da37df7b6ec99a676fe7ed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "125c6dd3_a808a3c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2023-07-13T10:51:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e8dd92f_ff21cdf3",
       "revId": "26d36c148a47f41065da37df7b6ec99a676fe7ed",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
