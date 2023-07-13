@@ -36,7 +36,7 @@ static int string_print(const char *str)
 }
 
 static int unsigned_num_print(unsigned long long int unum, unsigned int radix,
-			      char padc, int padn)
+			      char padc, int padn, bool uppercase)
 {
 	/* Just need enough space to store 64 bit decimal integer */
 	char num_buf[20];
@@ -53,6 +53,8 @@ static int unsigned_num_print(unsigned long long int unum, unsigned int radix,
 		rem = unum % radix;
 		if (rem < 0xa)
 			num_buf[i] = '0' + rem;
+		else if (uppercase)
+			num_buf[i] = 'A' + (rem - 0xa);
 		else
 			num_buf[i] = 'a' + (rem - 0xa);
 		i++;
@@ -105,8 +107,10 @@ int vprintf(const char *fmt, va_list args)
 	char padc = '\0'; /* Padding character */
 	int padn; /* Number of characters to pad */
 	int count = 0; /* Number of printed characters */
+	bool uppercase; /* Print characters in uppercase */
 
 	while (*fmt != '\0') {
+		uppercase = false;
 		l_count = 0;
 		padn = 0;
 
@@ -129,7 +133,7 @@ loop:
 					unum = (unsigned long long int)num;
 
 				count += unsigned_num_print(unum, 10,
-							    padc, padn);
+							    padc, padn, uppercase);
 				break;
 			case 'c':
 				(void)putchar(va_arg(args, int));
@@ -147,12 +151,15 @@ loop:
 				}
 
 				count += unsigned_num_print(unum, 16,
-							    padc, padn);
+							    padc, padn, uppercase);
 				break;
+			case 'X':
+				uppercase = true;
+				// fall through
 			case 'x':
 				unum = get_unum_va_args(args, l_count);
 				count += unsigned_num_print(unum, 16,
-							    padc, padn);
+							    padc, padn, uppercase);
 				break;
 			case 'z':
 				if (sizeof(size_t) == 8U)
@@ -167,7 +174,7 @@ loop:
 			case 'u':
 				unum = get_unum_va_args(args, l_count);
 				count += unsigned_num_print(unum, 10,
-							    padc, padn);
+							    padc, padn, uppercase);
 				break;
 			case '0':
 				padc = '0';
