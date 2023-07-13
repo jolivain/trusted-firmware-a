@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72b15f3d_7db41f71",
+        "filename": "plat/qemu/qemu/qemu_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-07-13T07:34:17Z",
+      "side": 1,
+      "message": "This function obviously does nothing useful for QEMU and we have the same again in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21947/2 for IMX.\n\nHow about adding this dummy function as a weak function in some common place? That way it would only need to be added to platforms that need a real implementation.",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 1
+      },
+      "revId": "0d0796f6c4f75f3832e2e1bd8536027f98ffeac1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
