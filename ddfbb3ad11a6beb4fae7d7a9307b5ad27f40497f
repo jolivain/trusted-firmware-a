@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88705723_c72b5e9b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-13T10:05:43Z",
+      "side": 1,
+      "message": "Thanks, and that\u0027s why I added this line \"ROPTPK that do not have their own key identifier\" I think putting \"Subject Public Key\" makes it more clear. Done!",
+      "parentUuid": "58214164_6854a1d0",
+      "range": {
+        "startLine": 9,
+        "startChar": 51,
+        "endLine": 9,
+        "endChar": 52
+      },
+      "revId": "ddfbb3ad11a6beb4fae7d7a9307b5ad27f40497f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d9cdfd9_74fe73a2",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-07-13T06:04:49Z",
       "side": 1,
       "message": "Need to add a header guard in this file.",
+      "revId": "ddfbb3ad11a6beb4fae7d7a9307b5ad27f40497f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b36e91e5_770c554e",
+        "filename": "include/tools_share/zero_oid.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-13T10:05:43Z",
+      "side": 1,
+      "message": "Oops, not sure how I missed this Done!",
+      "parentUuid": "3d9cdfd9_74fe73a2",
       "revId": "ddfbb3ad11a6beb4fae7d7a9307b5ad27f40497f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
