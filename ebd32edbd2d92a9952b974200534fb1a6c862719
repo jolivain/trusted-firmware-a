@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fccfcf2a_6030c141",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-13T11:57:26Z",
+      "side": 1,
+      "message": "Consider adding a debug assertion here:\n\n assert(metadata_ptr-\u003ekey_oid !\u003d NULL);",
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d7e0da1_910e91a5",
         "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
         "patchSetId": 2
@@ -214,6 +231,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96f23586_3f2ff512",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-13T11:57:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9763e7b2_e17f8c80",
+      "range": {
+        "startLine": 109,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 19
+      },
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08e0f334_1ed79daa",
@@ -262,6 +303,24 @@
       "writtenOn": "2023-07-13T10:05:51Z",
       "side": 1,
       "message": "Done",
+      "parentUuid": "6de85dda_77388bc7",
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27025e83_403bef27",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-13T11:57:26Z",
+      "side": 1,
+      "message": "Ack",
       "parentUuid": "6de85dda_77388bc7",
       "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -388,6 +447,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a93c51c_cdf44e34",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-13T11:57:26Z",
+      "side": 1,
+      "message": "\u003e \u003e I still think we need a debug assertion to check whether metadata_ptr-\u003esigner_id \u003d\u003d 0 before we call memcpy() on it.\n\u003e This hardening check will be helpful in detecting invalid cases where rss_mboot_set_signer_id() gets called twice with the same key OID to avoid possible overwriting (with bad data or same data) in release build case also right? or you still think that we treat this as a programming error and go ahead with assertion.\n\nLet\u0027s try to list all possible reasons why this check might fail.\n\n1. The signer_id field was not properly initialized to 0 prior to the first call to rss_mboot_set_signer_id(). That\u0027s a bug in the platform layer. BTW we should list this assumption explicitly in the porting guide. We could also add a debug assertion in rss_measured_boot_init() to check that each entry\u0027s signer id field is all zeroes.\n\n2. rss_mboot_set_signer_id() is called a second time with the same OID but a different key. We cannot have 2 distinct keys with the same OID, this is a bug.\n\nI can\u0027t think of any other use cases. Both of them cannot happen under normal circumstances so we should use debug assertions for them.",
+      "parentUuid": "cd2401db_9ffc3479",
+      "range": {
+        "startLine": 132,
+        "startChar": 16,
+        "endLine": 132,
+        "endChar": 40
+      },
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "66c87e0f_cfe445c1",
         "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
         "patchSetId": 2
@@ -423,6 +506,30 @@
       "side": 1,
       "message": "This is not only case where this function returns 0. There are 2 cases -\n\n1. If image is not present in metadata array then skip and return success\n2. Compute hash and fill the signer_id details and return success.\n\nAs the flow is fairly clear, adding a comment here is not required IMHO",
       "parentUuid": "66c87e0f_cfe445c1",
+      "range": {
+        "startLine": 144,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 10
+      },
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b362b17_5e0f3f40",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-13T11:57:26Z",
+      "side": 1,
+      "message": "Good point, thanks. I had missed the second case.\n\nI still think we should add a comment to clarify that this is the intended behaviour and not something we overlooked, though. Perhaps we should add one above the loop, like:\n\n /*\n  * Do an exhaustive search over the platform metadata to find all images whose\n  * key OID matches the one passed in argument.\n  *\n  * Note that it is not an error if do not get any matches.\n  * The platform may decide not to measure all of the images in the system.\n  */",
+      "parentUuid": "03c25002_fc5163dc",
       "range": {
         "startLine": 144,
         "startChar": 1,
