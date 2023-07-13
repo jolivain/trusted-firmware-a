@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d7e0da1_910e91a5",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-13T06:27:26Z",
+      "side": 1,
+      "message": "const uint8_t *",
+      "range": {
+        "startLine": 95,
+        "startChar": 20,
+        "endLine": 95,
+        "endChar": 30
+      },
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baf752b0_06672813",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-13T06:27:26Z",
+      "side": 1,
+      "message": "const void *pk_oid",
+      "range": {
+        "startLine": 107,
+        "startChar": 7,
+        "endLine": 107,
+        "endChar": 19
+      },
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c76f8076_350259af",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-13T06:27:26Z",
+      "side": 1,
+      "message": "Why changing the type here? I think size_t was more appropriate.",
+      "range": {
+        "startLine": 109,
+        "startChar": 7,
+        "endLine": 109,
+        "endChar": 19
+      },
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08e0f334_1ed79daa",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-13T06:27:26Z",
+      "side": 1,
+      "message": "I think lines 132-137 deserve a comment.",
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32c85dd7_12b3be6a",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-13T06:27:26Z",
+      "side": 1,
+      "message": "Should this rather be metadata_ptr-\u003epk_oid?",
+      "range": {
+        "startLine": 132,
+        "startChar": 16,
+        "endLine": 132,
+        "endChar": 40
+      },
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66c87e0f_cfe445c1",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-13T06:27:26Z",
+      "side": 1,
+      "message": "I would keep the original comment:\n\n /* If image is not present in metadata array then skip */",
+      "range": {
+        "startLine": 144,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 10
+      },
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
