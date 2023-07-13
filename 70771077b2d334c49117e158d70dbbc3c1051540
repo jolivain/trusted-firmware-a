@@ -16,6 +16,23 @@
       "message": "I believe CI +1 should generate the release docs",
       "revId": "70771077b2d334c49117e158d70dbbc3c1051540",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0deb2ce0_6143c81e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-07-13T21:04:51Z",
+      "side": 1,
+      "message": "Regarding the static check failure in cpu_errata_info.h, verified that the include checker does not process well with include directives inside preprocessor conditions, so manually adding a V+1.",
+      "revId": "70771077b2d334c49117e158d70dbbc3c1051540",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
