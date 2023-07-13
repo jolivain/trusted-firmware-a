@@ -22,6 +22,30 @@
       },
       "revId": "2974ad87b8561706176e113e2ec4457c919cb99a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0f9f9a6_c00f53e3",
+        "filename": "lib/xlat_tables_v2/aarch64/xlat_tables_arch.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2023-07-13T17:03:20Z",
+      "side": 1,
+      "message": "I already tried it: http://ci.trustedfirmware.org/job/tf-a-eclair-delta/TF_CONFIG\u003dfvp-default,label\u003ddocker-tf-a-eclair/1952/artifact/\n\nThat\u0027s why I added the return statement at the end, which caused the unreachable code warning",
+      "parentUuid": "12f52bd4_4193255c",
+      "range": {
+        "startLine": 38,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 2
+      },
+      "revId": "2974ad87b8561706176e113e2ec4457c919cb99a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
