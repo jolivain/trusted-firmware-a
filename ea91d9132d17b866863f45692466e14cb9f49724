@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6fef9bd_58f47c16",
+        "filename": "lib/libc/printf.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-13T20:14:25Z",
+      "side": 1,
+      "message": "To comply with coding guidelines [1], please provide braces around \u0027else if\u0027 statements. Let\u0027s fix this throughout the file wherever needed since it is not followed consistently in this file. \n\n[1]: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "range": {
+        "startLine": 56,
+        "startChar": 20,
+        "endLine": 56,
+        "endChar": 21
+      },
+      "revId": "ea91d9132d17b866863f45692466e14cb9f49724",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
