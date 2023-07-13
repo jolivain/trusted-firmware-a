@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6394939d_3c250cb6",
+        "filename": "lib/xlat_tables_v2/aarch64/xlat_tables_arch.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-07-13T15:36:55Z",
+      "side": 1,
+      "message": "Eclair MISRA complains execution cannot reach line 46. If you can remove this, I think the static checkers will be happy.",
+      "range": {
+        "startLine": 38,
+        "startChar": 3,
+        "endLine": 40,
+        "endChar": 2
+      },
+      "revId": "abae1888b7ecf72948caeb18190ea432ba559103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
