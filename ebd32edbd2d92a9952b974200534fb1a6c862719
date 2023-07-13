@@ -250,6 +250,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "300fbc3c_b55ebc21",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-13T08:35:56Z",
+      "side": 1,
+      "message": "Sorry, that\u0027s not what I meant, I\u0027ll try to explain again.\n\nI still think we need a debug assertion to check whether metadata_ptr-\u003esigner_id \u003d\u003d 0 before we call memcpy() on it.\n\nI also think we should make sure that metadata_ptr-\u003esigner_id is originally initialized to 0 before we even call rss_mboot_set_signer_id() for the first time. And this should already be the case, since fvp_rss_mboot_metadata is statically declared and initialized. So there\u0027s no code to add for that.\n\nIs that clearer?",
+      "parentUuid": "2f309b02_0572373d",
+      "range": {
+        "startLine": 132,
+        "startChar": 16,
+        "endLine": 132,
+        "endChar": 40
+      },
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "66c87e0f_cfe445c1",
         "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
         "patchSetId": 2
