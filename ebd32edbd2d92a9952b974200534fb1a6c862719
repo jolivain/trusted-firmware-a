@@ -274,6 +274,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cd2401db_9ffc3479",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-13T08:59:46Z",
+      "side": 1,
+      "message": "\u003e Sorry, that\u0027s not what I meant, I\u0027ll try to explain again.\nAh, I think misunderstood that comment. It was for initialising the signer_id and that is not needed.\n\u003e I still think we need a debug assertion to check whether metadata_ptr-\u003esigner_id \u003d\u003d 0 before we call memcpy() on it.\nThis hardening check will be helpful in detecting invalid cases where rss_mboot_set_signer_id() gets called twice with the same key OID to avoid possible overwriting (with bad data or same data) in release build case also right? or you still think that we treat this as a programming error and go ahead with assertion.\n\u003e I also think we should make sure that metadata_ptr-\u003esigner_id is originally initialized to 0 before we even call rss_mboot_set_signer_id() for the first time\nYes, I think we should rely compile time initialization.",
+      "parentUuid": "300fbc3c_b55ebc21",
+      "range": {
+        "startLine": 132,
+        "startChar": 16,
+        "endLine": 132,
+        "endChar": 40
+      },
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "66c87e0f_cfe445c1",
         "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
         "patchSetId": 2
@@ -285,6 +309,30 @@
       "writtenOn": "2023-07-13T06:27:26Z",
       "side": 1,
       "message": "I would keep the original comment:\n\n /* If image is not present in metadata array then skip */",
+      "range": {
+        "startLine": 144,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 10
+      },
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03c25002_fc5163dc",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-13T08:59:46Z",
+      "side": 1,
+      "message": "This is not only case where this function returns 0. There are 2 cases -\n\n1. If image is not present in metadata array then skip and return success\n2. Compute hash and fill the signer_id details and return success.\n\nAs the flow is fairly clear, adding a comment here is not required IMHO",
+      "parentUuid": "66c87e0f_cfe445c1",
       "range": {
         "startLine": 144,
         "startChar": 1,
