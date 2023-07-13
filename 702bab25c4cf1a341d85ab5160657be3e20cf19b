@@ -142,6 +142,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3957ed0b_bfcbbb62",
+        "filename": "services/std_svc/spmd/spmd_logical_sp.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-13T13:24:49Z",
+      "side": 1,
+      "message": "I think it reads better (I think this might be a personal preference). It leaves clear to anyone reading the expression that the left operand is not of the same type as the target value. I guess between unsigned types this is harmless, but still. Strongly typed languages never permit casts to be done implicitly.\n\nFor this case, the MISRA rule 10.3 also applies. It says \"The value of an expression shall not be assigned to an object with a narrower essential type or of a different essential type category\". TF-A must comply with MISRA.\nIn the examples of non-compliant code, it shows the assignment:\nu16a \u003d u32a;",
+      "parentUuid": "0e34cc92_2a57d39e",
+      "range": {
+        "startLine": 433,
+        "startChar": 14,
+        "endLine": 433,
+        "endChar": 15
+      },
+      "revId": "702bab25c4cf1a341d85ab5160657be3e20cf19b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76dbe97b_91698757",
