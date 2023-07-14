@@ -196,12 +196,14 @@ Arm® Ethos™-N NPU driver
 
 JTAG DCC console driver
 ^^^^^^^^^^^^^^^^^^^^^^^
-:M: Michal Simek <michal.simek@amd.com>
-:G: `michalsimek`_
-:M: Venkatesh Yadav Abbarapu <venkatesh.abbarapu@amd.com>
-:G: `venkatesh`_
-:F: drivers/arm/dcc/
-:F: include/drivers/arm/dcc.h
+:|M|: Michal Simek <michal.simek@amd.com>
+:|G|: `michalsimek`_
+:|M|: Amit Nagal <amit.nagal@amd.com>
+:|G|: `amit-nagal`_
+:|M|: Akshay Belsare <akshay.belsare@amd.com>
+:|G|: `Akshay-Belsare`_
+:|F|: drivers/arm/dcc/
+:|F|: include/drivers/arm/dcc.h
 
 Power State Coordination Interface (PSCI)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -795,8 +797,10 @@ Xilinx platform port
 ^^^^^^^^^^^^^^^^^^^^
 :|M|: Michal Simek <michal.simek@amd.com>
 :|G|: `michalsimek`_
-:|M|: Venkatesh Yadav Abbarapu <venkatesh.abbarapu@amd.com>
-:|G|: `venkatesh`_
+:|M|: Amit Nagal <amit.nagal@amd.com>
+:|G|: `amit-nagal`_
+:|M|: Akshay Belsare <akshay.belsare@amd.com>
+:|G|: `Akshay-Belsare`_
 :|F|: docs/plat/xilinx\*
 :|F|: plat/xilinx/
 
