@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80d691d3_b07972e2",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-07-14T17:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eac7cc16_f9539e5b",
+      "revId": "41020d40bd9204d4b40c61bad5e27ba60a14b3c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8756e19_58091a43",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-11T17:16:01Z",
       "side": 1,
       "message": "Here the max array size is 16, so we will have to increase the array size in the cpu_errata_info.h file.",
+      "revId": "41020d40bd9204d4b40c61bad5e27ba60a14b3c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e41cffaa_829a16ab",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-07-14T17:11:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8756e19_58091a43",
       "revId": "41020d40bd9204d4b40c61bad5e27ba60a14b3c8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
