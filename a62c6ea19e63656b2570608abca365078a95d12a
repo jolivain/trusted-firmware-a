@@ -34,6 +34,24 @@
       "parentUuid": "4793b844_a4498ec7",
       "revId": "a62c6ea19e63656b2570608abca365078a95d12a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89e5828e_f196aa28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-14T16:23:32Z",
+      "side": 1,
+      "message": "Ack, Thanks for CI patches.\n\nThe idea is when we set same topic names for CI and TF-A patches they get tested together if we run CI and also gets merged together. COnsidering the change is in generic part i will do a CI+2 and see what the results are.",
+      "parentUuid": "40ca295e_bd77fabb",
+      "revId": "a62c6ea19e63656b2570608abca365078a95d12a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
