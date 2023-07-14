@@ -34,6 +34,24 @@
       "parentUuid": "8981be3b_b158c892",
       "revId": "14cc23a7b637084b34850e23c6b2742cf62ca6f8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bffdf88f_7ed60c94",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-07-14T22:57:58Z",
+      "side": 1,
+      "message": "Sure, I agree we\u0027ll still need these callbacks. What I was trying to say was that would it make sense instead of, or perhaps as well as, returning nothing as part of this function, should we add the relevant checks to prevent this helper function from being called for a S-EL0 partition.\n\nI.e. IIUC the flow here.\n- A PSCI event handler is called e.g. spmc_cpu_suspend_finish_handler\n- This checks to see if the SP has registered for the particular event.\n- If it has, we call this helper function to generate the message.\n\nApologies if I\u0027ve missed it, but what I was trying to ask was do we have checks in place to throw an error or warning if an S-EL0 SP specifies in its manifest that it wants to subscribe to power management messages that we\u0027re then not sending it here?",
+      "parentUuid": "8d34b9a8_1fd6c1c5",
+      "revId": "14cc23a7b637084b34850e23c6b2742cf62ca6f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
