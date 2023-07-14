@@ -22,6 +22,30 @@
       },
       "revId": "bc2453ddeab9e6e15073844ac3f5c439f39f26eb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a104ce7_89bd3013",
+        "filename": "plat/qti/msm8916/msm8916_config.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000736
+      },
+      "writtenOn": "2023-07-14T16:06:09Z",
+      "side": 1,
+      "message": "@Manish Thanks for the review!\n\n\u003e Put \u0027{}\u0027 around while.\n\nWhich style do you suggest exactly? e.g.\n\n1.\n\n while (mmio_read_32(clk_cbcr) \u0026 CLK_OFF) {\n }\n\nor\n\n2.\n\n while (mmio_read_32(clk_cbcr) \u0026 CLK_OFF) {\n \tcontinue;\n }\n\nLooking through existing uses throughout the TF-A code base the one I used originally here actually seems to be the most common one:\n\n3.\n\n while (mmio_read_32(clk_cbcr) \u0026 CLK_OFF)\n \t;\n\ne.g. in drivers/arm/cci/cci.c or drivers/arm/gic/v3/arm_gicv3_common.c.\n\nThere is also an existing usage with this style in msm8916_setup.c so I would need to submit an extra \"style(msm8916)\" change to make that consistent there.\n\n\u003e Any possibility to put this under timeout?\n\nUnfortunately no. If we just continue after a timeout the register accesses that come after it would still inevitably hang or crash the system. I think this should never hang though unless there is some critical hardware failure.",
+      "parentUuid": "cdeb9dab_a57e45c4",
+      "range": {
+        "startLine": 103,
+        "startChar": 1,
+        "endLine": 103,
+        "endChar": 41
+      },
+      "revId": "bc2453ddeab9e6e15073844ac3f5c439f39f26eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
