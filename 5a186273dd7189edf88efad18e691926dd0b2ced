@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2550c1f7_f0a539c2",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1826,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2023-07-14T23:06:08Z",
+      "side": 1,
+      "message": "Hmm.. would it not make sense to throw an error if this is not set to 1 for an S-EL0 partition rather than ignore it?",
+      "parentUuid": "6f6b56c7_96e8e4cf",
+      "revId": "5a186273dd7189edf88efad18e691926dd0b2ced",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3f65019_4a705459",
         "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
         "patchSetId": 7
