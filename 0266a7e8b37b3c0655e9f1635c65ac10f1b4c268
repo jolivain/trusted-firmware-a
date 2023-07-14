@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c49241fc_54357425",
+        "filename": "lib/cpus/aarch64/cortex_a520.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-07-14T21:24:52Z",
+      "side": 0,
+      "message": "and `errata_report_shim` uses it as well, so errata_report_shim macro replaces the whole thing.",
+      "parentUuid": "88de0232_ccbe14c0",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 17
+      },
+      "revId": "0266a7e8b37b3c0655e9f1635c65ac10f1b4c268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "447fb834_a3a94d10",
         "filename": "lib/cpus/aarch64/cortex_a720.S",
         "patchSetId": 12
