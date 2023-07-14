@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65ae9e1f_628abc76",
+        "filename": "include/lib/psa/rss_crypto_defs.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-14T18:41:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5d1f36a4_0bfe741c",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 23
+      },
+      "revId": "4fcaa3f7cf9d517ab064ec7cbd1e303cd2ce8a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f0e74a8_a60f35f2",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-10T06:33:50Z",
       "side": 1,
       "message": "enum rss_key_id_builtin_t key",
+      "range": {
+        "startLine": 57,
+        "startChar": 22,
+        "endLine": 57,
+        "endChar": 46
+      },
+      "revId": "4fcaa3f7cf9d517ab064ec7cbd1e303cd2ce8a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47e4aec2_a04026a2",
+        "filename": "include/lib/psa/rss_platform_api.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-14T18:41:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f0e74a8_a60f35f2",
       "range": {
         "startLine": 57,
         "startChar": 22,
