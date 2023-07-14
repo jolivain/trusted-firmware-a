@@ -51,6 +51,23 @@
       "message": "File is handled and build issue is not related to this patch.",
       "revId": "56d1857efc21cff5e75aa65bba21e333a8552d04",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4e11ab3_6c71d864",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-14T14:49:09Z",
+      "side": 1,
+      "message": "The corresponding CI patches should be tied together under the same topic \u0027xlnx_dtb_modification\u0027, so that when you trigger CI on your TF-A top-patch, it will sync all changes (in this case from TF-A and CI repo) and execute all build tests you added.",
+      "revId": "56d1857efc21cff5e75aa65bba21e333a8552d04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
