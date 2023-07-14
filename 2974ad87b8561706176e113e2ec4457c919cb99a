@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a812e321_ebdc66d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2023-07-14T09:45:10Z",
+      "side": 1,
+      "message": "I reviewed all the failed tests and, to the best of my knowledge (I\u0027m not fully familiar with TF-A CI), the failures don\u0027t seem to be related to this patch, so I\u0027m overriding the Verify flag.",
+      "parentUuid": "adba19db_a35d3024",
+      "revId": "2974ad87b8561706176e113e2ec4457c919cb99a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12f52bd4_4193255c",
