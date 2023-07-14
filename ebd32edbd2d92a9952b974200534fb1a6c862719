@@ -489,6 +489,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "03f51302_c3309343",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-14T09:13:26Z",
+      "side": 1,
+      "message": "Okay, thanks! let\u0027s go ahead with assertion then. I will update the porting guide.\nRegarding adding assertion in rss_measured_boot_init(), please look at my above comment.",
+      "parentUuid": "4a93c51c_cdf44e34",
+      "range": {
+        "startLine": 132,
+        "startChar": 16,
+        "endLine": 132,
+        "endChar": 40
+      },
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "66c87e0f_cfe445c1",
         "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
         "patchSetId": 2
@@ -548,6 +572,30 @@
       "side": 1,
       "message": "Good point, thanks. I had missed the second case.\n\nI still think we should add a comment to clarify that this is the intended behaviour and not something we overlooked, though. Perhaps we should add one above the loop, like:\n\n /*\n  * Do an exhaustive search over the platform metadata to find all images whose\n  * key OID matches the one passed in argument.\n  *\n  * Note that it is not an error if do not get any matches.\n  * The platform may decide not to measure all of the images in the system.\n  */",
       "parentUuid": "03c25002_fc5163dc",
+      "range": {
+        "startLine": 144,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 10
+      },
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b86fdce_7474bbc0",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-14T09:13:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4b362b17_5e0f3f40",
       "range": {
         "startLine": 144,
         "startChar": 1,
