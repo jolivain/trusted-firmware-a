@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f6b56c7_96e8e4cf",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1826,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-07-14T07:31:34Z",
+      "side": 1,
+      "message": "It is set to 1 by default, and this check should be ignored for SEL0.",
+      "parentUuid": "dde559ba_a0c22aee",
+      "revId": "5a186273dd7189edf88efad18e691926dd0b2ced",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3f65019_4a705459",
         "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
         "patchSetId": 7
@@ -31,6 +49,24 @@
       "writtenOn": "2023-07-07T22:57:50Z",
       "side": 1,
       "message": "This need to be declared for both S-EL1 and S-EL0 partitions as it is used in the generic get_ec_index function.",
+      "revId": "5a186273dd7189edf88efad18e691926dd0b2ced",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b730ff5_5ff67f5d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-07-14T07:31:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3f65019_4a705459",
       "revId": "5a186273dd7189edf88efad18e691926dd0b2ced",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da036150_fa584239",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-07-14T07:31:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1ee6919_5355cc2e",
+      "revId": "5a186273dd7189edf88efad18e691926dd0b2ced",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04b3f28f_b5b437e0",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-07-07T22:57:50Z",
       "side": 1,
       "message": "These macros will not be defined for S-EL1 builds, therefore perhaps the contents of the this function should also be behind some #ifdefs?",
+      "revId": "5a186273dd7189edf88efad18e691926dd0b2ced",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b869780_0e2632f5",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-07-14T07:31:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "04b3f28f_b5b437e0",
       "revId": "5a186273dd7189edf88efad18e691926dd0b2ced",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
