@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "719b7b21_89e241cb",
+        "filename": "lib/cpus/aarch64/neoverse_n2.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-07-17T21:22:51Z",
+      "side": 1,
+      "message": "erratum_* ?\n\nlooking up the macros its\n\n[..]\nfunc erratum_\\_cpu\\()_\\_id\\()_wa\n[..]",
+      "range": {
+        "startLine": 249,
+        "startChar": 4,
+        "endLine": 249,
+        "endChar": 33
+      },
+      "revId": "0abe42d578be8425be7a048dabc2af8fbd8b5ac8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd65bc3f_e8c72a98",
+        "filename": "lib/cpus/aarch64/neoverse_n2.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-07-17T21:22:51Z",
+      "side": 1,
+      "message": "erratum_* ?\n\ndid you check them with breakpoints on ds5?",
+      "range": {
+        "startLine": 264,
+        "startChar": 4,
+        "endLine": 264,
+        "endChar": 33
+      },
+      "revId": "0abe42d578be8425be7a048dabc2af8fbd8b5ac8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
