@@ -16,6 +16,24 @@
       "message": "Looks like we are missing an include path. TC1 \u0026 TC2 configs fail to build:\n\n In file included from plat/arm/board/tc/tc_bl31_setup.c:10:\n plat/arm/board/tc/include/tc_plat.h:10:10: fatal error: rss_crypto_defs.h: No such file or directory\n   10 | #include \u003crss_crypto_defs.h\u003e\n      |          ^~~~~~~~~~~~~~~~~~~",
       "revId": "39d82373359d51cb77696521266ba647cd2c9f74",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bd3432a_58e124be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-17T16:52:25Z",
+      "side": 1,
+      "message": "PLAT_INCLUDES\t+\u003d\t-Iinclude/lib/psa\n\nis added conditionally for MB, Platform tests, etc. To get around adding for regular tc builds I\u0027ve added a #ifdef PLATFORM_TEST_ROTPK around the crypto header include in tc_plat.h. Do you think this is the right approach?",
+      "parentUuid": "9bf37807_797eee2a",
+      "revId": "39d82373359d51cb77696521266ba647cd2c9f74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
