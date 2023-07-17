@@ -83,6 +83,7 @@ entry_point_info_t *spmd_spmc_ep_info_get(void);
 
 /* SPMC ID getter */
 uint16_t spmd_spmc_id_get(void);
+uint32_t spmd_get_spmc_ffa_version(void);
 
 /* SPMC context on CPU based on mpidr */
 spmd_spm_core_context_t *spmd_get_context_by_mpidr(uint64_t mpidr);

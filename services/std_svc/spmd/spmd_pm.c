@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -11,6 +11,7 @@
 
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/spinlock.h>
+#include "services/ffa_svc.h"
 #include "spmd_private.h"
 
 static struct {
@@ -121,22 +122,24 @@ static int32_t spmd_cpu_off_handler(u_register_t unused)
 	assert(ctx != NULL);
 	assert(ctx->state != SPMC_STATE_OFF);
 
-	/* Build an SPMD to SPMC direct message request. */
-	spmd_build_spmc_message(get_gpregs_ctx(&ctx->cpu_ctx),
-				FFA_FWK_MSG_PSCI, PSCI_CPU_OFF);
+	if (spmd_get_spmc_ffa_version() > MAKE_FFA_VERSION(1, 0)) {
+		/* Build an SPMD to SPMC direct message request. */
+		spmd_build_spmc_message(get_gpregs_ctx(&ctx->cpu_ctx),
+					FFA_FWK_MSG_PSCI, PSCI_CPU_OFF);
 
-	rc = spmd_spm_core_sync_entry(ctx);
-	if (rc != 0ULL) {
-		ERROR("%s failed (%" PRIu64 ") on CPU%u\n", __func__, rc, linear_id);
-	}
+		rc = spmd_spm_core_sync_entry(ctx);
+		if (rc != 0ULL) {
+			ERROR("%s failed (%" PRIu64 ") on CPU%u\n", __func__, rc, linear_id);
+		}
 
-	/* Expect a direct message response from the SPMC. */
-	u_register_t ffa_resp_func = read_ctx_reg(get_gpregs_ctx(&ctx->cpu_ctx),
+		/* Expect a direct message response from the SPMC. */
+		u_register_t ffa_resp_func = read_ctx_reg(get_gpregs_ctx(&ctx->cpu_ctx),
 						  CTX_GPREG_X0);
-	if (ffa_resp_func != FFA_MSG_SEND_DIRECT_RESP_SMC32) {
-		ERROR("%s invalid SPMC response (%lx).\n",
-			__func__, ffa_resp_func);
-		return -EINVAL;
+		if (ffa_resp_func != FFA_MSG_SEND_DIRECT_RESP_SMC32) {
+			ERROR("%s invalid SPMC response (%lx).\n",
+				__func__, ffa_resp_func);
+			return -EINVAL;
+		}
 	}
 
 	ctx->state = SPMC_STATE_OFF;

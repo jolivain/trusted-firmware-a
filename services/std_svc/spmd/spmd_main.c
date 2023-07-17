@@ -65,6 +65,12 @@ spmd_spm_core_context_t *spmd_get_context_by_mpidr(uint64_t mpidr)
 	return &spm_core_context[core_idx];
 }
 
+uint32_t spmd_get_spmc_ffa_version(void)
+{
+	return MAKE_FFA_VERSION(spmc_attrs.major_version,
+			        spmc_attrs.minor_version);
+}
+
 /*******************************************************************************
  * SPM Core context on current CPU get helper.
  ******************************************************************************/
@@ -885,8 +891,7 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 			gp_regs_t *gpregs = get_gpregs_ctx(&ctx->cpu_ctx);
 			uint64_t rc;
 
-			if (spmc_attrs.major_version == 1 &&
-			    spmc_attrs.minor_version == 0) {
+			if (spmd_get_spmc_ffa_version() == MAKE_FFA_VERSION(1, 0)) {
 				ret = MAKE_FFA_VERSION(spmc_attrs.major_version,
 						       spmc_attrs.minor_version);
 				SMC_RET8(handle, (uint32_t)ret,
