@@ -45,6 +45,54 @@
       },
       "revId": "9c11e52f88bfe042488237bf70018e63ff93cb6b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee532596_30a18e8e",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-17T15:25:23Z",
+      "side": 1,
+      "message": "pk_len comes from auth_data where it was mentioned as \u0027unsigned int\u0027 so was matching with that. But agree this can also be made as size_t. (size of size_t \u003e size of unsigned int, can\u0027t see any data loss).",
+      "parentUuid": "9e7be8f7_0d12d9cd",
+      "range": {
+        "startLine": 149,
+        "startChar": 55,
+        "endLine": 149,
+        "endChar": 67
+      },
+      "revId": "9c11e52f88bfe042488237bf70018e63ff93cb6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0e9ff51_b0513d59",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-17T15:25:23Z",
+      "side": 1,
+      "message": "You\u0027re right! These can be constant. Let me update it.",
+      "parentUuid": "86a699cf_9d962cda",
+      "range": {
+        "startLine": 149,
+        "startChar": 27,
+        "endLine": 149,
+        "endChar": 53
+      },
+      "revId": "9c11e52f88bfe042488237bf70018e63ff93cb6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
