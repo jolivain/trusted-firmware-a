@@ -39,6 +39,30 @@
       },
       "revId": "44b37152cc38e08aa3f2bb07286cd8b2c0db84b9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4e78708_5bae5e9b",
+        "filename": "plat/arm/board/tc/tc_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-07-17T18:36:37Z",
+      "side": 1,
+      "message": "For debug builds, LOG_LEVEL allowed is 40. Hence, VERBOSE logs(level 50) are compiled out. I have anyways removed it now.",
+      "parentUuid": "258bcb8e_edd36c87",
+      "range": {
+        "startLine": 123,
+        "startChar": 2,
+        "endLine": 123,
+        "endChar": 34
+      },
+      "revId": "44b37152cc38e08aa3f2bb07286cd8b2c0db84b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
