@@ -262,7 +262,7 @@ The following metadata can be stored alongside the measurement:
 - ``SW type``: Optional. Short text description (e.g.: BL1, BL2, BL31, etc.)
 
 .. Note::
-    Signer-id and version info is not implemented in TF-A yet.
+    version info is not implemented in TF-A yet.
 
 The caller must specify in which measurement slot to extend a certain
 measurement and metadata. A measurement slot can be extended by multiple
