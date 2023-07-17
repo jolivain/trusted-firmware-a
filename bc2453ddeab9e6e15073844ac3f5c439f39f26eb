@@ -70,6 +70,30 @@
       },
       "revId": "bc2453ddeab9e6e15073844ac3f5c439f39f26eb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90c0a348_5a62ae99",
+        "filename": "plat/qti/msm8916/msm8916_config.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000736
+      },
+      "writtenOn": "2023-07-17T09:14:18Z",
+      "side": 1,
+      "message": "Thanks for the explanation! I have added braces to the while (...) added in this change and uploaded an extra style(msm8916) change to fix all existing usages in plat/qti/msm8916.",
+      "parentUuid": "1f9d7b92_0fcf670f",
+      "range": {
+        "startLine": 103,
+        "startChar": 1,
+        "endLine": 103,
+        "endChar": 41
+      },
+      "revId": "bc2453ddeab9e6e15073844ac3f5c439f39f26eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
