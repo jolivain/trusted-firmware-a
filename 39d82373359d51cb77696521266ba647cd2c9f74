@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bf37807_797eee2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-17T06:44:05Z",
+      "side": 1,
+      "message": "Looks like we are missing an include path. TC1 \u0026 TC2 configs fail to build:\n\n In file included from plat/arm/board/tc/tc_bl31_setup.c:10:\n plat/arm/board/tc/include/tc_plat.h:10:10: fatal error: rss_crypto_defs.h: No such file or directory\n   10 | #include \u003crss_crypto_defs.h\u003e\n      |          ^~~~~~~~~~~~~~~~~~~",
+      "revId": "39d82373359d51cb77696521266ba647cd2c9f74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
