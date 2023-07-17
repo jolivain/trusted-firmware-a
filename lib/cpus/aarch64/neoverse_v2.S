@@ -22,6 +22,19 @@
 #error "Neoverse V2 supports only AArch64. Compile with CTX_INCLUDE_AARCH32_REGS=0"
 #endif
 
+workaround_reset_start neoverse_v2, CVE(2022,23960), WORKAROUND_CVE_2022_23960
+#if IMAGE_BL31
+	/*
+	 * The Neoverse-V2 generic vectors are overridden to apply errata
+         * mitigation on exception entry from lower ELs.
+	 */
+	adr	x0, wa_cve_vbar_neoverse_v2
+	msr	vbar_el3, x0
+#endif /* IMAGE_BL31 */
+workaround_reset_end neoverse_v2, CVE(2022,23960)
+
+check_erratum_chosen neoverse_v2, CVE(2022, 23960), WORKAROUND_CVE_2022_23960
+
 #if WORKAROUND_CVE_2022_23960
 	wa_cve_2022_23960_bhb_vector_table NEOVERSE_V2_BHB_LOOP_COUNT, neoverse_v2
 #endif /* WORKAROUND_CVE_2022_23960 */
@@ -42,51 +55,12 @@ func neoverse_v2_core_pwr_dwn
 	ret
 endfunc neoverse_v2_core_pwr_dwn
 
-func check_errata_cve_2022_23960
-#if WORKAROUND_CVE_2022_23960
-	mov	x0, #ERRATA_APPLIES
-#else
-	mov	x0, #ERRATA_MISSING
-#endif
-	ret
-endfunc check_errata_cve_2022_23960
+errata_report_shim neoverse_v2
 
-func neoverse_v2_reset_func
+cpu_reset_func_start neoverse_v2
 	/* Disable speculative loads */
 	msr	SSBS, xzr
-
-#if IMAGE_BL31 && WORKAROUND_CVE_2022_23960
-	/*
-	 * The Neoverse V2 vectors are overridden to apply
-	 * errata mitigation on exception entry from lower ELs.
-	 */
-	adr	x0, wa_cve_vbar_neoverse_v2
-	msr	vbar_el3, x0
-#endif /* IMAGE_BL31 && WORKAROUND_CVE_2022_23960 */
-	isb
-	ret
-endfunc neoverse_v2_reset_func
-
-#if REPORT_ERRATA
-/*
- * Errata printing function for Neoverse V2. Must follow AAPCS.
- */
-func neoverse_v2_errata_report
-	stp	x8, x30, [sp, #-16]!
-
-	bl	cpu_get_rev_var
-	mov	x8, x0
-
-	/*
-	 * Report all errata. The revision-variant information is passed to
-	 * checking functions of each errata.
-	 */
-	report_errata WORKAROUND_CVE_2022_23960, neoverse_v2, cve_2022_23960
-
-	ldp	x8, x30, [sp], #16
-	ret
-endfunc neoverse_v2_errata_report
-#endif
+cpu_reset_func_end neoverse_v2
 
 	/* ---------------------------------------------
 	 * This function provides Neoverse V2-
