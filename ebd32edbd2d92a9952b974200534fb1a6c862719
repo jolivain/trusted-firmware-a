@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "951f4690_472907b2",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-17T12:52:28Z",
+      "side": 1,
+      "message": "\u003e But considering why we need this function(rss_measured_boot_init) in the first place. Metadata like this is very much platform-specific. The RSS driver should not worry about the filling this metadata (It can only check wherever it gets consumed).\n\nYes, the contents of the metadata is entirely platform-specific but the RSS measured boot backend consumes it and if it makes some assumptions like, \"the platform will never put a null pointer in this field so I can blindly dereference it\", then it is appropriate to add debug checks to make sure the platform code obeys this contract. And doing these checks upfront in the driver\u0027s init code avoids to repeat them throughout the rest of the driver\u0027s code.\n\nHowever, after double-checking, I agree that in the case of the \u0027pk_oid\u0027 field of the metadata, no such assumption is made. The only use of this field is in function rss_mboot_set_signer_id(), which simply compares it with the key oid passed in argument. So even if platform code provided a null pointer for an image\u0027s key oid, and even if rss_mboot_set_signer_id() was called with a null key oid pointer, the code would still work as expected.\n\nThus, I would like to withdraw my comment about adding any kind of debug assertions on the \u0027pk_oid\u0027 metadata field. \n\nOn the other hand, I believe we truly need the debug assertion that checks that the platform code initialized the signer_id array to all zeroes. Or do you disagree about that?\n\n\u003e so I feel this assert may be suitable in rss_mboot_set_signer_id function instead.\n\nAs said above, even there, I now think it is unneeded.\n\n\u003e I feel like we should remove \u0027rss_measured_boot_init\u0027 function and let\u0027s give the full liberty to platform to fill the metadata in its own way right before calling RSS functions. This function is seems like doing a job for the platform without doing any specific RSS activities today (like initialisation of RSS backend etc)\n\nIn the first instance, the primary purpose of rss_measured_boot_init() was to initialize the \"sw_type_size\" field of the metadata. The TC platform currently relies on macros for its \"sw_type\" strings, e.g.:\n\n struct rss_mboot_metadata tc_rss_mboot_metadata[] \u003d {\n        {\n                .id \u003d BL31_IMAGE_ID,\n                /* ... */\n\t\t.sw_type \u003d RSS_MBOOT_BL31_STRING,\n\t\t/*... */ },\n\nAt the time, we discussed [1] some options to set the corresponding \"sw_type_size\" fields. Please have a look at this past discussion. We decided to go for a dynamic computation of the sw_type_size. I am fine to challenge this today. In fact, reading the discussion again, it seems I suggested to add the runtime strlen() computation into bl1_plat_mboot_init(), which makes a major difference, since it would be platform code. Perhaps we should move it there, after all.\n\nAnd I agree then that would make the existence of rss_measured_boot_init() *almost* unjustified. Except for checking that the signer_id() is originally all zeroes. Where would you move this check, if we got rid of rss_measured_boot_init() altogether?\n\n[1] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16979/comment/07eafeda_47313e7a/",
+      "parentUuid": "b2c7d85f_03d78a4f",
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d7e0da1_910e91a5",
         "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
         "patchSetId": 2
