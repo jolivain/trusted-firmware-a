@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a29b2f81_a3b4e877",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2639,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-07-18T20:22:22Z",
+      "side": 1,
+      "message": "nit: should we mention -march as it ties directly to the compiler option? Previous documentation used the \"-march\"",
+      "range": {
+        "startLine": 2639,
+        "startChar": 60,
+        "endLine": 2639,
+        "endChar": 65
+      },
+      "revId": "2f338e6cb8fcb107bc438c859b25289b2e897dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3c76363_bc7af442",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2640,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-07-18T20:22:22Z",
+      "side": 1,
+      "message": "nit: makes sense to use -march here",
+      "range": {
+        "startLine": 2640,
+        "startChar": 47,
+        "endLine": 2640,
+        "endChar": 52
+      },
+      "revId": "2f338e6cb8fcb107bc438c859b25289b2e897dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5af452d1_dcba476e",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2643,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-07-18T20:22:22Z",
+      "side": 1,
+      "message": "nit: and checking what\u0027s supported by the compiler and what\u0027s the best that can be used. But if the platform provides a ``MARCH_DIRECTIVE`` then it will used directly and the compiler probing will be skipped.",
+      "range": {
+        "startLine": 2641,
+        "startChar": 26,
+        "endLine": 2643,
+        "endChar": 35
+      },
+      "revId": "2f338e6cb8fcb107bc438c859b25289b2e897dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "276bb5c3_9a372bb4",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 2739,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-07-18T20:22:22Z",
+      "side": 1,
+      "message": "nit: unrelated to the patch. This should be -march",
+      "range": {
+        "startLine": 2739,
+        "startChar": 22,
+        "endLine": 2739,
+        "endChar": 27
+      },
+      "revId": "2f338e6cb8fcb107bc438c859b25289b2e897dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f52308d2_038a1d98",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-07-18T20:22:22Z",
+      "side": 1,
+      "message": "nit: used to pass a -march option from the platform build options to the compiler.",
+      "range": {
+        "startLine": 717,
+        "startChar": 24,
+        "endLine": 718,
+        "endChar": 17
+      },
+      "revId": "2f338e6cb8fcb107bc438c859b25289b2e897dea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
