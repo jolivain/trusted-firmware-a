@@ -20,6 +20,7 @@
 #include <context.h>
 #include <drivers/arm/gicv3.h>
 #include <lib/el3_runtime/context_mgmt.h>
+#include <lib/el3_runtime/cpu_data.h>
 #include <lib/el3_runtime/pubsub_events.h>
 #include <lib/extensions/amu.h>
 #include <lib/extensions/brbe.h>
@@ -301,6 +302,11 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 	/* Clear any residual register values from the context */
 	zeromem(ctx, sizeof(*ctx));
 
+	/* point to global context for the security state */
+	unsigned int security_state = GET_SECURITY_STATE(ep->h.attr);
+
+	ctx->global_ctx = &global_context[security_state];
+
 	/*
 	 * SCR_EL3 was initialised during reset sequence in macro
 	 * el3_arch_init_common. This code modifies the SCR_EL3 fields that
@@ -380,7 +386,7 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 	 * CPTR_EL3 was initialized out of reset, copy that value to the
 	 * context register.
 	 */
-	write_ctx_reg(get_el3state_ctx(ctx), CTX_CPTR_EL3, read_cptr_el3());
+	write_ctx_reg(get_global_el3state_ctx(ctx), CTX_CPTR_EL3, read_cptr_el3());
 
 	/*
 	 * SCR_EL3.HCE: Enable HVC instructions if next execution state is
@@ -461,6 +467,7 @@ void __init cm_init(void)
  * first use. It performs initializations that are common to all security states
  * and initializations specific to the security state specified in 'ep'
  ******************************************************************************/
+global_context_t global_context[CPU_DATA_CONTEXT_NUM];
 void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 {
 	unsigned int security_state;
@@ -493,6 +500,28 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 		panic();
 		break;
 	}
+}
+
+void find_memory_allocated(void)
+{
+	int total = 0;
+	int count = 0;
+
+	for (int i = 0; i < PLATFORM_CORE_COUNT; i++) {
+		for (int j = 0; j < CPU_DATA_CONTEXT_NUM; j++) {
+			count = sizeof(*((cpu_context_t *) cm_get_context_by_index(i, j)));
+			printf("core %d security state %d takes up %d bytes\n", i, j, count);
+			total += count;
+		}
+	}
+
+	for (int i = 0; i < CPU_DATA_CONTEXT_NUM; i++) {
+		count = sizeof(global_context[i]);
+		printf("global context for security state %d takes up %d bytes\n", i, count);
+		total += count;
+	}
+
+	printf("total memory allocated: %d\n", total);
 }
 
 /*******************************************************************************
