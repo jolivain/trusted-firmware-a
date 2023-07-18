@@ -89,4 +89,14 @@ static void *spe_drain_buffers_hook(const void *arg)
 	return (void *)0;
 }
 
+void spe_context_save(spe_ctx_t *spe_ctx)
+{
+	spe_ctx->pmblimitr_el1 = read_pmblimitr_el1();
+}
+
+void spe_context_restore(spe_ctx_t *spe_ctx)
+{
+	write_pmblimitr_el1(spe_ctx->pmblimitr_el1);
+}
+
 SUBSCRIBE_TO_EVENT(cm_entering_secure_world, spe_drain_buffers_hook);

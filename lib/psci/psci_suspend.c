@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,7 @@
 #include <stddef.h>
 
 #include <arch.h>
+#include <arch_features.h>
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
@@ -15,6 +16,7 @@
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/el3_runtime/cpu_data.h>
 #include <lib/el3_runtime/pubsub_events.h>
+#include <lib/extensions/spe.h>
 #include <lib/pmf/pmf.h>
 #include <lib/runtime_instr.h>
 #include <plat/common/platform.h>
@@ -166,6 +168,7 @@ int psci_cpu_suspend_start(const entry_point_info_t *ep,
 {
 	int rc = PSCI_E_SUCCESS;
 	bool skip_wfi = false;
+	spe_ctx_t spe_ctx;
 	unsigned int idx = plat_my_core_pos();
 	unsigned int parent_nodes[PLAT_MAX_PWR_LVL] = {0};
 
@@ -240,6 +243,16 @@ int psci_cpu_suspend_start(const entry_point_info_t *ep,
 	if (is_power_down_state != 0U)
 		psci_suspend_to_pwrdown_start(end_pwrlvl, ep, state_info);
 
+
+	/*
+	 * On power domain suspend, we need to disable statistical profiling
+	 * extensions before exiting coherency.
+	 */
+	if (is_feat_spe_supported()) {
+		spe_context_save(&spe_ctx);
+		spe_disable();
+	}
+
 	/*
 	 * Plat. management: Allow the platform to perform the
 	 * necessary actions to turn off this cpu e.g. set the
@@ -261,6 +274,9 @@ exit:
 	psci_release_pwr_domain_locks(end_pwrlvl, parent_nodes);
 
 	if (skip_wfi) {
+		if (is_feat_spe_supported()) {
+			spe_context_restore(&spe_ctx);
+		}
 		return rc;
 	}
 
@@ -303,7 +319,9 @@ exit:
 	    RT_INSTR_EXIT_HW_LOW_PWR,
 	    PMF_NO_CACHE_MAINT);
 #endif
-
+	if (is_feat_spe_supported()) {
+		spe_context_restore(&spe_ctx);
+	}
 	/*
 	 * After we wake up from context retaining suspend, call the
 	 * context retaining suspend finisher.
