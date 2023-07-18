@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -26,14 +26,14 @@ void sve_enable(cpu_context_t *context)
 {
 	u_register_t cptr_el3;
 
-	cptr_el3 = read_ctx_reg(get_el3state_ctx(context), CTX_CPTR_EL3);
+	cptr_el3 = read_ctx_reg(get_global_el3state_ctx(context), CTX_CPTR_EL3);
 
 	/* Enable access to SVE functionality for all ELs. */
 	cptr_el3 = (cptr_el3 | CPTR_EZ_BIT) & ~(TFP_BIT);
-	write_ctx_reg(get_el3state_ctx(context), CTX_CPTR_EL3, cptr_el3);
+	write_ctx_reg(get_global_el3state_ctx(context), CTX_CPTR_EL3, cptr_el3);
 
 	/* Restrict maximum SVE vector length (SVE_VECTOR_LEN+1) * 128. */
-	write_ctx_reg(get_el3state_ctx(context), CTX_ZCR_EL3,
+	write_ctx_reg(get_global_el3state_ctx(context), CTX_ZCR_EL3,
 		(ZCR_EL3_LEN_MASK & CONVERT_SVE_LENGTH(SVE_VECTOR_LEN)));
 }
 
@@ -50,14 +50,14 @@ void sve_init_el2_unused(void)
 void sve_disable(cpu_context_t *context)
 {
 	u_register_t reg;
-	el3_state_t *state;
+	global_el3_state_t *global_state;
 
 	/* Get the context state. */
-	state = get_el3state_ctx(context);
+	global_state = get_global_el3state_ctx(context);
 
 	/* Disable SVE and FPU since they share registers. */
-	reg = read_ctx_reg(state, CTX_CPTR_EL3);
+	reg = read_ctx_reg(global_state, CTX_CPTR_EL3);
 	reg &= ~CPTR_EZ_BIT;	/* Trap SVE */
 	reg |= TFP_BIT;		/* Trap FPU/SIMD */
-	write_ctx_reg(state, CTX_CPTR_EL3, reg);
+	write_ctx_reg(global_state, CTX_CPTR_EL3, reg);
 }

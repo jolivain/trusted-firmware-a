@@ -571,7 +571,8 @@ endfunc fpregs_context_restore
 
 	/* PMUv3 is presumed to be always present */
 	mrs	x9, pmcr_el0
-	str	x9, [sp, #CTX_EL3STATE_OFFSET + CTX_PMCR_EL0]
+	ldr	x10, [sp, #CTX_GLOBAL_POINTER_OFFSET]
+	str	x9, [x10, #CTX_GLOBAL_EL3STATE_OFFSET + CTX_PMCR_EL0]
 	/* Disable cycle counter when event counting is prohibited */
 	orr	x9, x9, #PMCR_EL0_DP_BIT
 	msr	pmcr_el0, x9
@@ -655,7 +656,8 @@ func restore_gp_pmcr_pauth_regs
 #endif /* CTX_INCLUDE_PAUTH_REGS */
 
 	/* PMUv3 is presumed to be always present */
-	ldr	x0, [sp, #CTX_EL3STATE_OFFSET + CTX_PMCR_EL0]
+	ldr	x0, [sp, #CTX_GLOBAL_POINTER_OFFSET]
+	ldr	x0, [x0, #CTX_GLOBAL_EL3STATE_OFFSET + CTX_PMCR_EL0]
 	msr	pmcr_el0, x0
 	ldp	x0, x1, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X0]
 	ldp	x2, x3, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X2]
@@ -750,7 +752,8 @@ func el3_exit
 	 * Synchronization is required before zcr_el3 is addressed.
 	 * ----------------------------------------------------------
 	 */
-	ldp	x19, x20, [sp, #CTX_EL3STATE_OFFSET + CTX_CPTR_EL3]
+	ldr	x9, [sp, #CTX_GLOBAL_POINTER_OFFSET]
+	ldp	x19, x20, [x9, #CTX_GLOBAL_EL3STATE_OFFSET + CTX_CPTR_EL3]
 	msr	cptr_el3, x19
 
 	ands	x19, x19, #CPTR_EZ_BIT
