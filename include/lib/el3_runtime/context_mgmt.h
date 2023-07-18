@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -21,6 +21,7 @@ struct entry_point_info;
 /*******************************************************************************
  * Function & variable prototypes
  ******************************************************************************/
+void find_memory_allocated(void);
 void cm_init(void);
 void *cm_get_context_by_index(unsigned int cpu_idx,
 			      unsigned int security_state);
