@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d388b68_fa4c4133",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-18T16:04:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd0f5e26_ac3b7e93",
+      "range": {
+        "startLine": 211,
+        "startChar": 33,
+        "endLine": 212,
+        "endChar": 54
+      },
+      "revId": "bc83ebe2b3416544eb7dfb3eea794199e3690ed1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d78245e6_5585d2e7",
@@ -94,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f12b923e_2462a7c5",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-18T16:04:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8ae91c2_fdd59a2f",
+      "range": {
+        "startLine": 217,
+        "startChar": 42,
+        "endLine": 217,
+        "endChar": 51
+      },
+      "revId": "bc83ebe2b3416544eb7dfb3eea794199e3690ed1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "861309e3_34f894b4",
@@ -107,6 +155,30 @@
       "writtenOn": "2023-07-18T08:19:13Z",
       "side": 1,
       "message": "as the first argument",
+      "range": {
+        "startLine": 220,
+        "startChar": 22,
+        "endLine": 220,
+        "endChar": 41
+      },
+      "revId": "bc83ebe2b3416544eb7dfb3eea794199e3690ed1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a358770_33c95ede",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-18T16:04:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "861309e3_34f894b4",
       "range": {
         "startLine": 220,
         "startChar": 22,
@@ -163,6 +235,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7581982c_ea7a8c64",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-18T16:04:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83babf92_2bada832",
+      "range": {
+        "startLine": 222,
+        "startChar": 26,
+        "endLine": 222,
+        "endChar": 32
+      },
+      "revId": "bc83ebe2b3416544eb7dfb3eea794199e3690ed1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9597875_477ac979",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-18T16:04:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b0ad0f7_612cea9e",
+      "range": {
+        "startLine": 222,
+        "startChar": 33,
+        "endLine": 222,
+        "endChar": 52
+      },
+      "revId": "bc83ebe2b3416544eb7dfb3eea794199e3690ed1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1672456_172ee7a7",
@@ -176,6 +296,30 @@
       "writtenOn": "2023-07-18T08:19:13Z",
       "side": 1,
       "message": "This is slightly misleading because the key is not measured like any other image and it doesn\u0027t extend the same measurement slot. Instead, the key hash is forwarded as metadata associated with an image measurement. So perhaps we should rather say:\n\n In FVP platform, this function is used to calculate the hash of the given\n key and forward this hash to RSS alongside the measurement of the image\n which the key signs.",
+      "range": {
+        "startLine": 226,
+        "startChar": 38,
+        "endLine": 226,
+        "endChar": 63
+      },
+      "revId": "bc83ebe2b3416544eb7dfb3eea794199e3690ed1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0782ec7_3789b6cf",
+        "filename": "docs/design_documents/measured_boot.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-18T16:04:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1672456_172ee7a7",
       "range": {
         "startLine": 226,
         "startChar": 38,
