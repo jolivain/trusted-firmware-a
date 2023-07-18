@@ -486,4 +486,23 @@
 #endif
 	.endm
 
+/* -----------------------------------------------------------------
+ * The below macro reads SCR_EL3 from the context structure to
+ * determine the security state of the context upon ERET.
+ * Before entering this macro, x10 should store the value of SCR.
+ * Clobbers: x9, x10
+ * ------------------------------------------------------------------
+ */
+	.macro get_security_state
+		mov 	x9, xzr
+		ubfx 	x9, x10, #SCR_NSE_SHIFT, #1
+		cmp 	x9, #1
+		beq 	realm_state
+		bfi	x9, x10, #0, #1
+		b 	end
+	realm_state:
+		mov 	x9, #2
+	end:
+	.endm
+
 #endif /* EL3_COMMON_MACROS_S */
