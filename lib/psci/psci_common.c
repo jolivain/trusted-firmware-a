@@ -8,12 +8,14 @@
 #include <string.h>
 
 #include <arch.h>
+#include <arch_features.h>
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <context.h>
 #include <drivers/delay_timer.h>
 #include <lib/el3_runtime/context_mgmt.h>
+#include <lib/extensions/spe.h>
 #include <lib/utils.h>
 #include <plat/common/platform.h>
 
@@ -1296,4 +1298,21 @@ bool psci_are_all_cpus_on_safe(void)
 	psci_release_pwr_domain_locks(PLAT_MAX_PWR_LVL, parent_nodes);
 
 	return true;
+}
+
+/*******************************************************************************
+ * This function performs architectural features specific management.
+ * It ensures, the arch features are disabled or turned_off as required during
+ * cpu power_off/suspend operations.
+ ******************************************************************************/
+void psci_do_manage_extensions(void)
+{
+	/*
+	 * On power down we need to disable statistical profiling extensions
+	 * before exiting coherency.
+	 */
+	if (is_feat_spe_supported()) {
+		spe_disable();
+	}
+
 }

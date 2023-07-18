@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -126,6 +126,12 @@ static void psci_suspend_to_pwrdown_start(unsigned int end_pwrlvl,
 		RT_INSTR_ENTER_CFLUSH,
 		PMF_CACHE_MAINT);
 #endif
+
+	/*
+	 * Arch_extensions. management: Perform architecture extensions specific
+	 * actions, to manage any extensions, required during cpu suspend.
+	 */
+	psci_do_manage_extensions();
 
 	/*
 	 * Arch. management. Initiate power down sequence.

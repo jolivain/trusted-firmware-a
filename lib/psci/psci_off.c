@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2023, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -124,7 +124,13 @@ int psci_do_cpu_off(unsigned int end_pwrlvl)
 #endif
 
 	/*
-	 * Arch. management. Initiate power down sequence.
+	 * Arch_extensions. management: Perform architecture extensions specific
+	 * actions, to disable any extensions before powering off the CPU.
+	 */
+	psci_do_manage_extensions();
+
+	/*
+	 * Initiate power down sequence.
 	 */
 	psci_pwrdown_cpu(psci_find_max_off_lvl(&state_info));
 
