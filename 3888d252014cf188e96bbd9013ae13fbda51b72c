@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "924809b3_39523a25",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-18T08:45:16Z",
+      "side": 1,
+      "message": "(minor) This is just a repetition of the commit title. I think you can remove it.\n\nInstead, let\u0027s explain why all images use a zero OID for their signing key.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 63
+      },
+      "revId": "3888d252014cf188e96bbd9013ae13fbda51b72c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a9e2330_dba00dd6",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-18T08:45:16Z",
+      "side": 1,
+      "message": "Indeed BL31 is rooted into the CCA ROTPK under the CCA CoT but this does not necessarily hold true for other CoTs. For example, under the TBBR CoT, BL31 is signed by the Trusted World Key.\n\nSo I think we need some #ifdef ARM_COT_cca somewhere. I am just not sure at which level... IIRC, it is possible to use the TBBR CoT on AEM FVP with the RSS mocking layer and I am struggling to envisage all combinations and the consequences of setting the pk_oid field to ZERO_OID for each of these combinations... Could you please give it some thoughts?",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 21
+      },
+      "revId": "3888d252014cf188e96bbd9013ae13fbda51b72c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
