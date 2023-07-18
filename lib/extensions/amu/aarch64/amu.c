@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -71,12 +71,12 @@ static inline __unused void write_cptr_el2_tam(uint64_t value)
 
 static inline __unused void ctx_write_cptr_el3_tam(cpu_context_t *ctx, uint64_t tam)
 {
-	uint64_t value = read_ctx_reg(get_el3state_ctx(ctx), CTX_CPTR_EL3);
+	uint64_t value = read_ctx_reg(get_global_el3state_ctx(ctx), CTX_CPTR_EL3);
 
 	value &= ~TAM_BIT;
 	value |= (tam << TAM_SHIFT) & TAM_BIT;
 
-	write_ctx_reg(get_el3state_ctx(ctx), CTX_CPTR_EL3, value);
+	write_ctx_reg(get_global_el3state_ctx(ctx), CTX_CPTR_EL3, value);
 }
 
 static inline __unused void ctx_write_scr_el3_amvoffen(cpu_context_t *ctx, uint64_t amvoffen)
