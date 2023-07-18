@@ -1,0 +1,600 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef66eb18_a4d502c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "minor comments",
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00b6a786_cc5cdad5",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "nit: This",
+      "range": {
+        "startLine": 133,
+        "startChar": 3,
+        "endLine": 133,
+        "endChar": 9
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6e05526_1ead6022",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "nit: insert , here.",
+      "range": {
+        "startLine": 137,
+        "startChar": 72,
+        "endLine": 137,
+        "endChar": 73
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3baa4b57_55929561",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "remove. scr_el3 routes both sync and async EA.",
+      "range": {
+        "startLine": 140,
+        "startChar": 74,
+        "endLine": 140,
+        "endChar": 80
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30ae821a_8cd2b315",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "EA,",
+      "range": {
+        "startLine": 140,
+        "startChar": 80,
+        "endLine": 140,
+        "endChar": 82
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4353749_d1102509",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "When FFH is enabled and scr_el3.ea \u003d 1",
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19ea5b7b_2c100350",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "inset comment:\n/* Prepare for nested handling of EA. Stash sysregs clobbered by nested exception and handler */",
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88db7d50_9839b8f4",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "nit: use tab. same comment for all lines below",
+      "range": {
+        "startLine": 149,
+        "startChar": 4,
+        "endLine": 149,
+        "endChar": 9
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64d56c27_88ffa533",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "not sure if this is correct as the nested handler may overwrite this.",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 6
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c526461_3ef16135",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "nit: insert new line.",
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5c965d0_165bf587",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "Add comment here:\n\"If the original exception corresponded to SError from lower El, return back to vector table.\"",
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffc68629_4dc0585b",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "or when scr_el3.ea \u003d 0 in FFH */",
+      "range": {
+        "startLine": 187,
+        "startChar": 49,
+        "endLine": 187,
+        "endChar": 51
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "051616d5_1261abf1",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "that, eret",
+      "range": {
+        "startLine": 191,
+        "startChar": 71,
+        "endLine": 191,
+        "endChar": 76
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3ecc2bf_06b67ea3",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "async EA",
+      "range": {
+        "startLine": 194,
+        "startChar": 33,
+        "endLine": 194,
+        "endChar": 35
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d3519f7_bd91984d",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "sync exception always higher priority. can be clear here : \"wrt to the EL3/Secure interrupt\"",
+      "range": {
+        "startLine": 195,
+        "startChar": 50,
+        "endLine": 195,
+        "endChar": 60
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2638e02_c53dc46e",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "async EA",
+      "range": {
+        "startLine": 195,
+        "startChar": 27,
+        "endLine": 195,
+        "endChar": 29
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0810705c_20eb9daa",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "...loop counter in CTX_NESTED_EA_FLAG1 to..",
+      "range": {
+        "startLine": 197,
+        "startChar": 51,
+        "endLine": 197,
+        "endChar": 52
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0907f5e_eafea241",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "/* Zero the replay counter */",
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aabe88a_f585195c",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "give meaningful names for labels in functions.\n\ncheck_loop_ctr:",
+      "range": {
+        "startLine": 215,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 1
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "463a445f_9bc29c0a",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "skip_loop_ctr:",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 221,
+        "endChar": 1
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a8933da_964b2739",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "This mismatches the comment. Add a macro for this: EC_SMC32",
+      "range": {
+        "startLine": 240,
+        "startChar": 11,
+        "endLine": 240,
+        "endChar": 18
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89c6ca59_e8757aa6",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "same comment as above.",
+      "range": {
+        "startLine": 242,
+        "startChar": 11,
+        "endLine": 242,
+        "endChar": 18
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89ade80d_b71d3739",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "skip_smc_check:",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 1
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ef2f2f6_178c2b63",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "/* Use dsb sy to sync pending SError */",
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5492a69_f3f1879c",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "/* If scr_el3.ea \u003d 1,  handle SError in firmware first */",
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e316b3d3_7e94376b",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "will the below logic work ?\n\n#if HANDLE_EA_EL3_FIRST_NS\n\tmrs\tx30, scr_el3\n\ttst\tx30, #SCR_EA_BIT\n\tb.eq\t1f\n        bl\thandle_pending_async_ea\n        b 2f\n#endif\n1:      /* Reflect Async EA to lower EL This function never returns, but need LR for decision making */\n\tbl\treflect_pending_async_ea_to_lower_el\n\n2:      /* No Async EA pending */",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 2
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0332039e_f3d69796",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "remove.",
+      "range": {
+        "startLine": 74,
+        "startChar": 62,
+        "endLine": 75,
+        "endChar": 46
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a830c9c5_3658fbfe",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-18T16:09:39Z",
+      "side": 1,
+      "message": "unmask_async_esa",
+      "range": {
+        "startLine": 77,
+        "startChar": 15,
+        "endLine": 77,
+        "endChar": 17
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
