@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a246d7d_f33abfa6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-18T09:00:02Z",
+      "side": 1,
+      "message": "Here again I would like us to explain why all images are given the zero key oid.",
+      "revId": "8c3c9500ae16c23156efd26254d2ceea3e3f684e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b67c106f_fd826b72",
+        "filename": "plat/arm/board/tc/tc_bl1_measured_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-18T09:00:02Z",
+      "side": 1,
+      "message": "The same question arises about #ifdef ARM_COT_cca...",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "8c3c9500ae16c23156efd26254d2ceea3e3f684e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
