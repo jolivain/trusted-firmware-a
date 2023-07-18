@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,7 @@
 #include <stddef.h>
 
 #include <arch.h>
+#include <arch_features.h>
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
@@ -15,6 +16,7 @@
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/el3_runtime/cpu_data.h>
 #include <lib/el3_runtime/pubsub_events.h>
+#include <lib/extensions/spe.h>
 #include <lib/pmf/pmf.h>
 #include <lib/runtime_instr.h>
 #include <plat/common/platform.h>
@@ -239,6 +241,15 @@ int psci_cpu_suspend_start(const entry_point_info_t *ep,
 
 	if (is_power_down_state != 0U)
 		psci_suspend_to_pwrdown_start(end_pwrlvl, ep, state_info);
+
+
+	/*
+	 * On power domain suspend, we need to disable statistical profiling
+	 * extensions before exiting coherency.
+	 */
+	if (is_feat_spe_supported()) {
+		spe_disable();
+	}
 
 	/*
 	 * Plat. management: Allow the platform to perform the
