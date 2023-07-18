@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7387dffe_d720ff44",
+        "filename": "lib/cpus/aarch64/neoverse_n2.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-07-18T20:16:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ab0fefad_3970ee87",
+      "range": {
+        "startLine": 249,
+        "startChar": 4,
+        "endLine": 249,
+        "endChar": 33
+      },
+      "revId": "0abe42d578be8425be7a048dabc2af8fbd8b5ac8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd65bc3f_e8c72a98",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Ack. I used complete conversion patchstack for testing. I will keep this in WIP until retested.",
       "parentUuid": "dd65bc3f_e8c72a98",
+      "range": {
+        "startLine": 264,
+        "startChar": 4,
+        "endLine": 264,
+        "endChar": 33
+      },
+      "revId": "0abe42d578be8425be7a048dabc2af8fbd8b5ac8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00ebc16e_d8d01d69",
+        "filename": "lib/cpus/aarch64/neoverse_n2.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-07-18T20:16:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ece05a7_ca5f5b37",
       "range": {
         "startLine": 264,
         "startChar": 4,
