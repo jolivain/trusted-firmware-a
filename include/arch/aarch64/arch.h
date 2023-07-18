@@ -345,6 +345,11 @@
 #define ID_AA64MMFR1_EL1_HCX_SUPPORTED		ULL(0x1)
 #define ID_AA64MMFR1_EL1_HCX_NOT_SUPPORTED	ULL(0x0)
 
+#define ID_AA64MMFR1_EL1_HAFDBS_SHIFT		U(0)
+#define ID_AA64MMFR1_EL1_HAFDBS_MASK		ULL(0xf)
+
+#define HAFT_SUPPORTED				ULL(0x3)
+
 /* ID_AA64MMFR2_EL1 definitions */
 #define ID_AA64MMFR2_EL1			S3_0_C0_C7_2
 
@@ -719,6 +724,7 @@
 /* VTCR_EL2 definitions */
 #define VTCR_RESET_VAL		U(0x0)
 #define VTCR_EL2_MSA		(U(1) << 31)
+#define VTCR_EL2_HAFT_BIT	(UL(1) << 42)
 
 /* CPSR/SPSR definitions */
 #define DAIF_FIQ_BIT		(U(1) << 0)
@@ -785,6 +791,7 @@
 #define TCR_EL1_IPS_SHIFT	U(32)
 #define TCR_EL2_PS_SHIFT	U(16)
 #define TCR_EL3_PS_SHIFT	U(16)
+#define TCR_EL3_HAFT_BIT	(UL(1) << 42)
 
 #define TCR_TxSZ_MIN		ULL(16)
 #define TCR_TxSZ_MAX		ULL(39)
@@ -1377,7 +1384,11 @@
 /*******************************************************************************
  * FEAT_TCR2 - Extended Translation Control Register
  ******************************************************************************/
+#define TCR2_EL1		S3_0_C2_C0_3
+#define TCR2_EL1_HAFT_BIT	(UL(1) << 11)
+
 #define TCR2_EL2		S3_4_C2_C0_3
+#define TCR2_EL2_HAFT_BIT	(UL(1) << 11)
 
 /*******************************************************************************
  * Permission indirection and overlay
