@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fbe6bdf2_fc2cf481",
+        "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-18T08:08:00Z",
+      "side": 1,
+      "message": "\u003e Currently, I think checking the signer-ID is zero before using it inside \u0027rss_mboot_set_signer_id\u0027 makes sense, right? Therefore, there is no need to explicitly check it anywhere else. Please let me know what do you think?\n\nYes, I agree. If the platform code omits to properly initialize the signer id, then the assertion in \u0027rss_mboot_set_signer_id\u0027 will detect it the first time it is called for this key OID. So that\u0027s fine.",
+      "parentUuid": "4ebdcd6a_6365ca3f",
+      "revId": "ebd32edbd2d92a9952b974200534fb1a6c862719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1d7e0da1_910e91a5",
         "filename": "drivers/measured_boot/rss/rss_measured_boot.c",
         "patchSetId": 2
