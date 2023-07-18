@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,7 @@
 #include <stddef.h>
 
 #include <arch.h>
+#include <arch_features.h>
 #include <arch_helpers.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
@@ -15,6 +16,7 @@
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/el3_runtime/cpu_data.h>
 #include <lib/el3_runtime/pubsub_events.h>
+#include <lib/extensions/spe.h>
 #include <lib/pmf/pmf.h>
 #include <lib/runtime_instr.h>
 #include <plat/common/platform.h>
@@ -128,6 +130,12 @@ static void psci_suspend_to_pwrdown_start(unsigned int end_pwrlvl,
 #endif
 
 	/*
+	 * Arch_extensions. management: Perform architecture extensions specific
+	 * actions, to manage any extensions, required during cpu suspend.
+	 */
+	psci_do_manage_extensions();
+
+	/*
 	 * Arch. management. Initiate power down sequence.
 	 * TODO : Introduce a mechanism to query the cache level to flush
 	 * and the cpu-ops power down to perform from the platform.
@@ -239,6 +247,7 @@ int psci_cpu_suspend_start(const entry_point_info_t *ep,
 
 	if (is_power_down_state != 0U)
 		psci_suspend_to_pwrdown_start(end_pwrlvl, ep, state_info);
+
 
 	/*
 	 * Plat. management: Allow the platform to perform the
