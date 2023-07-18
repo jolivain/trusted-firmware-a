@@ -1261,6 +1261,7 @@ $(eval $(call assert_numerics,\
 	ENABLE_FEAT_TWED \
 	SVE_VECTOR_LEN \
 	IMPDEF_SYSREG_TRAP \
+	ENABLE_FEAT_HAFT \
 )))
 
 ifdef KEY_SIZE
@@ -1397,6 +1398,7 @@ $(eval $(call add_defines,\
 	CONDITIONAL_CMO \
 	IMPDEF_SYSREG_TRAP \
 	SVE_VECTOR_LEN \
+	ENABLE_FEAT_HAFT \
 )))
 
 ifeq (${SANITIZE_UB},trap)
