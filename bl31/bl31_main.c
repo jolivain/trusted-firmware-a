@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -114,6 +114,9 @@ void bl31_main(void)
 {
 	/* Init registers that never change for the lifetime of TF-A */
 	cm_manage_extensions_el3();
+
+	/* Init global context registers */
+	cm_manage_extensions_global();
 
 	NOTICE("BL31: %s\n", version_string);
 	NOTICE("BL31: %s\n", build_message);
