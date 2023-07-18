@@ -25,6 +25,9 @@ void sme_enable(cpu_context_t *context);
 void sme_init_el3(void);
 void sme_init_el2_unused(void);
 void sme_disable(cpu_context_t *context);
+
+void sme_enable_global(global_context_t *global_ctx);
+void sme_disable_global(global_context_t *global_ctx);
 #else
 static inline void sme_enable(cpu_context_t *context)
 {
@@ -36,6 +39,12 @@ static inline void sme_init_el2_unused(void)
 {
 }
 static inline void sme_disable(cpu_context_t *context)
+{
+}
+static inline void sme_enable_global(global_context_t *global_ctx)
+{
+}
+static inline void sme_disable_global(global_context_t *global_ctx)
 {
 }
 #endif /* ENABLE_SME_FOR_NS */

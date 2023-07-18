@@ -719,6 +719,28 @@ func save_and_update_ptw_el1_sys_regs
 	ret
 endfunc save_and_update_ptw_el1_sys_regs
 
+.macro global_context_by_index
+	mov_imm	x1, CTX_GLOBAL_EL3STATE_END
+	mul	x0, x0, x1
+	adrp	x1, global_context
+	add	x1, x1, :lo12:global_context
+	add	x0, x0, x1
+.endm
+
+.macro get_security_state
+	mrs 	x1, scr_el3
+	mov 	x0, xzr
+	ubfx 	x0, x1, #SCR_NSE_SHIFT, #1
+	cmp 	x0, #1
+	beq 	realm_state
+	mov 	x0, xzr
+	bfi	x0, x1, #0, #1
+	b 	end
+realm_state:
+	mov 	x0, #2
+end:
+.endm
+
 /* ------------------------------------------------------------------
  * This routine assumes that the SP_EL3 is pointing to a valid
  * context structure from where the gp regs and other special
@@ -750,7 +772,10 @@ func el3_exit
 	 * Synchronization is required before zcr_el3 is addressed.
 	 * ----------------------------------------------------------
 	 */
-	ldp	x19, x20, [sp, #CTX_EL3STATE_OFFSET + CTX_CPTR_EL3]
+	get_security_state
+	global_context_by_index
+
+	ldp	x19, x20, [x0, #CTX_GLOBAL_EL3STATE_OFFSET + CTX_CPTR_EL3]
 	msr	cptr_el3, x19
 
 	ands	x19, x19, #CPTR_EZ_BIT
