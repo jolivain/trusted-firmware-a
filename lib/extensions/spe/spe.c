@@ -12,6 +12,14 @@
 #include <lib/el3_runtime/pubsub.h>
 #include <lib/extensions/spe.h>
 
+#include <plat/common/platform.h>
+
+typedef struct spe_ctx {
+	u_register_t pmblimitr_el1;
+} spe_ctx_t;
+
+static struct spe_ctx spe_ctxs_[PLATFORM_CORE_COUNT];
+
 static inline void psb_csync(void)
 {
 	/*
@@ -89,4 +97,41 @@ static void *spe_drain_buffers_hook(const void *arg)
 	return (void *)0;
 }
 
+static void *spe_context_save(const void *arg)
+{
+	unsigned int core_pos;
+	struct spe_ctx *ctx;
+
+	if (!is_feat_spe_supported()) {
+		return (void *)0;
+	}
+
+	core_pos = plat_my_core_pos();
+	ctx = &spe_ctxs_[core_pos];
+	ctx->pmblimitr_el1 = read_pmblimitr_el1();
+
+	return (void *)0;
+}
+
+
+static void *spe_context_restore(const void *arg)
+{
+	unsigned int core_pos;
+	struct spe_ctx *ctx;
+
+	if (!is_feat_spe_supported()) {
+		return (void *)0;
+	}
+
+	core_pos = plat_my_core_pos();
+	ctx = &spe_ctxs_[core_pos];
+	write_pmblimitr_el1(ctx->pmblimitr_el1);
+
+	return (void *)0;
+	
+}
+
 SUBSCRIBE_TO_EVENT(cm_entering_secure_world, spe_drain_buffers_hook);
+
+SUBSCRIBE_TO_EVENT(psci_suspend_pwrdown_start, spe_context_save);
+SUBSCRIBE_TO_EVENT(psci_suspend_pwrdown_finish, spe_context_restore)
