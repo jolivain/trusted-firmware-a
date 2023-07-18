@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a9fd7c0_4925a433",
+        "filename": "plat/qti/msm8916/msm8916_cpu_boot.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-18T18:48:34Z",
+      "side": 1,
+      "message": "put braces around if {}\nAlso, it will be helpful to add debug message mentioning that cluster 2 is already ON.",
+      "revId": "01f9bc4fb9b6c767d5941ec4754519f02d41b953",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5c6b621_3d8594e9",
+        "filename": "plat/qti/msm8916/msm8916_cpu_boot.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-18T18:48:34Z",
+      "side": 1,
+      "message": "Just curious to know why this udelay() is required after dsb() here and in below PWR_CTL register write?",
+      "range": {
+        "startLine": 115,
+        "startChar": 1,
+        "endLine": 115,
+        "endChar": 10
+      },
+      "revId": "01f9bc4fb9b6c767d5941ec4754519f02d41b953",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
