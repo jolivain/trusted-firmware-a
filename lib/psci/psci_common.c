@@ -1297,3 +1297,20 @@ bool psci_are_all_cpus_on_safe(void)
 
 	return true;
 }
+
+/*******************************************************************************
+ * This function performs architectural features specfic managment.
+ * It ensure, the arch features are disabled or turned_off as required during
+ * cpu power_off/suspend operations.
+ ******************************************************************************/
+void psci_do_manage_extensions()
+{
+	/*
+	 * On power down we need to disable statistical profiling extensions
+	 * before exiting coherency.
+	 */
+	if (is_feat_spe_supported()) {
+		spe_disable();
+	}
+	
+}
