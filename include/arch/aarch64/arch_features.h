@@ -165,6 +165,24 @@ CREATE_FEATURE_FUNCS_VER(feat_mpam, read_feat_mpam_version, 1U,
 CREATE_FEATURE_FUNCS(feat_hcx, id_aa64mmfr1_el1, ID_AA64MMFR1_EL1_HCX_SHIFT,
 		     ENABLE_FEAT_HCX)
 
+static inline unsigned int read_feat_haft_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64mmfr1_el1(), ID_AA64MMFR1_EL1_HAFDBS);
+}
+
+static inline bool is_feat_haft_supported(void)
+{
+	if (ENABLE_FEAT_HAFT == FEAT_STATE_DISABLED) {
+		return false;
+	}
+
+	if (ENABLE_FEAT_HAFT == FEAT_STATE_ALWAYS) {
+		return true;
+	}
+
+	return read_feat_haft_id_field() >= ID_AA64MMFR1_EL1_HAFT_SUPPORTED;
+}
+
 static inline bool is_feat_rng_trap_present(void)
 {
 	return (((read_id_aa64pfr1_el1() >> ID_AA64PFR1_EL1_RNDR_TRAP_SHIFT) &
