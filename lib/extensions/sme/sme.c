@@ -18,14 +18,16 @@ void sme_enable(cpu_context_t *context)
 {
 	u_register_t reg;
 	el3_state_t *state;
+	global_el3_state_t *global_state;
 
 	/* Get the context state. */
 	state = get_el3state_ctx(context);
+	global_state = get_global_el3state_ctx(context);
 
 	/* Enable SME in CPTR_EL3. */
-	reg = read_ctx_reg(state, CTX_CPTR_EL3);
+	reg = read_ctx_reg(global_state, CTX_CPTR_EL3);
 	reg |= ESM_BIT;
-	write_ctx_reg(state, CTX_CPTR_EL3, reg);
+	write_ctx_reg(global_state, CTX_CPTR_EL3, reg);
 
 	/* Set the ENTP2 bit in SCR_EL3 to enable access to TPIDR2_EL0. */
 	reg = read_ctx_reg(state, CTX_SCR_EL3);
@@ -83,16 +85,18 @@ void sme_disable(cpu_context_t *context)
 {
 	u_register_t reg;
 	el3_state_t *state;
+	global_el3_state_t *global_state;
 
 	/* Get the context state. */
 	state = get_el3state_ctx(context);
+	global_state = get_global_el3state_ctx(context);
 
 	/* Disable SME, SVE, and FPU since they all share registers. */
-	reg = read_ctx_reg(state, CTX_CPTR_EL3);
+	reg = read_ctx_reg(global_state, CTX_CPTR_EL3);
 	reg &= ~ESM_BIT;	/* Trap SME */
 	reg &= ~CPTR_EZ_BIT;	/* Trap SVE */
 	reg |= TFP_BIT;		/* Trap FPU/SIMD */
-	write_ctx_reg(state, CTX_CPTR_EL3, reg);
+	write_ctx_reg(global_state, CTX_CPTR_EL3, reg);
 
 	/* Disable access to TPIDR2_EL0. */
 	reg = read_ctx_reg(state, CTX_SCR_EL3);

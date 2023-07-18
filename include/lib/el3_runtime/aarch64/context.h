@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,6 +7,7 @@
 #ifndef CONTEXT_H
 #define CONTEXT_H
 
+#include <lib/el3_runtime/cpu_data.h>
 #include <lib/utils_def.h>
 
 /*******************************************************************************
@@ -59,11 +60,8 @@
 #define CTX_RUNTIME_SP		U(0x10)
 #define CTX_SPSR_EL3		U(0x18)
 #define CTX_ELR_EL3		U(0x20)
-#define CTX_PMCR_EL0		U(0x28)
-#define CTX_IS_IN_EL3		U(0x30)
-#define CTX_CPTR_EL3		U(0x38)
-#define CTX_ZCR_EL3		U(0x40)
-#define CTX_EL3STATE_END	U(0x50) /* Align to the next 16 byte boundary */
+#define CTX_IS_IN_EL3		U(0x28)
+#define CTX_EL3STATE_END	U(0x30) /* Align to the next 16 byte boundary */
 
 /*******************************************************************************
  * Constants that allow assembler code to access members of and the
@@ -323,6 +321,15 @@
 #define CTX_PAUTH_REGS_END	U(0)
 #endif /* CTX_INCLUDE_PAUTH_REGS */
 
+#define CTX_GLOBAL_POINTER_OFFSET (CTX_PAUTH_REGS_OFFSET + CTX_PAUTH_REGS_END)
+
+#define CTX_GLOBAL_EL3STATE_OFFSET U(0x0)
+#define CTX_PMCR_EL0		U(0x0)
+#define CTX_CPTR_EL3		U(0x8)
+#define CTX_ZCR_EL3		U(0x10)
+#define CTX_GLOBAL_EL3STATE_END	U(0x20)
+
+
 #ifndef __ASSEMBLER__
 
 #include <stdint.h>
@@ -349,6 +356,7 @@
 # define CTX_FPREG_ALL		(CTX_FPREGS_END >> DWORD_SHIFT)
 #endif
 #define CTX_EL3STATE_ALL	(CTX_EL3STATE_END >> DWORD_SHIFT)
+#define CTX_GLOBAL_EL3STATE_ALL	(CTX_GLOBAL_EL3STATE_END >> DWORD_SHIFT)
 #define CTX_CVE_2018_3639_ALL	(CTX_CVE_2018_3639_END >> DWORD_SHIFT)
 #if CTX_INCLUDE_PAUTH_REGS
 # define CTX_PAUTH_REGS_ALL	(CTX_PAUTH_REGS_END >> DWORD_SHIFT)
@@ -392,6 +400,7 @@ DEFINE_REG_STRUCT(fp_regs, CTX_FPREG_ALL);
  * across exception entries and exits
  */
 DEFINE_REG_STRUCT(el3_state, CTX_EL3STATE_ALL);
+DEFINE_REG_STRUCT(global_el3_state, CTX_GLOBAL_EL3STATE_ALL);
 
 /* Function pointer used by CVE-2018-3639 dynamic mitigation */
 DEFINE_REG_STRUCT(cve_2018_3639, CTX_CVE_2018_3639_ALL);
@@ -417,6 +426,12 @@ DEFINE_REG_STRUCT(pauth, CTX_PAUTH_REGS_ALL);
  * SP_EL3 always points to an instance of this structure at exception
  * entry and exit.
  */
+typedef struct global_context {
+	global_el3_state_t global_el3_state_ctx;
+} global_context_t;
+
+extern global_context_t global_context[CPU_DATA_CONTEXT_NUM];
+
 typedef struct cpu_context {
 	gp_regs_t gpregs_ctx;
 	el3_state_t el3state_ctx;
@@ -431,10 +446,12 @@ typedef struct cpu_context {
 #if CTX_INCLUDE_PAUTH_REGS
 	pauth_t pauth_ctx;
 #endif
+	global_context_t *global_ctx; /* pointer to per-world global context */
 } cpu_context_t;
 
 /* Macros to access members of the 'cpu_context_t' structure */
 #define get_el3state_ctx(h)	(&((cpu_context_t *) h)->el3state_ctx)
+#define get_global_el3state_ctx(h) (&(((cpu_context_t *) h)->global_ctx->global_el3_state_ctx))
 #if CTX_INCLUDE_FPREGS
 # define get_fpregs_ctx(h)	(&((cpu_context_t *) h)->fpregs_ctx)
 #endif
