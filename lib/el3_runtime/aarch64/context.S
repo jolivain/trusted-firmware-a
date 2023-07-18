@@ -533,6 +533,42 @@ func save_and_update_ptw_el1_sys_regs
 	ret
 endfunc save_and_update_ptw_el1_sys_regs
 
+/* -----------------------------------------------------------------
+* The below macro reads SCR_EL3 from the context structure to
+* determine the security state of the context upon ERET.
+* Clobbers: x9, x10
+* ------------------------------------------------------------------
+*/
+
+.macro get_security_state
+	ldr 	x10, [sp, #CTX_EL3STATE_OFFSET + CTX_SCR_EL3]
+	mov 	x9, xzr
+	ubfx 	x9, x10, #SCR_NSE_SHIFT, #1
+	cmp 	x9, #1
+	beq 	realm_state
+	mov 	x9, xzr
+	bfi	x9, x10, #0, #1
+	b 	end
+realm_state:
+	mov 	x9, #2
+end:
+.endm
+
+/* -----------------------------------------------------------------
+* The below macro returns the address of the global context for
+* the security state which is given by the value in x9.
+* Clobbers: x9, x10
+* ------------------------------------------------------------------
+*/
+
+.macro global_context_by_index
+	mov_imm	x10, CTX_GLOBAL_EL3STATE_END
+	mul	x9, x9, x10
+	adrp	x10, global_context
+	add	x10, x10, :lo12:global_context
+	add	x9, x9, x10
+.endm
+
 /* ------------------------------------------------------------------
  * This routine assumes that the SP_EL3 is pointing to a valid
  * context structure from where the gp regs and other special
@@ -564,7 +600,10 @@ func el3_exit
 	 * Synchronization is required before zcr_el3 is addressed.
 	 * ----------------------------------------------------------
 	 */
-	ldp	x19, x20, [sp, #CTX_EL3STATE_OFFSET + CTX_CPTR_EL3]
+	get_security_state
+	global_context_by_index
+
+	ldp	x19, x20, [x9, #CTX_GLOBAL_EL3STATE_OFFSET + CTX_CPTR_EL3]
 	msr	cptr_el3, x19
 
 	ands	x19, x19, #CPTR_EZ_BIT
