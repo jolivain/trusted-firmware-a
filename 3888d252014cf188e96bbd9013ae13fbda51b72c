@@ -45,6 +45,30 @@
       },
       "revId": "3888d252014cf188e96bbd9013ae13fbda51b72c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6eb5d4d6_b2c85d1d",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-18T10:24:16Z",
+      "side": 1,
+      "message": "Thank you for bringing this up. I was thinking that RSS\u0027s use-case would only occur during CCA CoT.\nWould it be possible to handle this in the following way -\n\n #ifdef ARM_COT_cca \n   #define BL31_KEY_OID    ZERO_KEYOID\n #else \n   #define BL31_KEY_OID    SOC_FW_CONTENT_CERT_PK_OID\n #endif\n\nSimilarly, wherever applicable, for other images.\nNow, let\u0027s see where we should put this information. Is it possible to create a new file \"include/tools_share/cot_oid.h\" to include these defines that can be beneficial for everyone?\nI can\u0027t see this as platform specific information. Thoughts?",
+      "parentUuid": "6a9e2330_dba00dd6",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 21
+      },
+      "revId": "3888d252014cf188e96bbd9013ae13fbda51b72c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
