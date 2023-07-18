@@ -142,6 +142,9 @@ ENABLE_FEAT_CSV2_2 		:= 0
 # Flag to enable access to the HCRX_EL2 register by setting SCR_EL3.HXEn.
 ENABLE_FEAT_HCX			:= 0
 
+# Flag to enable hardware managed Access Flag's for table descriptors.
+ENABLE_FEAT_HAFT		:= 0
+
 # Flag to enable access to the HDFGRTR_EL2 register
 ENABLE_FEAT_FGT			:= 0
 
