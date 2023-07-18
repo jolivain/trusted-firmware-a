@@ -119,20 +119,6 @@ static void rmm_el2_context_init(el2_sysregs_t *regs)
  ******************************************************************************/
 static void manage_extensions_realm(cpu_context_t *ctx)
 {
-	if (is_feat_sve_supported()) {
-	/*
-	 * Enable SVE and FPU in realm context when it is enabled for NS.
-	 * Realm manager must ensure that the SVE and FPU register
-	 * contexts are properly managed.
-	 */
-		sve_enable(ctx);
-	}
-
-	/* NS can access this but Realm shouldn't */
-	if (is_feat_sys_reg_trace_supported()) {
-		sys_reg_trace_disable(ctx);
-	}
-
 	pmuv3_enable(ctx);
 }
 
