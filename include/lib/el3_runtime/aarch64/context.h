@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,6 +7,7 @@
 #ifndef CONTEXT_H
 #define CONTEXT_H
 
+#include <lib/el3_runtime/cpu_data.h>
 #include <lib/utils_def.h>
 
 /*******************************************************************************
@@ -61,9 +62,7 @@
 #define CTX_ELR_EL3		U(0x20)
 #define CTX_PMCR_EL0		U(0x28)
 #define CTX_IS_IN_EL3		U(0x30)
-#define CTX_CPTR_EL3		U(0x38)
-#define CTX_ZCR_EL3		U(0x40)
-#define CTX_EL3STATE_END	U(0x50) /* Align to the next 16 byte boundary */
+#define CTX_EL3STATE_END	U(0x40) /* Align to the next 16 byte boundary */
 
 /*******************************************************************************
  * Constants that allow assembler code to access members of and the
@@ -323,6 +322,13 @@
 #define CTX_PAUTH_REGS_END	U(0)
 #endif /* CTX_INCLUDE_PAUTH_REGS */
 
+/*******************************************************************************
+ * Registers initialised in a per-world global context.
+ ******************************************************************************/
+#define CTX_CPTR_EL3		U(0x0)
+#define CTX_ZCR_EL3		U(0x8)
+#define CTX_GLOBAL_EL3STATE_END	U(0x10)
+
 #ifndef __ASSEMBLER__
 
 #include <stdint.h>
@@ -433,6 +439,17 @@ typedef struct cpu_context {
 #endif
 } cpu_context_t;
 
+/*
+ * Global context which is initialized per-world. The global context
+ * stores registers whose values can be shared across CPUs.
+ */
+typedef struct global_context {
+	uint64_t ctx_cptr_el3;
+	uint64_t ctx_zcr_el3;
+} global_context_t;
+
+extern global_context_t global_context[CPU_DATA_CONTEXT_NUM];
+
 /* Macros to access members of the 'cpu_context_t' structure */
 #define get_el3state_ctx(h)	(&((cpu_context_t *) h)->el3state_ctx)
 #if CTX_INCLUDE_FPREGS
@@ -447,6 +464,9 @@ typedef struct cpu_context {
 #if CTX_INCLUDE_PAUTH_REGS
 # define get_pauth_ctx(h)	(&((cpu_context_t *) h)->pauth_ctx)
 #endif
+
+/* Macros to access members of the 'global_context_t' structure */
+#define get_global_el3state_ctx(g) (&((global_context_t *) g)->global_el3state_ctx)
 
 /*
  * Compile time assertions related to the 'cpu_context' structure to
