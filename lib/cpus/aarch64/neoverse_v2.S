@@ -38,6 +38,13 @@ check_erratum_chosen neoverse_v2, CVE(2022, 23960), WORKAROUND_CVE_2022_23960
 	wa_cve_2022_23960_bhb_vector_table NEOVERSE_V2_BHB_LOOP_COUNT, neoverse_v2
 #endif /* WORKAROUND_CVE_2022_23960 */
 
+workaround_runtime_start neoverse_v2, ERRATUM(2801372), ERRATA_V2_2801372
+	/* dsb before isb of power down sequence */
+	dsb	sy
+workaround_runtime_end neoverse_v2, ERRATUM(2801372), ERRATA_V2_2801372
+
+check_erratum_ls neoverse_v2, ERRATUM(2801372), CPU_REV(0, 1)
+
 	/* ----------------------------------------------------
 	 * HW will do the cache maintenance while powering down
 	 * ----------------------------------------------------
@@ -48,6 +55,7 @@ func neoverse_v2_core_pwr_dwn
 	 * ---------------------------------------------------
 	 */
 	sysreg_bit_set NEOVERSE_V2_CPUPWRCTLR_EL1, NEOVERSE_V2_CPUPWRCTLR_EL1_CORE_PWRDN_BIT
+	apply_erratum neoverse_v2, ERRATUM(2801372), ERRATA_V2_2801372
 	isb
 	ret
 endfunc neoverse_v2_core_pwr_dwn
