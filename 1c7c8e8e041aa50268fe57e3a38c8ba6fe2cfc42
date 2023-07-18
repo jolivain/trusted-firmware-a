@@ -16,6 +16,29 @@
       "message": "Unrelated failures (docs + known plats + one pass on rerun), coverity added by this patch: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/22000/2\n\n",
       "revId": "1c7c8e8e041aa50268fe57e3a38c8ba6fe2cfc42",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "827179f2_ca1bac40",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-18T07:04:34Z",
+      "side": 1,
+      "message": "Could we move this line to platform_test.mk as well?",
+      "range": {
+        "startLine": 192,
+        "startChar": 4,
+        "endLine": 192,
+        "endChar": 35
+      },
+      "revId": "1c7c8e8e041aa50268fe57e3a38c8ba6fe2cfc42",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
