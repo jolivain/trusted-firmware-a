@@ -714,6 +714,9 @@ Common build options
 
    This option defaults to 0.
 
+-  ``MARCH_DIRECTIVE``: used to pass a march option to compiler from platform
+   build options. An example value that can be passed ``-march=armv8.5-a``
+
 -  ``NON_TRUSTED_WORLD_KEY``: This option is used when ``GENERATE_COT=1``. It
    specifies the file that contains the Non-Trusted World private key in PEM
    format. If ``SAVE_KEYS=1``, this file name will be used to save the key.
