@@ -16,6 +16,7 @@
 #include <drivers/auth/crypto_mod.h>
 #include <drivers/console.h>
 #include <drivers/fwu/fwu.h>
+#include <drivers/partition/partition.h>
 #include <lib/extensions/pauth.h>
 #include <plat/common/platform.h>
 
@@ -86,6 +87,10 @@ void bl2_main(void)
 
 	/* Perform remaining generic architectural setup in S-EL1 */
 	bl2_arch_setup();
+
+#if ARM_GPT_SUPPORT
+	partition_init(GPT_IMAGE_ID);
+#endif
 
 #if PSA_FWU_SUPPORT
 	fwu_init();
