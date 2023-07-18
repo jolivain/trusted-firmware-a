@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -19,6 +19,7 @@
 void amu_enable(cpu_context_t *ctx);
 void amu_init_el3(void);
 void amu_init_el2_unused(void);
+void amu_enable_global(global_context_t *global_ctx);
 #else
 void amu_enable(bool el2_unused);
 #endif
@@ -31,6 +32,9 @@ void amu_init_el3(void)
 {
 }
 void amu_init_el2_unused(void)
+{
+}
+void amu_enable_global(global_context_t *global_ctx)
 {
 }
 #else
