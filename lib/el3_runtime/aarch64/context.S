@@ -533,6 +533,23 @@ func save_and_update_ptw_el1_sys_regs
 	ret
 endfunc save_and_update_ptw_el1_sys_regs
 
+/* -----------------------------------------------------------------
+* The below macro returns the address of the global context for
+* the security state which is given by the value in x9.
+* Clobbers: x9, x10
+* ------------------------------------------------------------------
+*/
+
+.macro get_global_context
+	ldr 	x10, [sp, #CTX_EL3STATE_OFFSET + CTX_SCR_EL3]
+	get_security_state
+	mov_imm	x10, CTX_GLOBAL_EL3STATE_END
+	mul	x9, x9, x10
+	adrp	x10, global_context
+	add	x10, x10, :lo12:global_context
+	add	x9, x9, x10
+.endm
+
 /* ------------------------------------------------------------------
  * This routine assumes that the SP_EL3 is pointing to a valid
  * context structure from where the gp regs and other special
@@ -564,7 +581,11 @@ func el3_exit
 	 * Synchronization is required before zcr_el3 is addressed.
 	 * ----------------------------------------------------------
 	 */
-	ldp	x19, x20, [sp, #CTX_EL3STATE_OFFSET + CTX_CPTR_EL3]
+
+	/* The address of the global context is stored in x9 */
+	get_global_context
+
+	ldp	x19, x20, [x9, #CTX_GLOBAL_EL3STATE_OFFSET + CTX_CPTR_EL3]
 	msr	cptr_el3, x19
 
 	ands	x19, x19, #CPTR_EZ_BIT
