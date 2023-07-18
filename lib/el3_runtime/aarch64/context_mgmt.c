@@ -20,6 +20,7 @@
 #include <context.h>
 #include <drivers/arm/gicv3.h>
 #include <lib/el3_runtime/context_mgmt.h>
+#include <lib/el3_runtime/cpu_data.h>
 #include <lib/el3_runtime/pubsub_events.h>
 #include <lib/extensions/amu.h>
 #include <lib/extensions/brbe.h>
@@ -37,6 +38,8 @@
 /* Make sure delay value fits within the range(0-15) */
 CASSERT(((TWED_DELAY & ~SCR_TWEDEL_MASK) == 0U), assert_twed_delay_value_check);
 #endif /* ENABLE_FEAT_TWED */
+
+global_context_t global_context[CPU_DATA_CONTEXT_NUM];
 
 static void manage_extensions_nonsecure(cpu_context_t *ctx);
 static void manage_extensions_secure(cpu_context_t *ctx);
@@ -391,12 +394,6 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 	}
 
 	/*
-	 * CPTR_EL3 was initialized out of reset, copy that value to the
-	 * context register.
-	 */
-	write_ctx_reg(get_el3state_ctx(ctx), CTX_CPTR_EL3, read_cptr_el3());
-
-	/*
 	 * SCR_EL3.HCE: Enable HVC instructions if next execution state is
 	 * AArch64 and next EL is EL2, or if next execution state is AArch32 and
 	 * next mode is Hyp.
@@ -527,6 +524,22 @@ void cm_manage_extensions_el3(void)
 
 	if (is_feat_sme_supported()) {
 		sme_init_el3();
+
+		sme_enable_global(&global_context[CPU_CONTEXT_NS]);
+
+		if (ENABLE_SME_FOR_SWD) {
+		/*
+		 * Enable SME, SVE, FPU/SIMD in secure context, secure manager
+		 * must ensure SME, SVE, and FPU/SIMD context properly managed.
+		 */
+			sme_enable_global(&global_context[CPU_CONTEXT_SECURE]);
+		} else {
+		/*
+		 * Disable SME, SVE, FPU/SIMD in secure context so non-secure
+		 * world can safely use the associated registers.
+		 */
+			sme_disable_global(&global_context[CPU_CONTEXT_SECURE]);
+		}
 	}
 
 	if (is_feat_mpam_supported()) {
@@ -546,6 +559,50 @@ void cm_manage_extensions_el3(void)
 	}
 
 	pmuv3_init_el3();
+
+	/* Enable SVE and FPU/SIMD */
+	if (is_feat_sve_supported()) {
+		sve_enable(&global_context[CPU_CONTEXT_NS]);
+
+		/*
+		* Enable SVE and FPU in realm context when it is enabled for NS.
+		* Realm manager must ensure that the SVE and FPU register
+		* contexts are properly managed.
+		*/
+		#if ENABLE_RME
+		sve_enable(&global_context[CPU_CONTEXT_REALM]);
+		#endif
+
+		if (ENABLE_SVE_FOR_SWD) {
+		/*
+		 * Enable SVE and FPU in secure context, secure manager must
+		 * ensure that the SVE and FPU register contexts are properly
+		 * managed.
+		 */
+			sve_enable(&global_context[CPU_CONTEXT_SECURE]);
+		} else {
+		/*
+		 * Disable SVE and FPU in secure context so non-secure world
+		 * can safely use them.
+		 */
+			sve_disable(&global_context[CPU_CONTEXT_SECURE]);
+		}
+	}
+
+	if (is_feat_amu_supported()) {
+		amu_enable_global(&global_context[CPU_CONTEXT_NS]);
+	}
+
+	/* NS can access this but Secure and Realm shouldn't */
+	if (is_feat_sys_reg_trace_supported()) {
+		sys_reg_trace_enable(&global_context[CPU_CONTEXT_NS]);
+
+		#if ENABLE_RME
+		sys_reg_trace_disable(&global_context[CPU_CONTEXT_REALM]);
+		#endif
+
+		sys_reg_trace_disable(&global_context[CPU_CONTEXT_SECURE]);
+	}
 }
 #endif /* IMAGE_BL31 */
 
@@ -559,17 +616,8 @@ static void manage_extensions_nonsecure(cpu_context_t *ctx)
 		amu_enable(ctx);
 	}
 
-	/* Enable SVE and FPU/SIMD */
-	if (is_feat_sve_supported()) {
-		sve_enable(ctx);
-	}
-
 	if (is_feat_sme_supported()) {
 		sme_enable(ctx);
-	}
-
-	if (is_feat_sys_reg_trace_supported()) {
-		sys_reg_trace_enable(ctx);
 	}
 
 	pmuv3_enable(ctx);
@@ -643,23 +691,6 @@ static void manage_extensions_nonsecure_el2_unused(void)
 static void manage_extensions_secure(cpu_context_t *ctx)
 {
 #if IMAGE_BL31
-	if (is_feat_sve_supported()) {
-		if (ENABLE_SVE_FOR_SWD) {
-		/*
-		 * Enable SVE and FPU in secure context, secure manager must
-		 * ensure that the SVE and FPU register contexts are properly
-		 * managed.
-		 */
-			sve_enable(ctx);
-		} else {
-		/*
-		 * Disable SVE and FPU in secure context so non-secure world
-		 * can safely use them.
-		 */
-			sve_disable(ctx);
-		}
-	}
-
 	if (is_feat_sme_supported()) {
 		if (ENABLE_SME_FOR_SWD) {
 		/*
@@ -675,11 +706,6 @@ static void manage_extensions_secure(cpu_context_t *ctx)
 		 */
 			sme_disable(ctx);
 		}
-	}
-
-	/* NS can access this but Secure shouldn't */
-	if (is_feat_sys_reg_trace_supported()) {
-		sys_reg_trace_disable(ctx);
 	}
 #endif /* IMAGE_BL31 */
 }
