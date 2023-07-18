@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2023, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -9,8 +9,10 @@
 #include <string.h>
 
 #include <arch.h>
+#include <arch_features.h>
 #include <arch_helpers.h>
 #include <common/debug.h>
+#include <lib/extensions/spe.h>
 #include <lib/pmf/pmf.h>
 #include <lib/runtime_instr.h>
 #include <plat/common/platform.h>
@@ -133,6 +135,14 @@ int psci_do_cpu_off(unsigned int end_pwrlvl)
 		RT_INSTR_EXIT_CFLUSH,
 		PMF_NO_CACHE_MAINT);
 #endif
+
+	/*
+	 * On power down we need to disable statistical profiling extensions
+	 * before exiting coherency.
+	 */
+	if (is_feat_spe_supported()) {
+		spe_disable();
+	}
 
 	/*
 	 * Plat. management: Perform platform specific actions to turn this
