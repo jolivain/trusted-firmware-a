@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -69,14 +69,14 @@ static inline __unused void write_cptr_el2_tam(uint64_t value)
 		((value << CPTR_EL2_TAM_SHIFT) & CPTR_EL2_TAM_BIT));
 }
 
-static inline __unused void ctx_write_cptr_el3_tam(cpu_context_t *ctx, uint64_t tam)
+static inline __unused void ctx_write_cptr_el3_tam(global_context_t *global_ctx, uint64_t tam)
 {
-	uint64_t value = read_ctx_reg(get_el3state_ctx(ctx), CTX_CPTR_EL3);
+	uint64_t value = global_ctx->ctx_cptr_el3;
 
 	value &= ~TAM_BIT;
 	value |= (tam << TAM_SHIFT) & TAM_BIT;
 
-	write_ctx_reg(get_el3state_ctx(ctx), CTX_CPTR_EL3, value);
+	global_ctx->ctx_cptr_el3 = value;
 }
 
 static inline __unused void ctx_write_scr_el3_amvoffen(cpu_context_t *ctx, uint64_t amvoffen)
@@ -190,12 +190,6 @@ static __unused bool amu_group1_supported(void)
  */
 void amu_enable(cpu_context_t *ctx)
 {
-	/*
-	 * Set CPTR_EL3.TAM to zero so that any accesses to the Activity Monitor
-	 * registers do not trap to EL3.
-	 */
-	ctx_write_cptr_el3_tam(ctx, 0U);
-
 	/* Initialize FEAT_AMUv1p1 features if present. */
 	if (is_feat_amuv1p1_supported()) {
 		/*
@@ -204,6 +198,15 @@ void amu_enable(cpu_context_t *ctx)
 		 */
 		ctx_write_scr_el3_amvoffen(ctx, 1U);
 	}
+}
+
+void amu_enable_global(global_context_t *global_ctx)
+{
+	/*
+	 * Set CPTR_EL3.TAM to zero so that any accesses to the Activity Monitor
+	 * registers do not trap to EL3.
+	 */
+	ctx_write_cptr_el3_tam(global_ctx, 0U);
 }
 
 void amu_init_el3(void)
