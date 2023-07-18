@@ -301,6 +301,15 @@ Common build options
    This flag can take the values 0 to 2, to align  with the ``FEATURE_DETECTION``
    mechanism. Default value is ``0``.
 
+-  ``ENABLE_FEAT_HAFT``: Numeric value to enable support for HAFT (Hardware
+   managed Access Flag for Table Descriptors). It allows hardware to update the
+   Access Flag for any Table descriptor which is accessed during a translation
+   table walk and for which the Access Flag is 0. Its a mandatory architectural
+   feature for a Armv8.9 or Armv9.4 compliant implementation that implements
+   ``FEAT_HAFDBS``.  Otherwise ``FEAT_HAFT`` is an OPTIONAL feature from
+   Armv8.7 and Armv9.2. This flag can take the values 0 to 2, to align with the
+   ``FEATURE_DETECTION`` mechanism. Default value is ``0``.
+
 -  ``ENABLE_FEAT_HCX``: Numeric value to set the bit SCR_EL3.HXEn in EL3 to
    allow access to HCRX_EL2 (extended hypervisor control register) from EL2 as
    well as adding HCRX_EL2 to the EL2 context save/restore operations. Its a
