@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b1fdcd2_ce3b5a6c",
+        "filename": "include/lib/extensions/ras.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-19T15:00:12Z",
+      "side": 1,
+      "message": "is this common to all platforms?",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 24
+      },
+      "revId": "4006ac86689fb2e9f3820e94b67056372cc46e78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "426f2415_2997b936",
+        "filename": "lib/psci/psci_on.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-07-19T15:00:12Z",
+      "side": 1,
+      "message": "i dont believe this is the right place to call the function. TF-A already has hooks to enable redistributors when a core comes up (can try to find out where), and we should probably enable it there. moreoever, all a platform would need to do is list the PPI in its interrupt list, and this should already work.. not sure this patch is needed at all..",
+      "range": {
+        "startLine": 206,
+        "startChar": 1,
+        "endLine": 206,
+        "endChar": 19
+      },
+      "revId": "4006ac86689fb2e9f3820e94b67056372cc46e78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
