@@ -69,6 +69,30 @@
       },
       "revId": "3888d252014cf188e96bbd9013ae13fbda51b72c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0842602c_edbdc8c0",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-19T08:39:38Z",
+      "side": 1,
+      "message": "\u003e Thank you for bringing this up. I was thinking that RSS\u0027s use-case would only occur during CCA CoT.\n\nNot necessarily, no. TC2 FVP for example has no RME support but it has an RSS.\n\n\u003e Would it be possible to handle this in the following way -\n\u003e \n\u003e  #ifdef ARM_COT_cca \n\u003e    #define BL31_KEY_OID    ZERO_KEYOID\n\u003e  #else \n\u003e    #define BL31_KEY_OID    SOC_FW_CONTENT_CERT_PK_OID\n\u003e  #endif\n\u003e \n\u003e Similarly, wherever applicable, for other images.\n\u003e Now, let\u0027s see where we should put this information. Is it possible to create a new file \"include/tools_share/cot_oid.h\" to include these defines that can be beneficial for everyone?\n\u003e I can\u0027t see this as platform specific information. Thoughts?\n\nThis sounds like a good idea to me! Although I think we should rather define the BL31_KEY_OID macro inside each of the CoT\u0027s *_oid.h file.\n* include/tools_share/cca_oid.h would contain:\n  #define BL31_KEY_OID    ZERO_KEYOID\n* include/tools_share/dualroot_oid.h would contain:\n  #define BL31_KEY_OID    SOC_FW_CONTENT_CERT_PK_OID\n* include/tools_share/tbbr_oid.h would also contain:\n  #define BL31_KEY_OID    SOC_FW_CONTENT_CERT_PK_OID\n\nI agree these are not truly platform-specific.",
+      "parentUuid": "6eb5d4d6_b2c85d1d",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 21
+      },
+      "revId": "3888d252014cf188e96bbd9013ae13fbda51b72c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
