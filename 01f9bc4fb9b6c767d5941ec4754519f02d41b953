@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26ff388e_0a622729",
+        "filename": "plat/qti/msm8916/msm8916_cpu_boot.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000736
+      },
+      "writtenOn": "2023-07-19T10:16:50Z",
+      "side": 1,
+      "message": "Done, thanks!",
+      "parentUuid": "0a9fd7c0_4925a433",
+      "revId": "01f9bc4fb9b6c767d5941ec4754519f02d41b953",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5c6b621_3d8594e9",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-07-18T18:48:34Z",
       "side": 1,
       "message": "Just curious to know why this udelay() is required after dsb() here and in below PWR_CTL register write?",
+      "range": {
+        "startLine": 115,
+        "startChar": 1,
+        "endLine": 115,
+        "endChar": 10
+      },
+      "revId": "01f9bc4fb9b6c767d5941ec4754519f02d41b953",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c1cc1ad_e7800f86",
+        "filename": "plat/qti/msm8916/msm8916_cpu_boot.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000736
+      },
+      "writtenOn": "2023-07-19T10:16:50Z",
+      "side": 1,
+      "message": "Since the sequence changes various reset signals and power switches I believe these delays exist to ensure that the operation has really completed and power/memory/logic/etc has stabilized.\n\nThe existing code for powering up the CPU cores (see msm8916_cpu_boot()) also has similar delays. The sequence and delays there are recommended in the hardware documentation so I assume they are necessary to avoid random crashes.",
+      "parentUuid": "a5c6b621_3d8594e9",
       "range": {
         "startLine": 115,
         "startChar": 1,
