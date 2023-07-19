@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -159,6 +159,16 @@
 #define SP_PKG6_HASH_OID			"1.3.6.1.4.1.4128.2100.1306"
 #define SP_PKG7_HASH_OID			"1.3.6.1.4.1.4128.2100.1307"
 #define SP_PKG8_HASH_OID			"1.3.6.1.4.1.4128.2100.1308"
+
+/*
+ * Public Keys present in SOC FW content certificates authenticate BL31 and
+ * its configuration. Guarded under TBBR CoT as this file may gets included in
+ * other CoTs.
+ */
+#if defined(ARM_COT_tbbr)
+#define BL31_IMAGE_KEY_OID                      SOC_FW_CONTENT_CERT_PK_OID
+#define SOC_FW_CONFIG_KEY_OID                   SOC_FW_CONTENT_CERT_PK_OID
+#endif /* ARM_COT_tbbr */
 
 #ifdef PLAT_DEF_OID
 #include <platform_oid.h>
