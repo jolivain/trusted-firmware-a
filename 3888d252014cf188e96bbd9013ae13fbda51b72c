@@ -93,6 +93,30 @@
       },
       "revId": "3888d252014cf188e96bbd9013ae13fbda51b72c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc8f6ce7_55ed4c16",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-19T08:47:39Z",
+      "side": 1,
+      "message": "Instead of creating a new file, I think this is well manageable. Let me make the necessary changes and post a newer version of this patch. Thanks!",
+      "parentUuid": "0842602c_edbdc8c0",
+      "range": {
+        "startLine": 66,
+        "startChar": 2,
+        "endLine": 66,
+        "endChar": 21
+      },
+      "revId": "3888d252014cf188e96bbd9013ae13fbda51b72c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
