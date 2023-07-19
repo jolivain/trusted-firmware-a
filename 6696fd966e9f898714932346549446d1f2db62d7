@@ -22,6 +22,30 @@
       },
       "revId": "6696fd966e9f898714932346549446d1f2db62d7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dca242a0_3718af2c",
+        "filename": "plat/qti/msm8916/msm8916_config.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000736
+      },
+      "writtenOn": "2023-07-19T10:16:50Z",
+      "side": 1,
+      "message": "Yes, cci_init() stores the reference to the cci_map for later use in cci_enable_snoop_dvm_reqs(). It must stay valid even after the function exits.\n\nWould it be more clear to define cci_map as static global variable, outside of the function?",
+      "parentUuid": "f2185240_ca782666",
+      "range": {
+        "startLine": 21,
+        "startChar": 2,
+        "endLine": 21,
+        "endChar": 8
+      },
+      "revId": "6696fd966e9f898714932346549446d1f2db62d7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
