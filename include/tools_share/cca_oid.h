@@ -29,4 +29,8 @@
 /* CCAFirmwareNVCounter - Non-volatile counter extension */
 #define CCA_FW_NVCOUNTER_OID			"1.3.6.1.4.1.4128.2100.3"
 
+/* CCA ROTPK authenticates BL31 and its configuration image */
+#define BL31_IMAGE_KEY_OID			ZERO_OID
+#define SOC_FW_CONFIG_KEY_OID			ZERO_OID
+
 #endif /* CCA_OID_H */
