@@ -16,6 +16,276 @@
       "message": "Docs passing",
       "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84e812a2_bd443753",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-20T06:12:20Z",
+      "side": 1,
+      "message": "I am sorry, Lauren, I had reviewed this patch days ago but forgot to publish my comments! They were lying as draft comments...",
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b1b311a_7a461cdc",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-20T06:12:20Z",
+      "side": 1,
+      "message": "As this is already mentioned in the new section you\u0027re introducing, I would remove this sentence here. IOW I would only keep:\n\n Public keys used by AP during the trusted boot process can be requested from RSS.\n Furthermore, AP can request RSS to increase a non-volatile counter. Please\n refer to the ``RSS key management`` [5]_ document for more details.",
+      "range": {
+        "startLine": 137,
+        "startChar": 28,
+        "endLine": 139,
+        "endChar": 70
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3fa4164_7d3abe67",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-20T06:12:20Z",
+      "side": 1,
+      "message": "(minor) Please truncate lines to 80 characters throughout the file.",
+      "range": {
+        "startLine": 601,
+        "startChar": 74,
+        "endLine": 601,
+        "endChar": 83
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9ad211f_fea7d791",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-20T06:12:20Z",
+      "side": 1,
+      "message": "These are the underlying calls but the public interface for NV counter we need to document here are:\n\n* rss_platform_nv_counter_increment()\n* rss_platform_nv_counter_read()",
+      "range": {
+        "startLine": 615,
+        "startChar": 0,
+        "endLine": 621,
+        "endChar": 42
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c2784d2_30c12bfd",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-20T06:12:20Z",
+      "side": 1,
+      "message": "And then we should remove this, as it\u0027s internal details. Moreover, for other APIs documented in this file, we did not bother documenting parameters so I guess we should do the same here.",
+      "range": {
+        "startLine": 622,
+        "startChar": 0,
+        "endLine": 625,
+        "endChar": 26
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "892193fb_93437abc",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-20T06:12:20Z",
+      "side": 1,
+      "message": "non-volatile (here and below).",
+      "range": {
+        "startLine": 627,
+        "startChar": 68,
+        "endLine": 627,
+        "endChar": 70
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "116f9850_a43b5a18",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-20T06:12:20Z",
+      "side": 1,
+      "message": "\"we can\"?",
+      "range": {
+        "startLine": 627,
+        "startChar": 22,
+        "endLine": 627,
+        "endChar": 41
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f086369_ac9daedf",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-20T06:12:20Z",
+      "side": 1,
+      "message": "an Arm CCA platform",
+      "range": {
+        "startLine": 628,
+        "startChar": 19,
+        "endLine": 628,
+        "endChar": 22
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecbf3a4a_007bfa80",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-20T06:12:20Z",
+      "side": 1,
+      "message": "How about \"Public key API\" instead?",
+      "range": {
+        "startLine": 634,
+        "startChar": 0,
+        "endLine": 634,
+        "endChar": 9
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc4200b2_c87225ac",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-20T06:12:20Z",
+      "side": 1,
+      "message": "Remove \"API\"?",
+      "range": {
+        "startLine": 637,
+        "startChar": 39,
+        "endLine": 637,
+        "endChar": 42
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "768986f6_d20a1689",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-20T06:12:20Z",
+      "side": 1,
+      "message": "Again, this is not what we want to document here. We should document rss_platform_key_read() instead.",
+      "range": {
+        "startLine": 645,
+        "startChar": 0,
+        "endLine": 647,
+        "endChar": 36
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "935c3925_30d4da32",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-07-20T06:12:20Z",
+      "side": 1,
+      "message": "\"we can\"?",
+      "range": {
+        "startLine": 653,
+        "startChar": 22,
+        "endLine": 653,
+        "endChar": 40
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
