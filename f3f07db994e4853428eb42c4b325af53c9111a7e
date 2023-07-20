@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f220c5a_25734b30",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-20T07:22:36Z",
+      "side": 1,
+      "message": "\u003e And what if we use the dualroot CoT? We would additionally need something like:\n\n\u003e #elif defined(ARM_COT_dualroot)\n\u003e #include \u003ctools_share/dualroot_oid.h\u003e\n\nNo, this is not needed as defines mentioned in tbbr_oid.h are applicable for dualroot_oid.h \nalso in this case. dualroot_oid.h includes tbbr_oid.h\n \n\u003e But rather than doing that in every C file which needs it, I feel we should put that logic into a new header file (include/tools_share/cot_oid.h), which would contain:\n\n\u003e #if defined(ARM_COT_cca)\n\u003e #include \"cca_oid.h\"\n\u003e #elif defined(ARM_COT_dualroot)\n\u003e #include \"dualroot_oid.h\"\n\u003e #elif defined(ARM_COT_tbbr)\n\u003e #include \"tbbr_oid.h\"\n\u003e #else\n\u003e #error \"Unsupported chain of trust.\"\n\u003e #endif\n\u003e And then from fvp_bl2_measured_boot.c, it becomes:\n\n\u003e #include \u003ctools_share/cot_oid.h\u003e\n\u003e #include \u003ctools_share/zero_oid.h\u003e\n\nIt seems that sometimes this file gets compiled without CoT support.  In other words, this file gets compiled in the following two scenarios:\n\n1. When both Trusted Board Boot and Measured Boot support is available,\n2. When only Measured Boot support is available.\n\nIf we include the file as you suggested in case (2), then it results in a build time error for *_OID undefined. OIDs don\u0027t make sense without Trusted Board Boot support, but I don\u0027t want to keep this signer-id field under a Trusted Board Boot macro (code will look clumsy).",
+      "parentUuid": "8662c27c_75bf2a08",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 24
+      },
+      "revId": "f3f07db994e4853428eb42c4b325af53c9111a7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "39cf0544_b3060692",
         "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
         "patchSetId": 10
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5d010c66_bf2cee5b",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-20T07:22:36Z",
+      "side": 1,
+      "message": "In all instances of CoT, HW_CONFIG does not sign without a subject-key. Let\u0027s keep it this way and handle it differently later when it is needed. Agree? \nI\u0027m trying to keep changes as minimum as possible for this patch.",
+      "parentUuid": "39cf0544_b3060692",
+      "range": {
+        "startLine": 77,
+        "startChar": 12,
+        "endLine": 77,
+        "endChar": 20
+      },
+      "revId": "f3f07db994e4853428eb42c4b325af53c9111a7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "577c3dcd_22f9bd3c",
         "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
         "patchSetId": 10
@@ -60,6 +108,30 @@
       "writtenOn": "2023-07-20T06:32:08Z",
       "side": 1,
       "message": "Same comment here.",
+      "range": {
+        "startLine": 91,
+        "startChar": 12,
+        "endLine": 91,
+        "endChar": 20
+      },
+      "revId": "f3f07db994e4853428eb42c4b325af53c9111a7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "766061be_0adef183",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-20T07:22:36Z",
+      "side": 1,
+      "message": "ditto.",
+      "parentUuid": "577c3dcd_22f9bd3c",
       "range": {
         "startLine": 91,
         "startChar": 12,
