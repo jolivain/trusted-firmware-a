@@ -16,6 +16,24 @@
       "message": "@Harrison Have you checked these fails?",
       "revId": "fdbb835cafa2403d5179383d085d5ec4eb1a0471",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90cfc3ec_1b93c708",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-07-20T14:41:53Z",
+      "side": 1,
+      "message": "The failures look unrelated, nothing relevant to aarch32 in any case. A quick rebase locally solves the errors, don\u0027t think it requires an entirely new run of CI to verify the change though.",
+      "parentUuid": "0dbe2d2f_ac64f800",
+      "revId": "fdbb835cafa2403d5179383d085d5ec4eb1a0471",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
