@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "28b109f7_0e0bd717",
+        "filename": "include/lib/extensions/ras.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-07-20T04:51:15Z",
+      "side": 1,
+      "message": "Yes",
+      "parentUuid": "3b1fdcd2_ce3b5a6c",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 24
+      },
+      "revId": "4006ac86689fb2e9f3820e94b67056372cc46e78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "426f2415_2997b936",
         "filename": "lib/psci/psci_on.c",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-19T15:00:12Z",
       "side": 1,
       "message": "i dont believe this is the right place to call the function. TF-A already has hooks to enable redistributors when a core comes up (can try to find out where), and we should probably enable it there. moreoever, all a platform would need to do is list the PPI in its interrupt list, and this should already work.. not sure this patch is needed at all..",
+      "range": {
+        "startLine": 206,
+        "startChar": 1,
+        "endLine": 206,
+        "endChar": 19
+      },
+      "revId": "4006ac86689fb2e9f3820e94b67056372cc46e78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec3ae822_94040e6e",
+        "filename": "lib/psci/psci_on.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-07-20T04:51:15Z",
+      "side": 1,
+      "message": "On first comment (about the hooks to enable redistributors), I believe you are talking about pwr_domain_on_finish callback. If yes, then that is platform specific function and this call is common to all the platforms.\n\nOn the second comment (about adding PPI to the interrupt list). Here are we talking about the \"struct ras_interrupt\" defined by each platform? The interrupt list works fine for SPI\u0027s as the GIC needs to be configured only once for each SPI interrupt ID. For PPI, each core has to configure GIC which at boot only core 0 does. For secondary cores GIC configuration has to be done separately as and when they are up.",
+      "parentUuid": "426f2415_2997b936",
       "range": {
         "startLine": 206,
         "startChar": 1,
