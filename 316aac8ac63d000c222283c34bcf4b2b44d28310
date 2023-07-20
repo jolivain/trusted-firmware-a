@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20620d6a_0bac3391",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-07-20T07:37:30Z",
+      "side": 1,
+      "message": "09:01:02 Warning, treated as error:\n09:01:02 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/docs/about/maintainers.rst:202:Unknown target name: \"amit-nagal\".\n09:01:02 make[1]: *** [Makefile:32: html] Error 2\n\nPlease check. Is it his username?",
+      "revId": "316aac8ac63d000c222283c34bcf4b2b44d28310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
