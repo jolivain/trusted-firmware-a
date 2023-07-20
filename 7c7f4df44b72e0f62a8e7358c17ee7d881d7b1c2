@@ -16,6 +16,29 @@
       "message": "Unrelated failure",
       "revId": "7c7f4df44b72e0f62a8e7358c17ee7d881d7b1c2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3adb37cc_80e279d2",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-07-20T14:40:34Z",
+      "side": 1,
+      "message": "erratum_* ?\n\n[...]\n\n.macro _workaround_start _cpu:req, _cve:req, _id:req, _chosen:req, _apply_at_reset:req\n\tadd_erratum_entry \\_cpu, \\_cve, \\_id, \\_chosen, \\_apply_at_reset\n\n\tfunc erratum_\\_cpu\\()_\\_id\\()_wa\n\t\tmov\tx8, x30\n\n[...]",
+      "range": {
+        "startLine": 276,
+        "startChar": 4,
+        "endLine": 276,
+        "endChar": 33
+      },
+      "revId": "7c7f4df44b72e0f62a8e7358c17ee7d881d7b1c2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
