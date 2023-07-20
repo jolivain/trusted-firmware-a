@@ -143,6 +143,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7bf2af8_a2f82bbe",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-20T09:01:26Z",
+      "side": 1,
+      "message": "Okay, then let me add OIDs corresponding to HW_CONFIG and RMM images in tbbr_oid.h and cca_oid.h.",
+      "parentUuid": "6f9faaac_020b388c",
+      "range": {
+        "startLine": 77,
+        "startChar": 12,
+        "endLine": 77,
+        "endChar": 20
+      },
+      "revId": "f3f07db994e4853428eb42c4b325af53c9111a7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "577c3dcd_22f9bd3c",
