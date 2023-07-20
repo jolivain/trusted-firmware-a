@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30e00024_10ddee48",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-07-20T08:59:37Z",
+      "side": 1,
+      "message": "LGTM.\nCI failures are related to \"aarch64-none-elf-ld.bfd: region `RAM\u0027 overflowed by 4096 bytes\"\nwhich is a generic issue.\n",
+      "revId": "4d0b66323b242323ff738431c523aeb6d18dd3d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
