@@ -22,6 +22,30 @@
       },
       "revId": "965aacea919525baa03308a5a08205e506be0bf4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b596332d_bb0fc99f",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-20T14:48:13Z",
+      "side": 1,
+      "message": "I\u0027m not very sure about the history behind this. Let me look into that as a separate patch.\nHere I just tried to come to same value with default size of Trusted SRAM (256Kb(. i.e. 0x40000/2 - 8Kb \u003d 0x1E000.",
+      "parentUuid": "00b75c65_7de541a2",
+      "range": {
+        "startLine": 214,
+        "startChar": 5,
+        "endLine": 214,
+        "endChar": 20
+      },
+      "revId": "965aacea919525baa03308a5a08205e506be0bf4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
