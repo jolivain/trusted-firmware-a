@@ -22,6 +22,30 @@
       },
       "revId": "019311e71298194b3abd62e6097e2612e9b21111",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dbb9110_a36aae8f",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-07-21T14:45:59Z",
+      "side": 1,
+      "message": "Hi Manish,\n\nSanitizing this option maybe not be needed since any wrong data passed here is not going to be catastrophic since it will lead to compilation error message with obvious message from compiler on invalid march value.",
+      "parentUuid": "328112c3_21a02d71",
+      "range": {
+        "startLine": 717,
+        "startChar": 3,
+        "endLine": 718,
+        "endChar": 45
+      },
+      "revId": "019311e71298194b3abd62e6097e2612e9b21111",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
