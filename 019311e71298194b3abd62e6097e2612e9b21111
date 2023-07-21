@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "328112c3_21a02d71",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-21T08:44:18Z",
+      "side": 1,
+      "message": "I was just curious whether this option was sanitized before consumption. The input to this build option is not a boolean or a numeric value, but kind of a string with a particular format. Is there something we need to check in Makefile to verify that an option is provided in a semantically correct manner? (We have assertions in place for all boolean and numeric build options)\n\nOr do you think this could be an extra overhead, and developers should refer to this page if they encounter any errors in providing options in certain formats?",
+      "range": {
+        "startLine": 717,
+        "startChar": 3,
+        "endLine": 718,
+        "endChar": 45
+      },
+      "revId": "019311e71298194b3abd62e6097e2612e9b21111",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
