@@ -85,36 +85,28 @@ check_erratum_ls neoverse_v1, ERRATUM(1618635), CPU_REV(0, 0)
 
 workaround_reset_start neoverse_v1, ERRATUM(1774420), ERRATA_V1_1774420
 	/* Set bit 53 in CPUECTLR_EL1 */
-	mrs     x1, NEOVERSE_V1_CPUECTLR_EL1
-	orr	x1, x1, #NEOVERSE_V1_CPUECTLR_EL1_BIT_53
-	msr     NEOVERSE_V1_CPUECTLR_EL1, x1
+	sysreg_bit_set NEOVERSE_V1_CPUECTLR_EL1, NEOVERSE_V1_CPUECTLR_EL1_BIT_53
 workaround_reset_end neoverse_v1, ERRATUM(1774420)
 
 check_erratum_ls neoverse_v1, ERRATUM(1774420), CPU_REV(1, 0)
 
 workaround_reset_start neoverse_v1, ERRATUM(1791573), ERRATA_V1_1791573
 	/* Set bit 2 in ACTLR2_EL1 */
-	mrs	x1, NEOVERSE_V1_ACTLR2_EL1
-	orr	x1, x1, #NEOVERSE_V1_ACTLR2_EL1_BIT_2
-	msr	NEOVERSE_V1_ACTLR2_EL1, x1
+	sysreg_bit_set NEOVERSE_V1_ACTLR2_EL1, NEOVERSE_V1_ACTLR2_EL1_BIT_2
 workaround_reset_end neoverse_v1, ERRATUM(1791573)
 
 check_erratum_ls neoverse_v1, ERRATUM(1791573), CPU_REV(1, 0)
 
 workaround_reset_start neoverse_v1, ERRATUM(1852267), ERRATA_V1_1852267
 	/* Set bit 28 in ACTLR2_EL1 */
-	mrs	x1, NEOVERSE_V1_ACTLR2_EL1
-	orr	x1, x1, #NEOVERSE_V1_ACTLR2_EL1_BIT_28
-	msr	NEOVERSE_V1_ACTLR2_EL1, x1
+	sysreg_bit_set NEOVERSE_V1_ACTLR2_EL1, NEOVERSE_V1_ACTLR2_EL1_BIT_28
 workaround_reset_end neoverse_v1, ERRATUM(1852267)
 
 check_erratum_ls neoverse_v1, ERRATUM(1852267), CPU_REV(1, 0)
 
 workaround_reset_start neoverse_v1, ERRATUM(1925756), ERRATA_V1_1925756
 	/* Set bit 8 in CPUECTLR_EL1 */
-	mrs	x1, NEOVERSE_V1_CPUECTLR_EL1
-	orr	x1, x1, #NEOVERSE_V1_CPUECTLR_EL1_BIT_8
-	msr	NEOVERSE_V1_CPUECTLR_EL1, x1
+	sysreg_bit_set NEOVERSE_V1_CPUECTLR_EL1, NEOVERSE_V1_CPUECTLR_EL1_BIT_8
 workaround_reset_end neoverse_v1, ERRATUM(1925756)
 
 check_erratum_ls neoverse_v1, ERRATUM(1925756), CPU_REV(1, 1)
@@ -201,18 +193,14 @@ check_erratum_ls neoverse_v1, ERRATUM(2216392), CPU_REV(1, 1)
 
 workaround_reset_start neoverse_v1, ERRATUM(2294912), ERRATA_V1_2294912
 	/* Set bit 0 in ACTLR2_EL1 */
-	mrs     x1, NEOVERSE_V1_ACTLR2_EL1
-	orr	x1, x1, #NEOVERSE_V1_ACTLR2_EL1_BIT_0
-	msr     NEOVERSE_V1_ACTLR2_EL1, x1
+	sysreg_bit_set NEOVERSE_V1_ACTLR2_EL1, NEOVERSE_V1_ACTLR2_EL1_BIT_0
 workaround_reset_end neoverse_v1, ERRATUM(2294912)
 
 check_erratum_ls neoverse_v1, ERRATUM(2294912), CPU_REV(1, 1)
 
 workaround_reset_start neoverse_v1, ERRATUM(2372203), ERRATA_V1_2372203
 	/* Set bit 40 in ACTLR2_EL1 */
-	mrs	x1, NEOVERSE_V1_ACTLR2_EL1
-	orr	x1, x1, #NEOVERSE_V1_ACTLR2_EL1_BIT_40
-	msr	NEOVERSE_V1_ACTLR2_EL1, x1
+	sysreg_bit_set NEOVERSE_V1_ACTLR2_EL1, NEOVERSE_V1_ACTLR2_EL1_BIT_40
 workaround_reset_end neoverse_v1, ERRATUM(2372203)
 
 check_erratum_ls neoverse_v1, ERRATUM(2372203), CPU_REV(1, 1)
@@ -225,32 +213,26 @@ workaround_reset_end neoverse_v1, ERRATUM(2743093)
 check_erratum_ls neoverse_v1, ERRATUM(2743093), CPU_REV(1, 2)
 
 workaround_reset_start neoverse_v1, ERRATUM(2743233), ERRATA_V1_2743233
-	mrs	x1, NEOVERSE_V1_ACTLR5_EL1
-	bic	x1, x1, #BIT(56)
-	orr	x1, x1, #BIT(55)
-	msr	NEOVERSE_V1_ACTLR5_EL1, x1
+	sysreg_bit_set NEOVERSE_V1_ACTLR5_EL1, NEOVERSE_V1_ACTLR5_EL1_BIT_55
+	sysreg_bit_clear NEOVERSE_V1_ACTLR5_EL1, NEOVERSE_V1_ACTLR5_EL1_BIT_56
 workaround_reset_end neoverse_v1, ERRATUM(2743233)
 
 check_erratum_ls neoverse_v1, ERRATUM(2743233), CPU_REV(1, 2)
 
 workaround_reset_start neoverse_v1, ERRATUM(2779461), ERRATA_V1_2779461
-	mrs	x1, NEOVERSE_V1_ACTLR3_EL1
-	orr	x1, x1, #BIT(47)
-	msr	NEOVERSE_V1_ACTLR3_EL1, x1
+	sysreg_bit_set NEOVERSE_V1_ACTLR3_EL1, NEOVERSE_V1_ACTLR3_EL1_BIT_47
 workaround_reset_end neoverse_v1, ERRATUM(2779461)
 
 check_erratum_ls neoverse_v1, ERRATUM(2779461), CPU_REV(1, 2)
 
-
 workaround_reset_start neoverse_n2, CVE(2022,23960), WORKAROUND_CVE_2022_23960
-#if IMAGE_BL31 && WORKAROUND_CVE_2022_23960
+#if IMAGE_BL31
 	/*
 	 * The Neoverse-V1 generic vectors are overridden to apply errata
          * mitigation on exception entry from lower ELs.
 	 */
-	adr	x0, wa_cve_vbar_neoverse_v1
-	msr	vbar_el3, x0
-#endif /* IMAGE_BL31 && WORKAROUND_CVE_2022_23960 */
+	override_vector_table wa_cve_vbar_neoverse_v1
+#endif /* IMAGE_BL31 */
 workaround_reset_end neoverse_n2, CVE(2022,23960)
 
 check_erratum_chosen neoverse_n2, CVE(2022, 23960), WORKAROUND_CVE_2022_23960
@@ -264,15 +246,9 @@ func neoverse_v1_core_pwr_dwn
 	 * Enable CPU power down bit in power control register
 	 * ---------------------------------------------
 	 */
-	mrs	x0, NEOVERSE_V1_CPUPWRCTLR_EL1
-	orr	x0, x0, #NEOVERSE_V1_CPUPWRCTLR_EL1_CORE_PWRDN_BIT
-	msr	NEOVERSE_V1_CPUPWRCTLR_EL1, x0
-#if ERRATA_V1_2743093
-	mov	x15, x30
-	bl	cpu_get_rev_var
-	bl	erratum_neoverse_v1_2743093_wa
-	mov	x30, x15
-#endif /* ERRATA_V1_2743093 */
+	sysreg_bit_set NEOVERSE_V1_CPUPWRCTLR_EL1, NEOVERSE_V1_CPUPWRCTLR_EL1_CORE_PWRDN_BIT
+	apply_erratum neoverse_v1, ERRATUM(2743093), ERRATA_V1_2743093
+
 	isb
 	ret
 endfunc neoverse_v1_core_pwr_dwn
