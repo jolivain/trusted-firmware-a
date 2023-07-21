@@ -16,6 +16,23 @@
       "message": "There are some fails which is happening with daily too, so unrelated to this patch.\n12:02:11 aarch64-none-elf-ld.bfd: BL2 image has exceeded its limit.\n12:02:11 aarch64-none-elf-ld.bfd: region `RAM\u0027 overflowed by 4096 bytes\nCan merge when https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/22087 \u0026 https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/22088 are merged.",
       "revId": "52cee5414506e82b729fffb61efc690a86e7dda6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adbf92f8_f9bc6cfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-07-21T14:31:29Z",
+      "side": 1,
+      "message": "Merging this as fail is common to the daily runs",
+      "revId": "52cee5414506e82b729fffb61efc690a86e7dda6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
