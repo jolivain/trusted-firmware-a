@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b75ca025_292cd191",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 42
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-21T13:36:09Z",
+      "side": 1,
+      "message": "All of these function expect that x30 has been saved, so even you corrupt it its not a problem. The exit path in this case is either exception_return (which uses ELR_EL3) or el3_exit",
+      "parentUuid": "59337428_ff5f95ff",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 14
+      },
+      "revId": "162caf23f8141312c864518f559c825f331cf440",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9396225a_a5004452",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-07-21T12:03:02Z",
       "side": 1,
       "message": "We can even avoid this flag. The instructions in EL3 are aligned to 4 bytes (32 bit words). Which means the last 2 bits in SAVED_GPREG_LR is 0. The presence of a non zero value in SAVED_GPREG_LR can be used as first flag (whether lower EL nested EA or EL3 EA) , and the bit [0] can be used to detect double fault.",
+      "revId": "162caf23f8141312c864518f559c825f331cf440",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7085e56b_65eaf199",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 42
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-21T13:36:09Z",
+      "side": 1,
+      "message": "Ack : Planning to post a separate patch to free out some space and optimise the flag usage.",
+      "parentUuid": "9396225a_a5004452",
       "revId": "162caf23f8141312c864518f559c825f331cf440",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f966ed7d_fd06e5f0",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 42
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-21T13:36:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11928a3a_d00ec0f0",
+      "range": {
+        "startLine": 181,
+        "startChar": 4,
+        "endLine": 181,
+        "endChar": 9
+      },
+      "revId": "162caf23f8141312c864518f559c825f331cf440",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2460538_29d4fa70",
@@ -77,6 +143,24 @@
       "writtenOn": "2023-07-21T12:03:02Z",
       "side": 1,
       "message": "Add a comment here:\n/* restore the original x30 saved as part of entering EL3. The nested EA handler then will save and restore this as part of nested handling. */",
+      "revId": "162caf23f8141312c864518f559c825f331cf440",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98c551ed_72a4f874",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 42
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-21T13:36:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2460538_29d4fa70",
       "revId": "162caf23f8141312c864518f559c825f331cf440",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -98,6 +182,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66882041_ce4772e7",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 42
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-21T13:36:09Z",
+      "side": 1,
+      "message": "We actually don\u0027t need to do it here as CTX_GPREG_LR is already stored earlier. Throughout this function we are using x30 as scratch register.",
+      "parentUuid": "5a54046d_e858fc49",
+      "revId": "162caf23f8141312c864518f559c825f331cf440",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b4bc5bf_185017db",
@@ -111,6 +213,30 @@
       "writtenOn": "2023-07-21T12:03:02Z",
       "side": 1,
       "message": "nit: insert comma ,",
+      "range": {
+        "startLine": 218,
+        "startChar": 71,
+        "endLine": 218,
+        "endChar": 72
+      },
+      "revId": "162caf23f8141312c864518f559c825f331cf440",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90694bb8_c2349ad0",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 42
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-21T13:36:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b4bc5bf_185017db",
       "range": {
         "startLine": 218,
         "startChar": 71,
@@ -144,6 +270,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "459730c7_1c9b60d0",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 42
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-21T13:36:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a93c3a7_ed34674a",
+      "range": {
+        "startLine": 225,
+        "startChar": 43,
+        "endLine": 225,
+        "endChar": 44
+      },
+      "revId": "162caf23f8141312c864518f559c825f331cf440",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cc5f256_96cf1e6b",
@@ -157,6 +307,30 @@
       "writtenOn": "2023-07-21T12:03:02Z",
       "side": 1,
       "message": "nit: small case s \"setting\"",
+      "range": {
+        "startLine": 227,
+        "startChar": 13,
+        "endLine": 227,
+        "endChar": 14
+      },
+      "revId": "162caf23f8141312c864518f559c825f331cf440",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b95977b_2aeed8f3",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 42
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-21T13:36:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cc5f256_96cf1e6b",
       "range": {
         "startLine": 227,
         "startChar": 13,
@@ -190,6 +364,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30430f75_3ded1c01",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 42
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-21T13:36:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43b8a80e_e546b1d7",
+      "range": {
+        "startLine": 240,
+        "startChar": 13,
+        "endLine": 240,
+        "endChar": 20
+      },
+      "revId": "162caf23f8141312c864518f559c825f331cf440",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bff4d5be_d62cc33c",
@@ -213,6 +411,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87062900_d8dd4649",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 42
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-21T13:36:09Z",
+      "side": 1,
+      "message": "we need bl here is becasue we need to continue with original exception once the nested one finishes.",
+      "parentUuid": "bff4d5be_d62cc33c",
+      "range": {
+        "startLine": 67,
+        "startChar": 3,
+        "endLine": 67,
+        "endChar": 9
+      },
+      "revId": "162caf23f8141312c864518f559c825f331cf440",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2d49112_2b52dbe0",
@@ -226,6 +448,24 @@
       "writtenOn": "2023-07-21T12:03:02Z",
       "side": 1,
       "message": "See suggestion to avoid this flag for FFH and use unused bit in saved x30.\n\nAs discussed for double fault handling, increment the count here to indicate we are already in nested handling.\n\n// Check if nested EA or fault in EL3\nif (SAVED_X30)\n   // nested EA handling\n   if (flag indicates fault_handling_in_progress)\n       b plat_double_fault_handler\n   else\n       set fault_hanlding_in_progress\n       unmask PSTATE.A\n       continue nested EA handling. \nelse\n       b plat_handle_el3_ea",
+      "revId": "162caf23f8141312c864518f559c825f331cf440",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c75dfc81_6f7ee4db",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 42
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-21T13:36:09Z",
+      "side": 1,
+      "message": "As i said earlier, The double fault handling in TF-A seems to be there but i guess it never gets exercised as we do not unmask A bit again in handlers.\nI am planning to club flag clean up and double fault handling together in a separate patch. Is that be alright?",
+      "parentUuid": "c2d49112_2b52dbe0",
       "revId": "162caf23f8141312c864518f559c825f331cf440",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
