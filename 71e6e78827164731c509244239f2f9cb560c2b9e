@@ -16,6 +16,69 @@
       "message": "CI+2 run : https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/1149/\nUnrelated failures.\nManually providing verified +1",
       "revId": "71e6e78827164731c509244239f2f9cb560c2b9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "437ffc1f_775ac0ea",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-23T16:00:58Z",
+      "side": 1,
+      "message": "why this is __unused? looks like calling of this function is not guarded under any flag right?",
+      "range": {
+        "startLine": 694,
+        "startChar": 21,
+        "endLine": 694,
+        "endChar": 46
+      },
+      "revId": "71e6e78827164731c509244239f2f9cb560c2b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42cd4277_8490a9bd",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 703,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-23T16:00:58Z",
+      "side": 1,
+      "message": "provide braces around if",
+      "revId": "71e6e78827164731c509244239f2f9cb560c2b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8313b77_bab7122b",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-23T16:00:58Z",
+      "side": 1,
+      "message": "nit: remove extra space and similarly in all below comments wherever applicable.",
+      "range": {
+        "startLine": 710,
+        "startChar": 4,
+        "endLine": 710,
+        "endChar": 5
+      },
+      "revId": "71e6e78827164731c509244239f2f9cb560c2b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
