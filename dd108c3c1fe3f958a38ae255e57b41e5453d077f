@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cd2b493_dff18e75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2023-07-23T22:53:33Z",
+      "side": 1,
+      "message": "PLAT\u003dimx8mq Build is broken for me starting with this commit:\n\nLD      /src/arm-trusted-firmware/build/imx8mq/release/bl31/bl31.elf\n/nix/store/lvr57hbrpjvg7jyh0j2a1bx2cvwypjqh-aarch64-unknown-linux-gnu-binutils-2.40/bin/aarch64-unknown-linux-gnu-ld.bfd: /src/arm-trusted-firmware/build/imx8mq/release/bl31/bl31.elf section `.xlat_table\u0027 will not fit in region `RAM\u0027\n/nix/store/lvr57hbrpjvg7jyh0j2a1bx2cvwypjqh-aarch64-unknown-linux-gnu-binutils-2.40/bin/aarch64-unknown-linux-gnu-ld.bfd: BL31 image has exceeded its limit.\n/nix/store/lvr57hbrpjvg7jyh0j2a1bx2cvwypjqh-aarch64-unknown-linux-gnu-binutils-2.40/bin/aarch64-unknown-linux-gnu-ld.bfd: region `RAM\u0027 overflowed by 20480 bytes",
+      "revId": "dd108c3c1fe3f958a38ae255e57b41e5453d077f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
