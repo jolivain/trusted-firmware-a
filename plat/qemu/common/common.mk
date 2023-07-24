@@ -77,8 +77,14 @@ BL31_SOURCES		+=	${QEMU_CPU_LIBS}				\
 
 # Later QEMU versions support SME and SVE.
 ifeq (${ARM_ARCH_MAJOR},8)
+
+ifeq (${SPM_MM},1)
+	ENABLE_SVE_FOR_NS	:= 0
+	ENABLE_SME_FOR_NS	:= 0
+else
 	ENABLE_SVE_FOR_NS	:= 2
 	ENABLE_SME_FOR_NS	:= 2
+endif
 endif
 
 # QEMU will use the RNDR instruction for the stack protector canary.
