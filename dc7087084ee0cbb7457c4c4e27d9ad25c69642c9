@@ -22,6 +22,30 @@
       },
       "revId": "dc7087084ee0cbb7457c4c4e27d9ad25c69642c9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2d182da_87566ebc",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 35
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-07-24T10:12:47Z",
+      "side": 1,
+      "message": "originally i viewed this as a generic place to recreate values that were lost. Kind of like the manage_extensions familiy of functions. I\u0027ve since dropped that generality on a request from Soby, so perhaps you\u0027re right. But I still feel a little bit that this should be separate with big warnings of what\u0027s happening as it\u0027s quite unusual for context management to need to do this.",
+      "parentUuid": "1a9ba012_19cfeb53",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 1
+      },
+      "revId": "dc7087084ee0cbb7457c4c4e27d9ad25c69642c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
