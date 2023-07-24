@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cf033ef_a04827f9",
+        "filename": "include/lib/extensions/ras.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-07-24T07:20:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0ebc1b34_0289c0e6",
+      "range": {
+        "startLine": 18,
+        "startChar": 8,
+        "endLine": 18,
+        "endChar": 24
+      },
+      "revId": "4006ac86689fb2e9f3820e94b67056372cc46e78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "426f2415_2997b936",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "No, talking about plat_arm_gic_pcpu_init and gicv3_rdistif_init. We have to reenable the distributor everytime the core comes back on. And the gicv3 driver supports PPI,SGI and SPI. This is a PPI, so can be added to the GICv3 driver platform interrupt list to be enabled on every power on.",
       "parentUuid": "ec3ae822_94040e6e",
+      "range": {
+        "startLine": 206,
+        "startChar": 1,
+        "endLine": 206,
+        "endChar": 19
+      },
+      "revId": "4006ac86689fb2e9f3820e94b67056372cc46e78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ccbdd8f_78a01aed",
+        "filename": "lib/psci/psci_on.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-07-24T07:20:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "be0743c8_d7a2567b",
       "range": {
         "startLine": 206,
         "startChar": 1,
