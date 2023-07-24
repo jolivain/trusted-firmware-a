@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e34d70e6_66c87367",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 46
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-24T17:19:39Z",
+      "side": 1,
+      "message": "Revoking the score due to issues reported by James.",
+      "revId": "9c776a9dc19b7ad43f63474677bb978d46e98b13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0296900_61174333",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 46
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-24T17:19:39Z",
+      "side": 1,
+      "message": "Populating the error what James, yes, the case for lower SError is broken still. If there was no synced error, then it should go on to handle the original SError here. \n\nChecking the SError Error code is probably not helping.  This is not easily handled unlike the previous implementation wherein esb() was consuming the outstanding SError.\n\nI dont see any clean way out of this. The less problematic alternative is to return to the original handler unconditionally and cope with the case that there is a chance that the platform handler needs to be aware that error was already handled by the mechanism above.\n\n\nso you can do a ret from here unconditionally.",
+      "range": {
+        "startLine": 206,
+        "startChar": 1,
+        "endLine": 215,
+        "endChar": 4
+      },
+      "revId": "9c776a9dc19b7ad43f63474677bb978d46e98b13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "208f383f_1550ae37",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 46
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-24T17:19:39Z",
+      "side": 1,
+      "message": "add a comment :\n\n/* It is possible for the sync_and_handle_pending_serror to have already handled the SError if additional errors were synced and the below handler may receive be invoked spuriously */",
+      "revId": "9c776a9dc19b7ad43f63474677bb978d46e98b13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
