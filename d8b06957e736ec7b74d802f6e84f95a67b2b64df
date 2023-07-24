@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8adfa35_7c75b22f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000874
+      },
+      "writtenOn": "2023-07-24T16:57:26Z",
+      "side": 1,
+      "message": "Thanks for the fast review :) Will send a new version soon.",
+      "revId": "d8b06957e736ec7b74d802f6e84f95a67b2b64df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22893e9a_be2eede9",
@@ -14,6 +31,30 @@
       "writtenOn": "2023-07-24T16:15:13Z",
       "side": 1,
       "message": "please move to the top of the file",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 45
+      },
+      "revId": "d8b06957e736ec7b74d802f6e84f95a67b2b64df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "192185b0_5dd8ae20",
+        "filename": "plat/imx/imx8m/imx8m_ccm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000874
+      },
+      "writtenOn": "2023-07-24T16:57:26Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "22893e9a_be2eede9",
       "range": {
         "startLine": 29,
         "startChar": 0,
@@ -43,6 +84,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "382649e7_c22f4cab",
+        "filename": "plat/imx/imx8m/imx8m_ccm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000874
+      },
+      "writtenOn": "2023-07-24T16:57:26Z",
+      "side": 1,
+      "message": "Argh.. forgot that. I\u0027ll fix this.",
+      "parentUuid": "1ef39a92_6eda2356",
+      "revId": "d8b06957e736ec7b74d802f6e84f95a67b2b64df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e15c5b87_7943e6be",
         "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl31_setup.c",
         "patchSetId": 2
@@ -60,6 +119,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b4aba7c_20c28505",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000874
+      },
+      "writtenOn": "2023-07-24T16:57:26Z",
+      "side": 1,
+      "message": "Sure",
+      "parentUuid": "e15c5b87_7943e6be",
+      "revId": "d8b06957e736ec7b74d802f6e84f95a67b2b64df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b85315cf_cb377dbf",
         "filename": "plat/imx/imx8m/imx8mp/imx8mp_bl31_setup.c",
         "patchSetId": 2
@@ -71,6 +148,30 @@
       "writtenOn": "2023-07-24T16:15:13Z",
       "side": 1,
       "message": "0U",
+      "range": {
+        "startLine": 120,
+        "startChar": 29,
+        "endLine": 120,
+        "endChar": 30
+      },
+      "revId": "d8b06957e736ec7b74d802f6e84f95a67b2b64df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f4bcaa3_38c2e3b8",
+        "filename": "plat/imx/imx8m/imx8mp/imx8mp_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000874
+      },
+      "writtenOn": "2023-07-24T16:57:26Z",
+      "side": 1,
+      "message": "I will fix this for all files.",
+      "parentUuid": "b85315cf_cb377dbf",
       "range": {
         "startLine": 120,
         "startChar": 29,
@@ -111,6 +212,30 @@
       "writtenOn": "2023-07-24T16:15:13Z",
       "side": 1,
       "message": "0U",
+      "range": {
+        "startLine": 144,
+        "startChar": 21,
+        "endLine": 144,
+        "endChar": 22
+      },
+      "revId": "d8b06957e736ec7b74d802f6e84f95a67b2b64df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afc7788b_a5eb979d",
+        "filename": "plat/imx/imx8m/imx8mp/imx8mp_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000874
+      },
+      "writtenOn": "2023-07-24T16:57:26Z",
+      "side": 1,
+      "message": "I will fix this for all files as well.",
+      "parentUuid": "71665a69_93bbe26d",
       "range": {
         "startLine": 144,
         "startChar": 21,
