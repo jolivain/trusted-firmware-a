@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "170808de_7e002ac9",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-07-24T11:58:19Z",
+      "side": 1,
+      "message": "1. Naming could be follow the existing pattern ? \"\n  ID_AA64MMFR1_EL1_HAFT_SUPPORTED \" ? just to keep it align with other macros.\n\n\n2. As per the Arm Arm docs  here: https://developer.arm.com/documentation/ddi0487/ja\n0x2 is the value supported other values are reserved.\n\nHAFDBS, bits [3:0]\nHardware updates to Access flag and Dirty state in translation tables. Defined values are:\n0b0000  Hardware update of the Access flag and dirty state are not supported.\n0b0001  Support for hardware update of the Access flag for Block and Page descriptors.\n0b0010  As 0b0001, and adds support for hardware update of the Access flag for Block and Page\ndescriptors. Hardware update of dirty state is supported.\nAll other values are reserved.\nFEAT_HAFDBS implements the functionality identified by the values 0b0001 and 0b0010.\n\nSo it should be 0x2 right? or am I referrring to an old doc ?\nlet me know your thoughts here.",
+      "revId": "c3de45aaaadb2fe6f80ec2aeda0b021190014fdf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecd3a30b_694306d8",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-07-24T11:58:19Z",
+      "side": 1,
+      "message": "typo: Flag ?",
+      "revId": "c3de45aaaadb2fe6f80ec2aeda0b021190014fdf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
