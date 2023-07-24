@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd8b1743_45349662",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-07-24T19:14:25Z",
+      "side": 1,
+      "message": "This time I started small.\n\nFirst patch creates common file and moves libfdt stuff there. Second one handles CPU definitions.\n\nIdeas for next ones:\n- cpu flags (SVE, SME, FGT etc)\n- common code parts for BL1, BL2, BL31",
+      "revId": "cb233d97aa6b07283a764441e8b2cb3092fa79a1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
