@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a9ba012_19cfeb53",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 35
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-07-24T09:42:38Z",
+      "side": 1,
+      "message": "What is the motivation behind this extra layer of abstraction? Wouldn\u0027t we better served,from a readability perspective, just having the procedure implemented in setup_context_common?",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 312,
+        "endChar": 1
+      },
+      "revId": "dc7087084ee0cbb7457c4c4e27d9ad25c69642c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
