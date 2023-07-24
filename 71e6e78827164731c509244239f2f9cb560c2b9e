@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba6613b3_c15db81d",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-07-24T08:11:13Z",
+      "side": 1,
+      "message": "hmm good question. I remember some RME configs blowing up without this, but it might be a rebase artefact at this point. Will see if it can be dropped. But even if it isn\u0027t, it\u0027s dropped in the top patch so not a massive deal.",
+      "parentUuid": "437ffc1f_775ac0ea",
+      "range": {
+        "startLine": 694,
+        "startChar": 21,
+        "endLine": 694,
+        "endChar": 46
+      },
+      "revId": "71e6e78827164731c509244239f2f9cb560c2b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42cd4277_8490a9bd",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 46
@@ -71,6 +95,30 @@
       "writtenOn": "2023-07-23T16:00:58Z",
       "side": 1,
       "message": "nit: remove extra space and similarly in all below comments wherever applicable.",
+      "range": {
+        "startLine": 710,
+        "startChar": 4,
+        "endLine": 710,
+        "endChar": 5
+      },
+      "revId": "71e6e78827164731c509244239f2f9cb560c2b9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76cc8f55_6ff4b010",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 46
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-07-24T08:11:13Z",
+      "side": 1,
+      "message": "this is the only instance where it\u0027s different. The rest are part of the documentation pattern that\u0027s everywhere",
+      "parentUuid": "c8313b77_bab7122b",
       "range": {
         "startLine": 710,
         "startChar": 4,
