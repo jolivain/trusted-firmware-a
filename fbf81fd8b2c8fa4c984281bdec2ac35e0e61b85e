@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dab9a911_6b8f36c8",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-07-24T16:31:22Z",
+      "side": 1,
+      "message": "I am not sure if the fix is complete. On a successful FFA_VERSION invocation, the version is returned in X0 and x1-x7 must be zeros.\nx1 through x4 are cleared in lines 949 through 951 as part of spmd_smc_forward. However, x5, x6, x7 are forwarded unconditionally to NWd caller.\nIt just happens that the direct response for the framework message[1] from SPMC doesn\u0027t populate any values in arg4-arg7(i.e., x4 through x7). If for any reason x5/x6/x7 is non-zero(lets say due to a bug or as a metadata), these result registers x5/x6/x7 would not be MBZ which would be a violation of spec.\n\n[1] https://git.trustedfirmware.org/hafnium/hafnium.git/tree/src/arch/aarch64/hypervisor/handler.c#n406",
+      "revId": "fbf81fd8b2c8fa4c984281bdec2ac35e0e61b85e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
