@@ -65,6 +65,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b63a901_c08a3921",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 46
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-25T13:06:48Z",
+      "side": 1,
+      "message": "Ah I see, yes, you are right. We enter this code path only on a outstanding EA which is checked before branching here.",
+      "parentUuid": "8185784a_11527aee",
+      "range": {
+        "startLine": 206,
+        "startChar": 1,
+        "endLine": 215,
+        "endChar": 4
+      },
+      "revId": "9c776a9dc19b7ad43f63474677bb978d46e98b13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "208f383f_1550ae37",
@@ -78,6 +102,24 @@
       "writtenOn": "2023-07-24T17:19:39Z",
       "side": 1,
       "message": "add a comment :\n\n/* It is possible for the sync_and_handle_pending_serror to have already handled the SError if additional errors were synced and the below handler may receive be invoked spuriously */",
+      "revId": "9c776a9dc19b7ad43f63474677bb978d46e98b13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da3644c7_4e4d9217",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 46
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-07-25T13:06:48Z",
+      "side": 1,
+      "message": "Ignore.",
+      "parentUuid": "208f383f_1550ae37",
       "revId": "9c776a9dc19b7ad43f63474677bb978d46e98b13",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
