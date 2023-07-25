@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5833f69c_dfa43513",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-07-25T15:18:22Z",
+      "side": 1,
+      "message": "Those RME config build failures seem legit:\n\n 00:04:26.488 plat/arm/board/fvp/fvp_realm_attest_key.c:9:10: fatal error: psa/crypto_types.h: No such  file or directory\n 00:04:26.488     9 | #include \u003cpsa/crypto_types.h\u003e\n 00:04:26.488       |          ^~~~~~~~~~~~~~~~~~~~\n 00:04:26.488 compilation terminated.\n 00:04:26.488 make: *** [Makefile:1494: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/fvp/debug/bl31/fvp_realm_attest_key.o] Error 1\n",
+      "revId": "a1402de06d6826f6b54f6240da00f0ffc398b64b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
