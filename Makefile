@@ -1028,6 +1028,10 @@ ifeq ($(DRTM_SUPPORT),1)
         $(info DRTM_SUPPORT is an experimental feature)
 endif
 
+ifeq (${TRANSFER_LIST},1)
+        $(info TRANSFER_LIST is an experimental feature)
+endif
+
 ifeq (${ENABLE_RME},1)
 	ifneq (${SEPARATE_CODE_AND_RODATA},1)
                 $(error `ENABLE_RME=1` requires `SEPARATE_CODE_AND_RODATA=1`)
@@ -1192,6 +1196,7 @@ $(eval $(call assert_booleans,\
 	SPMC_AT_EL3 \
 	SPMD_SPM_AT_SEL2 \
 	ENABLE_SPMD_LP \
+	TRANSFER_LIST \
 	TRUSTED_BOARD_BOOT \
 	USE_COHERENT_MEM \
 	USE_DEBUGFS \
@@ -1352,6 +1357,7 @@ $(eval $(call add_defines,\
 	SPM_MM \
 	SPMC_AT_EL3 \
 	SPMD_SPM_AT_SEL2 \
+	TRANSFER_LIST \
 	TRUSTED_BOARD_BOOT \
 	CRYPTO_SUPPORT \
 	TRNG_SUPPORT \
