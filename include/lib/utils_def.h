@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -103,6 +103,21 @@
 
 #define round_down(value, boundary)		\
 	((value) & ~round_boundary(value, boundary))
+
+/*
+ * Round up a value to align with a given size and
+ * check whether overflow happens.
+ * The rounduped value is '*res',
+ * return 0 on success and 1 on overflow
+ */
+#define ROUNDUP_OVERFLOW(v, size, res) (__extension__({ \
+	typeof(res) __res = res; \
+	typeof(*(__res)) __roundup_tmp = 0; \
+	typeof(v) __roundup_mask = (typeof(v))(size) - 1; \
+	\
+	__builtin_add_overflow((v), __roundup_mask, &__roundup_tmp) ? 1 : \
+		(void)(*(__res) = __roundup_tmp & ~__roundup_mask), 0; \
+}))
 
 /**
  * Helper macro to ensure a value lies on a given boundary.
