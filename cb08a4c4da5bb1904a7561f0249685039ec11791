@@ -16,6 +16,24 @@
       "message": "Hi Boyan, \nThis patch, do we need to be adding the testing information to the commit message?",
       "revId": "cb08a4c4da5bb1904a7561f0249685039ec11791",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd167542_5ccb0016",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-07-25T20:24:25Z",
+      "side": 1,
+      "message": "Yes, we need to if the script been run. Infact there is comment from Kathleen as well on https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20457/25 which need to be fixed in all commit messages that reference the script.",
+      "parentUuid": "140fa857_c8f76055",
+      "revId": "cb08a4c4da5bb1904a7561f0249685039ec11791",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
