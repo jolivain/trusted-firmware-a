@@ -41,6 +41,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad0b62b3_abfde63c",
+        "filename": "lib/cpus/aarch64/cortex_a53.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-07-25T19:58:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbb4bb2d_6dd15809",
+      "revId": "c12c5a037653ce1c4a2bb2a769a395d41470f296",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16044d90_9b8de66a",
@@ -54,6 +72,24 @@
       "writtenOn": "2023-06-12T20:08:38Z",
       "side": 1,
       "message": "Shouldn\u0027t this be sysreg_bit_clear?",
+      "revId": "c12c5a037653ce1c4a2bb2a769a395d41470f296",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8a9547d_d9ff60ff",
+        "filename": "lib/cpus/aarch64/cortex_a53.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-07-25T19:58:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16044d90_9b8de66a",
       "revId": "c12c5a037653ce1c4a2bb2a769a395d41470f296",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
