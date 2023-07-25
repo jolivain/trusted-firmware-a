@@ -944,6 +944,9 @@ Common build options
    hardware will limit the effective VL to the maximum physically supported
    VL.
 
+-  ``TRANSFER_LIST``: Setting this to ``1`` enables support for Firmware
+   Handoff using Transfer List. This defaults to ``0``.
+
 -  ``TRNG_SUPPORT``: Setting this to ``1`` enables support for True
    Random Number Generator Interface to BL31 image. This defaults to ``0``.
 
