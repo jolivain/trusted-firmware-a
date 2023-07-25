@@ -16,6 +16,24 @@
       "message": "On a quick look of patches, i recommend you to create seperate patch for generic and platform specific changes",
       "revId": "5545bea775ec22cf87d1a0e89af84784367830c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0d2b537_6f242b8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-25T15:30:12Z",
+      "side": 1,
+      "message": "I keep the platform specific changes in this patch set, the generic changes are moved to https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/22215",
+      "parentUuid": "24d615be_853dd42c",
+      "revId": "5545bea775ec22cf87d1a0e89af84784367830c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
