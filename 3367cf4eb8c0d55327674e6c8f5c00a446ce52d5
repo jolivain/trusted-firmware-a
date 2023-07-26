@@ -16,6 +16,24 @@
       "message": "Regarding testing:\nCI+1 will not cover the testing part. As this change has impact during runtime.\nSo CI+2 should be triggered. \n\nFurther, will you be updating the CI config/adding any new config to test this feature.\nBecause, currently we dont have any test_config in open-ci with this feature support.\n\nSo please update the existing feature detection test_config to cover this feature, so that your code gets tested.\n\n",
       "revId": "3367cf4eb8c0d55327674e6c8f5c00a446ce52d5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "243a14b5_5b1746f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-07-26T16:34:25Z",
+      "side": 1,
+      "message": "https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/22164",
+      "parentUuid": "8f662128_d6f5db37",
+      "revId": "3367cf4eb8c0d55327674e6c8f5c00a446ce52d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
