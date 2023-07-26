@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c6b40ac_d672e798",
+        "filename": "bl1/bl1.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-07-26T17:00:10Z",
+      "side": 1,
+      "message": "nit: tab instead of space",
+      "range": {
+        "startLine": 29,
+        "startChar": 15,
+        "endLine": 29,
+        "endChar": 16
+      },
+      "revId": "2d60df5391adab6f46e6b034e2658ce0ce197b99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9afc4861_ca8deb60",
         "filename": "bl1/bl1_main.c",
         "patchSetId": 1
@@ -89,6 +112,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d192f953_08dfbeeb",
+        "filename": "bl1/bl1_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-07-26T17:00:10Z",
+      "side": 1,
+      "message": "nit: It would be good to define a macro instead of numbers or probably we could leave a comment to indicate why 0 is used, same for line 101 and line 37.",
+      "range": {
+        "startLine": 174,
+        "startChar": 40,
+        "endLine": 174,
+        "endChar": 41
+      },
+      "revId": "2d60df5391adab6f46e6b034e2658ce0ce197b99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9caa97c_f8d73891",
         "filename": "bl2/bl2_main.c",
         "patchSetId": 1
@@ -128,6 +174,29 @@
         "startChar": 1,
         "endLine": 164,
         "endChar": 21
+      },
+      "revId": "2d60df5391adab6f46e6b034e2658ce0ce197b99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc98739f_e5915c80",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-07-26T17:00:10Z",
+      "side": 1,
+      "message": "nit: space before and after 2",
+      "range": {
+        "startLine": 32,
+        "startChar": 57,
+        "endLine": 32,
+        "endChar": 58
       },
       "revId": "2d60df5391adab6f46e6b034e2658ce0ce197b99",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
