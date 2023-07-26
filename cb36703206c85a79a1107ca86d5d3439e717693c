@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19132ef7_45254776",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-26T11:53:32Z",
+      "side": 1,
+      "message": "bit 63-51 ar res0, then why bits 54-55 are set?",
+      "range": {
+        "startLine": 1368,
+        "startChar": 32,
+        "endLine": 1368,
+        "endChar": 33
+      },
+      "revId": "cb36703206c85a79a1107ca86d5d3439e717693c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dce653ed_2b02519f",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-07-26T11:53:32Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 1369,
+        "startChar": 32,
+        "endLine": 1369,
+        "endChar": 33
+      },
+      "revId": "cb36703206c85a79a1107ca86d5d3439e717693c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
