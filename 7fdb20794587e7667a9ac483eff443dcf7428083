@@ -16,6 +16,24 @@
       "message": "Please fix the following build fail:\nhttps://ci.trustedfirmware.org/job/tf-a-builder/2339011/console",
       "revId": "7fdb20794587e7667a9ac483eff443dcf7428083",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "804701e3_239b6eaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001006
+      },
+      "writtenOn": "2023-07-26T05:19:15Z",
+      "side": 1,
+      "message": "Very strange error, because other platform for example, renesas do the same. I removed the code, maybe you can tell me what to change to fix the error",
+      "parentUuid": "1cd177de_3e03cf66",
+      "revId": "7fdb20794587e7667a9ac483eff443dcf7428083",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
