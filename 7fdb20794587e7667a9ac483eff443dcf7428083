@@ -34,6 +34,24 @@
       "parentUuid": "1cd177de_3e03cf66",
       "revId": "7fdb20794587e7667a9ac483eff443dcf7428083",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90cd6846_a6424e1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001006
+      },
+      "writtenOn": "2023-07-26T07:35:39Z",
+      "side": 1,
+      "message": "By the way, I tried to build using latest 12.2 toolchain, and didn\u0027t receive any errors. Here is my build command:\nmake CROSS_COMPILE\u003daarch64-none-elf- PLAT\u003dnpcm845x all SPD\u003dopteed -j",
+      "parentUuid": "804701e3_239b6eaa",
+      "revId": "7fdb20794587e7667a9ac483eff443dcf7428083",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
