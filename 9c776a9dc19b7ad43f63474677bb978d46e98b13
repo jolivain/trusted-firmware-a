@@ -91,6 +91,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd047e1d_6c53b230",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 46
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-07-26T01:43:13Z",
+      "side": 1,
+      "message": "At first glance, it would be confusing for someone to see SCR_EL3.EA \u003d 0 in FFH mode. I think we discussed that it is possible when the current execution is in secure world since EL3 doesn\u0027t want to trap SErrors, instead SPMC at S-EL2 does that. Could you capture it as a comment here?",
+      "range": {
+        "startLine": 222,
+        "startChar": 52,
+        "endLine": 222,
+        "endChar": 76
+      },
+      "revId": "9c776a9dc19b7ad43f63474677bb978d46e98b13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c83574ee_77265ae6",
         "filename": "bl31/aarch64/runtime_exceptions.S",
         "patchSetId": 46
