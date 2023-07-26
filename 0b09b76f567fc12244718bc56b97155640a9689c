@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "442f12d0_ad0c705d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-07-26T16:43:03Z",
+      "side": 1,
+      "message": "Interesting, how confident are we that this works reliably? I guess the DRAM *controller* will be reset in both cases, it\u0027s just that the DRAM array itself will be unaffected by a pure SoC reset. Do we have any confirmation that a DRAM controller re-init does not affect the DRAM content?",
+      "revId": "0b09b76f567fc12244718bc56b97155640a9689c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d7bb9b79_ba964b4c",
@@ -31,6 +48,23 @@
       "writtenOn": "2023-07-25T16:15:05Z",
       "side": 1,
       "message": "You need to check is_vendor and reset_type. This function only implements PSCI_RESET2_SYSTEM_WARM_RESET, so it should reject all other reset types. See css_system_reset2 for an example.",
+      "revId": "0b09b76f567fc12244718bc56b97155640a9689c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4533e556_4bfe923f",
+        "filename": "plat/allwinner/common/sunxi_scpi_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-07-26T16:43:03Z",
+      "side": 1,
+      "message": "Printing this error number is not meaningful, since you just set it. Look at the normal reset function above, and let \"ret\" receive the error number from the SCPI call. Then return the PSCI error code directly.",
       "revId": "0b09b76f567fc12244718bc56b97155640a9689c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
