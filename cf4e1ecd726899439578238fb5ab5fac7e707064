@@ -16,6 +16,508 @@
       "message": "adding moe@amperecomputing.com, npham@amperecomputing.com, snainar@amperecomputing.com, akhare@amperecomputing.com asreviewers.",
       "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5680afa_630415e1",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "Why \"KERNEL\"?",
+      "range": {
+        "startLine": 6,
+        "startChar": 10,
+        "endLine": 6,
+        "endChar": 16
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "733075e8_1b6b3a13",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "This seems dangerous because you may misinterpret tags (especially the tags in the non-standardized range, which use some of those high bits) as different tags if you just ignore the high bits.",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d47608ae_13451ff8",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "8-byte",
+      "range": {
+        "startLine": 60,
+        "startChar": 6,
+        "endLine": 60,
+        "endChar": 13
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bafc084_f804ab68",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "The size doesn\u0027t depend on tl-\u003ealignment, it always gets rounded up to 8 bytes.",
+      "range": {
+        "startLine": 62,
+        "startChar": 36,
+        "endLine": 62,
+        "endChar": 54
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "533f16c2_1c7b1430",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "nit: seems a bit odd to make this a separate helper when you\u0027re only using it in one place?",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76034a5c_cfc25f99",
+        "filename": "lib/handoff/handoff.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "nit: It seems a bit odd that you\u0027re calling this both \"handoff\" and \"transfer list\", shouldn\u0027t we just pick one name to use consistently?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 7
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e659af42_20ee7d7f",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "It seems a bit odd to do this only here, with macros local to this file, and nowhere else in TF-A.",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "776d7737_7b116bac",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "Why not use the existing `round_down()`/`round_boundary()`/`is_aligned()` already used in the rest of TF-A?",
+      "range": {
+        "startLine": 32,
+        "startChar": 8,
+        "endLine": 32,
+        "endChar": 13
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "429e1bd1_84e981de",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "Sorry, I actually made a mistake in describing the algorithm for this. See https://github.com/FirmwareHandoff/firmware_handoff/pull/12",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b64a0381_9c62b98c",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "nit: why not try supporting the \"backwards compatibility for reading\" defined in the spec?",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "590a7abc_b01af765",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "This should just be 8",
+      "range": {
+        "startLine": 160,
+        "startChar": 27,
+        "endLine": 160,
+        "endChar": 47
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fa9c917_493d234e",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "nit: even though you\u0027re checking this in the validation function above already, I think it would be cleaner to use tl-\u003ehdr_size explicitly here.",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf758630_51197d81",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "Is this assignment intended? It seems unnecessary (and in general it seems like this is just checking the same thing twice, once by calling the wrapper and once by doing it manually).",
+      "range": {
+        "startLine": 210,
+        "startChar": 12,
+        "endLine": 210,
+        "endChar": 13
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2772fa89_d585fa48",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "8",
+      "range": {
+        "startLine": 243,
+        "startChar": 30,
+        "endLine": 243,
+        "endChar": 50
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "877a7719_0f73a819",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "8",
+      "range": {
+        "startLine": 246,
+        "startChar": 30,
+        "endLine": 246,
+        "endChar": 50
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "866a0733_e96e1480",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "This isn\u0027t safe―you could violate the alignment requirements of the following TEs. It is only safe to move TEs distances in multiples of `(1 \u003c\u003c tl-\u003ealignment)`.\n\nI would suggest for this that if `new_ev \u003c old_ev`, you just create a dummy `VOID` TE to make up the gap (unless `old_ev - new_ev \u003c 8`, in which case you don\u0027t need to do anything). If `new_ev \u003e old_ev`, you should calculate\n\n move_distance \u003d round_up(new_ev - old_ev, 1 \u003c\u003c tl-\u003ealignment)\n\n, then you `memmove()` all the following TEs by `move_distance` (and update `tl-\u003esize` with that), and then you create a dummy `VOID` TE to fill the gap between `new_ev` and `old_ev + move_distance` (as long as it is greater or equal to 8 bytes).",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fbe8b0f_f62e1efd",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "This may not be so simple due to the concerns mentioned above (extra alignment padding may reduce how much extra space you can actually use for a random TE in the middle). (Also I find the idea of this function kinda odd, I think that\u0027s generally not something you\u0027d ever want to do.)",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae96944a_28ed1726",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "There are again alignment concerns with this.\n\nWhile it is possible to implement such an operation correctly, I would in general caution against memmoving too much because it gets very inefficient (if you\u0027ve ever tried editing stuff with libfdt a lot in a critical path you know what I mean). I think the default \"remove\" action should be by replacing a tag with `VOID` (and if we\u0027re worried about wasting space we can implement the \"VOID reuse\" mechanism described in the spec when adding new entries). I would suggest to not implement memmove operations at all until we really find a use case that needs them, or at least clearly label them as \"this is something you don\u0027t really want to use unless you really know that you need it and there\u0027s no better option\".",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cb9b6bb_7d88eccf",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "This check is missing the bytes needed for the TE header.\n\nAlso, again, TE sizes should always just be aligned to 8.",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfcd2ae8_67746603",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "8",
+      "range": {
+        "startLine": 338,
+        "startChar": 27,
+        "endLine": 338,
+        "endChar": 45
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6573b1f9_dc3dc789",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "Why? This seems unnecessary and just a waste of time. (You\u0027re going to copy the data in below anyway, and even for the padding portion afterwards the spec explicitly says that it doesn\u0027t need to be initialized.)",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbfb9a19_f18d7f8c",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "nit: that function doesn\u0027t return NULL on error so this seems like an odd thing to check.",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f66c613_28f5d0d3",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "This is more of a matter-of-taste API design choice, but I also don\u0027t think you should do this. It just wastes time. Users of the API can zero parts themselves if they want to, but in most cases they\u0027re probably about to fill it with something else anyway.",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5407662_787da064",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "I think in general it would be more efficient to always update the checksum in-place (like the algorithms in https://github.com/FirmwareHandoff/firmware_handoff/blob/main/source/transfer_list.rst#standard-operations all do), rather than regenerate the whole thing from scratch every time you made any change anywhere.",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e52db95f_1b39d2d2",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "Did we update the line length requirements to match Linux? https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#line-length still says 80 chars...",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f0fa64d_38f07c73",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-07-27T00:13:47Z",
+      "side": 1,
+      "message": "Careful, it\u0027s the data that needs to be aligned, not the TE header. So you also need to account for the extra 8 bytes of header before the address you want to align. (I actually screwed that up in the algorithm description in the spec too, see https://github.com/FirmwareHandoff/firmware_handoff/pull/15)",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
