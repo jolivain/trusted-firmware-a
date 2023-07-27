@@ -16,6 +16,24 @@
       "message": "@ Harrison,\nwe reverted this change, believing that your patch had fixed issues related to build errors for the pdf (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21312).\nCI is still failing for doc build.\nCould you please take a look here ? ",
       "revId": "69423c070ed14d10cce382e56ec27ed9df8734e2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea0b9ab1_62387398",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-07-27T09:20:40Z",
+      "side": 1,
+      "message": "00:00:59.567 Poetry could not find a pyproject.toml file in /home/buildslave/workspace/tf-a-builder/trusted-firmware-a or its parents",
+      "parentUuid": "47613db5_567a3930",
+      "revId": "69423c070ed14d10cce382e56ec27ed9df8734e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
