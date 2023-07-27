@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79d9ba52_76d296a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-07-27T07:20:08Z",
+      "side": 1,
+      "message": "Did you get the reason for the docs build failure?\n\n There is this error\n 10:34:39 + poetry run memory -sr \u0027\u0027\n 10:34:39 + tee -a /home/buildslave/workspace/tf-a-builder/workspace/artefacts/build.log\n 10:34:40 build-path: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a\n 10:34:40 Traceback (most recent call last):\n 10:34:40   File \"\u003cstring\u003e\", line 1, in \u003cmodule\u003e\n 10:34:40   File \"/home/buildslave/.cache/pypoetry/virtualenvs/trusted-firmware-a-zIb8mnZr-py3.10   /lib/python3.10/site-packages/click/core.py\", line 1130, in __call__\n 10:34:40     return self.main(*args, **kwargs)\n 10:34:40   File \"/home/buildslave/.cache/pypoetry/virtualenvs/trusted-firmware-a-zIb8mnZr-py3.10   /lib/python3.10/site-packages/click/core.py\", line 1055, in main\n 10:34:40     rv \u003d self.invoke(ctx)\n\nBut I believe this has been fixed and should no longer happen after rebasing your change.",
+      "revId": "d47b5fb5a27e12212c2fef2da58f5ace0b177ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
