@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92b84275_13c3610d",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-07-27T21:49:30Z",
+      "side": 1,
+      "message": "I think based on makefile we should be using \n\n`ENABLE_RUNTIME_INSTRUMENTATION` and not ENABLE_PMF?\n\nPMF will be enabled when `ENABLE_PMF :\u003d ${ENABLE_RUNTIME_INSTRUMENTATION}`\nruntime instrumentation is set",
+      "range": {
+        "startLine": 31,
+        "startChar": 4,
+        "endLine": 31,
+        "endChar": 14
+      },
+      "revId": "fdd3b8c90f86f22a363665f21635b9f2c887c2fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
