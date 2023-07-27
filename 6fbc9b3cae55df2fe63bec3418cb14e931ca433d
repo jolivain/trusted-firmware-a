@@ -33,6 +33,24 @@
       "message": "Hi Manish, I see the build failing with `Error: Invalid platform`. Do we need to update CI scripts?",
       "revId": "6fbc9b3cae55df2fe63bec3418cb14e931ca433d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5403eea2_6ba30dfa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-07-27T09:18:00Z",
+      "side": 1,
+      "message": "It\u0027s possible that this failure happens because your change wasn\u0027t rebased on top of integration. However, since this failure seems unrelated to your patch, you can override the Verified vote to +1.",
+      "parentUuid": "a2802883_b0217006",
+      "revId": "6fbc9b3cae55df2fe63bec3418cb14e931ca433d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
