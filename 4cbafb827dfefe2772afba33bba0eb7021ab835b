@@ -69,6 +69,24 @@
       "message": "Most failures in the CI are for the aarch32.\n\n14:43:35 arm-none-eabi-gcc -g -gdwarf-4 -nostdinc -ffreestanding -Wall\t-Werror -Wmissing-include-dirs -march\u003darmv8-a -mno-unaligned-access -std\u003dgnu99 -Os -ffunction-sections -fdata-sections  -Iinclude/lib/libfdt -Iinclude/lib/libc -Iinclude/lib/libc/aarch32  \t--param\u003dmin-pagesize\u003d0 -I./build/fvp/debug/autogen -Itftf/framework/include -Iinclude -Iinclude/common -Iinclude/common/aarch32 -Iinclude/lib -Iinclude/lib/aarch32 -Iinclude/lib/extensions -Iinclude/lib/utils -Iinclude/lib/xlat_tables -Iinclude/plat/common -Iinclude/runtime_services -Iinclude/runtime_services/secure_el0_payloads -Iinclude/runtime_services/secure_el1_payloads -Iinclude/runtime_services/host_realm_managment -Ispm/cactus -Ispm/ivy -Irealm -Ismc_fuzz/include -Iinclude/runtime_services/host_realm_managment -Iplat/arm/fvp/include/ -Iinclude/plat/arm/common/ -DPLAT_XLAT_TABLES_DYNAMIC\u003d1 -DFVP_CLUSTER_COUNT\u003d2 -DFVP_MAX_CPUS_PER_CLUSTER\u003d4 -DFVP_MAX_PE_PER_CPU\u003d1 -DTFTF_MAX_IMAGE_SIZE\u003d10485760 -DPA_SIZE\u003d34 -DARM_ARCH_MAJOR\u003d8 -DARM_ARCH_MINOR\u003d0 -DDEBUG\u003d1 -DENABLE_ASSERTIONS\u003d1 -DENABLE_BTI\u003d0 -DENABLE_PAUTH\u003d0 -DLOG_LEVEL\u003d40 -DNEW_TEST_SESSION\u003d1 -DPLAT_fvp -DUSE_NVM\u003d0 -DIMAGE_TFTF -Wp,-MD,./build/fvp/debug/tftf/test_helpers.d -MT build/fvp/debug/tftf/test_helpers.o -c tftf/tests/common/test_helpers.c -o build/fvp/debug/tftf/test_helpers.o\n14:43:35 In file included from include/runtime_services/cactus_test_cmds.h:10,\n14:43:35                  from tftf/tests/common/test_helpers.c:10:\n14:43:35 include/runtime_services/ffa_helpers.h: In function \u0027ffa_partition_info_regs_get_tag\u0027:\n14:43:35 include/runtime_services/ffa_helpers.h:264:27: error: right shift count \u003e\u003d width of type [-Werror\u003dshift-count-overflow]\n14:43:35   264 |         return (args.arg2 \u003e\u003e 32) \u0026 0xFFFF;\n14:43:35       |                           ^~\n14:43:35 include/runtime_services/ffa_helpers.h: In function \u0027ffa_partition_info_regs_get_desc_size\u0027:\n14:43:35 include/runtime_services/ffa_helpers.h:270:27: error: right shift count \u003e\u003d width of type [-Werror\u003dshift-count-overflow]\n14:43:35   270 |         return (args.arg2 \u003e\u003e 48);\n14:43:35       |                           ^~\n14:43:35 include/runtime_services/ffa_helpers.h: In function \u0027ffa_partition_info_regs_entry_size\u0027:\n14:43:35 include/runtime_services/ffa_helpers.h:288:27: error: right shift count \u003e\u003d width of type [-Werror\u003dshift-count-overflow]\n14:43:35   288 |         return (args.arg2 \u003e\u003e 48) \u0026 0xFFFFU;\n14:43:35       |                           ^~\n14:43:35 cc1: all warnings being treated as errors\n14:43:35 make: *** [Makefile:539: build/fvp/debug/tftf/test_helpers.o] Error 1",
       "revId": "4cbafb827dfefe2772afba33bba0eb7021ab835b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7c59e54_abbd646b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-07-27T15:10:03Z",
+      "side": 1,
+      "message": "... In TF-A-Tests.",
+      "parentUuid": "4604a7d4_626502b0",
+      "revId": "4cbafb827dfefe2772afba33bba0eb7021ab835b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
