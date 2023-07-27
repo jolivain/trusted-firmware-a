@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a92ccfe8_373fad19",
+        "filename": "lib/cpus/aarch64/cortex_a510.S",
+        "patchSetId": 26
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-07-27T19:38:39Z",
+      "side": 1,
+      "message": "We seem to use sysreg_bit_clear and sysreg_bit_set in other CPUs. We might want to get it consistent later, can add a future task if it makes sense. \nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20462/comment/8b997f8b_76fa6ea0/",
+      "range": {
+        "startLine": 76,
+        "startChar": 1,
+        "endLine": 76,
+        "endChar": 23
+      },
+      "revId": "a29cb3c0854e38ef8f389abb88ec42bfb4d8dd54",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
