@@ -46,6 +46,30 @@
       },
       "revId": "2a332ac04013b9b16775126d981126921b706873",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "031f2142_26cc47bb",
+        "filename": "lib/cpus/aarch64/denver.S",
+        "patchSetId": 20
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-07-27T08:07:42Z",
+      "side": 0,
+      "message": "yes, because the erratum is now implemented properly. Before it was fully inline in break of the convention. The checker was only used for reporting. Now it\u0027s the check in this blurb is replaced by the checker func and the workaround is extracted to the workaround func. If you follow the execution, it should be identical but with a few extra instructions.",
+      "parentUuid": "a18b7fa4_b0442a24",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 256,
+        "endChar": 11
+      },
+      "revId": "2a332ac04013b9b16775126d981126921b706873",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }

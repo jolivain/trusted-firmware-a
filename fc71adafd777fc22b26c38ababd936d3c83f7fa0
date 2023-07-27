@@ -22,6 +22,30 @@
       },
       "revId": "fc71adafd777fc22b26c38ababd936d3c83f7fa0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7cb40a0_30e2a10d",
+        "filename": "lib/cpus/aarch64/denver.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-07-27T08:07:42Z",
+      "side": 1,
+      "message": "I don\u0027t know which is why I put this there :D. The idea is that this enable_dco routine can run with errata definitely in effect as I am not entirely sure what it wants to do. It is entirely possible this is overkill, but since I don\u0027t know the intricate details of each erratum and the routine, I chose to put this here.",
+      "parentUuid": "9c13d71a_00b06c94",
+      "range": {
+        "startLine": 259,
+        "startChar": 1,
+        "endLine": 259,
+        "endChar": 4
+      },
+      "revId": "fc71adafd777fc22b26c38ababd936d3c83f7fa0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
