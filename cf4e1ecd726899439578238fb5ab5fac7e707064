@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe8cebc2_dba1fb02",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-07-27T09:39:16Z",
+      "side": 1,
+      "message": "nit: full stop",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5aa378a1_ea321a65",
@@ -123,6 +140,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2979cdac_95dd8f38",
+        "filename": "lib/handoff/handoff.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-07-27T09:39:16Z",
+      "side": 1,
+      "message": "2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "76034a5c_cfc25f99",
         "filename": "lib/handoff/handoff.mk",
         "patchSetId": 1
@@ -139,6 +179,52 @@
         "startChar": 0,
         "endLine": 7,
         "endChar": 7
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a53e6ec8_d22219bb",
+        "filename": "lib/handoff/handoff.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-07-27T09:39:16Z",
+      "side": 1,
+      "message": "Do we need to default this to 0 here when its already done in defaults.mk?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 1
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62ba9486_8273d91e",
+        "filename": "lib/handoff/handoff.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-07-27T09:39:16Z",
+      "side": 1,
+      "message": "Can we add this to the corresponding list in the Makefile since this is a generic build flag?\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/Makefile#n1137",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 34
       },
       "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -179,6 +265,52 @@
         "startChar": 8,
         "endLine": 32,
         "endChar": 13
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63003e10_ef99c9f3",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-07-27T09:39:16Z",
+      "side": 1,
+      "message": "nit: braces around conditional statement bodies\n\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 14
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1214f3e_cd197c9e",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-07-27T09:39:16Z",
+      "side": 1,
+      "message": "nit: braces around conditional statements",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 14
       },
       "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -516,6 +648,23 @@
       "writtenOn": "2023-07-27T00:13:47Z",
       "side": 1,
       "message": "Careful, it\u0027s the data that needs to be aligned, not the TE header. So you also need to account for the extra 8 bytes of header before the address you want to align. (I actually screwed that up in the algorithm description in the spec too, see https://github.com/FirmwareHandoff/firmware_handoff/pull/15)",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cc6d612_d1586622",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-07-27T09:39:16Z",
+      "side": 1,
+      "message": "I wonder if \"HANDOFF\" might be a bit too vague in this context? I believe there are several handoff mechanisms and \"Firmware Handoff\" is just one possible solution? My sense is it might be worthwhile referring to it in full here for avoidance of doubt. Also, this option needs to be documented in docs/getting_started/build-options.rst.",
       "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
