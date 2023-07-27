@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6c67471_0103650e",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-07-27T08:23:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dfe3e3b_6b33fd85",
+      "revId": "4bd515927bd706d125725ae4b973f2b7ed61a5cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e443e69_208861d1",
@@ -35,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8c7982c_f6e452b4",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-07-27T08:23:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e443e69_208861d1",
+      "revId": "4bd515927bd706d125725ae4b973f2b7ed61a5cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "467e8575_c03b8262",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-07-26T21:24:24Z",
       "side": 1,
       "message": "condition should be \u003e\u003d \nBecasue HAFT is supported from 0b0011 and above. 0b0000 0b0001 wont support HAFT right ??",
+      "revId": "4bd515927bd706d125725ae4b973f2b7ed61a5cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9a0eda1_e1eb5ef3",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-07-27T08:23:53Z",
+      "side": 1,
+      "message": "Oops my mistake, you\u0027re right should only be 0b0011 that is valid, anything greater is reserved.",
+      "parentUuid": "467e8575_c03b8262",
       "revId": "4bd515927bd706d125725ae4b973f2b7ed61a5cd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
