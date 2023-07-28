@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7183022_7b094d58",
+        "filename": "lib/cpus/aarch64/cortex_a57.S",
+        "patchSetId": 27
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-07-28T22:19:44Z",
+      "side": 1,
+      "message": "This could be now replaced with \n  check_erratum_ls ERRATUM(813419), CPU_REV(0, 0)\nMaybe a separate patch is a good idea, but as we are working on this, I thought it was worth bringing that up.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 52
+      },
+      "revId": "b6f6a10b20cb81e7e44b26343909733bf8898e21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f352736b_763954e6",
+        "filename": "lib/cpus/aarch64/cortex_a57.S",
+        "patchSetId": 27
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-07-28T22:19:44Z",
+      "side": 1,
+      "message": "Same here. Could be now replaced with \n\n  check_erratum_ls ERRATUM(813419), CPU_REV(0, 1)",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 52
+      },
+      "revId": "b6f6a10b20cb81e7e44b26343909733bf8898e21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
