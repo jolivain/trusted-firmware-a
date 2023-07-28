@@ -46,6 +46,30 @@
       },
       "revId": "fc71adafd777fc22b26c38ababd936d3c83f7fa0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "698c6e91_fcf8b48e",
+        "filename": "lib/cpus/aarch64/denver.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-07-28T13:36:14Z",
+      "side": 1,
+      "message": "I dont think we need the extra isb here.",
+      "parentUuid": "e7cb40a0_30e2a10d",
+      "range": {
+        "startLine": 259,
+        "startChar": 1,
+        "endLine": 259,
+        "endChar": 4
+      },
+      "revId": "fc71adafd777fc22b26c38ababd936d3c83f7fa0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
