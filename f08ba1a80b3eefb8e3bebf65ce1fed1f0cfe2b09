@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cc75fed_d88a0c64",
+        "filename": "lib/cpus/aarch64/neoverse_v1.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-07-28T15:21:10Z",
+      "side": 1,
+      "message": "we may not need even the isb here its of the end macro",
+      "range": {
+        "startLine": 288,
+        "startChar": 1,
+        "endLine": 288,
+        "endChar": 4
+      },
+      "revId": "f08ba1a80b3eefb8e3bebf65ce1fed1f0cfe2b09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
