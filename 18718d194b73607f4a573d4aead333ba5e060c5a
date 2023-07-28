@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2af0fac2_caadba55",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-07-28T14:30:39Z",
+      "side": 1,
+      "message": "Not sure we really want to to do this considering we are exceeding image size, this can be used for testing but I dont suggest to get this merged.",
+      "range": {
+        "startLine": 216,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 41
+      },
+      "revId": "18718d194b73607f4a573d4aead333ba5e060c5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
