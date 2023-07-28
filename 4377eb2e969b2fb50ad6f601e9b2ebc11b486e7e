@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ceb4a3e_0ca70313",
+        "filename": "lib/cpus/aarch64/neoverse_v1.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-07-28T14:28:26Z",
+      "side": 1,
+      "message": "return is taken care in macro helpers?\n\n[...]\n\n.macro cpu_reset_func_end _cpu:req\n\t\tisb\n\t\tret\tx15\n\tendfunc \\_cpu\\()_reset_func\n.endm\n\n[...]",
+      "range": {
+        "startLine": 290,
+        "startChar": 0,
+        "endLine": 290,
+        "endChar": 8
+      },
+      "revId": "4377eb2e969b2fb50ad6f601e9b2ebc11b486e7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
