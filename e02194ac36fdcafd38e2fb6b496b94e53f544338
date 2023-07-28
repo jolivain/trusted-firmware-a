@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aee0e30_9f33771e",
+        "filename": "lib/cpus/aarch64/neoverse_v1.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-07-28T18:51:02Z",
+      "side": 1,
+      "message": "I think that you don\u0027t need this as it is taken care of in check_erratum_chosen",
+      "range": {
+        "startLine": 246,
+        "startChar": 18,
+        "endLine": 246,
+        "endChar": 43
+      },
+      "revId": "e02194ac36fdcafd38e2fb6b496b94e53f544338",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
