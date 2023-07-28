@@ -39,6 +39,30 @@
       },
       "revId": "b0fa020b0421f41fe69ae6a948e8084fa5623e1e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c80efc7b_ef4a6393",
+        "filename": "lib/cpus/aarch32/cortex_a12.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-07-28T19:06:04Z",
+      "side": 1,
+      "message": "sure will fixup in a separate patch, might need to look at few more files.",
+      "parentUuid": "440a2411_9378f960",
+      "range": {
+        "startLine": 2,
+        "startChar": 28,
+        "endLine": 2,
+        "endChar": 31
+      },
+      "revId": "b0fa020b0421f41fe69ae6a948e8084fa5623e1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
