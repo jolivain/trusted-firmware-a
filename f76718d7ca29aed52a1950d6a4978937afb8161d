@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7b63a73_22d616b0",
+        "filename": "plat/allwinner/common/sunxi_scpi_pm.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2023-07-28T22:11:45Z",
+      "side": 1,
+      "message": "FWIW you can keep the \"%s\" part if you want -- that was an attempt to reduce firmware size by merging the strings used in all three of these functions.",
+      "revId": "f76718d7ca29aed52a1950d6a4978937afb8161d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
