@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41de895f_2fb1661e",
+        "filename": "lib/cpus/aarch64/cortex_a78_ae.S",
+        "patchSetId": 29
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-07-28T20:24:09Z",
+      "side": 1,
+      "message": "These could be replaced with: \n  override_vector_table wa_cve_vbar_cortex_a78_ae",
+      "range": {
+        "startLine": 100,
+        "startChar": 1,
+        "endLine": 101,
+        "endChar": 17
+      },
+      "revId": "91655307f554e639fd8bc76370a1d9ba36abf7bb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
