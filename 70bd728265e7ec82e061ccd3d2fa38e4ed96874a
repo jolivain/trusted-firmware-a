@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ca05db9_eefe8983",
+        "filename": "lib/cpus/aarch64/denver.S",
+        "patchSetId": 29
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-07-28T20:55:08Z",
+      "side": 1,
+      "message": "I see that there\u0027s no check for the presence of special instruction to flush the indirect branch predictor and RSB. Is that not required anymore?",
+      "range": {
+        "startLine": 212,
+        "startChar": 1,
+        "endLine": 213,
+        "endChar": 17
+      },
+      "revId": "70bd728265e7ec82e061ccd3d2fa38e4ed96874a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c940c2c_854799dd",
+        "filename": "lib/cpus/aarch64/denver.S",
+        "patchSetId": 29
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-07-28T20:55:08Z",
+      "side": 1,
+      "message": "It\u0027s not clear to me why an isb is required here, and the comment above doesn\u0027t seem to be related to it.",
+      "range": {
+        "startLine": 258,
+        "startChar": 1,
+        "endLine": 259,
+        "endChar": 4
+      },
+      "revId": "70bd728265e7ec82e061ccd3d2fa38e4ed96874a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
