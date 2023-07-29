@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "88d2ffe1_ba095683",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-07-29T00:39:28Z",
+      "side": 1,
+      "message": "Needs to be rebased to let CI pass, as a new platform was introduced meanwhile.",
+      "revId": "f76718d7ca29aed52a1950d6a4978937afb8161d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b7b63a73_22d616b0",
         "filename": "plat/allwinner/common/sunxi_scpi_pm.c",
         "patchSetId": 3
