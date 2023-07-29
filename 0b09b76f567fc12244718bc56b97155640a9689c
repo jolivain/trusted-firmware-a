@@ -54,6 +54,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f045d354_16ae3173",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-07-29T05:10:29Z",
+      "side": 1,
+      "message": "I\u0027ve used following tests in u-boot to check DRAM content after warm reset. U-boot was built with PSCI support.\n\n1) Boot into u-boot shell\n```\nsetexpr start 50000000\nsetexpr len   69000000\nsetexpr wrlen ${len} / 4\nmw ${start} deadbeef ${wrlen}\nreset -w\n```\n\n2) After warm reboot check DRAM content in u-boot shell\n```\nsetexpr start 50000000\nsetexpr len   69000000\nsetexpr end   ${start} + ${len}\nsetexpr step  100000\nsetexpr addr  ${start}\nwhile itest ${addr} \u003c ${end}; do \ncrc32 ${addr} ${step}\nsetexpr addr  ${addr} + ${step}\ndone\n```\n\nCheck modified blocks\n```\ncat serial.log | grep -a -v \u002795b418c5\u0027 | grep -a -i crc32\ncrc32 for 50000000 ... 500fffff \u003d\u003d\u003e 4c402aaa\ncrc32 for 80000000 ... 800fffff \u003d\u003d\u003e 86591e45\n```\n50000000 - 50002000 and 80000000 -80000020 these blocks are modified after warm reset. IIRC content of these blocks is changed after DDR init already.\n\nAdditionally on A64 with 2G of RAM words at following addresses were modified with\n\u0027aa55aa55\u0027 value by u-boot:\n     - 50000000\n     - 60000000\n     - 84000000\n     - 88000000\n     - 90000000\n     - A0000000\n     - A0000200\nPatch to fix that in u-boot is waiting for review.",
+      "parentUuid": "442f12d0_ad0c705d",
+      "revId": "0b09b76f567fc12244718bc56b97155640a9689c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d7bb9b79_ba964b4c",
@@ -108,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3631ec8_28b9c8ec",
+        "filename": "plat/allwinner/common/sunxi_scpi_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-07-29T05:10:29Z",
+      "side": 1,
+      "message": "Thanks, updated. I\u0027ve used different return codes.\nAccording to porting-guide  if the ``reset_type`` is not supported, the\nfunction must return ``PSCI_E_NOT_SUPPORTED``. For architectural\nresets, all failures must return ``PSCI_E_INVALID_PARAMETERS``.",
+      "parentUuid": "9bed16fc_6d97b58a",
+      "revId": "0b09b76f567fc12244718bc56b97155640a9689c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4533e556_4bfe923f",
         "filename": "plat/allwinner/common/sunxi_scpi_pm.c",
         "patchSetId": 2
@@ -119,6 +155,24 @@
       "writtenOn": "2023-07-26T16:43:03Z",
       "side": 1,
       "message": "Printing this error number is not meaningful, since you just set it. Look at the normal reset function above, and let \"ret\" receive the error number from the SCPI call. Then return the PSCI error code directly.",
+      "revId": "0b09b76f567fc12244718bc56b97155640a9689c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d516f76b_a2cb48ba",
+        "filename": "plat/allwinner/common/sunxi_scpi_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-07-29T05:10:29Z",
+      "side": 1,
+      "message": "Thanks for catching that. Updated code.",
+      "parentUuid": "4533e556_4bfe923f",
       "revId": "0b09b76f567fc12244718bc56b97155640a9689c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -153,6 +207,24 @@
       "writtenOn": "2023-07-28T22:11:45Z",
       "side": 1,
       "message": "Done",
+      "parentUuid": "42be8307_06752d3a",
+      "revId": "0b09b76f567fc12244718bc56b97155640a9689c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "124eefa6_9501344f",
+        "filename": "plat/allwinner/common/sunxi_scpi_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-07-29T05:10:29Z",
+      "side": 1,
+      "message": "Fixed",
       "parentUuid": "42be8307_06752d3a",
       "revId": "0b09b76f567fc12244718bc56b97155640a9689c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
