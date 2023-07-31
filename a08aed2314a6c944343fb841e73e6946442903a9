@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23e32cba_50ac66d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-07-31T19:57:32Z",
+      "side": 1,
+      "message": "shared string should be fixed now.",
+      "parentUuid": "91c9759e_366c9631",
+      "revId": "a08aed2314a6c944343fb841e73e6946442903a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "361cbb53_a2a42f45",
         "filename": "plat/allwinner/common/sunxi_scpi_pm.c",
         "patchSetId": 4
@@ -48,6 +66,24 @@
       "writtenOn": "2023-07-31T11:49:22Z",
       "side": 1,
       "message": "As mentioned in the other comment, can you re-introduce this \"SCPI %s failed\" scheme here? That saves 16 bytes, and we need to look after the image size on the A64 very carefully.",
+      "revId": "a08aed2314a6c944343fb841e73e6946442903a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "412e3670_4b49640f",
+        "filename": "plat/allwinner/common/sunxi_scpi_pm.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-07-31T19:57:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "361cbb53_a2a42f45",
       "revId": "a08aed2314a6c944343fb841e73e6946442903a9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
