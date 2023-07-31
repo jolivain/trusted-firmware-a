@@ -16,6 +16,52 @@
       "message": "Based on patch stack testing from:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21546",
       "revId": "d08f4049092b6843d2160185696903553cb76aee",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6f900bd_3eaceea0",
+        "filename": "lib/cpus/aarch64/cortex_a55.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-07-31T20:53:46Z",
+      "side": 1,
+      "message": "Probably should have only the DSU name in the already existing errata workaround. We might need to clean this up. Reference to another core name A75 within here is bit confusing. All cores could use the generic dsu_errataid format",
+      "range": {
+        "startLine": 83,
+        "startChar": 1,
+        "endLine": 86,
+        "endChar": 0
+      },
+      "revId": "d08f4049092b6843d2160185696903553cb76aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3ff32aa_3c33f50f",
+        "filename": "lib/cpus/aarch64/cortex_a55.S",
+        "patchSetId": 11
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-07-31T20:53:46Z",
+      "side": 1,
+      "message": "Same as above",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 0
+      },
+      "revId": "d08f4049092b6843d2160185696903553cb76aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
