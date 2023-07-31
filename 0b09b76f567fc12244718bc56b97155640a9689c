@@ -74,6 +74,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a898343d_9f953c23",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-07-31T11:49:22Z",
+      "side": 1,
+      "message": "Alright, that looks indeed like the controller re-init keeps the DRAM content alive. In any case having this warm reset sounds useful, so as mentioned before: this patch is fine regardless.",
+      "parentUuid": "f045d354_16ae3173",
+      "revId": "0b09b76f567fc12244718bc56b97155640a9689c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d7bb9b79_ba964b4c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -142,6 +160,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88a483d3_dbd56766",
+        "filename": "plat/allwinner/common/sunxi_scpi_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-07-31T11:49:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a3631ec8_28b9c8ec",
+      "revId": "0b09b76f567fc12244718bc56b97155640a9689c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4533e556_4bfe923f",
@@ -173,6 +209,24 @@
       "side": 1,
       "message": "Thanks for catching that. Updated code.",
       "parentUuid": "4533e556_4bfe923f",
+      "revId": "0b09b76f567fc12244718bc56b97155640a9689c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28d38b24_33946450",
+        "filename": "plat/allwinner/common/sunxi_scpi_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-07-31T11:49:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d516f76b_a2cb48ba",
       "revId": "0b09b76f567fc12244718bc56b97155640a9689c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -226,6 +280,24 @@
       "side": 1,
       "message": "Fixed",
       "parentUuid": "42be8307_06752d3a",
+      "revId": "0b09b76f567fc12244718bc56b97155640a9689c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2998d7ed_c06d7172",
+        "filename": "plat/allwinner/common/sunxi_scpi_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-07-31T11:49:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "124eefa6_9501344f",
       "revId": "0b09b76f567fc12244718bc56b97155640a9689c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
