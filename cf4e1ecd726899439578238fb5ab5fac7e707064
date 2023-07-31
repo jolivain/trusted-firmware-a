@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ae8e484_cdff80ac",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Will fix it in patch set 2",
+      "parentUuid": "c5680afa_630415e1",
+      "range": {
+        "startLine": 6,
+        "startChar": 10,
+        "endLine": 6,
+        "endChar": 16
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "733075e8_1b6b3a13",
         "filename": "include/lib/transfer_list.h",
         "patchSetId": 1
@@ -77,6 +101,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "98190ca3_e62f9a6e",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "This is a simplified solution for the first commit by ignoring the highest byte and all APIs define tag_id as \u0027uint16_t\u0027 as all existing tag definitions are less than it. I think I can force the \u0027reserved0\u0027 as 0 in the APIs and actually you are not able to created any TE with a tag using the highest byte via the APIs. This should be sufficient for the first stage.",
+      "parentUuid": "733075e8_1b6b3a13",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d47608ae_13451ff8",
         "filename": "include/lib/transfer_list.h",
         "patchSetId": 1
@@ -88,6 +130,30 @@
       "writtenOn": "2023-07-27T00:13:47Z",
       "side": 1,
       "message": "8-byte",
+      "range": {
+        "startLine": 60,
+        "startChar": 6,
+        "endLine": 60,
+        "endChar": 13
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a5eb0e4_c47bb26d",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Will fix it in patch set 2",
+      "parentUuid": "d47608ae_13451ff8",
       "range": {
         "startLine": 60,
         "startChar": 6,
@@ -123,6 +189,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "26924c60_94c79522",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Will fix it in patch set 2",
+      "parentUuid": "5bafc084_f804ab68",
+      "range": {
+        "startLine": 62,
+        "startChar": 36,
+        "endLine": 62,
+        "endChar": 54
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "533f16c2_1c7b1430",
         "filename": "include/lib/transfer_list.h",
         "patchSetId": 1
@@ -140,6 +230,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "afd8c914_0c073894",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Currently it is using in one place for handoff between BL2 and BL33, but we need same interface for the next step when implementating handoff between BL2 and BL32.",
+      "parentUuid": "533f16c2_1c7b1430",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2979cdac_95dd8f38",
         "filename": "lib/handoff/handoff.mk",
         "patchSetId": 1
@@ -151,6 +259,30 @@
       "writtenOn": "2023-07-27T09:39:16Z",
       "side": 1,
       "message": "2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b0bf0dd_2d640f23",
+        "filename": "lib/handoff/handoff.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Fix it in patch set 2",
+      "parentUuid": "2979cdac_95dd8f38",
       "range": {
         "startLine": 2,
         "startChar": 16,
@@ -209,6 +341,54 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a0365dd_e016cfcc",
+        "filename": "lib/handoff/handoff.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Handoff is a general term and I will replace it with \u0027TRANSFER_LIST\u0027.\nAlso, the library name \u0027./lib/handoff\u0027 will be renamed to \u0027./lib/transfer_list\u0027\nand \u0027handoff.mk\u0027 to \u0027transfer_list.mk\u0027",
+      "parentUuid": "76034a5c_cfc25f99",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 7
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19c2e6fb_34c0c421",
+        "filename": "lib/handoff/handoff.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Yes, we don\u0027t need this line, will remove it.",
+      "parentUuid": "a53e6ec8_d22219bb",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 1
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "62ba9486_8273d91e",
         "filename": "lib/handoff/handoff.mk",
         "patchSetId": 1
@@ -220,6 +400,30 @@
       "writtenOn": "2023-07-27T09:39:16Z",
       "side": 1,
       "message": "Can we add this to the corresponding list in the Makefile since this is a generic build flag?\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/Makefile#n1137",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 34
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25bc0cca_b0c87fff",
+        "filename": "lib/handoff/handoff.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Sounds good. I will add it into the lists in Makefile",
+      "parentUuid": "62ba9486_8273d91e",
       "range": {
         "startLine": 8,
         "startChar": 0,
@@ -249,6 +453,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "557ae86f_2d3ee66f",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Currently only __builtin_add_overflow is being used. I can remove these macros in patch set 2.",
+      "parentUuid": "e659af42_20ee7d7f",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "776d7737_7b116bac",
         "filename": "lib/handoff/transfer_list.c",
         "patchSetId": 1
@@ -260,6 +482,30 @@
       "writtenOn": "2023-07-27T00:13:47Z",
       "side": 1,
       "message": "Why not use the existing `round_down()`/`round_boundary()`/`is_aligned()` already used in the rest of TF-A?",
+      "range": {
+        "startLine": 32,
+        "startChar": 8,
+        "endLine": 32,
+        "endChar": 13
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f61bf789_9a7fab71",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "OK, I can replace these in patch set 2 with the ones defined in utils_def.h",
+      "parentUuid": "776d7737_7b116bac",
       "range": {
         "startLine": 32,
         "startChar": 8,
@@ -295,6 +541,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "54e6d8ba_cfc573c2",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "OK, will fix in the patch set 2",
+      "parentUuid": "63003e10_ef99c9f3",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 14
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e1214f3e_cd197c9e",
         "filename": "lib/handoff/transfer_list.c",
         "patchSetId": 1
@@ -306,6 +576,30 @@
       "writtenOn": "2023-07-27T09:39:16Z",
       "side": 1,
       "message": "nit: braces around conditional statements",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 14
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e22d9018_47652364",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "OK, will fix in the patch set 2",
+      "parentUuid": "e1214f3e_cd197c9e",
       "range": {
         "startLine": 78,
         "startChar": 0,
@@ -335,6 +629,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1dff568c_7214bb10",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Will update this formula in patch set 2",
+      "parentUuid": "429e1bd1_84e981de",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b64a0381_9c62b98c",
         "filename": "lib/handoff/transfer_list.c",
         "patchSetId": 1
@@ -346,6 +658,24 @@
       "writtenOn": "2023-07-27T00:13:47Z",
       "side": 1,
       "message": "nit: why not try supporting the \"backwards compatibility for reading\" defined in the spec?",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "788d4cf4_60df7532",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Will add the logic to handle different versions according to the spec in patch set 2",
+      "parentUuid": "b64a0381_9c62b98c",
       "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -375,6 +705,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ea0c8d6_4c2b5ed7",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "OK, will fix in the patch set 2",
+      "parentUuid": "590a7abc_b01af765",
+      "range": {
+        "startLine": 160,
+        "startChar": 27,
+        "endLine": 160,
+        "endChar": 47
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9fa9c917_493d234e",
         "filename": "lib/handoff/transfer_list.c",
         "patchSetId": 1
@@ -392,6 +746,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5676279c_572bb889",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "OK, will fix in the patch set 2",
+      "parentUuid": "9fa9c917_493d234e",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cf758630_51197d81",
         "filename": "lib/handoff/transfer_list.c",
         "patchSetId": 1
@@ -403,6 +775,30 @@
       "writtenOn": "2023-07-27T00:13:47Z",
       "side": 1,
       "message": "Is this assignment intended? It seems unnecessary (and in general it seems like this is just checking the same thing twice, once by calling the wrapper and once by doing it manually).",
+      "range": {
+        "startLine": 210,
+        "startChar": 12,
+        "endLine": 210,
+        "endChar": 13
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcce83fc_23c838e3",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "This is a debug line I forgot to delete, will fix in the patch set 2",
+      "parentUuid": "cf758630_51197d81",
       "range": {
         "startLine": 210,
         "startChar": 12,
@@ -438,6 +834,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb6c3786_3d1c2506",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Will fix in the patch set 2",
+      "parentUuid": "2772fa89_d585fa48",
+      "range": {
+        "startLine": 243,
+        "startChar": 30,
+        "endLine": 243,
+        "endChar": 50
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "877a7719_0f73a819",
         "filename": "lib/handoff/transfer_list.c",
         "patchSetId": 1
@@ -449,6 +869,30 @@
       "writtenOn": "2023-07-27T00:13:47Z",
       "side": 1,
       "message": "8",
+      "range": {
+        "startLine": 246,
+        "startChar": 30,
+        "endLine": 246,
+        "endChar": 50
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7966a819_ea15d4d7",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Will fix in the patch set 2",
+      "parentUuid": "877a7719_0f73a819",
       "range": {
         "startLine": 246,
         "startChar": 30,
@@ -478,6 +922,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b231ad7_8e8a9790",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Sounds good, will fix in the patch set 2",
+      "parentUuid": "866a0733_e96e1480",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9fbe8b0f_f62e1efd",
         "filename": "lib/handoff/transfer_list.c",
         "patchSetId": 1
@@ -489,6 +951,24 @@
       "writtenOn": "2023-07-27T00:13:47Z",
       "side": 1,
       "message": "This may not be so simple due to the concerns mentioned above (extra alignment padding may reduce how much extra space you can actually use for a random TE in the middle). (Also I find the idea of this function kinda odd, I think that\u0027s generally not something you\u0027d ever want to do.)",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07845700_9c75f259",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Yeah, I will remove this function until we have a real user scenario for it.",
+      "parentUuid": "9fbe8b0f_f62e1efd",
       "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -512,6 +992,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "abc82ffe_d05a2ef2",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Agree, I can use a dummy TE as a placeholder in case we need to remove a TE or reduce the TE data size. We can consider to reuse the dummy entries later.",
+      "parentUuid": "ae96944a_28ed1726",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1cb9b6bb_7d88eccf",
         "filename": "lib/handoff/transfer_list.c",
         "patchSetId": 1
@@ -523,6 +1021,24 @@
       "writtenOn": "2023-07-27T00:13:47Z",
       "side": 1,
       "message": "This check is missing the bytes needed for the TE header.\n\nAlso, again, TE sizes should always just be aligned to 8.",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cad207bc_f6ed8245",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "I think this part can be removed, it is duplicated with the check from line #336 to line #338",
+      "parentUuid": "1cb9b6bb_7d88eccf",
       "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -552,6 +1068,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "34395324_96f68687",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Will fix in the patch set 2",
+      "parentUuid": "bfcd2ae8_67746603",
+      "range": {
+        "startLine": 338,
+        "startChar": 27,
+        "endLine": 338,
+        "endChar": 45
+      },
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6573b1f9_dc3dc789",
         "filename": "lib/handoff/transfer_list.c",
         "patchSetId": 1
@@ -563,6 +1103,24 @@
       "writtenOn": "2023-07-27T00:13:47Z",
       "side": 1,
       "message": "Why? This seems unnecessary and just a waste of time. (You\u0027re going to copy the data in below anyway, and even for the padding portion afterwards the spec explicitly says that it doesn\u0027t need to be initialized.)",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dfc2d89_e0482800",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Will remove this initialization in patch set 2",
+      "parentUuid": "6573b1f9_dc3dc789",
       "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -586,6 +1144,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7cd7177_5a8fcaf4",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "I will add a check for arg \u0027entry\u0027 in function \u0027transfer_list_data\u0027",
+      "parentUuid": "cbfb9a19_f18d7f8c",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f66c613_28f5d0d3",
         "filename": "lib/handoff/transfer_list.c",
         "patchSetId": 1
@@ -597,6 +1173,24 @@
       "writtenOn": "2023-07-27T00:13:47Z",
       "side": 1,
       "message": "This is more of a matter-of-taste API design choice, but I also don\u0027t think you should do this. It just wastes time. Users of the API can zero parts themselves if they want to, but in most cases they\u0027re probably about to fill it with something else anyway.",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abdcf61b_019a7c57",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 353,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "Well, I can bypass the memcpy and keep the TE data uninitialized for a dummy TE (\u0027TL_TAG_EMPTY\u0027).",
+      "parentUuid": "2f66c613_28f5d0d3",
       "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -620,6 +1214,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fde70563_1827f507",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "I think we even have a more efficient way. We can ignore the operations to the checksum byte from all APIs, but only invoke \u0027transfer_list_update_checksum\u0027 right before it handover to the next stage. In this case, we just need to calculate the checksum twice within one boot stage (entering and existing the stage). If you agree I will do this in the next patch set as an optimization.",
+      "parentUuid": "e5407662_787da064",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e52db95f_1b39d2d2",
         "filename": "lib/handoff/transfer_list.c",
         "patchSetId": 1
@@ -631,6 +1243,24 @@
       "writtenOn": "2023-07-27T00:13:47Z",
       "side": 1,
       "message": "Did we update the line length requirements to match Linux? https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#line-length still says 80 chars...",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fd6debc_f0dd9810",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "It passes the checkpatch script, but I can let them less than 80 chars in patch set 2",
+      "parentUuid": "e52db95f_1b39d2d2",
       "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -654,6 +1284,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "103a4d15_8e0f32cf",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "In the spec(Table 1: TL header), it mentions that the \u0027alignment\u0027 is \u0027The maximum alignment required by any TE in the TL\u0027. This is a bit confused, better to explicitly say \u0027by any TE data in the TL\u0027. But I agree with the suggested code changes, will apply the changes in patch set 2.",
+      "parentUuid": "9f0fa64d_38f07c73",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1cc6d612_d1586622",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 1
@@ -665,6 +1313,24 @@
       "writtenOn": "2023-07-27T09:39:16Z",
       "side": 1,
       "message": "I wonder if \"HANDOFF\" might be a bit too vague in this context? I believe there are several handoff mechanisms and \"Firmware Handoff\" is just one possible solution? My sense is it might be worthwhile referring to it in full here for avoidance of doubt. Also, this option needs to be documented in docs/getting_started/build-options.rst.",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "243717df_bb52c1b2",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-07-31T13:58:35Z",
+      "side": 1,
+      "message": "I will rename this to \u0027TRANSFER_LIST\u0027 and add a description in the build option document.\nAs the only purpose of Transfer List is for handoff, so I think we don\u0027t need a \u0027HANDOFF_\" prefix.",
+      "parentUuid": "1cc6d612_d1586622",
       "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
