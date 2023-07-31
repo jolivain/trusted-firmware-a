@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c867e94b_1ff64df4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-07-31T19:44:05Z",
+      "side": 1,
+      "message": "CI+2 tested on latest patch\n[ https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/1178/] result summary : \n1. No real failures. \n2. All listed failures are related to BL31 progbits issue.\n3. One random failure,due to timeout. Passed on rebuild. \n  [https://ci.trustedfirmware.org/job/tf-a-ci-gateway/44644/] \n\nHence manually verified +1.\n\n",
+      "revId": "989960cf94cfb8d62b91a1653525bd93800b0f95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
