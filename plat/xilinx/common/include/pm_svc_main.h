@@ -10,6 +10,29 @@
 
 #include <pm_common.h>
 
+/******************************************************************************/
+/**
+ *
+ * Adds redundancy to the function call. This is to avoid glitches which can skip
+ * a function call and cause altering of the code flow in security critical
+ * functions.
+ *
+ * @param	status is the variable which holds the return value of
+ *		function executed
+ * @param	status_tmp is the variable which holds the return value of
+ *		redundant function call executed
+ * @param	function is the function to be executed
+ * @param	Other params are arguments to the called function
+ *
+ * @return	None
+ *
+ ******************************************************************************/
+#define SECURE_REDUNDANT_CALL(status, status_tmp, function, ...)   \
+	{ \
+		status = function(__VA_ARGS__); \
+		status_tmp = function(__VA_ARGS__); \
+	}
+
 int32_t pm_setup(void);
 uint64_t pm_smc_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2, uint64_t x3,
 			uint64_t x4, const void *cookie, void *handle,
