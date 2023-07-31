@@ -58,6 +58,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a01c8ca5_fabf4224",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-31T15:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b1b311a_7a461cdc",
+      "range": {
+        "startLine": 137,
+        "startChar": 28,
+        "endLine": 139,
+        "endChar": 70
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3fa4164_7d3abe67",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-07-20T06:12:20Z",
       "side": 1,
       "message": "(minor) Please truncate lines to 80 characters throughout the file.",
+      "range": {
+        "startLine": 601,
+        "startChar": 74,
+        "endLine": 601,
+        "endChar": 83
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0621d501_bae256e4",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-31T15:49:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b3fa4164_7d3abe67",
       "range": {
         "startLine": 601,
         "startChar": 74,
@@ -104,6 +152,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "574effc0_0ab45eee",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 621,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-31T15:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9ad211f_fea7d791",
+      "range": {
+        "startLine": 615,
+        "startChar": 0,
+        "endLine": 621,
+        "endChar": 42
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c2784d2_30c12bfd",
@@ -117,6 +189,30 @@
       "writtenOn": "2023-07-20T06:12:20Z",
       "side": 1,
       "message": "And then we should remove this, as it\u0027s internal details. Moreover, for other APIs documented in this file, we did not bother documenting parameters so I guess we should do the same here.",
+      "range": {
+        "startLine": 622,
+        "startChar": 0,
+        "endLine": 625,
+        "endChar": 26
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fee647c0_238f1bf3",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-31T15:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c2784d2_30c12bfd",
       "range": {
         "startLine": 622,
         "startChar": 0,
@@ -173,6 +269,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "503efc1b_889278c3",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-31T15:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "116f9850_a43b5a18",
+      "range": {
+        "startLine": 627,
+        "startChar": 22,
+        "endLine": 627,
+        "endChar": 41
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7585cb5_f06e40df",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-31T15:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "892193fb_93437abc",
+      "range": {
+        "startLine": 627,
+        "startChar": 68,
+        "endLine": 627,
+        "endChar": 70
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f086369_ac9daedf",
@@ -186,6 +330,30 @@
       "writtenOn": "2023-07-20T06:12:20Z",
       "side": 1,
       "message": "an Arm CCA platform",
+      "range": {
+        "startLine": 628,
+        "startChar": 19,
+        "endLine": 628,
+        "endChar": 22
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d7f2e9f_d307dd52",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-31T15:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f086369_ac9daedf",
       "range": {
         "startLine": 628,
         "startChar": 19,
@@ -219,6 +387,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59bb6b7f_33f802d5",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-31T15:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecbf3a4a_007bfa80",
+      "range": {
+        "startLine": 634,
+        "startChar": 0,
+        "endLine": 634,
+        "endChar": 9
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc4200b2_c87225ac",
@@ -232,6 +424,30 @@
       "writtenOn": "2023-07-20T06:12:20Z",
       "side": 1,
       "message": "Remove \"API\"?",
+      "range": {
+        "startLine": 637,
+        "startChar": 39,
+        "endLine": 637,
+        "endChar": 42
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d20bef38_0c2c7c54",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 637,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-31T15:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc4200b2_c87225ac",
       "range": {
         "startLine": 637,
         "startChar": 39,
@@ -265,6 +481,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36024a76_6d2d84e4",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-31T15:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "768986f6_d20a1689",
+      "range": {
+        "startLine": 645,
+        "startChar": 0,
+        "endLine": 647,
+        "endChar": 36
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "935c3925_30d4da32",
@@ -278,6 +518,30 @@
       "writtenOn": "2023-07-20T06:12:20Z",
       "side": 1,
       "message": "\"we can\"?",
+      "range": {
+        "startLine": 653,
+        "startChar": 22,
+        "endLine": 653,
+        "endChar": 40
+      },
+      "revId": "92b75f55d1699006338766be45ac04a96c27ed7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e44f899_738fb2e2",
+        "filename": "docs/design_documents/rss.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-07-31T15:49:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "935c3925_30d4da32",
       "range": {
         "startLine": 653,
         "startChar": 22,
