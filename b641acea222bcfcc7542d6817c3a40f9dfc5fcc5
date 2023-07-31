@@ -16,6 +16,98 @@
       "message": "Based on patch stack testing from:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21546",
       "revId": "b641acea222bcfcc7542d6817c3a40f9dfc5fcc5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f98e58ae_fbb2182a",
+        "filename": "lib/cpus/aarch64/cortex_a78c.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-07-31T20:21:24Z",
+      "side": 1,
+      "message": "This one should use a range macro. This doesn\u0027t apply for r0p0 as per previous comment.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 16
+      },
+      "revId": "b641acea222bcfcc7542d6817c3a40f9dfc5fcc5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02a3d8e1_f7e7999d",
+        "filename": "lib/cpus/aarch64/cortex_a78c.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-07-31T20:21:24Z",
+      "side": 1,
+      "message": "Same as above",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 16
+      },
+      "revId": "b641acea222bcfcc7542d6817c3a40f9dfc5fcc5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "175c3cc5_20c0e5bf",
+        "filename": "lib/cpus/aarch64/cortex_a78c.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-07-31T20:21:24Z",
+      "side": 1,
+      "message": "Same as above",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 16
+      },
+      "revId": "b641acea222bcfcc7542d6817c3a40f9dfc5fcc5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc04b58d_32f1f025",
+        "filename": "lib/cpus/aarch64/cortex_a78c.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-07-31T20:21:24Z",
+      "side": 1,
+      "message": "Same as above",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 16
+      },
+      "revId": "b641acea222bcfcc7542d6817c3a40f9dfc5fcc5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
