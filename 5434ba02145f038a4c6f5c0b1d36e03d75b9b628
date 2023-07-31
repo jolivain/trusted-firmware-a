@@ -39,6 +39,30 @@
       },
       "revId": "5434ba02145f038a4c6f5c0b1d36e03d75b9b628",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "444b3c6d_057ea112",
+        "filename": "lib/cpus/aarch32/cortex_a9.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-07-31T16:11:32Z",
+      "side": 1,
+      "message": "thats because for aarch32 the add erratum entry generates func names as this,\n\n[...]\n\n.macro add_erratum_entry _cpu:req, _cve:req, _id:req, _chosen:req, _special\n\t.pushsection .rodata.errata_entries\n\t\t.align\t2\n\t\t.ifndef \\_cpu\\()_errata_list_start\n\t\t\\_cpu\\()_errata_list_start:\n\t\t.endif\n\n\t\t/* unused on AArch32, maintain for portability */\n\t\t.word\t0\n\t\t/* TODO(errata ABI): this prevents all checker functions from\n\t\t * being optimised away. Can be done away with unless the ABI\n\t\t * needs them */\n\t\t.ifnb \\_special\n\t\t\t.word\tcheck_errata_\\_special\n\t\t.elseif \\_cve\n\t\t\t.word\tcheck_errata_cve_\\_cve\\()_\\_id\n\t\t.else\n\t\t\t.word\tcheck_errata_\\_id\n\t\t.endif\n\n[...]\n\nits check_errata_\\_id for this case",
+      "parentUuid": "bfc00326_f4a40268",
+      "range": {
+        "startLine": 38,
+        "startChar": 5,
+        "endLine": 38,
+        "endChar": 24
+      },
+      "revId": "5434ba02145f038a4c6f5c0b1d36e03d75b9b628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
