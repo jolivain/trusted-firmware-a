@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e09eb715_8e2dd800",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-07-31T19:42:50Z",
+      "side": 1,
+      "message": "Latest patch tested here.\nCI+2 [ https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/1178/] result summary : \n1. No real failures. \n2. All listed failures are related to BL31 progbits issue.\n\n\nHence manually providing verified +1.",
+      "revId": "14197f8e61ea52e51708c10bdf4b4ddfef54ea7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
