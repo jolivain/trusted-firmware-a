@@ -16,6 +16,24 @@
       "message": "Do we need this for another part of the errata?",
       "revId": "7915887a6bf19a77e89d589091515277069ae549",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07d77935_d57626c6",
+        "filename": "lib/cpus/aarch64/cortex_a57.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-07-31T14:44:14Z",
+      "side": 0,
+      "message": "what do you mean? It\u0027s not needed and the new version is more correct",
+      "parentUuid": "7215701b_bf8fb7c8",
+      "revId": "7915887a6bf19a77e89d589091515277069ae549",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
