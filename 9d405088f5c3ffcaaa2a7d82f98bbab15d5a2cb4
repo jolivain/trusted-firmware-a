@@ -16,6 +16,69 @@
       "message": "All fails unrelated and platform related. ",
       "revId": "9d405088f5c3ffcaaa2a7d82f98bbab15d5a2cb4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fb9a2aa_d19b60cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-08-01T18:45:59Z",
+      "side": 1,
+      "message": "We need to investigate why the trace difference didn\u0027t catch conversion bug from cpu_rev_var_range to cpu_rev_var_ls. If needed, should improve the script or improve instructions for manual comparison.",
+      "revId": "9d405088f5c3ffcaaa2a7d82f98bbab15d5a2cb4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d2847fb_c85ef5db",
+        "filename": "lib/cpus/aarch64/neoverse_v1.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-08-01T18:45:59Z",
+      "side": 1,
+      "message": "check_erratum_range\nfunc check_errata_1966096\n\tmov\tx1, #0x10\n\tmov\tx2, #0x11\n\tb\tcpu_rev_var_range\nendfunc check_errata_1966096",
+      "range": {
+        "startLine": 165,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 16
+      },
+      "revId": "9d405088f5c3ffcaaa2a7d82f98bbab15d5a2cb4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd157e2f_192d1bba",
+        "filename": "lib/cpus/aarch64/neoverse_v1.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-08-01T18:45:59Z",
+      "side": 1,
+      "message": "check_erratum_range\n\nfunc check_errata_2216392\n\t/* Applies to revisions r1p0 and r1p1. */\n\tmov\tx1, #CPU_REV(1, 0)\n\tmov\tx2, #CPU_REV(1, 1)\n\tb\tcpu_rev_var_range\nendfunc check_errata_2216392",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 61
+      },
+      "revId": "9d405088f5c3ffcaaa2a7d82f98bbab15d5a2cb4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
