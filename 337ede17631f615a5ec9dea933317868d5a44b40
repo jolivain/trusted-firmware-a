@@ -16,6 +16,24 @@
       "message": "Should there be an add_erratum_entry for the errata ID 1530923 to include it as a part of the list?\nReferring to: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20456/28/lib/cpus/aarch64/cortex_a53.S#169",
       "revId": "337ede17631f615a5ec9dea933317868d5a44b40",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38934c9b_a5d510a9",
+        "filename": "lib/cpus/aarch64/cortex_a55.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-01T20:47:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aba6f563_de364101",
+      "revId": "337ede17631f615a5ec9dea933317868d5a44b40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
