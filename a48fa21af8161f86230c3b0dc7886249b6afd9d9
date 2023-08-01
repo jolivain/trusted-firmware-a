@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ecfc2a5c_798bf757",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-08-01T16:10:52Z",
+      "side": 1,
+      "message": "Make sense. This should be replaced by ROUNDUP_OVERFLOW.",
+      "parentUuid": "cf7e57cc_0c558a80",
+      "revId": "a48fa21af8161f86230c3b0dc7886249b6afd9d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec946236_9c94ae10",
         "filename": "lib/transfer_list/transfer_list.c",
         "patchSetId": 2
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d95184a_a4e9f9a0",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-08-01T16:10:52Z",
+      "side": 1,
+      "message": "The check is to skip the TE that already with a VOID tag or if the tag doesn\u0027t exist.\n\nIn this case, I think we are missing to define a behaviour that how to delete(disable) a tag if duplicated tag IDs exist in the list?\nCurrently I assume to delete the one first found searching from the head.",
+      "parentUuid": "ec946236_9c94ae10",
+      "revId": "a48fa21af8161f86230c3b0dc7886249b6afd9d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "990df9f3_c3934bba",
         "filename": "lib/transfer_list/transfer_list.c",
         "patchSetId": 2
@@ -48,6 +84,24 @@
       "writtenOn": "2023-08-01T00:25:51Z",
       "side": 1,
       "message": "I think the code below is fine but I\u0027m not really sure what this comment has to do with it? Nothing here depends on tag ID.",
+      "revId": "a48fa21af8161f86230c3b0dc7886249b6afd9d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1901149_7d953d44",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-08-01T16:10:52Z",
+      "side": 1,
+      "message": "I can remove this comment since the code is telling what to do explicitly.",
+      "parentUuid": "990df9f3_c3934bba",
       "revId": "a48fa21af8161f86230c3b0dc7886249b6afd9d9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
