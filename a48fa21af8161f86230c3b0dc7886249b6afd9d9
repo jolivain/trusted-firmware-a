@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "99cfe097_6abf4e62",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-01T18:24:41Z",
+      "side": 1,
+      "message": "This doesn\u0027t solve the other problem yet (exceeding the length of the TL, i.e. tl_max_ev). (In fact, the whole new_ev \u003e tl_max_ev check above is kinda pointless anyway, new_ev is just where the resized tag itself will end, there may still be many tags behind it.)",
+      "parentUuid": "ecfc2a5c_798bf757",
+      "revId": "a48fa21af8161f86230c3b0dc7886249b6afd9d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec946236_9c94ae10",
         "filename": "lib/transfer_list/transfer_list.c",
         "patchSetId": 2
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "The check is to skip the TE that already with a VOID tag or if the tag doesn\u0027t exist.\n\nIn this case, I think we are missing to define a behaviour that how to delete(disable) a tag if duplicated tag IDs exist in the list?\nCurrently I assume to delete the one first found searching from the head.",
       "parentUuid": "ec946236_9c94ae10",
+      "revId": "a48fa21af8161f86230c3b0dc7886249b6afd9d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "993a5f2a_a07a0a29",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-01T18:24:41Z",
+      "side": 1,
+      "message": "I mean, this function already gets a direct TE pointer, so I don\u0027t think this function needs to do or check anything to take care of the duplicate case. You should just assume that whoever called this made sure that they\u0027re actually calling it on the right pointer. (Besides, if you call this on a TE that\u0027s already VOID, it\u0027s just gonna be a no-op.)\n\nYou\u0027re right that you have currently no good way to find duplicated tags. You would probably want either a function that just iterates over all tags or a sort of transfer_list_find_next(tl, id, previous_te) for that. Up to you whether you want to add that right away or leave it until someone actually needs it.",
+      "parentUuid": "3d95184a_a4e9f9a0",
       "revId": "a48fa21af8161f86230c3b0dc7886249b6afd9d9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
