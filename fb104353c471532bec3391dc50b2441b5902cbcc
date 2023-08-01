@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e722b441_af08ceb5",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-01T22:06:24Z",
+      "side": 1,
+      "message": "runtime",
+      "range": {
+        "startLine": 414,
+        "startChar": 11,
+        "endLine": 414,
+        "endChar": 16
+      },
+      "revId": "fb104353c471532bec3391dc50b2441b5902cbcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a7bfc3e_a303e697",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-01T22:06:24Z",
+      "side": 1,
+      "message": "runtime",
+      "range": {
+        "startLine": 417,
+        "startChar": 11,
+        "endLine": 417,
+        "endChar": 16
+      },
+      "revId": "fb104353c471532bec3391dc50b2441b5902cbcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6612bb68_e9ae62b7",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-01T22:06:24Z",
+      "side": 1,
+      "message": "This function doesn\u0027t seem to be triggered by anything either in the new code or the old one. Maybe we can ask Bipin or Lauren whether it\u0027s worth keeping it or not.",
+      "range": {
+        "startLine": 422,
+        "startChar": 0,
+        "endLine": 429,
+        "endChar": 43
+      },
+      "revId": "fb104353c471532bec3391dc50b2441b5902cbcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fb5f3ed_82d29566",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-01T22:06:24Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to be used anywhere. Neither was it in the old code.",
+      "range": {
+        "startLine": 441,
+        "startChar": 0,
+        "endLine": 441,
+        "endChar": 76
+      },
+      "revId": "fb104353c471532bec3391dc50b2441b5902cbcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e85d618f_706b3efa",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 510,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-01T22:06:24Z",
+      "side": 1,
+      "message": "Maybe place it after powerdown function, for consistency.",
+      "range": {
+        "startLine": 510,
+        "startChar": 0,
+        "endLine": 510,
+        "endChar": 29
+      },
+      "revId": "fb104353c471532bec3391dc50b2441b5902cbcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "005d9067_85482df5",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-01T22:06:24Z",
+      "side": 1,
+      "message": "This is not needed anymore.",
+      "range": {
+        "startLine": 524,
+        "startChar": 0,
+        "endLine": 526,
+        "endChar": 19
+      },
+      "revId": "fb104353c471532bec3391dc50b2441b5902cbcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "329970d9_c051a8da",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 527,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-01T22:06:24Z",
+      "side": 1,
+      "message": "Use apply_erratum instead.",
+      "range": {
+        "startLine": 527,
+        "startChar": 1,
+        "endLine": 527,
+        "endChar": 33
+      },
+      "revId": "fb104353c471532bec3391dc50b2441b5902cbcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b65444a_026b5322",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-01T22:06:24Z",
+      "side": 1,
+      "message": "Neither this.",
+      "range": {
+        "startLine": 528,
+        "startChar": 0,
+        "endLine": 529,
+        "endChar": 31
+      },
+      "revId": "fb104353c471532bec3391dc50b2441b5902cbcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
