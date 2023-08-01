@@ -10,6 +10,7 @@
 #include <emi_mpu.h>
 #include <lib/mtk_init/mtk_init.h>
 #include <mtk_sip_svc.h>
+#include <smccc_helpers.h>
 
 #if ENABLE_EMI_MPU_SW_LOCK
 static unsigned char region_lock_state[EMI_MPU_REGION_NUM];
@@ -116,7 +117,10 @@ u_register_t mtk_emi_mpu_sip_handler(u_register_t x1, u_register_t x2,
 				     u_register_t x3, u_register_t x4,
 				     void *handle, struct smccc_res *smccc_ret)
 {
-	/* TODO: implement emi mpu handler */
+	int ret;
+
+	ret = emi_mpu_optee_handler(x1, x2, x3);
+	SMC_RET2(handle, ret, 0U);
 
 	return 0;
 }
