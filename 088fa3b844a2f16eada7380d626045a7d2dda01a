@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edc0adc2_e528dcc0",
+        "filename": "lib/cpus/aarch64/neoverse_v1.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-08-01T21:02:07Z",
+      "side": 1,
+      "message": "nit: Do we leave the isb here, since we removed it for all other erratas and added one isb in the cpu_reset_func_end macro.?",
+      "revId": "088fa3b844a2f16eada7380d626045a7d2dda01a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0d8aeb3_13e000f8",
+        "filename": "lib/cpus/aarch64/neoverse_v1.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-08-01T21:02:07Z",
+      "side": 1,
+      "message": "This should be a runtime errata? because there is no entry in cpu reset function",
+      "revId": "088fa3b844a2f16eada7380d626045a7d2dda01a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
