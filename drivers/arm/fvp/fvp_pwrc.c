@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -16,16 +16,31 @@
  */
 ARM_INSTANTIATE_LOCK;
 
+static unsigned int fvp_pwrc_core_id(u_register_t mpidr)
+{
+	/*
+	 * Bits[23:16] represent Affinity Level 2
+	 * Bits[15:8] represent Affinity Level 1
+	 * Bits[7:0] represent Affinity Level 0
+	 */
+	return ( MPIDR_AFFLVL2_VAL(mpidr) << 16 |
+		 MPIDR_AFFLVL1_VAL(mpidr) << 8  |
+		 MPIDR_AFFLVL0_VAL(mpidr) << 0);
+}
+
 unsigned int fvp_pwrc_get_cpu_wkr(u_register_t mpidr)
 {
-	return PSYSR_WK(fvp_pwrc_read_psysr(mpidr));
+	unsigned int id = fvp_pwrc_core_id(mpidr);
+	return PSYSR_WK(fvp_pwrc_read_psysr(id));
 }
 
 unsigned int fvp_pwrc_read_psysr(u_register_t mpidr)
 {
 	unsigned int rc;
+	unsigned int id = fvp_pwrc_core_id(mpidr);
+
 	arm_lock_get();
-	mmio_write_32(PWRC_BASE + PSYSR_OFF, (unsigned int) mpidr);
+	mmio_write_32(PWRC_BASE + PSYSR_OFF, id);
 	rc = mmio_read_32(PWRC_BASE + PSYSR_OFF);
 	arm_lock_release();
 	return rc;
@@ -33,38 +48,47 @@ unsigned int fvp_pwrc_read_psysr(u_register_t mpidr)
 
 void fvp_pwrc_write_pponr(u_register_t mpidr)
 {
+	unsigned int id = fvp_pwrc_core_id(mpidr);
+
 	arm_lock_get();
-	mmio_write_32(PWRC_BASE + PPONR_OFF, (unsigned int) mpidr);
+	mmio_write_32(PWRC_BASE + PPONR_OFF, id);
 	arm_lock_release();
 }
 
 void fvp_pwrc_write_ppoffr(u_register_t mpidr)
 {
+	unsigned int id = fvp_pwrc_core_id(mpidr);
+
 	arm_lock_get();
-	mmio_write_32(PWRC_BASE + PPOFFR_OFF, (unsigned int) mpidr);
+	mmio_write_32(PWRC_BASE + PPOFFR_OFF, id);
 	arm_lock_release();
 }
 
 void fvp_pwrc_set_wen(u_register_t mpidr)
 {
+	unsigned int id = fvp_pwrc_core_id(mpidr);
+
 	arm_lock_get();
 	mmio_write_32(PWRC_BASE + PWKUPR_OFF,
-		      (unsigned int) (PWKUPR_WEN | mpidr));
+		      (unsigned int) (PWKUPR_WEN | id));
 	arm_lock_release();
 }
 
 void fvp_pwrc_clr_wen(u_register_t mpidr)
 {
+	unsigned int id = fvp_pwrc_core_id(mpidr);
+
 	arm_lock_get();
-	mmio_write_32(PWRC_BASE + PWKUPR_OFF,
-		      (unsigned int) mpidr);
+	mmio_write_32(PWRC_BASE + PWKUPR_OFF, id);
 	arm_lock_release();
 }
 
 void fvp_pwrc_write_pcoffr(u_register_t mpidr)
 {
+	unsigned int id = fvp_pwrc_core_id(mpidr);
+
 	arm_lock_get();
-	mmio_write_32(PWRC_BASE + PCOFFR_OFF, (unsigned int) mpidr);
+	mmio_write_32(PWRC_BASE + PCOFFR_OFF, id);
 	arm_lock_release();
 }
 
