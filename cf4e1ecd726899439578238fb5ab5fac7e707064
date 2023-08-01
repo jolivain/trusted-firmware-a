@@ -137,6 +137,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b49b501_21dabaa1",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-01T00:25:51Z",
+      "side": 1,
+      "message": "Fair enough.",
+      "parentUuid": "98190ca3_e62f9a6e",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d47608ae_13451ff8",
         "filename": "include/lib/transfer_list.h",
         "patchSetId": 1
@@ -260,6 +278,24 @@
       "side": 1,
       "message": "Currently it is using in one place for handoff between BL2 and BL33, but we need same interface for the next step when implementating handoff between BL2 and BL32.",
       "parentUuid": "533f16c2_1c7b1430",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2b99b4e_2d16d5c6",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-01T00:25:51Z",
+      "side": 1,
+      "message": "I\u0027m not really sure we\u0027re talking about the same thing here? I\u0027m talking specifically about the transfer_list_data() function that only seems to be used once in this entire patch.",
+      "parentUuid": "afd8c914_0c073894",
       "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -1180,6 +1216,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "514d11be_06812cc7",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-01T00:25:51Z",
+      "side": 1,
+      "message": "I still don\u0027t understand the point? Now all this is effectively checking is that `te` isn\u0027t NULL. You know that `te` isn\u0027t NULL already, you\u0027re already dereferencing it a couple of lines further up.",
+      "parentUuid": "f7cd7177_5a8fcaf4",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f66c613_28f5d0d3",
         "filename": "lib/handoff/transfer_list.c",
         "patchSetId": 1
@@ -1244,6 +1298,24 @@
       "side": 1,
       "message": "I think we even have a more efficient way. We can ignore the operations to the checksum byte from all APIs, but only invoke \u0027transfer_list_update_checksum\u0027 right before it handover to the next stage. In this case, we just need to calculate the checksum twice within one boot stage (entering and existing the stage). If you agree I will do this in the next patch set as an optimization.",
       "parentUuid": "e5407662_787da064",
+      "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef1a4a36_c1275ff1",
+        "filename": "lib/handoff/transfer_list.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-01T00:25:51Z",
+      "side": 1,
+      "message": "I mean, that\u0027s still not quite as efficient, but I guess it\u0027s good enough if you prefer the simplicity of that option.",
+      "parentUuid": "fde70563_1827f507",
       "revId": "cf4e1ecd726899439578238fb5ab5fac7e707064",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },

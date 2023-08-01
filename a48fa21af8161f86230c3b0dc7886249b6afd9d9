@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf7e57cc_0c558a80",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-01T00:25:51Z",
+      "side": 1,
+      "message": "Note that this may exceed the length of the TL which you checked before this point, you need to move that check down here. Also, if you want to check overflows everywhere, this  addition should probably also have one.",
+      "revId": "a48fa21af8161f86230c3b0dc7886249b6afd9d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec946236_9c94ae10",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-01T00:25:51Z",
+      "side": 1,
+      "message": "What is this check trying to do? Note that in general, having multiple TEs of the same tag ID appear in the TL is allowed (e.g. they could represent multiple instances of the same kind of object).",
+      "revId": "a48fa21af8161f86230c3b0dc7886249b6afd9d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "990df9f3_c3934bba",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-01T00:25:51Z",
+      "side": 1,
+      "message": "I think the code below is fine but I\u0027m not really sure what this comment has to do with it? Nothing here depends on tag ID.",
+      "revId": "a48fa21af8161f86230c3b0dc7886249b6afd9d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
