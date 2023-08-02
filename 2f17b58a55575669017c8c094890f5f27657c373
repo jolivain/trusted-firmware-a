@@ -22,6 +22,30 @@
       },
       "revId": "2f17b58a55575669017c8c094890f5f27657c373",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abf45836_031a2420",
+        "filename": "lib/cpus/aarch64/neoverse_n2.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-08-02T19:37:50Z",
+      "side": 1,
+      "message": "Yes, the new SDEN (Version 13.0) updated that this workaround is required for cpus from r0p0 to r0p3. Original code was based on an older errata where it was only applied on r0p0. This patch updates all changes that have been updated in the latest SDEN (Version 13.0) including documentation and cpu versions to which errata is applied.\n\nIf this has to be done elsewhere please let me know what would be best course of action.",
+      "parentUuid": "05d65bf6_b6a5c64b",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 61
+      },
+      "revId": "2f17b58a55575669017c8c094890f5f27657c373",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
