@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e1825b6_518d56a4",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1383,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-08-02T21:08:37Z",
+      "side": 1,
+      "message": "HFGITR_EL2 seems to be a 64 bit register. Would UL or ULL be more appropriate?",
+      "range": {
+        "startLine": 1381,
+        "startChar": 0,
+        "endLine": 1383,
+        "endChar": 47
+      },
+      "revId": "f852798b78ebc918700715953f2a40d47b485fed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
