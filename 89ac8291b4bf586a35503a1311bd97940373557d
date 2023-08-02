@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4196539b_1778cb7e",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-02T01:05:45Z",
+      "side": 1,
+      "message": "nit: I think you can remove this, I don\u0027t think it serves a purpose?",
+      "revId": "89ac8291b4bf586a35503a1311bd97940373557d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26b0e482_266655cd",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-02T01:05:45Z",
+      "side": 1,
+      "message": "This is getting quite confusing now because generally you always tend to use `ev` (I assume that stands for \"end value\" or something?) for an absolute memory address, and the same is true here after line 264, but you now already use ru_new_ev in line 261 where it still denotes a relative offset. I think it would be clearer to use another variable to hold the relative offset (e.g. `move_distance` or something like that) and only calculate ru_new_ev from that afterwards.",
+      "revId": "89ac8291b4bf586a35503a1311bd97940373557d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74f8ca20_6f3fd03d",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-02T01:05:45Z",
+      "side": 1,
+      "message": "nit: I think you should just leave this check out completely because it should not really occur during normal use, and if it does the code below won\u0027t hurt anything anyway.",
+      "revId": "89ac8291b4bf586a35503a1311bd97940373557d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
