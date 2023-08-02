@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c9210d1_8b613e57",
+        "filename": "lib/cpus/aarch64/neoverse_v1.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-02T19:01:29Z",
+      "side": 1,
+      "message": "shouldnt it be be first clear then set?\n\nI see bic then orr",
+      "range": {
+        "startLine": 214,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 71
+      },
+      "revId": "96918636c8e3912a4cb11d5e03cc65327ab588a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
