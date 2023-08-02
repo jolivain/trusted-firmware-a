@@ -142,6 +142,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "970e2964_a083b17e",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-02T17:18:47Z",
+      "side": 1,
+      "message": "NVM. It looks like I overlooked that.",
+      "parentUuid": "4497ae23_cb08973b",
+      "range": {
+        "startLine": 422,
+        "startChar": 0,
+        "endLine": 429,
+        "endChar": 43
+      },
+      "revId": "fb104353c471532bec3391dc50b2441b5902cbcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0fb5f3ed_82d29566",
@@ -179,6 +203,30 @@
       "side": 1,
       "message": "its used in a cryptic way from report_errata 😮\n\n[..]\n\t.macro report_errata _chosen, _cpu, _id, _rev_var\u003dr4\n\t/* Stash a string with errata ID */\n\t.pushsection .rodata\n\t\\_cpu\\()_errata_\\_id\\()_str:\n\t.asciz\t\"\\_id\"\n\t.popsection\n\n\t/* Check whether errata applies */\n\tmov\tr0, \\_rev_var\n\tbl\tcheck_errata_\\_id\n[...]",
       "parentUuid": "0fb5f3ed_82d29566",
+      "range": {
+        "startLine": 441,
+        "startChar": 0,
+        "endLine": 441,
+        "endChar": 76
+      },
+      "revId": "fb104353c471532bec3391dc50b2441b5902cbcc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "faef5134_4b96afdc",
+        "filename": "lib/cpus/aarch64/cortex_a76.S",
+        "patchSetId": 14
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-02T17:18:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "39d495e7_c603b21d",
       "range": {
         "startLine": 441,
         "startChar": 0,
