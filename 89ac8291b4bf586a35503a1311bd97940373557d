@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac4cc1f8_7789aec5",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-08-02T15:14:26Z",
+      "side": 1,
+      "message": "Fix in patch set 5",
+      "parentUuid": "4196539b_1778cb7e",
+      "revId": "89ac8291b4bf586a35503a1311bd97940373557d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26b0e482_266655cd",
@@ -35,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5c77b39_6e213b9c",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-08-02T15:14:26Z",
+      "side": 1,
+      "message": "Fix in patch set 5",
+      "parentUuid": "26b0e482_266655cd",
+      "revId": "89ac8291b4bf586a35503a1311bd97940373557d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74f8ca20_6f3fd03d",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-08-02T01:05:45Z",
       "side": 1,
       "message": "nit: I think you should just leave this check out completely because it should not really occur during normal use, and if it does the code below won\u0027t hurt anything anyway.",
+      "revId": "89ac8291b4bf586a35503a1311bd97940373557d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1263e3d2_b4ab2108",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-08-02T15:14:26Z",
+      "side": 1,
+      "message": "Yeah, I was just trying to improve the performance a bit when tag ID is VOID. But you are right, it does not make too much sense.",
+      "parentUuid": "74f8ca20_6f3fd03d",
       "revId": "89ac8291b4bf586a35503a1311bd97940373557d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
