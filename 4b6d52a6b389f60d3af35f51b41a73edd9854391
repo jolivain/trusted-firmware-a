@@ -39,6 +39,30 @@
       },
       "revId": "4b6d52a6b389f60d3af35f51b41a73edd9854391",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3741e323_b145ce7e",
+        "filename": "plat/common/plat_gicv3.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-08-03T20:48:57Z",
+      "side": 1,
+      "message": "I too wanted to make that change but hesitated as the API is part of porting guide with certain expectations from the platforms:\n\nhttps://trustedfirmware-a.readthedocs.io/en/latest/components/platform-interrupt-controller-API.html#function-int-plat-ic-has-interrupt-type-unsigned-int-type-optional",
+      "parentUuid": "dfc25962_3d3cd595",
+      "range": {
+        "startLine": 238,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 3
+      },
+      "revId": "4b6d52a6b389f60d3af35f51b41a73edd9854391",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
