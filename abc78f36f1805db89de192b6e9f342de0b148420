@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "639fb14c_fa64b374",
+        "filename": "lib/cpus/aarch64/neoverse_v1.S",
+        "patchSetId": 10
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-03T20:49:48Z",
+      "side": 1,
+      "message": "Minor Nit:\n\nThese comments might not be neeeded anymore.\n\nmost files we are using \n\nreset macros\npower_dwn function\nerrata report shim\n\nnot sure if you need to use that here.",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 4
+      },
+      "revId": "abc78f36f1805db89de192b6e9f342de0b148420",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
