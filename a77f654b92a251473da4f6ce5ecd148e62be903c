@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44441d51_c8073b8a",
+        "filename": "lib/cpus/aarch64/cortex_a55.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-08-03T16:33:50Z",
+      "side": 1,
+      "message": "I think we should move DSUs at the top, this is what worked for me with ordering checks: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21588",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 20
+      },
+      "revId": "a77f654b92a251473da4f6ce5ecd148e62be903c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
