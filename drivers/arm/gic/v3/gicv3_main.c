@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2023, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -430,7 +430,7 @@ unsigned int gicv3_get_pending_interrupt_type(void)
  *    INTR_GROUP1NS: The interrupt type is a Secure Group 1 non secure
  *                   interrupt.
  ******************************************************************************/
-unsigned int gicv3_get_interrupt_type(unsigned int id, unsigned int proc_num)
+unsigned int gicv3_get_interrupt_group(unsigned int id, unsigned int proc_num)
 {
 	unsigned int igroup, grpmodr;
 	uintptr_t gicr_base;
@@ -1059,8 +1059,8 @@ void gicv3_set_interrupt_priority(unsigned int id, unsigned int proc_num,
  * is used if the interrupt is SGI or (E)PPI, and programs the corresponding
  * Redistributor interface. The group can be any of GICV3_INTR_GROUP*
  ******************************************************************************/
-void gicv3_set_interrupt_type(unsigned int id, unsigned int proc_num,
-		unsigned int type)
+void gicv3_set_interrupt_group(unsigned int id, unsigned int proc_num,
+		unsigned int group)
 {
 	bool igroup = false, grpmod = false;
 	uintptr_t gicr_base;
@@ -1071,7 +1071,7 @@ void gicv3_set_interrupt_type(unsigned int id, unsigned int proc_num,
 	assert(proc_num < gicv3_driver_data->rdistif_num);
 	assert(gicv3_driver_data->rdistif_base_addrs != NULL);
 
-	switch (type) {
+	switch (group) {
 	case INTR_GROUP1S:
 		igroup = false;
 		grpmod = true;
