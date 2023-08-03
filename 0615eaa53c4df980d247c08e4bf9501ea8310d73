@@ -16,6 +16,24 @@
       "message": "This should be check_erratum_range?",
       "revId": "0615eaa53c4df980d247c08e4bf9501ea8310d73",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abd93d96_cc9784b4",
+        "filename": "lib/cpus/aarch64/cortex_a78.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-08-03T18:54:21Z",
+      "side": 1,
+      "message": "Yes. https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21539/comment/42356d6c_07673679/",
+      "parentUuid": "6634a56d_bbdec92d",
+      "revId": "0615eaa53c4df980d247c08e4bf9501ea8310d73",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
