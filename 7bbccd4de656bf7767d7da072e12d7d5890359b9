@@ -16,6 +16,23 @@
       "message": "FYI Code-Owner-Review should not be applied by the patch author, but rather by the maintainers of the components touched by the patch.",
       "revId": "7bbccd4de656bf7767d7da072e12d7d5890359b9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92a5cbce_3fe366eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-08-03T16:13:12Z",
+      "side": 1,
+      "message": "Just to keep all reviewers inline.\n\nCurrently we dont have support for pdf generation in website.\nIt has to be reverted back. @Harrison has a patch to address it. [https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/22268]\nOnce this patch gets through, we could merge Elizabeth\u0027s patch.\nTill then we could keep this on hold.",
+      "revId": "7bbccd4de656bf7767d7da072e12d7d5890359b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
