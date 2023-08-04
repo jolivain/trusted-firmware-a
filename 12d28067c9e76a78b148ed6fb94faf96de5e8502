@@ -16,6 +16,23 @@
       "message": "Kicking off a CI+2 run to use night time instead to look for any unique fails like we found with A57 and 53. Cam merge tomorrow if all looks good with the run overnight. ",
       "revId": "12d28067c9e76a78b148ed6fb94faf96de5e8502",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b575064_1b5121fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-08-04T16:00:53Z",
+      "side": 1,
+      "message": "Known fails and not related to this stack. Some ci-scripts patches in flight which should resolve the fails.",
+      "revId": "12d28067c9e76a78b148ed6fb94faf96de5e8502",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
