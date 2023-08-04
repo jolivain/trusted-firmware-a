@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a2b57e6_736cc88f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-08-04T22:16:03Z",
+      "side": 1,
+      "message": "nit: Use the summary in line with all other patches one the lines of \"convert to use errata framework\". This is a misleading comment. It indicates documentation or adding helper function while actually converting to the framework.(words \"add\" and \"information\")\nWon\u0027t lose the votes if you amend the commit message.",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 59
+      },
+      "revId": "9b433868d96021db749cd317ec34b75915fefcd7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5a704274_498cd92c",
