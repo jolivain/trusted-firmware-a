@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f17bd33f_d9b17716",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 33
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-08-04T16:38:40Z",
+      "side": 1,
+      "message": "Re-arranged this stack as A53/A57 have a unique fail. \nA78AE and down patches are ok. Known fails  with CI+2 and not related to this stack. Some ci-scripts patches in flight which should resolve the fails.",
+      "revId": "ad08c223697088bf9ea4624c06d5ae03166e89d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
