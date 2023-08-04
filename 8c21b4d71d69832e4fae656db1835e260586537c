@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9345da3_79f36d07",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-08-04T23:25:58Z",
+      "side": 1,
+      "message": "This should be CPU_REV(2, 1)\n\nfunc check_errata_2282622\n\t/* Applies to r0p0, r1p0, r2p0 and r2p1 */\n\tmov     x1, #0x21\n\tb       cpu_rev_var_ls\nendfunc check_errata_2282622",
+      "range": {
+        "startLine": 174,
+        "startChar": 48,
+        "endLine": 174,
+        "endChar": 61
+      },
+      "revId": "8c21b4d71d69832e4fae656db1835e260586537c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
