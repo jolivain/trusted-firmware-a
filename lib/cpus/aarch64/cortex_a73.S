@@ -15,7 +15,9 @@
 	 * ---------------------------------------------
 	 */
 func cortex_a73_disable_dcache
-	sysreg_bit_clear sctlr_el3, SCTLR_C_BIT
+	mrs	x1, sctlr_el3
+	bic	x1, x1, #SCTLR_C_BIT
+	msr	sctlr_el3, x1
 	isb
 	ret
 endfunc cortex_a73_disable_dcache
@@ -25,7 +27,9 @@ endfunc cortex_a73_disable_dcache
 	 * ---------------------------------------------
 	 */
 func cortex_a73_disable_smp
-	sysreg_bit_clear CORTEX_A73_CPUECTLR_EL1, CORTEX_A73_CPUECTLR_SMP_BIT
+	mrs	x0, CORTEX_A73_CPUECTLR_EL1
+	bic	x0, x0, #CORTEX_A73_CPUECTLR_SMP_BIT
+	msr	CORTEX_A73_CPUECTLR_EL1, x0
 	isb
 	dsb	sy
 	ret
@@ -37,20 +41,25 @@ func check_smccc_arch_workaround_3
 endfunc check_smccc_arch_workaround_3
 
 workaround_reset_start cortex_a73, ERRATUM(852427), ERRATA_A73_852427
-	sysreg_bit_set CORTEX_A73_DIAGNOSTIC_REGISTER, BIT(12)
+	mrs	x1, CORTEX_A73_DIAGNOSTIC_REGISTER
+	orr	x1, x1, #(1 << 12)
+	msr	CORTEX_A73_DIAGNOSTIC_REGISTER, x1
 workaround_reset_end cortex_a73, ERRATUM(852427)
 
 check_erratum_ls cortex_a73, ERRATUM(852427), CPU_REV(0, 0)
 
 workaround_reset_start cortex_a73, ERRATUM(855423), ERRATA_A73_855423
-	sysreg_bit_set CORTEX_A73_IMP_DEF_REG2, BIT(7)
+	mrs	x1, CORTEX_A73_IMP_DEF_REG2
+	orr	x1, x1, #(1 << 7)
+	msr	CORTEX_A73_IMP_DEF_REG2, x1
 workaround_reset_end cortex_a73, ERRATUM(855423)
 
 check_erratum_ls cortex_a73, ERRATUM(855423), CPU_REV(0, 1)
 
 workaround_reset_start cortex_a73, CVE(2017, 5715), WORKAROUND_CVE_2017_5715
 #if IMAGE_BL31
-	override_vector_table wa_cve_2017_5715_bpiall_vbar
+	adr     x0, wa_cve_2017_5715_bpiall_vbar
+	msr     vbar_el3, x0
 #endif /* IMAGE_BL31 */
 workaround_reset_end cortex_a73, CVE(2017, 5715)
 
@@ -68,7 +77,9 @@ check_erratum_custom_start cortex_a73, CVE(2017, 5715)
 check_erratum_custom_end cortex_a73, CVE(2017, 5715)
 
 workaround_reset_start cortex_a73, CVE(2018, 3639), WORKAROUND_CVE_2018_3639
-	sysreg_bit_set CORTEX_A73_IMP_DEF_REG1, CORTEX_A73_IMP_DEF_REG1_DISABLE_LOAD_PASS_STORE
+	mrs	x0, CORTEX_A73_IMP_DEF_REG1
+	orr	x0, x0, #CORTEX_A73_IMP_DEF_REG1_DISABLE_LOAD_PASS_STORE
+	msr	CORTEX_A73_IMP_DEF_REG1, x0
 workaround_reset_end cortex_a73, CVE(2018, 3639)
 
 check_erratum_chosen cortex_a73, CVE(2018, 3639), WORKAROUND_CVE_2018_3639
@@ -76,7 +87,8 @@ check_erratum_chosen cortex_a73, CVE(2018, 3639), WORKAROUND_CVE_2018_3639
 workaround_reset_start cortex_a73, CVE(2022, 23960), WORKAROUND_CVE_2022_23960
 #if IMAGE_BL31
 	/* Skip installing vector table again for CVE_2022_23960 */
-	override_vector_table wa_cve_2017_5715_bpiall_vbar
+	adr	x0, wa_cve_2017_5715_bpiall_vbar
+	mrs	x1, vbar_el3
 	cmp	x0, x1
 	b.eq	1f
 	msr     vbar_el3, x0
@@ -112,7 +124,9 @@ cpu_reset_func_start cortex_a73
 	 * Clobbers : x0
 	 * ---------------------------------------------
 	 */
-	sysreg_bit_set CORTEX_A73_CPUECTLR_EL1, CORTEX_A73_CPUECTLR_SMP_BIT
+	mrs	x0, CORTEX_A73_CPUECTLR_EL1
+	orr	x0, x0, #CORTEX_A73_CPUECTLR_SMP_BIT
+	msr	CORTEX_A73_CPUECTLR_EL1, x0
 cpu_reset_func_end cortex_a73
 
 func cortex_a73_core_pwr_dwn
