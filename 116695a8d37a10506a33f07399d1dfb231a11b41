@@ -70,6 +70,30 @@
       },
       "revId": "116695a8d37a10506a33f07399d1dfb231a11b41",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c0e877b_74a543c6",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-08-07T17:31:04Z",
+      "side": 1,
+      "message": "yes, I had the same doubt.. because for the merged CPU conversions, the apply erratum macro will have to include the GET_CPU_REV to ensure that the rev and variant check is called once,\nfor e.g. I think in this patch,  https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21540/13/lib/cpus/aarch64/cortex_a78.S#195 here since the default will be _get_rev\u003dNO_GET_CPU_REV, we will have to ensure we add correct parameter to check.",
+      "parentUuid": "cf08dc1b_f5c91e26",
+      "range": {
+        "startLine": 239,
+        "startChar": 65,
+        "endLine": 239,
+        "endChar": 76
+      },
+      "revId": "116695a8d37a10506a33f07399d1dfb231a11b41",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
