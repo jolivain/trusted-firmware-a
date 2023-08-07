@@ -94,6 +94,30 @@
       },
       "revId": "116695a8d37a10506a33f07399d1dfb231a11b41",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03d528f9_ba196f8d",
+        "filename": "lib/cpus/aarch64/neoverse_n1.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-07T17:33:55Z",
+      "side": 1,
+      "message": "I think most parts of code use cpu rev so default value in macro should be use get_cpu_rev and instances were we no need to use that should use no_get parameter passed.\n\nLooks like here we are defaulting to no_get but currently patches all merged use get_rev.",
+      "parentUuid": "4c0e877b_74a543c6",
+      "range": {
+        "startLine": 239,
+        "startChar": 65,
+        "endLine": 239,
+        "endChar": 76
+      },
+      "revId": "116695a8d37a10506a33f07399d1dfb231a11b41",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
