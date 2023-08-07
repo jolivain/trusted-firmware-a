@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "092df08c_1b1d8e3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001048
+      },
+      "writtenOn": "2023-08-07T10:46:52Z",
+      "side": 1,
+      "message": "The build failed with below error\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n15:57:52 Build command line:\n15:57:52 \t make  AARCH32_SP\u003dsp_min ARCH\u003daarch32 CROSS_COMPILE\u003darm-none-eabi- PLAT\u003dmsm8909  DEBUG\u003d1 V\u003d1 fiptool all\n15:57:52 \n15:57:52 ----------\n15:57:52 \n15:57:52 make_helpers/plat_helpers.mk:32: *** \"Error: Invalid platform. The following platforms are available: \n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\nBut I could clone and build this patch successfully on my local machine. I think this error is not related to this patch. Any clues will be helpful. \n\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\nBuilt /home/rajkal02/trusted-firmware/my-change-tfa/arm-trusted-firmware/build/msm8909/debug/bl32.bin successfully\n\narm-none-eabi-objdump -dx /home/rajkal02/trusted-firmware/my-change-tfa/arm-trusted-firmware/build/msm8909/debug/bl32/bl32.elf \u003e /home/rajkal02/trusted-firmware/my-change-tfa/arm-trusted-firmware/build/msm8909/debug/bl32/bl32.dump\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\n",
+      "revId": "5cd767540220cd606b4f0a06a7934c94180535d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
