@@ -16,6 +16,24 @@
       "message": "@Jens can someone from Linaro give CoR on this patch? May be Raymond Mao or Marcin Juszkiewicz? Thanks!",
       "revId": "f0f11acd86650da04a41298acbf4ae38b7e25894",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b136bd9_21d9106b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-08-07T13:03:34Z",
+      "side": 1,
+      "message": "There are no other CoRs besides Jens, so I am providing CoR for this small patch (This patch does not introduce any functional changes to QEMU, it only solves a build issue).",
+      "parentUuid": "7bdb63fb_b29d3e7e",
+      "revId": "f0f11acd86650da04a41298acbf4ae38b7e25894",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
