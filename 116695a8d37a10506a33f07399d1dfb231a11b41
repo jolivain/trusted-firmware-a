@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "628edb91_e9ec04bd",
+        "filename": "include/lib/cpus/aarch64/cpu_macros.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-07T18:41:57Z",
+      "side": 1,
+      "message": "Agreed - made get_cpu_rev default to 1 so a call to `get_cpu_rev_var` is generated unless otherwise requested.",
+      "parentUuid": "58c9d463_3b7b1a49",
+      "range": {
+        "startLine": 481,
+        "startChar": 63,
+        "endLine": 481,
+        "endChar": 86
+      },
+      "revId": "116695a8d37a10506a33f07399d1dfb231a11b41",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f53b606a_85cd8060",
