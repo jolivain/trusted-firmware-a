@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5f66fd68_473e27dc",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-07T10:25:41Z",
+      "side": 1,
+      "message": "Right - there are already a number of similar utilities in \"lib/utils_def.h\", might it make sense to make this part of that header for future re-use? It seems a generic enough utility that others may want to make use of later.",
+      "parentUuid": "d271eb44_eb54f403",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 3
+      },
+      "revId": "cc63a618cd5acced17056156bbdfdf7a7d1c8f01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e93cd34_52f0634f",
         "filename": "lib/transfer_list/transfer_list.c",
         "patchSetId": 5
@@ -191,6 +215,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b20b32a2_be0d372a",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-07T10:25:41Z",
+      "side": 1,
+      "message": "The revision makes things a little clearer. Would it be possible to calculate the new and old end value relative to `te` directly as below? Not clear to me why we need the first step since we don\u0027t really care about the start address of the data.\n\n    __builtin_add_overflow((uintptr_t)te, te-\u003ehdr_size + new_data_size, new_end_value)",
+      "parentUuid": "15b2fb1f_acf15e0e",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 2
+      },
+      "revId": "cc63a618cd5acced17056156bbdfdf7a7d1c8f01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "177db52a_f1c95821",
         "filename": "lib/transfer_list/transfer_list.c",
         "patchSetId": 5
@@ -226,6 +274,30 @@
       "side": 1,
       "message": "In most of the case it won\u0027t be. \u0027te\u0027 (Transfer Entry base address) is their initial vaules, but after lines between #242 and #249, they refer to \u0027the old end of TE\u0027 and \u0027the new end of TE\u0027 respectively.\nThey will be the same in case you pass in a \u0027new_data_size\u0027 equal to \u0027te-\u003edata_size\u0027 (In this case it means you are setting the same size as its original value).",
       "parentUuid": "177db52a_f1c95821",
+      "range": {
+        "startLine": 251,
+        "startChar": 0,
+        "endLine": 251,
+        "endChar": 3
+      },
+      "revId": "cc63a618cd5acced17056156bbdfdf7a7d1c8f01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae8e7a2f_aeba0ce0",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-07T10:25:41Z",
+      "side": 1,
+      "message": "Got it - overlooked the value being mutated through the integer overflow builtins above.",
+      "parentUuid": "f112eb30_52f96d22",
       "range": {
         "startLine": 251,
         "startChar": 0,
@@ -273,6 +345,30 @@
       "side": 1,
       "message": "\u0027ru_new_ev\u0027 means a roundup of \u0027new_ev\u0027 to fulfill the TE data max alignment requirement.\nWe have to keep the \u0027new_ev\u0027 here as we need to calculate the \u0027gap\u0027 (ru_new_ev - new_ev) to fill up at line #264",
       "parentUuid": "74000806_c1aa41e5",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 3
+      },
+      "revId": "cc63a618cd5acced17056156bbdfdf7a7d1c8f01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "015c87fc_09b2ccf3",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-07T10:25:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "023be5ad_25d360fd",
       "range": {
         "startLine": 261,
         "startChar": 0,
