@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16ae2bb4_6c9f6a67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-08-07T14:12:18Z",
+      "side": 1,
+      "message": "With regards to the MISRA test, I replaced the printf statements with INFO statements to attempt to resolve the warning. The other errors are caused by the inline assembly from line 76 in `context_mgmt.h`, which I have not modified in this patch.",
+      "revId": "187af8b02cd7e223fe4b399ac12ca0d360110ada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
