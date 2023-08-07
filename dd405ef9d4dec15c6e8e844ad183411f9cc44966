@@ -22,6 +22,30 @@
       },
       "revId": "dd405ef9d4dec15c6e8e844ad183411f9cc44966",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af0d63e0_9d0490f9",
+        "filename": "lib/cpus/aarch64/cortex_a710.S",
+        "patchSetId": 17
+      },
+      "lineNbr": 580,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-07T08:33:15Z",
+      "side": 1,
+      "message": "As I understood, there\u0027s no need to re-order these since we delete this list in the next patch anyway.",
+      "parentUuid": "d972a4a6_b99e8b30",
+      "range": {
+        "startLine": 570,
+        "startChar": 1,
+        "endLine": 580,
+        "endChar": 56
+      },
+      "revId": "dd405ef9d4dec15c6e8e844ad183411f9cc44966",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
