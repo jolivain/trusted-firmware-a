@@ -16,6 +16,24 @@
       "message": "I\u0027m just curious to know, did you fix this issue via static analysis, or did you observe any panic/crash during runtime?",
       "revId": "70bc74441b9901ee91ebb32be1def1e645374488",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7f4a712_22ac1c61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-08-07T18:56:52Z",
+      "side": 1,
+      "message": "We noticed a panic on a secondary CPU that was waken up illegally by a secure interrupt.",
+      "parentUuid": "6e1d2d32_1dc7b59c",
+      "revId": "70bc74441b9901ee91ebb32be1def1e645374488",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
