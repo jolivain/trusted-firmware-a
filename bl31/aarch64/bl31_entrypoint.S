@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -204,6 +204,12 @@ func bl31_warm_entrypoint
 	 */
 	bl	pauth_init_enable_el3
 #endif /* ENABLE_PAUTH */
+
+	/* --------------------------------------------------------------------
+	 * Configure root_context in the warm_boot path.
+	 * --------------------------------------------------------------------
+	 */
+	bl	setup_root_context
 
 	bl	psci_warmboot_entrypoint
 
