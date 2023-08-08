@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -250,12 +250,14 @@ vector_entry sync_exception_aarch64
 	apply_at_speculative_wa
 	check_and_unmask_ea
 	handle_sync_exception
+	//TODO :Add setup_root_context macro
 end_vector_entry sync_exception_aarch64
 
 vector_entry irq_aarch64
 	save_x30
 	apply_at_speculative_wa
 	check_and_unmask_ea
+	//TODO :Add setup_root_context macro
 	b	handle_interrupt_exception
 end_vector_entry irq_aarch64
 
@@ -263,10 +265,12 @@ vector_entry fiq_aarch64
 	save_x30
 	apply_at_speculative_wa
 	check_and_unmask_ea
+	//TODO :Add setup_root_context macro
 	b 	handle_interrupt_exception
 end_vector_entry fiq_aarch64
 
 vector_entry serror_aarch64
+
 	save_x30
 	apply_at_speculative_wa
 #if RAS_FFH_SUPPORT
@@ -274,6 +278,7 @@ vector_entry serror_aarch64
 #else
 	check_and_unmask_ea
 #endif
+	//TODO :Add setup_root_context macro
 	b	handle_lower_el_async_ea
 
 end_vector_entry serror_aarch64
@@ -292,6 +297,7 @@ vector_entry sync_exception_aarch32
 	save_x30
 	apply_at_speculative_wa
 	check_and_unmask_ea
+	//TODO :Add setup_root_context macro
 	handle_sync_exception
 end_vector_entry sync_exception_aarch32
 
@@ -299,6 +305,7 @@ vector_entry irq_aarch32
 	save_x30
 	apply_at_speculative_wa
 	check_and_unmask_ea
+	//TODO :Add setup_root_context macro
 	b	handle_interrupt_exception
 end_vector_entry irq_aarch32
 
@@ -306,6 +313,7 @@ vector_entry fiq_aarch32
 	save_x30
 	apply_at_speculative_wa
 	check_and_unmask_ea
+	//TODO :Add setup_root_context macro
 	b	handle_interrupt_exception
 end_vector_entry fiq_aarch32
 
@@ -317,6 +325,7 @@ vector_entry serror_aarch32
 #else
 	check_and_unmask_ea
 #endif
+	//TODO :Add setup_root_context macro
 	b	handle_lower_el_async_ea
 
 end_vector_entry serror_aarch32
