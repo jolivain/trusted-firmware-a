@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -231,6 +231,7 @@ vector_entry sync_exception_aarch64
 	sync_and_handle_pending_serror
 	unmask_async_ea
 	handle_sync_exception
+	setup_root_context
 end_vector_entry sync_exception_aarch64
 
 vector_entry irq_aarch64
@@ -238,6 +239,8 @@ vector_entry irq_aarch64
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
 	unmask_async_ea
+	check_and_unmask_ea
+	setup_root_context
 	b	handle_interrupt_exception
 end_vector_entry irq_aarch64
 
@@ -246,6 +249,8 @@ vector_entry fiq_aarch64
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
 	unmask_async_ea
+	check_and_unmask_ea
+	setup_root_contexT
 	b 	handle_interrupt_exception
 end_vector_entry fiq_aarch64
 
@@ -255,6 +260,7 @@ end_vector_entry fiq_aarch64
 	 */
 vector_entry serror_aarch64
 #if FFH_SUPPORT
+
 	save_x30
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
@@ -263,6 +269,9 @@ vector_entry serror_aarch64
 #else
 	b	report_unhandled_exception
 #endif
+	setup_root_context
+	b	handle_lower_el_async_ea
+
 end_vector_entry serror_aarch64
 
 	/* ---------------------------------------------------------------------
@@ -280,6 +289,8 @@ vector_entry sync_exception_aarch32
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
 	unmask_async_ea
+	check_and_unmask_ea
+	setup_root_context
 	handle_sync_exception
 end_vector_entry sync_exception_aarch32
 
@@ -288,6 +299,8 @@ vector_entry irq_aarch32
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
 	unmask_async_ea
+	check_and_unmask_ea
+	setup_root_context
 	b	handle_interrupt_exception
 end_vector_entry irq_aarch32
 
@@ -296,6 +309,8 @@ vector_entry fiq_aarch32
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
 	unmask_async_ea
+	check_and_unmask_ea
+	setup_root_context
 	b	handle_interrupt_exception
 end_vector_entry fiq_aarch32
 
@@ -313,6 +328,8 @@ vector_entry serror_aarch32
 #else
 	b	report_unhandled_exception
 #endif
+	setup_root_context
+	b	handle_lower_el_async_ea
 end_vector_entry serror_aarch32
 
 #ifdef MONITOR_TRAPS
