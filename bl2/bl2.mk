@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -28,6 +28,7 @@ include lib/gpt_rme/gpt_rme.mk
 BL2_SOURCES		+=      bl2/${ARCH}/bl2_rme_entrypoint.S	\
 				bl2/${ARCH}/bl2_el3_exceptions.S	\
 				bl2/${ARCH}/bl2_run_next_image.S	\
+				lib/el3_runtime/aarch64/context.S	\
 				${GPT_LIB_SRCS}
 BL2_DEFAULT_LINKER_SCRIPT_SOURCE := bl2/bl2.ld.S
 
@@ -40,7 +41,8 @@ else
 # BL2 at EL3, no RME
 BL2_SOURCES		+=	bl2/${ARCH}/bl2_el3_entrypoint.S	\
 				bl2/${ARCH}/bl2_el3_exceptions.S	\
-				bl2/${ARCH}/bl2_run_next_image.S        \
+				bl2/${ARCH}/bl2_run_next_image.S	\
+				lib/el3_runtime/aarch64/context.S	\
 				lib/cpus/${ARCH}/cpu_helpers.S
 
 ifeq (${ARCH},aarch64)
@@ -48,7 +50,7 @@ BL2_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S
 endif
 
 BL2_DEFAULT_LINKER_SCRIPT_SOURCE := bl2/bl2_el3.ld.S
-endif
+endif #(ENABLE_RME=1)
 
 ifeq (${ENABLE_PMF},1)
 BL2_SOURCES		+=	lib/pmf/pmf_main.c
