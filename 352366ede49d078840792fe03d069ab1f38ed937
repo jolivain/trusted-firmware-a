@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2af4e5f_7c91d32c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-08-08T10:08:18Z",
+      "side": 1,
+      "message": "@rajasekaran\nCI+2 job [https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/1207/ ] is failing on rebuild as well.\nThere are 4 failures. ( 2 are related to build and 2 are runtime failures).\nBuild failures are not related to your patch, so ignore them.\nRuntime failures, need to analysed [https://ci.trustedfirmware.org/job/tf-a-ci-gateway/45345/]. Please take a look at those failures.\n\n",
+      "revId": "352366ede49d078840792fe03d069ab1f38ed937",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
