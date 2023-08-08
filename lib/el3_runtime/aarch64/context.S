@@ -18,6 +18,7 @@
 	.global	restore_gp_pmcr_pauth_regs
 	.global save_and_update_ptw_el1_sys_regs
 	.global	el3_exit
+	.global	setup_root_context
 
 /* ------------------------------------------------------------------
  * The following function follows the aapcs_64 strictly to use
@@ -483,3 +484,80 @@ sve_not_enabled:
 	exception_return
 
 endfunc el3_exit
+
+/* -----------------------------------------------------------------------------
+ * Helper routine to configure EL3 registers we care about, while executing
+ * at EL3/Root world. Root world has its own execution environment and
+ * needs to have its settings configured to be independent of other worlds.
+ * -----------------------------------------------------------------------------
+ */
+func setup_root_context
+
+	/*---------------------------------------------------------------------
+	 * The following registers need to be part of separate root context
+	 * as their values are of importance during EL3 execution.
+	 * Hence these registers are overwritten to their intital values,
+	 * to ensure EL3 has a consistent execution context throughout the
+	 * lifetime of TF-A.
+	 *
+	 * DAIF.A: Enable External Aborts and SError Interrupts at EL3.
+	 *
+	 * MDCR_EL3.SDD: Set to one to disable AArch64 Secure self-hosted debug.
+	 *  Debug exceptions, other than Breakpoint Instruction exceptions, are
+	 *  disabled from all ELs in Secure state.
+	 *
+	 * SCR_EL3.EA: Set to one to route External Aborts and SError Interrupts
+	 *  to EL3 when executing at any EL.
+	 *
+	 * CPTR_EL3.TFP:  Set to one to ensure execution/accesses to the V- or
+	 *  Z-registers by Advanced SIMD, floating-point or SVE instructions
+	 *  (if implemented) at all Exception levels are trapped to EL3.
+	 *
+	 * PMCR_EL0.DP: Set to one so that the cycle counter,
+	 *  PMCCNTR_EL0 does not count when event counting is prohibited.
+	 *  Necessary on PMUv3 <= p7 where MDCR_EL3.{SCCD,MCCD} are not
+	 *  available.
+	 *
+	 * DIT.DIT: Set to one to enable the Data Independent Timing (DIT)
+	 *  functionality, if implemented in EL3.
+	 * ---------------------------------------------------------------------
+	 */
+
+	msr	daifclr, #DAIF_ABT_BIT
+	str     x0, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X0]
+
+	mrs 	x0, mdcr_el3
+	orr	x0, x0, #MDCR_SCCD_BIT
+	msr	mdcr_el3, x0
+
+	mrs	x0, scr_el3
+	orr	x0, x0, #SCR_EA_BIT
+	orr	x0, x0, #SCR_SIF_BIT
+	msr	scr_el3, x0
+
+	mrs 	x0, pmcr_el0
+	orr	x0, x0, #PMCR_EL0_DP_BIT
+	msr	pmcr_el0, x0
+
+#if ENABLE_FEAT_DIT
+#if ENABLE_ASSERTIONS || ENABLE_FEAT_DIT > 1
+	mrs	x0, id_aa64pfr0_el1
+	ubfx	x0, x0, #ID_AA64PFR0_DIT_SHIFT, #ID_AA64PFR0_DIT_LENGTH
+#if ENABLE_FEAT_DIT > 1
+	cbz	x0, 1f
+#else
+	cmp	x0, #DIT_IMPLEMENTED
+	ASM_ASSERT(eq)
+#endif
+
+#endif /* ENABLE_ASSERTIONS */
+	mrs	x0, DIT
+	orr	x0, x0, #DIT_BIT
+	msr	DIT, x0
+1:
+#endif
+	isb
+
+	ldr	x0, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X0]
+	ret
+endfunc setup_root_context
