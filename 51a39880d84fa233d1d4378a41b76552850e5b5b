@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df510413_636313dd",
+        "filename": "bl1/bl1_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-08T20:45:13Z",
+      "side": 1,
+      "message": "minor maybe this could be before console_flush? so that we have the uart print from pmf been flushed to console?",
+      "range": {
+        "startLine": 170,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 6
+      },
+      "revId": "51a39880d84fa233d1d4378a41b76552850e5b5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2825c5c_ba6bb72c",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-08T20:45:13Z",
+      "side": 1,
+      "message": "should this be at line 162? after pauth disable and jumping to next image?",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 6
+      },
+      "revId": "51a39880d84fa233d1d4378a41b76552850e5b5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc2547e1_8940a44c",
+        "filename": "include/lib/bootmarker_capture.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-08T20:45:13Z",
+      "side": 1,
+      "message": "nitpick: use tabs",
+      "range": {
+        "startLine": 10,
+        "startChar": 17,
+        "endLine": 10,
+        "endChar": 20
+      },
+      "revId": "51a39880d84fa233d1d4378a41b76552850e5b5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
