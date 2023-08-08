@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6035d48a_d8c32447",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-08-08T14:48:11Z",
+      "side": 1,
+      "message": "OK. I moved it to utils_def.h.",
+      "parentUuid": "5f66fd68_473e27dc",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 3
+      },
+      "revId": "cc63a618cd5acced17056156bbdfdf7a7d1c8f01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e93cd34_52f0634f",
@@ -227,6 +251,30 @@
       "side": 1,
       "message": "The revision makes things a little clearer. Would it be possible to calculate the new and old end value relative to `te` directly as below? Not clear to me why we need the first step since we don\u0027t really care about the start address of the data.\n\n    __builtin_add_overflow((uintptr_t)te, te-\u003ehdr_size + new_data_size, new_end_value)",
       "parentUuid": "15b2fb1f_acf15e0e",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 2
+      },
+      "revId": "cc63a618cd5acced17056156bbdfdf7a7d1c8f01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b367262_6b71a41a",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-08-08T14:48:11Z",
+      "side": 1,
+      "message": "You are right. Here we might just concerns whether the final result has an overflow or not. Done.",
+      "parentUuid": "b20b32a2_be0d372a",
       "range": {
         "startLine": 242,
         "startChar": 0,
