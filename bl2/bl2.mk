@@ -28,6 +28,7 @@ include lib/gpt_rme/gpt_rme.mk
 BL2_SOURCES		+=      bl2/${ARCH}/bl2_rme_entrypoint.S	\
 				bl2/${ARCH}/bl2_el3_exceptions.S	\
 				bl2/${ARCH}/bl2_run_next_image.S	\
+				lib/el3_runtime/aarch64/context.S	\
 				${GPT_LIB_SRCS}
 BL2_DEFAULT_LINKER_SCRIPT_SOURCE := bl2/bl2.ld.S
 
@@ -41,7 +42,8 @@ else
 BL2_SOURCES		+=	bl2/${ARCH}/bl2_el3_entrypoint.S	\
 				bl2/${ARCH}/bl2_el3_exceptions.S	\
 				bl2/${ARCH}/bl2_run_next_image.S        \
-				lib/cpus/${ARCH}/cpu_helpers.S
+				lib/cpus/${ARCH}/cpu_helpers.S		\
+				lib/el3_runtime/aarch64/context.S
 
 ifeq (${ARCH},aarch64)
 BL2_SOURCES		+=	lib/cpus/aarch64/dsu_helpers.S

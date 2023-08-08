@@ -59,24 +59,18 @@
 	 * zero here but are updated ahead of transitioning to a lower EL in the
 	 * function cm_init_context_common().
 	 *
-	 * SCR_EL3.SIF: Set to one to disable instruction fetches from
-	 *  Non-secure memory.
-	 *
-	 * SCR_EL3.EA: Set to one to route External Aborts and SError Interrupts
-	 *  to EL3 when executing at any EL.
-	 *
 	 * SCR_EL3.EEL2: Set to one if S-EL2 is present and enabled.
 	 *
 	 * NOTE: Modifying EEL2 bit along with EA bit ensures that we mitigate
 	 * against ERRATA_V2_3099206.
 	 * ---------------------------------------------------------------------
 	 */
-	mov_imm	x0, (SCR_RESET_VAL | SCR_EA_BIT | SCR_SIF_BIT)
+	mov_imm	x0, SCR_RESET_VAL
 #if IMAGE_BL31 && defined(SPD_spmd) && SPMD_SPM_AT_SEL2
-	mrs x1, id_aa64pfr0_el1
-	and x1, x1, #(ID_AA64PFR0_SEL2_MASK << ID_AA64PFR0_SEL2_SHIFT)
-	cbz x1, 1f
-	orr x0, x0, #SCR_EEL2_BIT
+	mrs	x1, id_aa64pfr0_el1
+	and	x1, x1, #(ID_AA64PFR0_SEL2_MASK << ID_AA64PFR0_SEL2_SHIFT)
+	cbz	x1, 1f
+	orr	x0, x0, #SCR_EEL2_BIT
 #endif
 1:
 	msr	scr_el3, x0
@@ -89,15 +83,8 @@
 	 *  Debug exceptions, other than Breakpoint Instruction exceptions, are
 	 *  disabled from all ELs in Secure state.
 	 */
-	mov_imm	x0, (MDCR_EL3_RESET_VAL | MDCR_SDD_BIT)
+	mov_imm	x0, MDCR_EL3_RESET_VAL
 	msr	mdcr_el3, x0
-
-	/* ---------------------------------------------------------------------
-	 * Enable External Aborts and SError Interrupts now that the exception
-	 * vectors have been setup.
-	 * ---------------------------------------------------------------------
-	 */
-	msr	daifclr, #DAIF_ABT_BIT
 
 	/* ---------------------------------------------------------------------
 	 * Initialise CPTR_EL3, setting all fields rather than relying on hw.
@@ -144,6 +131,10 @@
  *  _init_sctlr:
  *	Whether the macro needs to initialise SCTLR_EL3, including configuring
  *      the endianness of data accesses.
+ *
+ *  _root_ctx:
+ *	Whether the macro needs to configure root_context related registers
+ *	for execution at EL3.
  *
  *  _warm_boot_mailbox:
  *	Whether the macro needs to detect the type of boot (cold/warm). The
@@ -270,6 +261,12 @@
 
 	el3_arch_init_common
 
+	/* ---------------------------------------------------------------------
+	 * Set the root_context.
+	 * ---------------------------------------------------------------------
+	 */
+	bl	setup_root_context
+
 	.if \_secondary_cold_boot
 		/* -------------------------------------------------------------
 		 * Check if this is a primary or secondary CPU cold boot.
@@ -318,7 +315,7 @@
 		 * dirty cache lines in a system cache as a result of use by
 		 * an earlier boot loader stage. If PIE is enabled however,
 		 * RO sections including the GOT may be modified during
-                 * pie fixup. Therefore, to be on the safe side, invalidate
+		 * pie fixup. Therefore, to be on the safe side, invalidate
 		 * the entire image region if PIE is enabled.
 		 * -------------------------------------------------------------
 		 */
