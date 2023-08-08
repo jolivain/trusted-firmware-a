@@ -106,13 +106,6 @@
 	msr	mdcr_el3, x0
 
 	/* ---------------------------------------------------------------------
-	 * Enable External Aborts and SError Interrupts now that the exception
-	 * vectors have been setup.
-	 * ---------------------------------------------------------------------
-	 */
-	msr	daifclr, #DAIF_ABT_BIT
-
-	/* ---------------------------------------------------------------------
 	 * Initialise CPTR_EL3, setting all fields rather than relying on hw.
 	 * All fields are architecturally UNKNOWN on reset.
 	 * ---------------------------------------------------------------------
