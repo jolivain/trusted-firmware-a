@@ -52,6 +52,24 @@
 	ldr	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
 	.endm
 
+	/* ---------------------------------------------------------------------
+	 * Macro that configures root_context at runtime.
+	 *
+	 * Save x0 and make it available as a free register while setting up
+	 * el3/root_context.
+	 *
+	 * root_context setup at runtime happens at the earliest phase, prior to
+	 * the preparation on entering into EL3, which includes saving of incoming
+	 * world's general purpose registers. Hence x0 needs to be saved onto
+	 * the context and later restored after el3_context setup.
+	 * ---------------------------------------------------------------------
+	 */
+	.macro configure_root_context
+	str	x0, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X0]
+	bl	setup_root_context
+	ldr	x0, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X0]
+	.endm
+
 	/*
 	 * Macro that synchronizes errors (EA) and checks for pending SError.
 	 * On detecting a pending SError it either reflects it back to lower
@@ -229,7 +247,7 @@ vector_entry sync_exception_aarch64
 	save_x30
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
-	unmask_async_ea
+	configure_root_context
 	handle_sync_exception
 end_vector_entry sync_exception_aarch64
 
@@ -237,7 +255,7 @@ vector_entry irq_aarch64
 	save_x30
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
-	unmask_async_ea
+	configure_root_context
 	b	handle_interrupt_exception
 end_vector_entry irq_aarch64
 
@@ -245,8 +263,8 @@ vector_entry fiq_aarch64
 	save_x30
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
-	unmask_async_ea
-	b 	handle_interrupt_exception
+	configure_root_context
+	b	handle_interrupt_exception
 end_vector_entry fiq_aarch64
 
 	/*
@@ -258,11 +276,12 @@ vector_entry serror_aarch64
 	save_x30
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
-	unmask_async_ea
+	configure_root_context
 	b	handle_lower_el_async_ea
 #else
+	configure_root_context
 	b	report_unhandled_exception
-#endif
+#endif /* FFH_SUPPORT */
 end_vector_entry serror_aarch64
 
 	/* ---------------------------------------------------------------------
@@ -279,7 +298,7 @@ vector_entry sync_exception_aarch32
 	save_x30
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
-	unmask_async_ea
+	configure_root_context
 	handle_sync_exception
 end_vector_entry sync_exception_aarch32
 
@@ -287,7 +306,7 @@ vector_entry irq_aarch32
 	save_x30
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
-	unmask_async_ea
+	configure_root_context
 	b	handle_interrupt_exception
 end_vector_entry irq_aarch32
 
@@ -295,7 +314,7 @@ vector_entry fiq_aarch32
 	save_x30
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
-	unmask_async_ea
+	configure_root_context
 	b	handle_interrupt_exception
 end_vector_entry fiq_aarch32
 
@@ -308,11 +327,12 @@ vector_entry serror_aarch32
 	save_x30
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
-	unmask_async_ea
+	configure_root_context
 	b	handle_lower_el_async_ea
 #else
+	configure_root_context
 	b	report_unhandled_exception
-#endif
+#endif /* FFH_SUPPORT */
 end_vector_entry serror_aarch32
 
 #ifdef MONITOR_TRAPS

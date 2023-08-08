@@ -59,24 +59,18 @@
 	 * zero here but are updated ahead of transitioning to a lower EL in the
 	 * function cm_init_context_common().
 	 *
-	 * SCR_EL3.SIF: Set to one to disable instruction fetches from
-	 *  Non-secure memory.
-	 *
-	 * SCR_EL3.EA: Set to one to route External Aborts and SError Interrupts
-	 *  to EL3 when executing at any EL.
-	 *
 	 * SCR_EL3.EEL2: Set to one if S-EL2 is present and enabled.
 	 *
 	 * NOTE: Modifying EEL2 bit along with EA bit ensures that we mitigate
 	 * against ERRATA_V2_3099206.
 	 * ---------------------------------------------------------------------
 	 */
-	mov_imm	x0, (SCR_RESET_VAL | SCR_EA_BIT | SCR_SIF_BIT)
+	mov_imm	x0, SCR_RESET_VAL
 #if IMAGE_BL31 && defined(SPD_spmd) && SPMD_SPM_AT_SEL2
-	mrs x1, id_aa64pfr0_el1
-	and x1, x1, #(ID_AA64PFR0_SEL2_MASK << ID_AA64PFR0_SEL2_SHIFT)
-	cbz x1, 1f
-	orr x0, x0, #SCR_EEL2_BIT
+	mrs	x1, id_aa64pfr0_el1
+	and	x1, x1, #(ID_AA64PFR0_SEL2_MASK << ID_AA64PFR0_SEL2_SHIFT)
+	cbz	x1, 1f
+	orr	x0, x0, #SCR_EEL2_BIT
 #endif
 1:
 	msr	scr_el3, x0
@@ -84,20 +78,9 @@
 	/* ---------------------------------------------------------------------
 	 * Initialise MDCR_EL3, setting all fields rather than relying on hw.
 	 * Some fields are architecturally UNKNOWN on reset.
-	 *
-	 * MDCR_EL3.SDD: Set to one to disable AArch64 Secure self-hosted debug.
-	 *  Debug exceptions, other than Breakpoint Instruction exceptions, are
-	 *  disabled from all ELs in Secure state.
 	 */
-	mov_imm	x0, (MDCR_EL3_RESET_VAL | MDCR_SDD_BIT)
+	mov_imm	x0, MDCR_EL3_RESET_VAL
 	msr	mdcr_el3, x0
-
-	/* ---------------------------------------------------------------------
-	 * Enable External Aborts and SError Interrupts now that the exception
-	 * vectors have been setup.
-	 * ---------------------------------------------------------------------
-	 */
-	msr	daifclr, #DAIF_ABT_BIT
 
 	/* ---------------------------------------------------------------------
 	 * Initialise CPTR_EL3, setting all fields rather than relying on hw.
@@ -107,28 +90,6 @@
 	mov_imm x0, CPTR_EL3_RESET_VAL
 	msr	cptr_el3, x0
 
-	/*
-	 * If Data Independent Timing (DIT) functionality is implemented,
-	 * always enable DIT in EL3.
-	 * First assert that the FEAT_DIT build flag matches the feature id
-	 * register value for DIT.
-	 */
-#if ENABLE_FEAT_DIT
-#if ENABLE_ASSERTIONS || ENABLE_FEAT_DIT > 1
-	mrs	x0, id_aa64pfr0_el1
-	ubfx	x0, x0, #ID_AA64PFR0_DIT_SHIFT, #ID_AA64PFR0_DIT_LENGTH
-#if ENABLE_FEAT_DIT > 1
-	cbz	x0, 1f
-#else
-	cmp	x0, #DIT_IMPLEMENTED
-	ASM_ASSERT(eq)
-#endif
-
-#endif /* ENABLE_ASSERTIONS */
-	mov	x0, #DIT_BIT
-	msr	DIT, x0
-1:
-#endif
 	.endm
 
 /* -----------------------------------------------------------------------------
@@ -269,6 +230,12 @@
 #endif
 
 	el3_arch_init_common
+
+	/* ---------------------------------------------------------------------
+	 * Set the root_context.
+	 * ---------------------------------------------------------------------
+	 */
+	bl	setup_root_context
 
 	.if \_secondary_cold_boot
 		/* -------------------------------------------------------------
