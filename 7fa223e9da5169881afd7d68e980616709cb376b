@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdd7a7bb_fe84588f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-08-08T14:45:42Z",
+      "side": 1,
+      "message": "@Jayanth: thanks for picking this up. Did you just rebase it? Apart from the things reported in the build failure I think there is at least one more missing function (MTE_PERM). I will fix this up.",
+      "revId": "7fa223e9da5169881afd7d68e980616709cb376b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
