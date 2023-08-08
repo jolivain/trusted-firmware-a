@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -66,7 +66,7 @@
 	 *  to EL3 when executing at any EL.
 	 * ---------------------------------------------------------------------
 	 */
-	mov_imm	x0, (SCR_RESET_VAL | SCR_EA_BIT | SCR_SIF_BIT)
+	mov_imm	x0, SCR_RESET_VAL
 	msr	scr_el3, x0
 
 	/* ---------------------------------------------------------------------
@@ -92,13 +92,6 @@
 		    ~(MDCR_TDOSA_BIT | MDCR_TDA_BIT))
 
 	msr	mdcr_el3, x0
-
-	/* ---------------------------------------------------------------------
-	 * Enable External Aborts and SError Interrupts now that the exception
-	 * vectors have been setup.
-	 * ---------------------------------------------------------------------
-	 */
-	msr	daifclr, #DAIF_ABT_BIT
 
 	/* ---------------------------------------------------------------------
 	 * Initialise CPTR_EL3, setting all fields rather than relying on hw.
@@ -270,6 +263,8 @@
 #endif
 
 	el3_arch_init_common
+
+	bl	setup_root_context
 
 	.if \_secondary_cold_boot
 		/* -------------------------------------------------------------
