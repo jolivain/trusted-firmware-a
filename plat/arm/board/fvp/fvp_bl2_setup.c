@@ -11,12 +11,17 @@
 #include <drivers/arm/sp804_delay_timer.h>
 #include <lib/fconf/fconf.h>
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
+#include <lib/transfer_list.h>
 
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
 
 #include "fvp_private.h"
+
+#if TRANSFER_LIST
+static struct transfer_list_header * ns_tl;
+#endif
 
 void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1, u_register_t arg2, u_register_t arg3)
 {
@@ -81,6 +86,26 @@ struct bl_params *plat_get_next_bl_params(void)
 	param_node = get_bl_mem_params_node(HW_CONFIG_ID);
 	assert(param_node != NULL);
 
+#if TRANSFER_LIST
+	ns_tl = transfer_list_init((void *)FW_NS_HANDOFF_BASE, FW_HANDOFF_SIZE);
+	if (!ns_tl) {
+		ERROR("Failed to initialise non-secure transfer list @ 0x%llx\n", FW_NS_HANDOFF_BASE);
+	}
+
+	assert(param_node != NULL);
+	/* Update BL33's ep info with NS HW config address  */
+	struct transfer_list_entry *te = NULL;
+
+	te = transfer_list_add(ns_tl, TL_TAG_FDT, param_node->image_info.image_size,
+			       (void *)hw_config_info->config_addr);
+	assert(te != NULL);
+
+	param_node = get_bl_mem_params_node(BL33_IMAGE_ID);
+	param_node->ep_info.args.arg1 = TRANSFER_LIST_SIGNATURE | (1 << 24);
+	param_node->ep_info.args.arg2 = 0;
+	param_node->ep_info.args.arg3 = (uintptr_t)ns_tl;
+	param_node->ep_info.args.arg0 = te ? (uintptr_t)transfer_list_entry_data(te) : 0;
+#else
 	/* Copy HW config from Secure address to NS address */
 	memcpy((void *)hw_config_info->secondary_config_addr,
 	       (void *)hw_config_info->config_addr,
@@ -94,11 +119,8 @@ struct bl_params *plat_get_next_bl_params(void)
 	flush_dcache_range(hw_config_info->secondary_config_addr,
 			   param_node->image_info.image_size);
 
-	param_node = get_bl_mem_params_node(BL33_IMAGE_ID);
-	assert(param_node != NULL);
-
-	/* Update BL33's ep info with NS HW config address  */
 	param_node->ep_info.args.arg1 = hw_config_info->secondary_config_addr;
+#endif /* TRANSFER_LIST */
 #endif /* !RESET_TO_BL2 && !EL3_PAYLOAD_BASE */
 
 	return arm_bl_params;
