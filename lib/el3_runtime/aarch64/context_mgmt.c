@@ -1416,3 +1416,61 @@ void cm_set_next_eret_context(uint32_t security_state)
 
 	cm_set_next_context(ctx);
 }
+
+/*******************************************************************************
+ * This function is used to restore the context of EL-3/root world by configuring
+ * it back to the original state before the world switch.
+ ******************************************************************************/
+void cm_setup_root_context(void)
+{
+	/**
+	 * The following registers need to be part of separate root context
+	 * as their values are of importance during EL-3 execution.
+	 * Hence these registers are overwritten to their intital values,
+	 * to ensure EL-3 has a consistent execution context throughout the
+	 * lifetime of TF-A.
+	 */
+
+	/* ---------------------------------------------------------------------
+	 * DAIF.A: Set to one to enable the SError interrupts at EL3.
+	 *
+	 * MDCR_EL3.SDD: Set to one to disable AArch64 Secure self-hosted debug.
+	 *  Debug exceptions, other than Breakpoint Instruction exceptions, are
+	 *  disabled from all ELs in Secure state.
+	 *
+	 * SCR_EL3.EA: Set to one to route External Aborts and SError Interrupts
+	 *  to EL3 when executing at any EL.
+	 *
+	 * SCR_EL3.NS: Set the NS bit to be able to access the ICC_SRE_EL2
+	 *  register when restoring context.
+	 *
+	 * SCR_EL3.EEL2: Setting the EEL2 bit to allow EL3 access to secure
+	 *  only registers in context management.
+	 *
+	 * CPTR_EL3.TFP:  Set to one to ensure execution/accesses to the V- or
+	 *  Z-registers by Advanced SIMD, floating-point or SVE instructions
+	 *  (if implemented) at all Exception levels are trapped to EL3.
+	 *
+	 * PMCR_EL0.DP: Set to one so that the cycle counter,
+	 *  PMCCNTR_EL0 does not count when event counting is prohibited.
+	 *  Necessary on PMUv3 <= p7 where MDCR_EL3.{SCCD,MCCD} are not
+	 *  available.
+	 *
+	 * DIT.DIT: Set to one to enable the Data Independent Timing (DIT)
+	 *  functionality, if implemented in EL3.
+	 * ---------------------------------------------------------------------
+	 */
+	write_daifclr(DAIF_ABT_BIT);
+
+	write_mdcr_el3(read_mdcr_el3() | MDCR_SCCD_BIT);
+
+	write_scr_el3(read_scr_el3() | SCR_EA_BIT | SCR_NS_BIT | SCR_EEL2_BIT);
+
+	write_cptr_el3(read_cptr_el3() | TFP_BIT);
+
+	write_pmcr_el0(read_pmcr_el0() | PMCR_EL0_DP_BIT);
+
+	write_dit(read_dit() | DIT_BIT);
+
+	isb();
+}
