@@ -22,6 +22,30 @@
       },
       "revId": "b104693ed146200fb52736f32a3151bcd9a0ac36",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "183a39f1_cce2e269",
+        "filename": "lib/cpus/aarch64/neoverse_poseidon.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-08-08T20:52:32Z",
+      "side": 1,
+      "message": "Done. Updated this is in the previous patch (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/22232)",
+      "parentUuid": "55c9e998_d1663367",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "b104693ed146200fb52736f32a3151bcd9a0ac36",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
