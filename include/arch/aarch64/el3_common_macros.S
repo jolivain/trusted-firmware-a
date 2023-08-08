@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -104,13 +104,6 @@
 		    ~(MDCR_TDOSA_BIT | MDCR_TDA_BIT))
 
 	msr	mdcr_el3, x0
-
-	/* ---------------------------------------------------------------------
-	 * Enable External Aborts and SError Interrupts now that the exception
-	 * vectors have been setup.
-	 * ---------------------------------------------------------------------
-	 */
-	msr	daifclr, #DAIF_ABT_BIT
 
 	/* ---------------------------------------------------------------------
 	 * Initialise CPTR_EL3, setting all fields rather than relying on hw.
