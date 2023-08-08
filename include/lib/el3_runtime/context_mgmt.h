@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -35,9 +35,11 @@ void cm_init_context_by_index(unsigned int cpu_idx,
 void cm_setup_context(cpu_context_t *ctx, const struct entry_point_info *ep);
 void cm_prepare_el3_exit(uint32_t security_state);
 
+
 #ifdef __aarch64__
 #if IMAGE_BL31
 void cm_manage_extensions_el3(void);
+void cm_setup_root_context(void);
 #endif
 void cm_el2_sysregs_context_save(uint32_t security_state);
 void cm_el2_sysregs_context_restore(uint32_t security_state);
@@ -85,6 +87,7 @@ static inline void cm_set_next_context(void *context)
 void *cm_get_next_context(void);
 void cm_set_next_context(void *context);
 static inline void cm_manage_extensions_el3(void) {}
+static inline void cm_setup_root_context(void) {}
 #endif /* __aarch64__ */
 
 #endif /* CONTEXT_MGMT_H */
