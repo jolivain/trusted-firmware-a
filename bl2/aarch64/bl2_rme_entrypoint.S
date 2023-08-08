@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2024, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -23,6 +23,7 @@ func bl2_entrypoint
 
 	el3_entrypoint_common                                   \
 		_init_sctlr=0                                   \
+		_root_ctx=1					\
 		_warm_boot_mailbox=0                            \
 		_secondary_cold_boot=0                          \
 		_init_memory=0                                  \
