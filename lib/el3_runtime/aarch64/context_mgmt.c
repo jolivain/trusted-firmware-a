@@ -1383,3 +1383,4 @@ void cm_set_next_eret_context(uint32_t security_state)
 
 	cm_set_next_context(ctx);
 }
+
