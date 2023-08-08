@@ -988,6 +988,9 @@ void psci_warmboot_entrypoint(void)
 	/* Init registers that never change for the lifetime of TF-A */
 	cm_manage_extensions_el3();
 
+	/* Configure EL-3 Root Context */
+	cm_setup_root_context();
+
 	/*
 	 * Verify that we have been explicitly turned ON or resumed from
 	 * suspend.

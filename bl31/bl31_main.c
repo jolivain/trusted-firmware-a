@@ -121,6 +121,9 @@ void bl31_main(void)
 	/* Init registers that never change for the lifetime of TF-A */
 	cm_manage_extensions_el3();
 
+	/* Configure EL-3 Root Context during cold boot*/
+	cm_setup_root_context();
+
 	NOTICE("BL31: %s\n", version_string);
 	NOTICE("BL31: %s\n", build_message);
 
