@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2019-2024, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -206,6 +206,7 @@ endfunc platform_mem_init
 func plat_secondary_cpus_bl31_entry
 	el3_entrypoint_common                                   \
 		_init_sctlr=0                                   \
+		_root_ctx=1					\
 		_warm_boot_mailbox=!PROGRAMMABLE_RESET_ADDRESS  \
 		_secondary_cold_boot=!COLD_BOOT_SINGLE_CPU      \
 		_init_memory=1                                  \

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -44,6 +44,7 @@ func bl31_entrypoint
 	 */
 	el3_entrypoint_common					\
 		_init_sctlr=0					\
+		_root_ctx=1					\
 		_warm_boot_mailbox=0				\
 		_secondary_cold_boot=0				\
 		_init_memory=0					\
@@ -60,6 +61,7 @@ func bl31_entrypoint
 	 */
 	el3_entrypoint_common					\
 		_init_sctlr=1					\
+		_root_ctx=1					\
 		_warm_boot_mailbox=!PROGRAMMABLE_RESET_ADDRESS	\
 		_secondary_cold_boot=!COLD_BOOT_SINGLE_CPU	\
 		_init_memory=1					\
@@ -154,6 +156,7 @@ func bl31_warm_entrypoint
 	 */
 	el3_entrypoint_common					\
 		_init_sctlr=PROGRAMMABLE_RESET_ADDRESS		\
+		_root_ctx=0					\
 		_warm_boot_mailbox=0				\
 		_secondary_cold_boot=0				\
 		_init_memory=0					\
