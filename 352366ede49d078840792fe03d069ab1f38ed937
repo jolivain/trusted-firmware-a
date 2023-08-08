@@ -16,6 +16,24 @@
       "message": "@rajasekaran\nCI+2 job [https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/1207/ ] is failing on rebuild as well.\nThere are 4 failures. ( 2 are related to build and 2 are runtime failures).\nBuild failures are not related to your patch, so ignore them.\nRuntime failures, need to analysed [https://ci.trustedfirmware.org/job/tf-a-ci-gateway/45345/]. Please take a look at those failures.\n\n",
       "revId": "352366ede49d078840792fe03d069ab1f38ed937",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8c73f82_09fc739f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001048
+      },
+      "writtenOn": "2023-08-08T10:18:49Z",
+      "side": 1,
+      "message": "@Jayanth. Both the runtime failures are in \"lava.0_interactive_uart0_4\". I am not familiar with this test. where can i find details of this test. is it possible to reproduce it on my local machine. \n\n22:51:08 * lava.0_interactive_uart0_3 [pass]\n22:51:08 * lava.0_interactive_uart0_4 [fail]\n22:51:08 * lava.lava-test-interactive [fail]\n22:51:08 * lava.lava-test-interactive-retry [fail]\n22:51:08 * lava.job [fail]\n22:51:08 * 0_interactive_uart0_0.interactive_command_uart0_0 [pass]\n22:51:08 * 0_interactive_uart0_1.interactive_command_uart0_1 [pass]\n22:51:08 * 0_interactive_uart0_2.interactive_command_uart0_2 [pass]\n22:51:08 * 0_interactive_uart0_3.interactive_command_uart0_3 [pass]\n22:51:08 * 0_interactive_uart0_4.interactive_command_uart0_4 [fail]\n22:51:08 + return 0\n22:51:08 + grep -q \u0027\\[fail\\]\u0027 /home/buildslave/workspace/tf-a-builder/lava.results\n22:51:08 + exit 1\n22:51:08 + \u0027[\u0027 -f /home/buildslave/workspace/tf-a-builder/lava-raw.log \u0027]\u0027",
+      "parentUuid": "d2af4e5f_7c91d32c",
+      "revId": "352366ede49d078840792fe03d069ab1f38ed937",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
