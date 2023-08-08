@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -238,6 +238,7 @@ vector_entry irq_aarch64
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
 	unmask_async_ea
+	setup_root_context
 	b	handle_interrupt_exception
 end_vector_entry irq_aarch64
 
@@ -246,6 +247,7 @@ vector_entry fiq_aarch64
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
 	unmask_async_ea
+	setup_root_context
 	b 	handle_interrupt_exception
 end_vector_entry fiq_aarch64
 
@@ -259,10 +261,12 @@ vector_entry serror_aarch64
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
 	unmask_async_ea
+	setup_root_context
 	b	handle_lower_el_async_ea
 #else
+	setup_root_context
 	b	report_unhandled_exception
-#endif
+#endif /* FFH_SUPPORT */
 end_vector_entry serror_aarch64
 
 	/* ---------------------------------------------------------------------
@@ -288,6 +292,7 @@ vector_entry irq_aarch32
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
 	unmask_async_ea
+	setup_root_context
 	b	handle_interrupt_exception
 end_vector_entry irq_aarch32
 
@@ -296,6 +301,7 @@ vector_entry fiq_aarch32
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
 	unmask_async_ea
+	setup_root_context
 	b	handle_interrupt_exception
 end_vector_entry fiq_aarch32
 
@@ -309,10 +315,12 @@ vector_entry serror_aarch32
 	apply_at_speculative_wa
 	sync_and_handle_pending_serror
 	unmask_async_ea
+	setup_root_context
 	b	handle_lower_el_async_ea
 #else
+	setup_root_context
 	b	report_unhandled_exception
-#endif
+#endif /* FFH_SUPPORT */
 end_vector_entry serror_aarch32
 
 #ifdef MONITOR_TRAPS
