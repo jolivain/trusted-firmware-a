@@ -87,6 +87,14 @@ static struct mtk_ifr_mst_config mt8188_ifr_mst_cfg[] = {
 struct mtk_smi_larb_config *g_larb_cfg = &mt8188_larb_cfg[0];
 const unsigned int g_larb_num = ARRAY_SIZE(mt8188_larb_cfg);
 
+static struct mtk_secure_iommu_config mt8188_secure_iommu_config[] = {
+	SEC_IOMMU_CFG_ENTRY(VDO_SECURE_IOMMU_BASE),
+	SEC_IOMMU_CFG_ENTRY(VPP_SECURE_IOMMU_BASE),
+};
+
+struct mtk_secure_iommu_config *g_sec_iommu_cfg = &mt8188_secure_iommu_config[0];
+const unsigned int g_sec_iommu_num = ARRAY_SIZE(mt8188_secure_iommu_config);
+
 struct mtk_ifr_mst_config *g_ifr_mst_cfg = &mt8188_ifr_mst_cfg[0];
 const unsigned int g_ifr_mst_num = ARRAY_SIZE(mt8188_ifr_mst_cfg);
 

@@ -10,6 +10,9 @@
 /* mm iommu */
 #define ATF_MTK_SMI_LARB_CFG_SUPPORT
 
+/* mm iommu, sec bank dump */
+#define ATF_MTK_IOMMU_CFG_SUPPORT
+
 /* infra iommu */
 #define ATF_MTK_INFRA_MASTER_CFG_SUPPORT
 

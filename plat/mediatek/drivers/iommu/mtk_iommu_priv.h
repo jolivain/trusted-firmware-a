@@ -72,4 +72,8 @@ extern struct mtk_secure_iommu_config *g_sec_iommu_cfg;
 extern const unsigned int g_sec_iommu_num;
 #endif
 
+#ifdef ATF_MTK_INFRA_MASTER_CFG_SUPPORT
+#define MMU_DEV_NUM 1   /* Infra iommu_en region number */
+#endif
+
 #endif	/* IOMMU_PRIV_H */
