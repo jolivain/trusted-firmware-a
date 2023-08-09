@@ -62,6 +62,10 @@ override BL31_SOURCES =
 # be specifed via `BL32` build option.
   ifneq (${ARCH}, aarch32)
     override BL32_SOURCES =
+  else
+    ifeq (${AARCH32_SP},none)
+	$(error Variable AARCH32_SP has to be set for AArch32)
+    endif
   endif
 else
   ifeq (${ARCH}, aarch32)
