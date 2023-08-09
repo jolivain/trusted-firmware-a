@@ -34,6 +34,24 @@
       "parentUuid": "5833f69c_dfa43513",
       "revId": "a1402de06d6826f6b54f6240da00f0ffc398b64b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c599704c_f679202e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-08-09T09:39:49Z",
+      "side": 1,
+      "message": "@David please look at this failure. This \"fvp_realm_attest_key.c\" is compiled without TRUSTED_BOARD_BOOT or MEASURED_BOOT support leads to this error.",
+      "parentUuid": "2eb8dcef_9c88ae04",
+      "revId": "a1402de06d6826f6b54f6240da00f0ffc398b64b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
