@@ -74,6 +74,26 @@ formats.
 
    poetry run make -C docs help
 
+To build the documentation in PDF format, additionally ensure that the following
+packages are installed:
+
+- FreeSerif font
+- inkscape
+- latexmk
+- xelatex
+- xindy
+
+Below is an example set of instructions to install the required packages (tested on
+Ubuntu):
+
+.. code:: shell
+
+	sudo apt install inkscape latexmk texlive-xetex xindy fonts-freefont-otf
+
+Once all the dependencies are installed, run the command ``poetry run make -C docs
+latexpdf`` to build the documentation. Output from the build process can be found in
+``docs/build/latex``.
+
 Building rendered documentation from Poetry's virtual environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
