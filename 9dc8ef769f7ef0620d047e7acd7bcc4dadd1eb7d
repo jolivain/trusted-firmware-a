@@ -39,6 +39,30 @@
       },
       "revId": "9dc8ef769f7ef0620d047e7acd7bcc4dadd1eb7d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a2b7562_be3b7405",
+        "filename": "plat/arm/board/fvp/fvp_spmd_logical_sp.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-08-09T18:23:12Z",
+      "side": 1,
+      "message": "dont think so. this is purely a passthrough, any unknown SMC not trapped will get forwarded. We can add that if required, but right now i dont see what i would sanity check it for.",
+      "parentUuid": "75090511_4253282d",
+      "range": {
+        "startLine": 69,
+        "startChar": 56,
+        "endLine": 69,
+        "endChar": 63
+      },
+      "revId": "9dc8ef769f7ef0620d047e7acd7bcc4dadd1eb7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
