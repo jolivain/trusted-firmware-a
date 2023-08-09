@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2023, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -62,6 +62,10 @@ override BL31_SOURCES =
 # be specifed via `BL32` build option.
   ifneq (${ARCH}, aarch32)
     override BL32_SOURCES =
+  else
+    ifeq (${AARCH32_SP},none)
+	$(error Variable AARCH32_SP has to be set for AArch32)
+    endif
   endif
 endif
 

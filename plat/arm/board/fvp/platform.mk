@@ -409,6 +409,10 @@ endif
 
 ifeq (${ARCH},aarch32)
     NEED_BL32 := yes
+
+    ifeq (${AARCH32_SP},none)
+        $(error Variable AARCH32_SP has to be set for AArch32)
+    endif
 endif
 
 # Enable the dynamic translation tables library.
