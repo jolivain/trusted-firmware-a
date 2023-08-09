@@ -236,6 +236,24 @@
       "parentUuid": "8f988884_dd379d63",
       "revId": "6c00cce6ae0055a8ebcf0addd69feceea621cb38",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4bf7656_189e8b1f",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-08-09T11:45:13Z",
+      "side": 1,
+      "message": "Hi André, sorry for the delay.\n\n\u003e Are you afraid that we create a Makefile target that people will rely on for the future to come, and that it gets harder and harder to maintain that?\n\nSort of. The ultimate aim is that the `DEFINES` variable disappears, and we move towards more granular definition variables for each binary target, at which point the `dump-defines` target becomes empty (because there will be no globally-defined definitions).\n\nWe add definitions to a binary through four mechanisms:\n\n- DEFINES +\u003d X\n- \u003cIMAGE\u003e_DEFINES +\u003d X\n- \u003cIMAGE\u003e_CPPFLAGS +\u003d -DX\n- BL_DEFINES :\u003d X # on demand in build_macros.mk\n\nEventually all but the second form should disappear.\n\nFor a per-image target, we need to take the first three into account (the fourth is inaccessible from the global scope because it\u0027s regenerated for each C file), so I think what we need is:\n\n    .PHONY: dump-defines-%\n    dump-defines-%:\n    \t@echo \"$(sort $(foreach define,$(strip \\\n    \t\t$(DEFINES) $($(call uppercase,$*)_DEFINES) $(filter -D,$(CPPFLAGS))), \\\n    \t\t${define:-D%\u003d%}) \\\n    \t)\" | tr \u0027 \u0027 \u0027\\n\u0027\n\nOn the integration branch this yields (almost) every definition applied to the binary specified by the wildcard, e.g. `dump-defines-bl31`.",
+      "parentUuid": "3d5a4f56_e8844cb3",
+      "revId": "6c00cce6ae0055a8ebcf0addd69feceea621cb38",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
