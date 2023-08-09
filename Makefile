@@ -758,8 +758,10 @@ ifeq (${ARCH},aarch32)
                 ifeq (${AARCH32_SP_MAKE},)
                         $(error Error: No bl32/${AARCH32_SP}/${AARCH32_SP}.mk located)
                 endif
-        $(info Including ${AARCH32_SP_MAKE})
-        include ${AARCH32_SP_MAKE}
+                $(info Including ${AARCH32_SP_MAKE})
+                include ${AARCH32_SP_MAKE}
+        else
+                $(error Variable AARCH32_SP has to be set for AArch32)
         endif
 endif #(ARCH=aarch32)
 
