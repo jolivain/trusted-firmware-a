@@ -16,6 +16,24 @@
       "message": "Hi Juan Pablo,\nThis change will break a feature on STM32MP15, for which we can build a BL2 agnostic from the BL32 it will load (either SP_min or OP-TEE). The selection is made dynamically at runtime, depending on what is found in FIP.\nWhat was exactly the error you had, and on which platform?\n\n",
       "revId": "65727e37fa2af935ae69c20d37c8f705d83cc7cd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0437ac35_e4eb02ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-08-10T08:10:21Z",
+      "side": 1,
+      "message": "Juan can add more detail on this.\nBut as discussed with him, we saw below build failure on FVP platform in case of AARCH32_SP\u003dnone for ARCH\u003daarch32 -\n\n LD      /home/workspace-tools/trusted-firmware- a/build/fvp/release/bl32/bl32.elf\n arm-none-eabi-ld.bfd:/homw/workspace-tools/trusted-firmware- a/build/fvp/release/bl32/build_message.o:1: ignoring invalid character `\\177\u0027 in \n expression\n arm-none-eabi-ld.bfd:/home/workspace-tools/trusted-firmware-a/workspace- \n tools/trusted-firmware-a/build/fvp/release/bl32/build_message.o:1: ignoring \n invalid character `\\001\u0027 in expression\n\nWhile grep\u0027ing through the CI repo, I didn\u0027t find any ST builds without AARCH32_SP specified. Please point me to ST build without AARCH32_SP.\nIt seems that the BL32 is mandatory for FVP aarch32 platform but not for ST platform, based on the following in the FVP platform makefile?\n\n ifeq (${ARCH},aarch32)\n     NEED_BL32 :\u003d yes\n endif",
+      "parentUuid": "3d3cf7ab_befc9c82",
+      "revId": "65727e37fa2af935ae69c20d37c8f705d83cc7cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
