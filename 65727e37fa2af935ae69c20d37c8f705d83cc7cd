@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d3cf7ab_befc9c82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-08-10T07:32:29Z",
+      "side": 1,
+      "message": "Hi Juan Pablo,\nThis change will break a feature on STM32MP15, for which we can build a BL2 agnostic from the BL32 it will load (either SP_min or OP-TEE). The selection is made dynamically at runtime, depending on what is found in FIP.\nWhat was exactly the error you had, and on which platform?\n\n",
+      "revId": "65727e37fa2af935ae69c20d37c8f705d83cc7cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
