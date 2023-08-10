@@ -16,6 +16,299 @@
       "message": "Rebased to master.",
       "revId": "bb92559db476d146eefa044bf6fd2efc77ac8bd5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1778aa24_6ae5217e",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-10T11:34:21Z",
+      "side": 1,
+      "message": "nit: blank lines around logical blocks",
+      "revId": "bb92559db476d146eefa044bf6fd2efc77ac8bd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "552724c3_8113868b",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-10T11:34:21Z",
+      "side": 1,
+      "message": "nit: add blank lines between logical blocks",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "bb92559db476d146eefa044bf6fd2efc77ac8bd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e82d2567_ab1fb95b",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-10T11:34:21Z",
+      "side": 1,
+      "message": "nit: blank lines around logical blocks",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 39
+      },
+      "revId": "bb92559db476d146eefa044bf6fd2efc77ac8bd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "022f9019_c2250ed4",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-10T11:34:21Z",
+      "side": 1,
+      "message": "nit: blank lines around logical blocks",
+      "range": {
+        "startLine": 85,
+        "startChar": 1,
+        "endLine": 120,
+        "endChar": 2
+      },
+      "revId": "bb92559db476d146eefa044bf6fd2efc77ac8bd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc599be4_dad2a611",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-10T11:34:21Z",
+      "side": 1,
+      "message": "Same applies here, we can skip the first call to `__builtin_add_overflow` entirely. Considering how many times this pattern is reused in this file, I think it might be worthwhile to reconcile this into a helper function so we have a single reusable representation for this particular operation e.g. `calc_aligned_boundary`.",
+      "range": {
+        "startLine": 144,
+        "startChar": 23,
+        "endLine": 148,
+        "endChar": 53
+      },
+      "revId": "bb92559db476d146eefa044bf6fd2efc77ac8bd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc1ee1e7_dce96461",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-10T11:34:21Z",
+      "side": 1,
+      "message": "nit: can be combined into a single expression",
+      "range": {
+        "startLine": 156,
+        "startChar": 62,
+        "endLine": 158,
+        "endChar": 54
+      },
+      "revId": "bb92559db476d146eefa044bf6fd2efc77ac8bd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44e4f8d2_8bb77bdd",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-10T11:34:21Z",
+      "side": 1,
+      "message": "nit: add blank lines between these blocks for readabilty",
+      "range": {
+        "startLine": 175,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 11
+      },
+      "revId": "bb92559db476d146eefa044bf6fd2efc77ac8bd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc5f3d9c_5e5139d3",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-10T11:34:21Z",
+      "side": 1,
+      "message": "Sorry to labor on this particular point, but this ought to be two separate logical blocks, one for each end value calculation. Its sub-expressions are independent of each other, but its current form somewhat obscures that and the overflow checking. Having said that, the point is moot if you choose to wrap the two step operation in a helper function as suggested above.",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 2
+      },
+      "revId": "bb92559db476d146eefa044bf6fd2efc77ac8bd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6325201e_9361852a",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-10T11:34:21Z",
+      "side": 1,
+      "message": "nit: this can be combined into a single expression",
+      "range": {
+        "startLine": 312,
+        "startChar": 5,
+        "endLine": 313,
+        "endChar": 47
+      },
+      "revId": "bb92559db476d146eefa044bf6fd2efc77ac8bd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "648d99d3_723cea33",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-10T11:34:21Z",
+      "side": 1,
+      "message": "nit: blank lines around logical blocks",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 375,
+        "endChar": 2
+      },
+      "revId": "bb92559db476d146eefa044bf6fd2efc77ac8bd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94f6df98_dd095c41",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-10T11:34:21Z",
+      "side": 1,
+      "message": "This duplicates the check in transfer_list_next, which returns NULL if the tl is NULL. We would exit early from the loop below anyway without it.",
+      "range": {
+        "startLine": 390,
+        "startChar": 0,
+        "endLine": 392,
+        "endChar": 2
+      },
+      "revId": "bb92559db476d146eefa044bf6fd2efc77ac8bd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18ad1e1a_762298f3",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-10T11:34:21Z",
+      "side": 1,
+      "message": "nit: blank lines around logical blocks",
+      "range": {
+        "startLine": 390,
+        "startChar": 0,
+        "endLine": 398,
+        "endChar": 1
+      },
+      "revId": "bb92559db476d146eefa044bf6fd2efc77ac8bd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7f97a38_341cab8b",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-10T11:34:21Z",
+      "side": 1,
+      "message": "nit: should this be named transfer_list_entry_data for preciseness?",
+      "range": {
+        "startLine": 404,
+        "startChar": 6,
+        "endLine": 404,
+        "endChar": 24
+      },
+      "revId": "bb92559db476d146eefa044bf6fd2efc77ac8bd5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
