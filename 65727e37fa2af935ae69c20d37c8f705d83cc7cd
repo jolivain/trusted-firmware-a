@@ -52,6 +52,24 @@
       "parentUuid": "0437ac35_e4eb02ab",
       "revId": "65727e37fa2af935ae69c20d37c8f705d83cc7cd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a4a8fbf_f1153b37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-08-10T11:27:53Z",
+      "side": 1,
+      "message": "\u003e  it is just that BL2 does not need the AARCH32_SP flag to build, to be able to load either SP_MIN or OP-TEE.\n\nAh okay! I got it what do you mean. I think it is better to have one build configuration in CI to prove this case (i.e. without AARCH32_SP).\n\n\u003e The lines you indicate in FVP platform makefile seem redundant with what is in the Makefile, but why not put there the check on AARCH32_SP\u003dnone?\nYes, this seems to be redundant. We will take care of removing this from the FVP platform Makefile. The default-aarch32 build of FVP always triggers BL32 build somehow, but this is not the case for ST platforms.\n\n\u003e why not put there the check on AARCH32_SP\u003dnone?\n\u003e ifeq (${ARCH},aarch32)\n\u003e     NEED_BL32 :\u003d yes\n\u003e +ifeq (${AARCH32_SP},none)\n\u003e +$(error Variable AARCH32_SP has to be set for AArch32)\n\u003e +endif\n\u003e endif\n\nMakes sense! Thanks. It will be good to handle this in the common Arm platform Makefile.",
+      "parentUuid": "d1acc035_4c26785f",
+      "revId": "65727e37fa2af935ae69c20d37c8f705d83cc7cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
