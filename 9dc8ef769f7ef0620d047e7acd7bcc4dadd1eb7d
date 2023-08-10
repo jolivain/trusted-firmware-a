@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ada8f260_ffd36697",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-08-10T19:39:05Z",
+      "side": 1,
+      "message": "I am copying the relevant contents from the static check fail (which is same as the link Joao posted above). Does it help?\n\n****** Order of includes on the last patch(es) ******\n\nResult : FAILURE\n\nChecking files modified between patches origin/master and HEAD...\n\n9dc8ef769::plat/arm/common/arm_sip_svc.c:\nInclude ordering error, order should be:\n\t#include \u003cservices/el3_spmd_logical_sp.h\u003e\n\t#include \u003ctools_share/uuid.h\u003e\n\n808e49032::services/std_svc/spmd/spmd_logical_sp.c:\nInclude ordering error, order should be:\n\t#include \"spmd_private.h\"\n\n\t#include \u003ccommon/debug.h\u003e\n\t#include \u003ccommon/uuid.h\u003e\n\t#include \u003clib/el3_runtime/context_mgmt.h\u003e\n\t#include \u003cservices/el3_spmd_logical_sp.h\u003e\n\t#include \u003csmccc_helpers.h\u003e\n\n8c809e492::services/std_svc/spmd/spmd_logical_sp.c:\nInclude ordering error, order should be:\n\t#include \"spmd_private.h\"\n\n\t#include \u003ccommon/debug.h\u003e\n\t#include \u003clib/el3_runtime/context_mgmt.h\u003e\n\t#include \u003cservices/el3_spmd_logical_sp.h\u003e\n\t#include \u003cservices/spmc_svc.h\u003e\n\n\ninclude/common/bl_common.ld.h:53: ERROR: Macros with multiple statements should be enclosed in a do - while loop\n+#define SPMD_LP_DESCS\t\t\t\t\t\\\n+\t. \u003d ALIGN(STRUCT_ALIGN);\t\t\t\\\n+\t__SPMD_LP_DESCS_START__ \u003d .;\t\t\t\\\n+\tKEEP(*(.spmd_lp_descs))\t\t\t\\\n+\t__SPMD_LP_DESCS_END__ \u003d .;\n\ninclude/common/bl_common.ld.h:53: WARNING: macros should not use a trailing semicolon\n+#define SPMD_LP_DESCS\t\t\t\t\t\\\n+\t. \u003d ALIGN(STRUCT_ALIGN);\t\t\t\\\n+\t__SPMD_LP_DESCS_START__ \u003d .;\t\t\t\\\n+\tKEEP(*(.spmd_lp_descs))\t\t\t\\\n+\t__SPMD_LP_DESCS_END__ \u003d .;\n\ntotal: 1 errors, 1 warnings, 325 lines checked",
+      "parentUuid": "3bf50afe_b1ad4290",
+      "revId": "9dc8ef769f7ef0620d047e7acd7bcc4dadd1eb7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75090511_4253282d",
         "filename": "plat/arm/board/fvp/fvp_spmd_logical_sp.c",
         "patchSetId": 17
