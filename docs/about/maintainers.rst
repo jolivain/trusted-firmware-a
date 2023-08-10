@@ -499,8 +499,8 @@ Arm Rich IoT Platform ports
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 :|M|: Abdellatif El Khlifi <abdellatif.elkhlifi@arm.com>
 :|G|: `abdellatif-elkhlifi`_
-:|M|: Vishnu Banavath <vishnu.banavath@arm.com>
-:|G|: `vishnu-banavath`_
+:|M|: Xueliang Zhong <xueliang.zhong@arm.com>
+:|G|: `xueliang-zhong-arm`_
 :|F|: plat/arm/board/corstone700
 :|F|: plat/arm/board/a5ds
 :|F|: plat/arm/board/corstone1000
