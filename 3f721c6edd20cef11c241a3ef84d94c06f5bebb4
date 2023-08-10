@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5918be20_145a7365",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001067
+      },
+      "writtenOn": "2023-08-10T21:26:03Z",
+      "side": 1,
+      "message": "aaa",
+      "revId": "3f721c6edd20cef11c241a3ef84d94c06f5bebb4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cdc413a3_62bce0ff",
@@ -14,6 +31,24 @@
       "writtenOn": "2023-08-10T15:37:16Z",
       "side": 1,
       "message": "Patch looks good to me. Were you able to test it by intentionally removing a cpu source file and check if it was caught by this assertion?",
+      "revId": "3f721c6edd20cef11c241a3ef84d94c06f5bebb4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4169ea79_17678bf0",
+        "filename": "lib/cpus/aarch64/cpu_helpers.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1001067
+      },
+      "writtenOn": "2023-08-10T21:26:03Z",
+      "side": 1,
+      "message": "I tested it on fvp, removing a cpu I could See an assert message in console. If the cpu_ops is not found and assert is not enabled should we stop execution and go into a panic?",
+      "parentUuid": "cdc413a3_62bce0ff",
       "revId": "3f721c6edd20cef11c241a3ef84d94c06f5bebb4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
