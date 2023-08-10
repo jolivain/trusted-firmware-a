@@ -51,6 +51,24 @@
       "parentUuid": "cdc413a3_62bce0ff",
       "revId": "3f721c6edd20cef11c241a3ef84d94c06f5bebb4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "235feb2f_ba2b678e",
+        "filename": "lib/cpus/aarch64/cpu_helpers.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-08-10T21:41:59Z",
+      "side": 1,
+      "message": "Its unlikely that platforms would miss including the CPU source files in production releases. It might happen in early development. So I think the current approach is good enough. No need of explicit panic since eventually execution would crash if CPU file is not included.",
+      "parentUuid": "4169ea79_17678bf0",
+      "revId": "3f721c6edd20cef11c241a3ef84d94c06f5bebb4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
