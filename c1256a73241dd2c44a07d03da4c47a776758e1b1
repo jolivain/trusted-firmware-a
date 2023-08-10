@@ -16,6 +16,46 @@
       "message": "Giving manual Verified+1 as CI error is unrelated.",
       "revId": "c1256a73241dd2c44a07d03da4c47a776758e1b1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20197f20_eafe36da",
+        "filename": "lib/cpus/aarch64/cortex_gelas.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-08-10T21:52:36Z",
+      "side": 1,
+      "message": "nit: this isb is redundant",
+      "range": {
+        "startLine": 30,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 4
+      },
+      "revId": "c1256a73241dd2c44a07d03da4c47a776758e1b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b13408c2_b21819da",
+        "filename": "lib/cpus/aarch64/cortex_gelas.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-08-10T21:52:36Z",
+      "side": 1,
+      "message": "nit: extra space",
+      "revId": "c1256a73241dd2c44a07d03da4c47a776758e1b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
