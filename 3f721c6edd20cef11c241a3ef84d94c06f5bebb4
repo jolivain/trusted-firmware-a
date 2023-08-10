@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdc413a3_62bce0ff",
+        "filename": "lib/cpus/aarch64/cpu_helpers.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-08-10T15:37:16Z",
+      "side": 1,
+      "message": "Patch looks good to me. Were you able to test it by intentionally removing a cpu source file and check if it was caught by this assertion?",
+      "revId": "3f721c6edd20cef11c241a3ef84d94c06f5bebb4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
