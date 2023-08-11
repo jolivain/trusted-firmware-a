@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "57635c15_a3fa2a5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-08-11T19:39:47Z",
+      "side": 1,
+      "message": "thanks, i kept looking at the consoel logs and those errors/warnings dont show up.. will fix them. Do i need to fix the issue with adding to tf-cov-make as well or that is not required?",
+      "parentUuid": "bbd97373_0b921e16",
+      "revId": "9dc8ef769f7ef0620d047e7acd7bcc4dadd1eb7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75090511_4253282d",
         "filename": "plat/arm/board/fvp/fvp_spmd_logical_sp.c",
         "patchSetId": 17
