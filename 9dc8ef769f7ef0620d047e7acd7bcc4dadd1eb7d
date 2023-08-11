@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf1c8f5b_4d587bfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-08-11T21:10:24Z",
+      "side": 1,
+      "message": "Not required since Joao took care of it here: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/21932",
+      "parentUuid": "57635c15_a3fa2a5b",
+      "revId": "9dc8ef769f7ef0620d047e7acd7bcc4dadd1eb7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75090511_4253282d",
         "filename": "plat/arm/board/fvp/fvp_spmd_logical_sp.c",
         "patchSetId": 17
