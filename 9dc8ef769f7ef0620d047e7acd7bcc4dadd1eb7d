@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bbd97373_0b921e16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-08-11T14:04:48Z",
+      "side": 1,
+      "message": "As soon as Joao triggered Allow-CI+1 on August 9th at 11:51AM(my time), the TrustedFirmware CodeReview bot returned with the following message at 12:05PM\n\nBuild Started http://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/4267/ \"\n\nOnce you click the above link, it will redirect you to the page where you will find 4 other subjobs titled:\n1. tf-a-commit-lint\n2. tf-a-static-checks (this is the one you are looking for)\n3. tf-a-ci-gateway: Runs doc build\n4. tf-a-ci-gateway: Run build tests\n\nThe above template can be seen generically with L1 job web interface: https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/",
+      "parentUuid": "72b10f3e_26291509",
+      "revId": "9dc8ef769f7ef0620d047e7acd7bcc4dadd1eb7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "75090511_4253282d",
         "filename": "plat/arm/board/fvp/fvp_spmd_logical_sp.c",
         "patchSetId": 17
