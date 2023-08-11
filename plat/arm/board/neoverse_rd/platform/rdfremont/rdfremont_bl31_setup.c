@@ -6,6 +6,8 @@
 
 #include <common/debug.h>
 #include <drivers/arm/gic600_multichip.h>
+#include <drivers/arm/smmu_v3.h>
+
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 #include <nrd_plat.h>
@@ -78,6 +80,15 @@ static uintptr_t rdfremontmc_multichip_gicr_frames[] = {
 
 void bl31_platform_setup(void)
 {
+	/*
+	 * Perform SMMUv3 GPT configuration for the GPC SMMU present in system
+	 * control block on RD-Fremont platforms. This SMMUv3 initialization is
+	 * not fatal.
+	 */
+	if (smmuv3_init(NRD_CSS_GPC_SMMUV3_BASE) != 0) {
+		WARN("Failed initializing System SMMU.\n");
+	}
+
 #if (NRD_PLATFORM_VARIANT == 2)
 	int ret;
 	unsigned int i;
