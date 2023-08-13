@@ -16,6 +16,23 @@
       "message": "https://ci.trustedfirmware.org/job/tf-a-ci-gateway/45532/\n\nOne failure, related to BL31 progbits issue, which is unrelated with this patch.\nA patch to address this issue [ https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/22545 ]\n\nManually providing verified +1. ",
       "revId": "4c7a833889e72a1397c1b6bbef649a3827a6cc71",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e7acb95_e8f29d26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-08-13T21:08:12Z",
+      "side": 1,
+      "message": "Patch LGTM.\nI believe FEAT_MTPMU is explicitly not converted here as it does not fit into this pattern of wrapper macros, hence it\u0027s retained without any changes.\n\nFurther, I see some MISRA warnings, please take a look at them.\nAs we had encountered, it might sometimes be a false warning ( https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19019). So kindly analyse it.\n\n\n",
+      "revId": "4c7a833889e72a1397c1b6bbef649a3827a6cc71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
