@@ -1,3 +1,6 @@
+
+.. _performance_monitoring_unit:
+
 Performance Monitoring Unit
 ===========================
 
@@ -153,6 +156,6 @@ For ``PMCR``/``PMCR_EL0``, the most important fields are:
 
 --------------
 
-*Copyright (c) 2019-2020, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2019-2023, Arm Limited and Contributors. All rights reserved.*
 
 .. _Arm ARM: https://developer.arm.com/docs/ddi0487/latest
