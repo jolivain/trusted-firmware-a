@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "540c9ac2_82d65fda",
+        "filename": "lib/cpus/aarch64/cortex_gelas.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-08-14T20:12:33Z",
+      "side": 1,
+      "message": "This piece of code looks newer.\n\nWe may not need this if the core for the platform is not supporting SME. TRM states \"If the Gelas core includes Scalable Matrix Extension (SME) functionality, ensure the CME-Griffin\nis properly disconnected by setting PSTATE.SM and PSTATE.ZA to 0.\"\n\nSo, we could have the following cases. Investigate this and do the optimal. Might want to open a minor defect on this and add follow up patch as necessary.\n\n1. SME not supported. If not, we should compile out and save the instruction space using associated build flag.\n2. SME supported but NOT enabled for a given EL. We have to use feature discovery and enable in a given EL\n3. SME supported and enabled for a given EL. Relies on feature discovery and enable bit",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 29
+      },
+      "revId": "02586e0e28e590fbc5e8461cfdc03db08485c14f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
