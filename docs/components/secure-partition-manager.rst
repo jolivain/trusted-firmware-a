@@ -1,3 +1,6 @@
+
+.. _secure_partition_manager:
+
 Secure Partition Manager
 ************************
 

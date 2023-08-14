@@ -1,3 +1,6 @@
+
+.. _runtime_instrumentation_methodology:
+
 Runtime Instrumentation Methodology
 ===================================
 
