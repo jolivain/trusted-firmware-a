@@ -594,4 +594,4 @@ Client <https://developer.arm.com/documentation/den0006/d/>`__
 
 --------------
 
-*Copyright (c) 2020-2022, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2020-2023, Arm Limited and Contributors. All rights reserved.*
