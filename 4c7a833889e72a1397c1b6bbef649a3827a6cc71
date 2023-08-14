@@ -33,6 +33,24 @@
       "message": "Patch LGTM.\nI believe FEAT_MTPMU is explicitly not converted here as it does not fit into this pattern of wrapper macros, hence it\u0027s retained without any changes.\n\nFurther, I see some MISRA warnings, please take a look at them.\nAs we had encountered, it might sometimes be a false warning ( https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19019). So kindly analyse it.\n\n\n",
       "revId": "4c7a833889e72a1397c1b6bbef649a3827a6cc71",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f8aadfc_39e1f8f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-08-14T14:33:39Z",
+      "side": 1,
+      "message": "Yes, MTPMU requires the open coded version.\nRegarding the MISRA warnings: we see them on every patch that touches this file, I think this is there the automated MISRA tests misses the point: we have those \"invariant\" expressions deliberately, to be spotted as such and optimised away by the compiler. Though the MISRA checker fails to see that this is not really invariant per se, but determined by compile-time set variables.\nSo yes, in the past we always just ignored them.",
+      "parentUuid": "6e7acb95_e8f29d26",
+      "revId": "4c7a833889e72a1397c1b6bbef649a3827a6cc71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
