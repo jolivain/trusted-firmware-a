@@ -106,6 +106,9 @@ ENABLE_FEAT_RNG			:= 2
 # QEMU 7.2+ has support for FGT and Linux needs it enabled to boot on max
 ENABLE_FEAT_FGT			:= 2
 
+# Some CPU models support HCX, detect support at runtime
+ENABLE_FEAT_HCX			:= 2
+
 # Treating this as a memory-constrained port for now
 USE_COHERENT_MEM	:=	0
 
