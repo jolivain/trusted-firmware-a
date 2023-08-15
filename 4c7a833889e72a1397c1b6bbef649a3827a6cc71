@@ -87,6 +87,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "30bf9524_6efc53b7",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-08-15T14:43:57Z",
+      "side": 1,
+      "message": "Yes, this might deserve some reordering, but this patch is not easy to verify already, so I\u0027d rather keep the order for now, so one can match the functions next to each other.",
+      "parentUuid": "8203d5a0_8211750a",
+      "revId": "4c7a833889e72a1397c1b6bbef649a3827a6cc71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a607d26_f59c35e2",
@@ -100,6 +118,30 @@
       "writtenOn": "2023-08-15T09:16:37Z",
       "side": 1,
       "message": "Can this use the macro: CREATE_FEATURE_FUNCS introduced in this patch?",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 1
+      },
+      "revId": "4c7a833889e72a1397c1b6bbef649a3827a6cc71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "398024a9_622be8c6",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-08-15T14:43:57Z",
+      "side": 1,
+      "message": "CREATE_FEATURE_FUNCS itself wouldn\u0027t work, because that also instantiates the read_feat_xxx_id_field() function, which is different here, both the name and implementation.\nBut it looks like we can use the CREATE_FEATURE_FUNCS_VER macro here.\nJust not sure it\u0027s worth it now since it would remove all votes again.",
+      "parentUuid": "6a607d26_f59c35e2",
       "range": {
         "startLine": 161,
         "startChar": 0,
