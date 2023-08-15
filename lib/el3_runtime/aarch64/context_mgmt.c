@@ -639,6 +639,7 @@ static __unused void enable_pauth_el2(void)
 	write_hcr_el2(hcr_el2);
 }
 
+#if INIT_UNUSED_NS_EL2
 /*******************************************************************************
  * Enable architecture extensions in-place at EL2 on first entry to Non-secure
  * world when EL2 is empty and unused.
@@ -685,6 +686,7 @@ static void manage_extensions_nonsecure_el2_unused(void)
 #endif /* ENABLE_PAUTH */
 #endif /* IMAGE_BL31 */
 }
+#endif /* INIT_UNUSED_NS_EL2 */
 
 /*******************************************************************************
  * Enable architecture extensions on first entry to Secure world.
@@ -758,6 +760,7 @@ void cm_init_my_context(const entry_point_info_t *ep)
 	cm_setup_context(ctx, ep);
 }
 
+#if INIT_UNUSED_NS_EL2
 /* EL2 present but unused, need to disable safely. SCTLR_EL2 can be ignored */
 static __unused void init_nonsecure_el2_unused(cpu_context_t *ctx)
 {
@@ -860,6 +863,7 @@ static __unused void init_nonsecure_el2_unused(cpu_context_t *ctx)
 
 	manage_extensions_nonsecure_el2_unused();
 }
+#endif /* INIT_UNUSED_NS_EL2 */
 
 /*******************************************************************************
  * Prepare the CPU system registers for first entry into realm, secure, or
@@ -872,6 +876,7 @@ static __unused void init_nonsecure_el2_unused(cpu_context_t *ctx)
  ******************************************************************************/
 void cm_prepare_el3_exit(uint32_t security_state)
 {
+
 	u_register_t sctlr_elx, scr_el3;
 	cpu_context_t *ctx = cm_get_context(security_state);
 
@@ -929,7 +934,9 @@ void cm_prepare_el3_exit(uint32_t security_state)
 #endif
 			write_sctlr_el2(sctlr_elx);
 		} else if (el2_implemented != EL_IMPL_NONE) {
+#if INIT_UNUSED_NS_EL2
 			init_nonsecure_el2_unused(ctx);
+#endif /* INIT_UNUSED_NS_EL2 */
 		}
 	}
 
