@@ -91,11 +91,17 @@ endif
 
 ifeq (${TF_MBEDTLS_KEY_SIZE},)
     ifneq ($(findstring rsa,${TF_MBEDTLS_KEY_ALG}),)
-	ifeq (${KEY_SIZE},)
+        ifeq (${KEY_SIZE},)
             TF_MBEDTLS_KEY_SIZE		:=	2048
-	else
+        else
             TF_MBEDTLS_KEY_SIZE		:=	${KEY_SIZE}
-	endif
+        endif
+    else ifneq ($(findstring ecdsa,${TF_MBEDTLS_KEY_ALG}),)
+        ifeq (${KEY_SIZE},)
+            TF_MBEDTLS_KEY_SIZE		:=	256
+        else
+            TF_MBEDTLS_KEY_SIZE		:=	${KEY_SIZE}
+        endif
     endif
 endif
 
