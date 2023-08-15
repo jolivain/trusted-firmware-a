@@ -84,6 +84,8 @@ endif
 ifeq (${TF_MBEDTLS_KEY_ALG},)
     ifeq (${KEY_ALG}, ecdsa)
         TF_MBEDTLS_KEY_ALG		:=	ecdsa
+    else ifeq (${KEY_ALG}, ecdsa-p384)
+        TF_MBEDTLS_KEY_ALG		:=	ecdsa-p384
     else
         TF_MBEDTLS_KEY_ALG		:=	rsa
     endif
@@ -113,6 +115,8 @@ else ifeq (${TF_MBEDTLS_KEY_ALG},rsa)
     TF_MBEDTLS_KEY_ALG_ID	:=	TF_MBEDTLS_RSA
 else ifeq (${TF_MBEDTLS_KEY_ALG},rsa+ecdsa)
     TF_MBEDTLS_KEY_ALG_ID	:=	TF_MBEDTLS_RSA_AND_ECDSA
+else ifeq (${TF_MBEDTLS_KEY_ALG},ecdsa-p384)
+    TF_MBEDTLS_KEY_ALG_ID	:=	TF_MBEDTLS_ECDSA_P384
 else
     $(error "TF_MBEDTLS_KEY_ALG=${TF_MBEDTLS_KEY_ALG} not supported on mbed TLS")
 endif
