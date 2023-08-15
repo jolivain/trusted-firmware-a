@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -95,11 +95,13 @@ int arm_get_rotpk_info_regs(void **key_ptr, unsigned int *key_len,
 
 #if (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_RSA_ID) || \
     (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_ECDSA_ID) || \
-    (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_FULL_DEV_RSA_KEY_ID)
+    (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_FULL_DEV_RSA_KEY_ID) || \
+    (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_FULL_DEV_ECDSA_KEY_ID)
 int arm_get_rotpk_info_dev(void **key_ptr, unsigned int *key_len,
 			unsigned int *flags)
 {
-	if (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_FULL_DEV_RSA_KEY_ID) {
+	if ((ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_FULL_DEV_RSA_KEY_ID) ||
+			(ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_FULL_DEV_ECDSA_KEY_ID)) {
 		*key_ptr = arm_rotpk_key;
 		*key_len = arm_rotpk_key_end - arm_rotpk_key;
 		*flags = 0;
@@ -146,7 +148,8 @@ static int get_rotpk_info(void **key_ptr, unsigned int *key_len,
 
 #if (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_RSA_ID) || \
     (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_ECDSA_ID) || \
-    (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_FULL_DEV_RSA_KEY_ID)
+    (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_FULL_DEV_RSA_KEY_ID) || \
+    (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_DEVEL_FULL_DEV_ECDSA_KEY_ID)
 	return arm_get_rotpk_info_dev(key_ptr, key_len, flags);
 #elif (ARM_ROTPK_LOCATION_ID == ARM_ROTPK_REGS_ID)
 	return arm_get_rotpk_info_regs(key_ptr, key_len, flags);

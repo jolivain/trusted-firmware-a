@@ -25,7 +25,13 @@
 #define ARM_ROTPK_HEADER_LEN		19
 #define ARM_ROTPK_HASH_LEN		32
 /* ARM_ROTPK_KEY_LEN includes DER header + raw key material */
+#if (TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_ECDSA_P384)
+#define ARM_ROTPK_KEY_LEN		120
+#elif (TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_ECDSA)
+#define ARM_ROTPK_KEY_LEN		91
+#else
 #define ARM_ROTPK_KEY_LEN		294
+#endif
 
 /* Special value used to verify platform parameters from BL2 to BL31 */
 #define ARM_BL31_PLAT_PARAM_VAL		ULL(0x0f1e2d3c4b5a6978)
