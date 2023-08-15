@@ -1409,6 +1409,7 @@ $(eval $(call add_defines,\
 	IMPDEF_SYSREG_TRAP \
 	SVE_VECTOR_LEN \
 	ENABLE_SPMD_LP \
+	INIT_UNUSED_NS_EL2 \
 )))
 
 ifeq (${SANITIZE_UB},trap)

@@ -511,3 +511,9 @@ CONDITIONAL_CMO			:= 0
 
 # By default, disable SPMD Logical partitions
 ENABLE_SPMD_LP			:= 0
+
+# Disable support to disable unused EL2 when it is not used.
+# Most platforms handover EL3 to NS-EL2 and hence the unused NS-EL2
+# functions must be enabled by platforms if they require it.
+# Disabled by default.
+INIT_UNUSED_NS_EL2		:= 0
