@@ -1219,6 +1219,7 @@ $(eval $(call assert_booleans,\
 	ERRATA_NON_ARM_INTERCONNECT \
 	CONDITIONAL_CMO \
 	RAS_FFH_SUPPORT \
+	INIT_UNUSED_NS_EL2 \
 )))
 
 # Numeric_Flags
@@ -1408,6 +1409,7 @@ $(eval $(call add_defines,\
 	IMPDEF_SYSREG_TRAP \
 	SVE_VECTOR_LEN \
 	ENABLE_SPMD_LP \
+	INIT_UNUSED_NS_EL2 \
 )))
 
 ifeq (${SANITIZE_UB},trap)
