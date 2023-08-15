@@ -51,6 +51,63 @@
       "parentUuid": "6e7acb95_e8f29d26",
       "revId": "4c7a833889e72a1397c1b6bbef649a3827a6cc71",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1e5fd48_6ddf3ac5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-08-15T09:16:37Z",
+      "side": 1,
+      "message": "This is nice clean-up! Posted few minor comments inline in the patch.",
+      "revId": "4c7a833889e72a1397c1b6bbef649a3827a6cc71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8203d5a0_8211750a",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-08-15T09:16:37Z",
+      "side": 1,
+      "message": "The grouping of functions of similar types makes this patch easier to read. In this file, I can see the following variant functions - \n\n1. is_*_supported (functions that does not use this introduced macros, exceptional cases).\n2. is_*_present\n3. read_feat_*_field\n\nThis is not really related to this patch. It is not blocking comment and can be handled in the same/subsequent patch.",
+      "revId": "4c7a833889e72a1397c1b6bbef649a3827a6cc71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a607d26_f59c35e2",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-08-15T09:16:37Z",
+      "side": 1,
+      "message": "Can this use the macro: CREATE_FEATURE_FUNCS introduced in this patch?",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 1
+      },
+      "revId": "4c7a833889e72a1397c1b6bbef649a3827a6cc71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
