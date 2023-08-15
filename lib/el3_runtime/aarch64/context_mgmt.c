@@ -620,7 +620,7 @@ static __unused void enable_pauth_el2(void)
  * Enable architecture extensions in-place at EL2 on first entry to Non-secure
  * world when EL2 is empty and unused.
  ******************************************************************************/
-#if !CTX_INCLUDE_EL2_REGS
+#if INIT_UNUSED_NS_EL2
 static void manage_extensions_nonsecure_el2_unused(void)
 {
 #if IMAGE_BL31
@@ -663,7 +663,7 @@ static void manage_extensions_nonsecure_el2_unused(void)
 #endif /* ENABLE_PAUTH */
 #endif /* IMAGE_BL31 */
 }
-#endif /* !CTX_INCLUDE_EL2_REGS */
+#endif /* INIT_UNUSED_NS_EL2 */
 
 /*******************************************************************************
  * Enable architecture extensions on first entry to Secure world.
@@ -738,7 +738,7 @@ void cm_init_my_context(const entry_point_info_t *ep)
 }
 
 /* EL2 present but unused, need to disable safely */
-#if !CTX_INCLUDE_EL2_REGS
+#if INIT_UNUSED_NS_EL2
 static void init_nonsecure_el2_unused(cpu_context_t *ctx)
 {
 	u_register_t hcr_el2 = HCR_RESET_VAL;
@@ -840,7 +840,7 @@ static void init_nonsecure_el2_unused(cpu_context_t *ctx)
 
 	manage_extensions_nonsecure_el2_unused();
 }
-#endif /* !CTX_INCLUDE_EL2_REGS */
+#endif /* INIT_UNUSED_NS_EL2 */
 
 /*******************************************************************************
  * Prepare the CPU system registers for entry to a lower EL. Should be used for
@@ -848,7 +848,7 @@ static void init_nonsecure_el2_unused(cpu_context_t *ctx)
  ******************************************************************************/
 void cm_prepare_el3_exit(uint32_t security_state)
 {
-#if !CTX_INCLUDE_EL2_REGS
+#if INIT_UNUSED_NS_EL2
 	u_register_t scr_el3;
 	cpu_context_t *ctx = cm_get_context(security_state);
 
@@ -862,7 +862,7 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			init_nonsecure_el2_unused(ctx);
 		}
 	}
-#endif /* !CTX_INCLUDE_EL2_REGS */
+#endif /* INIT_UNUSED_NS_EL2 */
 
 	cm_el2_sysregs_context_restore(security_state);
 	cm_el1_sysregs_context_restore(security_state);
