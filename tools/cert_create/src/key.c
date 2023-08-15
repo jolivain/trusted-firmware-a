@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -115,6 +115,11 @@ static int key_create_ecdsa_nist(key_t *key, int key_bits)
 	return key_create_ecdsa(key, key_bits, "prime256v1");
 }
 
+static int key_create_ecdsa_nist_p384(key_t *key, int key_bits)
+{
+	return key_create_ecdsa(key, key_bits, "secp384r1");
+}
+
 static int key_create_ecdsa_brainpool_r(key_t *key, int key_bits)
 {
 	return key_create_ecdsa(key, key_bits, "brainpoolP256r1");
@@ -157,6 +162,11 @@ static int key_create_ecdsa_nist(key_t *key, int key_bits)
 	return key_create_ecdsa(key, key_bits, NID_X9_62_prime256v1);
 }
 
+static int key_create_ecdsa_nist_p384(key_t *key, int key_bits)
+{
+	return key_create_ecdsa(key, key_bits, NID_secp384r1);
+}
+
 static int key_create_ecdsa_brainpool_r(key_t *key, int key_bits)
 {
 	return key_create_ecdsa(key, key_bits, NID_brainpoolP256r1);
@@ -174,6 +184,7 @@ static const key_create_fn_t key_create_fn[KEY_ALG_MAX_NUM] = {
 	[KEY_ALG_RSA] = key_create_rsa,
 #ifndef OPENSSL_NO_EC
 	[KEY_ALG_ECDSA_NIST] = key_create_ecdsa_nist,
+	[KEY_ALG_ECDSA_NIST_P384] = key_create_ecdsa_nist_p384,
 	[KEY_ALG_ECDSA_BRAINPOOL_R] = key_create_ecdsa_brainpool_r,
 	[KEY_ALG_ECDSA_BRAINPOOL_T] = key_create_ecdsa_brainpool_t,
 #endif /* OPENSSL_NO_EC */

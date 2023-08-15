@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -85,6 +85,7 @@ static const char *key_algs_str[] = {
 	[KEY_ALG_RSA] = "rsa",
 #ifndef OPENSSL_NO_EC
 	[KEY_ALG_ECDSA_NIST] = "ecdsa",
+	[KEY_ALG_ECDSA_NIST_P384] = "ecdsa-p384",
 	[KEY_ALG_ECDSA_BRAINPOOL_R] = "ecdsa-brainpool-regular",
 	[KEY_ALG_ECDSA_BRAINPOOL_T] = "ecdsa-brainpool-twisted",
 #endif /* OPENSSL_NO_EC */
@@ -270,7 +271,7 @@ static const cmd_opt_t common_cmd_opt[] = {
 	{
 		{ "key-alg", required_argument, NULL, 'a' },
 		"Key algorithm: 'rsa' (default)- RSAPSS scheme as per PKCS#1 v2.1, " \
-		"'ecdsa', 'ecdsa-brainpool-regular', 'ecdsa-brainpool-twisted'"
+		"'ecdsa', 'ecdsa-p384', 'ecdsa-brainpool-regular', 'ecdsa-brainpool-twisted'"
 	},
 	{
 		{ "key-size", required_argument, NULL, 'b' },
