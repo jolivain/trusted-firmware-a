@@ -846,9 +846,12 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			sctlr_elx |= SCTLR_IESB_BIT;
 #endif
 			write_sctlr_el2(sctlr_elx);
-		} else if (el2_implemented != EL_IMPL_NONE) {
+		}
+#if INIT_UNUSED_NS_EL2
+		else if (el2_implemented != EL_IMPL_NONE) {
 			init_nonsecure_el2_unused(ctx);
 		}
+#endif /* INIT_UNUSED_NS_EL2 */
 	}
 
 	cm_el1_sysregs_context_restore(security_state);
