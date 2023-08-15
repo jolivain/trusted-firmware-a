@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -46,7 +46,11 @@
 #error "Invalid value for TF_MBEDTLS_KEY_SIZE"
 #endif
 #else /* Only using ECDSA keys. */
+#if (TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_ECDSA_P384)
+#define PK_DER_LEN                      120
+#else
 #define PK_DER_LEN                      92
+#endif
 #endif
 
 #if TF_MBEDTLS_HASH_ALG_ID == TF_MBEDTLS_SHA256
