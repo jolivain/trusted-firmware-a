@@ -16,6 +16,23 @@
       "message": "Rebase to top of integration branch to solve the merge conflicts.",
       "revId": "fbfd26c50c6cee82b74ca2a46a28ea229a50da21",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aac7ef8_b4bbb8ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-08-15T08:29:09Z",
+      "side": 1,
+      "message": "Unrelated failure in static checks:\n\n[*] Checking style of \u0027890b5088203e990d683a9c837e976be62c6501aa\u0027\n\ninclude/common/bl_common.ld.h:53: ERROR: Macros with multiple statements should be enclosed in a do - while loop\n+#define SPMD_LP_DESCS\t\t\t\t\t\\\n+\t. \u003d ALIGN(STRUCT_ALIGN);\t\t\t\\\n+\t__SPMD_LP_DESCS_START__ \u003d .;\t\t\t\\\n+\tKEEP(*(.spmd_lp_descs))\t\t\t\\\n+\t__SPMD_LP_DESCS_END__ \u003d .;",
+      "revId": "fbfd26c50c6cee82b74ca2a46a28ea229a50da21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
