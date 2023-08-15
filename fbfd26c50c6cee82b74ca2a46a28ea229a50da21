@@ -33,6 +33,92 @@
       "message": "Unrelated failure in static checks:\n\n[*] Checking style of \u0027890b5088203e990d683a9c837e976be62c6501aa\u0027\n\ninclude/common/bl_common.ld.h:53: ERROR: Macros with multiple statements should be enclosed in a do - while loop\n+#define SPMD_LP_DESCS\t\t\t\t\t\\\n+\t. \u003d ALIGN(STRUCT_ALIGN);\t\t\t\\\n+\t__SPMD_LP_DESCS_START__ \u003d .;\t\t\t\\\n+\tKEEP(*(.spmd_lp_descs))\t\t\t\\\n+\t__SPMD_LP_DESCS_END__ \u003d .;",
       "revId": "fbfd26c50c6cee82b74ca2a46a28ea229a50da21",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cca62a6d_e7f7d027",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-15T23:44:04Z",
+      "side": 1,
+      "message": "nit: This should not be included directly from non-export headers. Include \u003clib/utils_def.h\u003e instead. See include/export/README for details.",
+      "revId": "fbfd26c50c6cee82b74ca2a46a28ea229a50da21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca8f7312_14676122",
+        "filename": "include/lib/utils_def.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-15T23:44:04Z",
+      "side": 1,
+      "message": "nit: Is there any consistency to which of these macros are written in ALL_CAPS and which are not? If `round_up()` is in lowercase, then why is this not `roundup_overflow()` (or even better for consistency, `round_up_overflow()`)?",
+      "range": {
+        "startLine": 113,
+        "startChar": 8,
+        "endLine": 113,
+        "endChar": 24
+      },
+      "revId": "fbfd26c50c6cee82b74ca2a46a28ea229a50da21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bdda7d3_f72389eb",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-15T23:44:04Z",
+      "side": 1,
+      "message": "If you\u0027re checking for overflow everywhere else, why not here? This could overflow on aarch32. (Many more instances of `hdr_size + data_size` below as well.)",
+      "range": {
+        "startLine": 162,
+        "startChar": 36,
+        "endLine": 162,
+        "endChar": 68
+      },
+      "revId": "fbfd26c50c6cee82b74ca2a46a28ea229a50da21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a75fb187_a4760bc1",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-08-15T23:44:04Z",
+      "side": 1,
+      "message": "Could overflow on aarch32 as well.",
+      "range": {
+        "startLine": 330,
+        "startChar": 35,
+        "endLine": 330,
+        "endChar": 58
+      },
+      "revId": "fbfd26c50c6cee82b74ca2a46a28ea229a50da21",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
