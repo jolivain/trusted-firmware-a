@@ -9,7 +9,7 @@
 # This is a debug flag for bring-up. It allows reducing CPU numbers
 # SECONDARY_BRINGUP	:=	1
 RESET_TO_BL31	:=	1
-PMD_SPM_AT_SEL2	:= 0
+SPMD_SPM_AT_SEL2	:= 0
 #temporary until the RAM size is reduced
 USE_COHERENT_MEM	:=	1
 
