@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10fb14d7_b5434624",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-08-16T06:40:18Z",
+      "side": 1,
+      "message": "The CI reports the following failure:\n\n Makefile:658: *** recipe commences before first target.  Stop.",
+      "range": {
+        "startLine": 658,
+        "startChar": 0,
+        "endLine": 658,
+        "endChar": 61
+      },
+      "revId": "795e7cbb716f5e028709c9740fbdf7adbaf65c74",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
