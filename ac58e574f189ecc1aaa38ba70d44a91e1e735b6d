@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16691937_a0cbd37a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 41
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-08-16T21:45:00Z",
+      "side": 1,
+      "message": "All failed test_configs are related to Juno platform. They had failed due to an infra issue and passed on rebuild.[ https://ci.trustedfirmware.org/job/tf-a-ci-gateway/46165/]\n\nHence Manually providing Verified +1.",
+      "revId": "ac58e574f189ecc1aaa38ba70d44a91e1e735b6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
