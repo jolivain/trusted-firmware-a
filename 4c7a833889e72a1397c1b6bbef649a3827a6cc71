@@ -105,6 +105,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bd7e432_9eee0233",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-08-16T09:01:50Z",
+      "side": 1,
+      "message": "That\u0027s fine! Maybe it\u0027s just me who feels it should be more readable.",
+      "parentUuid": "30bf9524_6efc53b7",
+      "revId": "4c7a833889e72a1397c1b6bbef649a3827a6cc71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a607d26_f59c35e2",
@@ -142,6 +160,30 @@
       "side": 1,
       "message": "CREATE_FEATURE_FUNCS itself wouldn\u0027t work, because that also instantiates the read_feat_xxx_id_field() function, which is different here, both the name and implementation.\nBut it looks like we can use the CREATE_FEATURE_FUNCS_VER macro here.\nJust not sure it\u0027s worth it now since it would remove all votes again.",
       "parentUuid": "6a607d26_f59c35e2",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 1
+      },
+      "revId": "4c7a833889e72a1397c1b6bbef649a3827a6cc71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8ccf77d_f2e48b5e",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-08-16T09:01:50Z",
+      "side": 1,
+      "message": "\u003e CREATE_FEATURE_FUNCS itself wouldn\u0027t work, because that also instantiates the read_feat_xxx_id_field() function, which is different here, both the name and implementation.\n\nah yes!\n\n\u003e But it looks like we can use the CREATE_FEATURE_FUNCS_VER macro here.\nJust not sure it\u0027s worth it now since it would remove all votes again.\n\nVotes can be restored quickly 😊. While I don\u0027t mind if other reviewers opt to proceed without converting this, I find it odd to leave this unconverted piece behind.",
+      "parentUuid": "398024a9_622be8c6",
       "range": {
         "startLine": 161,
         "startChar": 0,
