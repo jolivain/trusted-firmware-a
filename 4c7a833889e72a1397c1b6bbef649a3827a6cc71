@@ -192,6 +192,30 @@
       },
       "revId": "4c7a833889e72a1397c1b6bbef649a3827a6cc71",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80b02160_d80daeb9",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-08-16T10:17:32Z",
+      "side": 1,
+      "message": "Sure, I will fix this and update. But just for the records:\n\n\"Votes can be restored quickly.\" Well, that depends on your definition of quickly, especially during the holiday season ;-) And this patch is lingering around for quite a while already. My last update was a week ago, and only now this is merge ready - only that it\u0027s now not anymore.\n\nComing from a Linux background, I find it odd that even small changes (commit message rewording, spelling in comments, variable renames) drop the more precious maintainer and CoR votes. I would expect them to be more high level, so not affected by those smaller changes. I guess this is hard to fix in gerrit, but in the kernel you would just say: \"With that fixed: Reviewed-by: ...\", or the patch author would carry over a review tag at their own discretion.",
+      "parentUuid": "d8ccf77d_f2e48b5e",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 172,
+        "endChar": 1
+      },
+      "revId": "4c7a833889e72a1397c1b6bbef649a3827a6cc71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
