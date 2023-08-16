@@ -2455,7 +2455,9 @@ enum pm_ret_status pm_api_clock_get_num_clocks(uint32_t *nclocks)
  */
 void pm_api_clock_get_name(uint32_t clock_id, char *name)
 {
-	if (clock_id == CLK_MAX) {
+	if (clock_id > CLK_MAX) {
+		return;
+	} else if (clock_id == CLK_MAX) {
 		memcpy(name, END_OF_CLK, sizeof(END_OF_CLK) > CLK_NAME_LEN ?
 					 CLK_NAME_LEN : sizeof(END_OF_CLK));
 	} else if (!pm_clock_valid(clock_id)) {
