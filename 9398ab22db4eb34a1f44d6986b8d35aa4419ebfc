@@ -279,6 +279,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1272e1a5_c04bc9c2",
+        "filename": "tools/sptool/sp_mk_generator.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-08-16T13:24:01Z",
+      "side": 1,
+      "message": "\u003e So I think it is fare to a field to the sp layout json file, to define the physical load address of the secure partition.\nDo you agree this field is only required when the SEL1 SPMC is used?\nEventually TF-A-tests changes aren\u0027t necessary, when SEL2/Hafnium SPMC is used?\nhttps://review.trustedfirmware.org/c/TF-A/tf-a-tests/+/19893/\nAFAIK the SEL1 SPMC doens\u0027t make use of TF-a-tests\u0027 cactus images..\n\nThis is a bit confusing now as it looks as if the new json load address field is mandatory for the SEL2 SPMC when it is not.. \nPerhaps this is missing the appropriate documentation bits in the FF-A manifest binding doc?",
+      "parentUuid": "f141608b_68b98367",
+      "revId": "9398ab22db4eb34a1f44d6986b8d35aa4419ebfc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7281c654_6009d92c",
         "filename": "tools/sptool/sp_mk_generator.py",
         "patchSetId": 1
