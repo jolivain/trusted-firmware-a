@@ -151,36 +151,6 @@ PYTHON			?=	python3
 DOCS_PATH		?=	docs
 
 ################################################################################
-# Process BRANCH_PROTECTION value and set
-# Pointer Authentication and Branch Target Identification flags
-################################################################################
-ifeq (${BRANCH_PROTECTION},0)
-	# Default value turns off all types of branch protection
-	BP_OPTION := none
-else ifneq (${ARCH},aarch64)
-        $(error BRANCH_PROTECTION requires AArch64)
-else ifeq (${BRANCH_PROTECTION},1)
-	# Enables all types of branch protection features
-	BP_OPTION := standard
-	ENABLE_BTI := 1
-	ENABLE_PAUTH := 1
-else ifeq (${BRANCH_PROTECTION},2)
-	# Return address signing to its standard level
-	BP_OPTION := pac-ret
-	ENABLE_PAUTH := 1
-else ifeq (${BRANCH_PROTECTION},3)
-	# Extend the signing to include leaf functions
-	BP_OPTION := pac-ret+leaf
-	ENABLE_PAUTH := 1
-else ifeq (${BRANCH_PROTECTION},4)
-	# Turn on branch target identification mechanism
-	BP_OPTION := bti
-	ENABLE_BTI := 1
-else
-        $(error Unknown BRANCH_PROTECTION value ${BRANCH_PROTECTION})
-endif #(BRANCH_PROTECTION)
-
-################################################################################
 # RME dependent flags configuration
 ################################################################################
 # FEAT_RME
@@ -207,7 +177,6 @@ ifeq (${ENABLE_RME},1)
 	ARM_ARCH_MINOR := 5
 	ENABLE_FEAT_ECV = 1
 	ENABLE_FEAT_FGT = 1
-	CTX_INCLUDE_PAUTH_REGS := 1
 
 	# RME enables CSV2_2 extension by default.
 	ENABLE_FEAT_CSV2_2 = 1
@@ -227,39 +196,6 @@ endif #(ARM_ARCH_MAJOR)
 # Get Architecture Feature Modifiers
 ################################################################################
 arch-features		=	${ARM_ARCH_FEATURE}
-
-####################################################
-# Enable required options for Memory Stack Tagging.
-####################################################
-
-# Memory tagging is supported in architecture Armv8.5-A AArch64 and onwards
-ifeq ($(ARCH), aarch64)
-	# Check if revision is greater than or equal to 8.5
-	ifeq "8.5" "$(word 1, $(sort 8.5 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
-		mem_tag_arch_support	= 	yes
-	endif
-endif #(ARCH=aarch64)
-
-# Currently, these options are enabled only for clang and armclang compiler.
-ifeq (${SUPPORT_STACK_MEMTAG},yes)
-	ifdef mem_tag_arch_support
-		# Check for armclang and clang compilers
-		ifneq ( ,$(filter $(notdir $(CC)),armclang clang))
-		# Add "memtag" architecture feature modifier if not specified
-			ifeq ( ,$(findstring memtag,$(arch-features)))
-				arch-features	:=	$(arch-features)+memtag
-			endif	# memtag
-			ifeq ($(notdir $(CC)),armclang)
-				TF_CFLAGS	+=	-mmemtag-stack
-			else ifeq ($(notdir $(CC)),clang)
-				TF_CFLAGS	+=	-fsanitize=memtag
-			endif	# armclang
-		endif
-	else
-                $(error "Error: stack memory tagging is not supported for  \
-                 architecture ${ARCH},armv${ARM_ARCH_MAJOR}.${ARM_ARCH_MINOR}-a")
-	endif #(mem_tag_arch_support)
-endif #(SUPPORT_STACK_MEMTAG)
 
 # Set the compiler's architecture feature modifiers
 ifneq ($(arch-features), none)
@@ -333,10 +269,6 @@ endif #(AARCH32_INSTRUCTION_SET)
 
 TF_CFLAGS_aarch32	+=	-mno-unaligned-access
 TF_CFLAGS_aarch64	+=	-mgeneral-regs-only -mstrict-align
-
-ifneq (${BP_OPTION},none)
-	TF_CFLAGS_aarch64	+=	-mbranch-protection=${BP_OPTION}
-endif #(BP_OPTION)
 
 ASFLAGS		+=	$(march-directive)
 
@@ -542,6 +474,60 @@ INCLUDES		+=	-Iinclude				\
 				${SPD_INCLUDES}
 
 include common/backtrace/backtrace.mk
+
+################################################################################
+# Process BRANCH_PROTECTION value and pass appropriate
+# Branch Target Identification flags to compiler.
+################################################################################
+ifeq (${BRANCH_PROTECTION},0)
+	# Default value turns off all types of branch protection
+	BP_OPTION := none
+else ifneq (${ARCH},aarch64)
+        $(error BRANCH_PROTECTION requires AArch64)
+else ifeq (${BRANCH_PROTECTION},1)
+	# Enables all types of branch protection features
+	BP_OPTION := standard
+else ifeq (${BRANCH_PROTECTION},2)
+	# Return address signing to its standard level
+	BP_OPTION := pac-ret
+else ifeq (${BRANCH_PROTECTION},3)
+	# Extend the signing to include leaf functions
+	BP_OPTION := pac-ret+leaf
+else ifeq (${BRANCH_PROTECTION},4)
+	# Turn on branch target identification mechanism
+	BP_OPTION := bti
+else
+        $(error Unknown BRANCH_PROTECTION value ${BRANCH_PROTECTION})
+endif #(BRANCH_PROTECTION)
+
+ifneq (${BP_OPTION},none)
+	TF_CFLAGS_aarch64	+=	-mbranch-protection=${BP_OPTION}
+endif #(BP_OPTION)
+
+####################################################
+# Enable required options for Memory Stack Tagging.
+####################################################
+
+# Currently, these options are enabled only for clang and armclang compiler.
+ifeq (${SUPPORT_STACK_MEMTAG},yes)
+	ifdef mem_tag_arch_support
+		# Check for armclang and clang compilers
+		ifneq ( ,$(filter $(notdir $(CC)),armclang clang))
+		# Add "memtag" architecture feature modifier if not specified
+			ifeq ( ,$(findstring memtag,$(arch-features)))
+				arch-features	:=	$(arch-features)+memtag
+			endif	# memtag
+			ifeq ($(notdir $(CC)),armclang)
+				TF_CFLAGS	+=	-mmemtag-stack
+			else ifeq ($(notdir $(CC)),clang)
+				TF_CFLAGS	+=	-fsanitize=memtag
+			endif	# armclang
+		endif
+	else
+                $(error "Error: stack memory tagging is not supported for  \
+                 architecture ${ARCH},armv${ARM_ARCH_MAJOR}.${ARM_ARCH_MINOR}-a")
+	endif #(mem_tag_arch_support)
+endif #(SUPPORT_STACK_MEMTAG)
 
 ################################################################################
 # Generic definitions
