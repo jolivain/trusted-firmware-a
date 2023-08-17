@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d54cad2_493d9b5b",
+        "filename": "plat/nuvoton/npcm845x/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-08-17T18:38:19Z",
+      "side": 1,
+      "message": "If I am not mistaken, ARM_TSP_** build flags have nothing to do with optee support for any platform.\nThe way you configure OPTEE to be booted from (Secure/Trusted) DRAM is by specifying the right address through the relevant build flags related to OPTEE. For example, please take a look at how the build flag OPTEE_PAGEABLE_LOAD_SIZE is programmed for other platforms in trusted-firmware-a project.",
+      "parentUuid": "e0769abc_d8ccc255",
+      "revId": "26156ce5ed0e1bcbdaa151a6c1720010e4c5f405",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "361b0aa5_1fdf1e8e",
         "filename": "plat/nuvoton/npcm845x/platform.mk",
         "patchSetId": 1
@@ -144,6 +162,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "361b0aa5_1fdf1e8e",
+      "range": {
+        "startLine": 373,
+        "startChar": 8,
+        "endLine": 373,
+        "endChar": 25
+      },
+      "revId": "26156ce5ed0e1bcbdaa151a6c1720010e4c5f405",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05474aca_1088af23",
+        "filename": "plat/nuvoton/npcm845x/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-08-17T18:38:19Z",
+      "side": 1,
+      "message": "Not fixed in latest patchset.",
+      "parentUuid": "d5bf0b53_a336421d",
       "range": {
         "startLine": 373,
         "startChar": 8,
