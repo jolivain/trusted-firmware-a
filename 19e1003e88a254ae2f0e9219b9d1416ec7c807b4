@@ -16,6 +16,24 @@
       "message": "Do we need to take ENABLE_SME_FOR_SWD into account as well?",
       "revId": "19e1003e88a254ae2f0e9219b9d1416ec7c807b4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6a1b565_03f3cdce",
+        "filename": "lib/cpus/aarch64/cortex_gelas.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-08-18T23:08:13Z",
+      "side": 1,
+      "message": "As per Juan, \"it turns out that ENABLE_SME_FOR_NS has to be enabled in order to use ENABLE_SME_FOR_SWD, so we are safe with the former\"",
+      "parentUuid": "97f47eba_24a26f43",
+      "revId": "19e1003e88a254ae2f0e9219b9d1416ec7c807b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
