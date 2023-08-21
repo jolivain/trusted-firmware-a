@@ -16,6 +16,24 @@
       "message": "At the moment it\u0027s only an error message complaining about the incomplete confoguration, but it does not automatically override the configuration to enable Measured Boot.",
       "revId": "3f9307abe1c76d9e655730bf4bf7d4ed6045f8f2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae47a269_5891cd2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-08-21T14:26:30Z",
+      "side": 1,
+      "message": "For the CCA build (i.e. with ENABLE_RME build), I think we should automatically enable MEASURED_BOOT and TRUSTED_BOARD_BOOT options in the Makefile. Similar to what we did here [1]. @Sandrine and @David what do you think?\nDo we have any use-cases to disable TBB and Measured Boot for CCA enabled build?\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/22605/2/Makefile#204",
+      "parentUuid": "77d804ce_4bf99ede",
+      "revId": "3f9307abe1c76d9e655730bf4bf7d4ed6045f8f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
