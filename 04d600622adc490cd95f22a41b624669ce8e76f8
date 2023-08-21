@@ -16,6 +16,24 @@
       "message": "Again, I don\u0027t think we can test for \"v8\". But we can test for aarch64. *or* v7, like the original code.",
       "revId": "04d600622adc490cd95f22a41b624669ce8e76f8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaf2a1bb_d74c66d1",
+        "filename": "plat/qemu/common/common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-08-21T16:26:42Z",
+      "side": 1,
+      "message": "will be inside of \"ifneq ARCH aarch32\" block with all FEAT flags",
+      "parentUuid": "27614588_4d506c0b",
+      "revId": "04d600622adc490cd95f22a41b624669ce8e76f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
