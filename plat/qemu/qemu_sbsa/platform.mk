@@ -41,6 +41,11 @@ PLAT_BL_COMMON_SOURCES	:=	${PLAT_QEMU_COMMON_PATH}/qemu_common.c		\
 				${PLAT_QEMU_COMMON_PATH}/qemu_console.c		\
 				drivers/arm/pl011/${ARCH}/pl011_console.S
 
+# Pointer Authentication sources
+ifeq (${ENABLE_PAUTH}, 1)
+PLAT_BL_COMMON_SOURCES	+=	plat/arm/common/aarch64/arm_pauth.c
+endif
+
 # Treating this as a memory-constrained port for now
 USE_COHERENT_MEM	:=	0
 
