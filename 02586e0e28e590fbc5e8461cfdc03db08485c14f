@@ -22,6 +22,30 @@
       },
       "revId": "02586e0e28e590fbc5e8461cfdc03db08485c14f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d370f40e_d2c3cd73",
+        "filename": "lib/cpus/aarch64/cortex_gelas.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-21T22:34:53Z",
+      "side": 1,
+      "message": "Patch that fixes this: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/22717",
+      "parentUuid": "540c9ac2_82d65fda",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 29
+      },
+      "revId": "02586e0e28e590fbc5e8461cfdc03db08485c14f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
