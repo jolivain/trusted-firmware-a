@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be7c819f_497ac96e",
+        "filename": "plat/qemu/common/common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-08-21T20:05:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e66cfa22_b31e745d",
+      "revId": "b46e1ccf4134719208ad8899cf6a0192de46a719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "722a94b0_b7749e56",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-08-21T15:56:39Z",
       "side": 1,
       "message": "This changes the logic of the snippet being moved, and I think it does so incorrectly.\nThis needs to test for aarch32 specifically, we will still want these enabled when we build for v9.",
+      "revId": "b46e1ccf4134719208ad8899cf6a0192de46a719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbbab787_3d81218f",
+        "filename": "plat/qemu/common/common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-08-21T20:05:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "722a94b0_b7749e56",
       "revId": "b46e1ccf4134719208ad8899cf6a0192de46a719",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdf4e0bb_eab80406",
+        "filename": "plat/qemu/common/common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-08-21T20:05:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ae017a4_11250a59",
+      "revId": "b46e1ccf4134719208ad8899cf6a0192de46a719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a961e38_d69e9b8d",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-08-21T16:25:38Z",
       "side": 1,
       "message": "64-bit only",
+      "revId": "b46e1ccf4134719208ad8899cf6a0192de46a719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06e2e41f_eb4f6fd7",
+        "filename": "plat/qemu/common/common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-08-21T20:05:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a961e38_d69e9b8d",
       "revId": "b46e1ccf4134719208ad8899cf6a0192de46a719",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
