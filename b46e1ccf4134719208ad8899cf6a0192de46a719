@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e66cfa22_b31e745d",
+        "filename": "plat/qemu/common/common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-08-21T16:25:38Z",
+      "side": 1,
+      "message": "whole block needs to be inside of  ifneq (${ARCH},aarch32)",
+      "revId": "b46e1ccf4134719208ad8899cf6a0192de46a719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "722a94b0_b7749e56",
         "filename": "plat/qemu/common/common.mk",
         "patchSetId": 4
@@ -14,6 +31,40 @@
       "writtenOn": "2023-08-21T15:56:39Z",
       "side": 1,
       "message": "This changes the logic of the snippet being moved, and I think it does so incorrectly.\nThis needs to test for aarch32 specifically, we will still want these enabled when we build for v9.",
+      "revId": "b46e1ccf4134719208ad8899cf6a0192de46a719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ae017a4_11250a59",
+        "filename": "plat/qemu/common/common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-08-21T16:25:38Z",
+      "side": 1,
+      "message": "64-bit only",
+      "revId": "b46e1ccf4134719208ad8899cf6a0192de46a719",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a961e38_d69e9b8d",
+        "filename": "plat/qemu/common/common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-08-21T16:25:38Z",
+      "side": 1,
+      "message": "64-bit only",
       "revId": "b46e1ccf4134719208ad8899cf6a0192de46a719",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
