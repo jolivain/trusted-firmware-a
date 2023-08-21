@@ -16,6 +16,24 @@
       "message": "Change whole block to \n\nifeq (${ARCH},aarch32)\nelse\nendif",
       "revId": "5015ccf0cb036cc248a1e9e122d2524c71234625",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9ed2d3a_38f2d9ed",
+        "filename": "plat/qemu/common/common.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-08-21T19:27:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d684c0c7_a1d3711c",
+      "revId": "5015ccf0cb036cc248a1e9e122d2524c71234625",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
