@@ -145,6 +145,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "95c432d1_9f16ceb0",
+        "filename": "lib/cpus/aarch64/cortex_gelas.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-22T18:53:22Z",
+      "side": 1,
+      "message": "In such case, flag ENABLE_SME_FOR_NS will be disabled (\u003d 0). Therefore, the SME won\u0027t be used. SVCR.SM and SVCR.ZA are cleared on reset, so no action would be needed as they would stay the same all the time.",
+      "parentUuid": "c45f8281_c252cf8d",
+      "range": {
+        "startLine": 39,
+        "startChar": 26,
+        "endLine": 39,
+        "endChar": 35
+      },
+      "revId": "19e1003e88a254ae2f0e9219b9d1416ec7c807b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b7bbe827_2ae103ff",
         "filename": "lib/cpus/aarch64/cortex_gelas.S",
         "patchSetId": 1
