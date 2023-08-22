@@ -38,6 +38,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27154108_a75c874d",
+        "filename": "lib/psci/psci_suspend.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-22T14:32:10Z",
+      "side": 1,
+      "message": "trying to understand further, shouldn\u0027t this be part of context management?\nThis looks like we may be adding things in here which shouldn\u0027t be \ndone part of this file?",
+      "range": {
+        "startLine": 323,
+        "startChar": 2,
+        "endLine": 323,
+        "endChar": 21
+      },
+      "revId": "4c6b47370ea90915348eb651874809ad0ebfd23e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "768e042a_5e205786",
         "filename": "plat/arm/board/fvp/fvp_pm.c",
         "patchSetId": 7
