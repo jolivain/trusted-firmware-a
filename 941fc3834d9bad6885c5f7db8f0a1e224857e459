@@ -16,6 +16,23 @@
       "message": "Also https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/18642",
       "revId": "941fc3834d9bad6885c5f7db8f0a1e224857e459",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ba47a72_5c4fd004",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-08-22T12:57:36Z",
+      "side": 1,
+      "message": "12:18:38 /home/buildslave/workspace/tf-a-builder/tf-a-ci-scripts/script/build_package.sh: line 489: /home/buildslave/workspace/tf-a-builder/tf-a-ci-scripts/tf_config/fvp-mb-romlib-rme-rss: No such file or directory\n12:18:38 Build step \u0027Execute shell\u0027 marked build as failure\n\nAnother random CI failure?",
+      "revId": "941fc3834d9bad6885c5f7db8f0a1e224857e459",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
