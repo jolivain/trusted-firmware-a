@@ -16,6 +16,24 @@
       "message": "This change required a fix in the FF-A kernel driver which is now done/merged in K6.4.\nThen the EL3 SPMC test suite requires an update to refresh to the said kernel version.",
       "revId": "0aa2b4b6df14b284a0257b17900fb10fe58c5af9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "659e76fd_36f61e90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-08-22T10:01:36Z",
+      "side": 1,
+      "message": "We are tracking the CI linux binaries update internally and complete review/merge of this change when done.",
+      "parentUuid": "496f264d_c0143e4e",
+      "revId": "0aa2b4b6df14b284a0257b17900fb10fe58c5af9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
