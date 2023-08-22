@@ -70,6 +70,24 @@
       "parentUuid": "a14f6be4_ab57240b",
       "revId": "3f9307abe1c76d9e655730bf4bf7d4ed6045f8f2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71c4b9eb_d618d48d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-08-22T09:22:30Z",
+      "side": 1,
+      "message": "I was also unsure about this. Leaving with this kind of error message is a better option then if software dependencies are not enforced.\nAs for CCA, TBB is also mandatory so can we do the similar change (may be as a part of separate patch?)\n\n\tifneq (${TRUSTED_BOARD_BOOT},1)\n                $(error TRUSTED_BOARD_BOOT is required for Arm CCA \\\n                (if ENABLE_RME is set))\n\tendif\n\nThere is a need to revisit all CCA-enabled CI build configurations to make sure MEASURED_BOOT and TRUSTED_BOARD_BOOT options are passed to all those builds.",
+      "parentUuid": "5d2fbbd7_577f48b9",
+      "revId": "3f9307abe1c76d9e655730bf4bf7d4ed6045f8f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
