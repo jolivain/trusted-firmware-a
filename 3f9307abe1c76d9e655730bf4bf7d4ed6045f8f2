@@ -34,6 +34,24 @@
       "parentUuid": "77d804ce_4bf99ede",
       "revId": "3f9307abe1c76d9e655730bf4bf7d4ed6045f8f2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a14f6be4_ab57240b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2023-08-22T06:46:12Z",
+      "side": 1,
+      "message": "\u003e Do we have any use-cases to disable TBB and Measured Boot for CCA enabled build?\n\nNot currently as far as I know.\n\nEnabling MEASURED_BOOT without TRUSTED_BOARD_BOOT is possible but it doesn\u0027t make too much sense I think, does it? The mechanism would work but it would be useless.\nWith enabling MEASURED_BOOT and TRUSTED_BOARD_BOOT we need to enable GENERATE_COT too.",
+      "parentUuid": "ae47a269_5891cd2c",
+      "revId": "3f9307abe1c76d9e655730bf4bf7d4ed6045f8f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
