@@ -23,6 +23,11 @@
 
 uintptr_t k3_sec_entrypoint;
 
+#if K3_LPM_DDR_SAVE_ADDRESS
+IMPORT_SYM(unsigned long, __RW_START__, k3_bl31_rw_start);
+static const __attribute__((unused)) unsigned long k3_bl31_rw_end = (unsigned long) __RW_END__;
+#endif
+
 static void k3_cpu_standby(plat_local_state_t cpu_state)
 {
 	u_register_t scr;
@@ -246,6 +251,16 @@ static void k3_pwr_domain_suspend(const psci_power_state_t *target_state)
 	k3_gic_save_context();
 
 	k3_pwr_domain_off(target_state);
+
+#if K3_LPM_DDR_SAVE_ADDRESS
+	/*
+	 * Save BL31 context.
+	 * No need to flush caches, sysfw will flush L2 after the last
+	 * core has been powered down.
+	 */
+	memcpy((void *)K3_LPM_DDR_SAVE_ADDRESS, (void *)k3_bl31_rw_start,
+	       (size_t)(k3_bl31_rw_end - k3_bl31_rw_start));
+#endif
 
 	ti_sci_enter_sleep(proc_id, 0, k3_sec_entrypoint);
 }
