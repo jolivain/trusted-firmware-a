@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caae28b8_6978bdb8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-23T21:28:30Z",
+      "side": 1,
+      "message": "LGTM. Some minor spelling issues that need to be addressed.",
+      "revId": "b539de2f73bef994d324ca2cf36f55d79a93ee04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adc226af_316f360d",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-23T21:28:30Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 515,
+        "startChar": 29,
+        "endLine": 515,
+        "endChar": 36
+      },
+      "revId": "b539de2f73bef994d324ca2cf36f55d79a93ee04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25d778b3_c3ccfa7d",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-23T21:28:30Z",
+      "side": 1,
+      "message": "Rephrase: either \"Flag\" or \"Support\". Otherwise it\u0027s redundant.",
+      "range": {
+        "startLine": 515,
+        "startChar": 2,
+        "endLine": 515,
+        "endChar": 17
+      },
+      "revId": "b539de2f73bef994d324ca2cf36f55d79a93ee04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82f3dc1e_4aa17249",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-23T21:28:30Z",
+      "side": 1,
+      "message": "It\u0027s not that they actually hand EL3 over to NS-EL2, but they switch to it. Please rephrase accordingly.",
+      "range": {
+        "startLine": 516,
+        "startChar": 17,
+        "endLine": 516,
+        "endChar": 26
+      },
+      "revId": "b539de2f73bef994d324ca2cf36f55d79a93ee04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
