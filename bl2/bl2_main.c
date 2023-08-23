@@ -105,9 +105,13 @@ void bl2_main(void)
 	/* Load the subsequent bootloader images. */
 	next_bl_ep_info = bl2_load_images();
 
+
+	NOTICE("all images are loaded\n");
+
 	/* Teardown the Measured Boot backend */
 	bl2_plat_mboot_finish();
 
+	NOTICE("MB finished\n");
 #if !BL2_RUNS_AT_EL3
 #ifndef __aarch64__
 	/*

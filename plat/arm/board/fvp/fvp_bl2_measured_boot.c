@@ -205,22 +205,30 @@ void bl2_plat_mboot_finish(void)
 	/* Event Log filled size */
 	size_t event_log_cur_size;
 
+	NOTICE("MBoot finish enter \n");
 	rc = fvp_populate_and_measure_critical_data();
 	if (rc != 0) {
 		panic();
 	}
 
+	NOTICE("ev base=%p dram ev base=%p\n", (void *)event_log_base, (void *)ARM_EVENT_LOG_DRAM1_BASE);
+	NOTICE("ev dram-base-val=%d\n", *(uint8_t *)(0x7d00000ull + 2));
+
 	event_log_cur_size = event_log_get_cur_size((uint8_t *)event_log_base);
 
+#if 0
 #if defined(SPD_tspd) || defined(SPD_opteed) || defined(SPD_spmd)
 	/* Copy Event Log to TZC secured DRAM memory */
-	(void)memcpy((void *)ARM_EVENT_LOG_DRAM1_BASE,
+	(void)memcpy((void *)0x7d00000,
 		     (const void *)event_log_base,
 		     event_log_cur_size);
 
+	NOTICE("Cpying EVLOG done in cache \n");
 	/* Ensure that the Event Log is visible in TZC secured DRAM memory */
 	flush_dcache_range(ARM_EVENT_LOG_DRAM1_BASE, event_log_cur_size);
 #endif /* defined(SPD_tspd) || defined(SPD_opteed) || defined(SPD_spmd) */
+#endif
+	NOTICE("Cpying EVLOG done\n");
 
 	rc = arm_set_nt_fw_info(
 #ifdef SPD_opteed
