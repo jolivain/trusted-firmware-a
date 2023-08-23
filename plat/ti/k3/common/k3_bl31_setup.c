@@ -110,6 +110,9 @@ void bl31_plat_arch_setup(void)
 #if USE_COHERENT_MEM
 		MAP_REGION_FLAT(BL_COHERENT_RAM_BASE, BL_COHERENT_RAM_END - BL_COHERENT_RAM_BASE, MT_DEVICE  | MT_RW | MT_SECURE),
 #endif
+#if K3_LPM_DDR_SAVE_ADDRESS
+		MAP_REGION_FLAT(K3_LPM_DDR_SAVE_ADDRESS,            BL31_SIZE,           MT_MEMORY  | MT_RW | MT_SECURE),
+#endif
 		{ /* sentinel */ }
 	};
 
