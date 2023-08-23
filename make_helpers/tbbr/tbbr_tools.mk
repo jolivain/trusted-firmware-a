@@ -117,8 +117,10 @@ endif
 # Add the BL32 CoT (key cert + img cert)
 ifeq (${NEED_BL32},yes)
     $(if ${BL32_KEY},$(eval $(call CERT_ADD_CMD_OPT,${BL32_KEY},--tos-fw-key)))
+ifneq (${COT},cca)
     $(eval $(call TOOL_ADD_PAYLOAD,${BUILD_PLAT}/tos_fw_content.crt,--tos-fw-cert))
     $(eval $(call TOOL_ADD_PAYLOAD,${BUILD_PLAT}/tos_fw_key.crt,--tos-fw-key-cert))
+endif
 endif
 
 # Add the BL33 CoT (key cert + img cert)

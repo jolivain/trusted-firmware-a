@@ -168,7 +168,7 @@
 #  define MAX_XLAT_TABLES		6
 # endif
 #elif !USE_ROMLIB
-# define PLAT_ARM_MMAP_ENTRIES		11
+# define PLAT_ARM_MMAP_ENTRIES		12
 # define MAX_XLAT_TABLES		5
 #else
 # define PLAT_ARM_MMAP_ENTRIES		12
