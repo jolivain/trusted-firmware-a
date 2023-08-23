@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dc811474_2afa75c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-08-23T07:49:12Z",
+      "side": 1,
+      "message": "CTX_INCLUDE_PAUTH_REGS\u003d1 set in common.mk, ARM_ARCH_MINOR part dropped.\n\nCROSS_COMPILE\u003daarch64-linux-gnu- ARCH\u003darm make -j12 \\\nPLAT\u003dqemu DEBUG\u003d1 all fip BL33\u003d../../QEMU_EFI.fd \\\nBRANCH_PROTECTION\u003d1 ARM_ARCH_MINOR\u003d5\n\naarch64-linux-gnu-ld.bfd: /home/marcin/devel/linaro/sbsa-qemu/code/trusted-firmware-a/build/qemu/debug/bl1/pauth_helpers.o: in function `pauth_init_enable_el1\u0027:\n/home/marcin/devel/linaro/sbsa-qemu/code/trusted-firmware-a/lib/extensions/pauth/pauth_helpers.S:22: multiple definition of `pauth_init_enable_el1\u0027; /home/marcin/devel/linaro/sbsa-qemu/code/trusted-firmware-a/build/qemu/debug/bl1/pauth_helpers.o:/home/marcin/devel/linaro/sbsa-qemu/code/trusted-firmware-a/lib/extensions/pauth/pauth_helpers.S:22: first defined here\naarch64-linux-gnu-ld.bfd: /home/marcin/devel/linaro/sbsa-qemu/code/trusted-firmware-a/build/qemu/debug/bl1/pauth_helpers.o: in function `pauth_disable_el1\u0027:\n/home/marcin/devel/linaro/sbsa-qemu/code/trusted-firmware-a/lib/extensions/pauth/pauth_helpers.S:51: multiple definition of `pauth_disable_el1\u0027; /home/marcin/devel/linaro/sbsa-qemu/code/trusted-firmware-a/build/qemu/debug/bl1/pauth_helpers.o:/home/marcin/devel/linaro/sbsa-qemu/code/trusted-firmware-a/lib/extensions/pauth/pauth_helpers.S:51: first defined here",
+      "parentUuid": "0c6030df_188c976b",
+      "revId": "0af97f46f103225535d6aa6b9ce1af973a2cc9db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "669f5cb0_ad13fe02",
         "filename": "plat/qemu/common/common.mk",
         "patchSetId": 2
