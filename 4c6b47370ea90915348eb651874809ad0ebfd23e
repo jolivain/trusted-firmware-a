@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "44c81cc3_2e84ed19",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-08-23T10:24:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d7034ba7_f4ae8e61",
+      "range": {
+        "startLine": 10,
+        "startChar": 6,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "4c6b47370ea90915348eb651874809ad0ebfd23e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ab6628a_ed25f44e",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-08-22T14:45:45Z",
       "side": 1,
       "message": "I think this reads a bit better:\n\"and not disabling before\"",
+      "range": {
+        "startLine": 12,
+        "startChar": 22,
+        "endLine": 12,
+        "endChar": 42
+      },
+      "revId": "4c6b47370ea90915348eb651874809ad0ebfd23e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56cae885_8ce21d8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-08-23T10:24:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0ab6628a_ed25f44e",
       "range": {
         "startLine": 12,
         "startChar": 22,
@@ -88,6 +136,54 @@
         "startChar": 43,
         "endLine": 18,
         "endChar": 44
+      },
+      "revId": "4c6b47370ea90915348eb651874809ad0ebfd23e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02ab51df_d37bd80d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-08-23T10:24:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "74bd6400_2169aaae",
+      "range": {
+        "startLine": 18,
+        "startChar": 43,
+        "endLine": 18,
+        "endChar": 44
+      },
+      "revId": "4c6b47370ea90915348eb651874809ad0ebfd23e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f460279_0a98ee8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-08-23T10:24:08Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1995068a_f369e798",
+      "range": {
+        "startLine": 18,
+        "startChar": 16,
+        "endLine": 18,
+        "endChar": 17
       },
       "revId": "4c6b47370ea90915348eb651874809ad0ebfd23e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -204,6 +300,30 @@
       "writtenOn": "2023-08-22T14:21:17Z",
       "side": 1,
       "message": "Do we need this header now ?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 26
+      },
+      "revId": "4c6b47370ea90915348eb651874809ad0ebfd23e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ee3854f_5514b565",
+        "filename": "plat/arm/board/fvp/fvp_pm.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-08-23T10:24:08Z",
+      "side": 1,
+      "message": "Not needed. Will remove it.",
+      "parentUuid": "768e042a_5e205786",
       "range": {
         "startLine": 9,
         "startChar": 0,
