@@ -248,6 +248,9 @@ static void k3_pwr_domain_suspend(const psci_power_state_t *target_state)
 
 	k3_pwr_domain_off(target_state);
 
+	/* save the full sram */
+	memcpy((void *)LPM_SAVE, (void *)BL31_START, BL31_END - BL31_START);
+
 	ti_sci_enter_sleep(proc_id, 0, k3_sec_entrypoint);
 }
 
