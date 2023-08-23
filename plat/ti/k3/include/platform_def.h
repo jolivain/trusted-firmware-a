@@ -86,7 +86,7 @@
  * runtime memory used, choose the smallest value needed to register the
  * required regions for each BL stage.
  */
-#define MAX_MMAP_REGIONS	11
+#define MAX_MMAP_REGIONS	12
 
 /*
  * Defines the total size of the address space in bytes. For example, for a 32
