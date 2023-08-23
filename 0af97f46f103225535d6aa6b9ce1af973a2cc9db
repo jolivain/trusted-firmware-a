@@ -103,6 +103,29 @@
       "message": "Could you confirm if CTX_INCLUDE_PAUTH_REGS can really support `2`?\n\n\nIn the docs/design/firmware-design.rst, it claims:\n\nIn order to enable the Secure world to use it, ``CTX_INCLUDE_PAUTH_REGS``\nmust be set to 1. This will add all pointer authentication system registers\nto the context that is saved when doing a world switch.\n\n\nIf CTX_INCLUDE_PAUTH_REGS can be set to 2, it\u0027s good to add checking for\nCTX_INCLUDE_PAUTH_REGS as well, something like:\n\n```\nifeq (${CTX_INCLUDE_PAUTH_REGS}, 0)\n    CTX_INCLUDE_PAUTH_REGS :\u003d 2\nendif\n```",
       "revId": "0af97f46f103225535d6aa6b9ce1af973a2cc9db",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d16f14a_5f380bea",
+        "filename": "plat/qemu/common/common.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-08-23T06:54:45Z",
+      "side": 1,
+      "message": "Is this needed? I don\u0027t see this in any other platform.",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 5
+      },
+      "revId": "0af97f46f103225535d6aa6b9ce1af973a2cc9db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
