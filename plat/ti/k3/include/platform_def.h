@@ -65,6 +65,12 @@
 #define BL31_LIMIT	(BL31_BASE + BL31_SIZE)
 
 /*
+ * Address to save BL31 for suspend to RAM.
+ * It belongs to a reserved memory region.
+ */
+#define LPM_SAVE	UL(0xA5000000)
+
+/*
  * Defines the maximum number of translation tables that are allocated by the
  * translation table library code. To minimize the amount of runtime memory
  * used, choose the smallest value needed to map the required virtual addresses
@@ -86,7 +92,7 @@
  * runtime memory used, choose the smallest value needed to register the
  * required regions for each BL stage.
  */
-#define MAX_MMAP_REGIONS	11
+#define MAX_MMAP_REGIONS	12
 
 /*
  * Defines the total size of the address space in bytes. For example, for a 32
