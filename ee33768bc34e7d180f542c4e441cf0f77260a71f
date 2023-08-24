@@ -142,6 +142,24 @@
       "parentUuid": "a5240861_e164959f",
       "revId": "ee33768bc34e7d180f542c4e441cf0f77260a71f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3003e7e_fc4d5ef3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001102
+      },
+      "writtenOn": "2023-08-24T11:07:39Z",
+      "side": 1,
+      "message": "Only a bystander here mostly, but couldn\u0027t the DDR training code be done in a followup? It\u0027d at least remove the amount of blobs necessary, and code hopefully could be added in a followup CL.",
+      "parentUuid": "e4750879_431e9a81",
+      "revId": "ee33768bc34e7d180f542c4e441cf0f77260a71f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
