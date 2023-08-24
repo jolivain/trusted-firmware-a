@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bd26a6e_8cb07d8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000266
+      },
+      "writtenOn": "2023-08-24T11:42:59Z",
+      "side": 1,
+      "message": "@olivier Could you kindly suggest what needs to update for this patch to get merged? The time has been too long for this patch.\nThis patch already able to work with mainline kernel by provide all the SMC/PSCI interface needed. And follow up patch may update features need by new kernel requirement.\n\nThe kernel driver dmc in vendor kernel which need to co-work with bl31 ddr freq, it\u0027s an optional feature and not available on mainline kernel, it shouldn\u0027t be a block for this patch.",
+      "revId": "1c9b6581530f6fd09fc4d86a6fa54d1e9efba582",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
