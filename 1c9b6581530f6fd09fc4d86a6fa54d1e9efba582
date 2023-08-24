@@ -34,6 +34,52 @@
       "parentUuid": "2bd26a6e_8cb07d8e",
       "revId": "1c9b6581530f6fd09fc4d86a6fa54d1e9efba582",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d0a73fa_f65d1415",
+        "filename": "lib/cpus/aarch64/cortex_a55.S",
+        "patchSetId": 13
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-08-24T13:28:49Z",
+      "side": 1,
+      "message": "I trust this is justified. But can you detail the reasoning for doing this change, as this applies to all platforms consuming the Cortex-A55 cpu lib.\n\nPerhaps a note in the commit message is worth.",
+      "range": {
+        "startLine": 133,
+        "startChar": 1,
+        "endLine": 134,
+        "endChar": 42
+      },
+      "revId": "1c9b6581530f6fd09fc4d86a6fa54d1e9efba582",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4d7f668_e5a4d8fe",
+        "filename": "plat/rockchip/rk3568/drivers/pmu/pmu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-08-24T13:28:49Z",
+      "side": 1,
+      "message": "Use braces { } even for single line statements.",
+      "range": {
+        "startLine": 98,
+        "startChar": 1,
+        "endLine": 99,
+        "endChar": 41
+      },
+      "revId": "1c9b6581530f6fd09fc4d86a6fa54d1e9efba582",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
