@@ -52,6 +52,46 @@
       "parentUuid": "40ca295e_bd77fabb",
       "revId": "a62c6ea19e63656b2570608abca365078a95d12a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b5c05cb_67114927",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-08-24T14:58:50Z",
+      "side": 1,
+      "message": "Hi,\n\nIs the CROS_WIDEVINE_SMC option introduced by this change always paired with OPTEE_ALLOW_SMC_LOAD ?\nIf this is the case, I believe it\u0027d be preferable adding a guard check in makefiles that OPTEE_ALLOW_SMC_LOAD is set when CROS_WIDEVINE_SMC is set. Also adding appropriate docs bits is worth.\n\nCan you detail a bit more of the expected flow? As I understand linux boots first and is \u0027trusted\u0027, it calls the widewine services passing secrets via a NS buffers into secure world buffers. Then later OP-TEE is post boot loaded and able to access secure buffers using addresses passed to it via the DT. Is this correct?\n\nI\u0027m not sure this has been raised in earlier comments, provided changes define an interface baked by the OP-TEE SPD, would it be preferable relocating the code/functionality fully within the SPD? I\u0027m not sure I see a strong rationale in creating a non-standard services/oem directory just for ChromeOS purposes as it stands.\n\nI did not check the details but is this discussion converging?\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20442/comment/bfbdaa52_659557e0/\n",
+      "revId": "a62c6ea19e63656b2570608abca365078a95d12a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a54a989c_154a269b",
+        "filename": "include/services/oem/chromeos/widevine_smc_handlers.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-08-24T14:58:50Z",
+      "side": 1,
+      "message": "Can you check this description is accurate as it is repeated lines 41, 48, 54 ?",
+      "range": {
+        "startLine": 35,
+        "startChar": 3,
+        "endLine": 35,
+        "endChar": 76
+      },
+      "revId": "a62c6ea19e63656b2570608abca365078a95d12a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
