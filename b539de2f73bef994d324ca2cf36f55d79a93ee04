@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03771d87_63d21bda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-08-24T07:37:36Z",
+      "side": 1,
+      "message": "@Aravind,\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18770\n\nKindly take a look at this patch and the stack as well. Boyan, tried to cleanup this bit with CTX_INCLUDE_EL2_REGS flag, which you are doing via this newly introduced flag.\n\nUsually we try to avoid introducing a new flag, unless its need is essential. NS_EL2_UNUSED portion of code, is for legacy platforms, so I believe flag may not be needed here.\nPlease do check with Maintainers (Soby Mathews and Manish P), regarding this and finalise on proceeding with a flag or not.\n\nIn either case, rebase your patch on top of Boyan\u0027s patchstack, as all are related with Context Mgmt refactoring task.\n\n",
+      "revId": "b539de2f73bef994d324ca2cf36f55d79a93ee04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "adc226af_316f360d",
