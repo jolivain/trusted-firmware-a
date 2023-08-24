@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f703704_cfa8d914",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-24T21:40:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d1ddf21_05de4816",
+      "revId": "fe0042b3f95f63f43bb8cd0d1eee888fe8da9e5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7b80e6c_a08eea07",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-08-23T08:11:50Z",
       "side": 1,
       "message": "Lines above you wrote to use BRANCH_PROTECTION instead.",
+      "revId": "fe0042b3f95f63f43bb8cd0d1eee888fe8da9e5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ffb34a3_e514f2a0",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-24T21:40:29Z",
+      "side": 1,
+      "message": "Looks like a copy/paste issue, I have modified the comments now and \nPAUTH/BTI will be enabled from here based on arch version and compiler flags\nwill be enabled from main makefile.",
+      "parentUuid": "e7b80e6c_a08eea07",
       "revId": "fe0042b3f95f63f43bb8cd0d1eee888fe8da9e5a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9261fda2_f073df31",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-24T21:40:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f677ec78_cb69cd63",
+      "revId": "fe0042b3f95f63f43bb8cd0d1eee888fe8da9e5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90f2c9b2_aa11757d",
@@ -65,6 +119,24 @@
       "writtenOn": "2023-08-23T08:11:50Z",
       "side": 1,
       "message": "Similar question as with ENABLE_PAUTH",
+      "revId": "fe0042b3f95f63f43bb8cd0d1eee888fe8da9e5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38118ab6_7fa9be93",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-24T21:40:29Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "90f2c9b2_aa11757d",
       "revId": "fe0042b3f95f63f43bb8cd0d1eee888fe8da9e5a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -94,6 +166,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f73381d_f4a6b9e1",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-24T21:40:29Z",
+      "side": 1,
+      "message": "the main intention here is to give list of optional features to platforms to enable any if needed,\nmerging both will make it categorization them difficult on which is mandatory and which\nis optional, so idea is to have them separated. and platforms use any optional on need basis.",
+      "parentUuid": "69ebfaec_1299f66c",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 190,
+        "endChar": 1
+      },
+      "revId": "fe0042b3f95f63f43bb8cd0d1eee888fe8da9e5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5b421839_5bf08385",
         "filename": "make_helpers/arch_features.mk",
         "patchSetId": 9
@@ -105,6 +201,24 @@
       "writtenOn": "2023-08-23T18:39:54Z",
       "side": 1,
       "message": "Add a comment similar to the one in line 206.",
+      "revId": "fe0042b3f95f63f43bb8cd0d1eee888fe8da9e5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fbd3df5_e62d1764",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-24T21:40:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b421839_5bf08385",
       "revId": "fe0042b3f95f63f43bb8cd0d1eee888fe8da9e5a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -122,6 +236,30 @@
       "writtenOn": "2023-08-23T18:39:54Z",
       "side": 1,
       "message": "Explain what each flag does.",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 284,
+        "endChar": 25
+      },
+      "revId": "fe0042b3f95f63f43bb8cd0d1eee888fe8da9e5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d26c573d_a467068e",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-24T21:40:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c494eadc_4e87b272",
       "range": {
         "startLine": 283,
         "startChar": 0,
@@ -155,6 +293,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "408e802c_8bd4985c",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-24T21:40:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66f04c2e_113d4c3b",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 285,
+        "endChar": 70
+      },
+      "revId": "fe0042b3f95f63f43bb8cd0d1eee888fe8da9e5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9eeb7172_2848249b",
@@ -168,6 +330,30 @@
       "writtenOn": "2023-08-23T18:39:54Z",
       "side": 1,
       "message": "Explain what each flag does.",
+      "range": {
+        "startLine": 300,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 25
+      },
+      "revId": "fe0042b3f95f63f43bb8cd0d1eee888fe8da9e5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5167d5f0_061bfaff",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-08-24T21:40:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9eeb7172_2848249b",
       "range": {
         "startLine": 300,
         "startChar": 0,
