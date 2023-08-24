@@ -35,6 +35,8 @@
 			load_address = <0x7000000>;
 			vcpu_count = <8>;
 			mem_size = <1048576>;
+			/* IMP-DEF smc call to pend an interrupt */
+			smc_whitelist = <0x82000100>;
 		};
 		vm2 {
 			is_ffa_partition;

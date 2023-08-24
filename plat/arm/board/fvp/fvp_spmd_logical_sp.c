@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -7,6 +7,7 @@
 #include <services/el3_spmd_logical_sp.h>
 #include <services/ffa_svc.h>
 #include <smccc_helpers.h>
+#include <plat/common/platform.h>
 
 #define SPMD_LP_PARTITION_ID SPMD_LP_ID_START
 #define SPMD_LP_UUID {0xe98e43ad, 0xb7db524f, 0x47a3bf57, 0x1588f4e3}
@@ -77,6 +78,13 @@ uintptr_t plat_spmd_logical_sp_smc_handler(unsigned int smc_fid,
 {
 	struct ffa_value retval = { 0 };
 	uint64_t send_recv_id = SPMD_LP_PARTITION_ID << 16 | 0x8001;
+
+	if (smc_fid == FVP_SIP_SET_INTERRUPT_PENDING) {
+		INFO("SiP Call- Set interrupt pending %d\n", (uint32_t)x1);
+		plat_ic_set_interrupt_pending(x1);
+
+		SMC_RET1(handle, SMC_OK);
+	}
 
 	/*
 	 * Forward the SMC as direct request.
