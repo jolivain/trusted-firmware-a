@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "729fc617_490110f2",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 411,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-08-24T16:25:47Z",
+      "side": 1,
+      "message": "Seems to be redundant as it is already handled in [1]\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/Makefile#n762",
+      "range": {
+        "startLine": 411,
+        "startChar": 4,
+        "endLine": 411,
+        "endChar": 20
+      },
+      "revId": "fc4f9f0ac1c42a03e8405890c472b5f61d14171c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "014dca1d_35a670fb",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 3
