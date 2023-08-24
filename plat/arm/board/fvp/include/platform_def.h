@@ -459,4 +459,11 @@ defined(IMAGE_BL2) && MEASURED_BOOT
  */
 #define PLAT_DRTM_MMAP_ENTRIES			PLAT_ARM_MMAP_ENTRIES
 
+/*
+ * FVP SiP SMC calls that are primarily used for testing purposes.
+ */
+#if PLAT_TEST_SPM
+#define FVP_SIP_SET_INTERRUPT_PENDING 0x82000100
+#endif
+
 #endif /* PLATFORM_DEF_H */
