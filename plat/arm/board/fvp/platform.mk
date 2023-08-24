@@ -538,3 +538,6 @@ endif
 ifeq (${ERRATA_ABI_SUPPORT}, 1)
 include plat/arm/board/fvp/fvp_cpu_errata.mk
 endif
+
+# Build macro necessary for running FFA tests on FVP platform
+$(eval $(call add_define,PLAT_TEST_FFA))
