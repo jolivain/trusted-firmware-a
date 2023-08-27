@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a147458f_8efa6ecb",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-08-27T19:33:24Z",
+      "side": 1,
+      "message": "is this true for all platforms or only the reference platform? Perhaps we should say this is typically the case, and platform vendors need to review the threats to ensure they cannot be exploited past that point in time?",
+      "range": {
+        "startLine": 562,
+        "startChar": 0,
+        "endLine": 563,
+        "endChar": 55
+      },
+      "revId": "0c8134dba915712b93457f6e059e715e7056eef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
