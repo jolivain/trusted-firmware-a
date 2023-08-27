@@ -74,11 +74,17 @@ SUNXI_AMEND_DTB		:=	1
 $(eval $(call add_define,SUNXI_BL31_IN_DRAM))
 endif
 
-SUNXI_AMEND_DTB		?=	0
+SUNXI_AMEND_DTB		?=	1
 $(eval $(call assert_boolean,SUNXI_AMEND_DTB))
 $(eval $(call add_define,SUNXI_AMEND_DTB))
 
 ifeq (${SUNXI_AMEND_DTB},1)
+ifeq (${DEBUG},1)
+ifeq (${PLAT},sun50i_a64)
+$(error Due to size constraints DEBUG=1 requires SUNXI_AMEND_DTB=0)
+endif
+endif
+
 BL31_SOURCES		+=	common/fdt_fixup.c			\
 				${AW_PLAT}/common/sunxi_prepare_dtb.c
 endif
