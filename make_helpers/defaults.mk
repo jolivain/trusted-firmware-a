@@ -307,6 +307,10 @@ USE_SPINLOCK_CAS := 0
 # Enable Link Time Optimization
 ENABLE_LTO			:= 0
 
+ifeq (${PLAT},sun50i_a64)
+ENABLE_LTO			:= 1
+endif
+
 # This option will include EL2 registers in cpu context save and restore during
 # EL2 firmware entry/exit. Internal flag not meant for direct setting.
 # Use SPD=spmd and SPMD_SPM_AT_SEL2=1 or ENABLE_RME=1 to enable
