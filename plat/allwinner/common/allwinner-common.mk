@@ -74,7 +74,7 @@ SUNXI_AMEND_DTB		:=	1
 $(eval $(call add_define,SUNXI_BL31_IN_DRAM))
 endif
 
-SUNXI_AMEND_DTB		?=	0
+SUNXI_AMEND_DTB		?=	1
 $(eval $(call assert_boolean,SUNXI_AMEND_DTB))
 $(eval $(call add_define,SUNXI_AMEND_DTB))
 
