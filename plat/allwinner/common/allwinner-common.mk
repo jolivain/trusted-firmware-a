@@ -74,6 +74,11 @@ SUNXI_AMEND_DTB		:=	1
 $(eval $(call add_define,SUNXI_BL31_IN_DRAM))
 endif
 
+# to report supported idle states
+ifeq (${PLAT},sun50i_a64)
+SUNXI_AMEND_DTB		:=	1
+endif
+
 SUNXI_AMEND_DTB		?=	0
 $(eval $(call assert_boolean,SUNXI_AMEND_DTB))
 $(eval $(call add_define,SUNXI_AMEND_DTB))
