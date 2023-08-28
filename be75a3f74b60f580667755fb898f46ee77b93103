@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d92c13bf_424668f9",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-28T21:36:59Z",
+      "side": 1,
+      "message": "I would use \"report\" instead, as it does not return anything, just prints out to the console.",
+      "range": {
+        "startLine": 197,
+        "startChar": 1,
+        "endLine": 197,
+        "endChar": 5
+      },
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb84e054_3db507e0",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-28T21:36:59Z",
+      "side": 1,
+      "message": "It is a good idea to include a comment header for this section to indicate that these offsets belong to the global context, just like with the other sections.",
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d75dab78_d3834f5c",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-28T21:36:59Z",
+      "side": 1,
+      "message": "I feel like this should be defined in context.h instead, as this file is mostly for context operations, not definitions.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 54
+      },
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b59242ef_191d4a6a",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-28T21:36:59Z",
+      "side": 1,
+      "message": "Please use \"report\" to be more consistent with the behavior of the function.",
+      "range": {
+        "startLine": 495,
+        "startChar": 5,
+        "endLine": 495,
+        "endChar": 9
+      },
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33da10ab_9360bdea",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-28T21:36:59Z",
+      "side": 1,
+      "message": "I\u0027m not sure whether this should go here or in manage_extensions_{state}, as this function is supposed to be for registers that never change or the lifetime of TF-A.",
+      "range": {
+        "startLine": 535,
+        "startChar": 0,
+        "endLine": 550,
+        "endChar": 3
+      },
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e50e3db2_73e007b4",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-28T21:36:59Z",
+      "side": 1,
+      "message": "Same with this.",
+      "range": {
+        "startLine": 571,
+        "startChar": 1,
+        "endLine": 613,
+        "endChar": 2
+      },
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec7a50da_b2768839",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-28T21:36:59Z",
+      "side": 1,
+      "message": "AMU is now managed globally, so this doesn\u0027t seem to be necessary anymore.",
+      "range": {
+        "startLine": 623,
+        "startChar": 1,
+        "endLine": 625,
+        "endChar": 2
+      },
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afd952af_c2a87576",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-28T21:36:59Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 627,
+        "startChar": 1,
+        "endLine": 629,
+        "endChar": 2
+      },
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f0f7e30_d9c1cf90",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-28T21:36:59Z",
+      "side": 1,
+      "message": "I wonder if this is still needed. What about access to TPIDR2_EL0? Isn\u0027t it needed for the global context too?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 1
+      },
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68505dcc_3ffbdbea",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-08-28T21:36:59Z",
+      "side": 1,
+      "message": "Same for this.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 1
+      },
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
