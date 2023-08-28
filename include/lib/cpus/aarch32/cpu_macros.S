@@ -216,7 +216,7 @@
 		.ifndef \_cpu\()_errata_list_start
 		\_cpu\()_errata_list_start:
 		.endif
-
+#if REPORT_ERRATA
 		/* unused on AArch32, maintain for portability */
 		.word	0
 		/* TODO(errata ABI): this prevents all checker functions from
@@ -236,6 +236,15 @@
 		/* TODO(errata ABI): mitigated field for known but unmitigated
 		 * errata*/
 		.byte	0x1
+#else
+		.ifnb \_special
+			.word	check_errata_\_special
+		.elseif \_cve
+			.word	check_errata_cve_\_cve\()_\_id
+		.else
+			.word	check_errata_\_id
+		.endif
+#endif
 	.popsection
 .endm
 

@@ -282,6 +282,7 @@
 		\_cpu\()_errata_list_start:
 		.endif
 
+#if REPORT_ERRATA
 		/* check if unused and compile out if no references */
 		.if \_apply_at_reset && \_chosen
 			.quad	erratum_\_cpu\()_\_id\()_wa
@@ -299,6 +300,16 @@
 		/* TODO(errata ABI): mitigated field for known but unmitigated
 		 * errata */
 		.byte	0x1
+#else
+		/* check if unused and compile out if no references */
+		.if \_apply_at_reset && \_chosen
+			.quad	erratum_\_cpu\()_\_id\()_wa
+		.else
+			.quad	0
+		.endif
+		.quad	check_erratum_\_cpu\()_\_id
+
+#endif /* REPORT_ERRATA */
 	.popsection
 .endm
 
