@@ -82,7 +82,7 @@ struct rss_mboot_metadata fvp_rss_mboot_metadata[] = {
 		.sw_type = RSS_MBOOT_SOC_FW_CONFIG_STRING,
 		.pk_oid = SOC_FW_CONFIG_KEY_OID,
 		.lock_measurement = true },
-#if ENABLE_RME
+#ifdef ARM_COT_cca
 	{
 		.id = RMM_IMAGE_ID,
 		.slot = U(12),
@@ -90,7 +90,7 @@ struct rss_mboot_metadata fvp_rss_mboot_metadata[] = {
 		.sw_type = RSS_MBOOT_RMM_STRING,
 		.pk_oid = RMM_IMAGE_KEY_OID,
 		.lock_measurement = true },
-#endif /* ENABLE_RME */
+#endif /* ARM_COT_cca */
 	{
 		.id = RSS_MBOOT_INVALID_ID }
 };

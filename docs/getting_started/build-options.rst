@@ -439,6 +439,10 @@ Common build options
    the ``FEATURE_DETECTION`` mechanism. Default value is 0. This is currently
    an experimental feature.
 
+- ``ARM_CCA``: Boolean value to enable `Arm CCA Security Model`_. This option
+   in-turns enables few other dependent options involves in supporting this
+   model. For example, Measured-Boot, Trusted Board Boot, attestation etc.
+
 -  ``ENABLE_RUNTIME_INSTRUMENTATION``: Boolean option to enable runtime
    instrumentation which injects timestamp collection points into TF-A to
    allow runtime performance to be measured. Currently, only PSCI is
@@ -1298,3 +1302,4 @@ Firmware update options
 .. _PSA DRTM specification: https://developer.arm.com/documentation/den0113/a
 .. _GCC: https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
 .. _Clang: https://clang.llvm.org/docs/DiagnosticsReference.html
+.. _ARM CCA Security Model: https://developer.arm.com/documentation/DEN0096/latest/

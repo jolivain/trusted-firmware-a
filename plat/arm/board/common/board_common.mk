@@ -45,7 +45,7 @@ endif
 
 $(eval $(call add_define,ARM_ROTPK_LOCATION_ID))
 
-ifeq (${ENABLE_RME}, 1)
+ifeq (${ARM_CCA}, 1)
 COT	:=	cca
 endif
 
