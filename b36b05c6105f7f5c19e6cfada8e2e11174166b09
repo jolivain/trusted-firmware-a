@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7570cb87_587e050b",
+        "filename": "lib/cpus/aarch64/neoverse_n2.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-08-29T19:47:51Z",
+      "side": 1,
+      "message": "nit: tabs instead of spaces for code inside the macro.",
+      "revId": "b36b05c6105f7f5c19e6cfada8e2e11174166b09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ca7c6c0_81964ed4",
+        "filename": "lib/cpus/aarch64/neoverse_n2.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-08-29T19:47:51Z",
+      "side": 1,
+      "message": "nit: in the second instance, should we set the _get_rev\u003dNO_GET_CPU_REV because we have already checked the cpu_get_rev_var in the first instance and value is available in x10.",
+      "revId": "b36b05c6105f7f5c19e6cfada8e2e11174166b09",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
