@@ -26,6 +26,9 @@ ARM_ARCH_FEATURE		:= none
 ARM_ARCH_MAJOR			:= 8
 ARM_ARCH_MINOR			:= 0
 
+# Flag to enable Arm CCA Security Model
+ARM_CCA				:= 0
+
 # Base commit to perform code check on
 BASE_COMMIT			:= origin/master
 

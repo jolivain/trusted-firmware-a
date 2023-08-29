@@ -181,6 +181,20 @@ else
 endif #(BRANCH_PROTECTION)
 
 ################################################################################
+# ARM CCA specification dependant options
+################################################################################
+ifneq (${ARM_CCA},0)
+	# Certain attestation functionalities are a permanent part of RMM
+	# runtime services provided by EL3. Specifically, RMM can query the
+	# platform attestation token from RSS through TF-A RMMd services.
+	# This token must contain the CCA firmware measurements which are a
+	# necessary part of the complete attestation model.
+	ENABLE_RME		:=	1
+	TRUSTED_BOARD_BOOT	:=	1
+	MEASURED_BOOT		:=	1
+endif
+
+################################################################################
 # RME dependent flags configuration
 ################################################################################
 # FEAT_RME
@@ -1147,6 +1161,7 @@ endif
 $(eval $(call assert_booleans,\
     $(sort \
 	ALLOW_RO_XLAT_TABLES \
+	ARM_CCA \
 	BL2_ENABLE_SP_LOAD \
 	COLD_BOOT_SINGLE_CPU \
 	CREATE_KEYS \
@@ -1293,6 +1308,7 @@ $(eval $(call add_defines,\
 	ALLOW_RO_XLAT_TABLES \
 	ARM_ARCH_MAJOR \
 	ARM_ARCH_MINOR \
+	ARM_CCA	\
 	BL2_ENABLE_SP_LOAD \
 	COLD_BOOT_SINGLE_CPU \
 	CTX_INCLUDE_AARCH32_REGS \

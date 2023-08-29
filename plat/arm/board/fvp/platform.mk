@@ -266,10 +266,11 @@ endif
 
 ifeq (${ENABLE_RME},1)
 BL2_SOURCES		+=	plat/arm/board/fvp/aarch64/fvp_helpers.S
+endif
 
+ifeq (${ARM_CCA},1)
 BL31_SOURCES		+=	plat/arm/board/fvp/fvp_plat_attest_token.c	\
 				plat/arm/board/fvp/fvp_realm_attest_key.c
-
 # FVP platform does not support RSS, but it can leverage RSS APIs to
 # provide hardcoded token/key on request.
 BL31_SOURCES		+=	lib/psa/delegated_attestation.c
