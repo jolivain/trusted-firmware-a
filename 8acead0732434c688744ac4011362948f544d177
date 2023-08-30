@@ -87,6 +87,30 @@
       },
       "revId": "8acead0732434c688744ac4011362948f544d177",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa05a262_a3cabc1b",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-08-30T07:55:52Z",
+      "side": 1,
+      "message": "Understood, thanks! I\u0027m fine with this approach then.\nIn this case, I still believe a wrapper define could be used to guard this implementation (considering this API usage is no longer limited to PSCI, but appears in boot flow and for some other measurements later on), so it would be best to avoid #ifdery. The wrapper define should be introduced as follows IMO:\n\n #if ENABLE_RUNTIME_INSTRUMENTATION\n #define PMF_RUNTIME_CAPTURE_TIMESTAMP(_name, _tid, _flags) PMF_CAPTURE_TIMESTAMP(_name, _tid, \n _flags)\n #else \n #define PMF_RUNTIME_CAPTURE_TIMESTAMP(_name, _tid, _flags) \n #endif\n\nThen users directly call PMF_RUNTIME_CAPTURE_TIMESTAMP(...) without guarding it.\n\nAlso, I feel this comment[1] need to be improvised after the usage of this flag.\nMay be change it to \"for example, to instrument PSCI, boot stages\"\n\nLet me know what do you think?\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/getting_started/build-options.rst#n444",
+      "parentUuid": "6822bd06_46dff124",
+      "range": {
+        "startLine": 132,
+        "startChar": 4,
+        "endLine": 132,
+        "endChar": 34
+      },
+      "revId": "8acead0732434c688744ac4011362948f544d177",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
