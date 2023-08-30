@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31ca1d12_ecd9fde1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-08-30T14:49:19Z",
+      "side": 1,
+      "message": "So the problem with unconditionally enabling that for all A64 builds is that it breaks the DEBUG\u003d1 build. The A64 build is already very tight, and adding two extra source files is not helping.\nI wonder if we should enable this more widely, though, and just spare the A64 debug build?\nSomething like \"enable by default when SUNXI_PSCI_USE_SCPI\u003d1, but just not for the A64 debug build\"?",
+      "revId": "1455129432422b4de643dae1d8738f5bd6a6abc5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
