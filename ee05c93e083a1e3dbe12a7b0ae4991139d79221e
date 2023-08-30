@@ -16,6 +16,24 @@
       "message": "I randomly checked few references in readthedocs portal and did not find any broken or deprecated URLs related to changes in this patch. Can you give an example?",
       "revId": "ee05c93e083a1e3dbe12a7b0ae4991139d79221e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3807b0b0_d3d770c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001067
+      },
+      "writtenOn": "2023-08-30T15:44:58Z",
+      "side": 1,
+      "message": "The links I fixed where considered broken as they didn\u0027t adhere to sphinx\u0027s markup. I found the broken internal links running \u0027sphinx-build -q -b linkcheck . build/\u0027\n\nExample warning:\n \"/trusted-firmware-a/docs/threat_model/threat_model_el3_spm.rst:7: WARNING: broken link: ../components/el3-spmc.html ()\"\n\n\nhttps://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#ref-role",
+      "parentUuid": "c944c0a5_84a49199",
+      "revId": "ee05c93e083a1e3dbe12a7b0ae4991139d79221e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
