@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2b20d69_eae85481",
+        "filename": "plat/allwinner/common/allwinner-common.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2023-08-30T16:52:10Z",
+      "side": 1,
+      "message": "I\u0027d suggest waiting to hear Andre\u0027s thoughts before making more changes, but please note that this restriction only applies to the `sun50i_a64` platform, not the other Allwinner platforms. So you should check the specific platform here.",
+      "revId": "f4e7a1e397c1c007eddb2b44176363243e8d1142",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
