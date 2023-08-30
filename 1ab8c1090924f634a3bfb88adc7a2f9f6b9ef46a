@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b0e25e6b_5951e729",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-08-30T09:55:38Z",
+      "side": 1,
+      "message": "That\u0027ll be this commit:\n\n\u003e commit a123cb143ffa0c4ada46e05f85cbd42bd1bf7c6c\n\u003e Author: Chris Kay \u003cchris.kay@arm.com\u003e\n\u003e Date:   Wed Mar 22 15:42:32 2023 +0000\n\u003e \n\u003e build: allow BL-specific includes/definitions\n\u003e \n\u003e This change introduces the `BLx_INCLUDE_DIRS` and `BLx_DEFINES`\n\u003e Makefile variables, which can be used to append include directories\n\u003e and preprocessor definitions to specific images created using the\n\u003e `MAKE_BL` Makefile macro.\n\u003e \n\u003e Change-Id: I9431f9d1cbde5b0b2624d9ce128a4f043c74c87f\n\u003e Signed-off-by: Chris Kay \u003cchris.kay@arm.com\u003e",
+      "parentUuid": "d347c42a_78ddf49f",
+      "range": {
+        "startLine": 9,
+        "startChar": 17,
+        "endLine": 9,
+        "endChar": 30
+      },
+      "revId": "1ab8c1090924f634a3bfb88adc7a2f9f6b9ef46a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3b671940_21f46cc6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 13
