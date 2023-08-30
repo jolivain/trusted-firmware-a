@@ -16,6 +16,24 @@
       "message": "So the problem with unconditionally enabling that for all A64 builds is that it breaks the DEBUG\u003d1 build. The A64 build is already very tight, and adding two extra source files is not helping.\nI wonder if we should enable this more widely, though, and just spare the A64 debug build?\nSomething like \"enable by default when SUNXI_PSCI_USE_SCPI\u003d1, but just not for the A64 debug build\"?",
       "revId": "1455129432422b4de643dae1d8738f5bd6a6abc5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d5dd25c_72d41c64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2023-08-30T15:10:14Z",
+      "side": 1,
+      "message": "I would prefer that the firmware behavior does not implicitly change when setting DEBUG\u003d1. I am marginally OK with the current situation, although the platform-specific build variables are not easily discoverable, so I am sure plenty of users miss them (especially if they just follow the build instructions in the U-Boot docs).\n\nI would also be fine with merging this patch, and letting the DEBUG\u003d1 build fail unless some SUNXI_* option is set to reduce code size. We could even add an explicit $(error) when no such option is set, pointing people to the documentation. Speaking of... SUNXI_AMEND_DTB is missing from docs/plat/allwinner.rst.",
+      "parentUuid": "31ca1d12_ecd9fde1",
+      "revId": "1455129432422b4de643dae1d8738f5bd6a6abc5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
