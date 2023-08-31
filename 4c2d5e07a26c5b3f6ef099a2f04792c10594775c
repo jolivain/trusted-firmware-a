@@ -16,6 +16,109 @@
       "message": "No Major changes from v18 to v19 so setting Manual v+1 based on testing from v18",
       "revId": "4c2d5e07a26c5b3f6ef099a2f04792c10594775c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fcc5f3c_2c18b6f3",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-08-31T07:56:18Z",
+      "side": 1,
+      "message": "Overall a nice cleanup. This really helps in future maintenance. \nThanks Govind.",
+      "revId": "4c2d5e07a26c5b3f6ef099a2f04792c10594775c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17c3613c_6cc59368",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-08-31T07:56:18Z",
+      "side": 1,
+      "message": "nit: \nIMO wording could be improvised.\n\n#\t- By default disable any mandatory features\n#\t- Then Enable mandatory feature if applicable to an Arch Version.\n\nPlease ignore if not relevant.",
+      "range": {
+        "startLine": 11,
+        "startChar": 4,
+        "endLine": 12,
+        "endChar": 62
+      },
+      "revId": "4c2d5e07a26c5b3f6ef099a2f04792c10594775c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abe312db_789ea583",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-08-31T07:56:18Z",
+      "side": 1,
+      "message": "nit: features by default to zero",
+      "range": {
+        "startLine": 17,
+        "startChar": 16,
+        "endLine": 17,
+        "endChar": 17
+      },
+      "revId": "4c2d5e07a26c5b3f6ef099a2f04792c10594775c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aa8c125_294bfe10",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-08-31T07:56:18Z",
+      "side": 1,
+      "message": "8.9",
+      "range": {
+        "startLine": 163,
+        "startChar": 60,
+        "endLine": 163,
+        "endChar": 63
+      },
+      "revId": "4c2d5e07a26c5b3f6ef099a2f04792c10594775c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7e248fd_5e092bab",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 19
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-08-31T07:56:18Z",
+      "side": 1,
+      "message": "why this feature flag is not considered ? Any specific reason.",
+      "revId": "4c2d5e07a26c5b3f6ef099a2f04792c10594775c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
