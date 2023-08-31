@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27e24b81_8b41e7e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-08-31T10:08:38Z",
+      "side": 1,
+      "message": "I don\u0027t think we should error out: if people want to shoot themselves in the foot, we should let them. They will realise that this doesn\u0027t work when the build fails. Also the size issue might be fixed later.\nSo I think what we want is the *default* to be set depending on the build settings:\nSUNXI_AMEND_DTB should be enabled by default if SCPI is enabled or we run from DRAM.\nSUNXI_AMEND_DTB should be off by default if this is an A64 DEBUG\u003d1 build.\n\nSo people should be able to always override it on the command line, but a normal \"make PLAT\u003dsun50i_x DEBUG\u003dy\" build would always succeed.\n\nWhat I\u0027d suggest:\nLet it default to 1 in allwinner-common.mk for SCPI or DRAM builds.\nLet it default to 0 in sun50i-a64/platform.mk for DEBUG\u003d1 builds (before the include!).\nWould that work?",
+      "revId": "c8a2e6081906586eaab6c40b472a26d71214ca33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
