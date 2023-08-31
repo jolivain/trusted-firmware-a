@@ -56,7 +56,7 @@
  ******************************************************************************/
 #define CTX_EL3STATE_OFFSET	(CTX_GPREGS_OFFSET + CTX_GPREGS_END)
 #define CTX_SCR_EL3		U(0x0)
-#define CTX_ESR_EL3		U(0x8)
+#define CTX_EA_FLAG		U(0x8)
 #define CTX_RUNTIME_SP		U(0x10)
 #define CTX_SPSR_EL3		U(0x18)
 #define CTX_ELR_EL3		U(0x20)
