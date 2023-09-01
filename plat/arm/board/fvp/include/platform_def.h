@@ -437,7 +437,11 @@ defined(IMAGE_BL2) && MEASURED_BOOT
 /*
  * Maximum size of Event Log buffer used in Measured Boot Event Log driver
  */
+#if ENABLE_RME && (defined(SPD_tspd) || defined(SPD_opteed) || defined(SPD_spmd))
+#define	PLAT_ARM_EVENT_LOG_MAX_SIZE		UL(0x800)
+#else
 #define	PLAT_ARM_EVENT_LOG_MAX_SIZE		UL(0x400)
+#endif
 
 /*
  * Maximum size of Event Log buffer used for DRTM
