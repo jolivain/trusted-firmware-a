@@ -121,9 +121,8 @@ u_register_t mtk_emi_mpu_sip_handler(u_register_t x1, u_register_t x2,
 	int ret;
 
 	ret = emi_mpu_optee_handler(x1, x2, x3);
-	SMC_RET2(handle, ret, 0U);
 
-	return 0;
+	return ret;
 }
 DECLARE_SMC_HANDLER(MTK_SIP_TEE_MPU_PERM_SET, mtk_emi_mpu_sip_handler);
 
