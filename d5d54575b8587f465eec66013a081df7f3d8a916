@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "685ab135_0d6921c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-09-01T14:15:13Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 7
+      },
+      "revId": "d5d54575b8587f465eec66013a081df7f3d8a916",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ca2f885_fdf2c37d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-09-01T14:15:13Z",
+      "side": 1,
+      "message": "that ensures consistency and avoids potential issues with the old return value.",
+      "range": {
+        "startLine": 12,
+        "startChar": 23,
+        "endLine": 13,
+        "endChar": 33
+      },
+      "revId": "d5d54575b8587f465eec66013a081df7f3d8a916",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "899711db_7514485b",
+        "filename": "plat/mediatek/drivers/emi_mpu/emi_mpu_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-09-01T14:15:13Z",
+      "side": 1,
+      "message": "what about\n```\nreturn emi_mpu_optee_handler(x1, x2, x3);\n```",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 12
+      },
+      "revId": "d5d54575b8587f465eec66013a081df7f3d8a916",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
