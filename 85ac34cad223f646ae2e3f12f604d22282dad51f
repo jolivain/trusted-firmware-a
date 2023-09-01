@@ -33,6 +33,98 @@
       "message": "Based on testing:\nhttps://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/1264/\n\nFailures are not related to the change",
       "revId": "85ac34cad223f646ae2e3f12f604d22282dad51f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a56e47b_65b8d407",
+        "filename": "Makefile",
+        "patchSetId": 22
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-01T14:21:35Z",
+      "side": 1,
+      "message": "I\u0027m not sure about this reverse dependency - I think we should override overriding the architecture version from common makefiles, and rely on validation to ensure that we\u0027ve been given a valid system configuration.",
+      "range": {
+        "startLine": 406,
+        "startChar": 0,
+        "endLine": 409,
+        "endChar": 5
+      },
+      "revId": "85ac34cad223f646ae2e3f12f604d22282dad51f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52c539c0_3c6c7e5f",
+        "filename": "Makefile",
+        "patchSetId": 22
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-01T14:21:35Z",
+      "side": 1,
+      "message": "There look to be a mix of spaces and tabs in this blob; I recommend standardising on spaces to avoid potential parsing issues that sometimes occur with tabs.",
+      "range": {
+        "startLine": 511,
+        "startChar": 0,
+        "endLine": 511,
+        "endChar": 16
+      },
+      "revId": "85ac34cad223f646ae2e3f12f604d22282dad51f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f1098b3_fe9ca447",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 22
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-01T14:21:35Z",
+      "side": 1,
+      "message": "Prefer :\u003d unless you explicitly need the late evaluation",
+      "range": {
+        "startLine": 119,
+        "startChar": 19,
+        "endLine": 119,
+        "endChar": 20
+      },
+      "revId": "85ac34cad223f646ae2e3f12f604d22282dad51f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80ba9c2f_975ed884",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 22
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-01T14:21:35Z",
+      "side": 1,
+      "message": "I wonder if it is perhaps safer to validate this rather than override it, to ensure that users are aware of an invalid command line configuration?",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 6
+      },
+      "revId": "85ac34cad223f646ae2e3f12f604d22282dad51f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
