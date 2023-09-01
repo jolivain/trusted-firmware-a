@@ -437,7 +437,7 @@ defined(IMAGE_BL2) && MEASURED_BOOT
 /*
  * Maximum size of Event Log buffer used in Measured Boot Event Log driver
  */
-#define	PLAT_ARM_EVENT_LOG_MAX_SIZE		UL(0x400)
+#define	PLAT_ARM_EVENT_LOG_MAX_SIZE		UL(0x800)
 
 /*
  * Maximum size of Event Log buffer used for DRTM
