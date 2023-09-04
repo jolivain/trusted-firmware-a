@@ -26,6 +26,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a7b4937_498f9c4c",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-09-04T11:53:09Z",
+      "side": 1,
+      "message": "This should likely go to generic code that platforms don\u0027t need to duplicate it.",
+      "revId": "b7ca84aa194a7fb50d5982a0566c37467ab7fe17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2725ec1e_9ade32db",
         "filename": "plat/qemu/common/qemu_bl2_setup.c",
         "patchSetId": 5
