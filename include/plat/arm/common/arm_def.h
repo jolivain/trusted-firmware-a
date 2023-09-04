@@ -595,7 +595,7 @@ MEASURED_BOOT
  */
 #define BL2_BASE			(ARM_TRUSTED_SRAM_BASE + \
 					(PLAT_ARM_TRUSTED_SRAM_SIZE >> 1) + \
-					0x3000)
+					0x5000)
 #else
 /* Put BL2 towards the middle of the Trusted SRAM */
 #define BL2_BASE			(ARM_TRUSTED_SRAM_BASE + \
