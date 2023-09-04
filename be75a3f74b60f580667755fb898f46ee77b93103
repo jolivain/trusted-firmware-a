@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acf39cc7_5031e59f",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-04T09:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d92c13bf_424668f9",
+      "range": {
+        "startLine": 197,
+        "startChar": 1,
+        "endLine": 197,
+        "endChar": 5
+      },
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb84e054_3db507e0",
@@ -41,6 +65,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ede0f4a4_be757afd",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-04T09:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb84e054_3db507e0",
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d75dab78_d3834f5c",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-08-28T21:36:59Z",
       "side": 1,
       "message": "I feel like this should be defined in context.h instead, as this file is mostly for context operations, not definitions.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 54
+      },
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08035bed_a13c87d4",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-04T09:07:08Z",
+      "side": 1,
+      "message": "One thing I\u0027m concerned about when defining it in context.h is that it might get redefined multiple times depending on which files include context.h, which is not what I want. Defining it here ensures that the array is only defined once, and I used the extern keyword to declare the array without defining it in context.h.\n\nIf I\u0027m misunderstanding something related to the C language or I can put this definition somewhere better, do let me know.",
+      "parentUuid": "d75dab78_d3834f5c",
       "range": {
         "startLine": 42,
         "startChar": 0,
@@ -87,6 +153,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ba0b324_66b054d0",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-04T09:07:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b59242ef_191d4a6a",
+      "range": {
+        "startLine": 495,
+        "startChar": 5,
+        "endLine": 495,
+        "endChar": 9
+      },
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33da10ab_9360bdea",
@@ -100,6 +190,30 @@
       "writtenOn": "2023-08-28T21:36:59Z",
       "side": 1,
       "message": "I\u0027m not sure whether this should go here or in manage_extensions_{state}, as this function is supposed to be for registers that never change or the lifetime of TF-A.",
+      "range": {
+        "startLine": 535,
+        "startChar": 0,
+        "endLine": 550,
+        "endChar": 3
+      },
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb06d88f_816e7f7e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-04T09:07:08Z",
+      "side": 1,
+      "message": "The functions manage_extensions_{state} get called once per CPU initialization. However, in this case, we only want the global context to be initialized once across all CPUs.\n\nThe cm_manage_extensions_el3 function runs once globally, so I opted to put the global context initialization here (under Boyan\u0027s suggestion).\n\nI could also create a new function just for global context initialization if that makes it clearer.",
+      "parentUuid": "33da10ab_9360bdea",
       "range": {
         "startLine": 535,
         "startChar": 0,
@@ -158,6 +272,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6ebc0e29_5d368bd9",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-04T09:07:08Z",
+      "side": 1,
+      "message": "Sorry I don\u0027t think I completely understand, do you mind referring me to the patch where this is done? I\u0027ll take a closer look. Thank you!",
+      "parentUuid": "ec7a50da_b2768839",
+      "range": {
+        "startLine": 623,
+        "startChar": 1,
+        "endLine": 625,
+        "endChar": 2
+      },
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "afd952af_c2a87576",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 16
@@ -192,6 +330,30 @@
       "writtenOn": "2023-08-28T21:36:59Z",
       "side": 1,
       "message": "I wonder if this is still needed. What about access to TPIDR2_EL0? Isn\u0027t it needed for the global context too?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 1
+      },
+      "revId": "be75a3f74b60f580667755fb898f46ee77b93103",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32f7781a_e2acf677",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-04T09:07:08Z",
+      "side": 1,
+      "message": "SCR isn\u0027t part of the global context and is still being initialized per-world per-cpu, which is why I kept the SCR configuration part in sme_enable so that SCR gets initialized properly for every CPU.",
+      "parentUuid": "3f0f7e30_d9c1cf90",
       "range": {
         "startLine": 17,
         "startChar": 0,
