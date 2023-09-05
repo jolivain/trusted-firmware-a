@@ -34,6 +34,24 @@
       "parentUuid": "27e24b81_8b41e7e7",
       "revId": "c8a2e6081906586eaab6c40b472a26d71214ca33",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18fb0f06_80c341f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-09-05T08:31:33Z",
+      "side": 1,
+      "message": "SUNXI_BL31_IN_DRAM\u003d1 for A64, you mean? Please note that this option is only meant for the H616, which doesn\u0027t have (secure) SRAM, so we are forced to run in DRAM there. All other SoCs should use secure SRAM.",
+      "parentUuid": "a32e1352_2021e18b",
+      "revId": "c8a2e6081906586eaab6c40b472a26d71214ca33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
