@@ -46,6 +46,30 @@
       },
       "revId": "6dfe3f2b05e58e1dae427229b3e107b60ba2cba8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01f5262b_700ae192",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 49
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-09-05T16:38:54Z",
+      "side": 1,
+      "message": "Some of the arguments are not correct.\n\n\"the fact that NS_BL1U runs at NSEL2 means that this register needs context switching.\"\n\nSCTLR_EL2 needs to be context switched only if BL2U is running at S-EL2 (which it is not). Otherwise the registers can remain in place and does not need context switching.\n\nAlso, by forcing the inclusion of this 2 additional regs for a non - SEL2 platform, this patch is increasing the memory foot print for legacy platforms (and runtime overhead).\n\nThis is the way I see it: \n\nFor non-symmetrical execution , i.e no EL2 in all the worlds (pre v8.4 or SEL2 disabled), the sctlr_el2 init can be done directly.\n\nFor symmetric execution (v8.4 + and SEl2 enabled), then this becomes part of EL2 context and then be done via context mgmt. The fact the EL2 is present in all the worlds is what enables some of the optimization of context mgmt library (every EL2 reg done via context).",
+      "parentUuid": "bc49be43_72dd56e2",
+      "range": {
+        "startLine": 284,
+        "startChar": 16,
+        "endLine": 284,
+        "endChar": 23
+      },
+      "revId": "6dfe3f2b05e58e1dae427229b3e107b60ba2cba8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
