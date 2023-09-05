@@ -88,6 +88,24 @@
       "parentUuid": "1e337450_4936983a",
       "revId": "c8a2e6081906586eaab6c40b472a26d71214ca33",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c86d1a06_cd36b619",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-09-05T11:17:39Z",
+      "side": 1,
+      "message": "So I see your point that DEBUG\u003d1 should not affect the feature set built in.\nThe suggestion of using DEBUG\u003d1 by default was to help \"remote debugging\", so that people can report meaningful information with an out-of-the-box build, not requiring them to rebuild TF-A.\nSo I think we need to solve this properly: SUNXI_AMEND_DTB should be enabled by default, but I don\u0027t want to lose the ability to do DEBUG\u003d1 builds.\nMaybe we can scale back on some debug messages, to decrease code and data size? And my gut feeling is that we still waste code and data somewhere, especially due to the vector table alignment. So I will try (again) to find some tricks to avoid excessive padding, and make more use of the available space.\n\nIf anyone (Samuel?) has any good pointers or some insight or ideas, I am all ears.\n\nIn the long run there is hope with us losing the regulator setup code, this can be done by U-Boot, with now mostly default build options missing. So maybe in a year or so we could switch the default to SUNXI_SETUP_REGULATORS\u003d0, saving us some space.",
+      "parentUuid": "dc9de2b9_35009a14",
+      "revId": "c8a2e6081906586eaab6c40b472a26d71214ca33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
