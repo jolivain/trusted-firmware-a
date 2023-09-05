@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Arm Limited. All rights reserved.
+ * Copyright (c) 2023 Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -20,7 +20,7 @@
 	attribute {
 		spmc_id = <0x8000>;
 		maj_ver = <0x1>;
-		min_ver = <0x0>;
+		min_ver = <0x2>; /*TODO reason this was 0x0 not 0x1? */
 		exec_state = <0x0>;
 		load_address = <0x0 0x08000000>;
 		entrypoint = <0x0 0x08000000>;
