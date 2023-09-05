@@ -492,6 +492,32 @@ void cm_setup_context(cpu_context_t *ctx, const entry_point_info_t *ep)
 	}
 }
 
+/*
+ * Report the number of bytes used to store the contents of the context registers, used for
+ * context management. This is a utility function.
+ */
+void report_memory_allocated(void)
+{
+	size_t total = 0;
+	size_t count = 0;
+
+	for (int i = 0; i < PLATFORM_CORE_COUNT; i++) {
+		for (int j = 0; j < CPU_DATA_CONTEXT_NUM; j++) {
+			count = sizeof(*((cpu_context_t *) cm_get_context_by_index(i, j)));
+			VERBOSE("core %d security state %d takes up %d bytes\n", i, j, count);
+			total += count;
+		}
+	}
+
+	for (int i = 0; i < CPU_DATA_CONTEXT_NUM; i++) {
+		count = sizeof(global_context[i]);
+		VERBOSE("global context for security state %d takes up %d bytes\n", i, count);
+		total += count;
+	}
+
+	VERBOSE("total memory allocated: %d bytes\n", total);
+}
+
 /*******************************************************************************
  * Enable architecture extensions for EL3 execution. This function only updates
  * registers in-place which are expected to either never change or be
