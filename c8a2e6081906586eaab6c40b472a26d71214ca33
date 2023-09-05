@@ -70,6 +70,24 @@
       "parentUuid": "18fb0f06_80c341f3",
       "revId": "c8a2e6081906586eaab6c40b472a26d71214ca33",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc9de2b9_35009a14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2023-09-05T10:47:51Z",
+      "side": 1,
+      "message": "\u003e Would that work?\n\nNo. I am not okay with DEBUG\u003d0/1 intentionally changing the behavior of the firmware in ways unrelated to debugging. That creates situations where enabling debugging magically makes problems go away, or introduces new problems, thus preventing debugging the original issue. We can set the defaults for SUNXI_* options however we want, but DEBUG\u003d must not affect them.\n\nIf you want to omit the forced error message, I am okay with that, though I expect it will lead to increased complaints about build failures, since I doubt most people following some HOWTO can/will want to investigate any build failures. (And if we make this change, `make PLAT\u003dsun50i_a64 DEBUG\u003d1 bl31` will fail. I don\u0027t really know why various documentation suggests a DEBUG\u003d1 build anyway, but that\u0027s the situation we\u0027re in.)",
+      "parentUuid": "1e337450_4936983a",
+      "revId": "c8a2e6081906586eaab6c40b472a26d71214ca33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
