@@ -37,6 +37,8 @@ SECTIONS {
 
 #if SEPARATE_CODE_AND_RODATA
     .text . : {
+	ASSERT(. == ALIGN(PAGE_SIZE),
+        ".text is not aligned on a page boundary.");
         __TEXT_START__ = .;
 
         *bl31_entrypoint.o(.text*)

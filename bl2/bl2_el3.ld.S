@@ -55,6 +55,9 @@ SECTIONS {
 
 #if SEPARATE_CODE_AND_RODATA
     .text . : {
+	ASSERT(. == ALIGN(PAGE_SIZE),
+        ".text address is not aligned on a page boundary.");
+
         __TEXT_START__ = .;
         __TEXT_RESIDENT_START__ = .;
 
