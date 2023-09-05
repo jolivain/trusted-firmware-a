@@ -94,6 +94,30 @@
       },
       "revId": "b692edf8bf13baa418027b8add373fdf72576873",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d674178_b5e4ef66",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 57
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-09-05T16:28:54Z",
+      "side": 0,
+      "message": "Hmm, I see. It is done much later in the boot path. \n\nActually the needed behavior is that the FP is set up to be trapped during boot sequence of BL31 (thus catching any invalid compiler flag set up early).\n\nAlso the root context work is probably another couple of months away. It is a bit unreliable to leave this reg uninitialized as it affects EL3 execution. We need some initialization of this critical register until the lower EL context init at runtime. \n\nSo we could leave this duplication here for a while and add a TODO comment to remove this when Root context is introduced.",
+      "parentUuid": "96de433f_a30dfc31",
+      "range": {
+        "startLine": 153,
+        "startChar": 49,
+        "endLine": 153,
+        "endChar": 56
+      },
+      "revId": "b692edf8bf13baa418027b8add373fdf72576873",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
