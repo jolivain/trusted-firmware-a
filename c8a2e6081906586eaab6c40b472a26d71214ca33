@@ -52,6 +52,24 @@
       "parentUuid": "a32e1352_2021e18b",
       "revId": "c8a2e6081906586eaab6c40b472a26d71214ca33",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e337450_4936983a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-09-05T10:15:53Z",
+      "side": 1,
+      "message": "yeah, I\u0027ve built SUNXI_BL31_IN_DRAM\u003d1 for A64. I thought SUNXI_BL31_IN_DRAM could be used as workaround for SRAM size limitation on A64. Apparently I was wrong.\n\nThere is no problem with SUNXI_BL31_IN_DRAM\u003d1 for H616. So it looks like no changes are needed then. Thanks for clarification.\n\nSo let\u0027s wait for Samuel\u0027s answer about SUNXI_AMEND_DTB.",
+      "parentUuid": "18fb0f06_80c341f3",
+      "revId": "c8a2e6081906586eaab6c40b472a26d71214ca33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
