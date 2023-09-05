@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1458f1c1_5bca556c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-09-05T11:22:27Z",
+      "side": 1,
+      "message": "https://ci.trustedfirmware.org/job/tf-a-static-checks/6101/ all success and no failure.\n\nAnd it looks like that mbedtls can\u0027t be downloaded that\u0027s why a lot of builds are failing.\n\n12:59:13 + case $(file --mime-type -b \"$archive\") in\n12:59:13 ++ file --mime-type -b /home/buildslave/workspace/tf-a-builder/workspace/mbedtls.tar.gz\n12:59:13 + tar -xz --strip-components\u003d1 -f /home/buildslave/workspace/tf-a-builder/workspace/mbedtls.tar.gz\n12:59:13 \n12:59:13 gzip: stdin: unexpected end of file\n12:59:13 tar: Unexpected EOF in archive\n12:59:13 tar: Unexpected EOF in archive\n12:59:13 tar: Error is not recoverable: exiting now\n\nI can\u0027t see any issue with my patch. \n",
+      "revId": "c3b69bf17bc0231b0dae613dc9e1e01e41f32236",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
