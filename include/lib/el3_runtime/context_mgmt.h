@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -35,6 +35,8 @@ void cm_init_context_by_index(unsigned int cpu_idx,
 void cm_setup_context(cpu_context_t *ctx, const struct entry_point_info *ep);
 void cm_prepare_el3_exit(uint32_t security_state);
 void cm_prepare_el3_exit_ns(void);
+
+void report_memory_allocated(void);
 
 #ifdef __aarch64__
 #if IMAGE_BL31
