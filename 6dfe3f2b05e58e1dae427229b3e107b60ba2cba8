@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66d2f27d_c5483b44",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 49
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-09-05T13:30:31Z",
+      "side": 1,
+      "message": "Not sure of making HCRX_EL2 and SCTLR_EL2 outside the EL2 context.",
+      "range": {
+        "startLine": 284,
+        "startChar": 16,
+        "endLine": 284,
+        "endChar": 23
+      },
+      "revId": "6dfe3f2b05e58e1dae427229b3e107b60ba2cba8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
