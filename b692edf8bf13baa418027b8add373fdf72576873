@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fdac286_5af48e98",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 57
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-09-05T13:21:30Z",
+      "side": 0,
+      "message": "This bit should be set of EL3 execution and should be unset only on exit to NS/S/Realm.\n\nCurrently there is an issue that this bit is never restored to its EL3 value because Root itself does not have a context, but that will be solved later on.",
+      "range": {
+        "startLine": 153,
+        "startChar": 49,
+        "endLine": 153,
+        "endChar": 56
+      },
+      "revId": "b692edf8bf13baa418027b8add373fdf72576873",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
