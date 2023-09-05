@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fe81eab_3de4d954",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-09-05T16:32:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7c3d3b3_5d2eba56",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 2
+      },
+      "revId": "b7ca84aa194a7fb50d5982a0566c37467ab7fe17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a7b4937_498f9c4c",
@@ -41,6 +65,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21be4779_464ab392",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-09-05T16:32:48Z",
+      "side": 1,
+      "message": "Moved to the TL lib.",
+      "parentUuid": "0a7b4937_498f9c4c",
+      "revId": "b7ca84aa194a7fb50d5982a0566c37467ab7fe17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2725ec1e_9ade32db",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-08-23T07:56:42Z",
       "side": 1,
       "message": "bl_mem_params is if I understand this correctly the parameters for BL33. Why do we care about AARCH32_SP_OPTEE here?",
+      "range": {
+        "startLine": 410,
+        "startChar": 0,
+        "endLine": 417,
+        "endChar": 4
+      },
+      "revId": "b7ca84aa194a7fb50d5982a0566c37467ab7fe17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2ec9205_9c840382",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-09-05T16:32:48Z",
+      "side": 1,
+      "message": "TRANSFER_LIST_AARCH32 is created and will set in the TL library makefile when ARCH\u003d\u003daarch32.",
+      "parentUuid": "2725ec1e_9ade32db",
       "range": {
         "startLine": 410,
         "startChar": 0,
