@@ -46,6 +46,30 @@
       },
       "revId": "b692edf8bf13baa418027b8add373fdf72576873",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e4ba394_daade223",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 57
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-09-05T15:30:09Z",
+      "side": 0,
+      "message": "Not sure about the status quo. Isn\u0027t this setting being removed from the boot path now (unless it is being set elsewhere in boot) ?",
+      "parentUuid": "b221e1e7_21c9115c",
+      "range": {
+        "startLine": 153,
+        "startChar": 49,
+        "endLine": 153,
+        "endChar": 56
+      },
+      "revId": "b692edf8bf13baa418027b8add373fdf72576873",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
