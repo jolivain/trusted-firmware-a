@@ -1178,6 +1178,11 @@ Common build options
   errata mitigation for platforms with a non-arm interconnect using the errata
   ABI. By default its disabled (``0``).
 
+- ``PSA_CRYPTO``: Boolean option for enabling MbedTLS PSA crypto APIs support.
+  The platform will use PSA compatible Crypto APIs during authentication and
+  image measurement process by enabling this option. By default its disabled
+  (``0``).
+
 GICv3 driver options
 --------------------
 
