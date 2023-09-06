@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f313ac0_9a4fa562",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 48
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-06T08:32:44Z",
+      "side": 1,
+      "message": "\u003e the fact that EEL2 exists will affect how EL3 responds to various events...\n\nsuch as? I\u0027ve taken care of any explicit dependency by TFA on this bit, which was the original reason for having such funny initialization of it (and ICC_SRE_EL2 but I\u0027ve addressed that too). Unless there\u0027s something I\u0027ve missed, EL3 won\u0027t care.\n\n\u003e Now whether this happens in the reset sequence or some common context initialization code, it doesn\u0027t matter much, ...\n\nIt matters very much! That\u0027s the whole point of this entire patch stack. The difference is subtle, but important. There are gaps in which copies of SCR will be affected depending on which one is written, and sometimes values are lost or overwritten.\n\n\u003e  ...but this bit can be set in all the copies of scr_el3 in all the contexts if SEL2 is enabled.\n\nIf you really want to, sure, but this was the case before because per-world stuff would leak and things would sporiadically blow up in EL3. I\u0027ve addressed that though and it is no longer necessary. I even think its better to *not* have it set everywhere, as having Secure EL2 enabled (EEL2\u003d1) while executing in NS is just waiting for something wrong to happen (same margin of safety as SIF in my mind).\n\n\u003e ...means that this bit can be set up globally ...\n\nwhich is why it is to be included in root context. You\u0027re coming from the old way \n\n\u003e Also ICC_SRE_EL2 only needs to be context switched if there is a S-EL2. Else there is only a single non secure register which can be in place throughout execution of firmware and no context switching is needed. The NS bit work around seems like a hack to get around this aspect.\n\nI don\u0027t understand why you\u0027re saying this. This work around is present at this very moment and this patch does not change it. It does localise it though to reduce its side effects.",
+      "parentUuid": "5bb7da86_51a9b40a",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 0
+      },
+      "revId": "51d7bc1de4e3ed85322a0168acab3925fabd1c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fe0e60f3_4e778d60",
