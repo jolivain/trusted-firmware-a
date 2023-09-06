@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23877d91_9e72087e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-06T09:53:24Z",
+      "side": 1,
+      "message": "fix(corstone-1000): adding NOR flash dependencies",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "cfff5152cb81e17a3f9ad55f0fe5fc9576b90030",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ccef214_0b9d590c",
+        "filename": "plat/arm/board/corstone1000/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-06T09:53:24Z",
+      "side": 1,
+      "message": "GPT is used on block devices, and so not on NOR flash devices. IMHO the commit message should be updated and not refer to NOR flash devices, but maybe just to boot devices.",
+      "revId": "cfff5152cb81e17a3f9ad55f0fe5fc9576b90030",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
