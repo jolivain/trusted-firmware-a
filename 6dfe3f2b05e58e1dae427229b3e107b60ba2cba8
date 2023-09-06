@@ -70,6 +70,30 @@
       },
       "revId": "6dfe3f2b05e58e1dae427229b3e107b60ba2cba8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fde5efc0_6da3b593",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 49
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-06T08:16:38Z",
+      "side": 1,
+      "message": "\u003e SCTLR_EL2 needs to be context switched only if BL2U is running at S-EL2 (which it is not). Otherwise the registers can remain in place and does not need context switching.\n\nWhat I\u0027m trying to say is that BL2U is running at S-EL1 and NS_BL1U runs at NS-EL2, i.e. there is a change in security state. That change is what requires this register update not the EL. The fact that S-EL2 is empty is of no consequence. In fact, I tried keeping it in place, and it blew up, precisely for that reason. \n\n\u003e For non-symmetrical execution , i.e no EL2 in all the worlds (pre v8.4 or SEL2 disabled), the sctlr_el2 init can be done directly.\n\nIn a roundabout way this is still what happens. It will be written exactly once and everyone will go on their merry way. The benefit is that this can happen at the appropriate place with all the appropriate information available - at world context init. At present, this directness is achieved at the cost of having to recreate all the pieces of information needed to do the right thing. Mind you that this information is not available at prepare_el3_exit. Rather a traiting system is used (via the SCR_EL3.HCE bit). \n\nThis change lets me do away with this indirection and unify what is essentially the context. Sure, it takes 8 bytes (!!!) more of context per world (so ~200 total) but it simplifies context management so we can tug and pull at it for root context.\n\n\u003e For symmetric execution (v8.4 + and SEl2 enabled), then this becomes part of EL2 context and then be done via context mgmt. The fact the EL2 is present in all the worlds is what enables some of the optimization of context mgmt library (every EL2 reg done via context).\n\n...and we preserve the status quo, having 2 places that do EL2 context management, that is difficult to track down, a logical nightmare to change, and a black box for reading. I\u0027m really bothered by this optimisation argument as the library is known to be wasteful in its EL2 context allocation (which this patch does not use! It uses a cut-down version for this very reason) that these 200 bytes at best will not make a blip. It does address the unnecessarily corner-casey nature of the library which might actually help to optimise properly.",
+      "parentUuid": "01f5262b_700ae192",
+      "range": {
+        "startLine": 284,
+        "startChar": 16,
+        "endLine": 284,
+        "endChar": 23
+      },
+      "revId": "6dfe3f2b05e58e1dae427229b3e107b60ba2cba8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
