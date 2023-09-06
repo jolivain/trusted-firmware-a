@@ -36,6 +36,9 @@ assumptions:
 - There are no Root and Realm worlds. These are introduced by :ref:`Realm
   Management Extension (RME)`.
 
+  The :ref:`Threat Model for RME-Enlighthened Firmware` covers these types of
+  configurations.
+
 - No experimental features are enabled. We do not consider threats that may come
   from them.
 
