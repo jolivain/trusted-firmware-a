@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee98ed8c_7294edc3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-09-06T18:34:03Z",
+      "side": 1,
+      "message": "nit: Cortex-X3",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "1cd8eca31a0327df36b320f44a575740f2ccd8c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4777cf97_2b702e49",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -49,6 +72,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ce3fb41_8df7619a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-09-06T18:34:03Z",
+      "side": 1,
+      "message": "Could you also mention adding support for Cortex-X3 in Errata ABI in commit message since it\u0027s a bit independant from the new workaround.",
+      "revId": "1cd8eca31a0327df36b320f44a575740f2ccd8c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2178b7e9_a52547bb",
         "filename": "docs/design/cpu-specific-build-macros.rst",
         "patchSetId": 2
@@ -65,6 +105,29 @@
         "startChar": 38,
         "endLine": 718,
         "endChar": 48
+      },
+      "revId": "1cd8eca31a0327df36b320f44a575740f2ccd8c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74437482_5d05e0a7",
+        "filename": "include/lib/cpus/aarch64/cortex_x3.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-09-06T18:34:03Z",
+      "side": 1,
+      "message": "2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
       },
       "revId": "1cd8eca31a0327df36b320f44a575740f2ccd8c9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
