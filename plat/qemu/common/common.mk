@@ -94,10 +94,21 @@ ifeq (${ARCH},aarch64)
 # Later QEMU versions support SME and SVE.
 # SPM_MM is not compatible with ENABLE_SVE_FOR_NS (build breaks)
 ifeq (${SPM_MM},1)
+	DISABLE_SVE		:= 1
+	DISABLE_SME		:= 1
+# RMM doesn't support SVE at the moment
+else ifneq (${ENABLE_RME},0)
+	DISABLE_SME		:= 1
+endif
+
+ifeq (${DISABLE_SVE},1)
 	ENABLE_SVE_FOR_NS	:= 0
-	ENABLE_SME_FOR_NS	:= 0
 else
 	ENABLE_SVE_FOR_NS	:= 2
+endif
+ifeq (${DISABLE_SME},1)
+	ENABLE_SME_FOR_NS	:= 0
+else
 	ENABLE_SME_FOR_NS	:= 2
 endif
 
