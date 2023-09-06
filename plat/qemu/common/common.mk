@@ -126,6 +126,11 @@ else
 	ENABLE_SME_FOR_NS	:= 2
 endif
 
+ifeq (${ENABLE_RME},1)
+BL31_SOURCES			+= plat/qemu/common/qemu_plat_attest_token.c \
+				   plat/qemu/common/qemu_realm_attest_key.c
+endif
+
 # Treating this as a memory-constrained port for now
 USE_COHERENT_MEM	:=	0
 
