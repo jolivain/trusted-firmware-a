@@ -10,7 +10,8 @@ include common/fdt_wrappers.mk
 PLAT_INCLUDES		:=	-Iinclude/plat/arm/common/		\
 				-I${PLAT_QEMU_COMMON_PATH}/include	\
 				-I${PLAT_QEMU_PATH}/include		\
-				-Iinclude/common/tbbr
+				-Iinclude/common/tbbr			\
+				-Iinclude/lib/psa
 
 ifeq (${ARCH},aarch32)
 QEMU_CPU_LIBS		:=	lib/cpus/${ARCH}/cortex_a15.S
@@ -109,6 +110,16 @@ ENABLE_FEAT_FGT			:= 2
 
 # Some CPU models support HCX, detect support at runtime
 ENABLE_FEAT_HCX			:= 2
+
+ifeq (${ENABLE_RME},1)
+BL31_SOURCES			+= plat/qemu/common/qemu_plat_attest_token.c \
+				   plat/qemu/common/qemu_realm_attest_key.c
+
+# QEMU platform does not support RSS, but it can leverage RSS APIs to
+# provide hardcoded token/key on request.
+PLAT_RSS_NOT_SUPPORTED		:= 1
+BL31_SOURCES			+= lib/psa/delegated_attestation.c
+endif
 
 # Treating this as a memory-constrained port for now
 USE_COHERENT_MEM	:=	0
