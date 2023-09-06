@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "02978d6f_4afe3d0f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-06T10:12:51Z",
+      "side": 1,
+      "message": "to have a better changelog, this should have a scope, IOW:\nfix(bl31): ...",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 3
+      },
+      "revId": "281afb64097a792ff26b1bbe6368e5b4686d5b24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6873ce18_8fb2f94b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-06T10:12:51Z",
+      "side": 1,
+      "message": "I\u0027m not sure RMM is seen as a BL32. Maybe this could be changed to \u0027next stage\u0027 or something like this",
+      "range": {
+        "startLine": 7,
+        "startChar": 40,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "281afb64097a792ff26b1bbe6368e5b4686d5b24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "2368b366_12e85a2b",
