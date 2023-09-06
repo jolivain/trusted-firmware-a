@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23e37a19_ffb59aa9",
+        "filename": "plat/common/plat_gicv3.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-06T08:31:18Z",
+      "side": 1,
+      "message": "I am not sure about this default return. In case of RELEASE build this will go through and return a wrong type. Can we use INTR_TYPE_INVAL ?\n\ndefault return of gicv3_get_interrupt_group() INTR_GROUP0, so it is any way unreachable.",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 23
+      },
+      "revId": "75b98c33a5ef5d56ac879e8e29acfea0393f0b60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d2cc32a_79488099",
+        "filename": "plat/common/plat_gicv3.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-06T08:31:18Z",
+      "side": 1,
+      "message": "same here",
+      "range": {
+        "startLine": 261,
+        "startChar": 2,
+        "endLine": 261,
+        "endChar": 22
+      },
+      "revId": "75b98c33a5ef5d56ac879e8e29acfea0393f0b60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
