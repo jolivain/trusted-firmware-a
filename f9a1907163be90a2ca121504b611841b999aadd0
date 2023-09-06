@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f8b2087_a36b9a54",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-06T09:36:26Z",
+      "side": 1,
+      "message": "For conventional commits, this line should be:\nfix(corstone-1000): removing the Signature Area",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "f9a1907163be90a2ca121504b611841b999aadd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "365da6b1_53ca0fc3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-06T09:36:26Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 9,
+        "startChar": 42,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "f9a1907163be90a2ca121504b611841b999aadd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb4160b7_814bdc56",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_plat.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-06T09:36:26Z",
+      "side": 1,
+      "message": "This added code does not sound related to what is described in commit message. Should it have it own dedicated patch? Or be explained in commit message?",
+      "revId": "f9a1907163be90a2ca121504b611841b999aadd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97ab54de_ecbde55b",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_plat.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-06T09:36:26Z",
+      "side": 1,
+      "message": "add a blank line after the function",
+      "revId": "f9a1907163be90a2ca121504b611841b999aadd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
