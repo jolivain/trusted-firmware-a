@@ -1178,6 +1178,11 @@ Common build options
   errata mitigation for platforms with a non-arm interconnect using the errata
   ABI. By default its disabled (``0``).
 
+- ``PSA_CRYPTO``: Boolean option for enabling MbedTLS PSA crypto APIs support.
+  The platform will use PSA compatible Crypto APIs during authentication and
+  image measurement process by enabling this option. It uses APIs defined as
+  per the `PSA Crypto API specification`_. By default its disabled (``0``).
+
 GICv3 driver options
 --------------------
 
@@ -1298,3 +1303,4 @@ Firmware update options
 .. _PSA DRTM specification: https://developer.arm.com/documentation/den0113/a
 .. _GCC: https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html
 .. _Clang: https://clang.llvm.org/docs/DiagnosticsReference.html
+.. _PSA Crypto API specification: https://armmbed.github.io/mbed-crypto/html/
