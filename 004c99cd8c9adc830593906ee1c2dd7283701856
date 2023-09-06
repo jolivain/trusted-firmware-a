@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f6d0074_51168d4d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2023-09-06T10:02:44Z",
+      "side": 1,
+      "message": "report",
+      "range": {
+        "startLine": 7,
+        "startChar": 30,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "004c99cd8c9adc830593906ee1c2dd7283701856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49e1beaa_a3429b42",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2023-09-06T10:02:44Z",
+      "side": 1,
+      "message": "cpu context size\n\nOr something like that I think it needs to be a bit more specific than just memory usage",
+      "range": {
+        "startLine": 7,
+        "startChar": 38,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "004c99cd8c9adc830593906ee1c2dd7283701856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52ebd85c_9d22e8a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2023-09-06T10:02:44Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this utility function is really required, I appreciate it was useful for debugging but I think the information it prints is of limited use. If you disagree then I\u0027m happy to include it but I\u0027ve added a few comments",
+      "revId": "004c99cd8c9adc830593906ee1c2dd7283701856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "979ec41b_7afdd231",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2023-09-06T10:02:44Z",
+      "side": 1,
+      "message": "Maybe use the size_t type here? At least unsigned int",
+      "range": {
+        "startLine": 501,
+        "startChar": 1,
+        "endLine": 501,
+        "endChar": 4
+      },
+      "revId": "004c99cd8c9adc830593906ee1c2dd7283701856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8aa3844_0f488d46",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2023-09-06T10:02:44Z",
+      "side": 1,
+      "message": "I think size would be more appropriate here",
+      "range": {
+        "startLine": 502,
+        "startChar": 5,
+        "endLine": 502,
+        "endChar": 10
+      },
+      "revId": "004c99cd8c9adc830593906ee1c2dd7283701856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ad6ba36_354bd6d5",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2023-09-06T10:02:44Z",
+      "side": 1,
+      "message": "I think these should be VERBOSE",
+      "range": {
+        "startLine": 507,
+        "startChar": 3,
+        "endLine": 507,
+        "endChar": 7
+      },
+      "revId": "004c99cd8c9adc830593906ee1c2dd7283701856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
