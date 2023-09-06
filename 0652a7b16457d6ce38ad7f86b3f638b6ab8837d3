@@ -39,6 +39,23 @@
       "message": "Hi Gauri,\n\nThis patch shouldn\u0027t be required, as it is done in arm_bl2_early_platform_setup() in plat/arm/common/arm_bl2_setup.c file. Maybe a problem of file inclusion?\nAnyway this should be done at platform level.\n\nCould you also fill the \"Full name\" field in your gerrit Settings?\n\nBest regards,\nYann",
       "revId": "0652a7b16457d6ce38ad7f86b3f638b6ab8837d3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4711633_0c8f5723",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-06T09:30:56Z",
+      "side": 1,
+      "message": "Putting CR-1, as my previous comment should be checked",
+      "revId": "0652a7b16457d6ce38ad7f86b3f638b6ab8837d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
