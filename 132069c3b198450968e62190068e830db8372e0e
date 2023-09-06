@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67505851_9e8ab4fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-06T15:00:14Z",
+      "side": 1,
+      "message": "That first part of the sentence confused me because it relates to MMU mappings, which has nothing to do with TZC configuration. So I think the commit message should just focus on TZC config since we do not modify the MMU mappings.\n\nIf I understood the issue correctly, we could say something like:\n\nThe SPD needs access to the event log. However, on RME systems with TrustZone Controller, the access is currently denied. Configure the event log region into the TZC so as to open read-write access from secure world.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 41
+      },
+      "revId": "132069c3b198450968e62190068e830db8372e0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
