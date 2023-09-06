@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98a351ad_758f7938",
+        "filename": "bl31/interrupt_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-06T08:36:20Z",
+      "side": 1,
+      "message": "just a thought, can we change the return type of plat_ic_has_interrupt_type() to bool?",
+      "range": {
+        "startLine": 50,
+        "startChar": 5,
+        "endLine": 50,
+        "endChar": 31
+      },
+      "revId": "bfb2587fd0b1f0a6639387991de40a0bd6dbcc2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
