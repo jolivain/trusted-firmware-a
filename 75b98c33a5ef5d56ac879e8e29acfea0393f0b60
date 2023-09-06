@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bbb5b20f_805a2da5",
+        "filename": "plat/common/plat_gicv3.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-09-06T20:44:16Z",
+      "side": 1,
+      "message": "As you said, execution can never reach here irrespective of whether its release or debug build. I had to specify some interrupt type to make the static checker happy.\nMoerover, I believe INTR_TYPE_INVAL has a special significance denoting that there is a spurious interrupt at the GIC interface.\n\nHence, I think we can let the default return be INTR_TYPE_EL3.",
+      "parentUuid": "23e37a19_ffb59aa9",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 23
+      },
+      "revId": "75b98c33a5ef5d56ac879e8e29acfea0393f0b60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2d2cc32a_79488099",
         "filename": "plat/common/plat_gicv3.c",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-06T08:31:18Z",
       "side": 1,
       "message": "same here",
+      "range": {
+        "startLine": 261,
+        "startChar": 2,
+        "endLine": 261,
+        "endChar": 22
+      },
+      "revId": "75b98c33a5ef5d56ac879e8e29acfea0393f0b60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1d9d72b_fd3ad6a4",
+        "filename": "plat/common/plat_gicv3.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-09-06T20:44:16Z",
+      "side": 1,
+      "message": "responded to your previous comment above",
+      "parentUuid": "2d2cc32a_79488099",
       "range": {
         "startLine": 261,
         "startChar": 2,
