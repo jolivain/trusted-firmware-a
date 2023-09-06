@@ -47,6 +47,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f4d487a_a0893373",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-09-06T20:40:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5a14943f_c2618c7b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "1cd8eca31a0327df36b320f44a575740f2ccd8c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6c01f93_fc5ec07c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-09-06T20:40:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ee98ed8c_7294edc3",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "1cd8eca31a0327df36b320f44a575740f2ccd8c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4777cf97_2b702e49",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-09-06T18:30:32Z",
       "side": 1,
       "message": "nit: space \"\u003c\u003d r1p1\"",
+      "range": {
+        "startLine": 10,
+        "startChar": 14,
+        "endLine": 10,
+        "endChar": 20
+      },
+      "revId": "1cd8eca31a0327df36b320f44a575740f2ccd8c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb3d1088_21a7d137",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-09-06T20:40:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4777cf97_2b702e49",
       "range": {
         "startLine": 10,
         "startChar": 14,
@@ -87,6 +159,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c04560a_bfc590eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-09-06T20:40:47Z",
+      "side": 1,
+      "message": "Ack, removed errata abi support and added in separate patch.",
+      "parentUuid": "1ce3fb41_8df7619a",
+      "revId": "1cd8eca31a0327df36b320f44a575740f2ccd8c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2178b7e9_a52547bb",
@@ -100,6 +190,30 @@
       "writtenOn": "2023-09-06T18:30:32Z",
       "side": 1,
       "message": "Remove for consistency with other errata",
+      "range": {
+        "startLine": 718,
+        "startChar": 38,
+        "endLine": 718,
+        "endChar": 48
+      },
+      "revId": "1cd8eca31a0327df36b320f44a575740f2ccd8c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3743cea2_806016f7",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-09-06T20:40:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "2178b7e9_a52547bb",
       "range": {
         "startLine": 718,
         "startChar": 38,
@@ -133,6 +247,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b87e70e_0b11b82f",
+        "filename": "include/lib/cpus/aarch64/cortex_x3.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-09-06T20:40:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "74437482_5d05e0a7",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "1cd8eca31a0327df36b320f44a575740f2ccd8c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0b4d5ea_5530e99e",
@@ -156,6 +294,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76272620_58a22137",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-09-06T20:40:47Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d0b4d5ea_5530e99e",
+      "range": {
+        "startLine": 742,
+        "startChar": 25,
+        "endLine": 742,
+        "endChar": 27
+      },
+      "revId": "1cd8eca31a0327df36b320f44a575740f2ccd8c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0890954d_5400761a",
@@ -169,6 +331,30 @@
       "writtenOn": "2023-09-06T18:34:09Z",
       "side": 1,
       "message": "I think this can be done as part of a different patch on top of current patch.",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 431,
+        "endChar": 28
+      },
+      "revId": "1cd8eca31a0327df36b320f44a575740f2ccd8c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e81e82a_29e3322c",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-09-06T20:40:47Z",
+      "side": 1,
+      "message": "Ack, removed and added in different patch.",
+      "parentUuid": "0890954d_5400761a",
       "range": {
         "startLine": 420,
         "startChar": 0,
