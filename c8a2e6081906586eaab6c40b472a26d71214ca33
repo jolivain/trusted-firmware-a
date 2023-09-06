@@ -106,6 +106,41 @@
       "parentUuid": "dc9de2b9_35009a14",
       "revId": "c8a2e6081906586eaab6c40b472a26d71214ca33",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fda7e2b7_4fa3beac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-09-06T09:18:59Z",
+      "side": 1,
+      "message": "I did some measurements of memory footprint:\n\n1) Build with SUNXI_AMEND_DTB\u003d0\n.text   - 44000-4a964 (0x698 free bytes to page boundary)\n.rodata - 4c000-4ca38\n.data   - 4d000-4d0d8\n\n2) Build with SUNXI_AMEND_DTB\u003d1\n.text 44000-4b904 (0x6f8 free bytes to page boundary),\n.rodata - 4d000-4dc18\n.data   - 4e000-4e0d8\n\nBuilding with SUNXI_AMEND_DTB\u003d1 increases code size with 4000 (0xFA0) bytes. Because of page alignment of .rodata, .data, these section have enough space and optimizations here (string merges and so on) will not help much. The problem is increased .text section.\n\nIMHO, getting rid of vector table alignment will not help without some extra code reduction. vector table has size of 0x800 bytes and free space after the code and before vector table is 0x698/0x6f8 bytes. Without removing some extra code number of used pages will be the same.",
+      "parentUuid": "c86d1a06_cd36b619",
+      "revId": "c8a2e6081906586eaab6c40b472a26d71214ca33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "262ec09c_c4ce4ed5",
+        "filename": "plat/allwinner/common/allwinner-common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-09-06T09:18:59Z",
+      "side": 1,
+      "message": "Samuel, Andre,\n\ndo we want to solve size problem as part of this review or as separate change? Is this change need some more changes? For example, removing \u0027error\u0027 enforcement or make it \u0027warning\u0027?",
+      "revId": "c8a2e6081906586eaab6c40b472a26d71214ca33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
