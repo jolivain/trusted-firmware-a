@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92f528bc_e9ed6f4b",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-09-07T14:41:19Z",
+      "side": 1,
+      "message": "Exactly, I had the same view as Boyan.\n@Aravind, please check again which patchset you referred.",
+      "parentUuid": "8c493b38_ececf00b",
+      "range": {
+        "startLine": 41,
+        "startChar": 12,
+        "endLine": 41,
+        "endChar": 32
+      },
+      "revId": "8470b04613e4528327e4c7c915483be4227da373",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e560d8f9_2b4b0009",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 13
