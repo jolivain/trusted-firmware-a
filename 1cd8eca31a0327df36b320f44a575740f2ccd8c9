@@ -363,6 +363,30 @@
       },
       "revId": "1cd8eca31a0327df36b320f44a575740f2ccd8c9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e5d152c_1be64385",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-09-07T21:17:32Z",
+      "side": 1,
+      "message": "I would have preferred the addition of support and any prior errata to be part of another patch. But the current errata addition to the ABI list is preferred part of this patch to set a precedence for the requirement for all new errata to update the ABI structs with the new erratum ID",
+      "parentUuid": "3e81e82a_29e3322c",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 431,
+        "endChar": 28
+      },
+      "revId": "1cd8eca31a0327df36b320f44a575740f2ccd8c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
