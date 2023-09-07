@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33967e8f_5082ed98",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 51
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-09-07T15:48:32Z",
+      "side": 0,
+      "message": "This should be retained or added to SCR_RESET_VAL when SPMD_AT_SEL2 is present.",
+      "revId": "0b7a1bb7427012586d52c234ad7812bcb4e36d84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
