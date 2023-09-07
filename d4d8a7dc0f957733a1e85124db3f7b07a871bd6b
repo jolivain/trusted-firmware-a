@@ -22,6 +22,30 @@
       },
       "revId": "d4d8a7dc0f957733a1e85124db3f7b07a871bd6b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70186683_0455462f",
+        "filename": "drivers/st/clk/stm32mp_clkfunc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-07T09:57:23Z",
+      "side": 1,
+      "message": "Only STM32MP15 uses BL32 SP_MIN, but you\u0027re right that would be clearer to change the flag to IMAGE_BL32. I\u0027ll update the patch",
+      "parentUuid": "dbd0f4d7_7e8858bd",
+      "range": {
+        "startLine": 251,
+        "startChar": 4,
+        "endLine": 251,
+        "endChar": 13
+      },
+      "revId": "d4d8a7dc0f957733a1e85124db3f7b07a871bd6b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
