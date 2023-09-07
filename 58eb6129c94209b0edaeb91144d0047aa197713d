@@ -22,6 +22,30 @@
       },
       "revId": "58eb6129c94209b0edaeb91144d0047aa197713d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "477a66cc_50ffb119",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 64
+      },
+      "lineNbr": 870,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-07T08:04:08Z",
+      "side": 1,
+      "message": "sure, what you suggest might be more appropriate. But that should be a separate patch.\n\nIf you follow the logic of the code now, then you\u0027ll see that mine does the exact same (sans the assert) as before.",
+      "parentUuid": "b227645d_e08853f0",
+      "range": {
+        "startLine": 870,
+        "startChar": 0,
+        "endLine": 870,
+        "endChar": 25
+      },
+      "revId": "58eb6129c94209b0edaeb91144d0047aa197713d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
