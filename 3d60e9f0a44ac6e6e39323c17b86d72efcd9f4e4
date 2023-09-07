@@ -482,6 +482,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b121dcd5_a907d0db",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 60
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-09-07T15:48:33Z",
+      "side": 1,
+      "message": "These changes are refactored and in the top patch [ https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21077/53]\nits removed.",
+      "parentUuid": "a4a7721b_9f893af9",
+      "range": {
+        "startLine": 889,
+        "startChar": 3,
+        "endLine": 891,
+        "endChar": 4
+      },
+      "revId": "3d60e9f0a44ac6e6e39323c17b86d72efcd9f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8107ad1d_caf95d91",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 60
@@ -493,6 +517,30 @@
       "writtenOn": "2023-09-07T15:24:24Z",
       "side": 1,
       "message": "duplicate of this operation in setup_ns_context()",
+      "range": {
+        "startLine": 899,
+        "startChar": 7,
+        "endLine": 899,
+        "endChar": 28
+      },
+      "revId": "3d60e9f0a44ac6e6e39323c17b86d72efcd9f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e575cb9_053589d1",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 60
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-09-07T15:48:33Z",
+      "side": 1,
+      "message": "Same here. [ removed in top patch https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21077/53]",
+      "parentUuid": "8107ad1d_caf95d91",
       "range": {
         "startLine": 899,
         "startChar": 7,
