@@ -49,6 +49,54 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "3775c83a_2b9a65a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-07T10:12:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f6d0074_51168d4d",
+      "range": {
+        "startLine": 7,
+        "startChar": 30,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "004c99cd8c9adc830593906ee1c2dd7283701856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4080bf9c_7f5f24f7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-07T10:12:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49e1beaa_a3429b42",
+      "range": {
+        "startLine": 7,
+        "startChar": 38,
+        "endLine": 7,
+        "endChar": 44
+      },
+      "revId": "004c99cd8c9adc830593906ee1c2dd7283701856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "52ebd85c_9d22e8a4",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -82,6 +130,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9d762b3_08753eb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-07T10:12:35Z",
+      "side": 1,
+      "message": "I\u0027ve set it so that the function only runs on debug mode, and when the log level is set to verbose.",
+      "parentUuid": "e473a7d2_69931c7d",
+      "revId": "004c99cd8c9adc830593906ee1c2dd7283701856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "979ec41b_7afdd231",
@@ -95,6 +161,30 @@
       "writtenOn": "2023-09-06T10:02:44Z",
       "side": 1,
       "message": "Maybe use the size_t type here? At least unsigned int",
+      "range": {
+        "startLine": 501,
+        "startChar": 1,
+        "endLine": 501,
+        "endChar": 4
+      },
+      "revId": "004c99cd8c9adc830593906ee1c2dd7283701856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c822fd6_ccd0ee60",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-07T10:12:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "979ec41b_7afdd231",
       "range": {
         "startLine": 501,
         "startChar": 1,
@@ -128,6 +218,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87379777_9e10246c",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-07T10:12:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8aa3844_0f488d46",
+      "range": {
+        "startLine": 502,
+        "startChar": 5,
+        "endLine": 502,
+        "endChar": 10
+      },
+      "revId": "004c99cd8c9adc830593906ee1c2dd7283701856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ad6ba36_354bd6d5",
@@ -141,6 +255,30 @@
       "writtenOn": "2023-09-06T10:02:44Z",
       "side": 1,
       "message": "I think these should be VERBOSE",
+      "range": {
+        "startLine": 507,
+        "startChar": 3,
+        "endLine": 507,
+        "endChar": 7
+      },
+      "revId": "004c99cd8c9adc830593906ee1c2dd7283701856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9223bbc_5ee178a4",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-07T10:12:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ad6ba36_354bd6d5",
       "range": {
         "startLine": 507,
         "startChar": 3,
