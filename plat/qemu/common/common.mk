@@ -122,6 +122,9 @@ ENABLE_FEAT_FGT			:= 2
 # Some CPU models support HCX, detect support at runtime
 ENABLE_FEAT_HCX			:= 2
 
+# Detect support for ECV at runtime
+ENABLE_FEAT_ECV			:= 2
+
 ifeq (${ENABLE_RME},1)
 BL31_SOURCES			+= plat/qemu/common/qemu_plat_attest_token.c \
 				   plat/qemu/common/qemu_realm_attest_key.c
