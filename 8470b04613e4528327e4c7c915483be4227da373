@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e73f6b9c_1ade8c73",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-09-07T14:03:49Z",
+      "side": 1,
+      "message": "Duplicate change from already merged commit: (20470: feat(pmu): introduce pmuv3 lib/extensions folder | https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20470)",
+      "range": {
+        "startLine": 41,
+        "startChar": 12,
+        "endLine": 41,
+        "endChar": 32
+      },
+      "revId": "8470b04613e4528327e4c7c915483be4227da373",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e560d8f9_2b4b0009",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 13
