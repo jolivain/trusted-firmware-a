@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08d10049_c98964f5",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-09-07T15:45:31Z",
+      "side": 1,
+      "message": "What\u0027s the motivation for these macros? Could they be required outside this context? In which case, it might make sense to declare them in lib/cpus/aarch64/cpu_helpers.S.",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 570,
+        "endChar": 5
+      },
+      "revId": "a89565b184fbcd3542e0180b9b1fdd81bee1c453",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3caf0c82_d224ec80",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-09-07T15:45:31Z",
+      "side": 1,
+      "message": "Wouldn\u0027t we expect these registers to have already been restored on entry into EL3?",
+      "range": {
+        "startLine": 602,
+        "startChar": 4,
+        "endLine": 604,
+        "endChar": 24
+      },
+      "revId": "a89565b184fbcd3542e0180b9b1fdd81bee1c453",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "420ef6e7_4bfd4bcb",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-09-07T15:45:31Z",
+      "side": 1,
+      "message": "I\u0027m concerned splitting these functions the enable functions into in this way is risks fragmenting the interface into the extension support libraries. Particularly when we only have a single register set in global context. In my view, it makes sense to initialise the global and cpu context in the same function. Unless of-course there\u0027s a practical reason for not doing this.",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 1
+      },
+      "revId": "a89565b184fbcd3542e0180b9b1fdd81bee1c453",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
