@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d35c2a43_5b43ef90",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-09-07T14:16:16Z",
+      "side": 1,
+      "message": "IMO, this isn\u0027t a good title. Too generic.\n\nconsider the following:\n\nadd platform defines to enable EL3 SPMC",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 54
+      },
+      "revId": "74e876dece25fa50e62c638780c6dad09b500077",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "04231875_8474e0be",
@@ -48,6 +71,30 @@
       "writtenOn": "2023-09-07T13:54:53Z",
       "side": 1,
       "message": "Is this conceptually correct as per the FF-A?\n\nAFIU...\n\nThe existence of a partition is tied to the existence of partition manager. The EL3 SPMC is meant to be managing partitions in the Secure world, not on the Normal World.\n\nSo if there is a hypervisor (partition manager for the NWd) this information isn\u0027t visible to the EL3, as it doesn\u0027t manage the partitions. If there is a standalone endpoint, the notion of NS partition doesn\u0027t exist.",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 0
+      },
+      "revId": "74e876dece25fa50e62c638780c6dad09b500077",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c880c1f_bb8f085b",
+        "filename": "plat/arm/board/rdn2/include/platform_def.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-09-07T14:16:16Z",
+      "side": 1,
+      "message": "Nacro not due to this patch. Found it in the docs, so will resolve this comment.",
+      "parentUuid": "bb8a6b53_6368a9e7",
       "range": {
         "startLine": 112,
         "startChar": 0,
