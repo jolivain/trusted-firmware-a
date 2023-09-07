@@ -150,6 +150,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "91604c54_296d35c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-07T17:04:36Z",
+      "side": 1,
+      "message": "I don\u0027t think this is needed. It\u0027s not particularly necessary in everyday operation and writing it again would be simple. DEBUG already pulls in a bunch of stuff that causes size troubles on odd platforms and more stuff won\u0027t help.",
+      "parentUuid": "c9d762b3_08753eb6",
+      "revId": "004c99cd8c9adc830593906ee1c2dd7283701856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "979ec41b_7afdd231",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 1
