@@ -142,6 +142,30 @@
       },
       "revId": "b692edf8bf13baa418027b8add373fdf72576873",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6689980_28a40745",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 57
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-07T12:28:26Z",
+      "side": 0,
+      "message": "This patch is just doing a refactoring instead of fixing the bug which @Soby has mentioned. The bug is currently present as FP instructions are not trapped for EL3 execution also.\nI propose to post a separate patch on top of this to fix the issue with /*TODO*/ mentioning that it will go once root context is implemented.",
+      "parentUuid": "ad08cdc7_27cbed02",
+      "range": {
+        "startLine": 153,
+        "startChar": 49,
+        "endLine": 153,
+        "endChar": 56
+      },
+      "revId": "b692edf8bf13baa418027b8add373fdf72576873",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
