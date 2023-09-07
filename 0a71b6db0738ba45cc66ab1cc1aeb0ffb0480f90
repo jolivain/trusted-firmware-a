@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba3a47a2_a0134bbd",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-07T13:25:08Z",
+      "side": 1,
+      "message": "Side comment. It\u0027s not the first instance where we need this type of long macro condition. Perhaps we should define a new macro (HAS_SPD?) which aggregates all of these. In addition to improve code readability, it would save us from editing all places where this is used if/when we add a new SPD support in TF-A.",
+      "range": {
+        "startLine": 440,
+        "startChar": 18,
+        "endLine": 440,
+        "endChar": 81
+      },
+      "revId": "0a71b6db0738ba45cc66ab1cc1aeb0ffb0480f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "115b4668_28091cd2",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-07T13:25:08Z",
+      "side": 1,
+      "message": "Add a comment above that line, such as:\n\n Account for additional measurements of secure partitions and SPM.",
+      "revId": "0a71b6db0738ba45cc66ab1cc1aeb0ffb0480f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
