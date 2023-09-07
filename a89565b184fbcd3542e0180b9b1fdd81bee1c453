@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dfd09137_716db864",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-07T16:14:19Z",
+      "side": 1,
+      "message": "I see just one other place where the security state is read from the NS and NSE bits of SCR, which is in the function sync_handler64 within the assembly file runtime_exceptions.S. However, it seems to be reading from the device register, instead of from the context structure which I am doing here. So I\u0027m not sure how useful they would be outside of where I\u0027ve used them.\n\nThat being said, they are very much utility macros and aren\u0027t intrinsically tied to where I\u0027ve used them. If it makes more sense to move them to cpu_helpers.S, let me know and I\u0027ll do that.",
+      "parentUuid": "08d10049_c98964f5",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 570,
+        "endChar": 5
+      },
+      "revId": "a89565b184fbcd3542e0180b9b1fdd81bee1c453",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3caf0c82_d224ec80",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 25
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9751f7c4_20609754",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-07T16:14:19Z",
+      "side": 1,
+      "message": "Sorry, do you mind elaborating here? I\u0027m not quite sure what you mean.\n\nMy understanding is that the context is saved on entry to EL3 and restored on exit, but correct me if I\u0027m misunderstanding you/the code.",
+      "parentUuid": "3caf0c82_d224ec80",
+      "range": {
+        "startLine": 602,
+        "startChar": 4,
+        "endLine": 604,
+        "endChar": 24
+      },
+      "revId": "a89565b184fbcd3542e0180b9b1fdd81bee1c453",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "420ef6e7_4bfd4bcb",
         "filename": "lib/extensions/amu/aarch64/amu.c",
         "patchSetId": 25
@@ -60,6 +108,30 @@
       "writtenOn": "2023-09-07T15:45:31Z",
       "side": 1,
       "message": "I\u0027m concerned splitting these functions the enable functions into in this way is risks fragmenting the interface into the extension support libraries. Particularly when we only have a single register set in global context. In my view, it makes sense to initialise the global and cpu context in the same function. Unless of-course there\u0027s a practical reason for not doing this.",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 1
+      },
+      "revId": "a89565b184fbcd3542e0180b9b1fdd81bee1c453",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b11b0c0b_93bf2727",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-07T16:14:19Z",
+      "side": 1,
+      "message": "The reason they\u0027re not in the same function is that the global context should only be initialised once per world, while the cpu context needs to be initialised once per world per cpu. This means that if we put them in the same function, either we have to unnecessarily repeatedly initialise the global context, or we have to have a loop within the function which calls the initialisation of the cpu context for each cpu.\n\nThe former causes redundancy, and the latter requires a lot of change to the existing structure of the code, as the setting up of the individual cpu contexts are heavily tied to the startup of each cpu.\n\nBy splitting the functions, we initialise the global context exactly once (we do it for all the worlds at the same time), then let each cpu initialise their own cpu context on startup.",
+      "parentUuid": "420ef6e7_4bfd4bcb",
       "range": {
         "startLine": 202,
         "startChar": 0,
