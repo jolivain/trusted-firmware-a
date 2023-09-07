@@ -39,6 +39,30 @@
       },
       "revId": "a79f150a730e36d512cb7d45457523e301b2984e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c75a28c2_19e758ca",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-09-07T14:44:45Z",
+      "side": 1,
+      "message": "You are right, I should use GET_RW instead.",
+      "parentUuid": "a1e184f8_44e74e9e",
+      "range": {
+        "startLine": 349,
+        "startChar": 7,
+        "endLine": 349,
+        "endChar": 35
+      },
+      "revId": "a79f150a730e36d512cb7d45457523e301b2984e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
