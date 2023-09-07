@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bbf3b259_ffa061fb",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-09-07T14:00:17Z",
+      "side": 1,
+      "message": "Yes, makes sense! but can I handle this as a separate patch. Because this is not the first instance where I introduce such kind of guards? Such guards are available in quiet some places in the code so it is better to get rid of them with HAS_SPD. Please let me know.",
+      "parentUuid": "ba3a47a2_a0134bbd",
+      "range": {
+        "startLine": 440,
+        "startChar": 18,
+        "endLine": 440,
+        "endChar": 81
+      },
+      "revId": "0a71b6db0738ba45cc66ab1cc1aeb0ffb0480f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "115b4668_28091cd2",
         "filename": "plat/arm/board/fvp/include/platform_def.h",
         "patchSetId": 3
@@ -37,6 +61,24 @@
       "writtenOn": "2023-09-07T13:25:08Z",
       "side": 1,
       "message": "Add a comment above that line, such as:\n\n Account for additional measurements of secure partitions and SPM.",
+      "revId": "0a71b6db0738ba45cc66ab1cc1aeb0ffb0480f90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e0491af_6e40fb6f",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-09-07T14:00:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "115b4668_28091cd2",
       "revId": "0a71b6db0738ba45cc66ab1cc1aeb0ffb0480f90",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
