@@ -104,6 +104,21 @@
 	 */
 	msr	daifclr, #DAIF_ABT_BIT
 
+	/* ---------------------------------------------------------------------
+	 * Initialise CPTR_EL3, setting the fields rather than relying on hw.
+	 * which are architecturally UNKNOWN on reset.
+	 *
+	 * CPTR_EL3.TFP_BIT: Set to one to ensure execution/accesses to floating
+	 * -point or SVE instructions (if implemented) during bootup are trapped
+	 * to EL3.
+	 *
+	 * TODO: Remove once we have explicit context for EL-3(Root_Context)
+	 * ---------------------------------------------------------------------
+	 */
+
+	mov_imm x0, (CPTR_EL3_RESET_VAL)
+	msr	cptr_el3, x0
+
 	/*
 	 * If Data Independent Timing (DIT) functionality is implemented,
 	 * always enable DIT in EL3.
