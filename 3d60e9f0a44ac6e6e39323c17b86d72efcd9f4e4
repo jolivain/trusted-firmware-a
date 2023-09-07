@@ -1,6 +1,63 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a1d48ac_44ba3ad8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 60
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-09-07T15:24:24Z",
+      "side": 1,
+      "message": "Generally, I think we can go further in cleanup on context management. By combining several different configuration into one function which does \"everything for all configs and BL images\", the function is made very difficult to read and understand for Bl31.\n\nThere are different optimization that can enabled for BL31 vs BL1/BL2. Combing all of the usecases into one function is against that.\n\nIn cm_prepare_el3_exit() , there is lot of programming of context which can be moved to ns context setup.",
+      "revId": "3d60e9f0a44ac6e6e39323c17b86d72efcd9f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b65ea0a8_78889f8a",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 60
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-09-07T15:24:24Z",
+      "side": 1,
+      "message": "Can this be not done in  manage_extensions_secure(ctx) , to reduce conitional compilation ?",
+      "revId": "3d60e9f0a44ac6e6e39323c17b86d72efcd9f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86bf73cd_88d6d252",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 60
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-09-07T15:24:24Z",
+      "side": 1,
+      "message": "Not related to this patch , but a cleanup that can be done for BL31.\n\n: this needs to be made a global setting for EL3. And this can be determined based on SPMD_SPM_AT_SEL2 build flag.\n\nThis is essential to done globally not change value depending on which world EL3 is entered from . This avoids unnecessary dependancy on programming order while restoring context.",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 0
+      },
+      "revId": "3d60e9f0a44ac6e6e39323c17b86d72efcd9f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "207a158b_316f3743",
@@ -65,6 +122,29 @@
         "startChar": 1,
         "endLine": 325,
         "endChar": 31
+      },
+      "revId": "3d60e9f0a44ac6e6e39323c17b86d72efcd9f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9169fe0_8308be23",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 60
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-09-07T15:24:24Z",
+      "side": 1,
+      "message": "not sure why the previous logic of enabling only for NS doesn\u0027t work ? It seems we are only increasing the conditional code in Secure and Realm by inverting the logic.",
+      "range": {
+        "startLine": 400,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 38
       },
       "revId": "3d60e9f0a44ac6e6e39323c17b86d72efcd9f4e4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -180,6 +260,52 @@
         "startChar": 1,
         "endLine": 768,
         "endChar": 36
+      },
+      "revId": "3d60e9f0a44ac6e6e39323c17b86d72efcd9f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4a7721b_9f893af9",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 60
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-09-07T15:24:24Z",
+      "side": 1,
+      "message": "duplicate of this operation in setup_ns_context() ?",
+      "range": {
+        "startLine": 889,
+        "startChar": 3,
+        "endLine": 891,
+        "endChar": 4
+      },
+      "revId": "3d60e9f0a44ac6e6e39323c17b86d72efcd9f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8107ad1d_caf95d91",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 60
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-09-07T15:24:24Z",
+      "side": 1,
+      "message": "duplicate of this operation in setup_ns_context()",
+      "range": {
+        "startLine": 899,
+        "startChar": 7,
+        "endLine": 899,
+        "endChar": 28
       },
       "revId": "3d60e9f0a44ac6e6e39323c17b86d72efcd9f4e4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
