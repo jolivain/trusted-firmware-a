@@ -16,6 +16,29 @@
       "message": "Addressed review comments.",
       "revId": "a79f150a730e36d512cb7d45457523e301b2984e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1e184f8_44e74e9e",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-09-07T06:12:43Z",
+      "side": 1,
+      "message": "It\u0027s still not clear to me why we check for bl32 here while we\u0027re preparing registers for bl33.\n\nBy the way, it\u0027s bit4 (MODE_RW_32 \u003c\u003c MODE_RW_SHIFT) that is set for AArch32 state and clear for AArch64 state. The other bits should be ignored.",
+      "range": {
+        "startLine": 349,
+        "startChar": 7,
+        "endLine": 349,
+        "endChar": 35
+      },
+      "revId": "a79f150a730e36d512cb7d45457523e301b2984e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
