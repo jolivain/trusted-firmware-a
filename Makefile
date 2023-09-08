@@ -22,6 +22,7 @@ MAKEOVERRIDES =
 MAKE_HELPERS_DIRECTORY := make_helpers/
 include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
+include ${MAKE_HELPERS_DIRECTORY}build_flags.mk
 
 ################################################################################
 # Default values for build configurations, and their dependencies
@@ -1260,6 +1261,7 @@ $(eval $(call assert_numerics,\
 	ENABLE_RME \
 	ENABLE_SPE_FOR_NS \
 	ENABLE_SYS_REG_TRACE_FOR_NS \
+	ENABLE_SYS_REG_TRACE \
 	ENABLE_SME_FOR_NS \
 	ENABLE_SME2_FOR_NS \
 	ENABLE_SVE_FOR_NS \
@@ -1383,6 +1385,7 @@ $(eval $(call add_defines,\
 	ENABLE_BRBE_FOR_NS \
 	ENABLE_TRBE_FOR_NS \
 	ENABLE_SYS_REG_TRACE_FOR_NS \
+	ENABLE_SYS_REG_TRACE \
 	ENABLE_TRF_FOR_NS \
 	ENABLE_FEAT_HCX \
 	ENABLE_MPMM \
