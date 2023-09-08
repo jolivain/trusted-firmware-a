@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7414c306_a9d19abf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-09-08T10:58:54Z",
+      "side": 1,
+      "message": "The patch itself looks alright, I verified with \"sed\" that\u0027s a pure rename.\nHowever I think the new name is as made-up as the old one: there is no FEAT_SYS_REG_TRACE anywhere in the ARM ARM. There is actually no FEAT_ name at all for this feature. I\u0027d suggest to stay close to the DFR0 field name, which is \"FieldVer\". That is admittedly a bad name as well, but at least something the can be found in the ARM ARM, for reference.\nOpen to other suggestions here.",
+      "revId": "10f11fdcc33d69dfda812a5e9f55d2ff9f869bf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
