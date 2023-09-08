@@ -486,7 +486,7 @@ ENABLE_BRBE_FOR_NS		:= 0
 # By default, disable access of trace system registers from NS lower
 # ELs  i.e. NS-EL2, or NS-EL1 if NS-EL2 implemented but unused if
 # system register trace is implemented.
-ENABLE_SYS_REG_TRACE_FOR_NS	:= 0
+ENABLE_FEAT_SYS_REG_TRACE	:= 0
 
 # By default, disable trace filter control registers access to NS
 # lower ELs, i.e. NS-EL2, or NS-EL1 if NS-EL2 implemented but unused
