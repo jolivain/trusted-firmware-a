@@ -1040,6 +1040,17 @@ ENABLE_FEAT_RNG		=	$(if $(findstring rng,${arch-features}),1,0)
 ENABLE_FEAT_SB		=	$(if $(findstring sb,${arch-features}),1,0)
 
 ################################################################################
+# Deprecated flags
+################################################################################
+
+ifneq (${ENABLE_SYS_REG_TRACE_FOR_NS}, none)
+	$(warning "As part of an effort to unify the build flag naming \
+	conventions, ENABLE_SYS_REG_TRACE_FOR_NS will soon be deprecated. \
+	The updated version of this flag is ENABLE_SYS_REG_TRACE.")
+	ENABLE_SYS_REG_TRACE	:= ENABLE_SYS_REG_TRACE_FOR_NS
+endif #(ENABLE_SYS_REG_TRACE_FOR_NS)
+
+################################################################################
 # Process platform overrideable behaviour
 ################################################################################
 
@@ -1260,6 +1271,7 @@ $(eval $(call assert_numerics,\
 	ENABLE_RME \
 	ENABLE_SPE_FOR_NS \
 	ENABLE_SYS_REG_TRACE_FOR_NS \
+	ENABLE_SYS_REG_TRACE \
 	ENABLE_SME_FOR_NS \
 	ENABLE_SME2_FOR_NS \
 	ENABLE_SVE_FOR_NS \
@@ -1383,6 +1395,7 @@ $(eval $(call add_defines,\
 	ENABLE_BRBE_FOR_NS \
 	ENABLE_TRBE_FOR_NS \
 	ENABLE_SYS_REG_TRACE_FOR_NS \
+	ENABLE_SYS_REG_TRACE \
 	ENABLE_TRF_FOR_NS \
 	ENABLE_FEAT_HCX \
 	ENABLE_MPMM \
