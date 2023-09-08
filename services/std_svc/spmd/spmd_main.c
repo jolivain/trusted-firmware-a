@@ -1145,14 +1145,15 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 		if (secure_origin && (spmd_is_spmc_message(x1) ||
 		    is_spmd_logical_sp_dir_req_in_progress(ctx))) {
 			spmd_spm_core_sync_exit(0ULL);
-		} else {
-			/* Forward direct message to the other world */
-			return spmd_smc_forward(smc_fid, secure_origin,
-						x1, x2, x3, x4, cookie,
-						handle, flags);
 		}
-		break; /* Not reached */
+		/* fallthrough */
+	case FFA_MSG_SEND_DIRECT_RESP2_SMC64:
+		/* Forward direct message to the other world */
+		return spmd_smc_forward(smc_fid, secure_origin,
+					x1, x2, x3, x4, cookie,
+					handle, flags);
 
+		break; /* Not reached */
 	case FFA_RX_RELEASE:
 	case FFA_RXTX_MAP_SMC32:
 	case FFA_RXTX_MAP_SMC64:
