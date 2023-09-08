@@ -49,7 +49,7 @@ ENABLE_SVE_FOR_SWD	:=	1
 ENABLE_TRBE_FOR_NS              := 1
 
 # enable trace system registers access to NS by default
-ENABLE_SYS_REG_TRACE_FOR_NS     := 1
+ENABLE_FEAT_SYS_REG_TRACE     := 1
 
 # enable trace filter control registers access to NS by default
 ENABLE_TRF_FOR_NS               := 1
