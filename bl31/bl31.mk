@@ -118,7 +118,7 @@ ifneq (${ENABLE_BRBE_FOR_NS},0)
 BL31_SOURCES		+=	lib/extensions/brbe/brbe.c
 endif
 
-ifneq (${ENABLE_SYS_REG_TRACE_FOR_NS},0)
+ifneq (${ENABLE_SYS_REG_TRACE},0)
 BL31_SOURCES		+=      lib/extensions/sys_reg_trace/aarch64/sys_reg_trace.c
 endif
 

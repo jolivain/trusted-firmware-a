@@ -47,7 +47,7 @@ ifeq (${ERRATA_ABI_SUPPORT}, 1)
 BL32_SOURCES		+=	services/std_svc/errata_abi/errata_abi_main.c
 endif
 
-ifneq (${ENABLE_SYS_REG_TRACE_FOR_NS},0)
+ifneq (${ENABLE_SYS_REG_TRACE},0)
 BL32_SOURCES		+=	lib/extensions/sys_reg_trace/aarch32/sys_reg_trace.c
 endif
 
