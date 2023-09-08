@@ -1149,7 +1149,7 @@ Common build options
   ``FEATURE_DETECTION`` mechanism. The default is 0 and it is automatically
   disabled when the target architecture is AArch32.
 
-- ``ENABLE_SYS_REG_TRACE_FOR_NS``: Numeric value to enable trace system
+- ``ENABLE_SYS_REG_TRACE``: Numeric value to enable trace system
   registers access from NS ELs, NS-EL2 or NS-EL1 (when NS-EL2 is implemented
   but unused). This feature is available if trace unit such as ETMv4.x, and
   ETE(extending ETM feature) is implemented. This flag can take the values
