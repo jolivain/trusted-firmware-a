@@ -42,7 +42,7 @@ ENABLE_FEAT_ECV			:= 2
 ENABLE_FEAT_FGT			:= 2
 ENABLE_FEAT_HCX			:= 2
 ENABLE_MPAM_FOR_LOWER_ELS	:= 2
-ENABLE_SYS_REG_TRACE_FOR_NS	:= 2
+ENABLE_SYS_REG_TRACE	:= 2
 ENABLE_TRF_FOR_NS		:= 2
 
 # Treating this as a memory-constrained port for now
