@@ -81,11 +81,11 @@ static inline unsigned int read_feat_coptrc_id_field(void)
 
 static inline bool is_feat_sys_reg_trace_supported(void)
 {
-	if (ENABLE_SYS_REG_TRACE_FOR_NS == FEAT_STATE_DISABLED) {
+	if (ENABLE_FEAT_SYS_REG_TRACE == FEAT_STATE_DISABLED) {
 		return false;
 	}
 
-	if (ENABLE_SYS_REG_TRACE_FOR_NS == FEAT_STATE_ALWAYS) {
+	if (ENABLE_FEAT_SYS_REG_TRACE == FEAT_STATE_ALWAYS) {
 		return true;
 	}
 

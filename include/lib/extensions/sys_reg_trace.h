@@ -9,7 +9,7 @@
 
 #include <context.h>
 
-#if ENABLE_SYS_REG_TRACE_FOR_NS
+#if ENABLE_FEAT_SYS_REG_TRACE
 
 #if __aarch64__
 void sys_reg_trace_enable(cpu_context_t *context);
@@ -19,7 +19,7 @@ void sys_reg_trace_init_el2_unused(void);
 void sys_reg_trace_init_el3(void);
 #endif /* __aarch64__ */
 
-#else /* !ENABLE_SYS_REG_TRACE_FOR_NS */
+#else /* !ENABLE_FEAT_SYS_REG_TRACE */
 
 #if __aarch64__
 static inline void sys_reg_trace_enable(cpu_context_t *context)
@@ -37,6 +37,6 @@ static inline void sys_reg_trace_init_el3(void)
 }
 #endif /* __aarch64__ */
 
-#endif /* ENABLE_SYS_REG_TRACE_FOR_NS */
+#endif /* ENABLE_FEAT_SYS_REG_TRACE */
 
 #endif /* SYS_REG_TRACE_H */
