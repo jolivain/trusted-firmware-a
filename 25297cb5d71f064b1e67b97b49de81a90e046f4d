@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b7513c2_b84510fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-08T14:30:54Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 9,
+        "startChar": 23,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "25297cb5d71f064b1e67b97b49de81a90e046f4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be7f3da4_4dbd4815",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-08T14:30:54Z",
+      "side": 1,
+      "message": "I think we should move away from this terminology which is RMM specific.",
+      "range": {
+        "startLine": 9,
+        "startChar": 8,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "25297cb5d71f064b1e67b97b49de81a90e046f4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "43ceeb06_aefc9ebf",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 4
@@ -26,6 +72,99 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "80349fce_cd69bb0f",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-08T14:30:54Z",
+      "side": 1,
+      "message": "I guess this might move to ffa_svc.h or some other dedicated module/header specifically for this purpose?\n\nMoreover, there is an open with arch team on whether we really allocate an FF-A id for this. It looks that might turn into a dedicated SiP/platform call. Facilities provided by RME are implementation specific and I believe FF-A spec wants to abstract from that (in other words, there are other ways to protect memory than RME starting with TZASC or IOMPU..).",
+      "parentUuid": "43ceeb06_aefc9ebf",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 70
+      },
+      "revId": "25297cb5d71f064b1e67b97b49de81a90e046f4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd2928e9_d69ee67e",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-08T14:30:54Z",
+      "side": 1,
+      "message": "Suggest \n (defined(SPD_spmd) \u0026\u0026 (SPMD_SPM_AT_SEL2 \u003d\u003d 1))\n\nSame line 928.",
+      "range": {
+        "startLine": 836,
+        "startChar": 18,
+        "endLine": 836,
+        "endChar": 34
+      },
+      "revId": "25297cb5d71f064b1e67b97b49de81a90e046f4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccfe1c22_33cf99d6",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-08T14:30:54Z",
+      "side": 1,
+      "message": "PAS",
+      "range": {
+        "startLine": 862,
+        "startChar": 46,
+        "endLine": 862,
+        "endChar": 49
+      },
+      "revId": "25297cb5d71f064b1e67b97b49de81a90e046f4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7458f245_4711f015",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-08T14:30:54Z",
+      "side": 1,
+      "message": "PAS",
+      "range": {
+        "startLine": 863,
+        "startChar": 50,
+        "endLine": 863,
+        "endChar": 53
+      },
+      "revId": "25297cb5d71f064b1e67b97b49de81a90e046f4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "db56b207_61d6d743",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 4
@@ -37,6 +176,30 @@
       "writtenOn": "2023-09-06T16:23:08Z",
       "side": 1,
       "message": "There is a lock inside this API which is being locked and unlocked for every invocation. To ensure correct operation, the lock needs to be held for the entire range. I think you would need to introduce a gpt_delegate_pas_range() API.\n\nThere are some alternatives:\n\n1. Return the last address successfully delgated. Then the caller decide whether to stick with the reduced range, or undelegate the delegation so far.\n\n2. This SMC only delegates on a page basis, this way the caller has full control and can decide on corrective action if a single page delegation fails.",
+      "range": {
+        "startLine": 866,
+        "startChar": 5,
+        "endLine": 866,
+        "endChar": 21
+      },
+      "revId": "25297cb5d71f064b1e67b97b49de81a90e046f4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce249358_db3a9372",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-08T14:30:54Z",
+      "side": 1,
+      "message": "Option 2. looks to have a high cost in term of EL switch + context save/restore + locking/unlocking?",
+      "parentUuid": "db56b207_61d6d743",
       "range": {
         "startLine": 866,
         "startChar": 5,
