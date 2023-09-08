@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "379b4822_e86d0bbc",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-09-08T15:09:51Z",
+      "side": 1,
+      "message": "I think it makes sense to move get_security_state to a generic location, so it easily discoverable and can be leveraged by others. It might be worthwhile to make it generic enough to return the security state from both the context structures or system registers (i.e. take SCR as an argument). I\u0027m less certain about global_context_by_index since it refers primarily to context management structures. Perhaps it make sense to leave that in this file.",
+      "parentUuid": "dfd09137_716db864",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 570,
+        "endChar": 5
+      },
+      "revId": "a89565b184fbcd3542e0180b9b1fdd81bee1c453",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3caf0c82_d224ec80",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 25
@@ -97,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ca6a7d2_ed3f8944",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-09-08T15:09:51Z",
+      "side": 1,
+      "message": "Oops you\u0027re right - somehow missed line 598. I think in that case we should try and make how we access the global context structure transparent to users.",
+      "parentUuid": "9751f7c4_20609754",
+      "range": {
+        "startLine": 602,
+        "startChar": 4,
+        "endLine": 604,
+        "endChar": 24
+      },
+      "revId": "a89565b184fbcd3542e0180b9b1fdd81bee1c453",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "420ef6e7_4bfd4bcb",
         "filename": "lib/extensions/amu/aarch64/amu.c",
         "patchSetId": 25
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "The reason they\u0027re not in the same function is that the global context should only be initialised once per world, while the cpu context needs to be initialised once per world per cpu. This means that if we put them in the same function, either we have to unnecessarily repeatedly initialise the global context, or we have to have a loop within the function which calls the initialisation of the cpu context for each cpu.\n\nThe former causes redundancy, and the latter requires a lot of change to the existing structure of the code, as the setting up of the individual cpu contexts are heavily tied to the startup of each cpu.\n\nBy splitting the functions, we initialise the global context exactly once (we do it for all the worlds at the same time), then let each cpu initialise their own cpu context on startup.",
       "parentUuid": "420ef6e7_4bfd4bcb",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 1
+      },
+      "revId": "a89565b184fbcd3542e0180b9b1fdd81bee1c453",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb1bd907_fdf5549d",
+        "filename": "lib/extensions/amu/aarch64/amu.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-09-08T15:09:51Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b11b0c0b_93bf2727",
       "range": {
         "startLine": 202,
         "startChar": 0,
