@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63d26b54_ad1284d5",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-08T14:09:44Z",
+      "side": 1,
+      "message": "Mention this is an action towards the GIC and handled at EL3?",
+      "range": {
+        "startLine": 38,
+        "startChar": 26,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "27f655591cc2e481a4f6d12d75cd643459e44f5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7b04dc1_7da8cb05",
+        "filename": "plat/arm/board/fvp/fvp_spmd_logical_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-08T14:09:44Z",
+      "side": 1,
+      "message": "Good to implement a switch-case as I sense that may be populated based on other testing needs coming 😊",
+      "range": {
+        "startLine": 82,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 48
+      },
+      "revId": "27f655591cc2e481a4f6d12d75cd643459e44f5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "035a063a_cb3fb7b0",
+        "filename": "plat/arm/board/fvp/fvp_spmd_logical_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-08T14:09:44Z",
+      "side": 1,
+      "message": "If possible, is this worth checking the call originates from a SP through SEL2?\n\nAnd btw I wonder if this is the correct place for handling this SMC, because this handler was designed to serve SPMD/EL3 to SP direct requests (hence the name plat_spmd_logical_sp_smc_handler)?\nAnd actually this service in charge of writing to the GIC for pending an interrupt, is dependent on the ENABLE_SPMD_LP option, which looks unrelated?",
+      "revId": "27f655591cc2e481a4f6d12d75cd643459e44f5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c73d2844_9f41ff83",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-08T14:09:44Z",
+      "side": 1,
+      "message": "I wonder that it should be enclosed with some platform test defines like like 407. This really isn\u0027t meant for production code.",
+      "range": {
+        "startLine": 455,
+        "startChar": 0,
+        "endLine": 455,
+        "endChar": 48
+      },
+      "revId": "27f655591cc2e481a4f6d12d75cd643459e44f5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
