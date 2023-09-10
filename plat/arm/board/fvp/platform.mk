@@ -306,6 +306,7 @@ BL31_SOURCES		+=	drivers/arm/fvp/fvp_pwrc.c			\
 				plat/arm/board/fvp/fvp_bl31_setup.c		\
 				plat/arm/board/fvp/fvp_console.c		\
 				plat/arm/board/fvp/fvp_pm.c			\
+				plat/arm/board/fvp/fvp_sip_calls.c		\
 				plat/arm/board/fvp/fvp_topology.c		\
 				plat/arm/board/fvp/aarch64/fvp_helpers.S	\
 				plat/arm/common/arm_nor_psci_mem_protect.c	\

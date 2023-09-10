@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,15 +13,28 @@
 #include <lib/pmf/pmf.h>
 #include <plat/arm/common/arm_sip_svc.h>
 #include <plat/arm/common/plat_arm.h>
-#if ENABLE_SPMD_LP
-#include <services/el3_spmd_logical_sp.h>
-#endif
 #include <tools_share/uuid.h>
 
 /* ARM SiP Service UUID */
 DEFINE_SVC_UUID2(arm_sip_svc_uid,
 	0x556d75e2, 0x6033, 0xb54b, 0xb5, 0x75,
 	0x62, 0x79, 0xfd, 0x11, 0x37, 0xff);
+
+/*
+#pragma weak arm_plat_sip_handler
+uintptr_t arm_plat_sip_handler(uint32_t smc_fid,
+				u_register_t x1,
+				u_register_t x2,
+				u_register_t x3,
+				u_register_t x4,
+				void *cookie,
+				void *handle,
+				u_register_t flags)
+{
+	WARN("Unimplemented ARM SiP Service Call: 0x%x \n", smc_fid);
+	SMC_RET1(handle, SMC_UNK);
+}
+*/
 
 static int arm_sip_setup(void)
 {
@@ -136,15 +149,11 @@ static uintptr_t arm_sip_handler(unsigned int smc_fid,
 		SMC_RET2(handle, ARM_SIP_SVC_VERSION_MAJOR, ARM_SIP_SVC_VERSION_MINOR);
 
 	default:
-#if ENABLE_SPMD_LP
-		return plat_spmd_logical_sp_smc_handler(smc_fid, x1, x2, x3, x4,
-				cookie, handle, flags);
-#else
-		WARN("Unimplemented ARM SiP Service Call: 0x%x \n", smc_fid);
-		SMC_RET1(handle, SMC_UNK);
-#endif
+		break;
 	}
 
+	return arm_plat_sip_handler(smc_fid, x1, x2, x3, x4,
+					cookie, handle, flags);
 }
 
 

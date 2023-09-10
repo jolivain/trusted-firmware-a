@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -15,6 +15,7 @@
 #include <plat/arm/common/arm_fconf_io_storage.h>
 #include <plat/arm/common/plat_arm.h>
 #include <platform_def.h>
+#include <smccc_helpers.h>
 
 /*
  * Table of regions to map using the MMU.
@@ -124,3 +125,17 @@ int plat_get_mbedtls_heap(void **heap_addr, size_t *heap_size)
 	return arm_get_mbedtls_heap(heap_addr, heap_size);
 }
 #endif
+
+/* SiP handler specific to each Arm platform. */
+uintptr_t arm_plat_sip_handler(uint32_t smc_fid,
+				u_register_t x1,
+				u_register_t x2,
+				u_register_t x3,
+				u_register_t x4,
+				void *cookie,
+				void *handle,
+				u_register_t flags)
+{
+	WARN("Unimplemented ARM SiP Service Call: 0x%x \n", smc_fid);
+	SMC_RET1(handle, SMC_UNK);
+}
