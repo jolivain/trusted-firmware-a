@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca99873a_85572fe4",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-09-10T04:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63d26b54_ad1284d5",
+      "range": {
+        "startLine": 38,
+        "startChar": 26,
+        "endLine": 38,
+        "endChar": 43
+      },
+      "revId": "27f655591cc2e481a4f6d12d75cd643459e44f5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7b04dc1_7da8cb05",
@@ -64,6 +88,48 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b93d37d_a7c9fdcd",
+        "filename": "plat/arm/board/fvp/fvp_spmd_logical_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-09-10T04:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7b04dc1_7da8cb05",
+      "range": {
+        "startLine": 82,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 48
+      },
+      "revId": "27f655591cc2e481a4f6d12d75cd643459e44f5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd04ee3d_ab0159c4",
+        "filename": "plat/arm/board/fvp/fvp_spmd_logical_sp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-09-10T04:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "035a063a_cb3fb7b0",
+      "revId": "27f655591cc2e481a4f6d12d75cd643459e44f5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c73d2844_9f41ff83",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-09-08T14:09:44Z",
       "side": 1,
       "message": "I wonder that it should be enclosed with some platform test defines like like 407. This really isn\u0027t meant for production code.",
+      "range": {
+        "startLine": 455,
+        "startChar": 0,
+        "endLine": 455,
+        "endChar": 48
+      },
+      "revId": "27f655591cc2e481a4f6d12d75cd643459e44f5b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57391497_5ad93aae",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-09-10T04:14:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c73d2844_9f41ff83",
       "range": {
         "startLine": 455,
         "startChar": 0,
