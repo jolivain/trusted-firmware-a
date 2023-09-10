@@ -304,6 +304,7 @@ BL31_SOURCES		+=	drivers/arm/fvp/fvp_pwrc.c			\
 				plat/arm/board/fvp/fvp_bl31_setup.c		\
 				plat/arm/board/fvp/fvp_console.c		\
 				plat/arm/board/fvp/fvp_pm.c			\
+				plat/arm/board/fvp/fvp_sip_calls.c		\
 				plat/arm/board/fvp/fvp_topology.c		\
 				plat/arm/board/fvp/aarch64/fvp_helpers.S	\
 				plat/arm/common/arm_nor_psci_mem_protect.c	\
@@ -535,3 +536,6 @@ endif
 ifeq (${ERRATA_ABI_SUPPORT}, 1)
 include plat/arm/board/fvp/fvp_cpu_errata.mk
 endif
+
+# Build macro necessary for running SPM tests on FVP platform
+$(eval $(call add_define,PLAT_TEST_SPM))
