@@ -15,6 +15,7 @@
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 #include <drivers/arm/sbsa.h>
+#include <smccc_helpers.h>
 
 #if SPM_MM
 #include <services/spm_mm_partition.h>
@@ -158,4 +159,18 @@ void plat_arm_secure_wdt_stop(void)
 void plat_arm_secure_wdt_refresh(void)
 {
 	sbsa_wdog_refresh(SBSA_SECURE_WDOG_REFRESH_BASE);
+}
+
+/* SiP handler specific to each Arm platform. */
+uintptr_t arm_plat_sip_handler(uint32_t smc_fid,
+				u_register_t x1,
+				u_register_t x2,
+				u_register_t x3,
+				u_register_t x4,
+				void *cookie,
+				void *handle,
+				u_register_t flags)
+{
+	WARN("Unimplemented ARM SiP Service Call: 0x%x \n", smc_fid);
+	SMC_RET1(handle, SMC_UNK);
 }

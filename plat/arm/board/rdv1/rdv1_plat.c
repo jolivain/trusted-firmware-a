@@ -1,11 +1,13 @@
 /*
- * Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <common/debug.h>
 #include <plat/common/platform.h>
 #include <sgi_plat.h>
+#include <smccc_helpers.h>
 
 unsigned int plat_arm_sgi_get_platform_id(void)
 {
@@ -27,4 +29,18 @@ unsigned int plat_arm_sgi_get_multi_chip_mode(void)
 void bl31_platform_setup(void)
 {
 	sgi_bl31_common_platform_setup();
+}
+
+/* SiP handler specific to each Arm platform. */
+uintptr_t arm_plat_sip_handler(uint32_t smc_fid,
+				u_register_t x1,
+				u_register_t x2,
+				u_register_t x3,
+				u_register_t x4,
+				void *cookie,
+				void *handle,
+				u_register_t flags)
+{
+	WARN("Unimplemented ARM SiP Service Call: 0x%x \n", smc_fid);
+	SMC_RET1(handle, SMC_UNK);
 }
