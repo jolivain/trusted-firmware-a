@@ -1,12 +1,14 @@
 /*
- * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <common/debug.h>
 #include <lib/smccc.h>
 #include <platform_def.h>
 #include <services/arm_arch_svc.h>
+#include <smccc_helpers.h>
 
 #include <plat/arm/common/plat_arm.h>
 
@@ -137,4 +139,18 @@ int32_t plat_get_soc_revision(void)
 	sys_id = mmio_read_32(V2M_SYSREGS_BASE + V2M_SYS_ID);
 	return (int32_t)(((sys_id >> V2M_SYS_ID_REV_SHIFT) &
 			  V2M_SYS_ID_REV_MASK) & SOC_ID_REV_MASK);
+}
+
+/* SiP handler specific to each Arm platform. */
+uintptr_t arm_plat_sip_handler(uint32_t smc_fid,
+				u_register_t x1,
+				u_register_t x2,
+				u_register_t x3,
+				u_register_t x4,
+				void *cookie,
+				void *handle,
+				u_register_t flags)
+{
+	WARN("Unimplemented ARM SiP Service Call: 0x%x\n", smc_fid);
+	SMC_RET1(handle, SMC_UNK);
 }

@@ -383,4 +383,13 @@ void plat_arm_secure_wdt_refresh(void);
 /* Get SOC-ID of ARM platform */
 uint32_t plat_arm_get_soc_id(void);
 
+/* SiP handler specific to each Arm platform. */
+uintptr_t arm_plat_sip_handler(uint32_t smc_fid,
+				u_register_t x1,
+				u_register_t x2,
+				u_register_t x3,
+				u_register_t x4,
+				void *cookie,
+				void *handle,
+				u_register_t flags);
 #endif /* PLAT_ARM_H */
