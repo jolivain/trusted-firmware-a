@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cee9866d_baa5b2d2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-11T08:26:06Z",
+      "side": 1,
+      "message": "I wonder this is a workaround to what is in effect a modelling issue. In reality when RME is enabled the TZC controller should not be present. In a 4 worlds setup, GPC provides the required guarantee to define a secure PAS and TZC should be inhibited.\n\nCan you recall the kind of access SPMD needs?\nIs this about copying event log data from root PAS to secure PAS?\nIn my mind the destination for the secure event log area is the Trusted DRAM region (no TZ configuration needed for this).\n\nAs for the buffer source, I got confused by:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/plat/arm/common/arm_def.h#n145\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/plat/arm/common/arm_def.h#n345",
+      "range": {
+        "startLine": 9,
+        "startChar": 44,
+        "endLine": 10,
+        "endChar": 20
+      },
+      "revId": "d836df71ea50e0863f7858f71b06653058e64140",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
