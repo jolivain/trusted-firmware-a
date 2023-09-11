@@ -100,6 +100,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f94fa435_20679f89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-09-11T19:17:34Z",
+      "side": 1,
+      "message": "In a discussion with Manish P, we discussed that there are three types of platforms that currently exists - Platforms\n1) with No EL2 (NS/Secure/Realm)\n2) with only NS-EL2 and no Secure/Realm EL2\n3) with NS-EL2, Secure EL2/Realm EL2\n\nThe current CTX_INCLUDE_NS_EL2 is true for cases 3 and False for 1 \u0026 2. But we need a special macro that covers Legacy systems(no EL2) and hence this new macro has been introduced. Some of this discussion is also done in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18770 patch.",
+      "parentUuid": "1c47b04d_2f4bea34",
+      "revId": "b539de2f73bef994d324ca2cf36f55d79a93ee04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "adc226af_316f360d",
