@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0be8e01c_3dfe4570",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2023-09-11T11:05:06Z",
+      "side": 1,
+      "message": "nit: lowercase",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "d3d39dd5ef7193f46a41ef1171ff14f636bda677",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48317732_362d6f96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2023-09-11T11:05:06Z",
+      "side": 1,
+      "message": "Just some small comment, looks good otherwise",
+      "revId": "d3d39dd5ef7193f46a41ef1171ff14f636bda677",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "314eb058_d5bd8cde",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1534,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2023-09-11T11:05:06Z",
+      "side": 1,
+      "message": "Should we be checking that RW with Execute hasn\u0027t been sent?",
+      "revId": "d3d39dd5ef7193f46a41ef1171ff14f636bda677",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78534d93_d4a7f6c7",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1614,
+      "author": {
+        "id": 1000467
+      },
+      "writtenOn": "2023-09-11T11:05:06Z",
+      "side": 1,
+      "message": "Is it worth having a print here giving some context for the next print statements? Eg\nVERBOSE(\"Setting memory permissions:\\n\")",
+      "revId": "d3d39dd5ef7193f46a41ef1171ff14f636bda677",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
