@@ -164,6 +164,30 @@
       },
       "revId": "bb617ea2616c53dd73ff4bf9ee995f701e995cc5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cafa371a_d123b750",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-09-11T18:58:46Z",
+      "side": 1,
+      "message": "May be BL2_OFFSET?\n\nOn a relevant note, for the builds with RESET_TO_BL2 \u0026\u0026 ENABLE_PIE, I guess BL2 is resident. Since we don\u0027t want BL31 to overlap with BL2, should we create a CASSERT to ensure any such scenarios are caught at compile time?",
+      "parentUuid": "2c96b90d_0edcf8d7",
+      "range": {
+        "startLine": 598,
+        "startChar": 5,
+        "endLine": 598,
+        "endChar": 11
+      },
+      "revId": "bb617ea2616c53dd73ff4bf9ee995f701e995cc5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
