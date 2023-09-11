@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4932ed4_5e52e27f",
+        "filename": "plat/xilinx/common/plat_fdt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-09-11T06:12:10Z",
+      "side": 1,
+      "message": "Here I think we should add if (ret) {...; return;}",
+      "revId": "93bd2eaeb214e6ec2f8106df3f93a2e1ef25fe63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebb2ee55_18097888",
+        "filename": "plat/xilinx/common/plat_fdt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-09-11T06:12:10Z",
+      "side": 1,
+      "message": "if (ret) { WARN(...); return } \nthis is more for information purpose because if unmapping fails data should be fine.",
+      "revId": "93bd2eaeb214e6ec2f8106df3f93a2e1ef25fe63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
