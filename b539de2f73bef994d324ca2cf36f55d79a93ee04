@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "34a7563c_4ab646e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-09-11T17:01:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc398438_bd4e565f",
+      "range": {
+        "startLine": 9,
+        "startChar": 43,
+        "endLine": 9,
+        "endChar": 49
+      },
+      "revId": "b539de2f73bef994d324ca2cf36f55d79a93ee04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "caae28b8_6978bdb8",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6
@@ -54,6 +78,24 @@
       "writtenOn": "2023-08-24T07:37:36Z",
       "side": 1,
       "message": "@Aravind,\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18770\n\nKindly take a look at this patch and the stack as well. Boyan, tried to cleanup this bit with CTX_INCLUDE_EL2_REGS flag, which you are doing via this newly introduced flag.\n\nUsually we try to avoid introducing a new flag, unless its need is essential. NS_EL2_UNUSED portion of code, is for legacy platforms, so I believe flag may not be needed here.\nPlease do check with Maintainers (Soby Mathews and Manish P), regarding this and finalise on proceeding with a flag or not.\n\nIn either case, rebase your patch on top of Boyan\u0027s patchstack, as all are related with Context Mgmt refactoring task.\n\n",
+      "revId": "b539de2f73bef994d324ca2cf36f55d79a93ee04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c47b04d_2f4bea34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-09-11T17:01:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03771d87_63d21bda",
       "revId": "b539de2f73bef994d324ca2cf36f55d79a93ee04",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -104,6 +146,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e663237a_1f487a41",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-09-11T17:01:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "adc226af_316f360d",
+      "range": {
+        "startLine": 515,
+        "startChar": 29,
+        "endLine": 515,
+        "endChar": 36
+      },
+      "revId": "b539de2f73bef994d324ca2cf36f55d79a93ee04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5ea9687_5304df59",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-09-11T17:01:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25d778b3_c3ccfa7d",
+      "range": {
+        "startLine": 515,
+        "startChar": 2,
+        "endLine": 515,
+        "endChar": 17
+      },
+      "revId": "b539de2f73bef994d324ca2cf36f55d79a93ee04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82f3dc1e_4aa17249",
@@ -117,6 +207,30 @@
       "writtenOn": "2023-08-23T21:28:30Z",
       "side": 1,
       "message": "It\u0027s not that they actually hand EL3 over to NS-EL2, but they switch to it. Please rephrase accordingly.",
+      "range": {
+        "startLine": 516,
+        "startChar": 17,
+        "endLine": 516,
+        "endChar": 26
+      },
+      "revId": "b539de2f73bef994d324ca2cf36f55d79a93ee04",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ac3435b_c843f6ed",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-09-11T17:01:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82f3dc1e_4aa17249",
       "range": {
         "startLine": 516,
         "startChar": 17,
