@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8acac0fe_98ef4cbb",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-11T08:46:56Z",
+      "side": 1,
+      "message": "Done - I moved get_security_state to el3_common_macros.S, and left get_global_context in context.S.",
+      "parentUuid": "379b4822_e86d0bbc",
+      "range": {
+        "startLine": 536,
+        "startChar": 0,
+        "endLine": 570,
+        "endChar": 5
+      },
+      "revId": "a89565b184fbcd3542e0180b9b1fdd81bee1c453",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3caf0c82_d224ec80",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "Oops you\u0027re right - somehow missed line 598. I think in that case we should try and make how we access the global context structure transparent to users.",
       "parentUuid": "9751f7c4_20609754",
+      "range": {
+        "startLine": 602,
+        "startChar": 4,
+        "endLine": 604,
+        "endChar": 24
+      },
+      "revId": "a89565b184fbcd3542e0180b9b1fdd81bee1c453",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bb784cf_d9ade3e8",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 25
+      },
+      "lineNbr": 604,
+      "author": {
+        "id": 1001074
+      },
+      "writtenOn": "2023-09-11T08:46:56Z",
+      "side": 1,
+      "message": "Done - I called the get_security_state macro within the get_global_context macro so users only need to introduce one extra line of code to get the global context.",
+      "parentUuid": "1ca6a7d2_ed3f8944",
       "range": {
         "startLine": 602,
         "startChar": 4,
