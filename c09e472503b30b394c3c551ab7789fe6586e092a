@@ -1,0 +1,395 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ee0e839_00d1348e",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "nit: lower-case",
+      "range": {
+        "startLine": 7,
+        "startChar": 26,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a1102e0_4d5a528d",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "Comma after \"features\" to separate the two lists.",
+      "range": {
+        "startLine": 7,
+        "startChar": 40,
+        "endLine": 7,
+        "endChar": 64
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dc50c1c_f01cf734",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "nit: \"all of\" (from \"use helper words\", https://developers.google.com/style/translation#clear-language)",
+      "range": {
+        "startLine": 7,
+        "startChar": 18,
+        "endLine": 7,
+        "endChar": 21
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eadc1c7_8a8b831e",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "nit: the configured architecture",
+      "range": {
+        "startLine": 8,
+        "startChar": 28,
+        "endLine": 8,
+        "endChar": 32
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aff642a_e08f7937",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "\"following\" (from https://developers.google.com/style/translation#general-dos-and-donts)",
+      "range": {
+        "startLine": 10,
+        "startChar": 24,
+        "endLine": 10,
+        "endChar": 29
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eca386f3_3674d768",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "Avoid tabs in comments.",
+      "range": {
+        "startLine": 11,
+        "startChar": 1,
+        "endLine": 11,
+        "endChar": 2
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50a93a1c_7a8252db",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "Nit: some of these doc comments end in a full stop and some don\u0027t - we should use a consistent style",
+      "range": {
+        "startLine": 28,
+        "startChar": 37,
+        "endLine": 28,
+        "endChar": 47
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "477146b2_c8a9a5ee",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "Nit: fit to 80-character column count.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 40
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f78ac05c_94c4046f",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "Nit: Lower case",
+      "range": {
+        "startLine": 59,
+        "startChar": 10,
+        "endLine": 59,
+        "endChar": 16
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36a982be_7b80e7dc",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "Singular \"register\"",
+      "range": {
+        "startLine": 64,
+        "startChar": 43,
+        "endLine": 64,
+        "endChar": 52
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "def5092c_c08405ad",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "\"lower non-secure exception levels\"\n\nFrom: \"general do\u0027s and don\u0027ts\" of the Google documentation style guide (https://developers.google.com/style/abbreviations#general-dos-and-donts):\n\n\u003e Avoid using abbreviations for terms that aren\u0027t related to the main topic of the document.",
+      "range": {
+        "startLine": 64,
+        "startChar": 63,
+        "endLine": 65,
+        "endChar": 11
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc3f410b_e4aa5af7",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "It\u0027s not clear to me what this is trying to communicate (\"NS-EL1 if NS-EL2 implemented but unused if FEAT_TRF is implemented\" is particularly difficult to parse) - can we maybe reword it?",
+      "range": {
+        "startLine": 65,
+        "startChar": 13,
+        "endLine": 66,
+        "endChar": 29
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d40315a_7fe261ed",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "This `ifeq` looks like it doesn\u0027t do anything",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 130,
+        "endChar": 5
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b79bdc4f_eb239f08",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "Extension",
+      "range": {
+        "startLine": 193,
+        "startChar": 59,
+        "endLine": 193,
+        "endChar": 69
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "329bdb97_bebe5b6d",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "AArch64",
+      "range": {
+        "startLine": 194,
+        "startChar": 33,
+        "endLine": 194,
+        "endChar": 39
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a81e11fe_c1887143",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "I think we can remove this as the incompatibility is clear from line 200",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 1
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2985d20_ee901fa3",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-09-11T11:57:30Z",
+      "side": 1,
+      "message": "No need for these \"Error:\" prefixes as the `error` function generates them anyway",
+      "range": {
+        "startLine": 200,
+        "startChar": 10,
+        "endLine": 200,
+        "endChar": 17
+      },
+      "revId": "c09e472503b30b394c3c551ab7789fe6586e092a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
