@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c1439c6_b966ebc5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-11T16:32:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e908ae40_269fa788",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 5
+      },
+      "revId": "bb617ea2616c53dd73ff4bf9ee995f701e995cc5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7af26007_b83a399b",
@@ -71,6 +95,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f24f9db_d45dd500",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-11T16:32:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05ba30ab_9fc27542",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 45
+      },
+      "revId": "bb617ea2616c53dd73ff4bf9ee995f701e995cc5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "598915b8_4924d3af",
@@ -84,6 +132,30 @@
       "writtenOn": "2023-09-08T16:14:22Z",
       "side": 1,
       "message": "nit: can you create a macro that signifies this value?",
+      "range": {
+        "startLine": 598,
+        "startChar": 5,
+        "endLine": 598,
+        "endChar": 11
+      },
+      "revId": "bb617ea2616c53dd73ff4bf9ee995f701e995cc5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c96b90d_0edcf8d7",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-11T16:32:01Z",
+      "side": 1,
+      "message": "I\u0027m not too sure how to name that, this is essentially fixing a workaround to a workaround which wasn\u0027t documented itself. The layout is as such:\n\n ...            BL31 grows downwards\n |              |      |\n |     BL31     |      |\n |              |     \\ /\n +--------------+      V\n\n +--------------+  BL2_BASE is fixed\n |              |\n |     BL2      |\n ...\n\nWe\u0027re making sure BL31 doesn\u0027t overlap BL2_BASE and as such push BL2 to a higher SRAM address.  Would you have a suggestion?",
+      "parentUuid": "598915b8_4924d3af",
       "range": {
         "startLine": 598,
         "startChar": 5,
