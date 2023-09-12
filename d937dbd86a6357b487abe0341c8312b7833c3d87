@@ -87,6 +87,24 @@
       "parentUuid": "5703da99_795d80c4",
       "revId": "d937dbd86a6357b487abe0341c8312b7833c3d87",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c2ab2cb_42723568",
+        "filename": "plat/qemu/common/common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2023-09-12T19:23:01Z",
+      "side": 1,
+      "message": "What changes ARM_ARCH_MINOR to 0 if we\u0027re not overriding it ourselves? Oh, that\u0027s only set if ENABLE_RME\u003d1. I still say if we override major we should override minor.\n\nARMv9 isn\u0027t an ARMv8 version.\n\nYeah, I thought some core code was still broken, but the only suspicious use of ARM_ARCH_MAJOR eq 8 seems to be a toolchain workaround.",
+      "parentUuid": "d46ec1a8_b7251f49",
+      "revId": "d937dbd86a6357b487abe0341c8312b7833c3d87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
