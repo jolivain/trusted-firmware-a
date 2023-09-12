@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a54a59f6_f6432afc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-12T12:15:59Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 12,
+        "endChar": 10
+      },
+      "revId": "f54dc0d9db35ae1f519fd2c92520001e2448ae58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "faa5e902_8fa7fa64",
@@ -14,6 +37,24 @@
       "writtenOn": "2023-08-09T12:19:57Z",
       "side": 1,
       "message": "FYI there is an unresolved comment from Michal on this patch.",
+      "revId": "f54dc0d9db35ae1f519fd2c92520001e2448ae58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a894eea1_8c462b75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-12T12:15:59Z",
+      "side": 1,
+      "message": "Akshay, can you please check unresolved comments? Thanks.",
+      "parentUuid": "faa5e902_8fa7fa64",
       "revId": "f54dc0d9db35ae1f519fd2c92520001e2448ae58",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
