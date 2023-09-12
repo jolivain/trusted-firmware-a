@@ -69,6 +69,24 @@
       "parentUuid": "369eaff3_30baca75",
       "revId": "d937dbd86a6357b487abe0341c8312b7833c3d87",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d46ec1a8_b7251f49",
+        "filename": "plat/qemu/common/common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-09-12T18:35:29Z",
+      "side": 1,
+      "message": "OK, I see your point. \n\nFrom build tests if we set ARM_ARCH_MAJOR :\u003d 9 then we are at 9.0 version.\n\nIf we go higher then 9.3 then TF-A build scripts will use 9.3 version. Which is where fun starts as TF-A built for armv9.3 does not boot at all.\n\nWill check which Armv8.x level Armv9.0 is and set it correctly.\n\n\nAlso: recent refactor removed all \"if ARM_ARCH_MAJOR \u003d\u003d 8\" checks from plat/qemu/ - we check for v7 in two places and use \"if ARCH \u003d\u003d aarch64\" in all the others.",
+      "parentUuid": "5703da99_795d80c4",
+      "revId": "d937dbd86a6357b487abe0341c8312b7833c3d87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
