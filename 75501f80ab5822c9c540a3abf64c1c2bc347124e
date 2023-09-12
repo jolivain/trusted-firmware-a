@@ -88,6 +88,24 @@
       "parentUuid": "785cd7c6_4a1fa31c",
       "revId": "75501f80ab5822c9c540a3abf64c1c2bc347124e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34686f6f_da644dff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-12T12:18:43Z",
+      "side": 1,
+      "message": "Hi Olivier,\n\nSorry for the lack of update on these patches. This has generated quite a lot of internal discussion within TF-A and RMM teams and we\u0027ve decided to change our approach. As a result, I expect that we will abandon these 2 patches from David and Manish should upload new patches to implement the new approach when time permits. I\u0027ll let Manish abandon them when he\u0027s ready.\n\nIn a nutshell, here is the new plan:\n\n1) Do not enforce any dependency between measured boot and RME. There are cases where developers need the freedom to build TF-A with RME/RMMd support but without measured boot / attestation support, even though this does not comply to Arm CCA security model requirements and will result in an incomplete platform attestation token.\n\n2) Remove the mocking layer within the RSS/PSA driver. It was useful in early days but nowadays we deem it has little value. Besides, removing it will nicely clean up the code. AEM FVP will no longer call into PSA layer. Instead it will use a hardcoded attestation token \u0026 key. On the other hand, TC2 FVP will always call into PSA layer to retrieve the attestation token \u0026 key.",
+      "parentUuid": "f59b1d27_23611334",
+      "revId": "75501f80ab5822c9c540a3abf64c1c2bc347124e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
