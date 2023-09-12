@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0218d43_57bfee77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-09-12T11:11:47Z",
+      "side": 1,
+      "message": "Linux booted:\n\n~ # cat /proc/cpuinfo\nprocessor       : 0\nBogoMIPS        : 125.00\nFeatures        : fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 sm3 sm4 asimddp sha512 sve asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp sve2 sveaes svepmull svebitperm svesha3 svesm4 flagm2 frint svei8mm svebf16 i8mm bf16 bti\nCPU implementer : 0x41\nCPU architecture: 8\nCPU variant     : 0x2\nCPU part        : 0xd47\nCPU revision    : 1",
+      "revId": "d937dbd86a6357b487abe0341c8312b7833c3d87",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
