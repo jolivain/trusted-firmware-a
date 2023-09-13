@@ -1406,16 +1406,6 @@
 #define GCSPR_EL2		S3_4_C2_C5_1
 
 /*******************************************************************************
- * Definitions for DynamicIQ Shared Unit registers
- ******************************************************************************/
-#define CLUSTERPWRDN_EL1	S3_0_c15_c3_6
-
-/* CLUSTERPWRDN_EL1 register definitions */
-#define DSU_CLUSTER_PWR_OFF	0
-#define DSU_CLUSTER_PWR_ON	1
-#define DSU_CLUSTER_PWR_MASK	U(1)
-
-/*******************************************************************************
  * Definitions for CPU Power/Performance Management registers
  ******************************************************************************/
 
