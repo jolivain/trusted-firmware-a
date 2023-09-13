@@ -60,6 +60,7 @@ PLAT_INCLUDES		+=	-Iinclude/plat/arm/common/${ARCH}
 
 QEMU_CPU_LIBS		:=	lib/cpus/aarch64/aem_generic.S		\
 				lib/cpus/aarch64/cortex_a53.S		\
+				lib/cpus/aarch64/cortex_a55.S		\
 				lib/cpus/aarch64/cortex_a57.S		\
 				lib/cpus/aarch64/cortex_a72.S		\
 				lib/cpus/aarch64/cortex_a76.S		\
