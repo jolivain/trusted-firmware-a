@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13eb7741_39cf03ec",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1416,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-09-13T15:11:10Z",
+      "side": 0,
+      "message": "Looks like platforms might be using these definitions. Can you leave them intact?\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/23195",
+      "revId": "88b2d81345dfd84902aae586a743d00ac5df2f48",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
