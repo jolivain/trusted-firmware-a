@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35506bc0_2c30fe8a",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-13T15:21:17Z",
+      "side": 1,
+      "message": "Can be a single STP instruction to store both fpsr/fpcr values?",
+      "range": {
+        "startLine": 234,
+        "startChar": 1,
+        "endLine": 234,
+        "endChar": 4
+      },
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bab78fec_dbabf99d",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-13T15:21:17Z",
+      "side": 1,
+      "message": "Use LDP?",
+      "range": {
+        "startLine": 251,
+        "startChar": 1,
+        "endLine": 251,
+        "endChar": 4
+      },
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02f08fa5_229e313b",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-13T15:21:17Z",
+      "side": 1,
+      "message": "This is a bit concerning in that this redefines functions from\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/extensions/sve/sve.c#n36",
+      "range": {
+        "startLine": 416,
+        "startChar": 1,
+        "endLine": 420,
+        "endChar": 4
+      },
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c6dfcce_9f54aed4",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-13T15:21:17Z",
+      "side": 1,
+      "message": "This should be platform dependent, or depend on SVE_VECTOR_LEN.",
+      "range": {
+        "startLine": 424,
+        "startChar": 14,
+        "endLine": 424,
+        "endChar": 34
+      },
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e92bfe5f_6ddc531f",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-13T15:21:17Z",
+      "side": 1,
+      "message": "I suspect an isb is required because if instruction re-ordering happens it could be that the cptr_el3 write is committed before zcr_el3, leading to a crash.",
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d53a3127_9e9192e6",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-13T15:21:17Z",
+      "side": 1,
+      "message": "platform dependent",
+      "range": {
+        "startLine": 471,
+        "startChar": 10,
+        "endLine": 471,
+        "endChar": 30
+      },
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47411f0f_6ff011c4",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-13T15:21:17Z",
+      "side": 1,
+      "message": "suggest isb here",
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
