@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9272cc8c_e836af6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-09-13T21:38:27Z",
+      "side": 1,
+      "message": "Type used in  commit header.\n\nChange-Id: I4c4ebedae7ca9cd081fb1e0605b9d906d77614d9\nSigned-off-by: Manish Pandey \u003cmanish.pandey2@arm.com\u003e\n✖   type must be one of [build, chore, ci, docs, feat, fix, perf, refactor, revert, style, test] [type-enum]\n⚠   header must not be longer than 50 characters, current length is 51 [header-max-length]\n\n✖   found 1 problems, 1 warnings\nⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint\n\n[Pipeline] }\n[Pipeline] // stage\n[Pipeline] }\n[Pipeline] // node\n[Pipeline] End of Pipeline\nERROR: script returned exit code 1\n[Checks API] No suitable checks publisher found.\nFinished: FAILURE",
+      "revId": "4600457890abd556d40b36f116022580ffe2e17b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
