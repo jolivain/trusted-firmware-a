@@ -16,6 +16,24 @@
       "message": "IMO you should remove the dynamic region created here and all the failure cases below. May be using goto? something like -\n\n goto err;\n\n err:\n    ret \u003d mmap_remove_dynamic_region((uintptr_t)dtb,\n \t\t\t\t     XILINX_OF_BOARD_DTB_MAX_SIZE);\n    if (ret) {\n \tWARN(\"Failed to remove dynamic region for dtb: error %d\\n\", ret);\t\t\n    }\n    return;",
       "revId": "40016dd9aca4edbd124dad3c8842dbece64372dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dd9d16c_ca90e3c7",
+        "filename": "plat/xilinx/common/plat_fdt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000731
+      },
+      "writtenOn": "2023-09-13T01:18:14Z",
+      "side": 1,
+      "message": "using goto statements results in MISRA-C warnings. due to this we are avoiding it.\ni am going to submit another separate patch where multiple return\u0027s and few more errors from prepare_dtb will be removed.",
+      "parentUuid": "b0fc690a_2e352a25",
+      "revId": "40016dd9aca4edbd124dad3c8842dbece64372dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
