@@ -99,7 +99,7 @@
 #define L2_RESET_DONE_REG			0xFFD12218
 
 /* Platform specific system counter */
-#define PLAT_SYS_COUNTER_FREQ_IN_MHZ	get_cpu_clk()
+#define PLAT_SYS_COUNTER_FREQ_IN_MHZ	(400)
 
 #endif /* PLATSOCFPGA_DEF_H */
 
