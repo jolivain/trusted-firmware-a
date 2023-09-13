@@ -52,6 +52,24 @@
       "parentUuid": "684a2238_0ff8e698",
       "revId": "1046b41808b23b4079f04cad370646e05207ded5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3102b7c_bfefdb7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-13T14:08:17Z",
+      "side": 1,
+      "message": "\u003e Manish, I guess the measurement will be done on converted PK hash, as we do not have access to plain PK hash, but I will cross-check with Lionel \u0026 Etienne.\n\nOK, if that\u0027s the case then we\u0027ll need another patch on top of Robin\u0027s to fix the sequence, as Manish said.\n\nYann, can I leave it to you to follow up on this and submit a patch once you\u0027ve had a chance to catch up with Lionel \u0026 Etienne, so we can merge Robin\u0027s patch today?",
+      "parentUuid": "b82be3bc_bc96aa95",
+      "revId": "1046b41808b23b4079f04cad370646e05207ded5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
