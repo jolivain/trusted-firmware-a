@@ -39,6 +39,24 @@
       "message": "Hi Robin,\nThanks for your patch!\nI\u0027ve made a small comment and will run the CI tests.\n\nI just wondered how you encountered the error on STM32MP1?\nIs it something you can reproduced on this software: https://github.com/STMicroelectronics/arm-trusted-firmware/releases/tag/v2.8-stm32mp-r1?\nIf yes, then we\u0027ve missed something in our internal testing.\nIf no, then it would be a regression between v2.8 and current integration branch, and it could be worth adding it to the commit message.\n\nBest regards,\nYann",
       "revId": "20ae99f6097c13b15e3a3426ad0564502fbc4034",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8251b388_93444034",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001111
+      },
+      "writtenOn": "2023-09-13T10:37:16Z",
+      "side": 1,
+      "message": "Hi Yann,\n\nWe\u0027re always aiming on using mainline software 😊. I haven\u0027t tested with the (older) version from ST.\n\nBy looking at the code of the ST version I can see they verify the root certificate signature BEFORE converting the public key (pointed to by the pk_ptr) for comparison with the fused public key hash. This won\u0027t trigger the issue same as v2.8.0.\n\nSo this is a regression. I did some digging and found it\u0027s introduced by commit f1e693a775.\n\nSo this commit fixes f1e693a775\n\nBest regards,\nRobin",
+      "parentUuid": "7035b1b7_c08f7ee5",
+      "revId": "20ae99f6097c13b15e3a3426ad0564502fbc4034",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
