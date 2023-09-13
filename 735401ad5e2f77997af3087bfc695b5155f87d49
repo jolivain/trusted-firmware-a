@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4bf0b36_405c667d",
+        "filename": "lib/psci/psci_off.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-13T15:45:37Z",
+      "side": 1,
+      "message": "Couple of comments on this patch, \n1. Hide psci_do_manage_extensions() under psci_pwrdown_cpu()\n2. Divide this patch in 2 parts, first only for PSCI changes and empty psci_pwrdown_cpu() and 2nd patch with introducing SPE extension",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 0
+      },
+      "revId": "735401ad5e2f77997af3087bfc695b5155f87d49",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
