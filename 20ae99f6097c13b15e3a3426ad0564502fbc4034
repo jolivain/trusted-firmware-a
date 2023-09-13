@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a9a86e6_222747cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-13T09:41:51Z",
+      "side": 1,
+      "message": "d\nConventional commits mandate a lower case letter after the colon",
+      "range": {
+        "startLine": 7,
+        "startChar": 11,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "20ae99f6097c13b15e3a3426ad0564502fbc4034",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7035b1b7_c08f7ee5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-13T09:41:51Z",
+      "side": 1,
+      "message": "Hi Robin,\nThanks for your patch!\nI\u0027ve made a small comment and will run the CI tests.\n\nI just wondered how you encountered the error on STM32MP1?\nIs it something you can reproduced on this software: https://github.com/STMicroelectronics/arm-trusted-firmware/releases/tag/v2.8-stm32mp-r1?\nIf yes, then we\u0027ve missed something in our internal testing.\nIf no, then it would be a regression between v2.8 and current integration branch, and it could be worth adding it to the commit message.\n\nBest regards,\nYann",
+      "revId": "20ae99f6097c13b15e3a3426ad0564502fbc4034",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
