@@ -75,6 +75,24 @@
       "parentUuid": "8251b388_93444034",
       "revId": "20ae99f6097c13b15e3a3426ad0564502fbc4034",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da38f1eb_65becc83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-13T11:48:58Z",
+      "side": 1,
+      "message": "Thanks a lot for testing and digging in git history!\nThat shows that we should better test this upstream config internally, and maybe add some tests in TF-A CI.",
+      "parentUuid": "4831e4f8_8b87b43e",
+      "revId": "20ae99f6097c13b15e3a3426ad0564502fbc4034",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
