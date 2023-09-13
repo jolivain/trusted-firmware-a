@@ -16,6 +16,24 @@
       "message": "In addition to the bug which Robin identified (signature verification failure), I imagine that we would also have computed the wrong hash as part of key measurement at line 246. But I don\u0027t think this (recent) feature is used on ST platforms right now, is it, Yann?\n\nIn any case, the measurement operation would not fail and you\u0027d see no error message from TF-A, it\u0027s just that the wrong value would get recorded in boot measurements. Is that something we should capture in the commit message as well?\n\nJust putting my COR+1 against this patch until we resolve this question, the patch per se looks good to me!",
       "revId": "1046b41808b23b4079f04cad370646e05207ded5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "684a2238_0ff8e698",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-09-13T13:07:18Z",
+      "side": 1,
+      "message": "\u003e In addition to the bug which Robin identified (signature verification failure), I imagine that we would also have computed the wrong hash as part of key measurement at line 246\n\nIn case of ST platform, do we need to measure the hash of converted PK or plain PK? If former, then the code looks fine; if latter, then it should be corrected in this patch or explicitly in the next one.",
+      "parentUuid": "c34c86e4_859c0b27",
+      "revId": "1046b41808b23b4079f04cad370646e05207ded5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
