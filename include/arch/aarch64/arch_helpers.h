@@ -630,9 +630,6 @@ DEFINE_RENAME_SYSREG_RW_FUNCS(por_el2, POR_EL2)
 DEFINE_RENAME_SYSREG_RW_FUNCS(gcscr_el2, GCSCR_EL2)
 DEFINE_RENAME_SYSREG_RW_FUNCS(gcspr_el2, GCSPR_EL2)
 
-/* DynamIQ Shared Unit power management */
-DEFINE_RENAME_SYSREG_RW_FUNCS(clusterpwrdn_el1, CLUSTERPWRDN_EL1)
-
 /* CPU Power/Performance Management registers */
 DEFINE_RENAME_SYSREG_RW_FUNCS(cpuppmcr_el3, CPUPPMCR_EL3)
 DEFINE_RENAME_SYSREG_RW_FUNCS(cpumpmmcr_el3, CPUMPMMCR_EL3)
@@ -722,9 +719,6 @@ void gpt_tlbi_by_pa_ll(uint64_t pa, size_t size);
 
 #define read_cpacr()		read_cpacr_el1()
 #define write_cpacr(_v)		write_cpacr_el1(_v)
-
-#define read_clusterpwrdn()	read_clusterpwrdn_el1()
-#define write_clusterpwrdn(_v)	write_clusterpwrdn_el1(_v)
 
 #if ERRATA_SPECULATIVE_AT
 /*

@@ -350,11 +350,6 @@ DEFINE_DCOP_PARAM_FUNC(cvac, DCCMVAC)
 #endif
 
 /*
- * DynamIQ Shared Unit power management
- */
-DEFINE_COPROCR_RW_FUNCS(clusterpwrdn, CLUSTERPWRDN)
-
-/*
  * RNDR is AArch64 only, so just provide a placeholder here to make the
  * linker happy.
  */
