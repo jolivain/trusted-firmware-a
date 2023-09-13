@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7fd94b6_a460900d",
+        "filename": "plat/xilinx/common/plat_fdt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000731
+      },
+      "writtenOn": "2023-09-13T16:42:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ee319ec_a6a694dd",
+      "range": {
+        "startLine": 33,
+        "startChar": 5,
+        "endLine": 33,
+        "endChar": 8
+      },
+      "revId": "40016dd9aca4edbd124dad3c8842dbece64372dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0fc690a_2e352a25",
@@ -73,6 +97,24 @@
       "side": 1,
       "message": "MISRA does not ban goto if you see the rules[1], rule 15.1 is advisory while rule 15.2 is required.\n\n Rule 15.1 The goto statement should not be used. Advisory\n Rule 15.2 The goto statement shall jump to a label declared later in the same \n function. Required\n\nTherefore, putting goto is not really an issue IMHO. It is used in the existing TF-A code to cater various scenarios. However, I will leave it up to you. Returning multiple times is also fine.\n\n[1]: https://www.synopsys.com/software-integrity/security-testing/static-analysis-sast/coverity-misra.html",
       "parentUuid": "0dd9d16c_ca90e3c7",
+      "revId": "40016dd9aca4edbd124dad3c8842dbece64372dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60875123_0b6a33ed",
+        "filename": "plat/xilinx/common/plat_fdt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000731
+      },
+      "writtenOn": "2023-09-13T16:42:34Z",
+      "side": 1,
+      "message": "In this patch, i am maintaining approach of returning multiple times.\ni will submit separate patch where multiple time return will be either replaced by goto statement or handled via if-else statements with single return from the prepare_dtb function.",
+      "parentUuid": "a427a983_e3d474b2",
       "revId": "40016dd9aca4edbd124dad3c8842dbece64372dc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
