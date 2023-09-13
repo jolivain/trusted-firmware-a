@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c83e438c_425afb43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-13T15:27:21Z",
+      "side": 1,
+      "message": "There are a number of platform build failures of two kinds:\n\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/47286/\n\n1. on multiple platforms\nhttps://ci.trustedfirmware.org/job/tf-a-builder/2497118/console\n\n00:01:21.673 lib/extensions/sve/simd_ctx.c:18:8: error: unknown type name \u0027simd_regs_t\u0027\n00:01:21.673    18 | static simd_regs_t simd_context[NON_SECURE + 1][PLATFORM_CORE_COUNT];\n00:01:21.673       |        ^~~~~~~~~~~\n00:01:21.673 make: *** [Makefile:1520: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/rdn1edge/debug/bl31/simd_ctx.o] Error 1\n\n\n2. On TC1/TC2 platforms:\n\nhttps://ci.trustedfirmware.org/job/tf-a-builder/2497358/console\n\n00:01:52.942 Makefile:1014: *** recipe commences before first target.  Stop.\n\n\n\nSee the static check and commit lint failures:\nhttps://ci.trustedfirmware.org/job/tf-a-static-checks/6088/\n\nhttps://ci.trustedfirmware.org/job/tf-a-commitlint/5677/console\n\n\n\n\n",
+      "revId": "b1419d9f6d3afd05bc285d8dd78453d7d9a1fdc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
