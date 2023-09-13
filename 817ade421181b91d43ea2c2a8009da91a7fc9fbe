@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4cd3a76_27188751",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-13T13:51:15Z",
+      "side": 1,
+      "message": "This is a breaking change. We can probably absorb it but we need to take care of updating documentation and test configs.\n\ne.g. test configs specifying ENABLE_SVE_FOR_NS\u003d1 ENABLE_SVE_FOR_SWD-1 need an update to add CTX_INCLUDE_SVE_REGS\n\nWhen adding the option, build breaks with some other issue:\nlib/el3_runtime/aarch64/context.S: Assembler messages:\nlib/el3_runtime/aarch64/context.S:429: Error: undefined symbol CTX_SVE_PREDICATES used as an immediate value\nlib/el3_runtime/aarch64/context.S:433: Error: undefined symbol CTX_SVE_FFR used as an immediate value\nlib/el3_runtime/aarch64/context.S:438: Error: undefined symbol CTX_SVE_VECTORS used as an immediate value\nlib/el3_runtime/aarch64/context.S:476: Error: undefined symbol CTX_SVE_FFR used as an immediate value\nlib/el3_runtime/aarch64/context.S:481: Error: undefined symbol CTX_SVE_PREDICATES used as an immediate value\nlib/el3_runtime/aarch64/context.S:485: Error: undefined symbol CTX_SVE_VECTORS used as an immediate value",
+      "revId": "817ade421181b91d43ea2c2a8009da91a7fc9fbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee1cf34c_be8a1c84",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1014,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-13T13:51:15Z",
+      "side": 1,
+      "message": "I believe the error reporting is broken (perhaps even before your changes) as this yields\n\n Makefile:1014: *** recipe commences before first target. Stop.",
+      "revId": "817ade421181b91d43ea2c2a8009da91a7fc9fbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
