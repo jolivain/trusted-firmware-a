@@ -34,6 +34,24 @@
       "parentUuid": "c34c86e4_859c0b27",
       "revId": "1046b41808b23b4079f04cad370646e05207ded5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b82be3bc_bc96aa95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-13T13:30:19Z",
+      "side": 1,
+      "message": "Hi,\nSandrine, you are right, we do not use measured boot on ST platforms. There is an internal discussion on-going about this, but it won\u0027t come anytime soon I think.\nManish, I guess the measurement will be done on converted PK hash, as we do not have access to plain PK hash, but I will cross-check with Lionel \u0026 Etienne.",
+      "parentUuid": "684a2238_0ff8e698",
+      "revId": "1046b41808b23b4079f04cad370646e05207ded5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
