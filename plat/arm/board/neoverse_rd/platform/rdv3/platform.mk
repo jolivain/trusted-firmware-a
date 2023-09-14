@@ -131,3 +131,9 @@ override ENABLE_FEAT_AMU	:= 2
 override ENABLE_SVE_FOR_SWD	:= 1
 override ENABLE_SVE_FOR_NS	:= 2
 override ENABLE_FEAT_MTE2	:= 2
+
+ifeq (${SPMD_SPM_AT_SEL2}, 1)
+BL32_CONFIG_DTS		:=	${RDV3_BASE}/fdts/${PLAT}_spmc_sp_manifest.dts
+FDT_SOURCES		+=	${BL32_CONFIG_DTS}
+TOS_FW_CONFIG		:=	${BUILD_PLAT}/fdts/$(notdir $(basename ${BL32_CONFIG_DTS})).dtb
+endif
