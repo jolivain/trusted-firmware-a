@@ -25,4 +25,9 @@
 		mbedtls_heap_addr = <0x0 0x0>;
 		mbedtls_heap_size = <0x0>;
 	};
+
+	secure-partitions {
+		compatible = "arm,sp";
+		#include "rdv3_fw_config_fragment.dts"
+	};
 };
