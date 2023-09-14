@@ -17,6 +17,15 @@
 /*
  * Table of regions for different BL stages to map using the MMU.
  */
+
+#if SPD_spmd && SPMD_SPM_AT_SEL2
+#define ARM_MAP_SPMC_CORE_MEM		MAP_REGION_FLAT(		\
+						BL32_BASE,		\
+						BL32_LIMIT - BL32_BASE,	\
+						MT_MEMORY | MT_RW | \
+						MT_SECURE)
+#endif
+
 #if IMAGE_BL1
 const mmap_region_t plat_arm_mmap[] = {
 	NRD_CSS_SHARED_RAM_MMAP(0),
@@ -39,6 +48,9 @@ const mmap_region_t plat_arm_mmap[] = {
 	NRD_ROS_PLATFORM_PERIPH_MMAP,
 	NRD_ROS_SYSTEM_PERIPH_MMAP,
 	NRD_CSS_NS_DRAM1_MMAP,
+#if SPD_spmd && SPMD_SPM_AT_SEL2
+	ARM_MAP_SPMC_CORE_MEM,
+#endif
 #if TRUSTED_BOARD_BOOT && !RESET_TO_BL2
 	NRD_CSS_BL1_RW_MMAP,
 #endif
