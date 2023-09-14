@@ -10,6 +10,8 @@
 #include <common/debug.h>
 #include <common/desc_image_load.h>
 #include <drivers/arm/css/sds.h>
+#include <lib/fconf/fconf.h>
+#include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
@@ -145,11 +147,42 @@ static int plat_nrd_append_config_node(void)
  ******************************************************************************/
 bl_params_t *plat_get_next_bl_params(void)
 {
+	struct bl_params *arm_bl_params;
 	int ret;
 
 	ret = plat_nrd_append_config_node();
 	if (ret != 0)
 		panic();
 
-	return arm_get_next_bl_params();
+	arm_bl_params = arm_get_next_bl_params();
+
+#if !RESET_TO_BL2 && !EL3_PAYLOAD_BASE
+	const struct dyn_cfg_dtb_info_t *fw_config_info;
+	bl_mem_params_node_t *param_node;
+	uintptr_t fw_config_base = 0UL;
+
+#if __aarch64__
+	/* Get BL31 image node */
+	param_node = get_bl_mem_params_node(BL31_IMAGE_ID);
+#else /* aarch32 */
+	/* Get BL32 image node */
+	param_node = get_bl_mem_params_node(BL32_IMAGE_ID);
+#endif
+	assert(param_node != NULL);
+
+	/* get fw_config load address */
+	fw_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, FW_CONFIG_ID);
+	assert(fw_config_info != NULL);
+
+	fw_config_base = fw_config_info->config_addr;
+	assert(fw_config_base != 0UL);
+
+	/*
+	 * Get the entry point info of next executable image and override
+	 * arg1 of entry point info with fw_config base address
+	 */
+	param_node->ep_info.args.arg1 = (uint32_t)fw_config_base;
+
+#endif
+	return arm_bl_params;
 }
