@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d4176ae_41ddb959",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001111
+      },
+      "writtenOn": "2023-09-14T09:07:13Z",
+      "side": 1,
+      "message": "Hi Yann,\nYou are right, updating the help/docs is required.\nBefore putting more work into this, I\u0027d like to note that openssl deprecated support for the engine API since version 3.0. Linking this with openssl \u003e\u003d 3.0 will give warnings.\nI did push this change because I believe cert_create without the ability to use a HSM is not usable in a production environment.\nIt would be better to add pkcs11 support with the new openSSL provider API.\nI was hoping this push might get something rolling ;)",
+      "parentUuid": "f8a84697_f811bfe9",
+      "revId": "b93332139ade901af0dd553ca989311565459ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "35691ea6_fc9b3afa",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-09-13T13:01:40Z",
       "side": 1,
       "message": "Maybe this should be explained in commit message, as it is not directly related to PKCS11. From what I\u0027ve seen in pem_read_bio_key_decoder(), this doesn\u0027t change a lot, and avoids a free and copy. It also avoids having a temporary variable here.",
+      "revId": "b93332139ade901af0dd553ca989311565459ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad4aefd5_6ac17e31",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1001111
+      },
+      "writtenOn": "2023-09-14T09:07:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1adf997f_1599994f",
       "revId": "b93332139ade901af0dd553ca989311565459ad9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
