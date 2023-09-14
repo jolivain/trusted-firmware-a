@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "089d4b18_a1bbe769",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-14T12:22:14Z",
+      "side": 1,
+      "message": "\u003e This is a breaking change. We can probably absorb it but we need to take care of updating documentation and test configs.\n\nAgree. Will submit follow up patches for documentation. For test config can you point to where they are? We also have at least one new SVE test in TFTF that can be upstreamed (others are more involved and require support in the trusted OS). We can upstream that too later on.\n\n\u003e When adding the option, build breaks with some other issue:\n\nLooks like the name changed (from CTX_SVE_* -\u003e CTX_SIMD_*) in header file but not in code using it. You pointed this out in the other patch. Will update and send.",
+      "parentUuid": "c4cd3a76_27188751",
+      "revId": "817ade421181b91d43ea2c2a8009da91a7fc9fbe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee1cf34c_be8a1c84",
         "filename": "Makefile",
         "patchSetId": 1
