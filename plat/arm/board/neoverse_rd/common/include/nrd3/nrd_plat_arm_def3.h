@@ -687,6 +687,12 @@
 					 NRD_CSS_CARVEOUT_RESERVED_SIZE - 1U)
 
 /*******************************************************************************
+ * S-EL2 SPMC region defines.
+ ******************************************************************************/
+#define PLAT_ARM_SPMC_BASE	NRD_CSS_CARVEOUT_RESERVED_BASE
+#define PLAT_ARM_SPMC_SIZE	NRD_CSS_CARVEOUT_RESERVED_SIZE
+
+/*******************************************************************************
  * BL32 specific defines for EL3 runtime in AArch64 mode
  ******************************************************************************/
 
@@ -775,5 +781,14 @@
 			ARM_DRAM2_BASE,					\
 			ARM_DRAM2_SIZE,					\
 			MT_MEMORY | MT_RW | MT_NS)
+
+
+#if SPD_spmd && SPMD_SPM_AT_SEL2
+#define ARM_MAP_SPMC_CORE_MEM						\
+		MAP_REGION_FLAT(					\
+		BL32_BASE,						\
+		BL32_LIMIT - BL32_BASE,					\
+		MT_MEMORY | MT_RW | MT_SECURE)
+#endif
 
 #endif /* NRD_PLAT_ARM_DEF3_H */
