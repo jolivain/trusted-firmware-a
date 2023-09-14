@@ -95,6 +95,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c57ba21b_9deb0250",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-14T10:34:39Z",
+      "side": 1,
+      "message": "Is this building actually?\nCTX_SVE_* are renamed CTX_SIMD_* in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/22974/1/include/lib/el3_runtime/aarch64/context.h#328 ?\n\nIf using the correct name, build fails with:\n lib/el3_runtime/aarch64/context.S:429: Error: immediate out of range",
+      "range": {
+        "startLine": 429,
+        "startChar": 14,
+        "endLine": 429,
+        "endChar": 32
+      },
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e92bfe5f_6ddc531f",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 1
