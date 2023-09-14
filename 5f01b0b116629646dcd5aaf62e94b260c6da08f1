@@ -16,6 +16,24 @@
       "message": "When I have size problems, the firs thing that comes to my mind is LTO. I\u0027ve tried LTO (ENABLE_LTO\u003d1) with SUNXI_AMEND_DTB\u003d1 and DEBUG\u003d1 and code compiles and works on the device (at least it boots).\nI had to fix couple linker problems (make tree local extra commits), but now it works for me.\n\nThe size after DEBUG\u003d1 was enabled increased only for 1700 bytes. Do we want to enable LTO by default?",
       "revId": "5f01b0b116629646dcd5aaf62e94b260c6da08f1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ede00c03_e5fa7b80",
+        "filename": "plat/allwinner/common/allwinner-common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-09-14T20:01:25Z",
+      "side": 0,
+      "message": "I\u0027ve push LTO build fixes for review here:\n\nhttps://review.trustedfirmware.org/q/topic:%22fix-lto-build%22",
+      "parentUuid": "b5a599fe_e5ce7083",
+      "revId": "5f01b0b116629646dcd5aaf62e94b260c6da08f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
