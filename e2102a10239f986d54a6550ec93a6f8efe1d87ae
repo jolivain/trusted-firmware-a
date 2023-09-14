@@ -33,6 +33,24 @@
       "message": "The build failures are not related to this change. \n",
       "revId": "e2102a10239f986d54a6550ec93a6f8efe1d87ae",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b8b0a1d_1829f707",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000811
+      },
+      "writtenOn": "2023-09-14T10:03:08Z",
+      "side": 1,
+      "message": "Modified to check if \"arm\" is present in the org section of the arm id.\nThis now makes the copyright check and update for Arm Inc copyright check conditional, depending upon the authors email id.",
+      "parentUuid": "31ff4a75_6cd9f88a",
+      "revId": "e2102a10239f986d54a6550ec93a6f8efe1d87ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
