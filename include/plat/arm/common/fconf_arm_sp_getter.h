@@ -18,7 +18,7 @@
 #ifdef PLAT_ARM_SP_MAX_SIZE
 #define ARM_SP_MAX_SIZE		PLAT_ARM_SP_MAX_SIZE
 #else
-#define ARM_SP_MAX_SIZE		U(0xb0000)
+#define ARM_SP_MAX_SIZE		U(0x300000)
 #endif /* PLAT_ARM_SP_MAX_SIZE */
 #define ARM_SP_OWNER_NAME_LEN	U(8)
 
