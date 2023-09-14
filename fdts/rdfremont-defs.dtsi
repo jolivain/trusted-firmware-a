@@ -1,0 +1,124 @@
+/*
+ * Copyright (c) 2024, Arm Limited and Contributors. All rights reserved.
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+#ifndef	RDN2_DEFS_DTSI
+#define	RDN2_DEFS_DTSI
+
+/* Set default topology values if not passed from platform's makefile */
+#define	CLUSTER_COUNT		8
+
+#define	CPUS_PER_CLUSTER	1
+
+/* Get platform's topology */
+#define	CPUS_COUNT		(CLUSTER_COUNT * CPUS_PER_CLUSTER)
+
+#define CONCAT(x, y)	x##y
+#define CONC(x, y)	CONCAT(x, y)
+
+/* CPU's cluster */
+#define	CLS(n)	(n / CPUS_PER_CLUSTER)
+
+/* CPU's position in cluster */
+#define	POS(n)	(n % CPUS_PER_CLUSTER)
+
+#define	ADR(n)	\
+	CPU##n:cpu@n##0000 {
+
+#define	PRE			\
+	device_type = "cpu";	\
+	compatible = "arm,armv8";
+
+#define	POST				\
+	enable-method = "psci";		\
+	cpu-idle-states = <&CPU_SLEEP_0 &CLUSTER_SLEEP_0>;	\
+	next-level-cache = <&L2_0>;	\
+	};
+
+#define	CPU_0		\
+	CPU0:cpu@0 {	\
+	PRE		\
+	reg = <0x0 0x0>;\
+	POST
+
+/*
+ * n - CPU number
+ */
+#define	CPU(n)	\
+	ADR(n)	\
+	PRE		\
+	reg = <0x0 CONC(0x, CONC(n, 0000))>;	\
+	POST
+
+
+#define	CORE(n)		\
+	core##n {	\
+		cpu = <&CONC(CPU, __COUNTER__)>;	\
+	};
+
+/* Max 4 CPUs per cluster */
+#if (CPUS_PER_CLUSTER == 1)
+#define	CLUSTER(n)		\
+	cluster##n {		\
+		CORE(0)		\
+	};
+#elif (CPUS_PER_CLUSTER == 2)
+#define	CLUSTER(n)		\
+	cluster##n {		\
+		CORE(0)		\
+		CORE(1)		\
+	};
+
+#elif (CPUS_PER_CLUSTER == 3)
+#define	CLUSTER(n)		\
+	cluster##n {		\
+		CORE(0)		\
+		CORE(1)		\
+		CORE(2)		\
+	};
+
+#else
+#define	CLUSTER(n)		\
+	cluster##n {		\
+		CORE(0)		\
+		CORE(1)		\
+		CORE(2)		\
+		CORE(3)		\
+	};
+#endif	/* CPUS_PER_CLUSTER */
+
+/* Max 4 clusters */
+#if (CLUSTER_COUNT == 1)
+#define	CPU_MAP			\
+	cpu-map {		\
+		CLUSTER(0)	\
+	};
+
+#elif (CLUSTER_COUNT == 2)
+#define	CPU_MAP			\
+	cpu-map {		\
+		CLUSTER(0)	\
+		CLUSTER(1)	\
+	};
+
+#elif (CLUSTER_COUNT == 3)
+#define	CPU_MAP			\
+	cpu-map {		\
+		CLUSTER(0)	\
+		CLUSTER(1)	\
+		CLUSTER(2)	\
+	};
+
+#else
+#define	CPU_MAP			\
+	cpu-map {		\
+		CLUSTER(0)	\
+		CLUSTER(1)	\
+		CLUSTER(2)	\
+		CLUSTER(3)	\
+	};
+#endif	/* CLUSTER_COUNT */
+
+#endif	/* RDN2_DEFS_DTSI */
