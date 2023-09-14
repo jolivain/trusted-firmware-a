@@ -13,6 +13,8 @@
 #include <drivers/arm/css/css_mhu_doorbell.h>
 #include <drivers/arm/css/scmi.h>
 #include <drivers/generic_delay_timer.h>
+#include <lib/fconf/fconf.h>
+#include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/arm/css/common/css_pm.h>
 #include <plat/common/platform.h>
@@ -152,6 +154,11 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	nrd_plat_info.config_id = plat_arm_nrd_get_config_id();
 	nrd_plat_info.multi_chip_mode = plat_arm_nrd_get_multi_chip_mode();
 
+#if !RESET_TO_BL31 && !RESET_TO_BL2 && SPMD_SPM_AT_SEL2
+	INFO("BL31 FCONF: FW_CONFIG address = 0x%lx\n", (uintptr_t)arg1);
+	/* Fill the properties struct with the info from the config dtb */
+	fconf_populate("FW_CONFIG", arg1);
+#endif
 	arm_bl31_early_platform_setup((void *)arg0, arg1, arg2, (void *)arg3);
 }
 

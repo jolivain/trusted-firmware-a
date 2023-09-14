@@ -137,3 +137,8 @@ BL32_CONFIG_DTS		:=	${RDV3_BASE}/fdts/${PLAT}_spmc_sp_manifest.dts
 FDT_SOURCES		+=	${BL32_CONFIG_DTS}
 TOS_FW_CONFIG		:=	${BUILD_PLAT}/fdts/$(notdir $(basename ${BL32_CONFIG_DTS})).dtb
 endif
+
+# Firmware Configuration Framework sources
+include lib/fconf/fconf.mk
+
+BL31_SOURCES	+=	${FCONF_SOURCES} ${FCONF_DYN_SOURCES}
