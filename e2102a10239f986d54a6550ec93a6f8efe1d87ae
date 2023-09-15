@@ -69,6 +69,24 @@
       "parentUuid": "6b8b0a1d_1829f707",
       "revId": "e2102a10239f986d54a6550ec93a6f8efe1d87ae",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83d36bc0_f31b73f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-09-15T07:54:40Z",
+      "side": 1,
+      "message": "The issue is still there because only the correct line should be updated. I do change in our files and ARM copyright is older than 2023 then expectation is that I won\u0027t be updating ARM one but will updating the last our one. \nAt least that\u0027s what my logic is saying.\n\nAlso if you are working for ARM then ARM copyright should be updated.\n\nIf you are working for ARM and you have good setup you expect this to happen\n\n- * Copyright (c) 2013-2021, Arm Limited and Contributors. All rights reserved.\n+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.\n  * Copyright (c) 2022, Advanced Micro Devices, Inc. All rights reserved.\n\nIf you work for AMD you expect\n\n  * Copyright (c) 2013-2021, Arm Limited and Contributors. All rights reserved.\n- * Copyright (c) 2022, Advanced Micro Devices, Inc. All rights reserved.\n+ * Copyright (c) 2022-2023, Advanced Micro Devices, Inc. All rights reserved.\n\nIf you want to tune it to be even better if you don\u0027t work for ARM or AMD you could get \n\n  * Copyright (c) 2013-2021, Arm Limited and Contributors. All rights reserved.\n  * Copyright (c) 2022, Advanced Micro Devices, Inc. All rights reserved.\n+ * Copyright (c) 2023, \u003ccompany\u003e All rights reserved.",
+      "parentUuid": "c64b18d7_652c96e6",
+      "revId": "e2102a10239f986d54a6550ec93a6f8efe1d87ae",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
