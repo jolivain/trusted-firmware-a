@@ -67,6 +67,40 @@
       "message": "@Manish @Harrison, do you have a chance to vote for merging? This is a new module and no code owner is assigned up to now. Once it is merged I will submit subsequent patch to enable the handoff with transfer list for BL2 to BL31 and spmd to OP-TEE base on this patch.",
       "revId": "bd236c374cee03e9071669f160880b0194d23477",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc2263d8_8a450fe4",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-09-15T20:10:19Z",
+      "side": 1,
+      "message": "What is this and where is it being used?",
+      "revId": "bd236c374cee03e9071669f160880b0194d23477",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75c470ed_72f433fc",
+        "filename": "lib/transfer_list/transfer_list.mk",
+        "patchSetId": 18
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-09-15T20:10:19Z",
+      "side": 1,
+      "message": "Where is this being used?",
+      "revId": "bd236c374cee03e9071669f160880b0194d23477",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
