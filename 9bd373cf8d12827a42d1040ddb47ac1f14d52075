@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "062e9726_37bca119",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:23:41Z",
+      "side": 1,
+      "message": "I preserved what `fpregs_context_save()` currently does but what you say makes sense. I\u0027ll update the macro to take two `hold` parameters and do the store in singe instruction.",
+      "parentUuid": "35506bc0_2c30fe8a",
+      "range": {
+        "startLine": 234,
+        "startChar": 1,
+        "endLine": 234,
+        "endChar": 4
+      },
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bab78fec_dbabf99d",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 1
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a9219143_f7c808aa",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:23:41Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "bab78fec_dbabf99d",
+      "range": {
+        "startLine": 251,
+        "startChar": 1,
+        "endLine": 251,
+        "endChar": 4
+      },
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ebb90c8f_98f3f10f",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2023-09-14T16:04:13Z",
       "side": 1,
       "message": "Suggest \u0027disable SVE trap\u0027 rather than \u0027enable SVE\u0027",
+      "range": {
+        "startLine": 415,
+        "startChar": 16,
+        "endLine": 415,
+        "endChar": 26
+      },
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e28ee672_561f5334",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:23:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ebb90c8f_98f3f10f",
       "range": {
         "startLine": 415,
         "startChar": 16,
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "752985ae_e226ce9f",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:23:41Z",
+      "side": 1,
+      "message": "Yes. As you can see we need to allow EL3 to execute SVE instructions in order to do the save. Open for any ideas.",
+      "parentUuid": "02f08fa5_229e313b",
+      "range": {
+        "startLine": 416,
+        "startChar": 1,
+        "endLine": 420,
+        "endChar": 4
+      },
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7c6dfcce_9f54aed4",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 1
@@ -106,6 +202,30 @@
       "writtenOn": "2023-09-13T15:21:17Z",
       "side": 1,
       "message": "This should be platform dependent, or depend on SVE_VECTOR_LEN.",
+      "range": {
+        "startLine": 424,
+        "startChar": 14,
+        "endLine": 424,
+        "endChar": 34
+      },
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ba52af0_c4952931",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:23:41Z",
+      "side": 1,
+      "message": "Good point, thanks. Will replace with value derived from SVE_VECTOR_LEN.",
+      "parentUuid": "7c6dfcce_9f54aed4",
       "range": {
         "startLine": 424,
         "startChar": 14,
@@ -141,6 +261,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a4e0017b_eb6dd481",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 429,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:23:41Z",
+      "side": 1,
+      "message": "Yes it should be CTX_SIMD_*. Will discuss in the other comment where you have added more details.",
+      "parentUuid": "c57ba21b_9deb0250",
+      "range": {
+        "startLine": 429,
+        "startChar": 14,
+        "endLine": 429,
+        "endChar": 32
+      },
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e92bfe5f_6ddc531f",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 1
@@ -152,6 +296,24 @@
       "writtenOn": "2023-09-13T15:21:17Z",
       "side": 1,
       "message": "I suspect an isb is required because if instruction re-ordering happens it could be that the cptr_el3 write is committed before zcr_el3, leading to a crash.",
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6107f35f_0a04fe85",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:23:41Z",
+      "side": 1,
+      "message": "Good point! Will update.",
+      "parentUuid": "e92bfe5f_6ddc531f",
       "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -179,6 +341,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75de2e40_bebe448a",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:23:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d53a3127_9e9192e6",
+      "range": {
+        "startLine": 471,
+        "startChar": 10,
+        "endLine": 471,
+        "endChar": 30
+      },
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47411f0f_6ff011c4",
@@ -192,6 +378,24 @@
       "writtenOn": "2023-09-13T15:21:17Z",
       "side": 1,
       "message": "suggest isb here",
+      "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb4d045b_988929d4",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:23:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "47411f0f_6ff011c4",
       "revId": "9bd373cf8d12827a42d1040ddb47ac1f14d52075",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
