@@ -86,6 +86,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e81eb070_40c96f50",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-09-15T21:49:07Z",
+      "side": 1,
+      "message": "This is a flag to be used in the platform patch when verifying the x1(r1) according to the firmware handoff specification.",
+      "parentUuid": "dc2263d8_8a450fe4",
+      "revId": "bd236c374cee03e9071669f160880b0194d23477",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75c470ed_72f433fc",
@@ -99,6 +117,24 @@
       "writtenOn": "2023-09-15T20:10:19Z",
       "side": 1,
       "message": "Where is this being used?",
+      "revId": "bd236c374cee03e9071669f160880b0194d23477",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35193c75_f6c1704e",
+        "filename": "lib/transfer_list/transfer_list.mk",
+        "patchSetId": 18
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-09-15T21:49:07Z",
+      "side": 1,
+      "message": "This will be used in the platform patch as well, however, maybe finally we don\u0027t need it and I will optimize this in the subsequent patch when adding new entry ID to support handoff of aarch, pageable address and tos_fw_config DT.",
+      "parentUuid": "75c470ed_72f433fc",
       "revId": "bd236c374cee03e9071669f160880b0194d23477",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
