@@ -22,6 +22,30 @@
       },
       "revId": "0dc283d29e4d962553046ea7ba30e90ea64f6d3d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8382f20c_78e775e2",
+        "filename": "fdts/stm32mp255.dtsi",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-15T07:35:54Z",
+      "side": 1,
+      "message": "Hi Manish,\nThis is a copy from the kernel file here:\nhttps://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/st/stm32mp255.dtsi?h\u003dv6.6-rc1\n\nIt could be updated in the future, when new peripherals with their drivers are upstreamed for this type of SoC.",
+      "parentUuid": "a931cac2_45884f2a",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 2
+      },
+      "revId": "0dc283d29e4d962553046ea7ba30e90ea64f6d3d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
