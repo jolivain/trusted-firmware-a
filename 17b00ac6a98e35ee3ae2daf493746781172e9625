@@ -46,6 +46,30 @@
       },
       "revId": "17b00ac6a98e35ee3ae2daf493746781172e9625",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fd6c878_7932d880",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-15T12:45:19Z",
+      "side": 1,
+      "message": "I\u0027d be inclined to the same argument as Raghu\u0027s.\n\ne.g. as a precedence, the EL3 SPMC had weak platform functions in its initial patches and we explicitly called for moving away from weak functions usage:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/services/std_svc/spm/el3_spmc/spmc_main.c#n1895\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/fvp/fvp_el3_spmc.c#n24\n\nOne additional advantage over the threats for which this recommendation/coding rule exists, is that a new platform port is forced to have an implementation for the said function. If not, the build barely breaks and hints the integrator it has to do some proper work.",
+      "parentUuid": "8c37ad82_694d5967",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 33
+      },
+      "revId": "17b00ac6a98e35ee3ae2daf493746781172e9625",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
