@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f56e053_0c508627",
+        "filename": "include/lib/extensions/simd_ctx.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:42:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "44d0e08a_4add1499",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "b1419d9f6d3afd05bc285d8dd78453d7d9a1fdc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c058bc3b_f8c1706b",
@@ -64,6 +88,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11c366e9_1c27151d",
+        "filename": "include/lib/extensions/simd_ctx.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:42:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c058bc3b_f8c1706b",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 6
+      },
+      "revId": "b1419d9f6d3afd05bc285d8dd78453d7d9a1fdc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd249e29_89c96342",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-09-13T15:31:13Z",
       "side": 1,
       "message": "2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "b1419d9f6d3afd05bc285d8dd78453d7d9a1fdc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "635915e8_2a3ea89e",
+        "filename": "lib/extensions/sve/simd_ctx.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:42:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bd249e29_89c96342",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -112,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "be6b7c67_e57089c3",
+        "filename": "lib/extensions/sve/simd_ctx.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:42:55Z",
+      "side": 1,
+      "message": "Do you suggest we check for dependency on SPMC_AT_EL3 in Makefile?",
+      "parentUuid": "fabc6ad2_c0f5c708",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 25
+      },
+      "revId": "b1419d9f6d3afd05bc285d8dd78453d7d9a1fdc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc85e01f_8856a804",
         "filename": "lib/extensions/sve/simd_ctx.c",
         "patchSetId": 1
@@ -123,6 +219,30 @@
       "writtenOn": "2023-09-14T16:06:39Z",
       "side": 1,
       "message": "Wonder what is the reasoning for using this macro?\n\nI get 2 * 8 * sizeof(simd_context) \u003d\u003d 143616 bytes\nThat won\u0027t fit on FVP platform as BL31 will overflow. Most probably if tested on FVP this will require increasing max. SRAM size by using FVP_TRUSTED_SRAM_SIZE option or move this section elsewhere.\n\nIs it required to save/restore the secure world context?\nThe only case I can think of is if the TEE is pre-empted without saving its state (e.g. a Group0 interrupt with SCR_EL3.FIQ\u003d1).\n\nJust to say saving only the non-secure context would cut this size requirement by half.",
+      "range": {
+        "startLine": 18,
+        "startChar": 32,
+        "endLine": 18,
+        "endChar": 42
+      },
+      "revId": "b1419d9f6d3afd05bc285d8dd78453d7d9a1fdc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e29c255c_97930846",
+        "filename": "lib/extensions/sve/simd_ctx.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:42:55Z",
+      "side": 1,
+      "message": "This is something we discussed offline. Yes it is in case there is an unmanaged exit from TEE. At least Pixel platforms have Group 0 interrupts.\n\nRegarding size, we have simd_context in a separately relocatable section so that platforms can place it in DRAM or other memory where size is not too limited. Depending on vector size, even just one context might be significant size for some platforms.",
+      "parentUuid": "dc85e01f_8856a804",
       "range": {
         "startLine": 18,
         "startChar": 32,
@@ -156,6 +276,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e80e07ba_e871263a",
+        "filename": "lib/extensions/sve/simd_ctx.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:42:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ca506b3c_29f0025e",
+      "range": {
+        "startLine": 25,
+        "startChar": 36,
+        "endLine": 25,
+        "endChar": 63
+      },
+      "revId": "b1419d9f6d3afd05bc285d8dd78453d7d9a1fdc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f268d990_c3385245",
@@ -173,6 +317,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "508a9990_d71ce66d",
+        "filename": "lib/extensions/sve/simd_ctx.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:42:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f268d990_c3385245",
+      "revId": "b1419d9f6d3afd05bc285d8dd78453d7d9a1fdc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0a21ba30_eec7bfdc",
@@ -186,6 +348,30 @@
       "writtenOn": "2023-09-14T16:06:39Z",
       "side": 1,
       "message": "Remove.",
+      "range": {
+        "startLine": 31,
+        "startChar": 18,
+        "endLine": 31,
+        "endChar": 19
+      },
+      "revId": "b1419d9f6d3afd05bc285d8dd78453d7d9a1fdc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbffed1c_809fae70",
+        "filename": "lib/extensions/sve/simd_ctx.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2023-09-15T14:42:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0a21ba30_eec7bfdc",
       "range": {
         "startLine": 31,
         "startChar": 18,
