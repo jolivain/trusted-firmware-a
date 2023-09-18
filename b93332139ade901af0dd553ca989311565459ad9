@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "644cb11e_70ebad11",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-18T11:06:46Z",
+      "side": 1,
+      "message": "Hi,\n\nThanks for the patch! I agree it would be great if the cert_create tool supported HSMs. In fact, you\u0027re not the first person to raise interest on this topic!\n\nAs I understand, this patch only provides one piece of PKCS#11 support, namely the ability to retrieve private keys (optionally protected by a PIN) from an HSM over PKCS#11. I imagine that a complete PKCS#11 solution would also support things like signing a payload (such that private keys never leave the HSM). Is my understanding correct?\n\nRegarding documentation, I suspect there is not much to update. We do not have a dedicated documentation page for the cert_create tool. Perhaps it\u0027s time to create one? This would go under the tools section here:\n\nhttps://trustedfirmware-a.readthedocs.io/en/latest/tools/index.html\n\nWe could mention there that cert_create supports interfacing with an HSM through PCKS#11. Also worth saying that the tool accepts receiving the PIN required to unlock access to private keys within the HSM through the \"PKCS11_PIN\" environment variable.\n\ndocs/design/trusted-board-boot.rst describes the trusted boot design in the firmware itself so it\u0027s irrelevant here, as we\u0027re doing changes to the host tools only.\n\nI am more worried about the incompatibility of this patch with OpenSSL 3.0... Although TF-A tools currently support both OpenSSL 1.1.1+ and 3.0, the latter is the default version used by TF-A OpenCI. So I think this patch would not pass the CI tests as is. Moreover, I believe the plan would be to deprecate OpenSSL 1.x API usage in TF-A tools in the future, when OpenSSL 3.0 is more broadly supported across Linux distros by default.\n\nRobin, how much would it take to support the new OpenSSL provider API instead? Is it a lot more complex than the old engine API? Is that why you went for the old API in the first place? Would you be willing to contribute another patch using the new provider API?",
+      "parentUuid": "6d4176ae_41ddb959",
+      "revId": "b93332139ade901af0dd553ca989311565459ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "35691ea6_fc9b3afa",
