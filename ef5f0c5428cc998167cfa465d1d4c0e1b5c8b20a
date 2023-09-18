@@ -16,6 +16,24 @@
       "message": "this can\u0027t be disabled by default as it will break the legacy platforms that use this code path (which will not go out of their way to add a new compile flag). A good solution would be defaulting this to 1 and unsetting it when CTX_INCLUDE_EL2_REGS is set. \n\nAlso this needs a mention in build-options.rst",
       "revId": "ef5f0c5428cc998167cfa465d1d4c0e1b5c8b20a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28b3d1c6_54790108",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-09-18T17:36:17Z",
+      "side": 1,
+      "message": "If it simply depended on CTX_INCLUDE_EL2_REGS we don\u0027t really need a new build flag and could have just used !CTX_INCLUDE_EL2_REGS. But I believe there is a case(when we only have NS-EL2 and no R-EL2/S-EL2) where we can\u0027t use set INIT_UNUSED_NS_EL2 conditionally and hence requires platforms to manually set them. \n\nI\u0027ll include this flag in the build-options.rst.",
+      "parentUuid": "0ec41f62_d2c7a3c0",
+      "revId": "ef5f0c5428cc998167cfa465d1d4c0e1b5c8b20a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
