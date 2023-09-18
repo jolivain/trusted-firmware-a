@@ -54,6 +54,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "05a2ea5b_99c9596b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001111
+      },
+      "writtenOn": "2023-09-18T13:00:43Z",
+      "side": 1,
+      "message": "Hi Sandrine,\n\nThis patch provides full PKCS11 support. Operations (like signing) used with the EVP_PKEY object retreived through the ENGINE_load_private_key() are provided by the engine as well, thus will go to the HSM. I\u0027m using create_cert with a ROT private key on a HSM for a while now. But I can store all keys required for the TBB on the HSM, and just have to supply their pkcs11 uri (i.e. \"pkcs11:object\u003dtos-key\") instead of a filename for it to work.\n\nPKCS11_PIN is optional. If not provided in the environment the engine (libp11) will ask you to provide the pin it on stdin.\n\nI figured the openssl3 deprecation would be an issue. I have to say a LOT of tooling is stil using the engine API (libp11) for pkcs11 today. I added engine support because I\u0027m familliar with it.\n\nI currently don\u0027t have time to dive into the provider API and update the code accordingly. But I\u0027ll have to do it in the near future anyways... If I do I\u0027ll submit another patch.",
+      "parentUuid": "644cb11e_70ebad11",
+      "revId": "b93332139ade901af0dd553ca989311565459ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "35691ea6_fc9b3afa",
