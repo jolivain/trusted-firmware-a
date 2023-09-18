@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d18653e7_ae55f45e",
+        "filename": "lib/extensions/spe/spe.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-18T08:43:01Z",
+      "side": 1,
+      "message": "I just want to point out the static memory requirement for this. Considering a way to merge it into context and using the unused entries while the CPU is off could be a solution. Maybe could be considered in the future",
+      "revId": "dbc81912791459ffd51781f0f6e253b71650c428",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
