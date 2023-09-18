@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2adc27e3_343e3887",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2023-09-18T11:48:55Z",
+      "side": 1,
+      "message": "As the commit message states, recent changes (3be6c395) modified the PSA interface.\nIn order to achieve successful CI verification, TF-A\u0027s OpenCI also needs to be updated to use a newer version of TF-M.",
+      "revId": "031af52fdd56277e52195efbed7dda8834f189d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
