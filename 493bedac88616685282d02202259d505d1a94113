@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4994c6a3_aed18244",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-18T08:37:26Z",
+      "side": 1,
+      "message": "this comment is redundant IMO. This is evident from the name of the function.",
+      "revId": "493bedac88616685282d02202259d505d1a94113",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc797d90_79963059",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1309,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-18T08:37:26Z",
+      "side": 1,
+      "message": "what does this mean? Maybe explain what such a requirement might be?",
+      "range": {
+        "startLine": 1309,
+        "startChar": 60,
+        "endLine": 1309,
+        "endChar": 71
+      },
+      "revId": "493bedac88616685282d02202259d505d1a94113",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
