@@ -88,6 +88,24 @@
       "parentUuid": "a3102b7c_bfefdb7f",
       "revId": "1046b41808b23b4079f04cad370646e05207ded5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82f1d2f9_e2bc2ec2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-18T09:27:34Z",
+      "side": 1,
+      "message": "\u003e I\u0027d like to note that in the auth_mod_verify_img() function at line 494 in the same file, the public key pointer as returned by img_parser_get_auth_param() is measured. Which is the full public key (not converted).\n\nYou\u0027re right. I guess your point is that, at line 494 subsidiary public keys are measured unmodified, so if we measured ROTPKs in their converted form (like Yann seems to suggest) then this would be inconsistent?\n\nI don\u0027t necessarily see an issue with that, though. As long as the attestation server knows what\u0027s been measured in each case, I guess it should be able to make sense of those measurements. But as auth_mod.c is generic code, we\u0027ll have to think this through at some point and be careful not to design an ST-specific solution.\n\nAnyway, right now with your patch, things are consistent, which is probably less confusing anyway. I expect that we will reopen the discussion as and when Yann comes back to us. In the meantime, I don\u0027t see any reason why we should hold off merging the present patch so I\u0027ll do that.",
+      "parentUuid": "a9cf1cf2_1b6331ec",
+      "revId": "1046b41808b23b4079f04cad370646e05207ded5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
