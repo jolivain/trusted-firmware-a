@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b357ae7_8d1580b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-09-18T15:03:52Z",
+      "side": 1,
+      "message": "Commit message says s/MT_SECURE/MT_ROOT/ while code does s/MT_SECURE/EL3_PAS/\n\nI do not know, maybe they are the same but do not look same.\n\nAnd what about system without RME? Also needs to have mapping types changed?",
+      "revId": "49b1f99e831ef572dd60f882c7b13464aa1c98ca",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
