@@ -16,6 +16,23 @@
       "message": "BL_SIZE \u003d 0x12000 already",
       "revId": "97a80aa8bcb2a41b228bc76148481845ae9250f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "162588ba_0359004b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2023-09-18T11:47:56Z",
+      "side": 1,
+      "message": "The change is good, but the commit message is a bit lenient.\nplatform_def.h defines BL1 to be 0x12000 in size, but also says that FIP starts at 0x8000.\nUntil now, our BL1 has stayed below 0x8000 bytes, so we\u0027ve not exposed the error.\nThis change breaks edk2 FD build, which was also hardcoded to place FIP at 0x8000.\nThe change explicitly makes this mismatch impossible.",
+      "revId": "97a80aa8bcb2a41b228bc76148481845ae9250f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
