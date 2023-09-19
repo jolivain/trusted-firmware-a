@@ -34,6 +34,24 @@
       "parentUuid": "0ec41f62_d2c7a3c0",
       "revId": "ef5f0c5428cc998167cfa465d1d4c0e1b5c8b20a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1232995f_e9d5a2eb",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-19T08:36:41Z",
+      "side": 1,
+      "message": "\u003e If it simply depended on CTX_INCLUDE_EL2_REGS we don\u0027t really need a new build flag and could have just used !CTX_INCLUDE_EL2_REGS.\n\nwhich is why we did...\n\n\u003e But I believe there is a case(when we only have NS-EL2 and no R-EL2/S-EL2) where we can\u0027t use set INIT_UNUSED_NS_EL2 conditionally and hence requires platforms to manually set them. \n\nwhy not? The problem with having this default to off is that an old platform that uses the case you mention which receives little maintenance will break the day this patch is merged as there will be noone to add this flag for them. If you want it to default to off you\u0027d have to go through each platform, decide if they need this flag, and set it for them. Failing that (having gone through each platform previously, I suspect this won\u0027t be feasible) INIT_UNUSED_NS_EL2 and CTX_INCLUDE_EL2_REGS should be mutually exclusive which should be enforced in the makefile. To make people\u0027s lives easier (and I believe tfa is moving to silently setting/unsetting dependent flags) it can just be done implicitly, hence my suggestion.",
+      "parentUuid": "28b3d1c6_54790108",
+      "revId": "ef5f0c5428cc998167cfa465d1d4c0e1b5c8b20a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
