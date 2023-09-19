@@ -72,6 +72,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cb074b3_8cc3de9f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-19T12:54:50Z",
+      "side": 1,
+      "message": "Hi Robin,\n\nThanks for your answer, this clarifies a lot of things for me. In particular, I was unaware that all operations would go through the engine for an EVP_PKEY obtained through the engine. That\u0027s great! I\u0027d never thought adding full PKCS#11 support to the cert_create tool would be that straightforward!\n\nI had figured out that the PKCS11_PIN was optional - since getenv() is behind a test condition - but if not provided, I thought access to private keys within the HSM was just unprotected (which, now that I think more about it, would sound unsafe!). So thanks for clarifying that as well.\n\nRegarding the openssl1 deprecation, I guess we could accept your patch for the time being and keep it until we actually do the deprecation. Clearly, this feature is useful to you in its current form, and given what you say about the pkcs11 tooling landscape today, it\u0027s likely it would be useful to others as well. I imagine this could influence the whole openssl1 deprecation decision.\n\nAnd if you can contribute the openssl3/provider API version in the future, that would be even better!\n\nIn summary, it looks to me as if this patch is feature-complete, as far as cert_create source code is concerned. What we are missing are:\n- some documentation, as discussed above.\n- a more elaborate commit message.\n- integration into TF-A build system to drive cert_create tool for PKCS#11-compliant HSMs. I imagine we would need a new flag such as -pkcs11 to run the tool in this mode, and perhaps some argument plumbing to pass \"pkcs11:object\u003dtos-key\" type of strings? Does that make sense?",
+      "parentUuid": "05a2ea5b_99c9596b",
+      "revId": "b93332139ade901af0dd553ca989311565459ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "35691ea6_fc9b3afa",
@@ -85,6 +103,23 @@
       "writtenOn": "2023-09-13T12:38:39Z",
       "side": 1,
       "message": "Jimmy is on leave right now so he won\u0027t be able to review this patch for some time. Adding a couple more reviewers on this patch in case they get around to taking a look before myself.",
+      "revId": "b93332139ade901af0dd553ca989311565459ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e78e1cde_8fb4e5c5",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-19T12:54:50Z",
+      "side": 1,
+      "message": "Don\u0027t we need to call ENGINE_free() in all error code paths starting from here?",
       "revId": "b93332139ade901af0dd553ca989311565459ad9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
