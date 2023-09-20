@@ -126,6 +126,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2b70c78_b4e60f72",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001111
+      },
+      "writtenOn": "2023-09-20T10:26:16Z",
+      "side": 1,
+      "message": "Sandrine,\n\n\u003e \u003e ROT_KEY: This option is used when GENERATE_COT\u003d1. It specifies the file that contains the ROT private key in PEM format and enforces public key hash generation. If SAVE_KEYS\u003d1, this file name will be used to save the key.\n\u003e \n\u003e We should probably change \"It specifies the file\" into \"It specifies the file or URI\". We would need to update all similar build options documentation...\n\nAah, I see. We\u0027ll need to update the doc on the environment variables as well.\n\n\u003e Another thing to take into consideration is the ability of cert_create tool to save keys on the disk (TF-A SAVE_KEYS build option / cert_create -k option). I guess we do not want to support this feature when interfacing with an HSM. Retrieving keys from the HSM requires entering a PIN ; if we save them on the disk, we lose that protection. \n\nThe HSM won\u0027t let you extract it\u0027s keys by design. Even if you want to. It will only allow you to work with the key if you have the PIN. So saving them to a file like that is not possible.\n\nI see why ENGINE_load_private_key gives you the idea that you obtain a key, but that would be defeating the purpose of a HSM. \n\nEVP_PKEY is a generic structure to hold diverse types of asymmetric keys, and can be used for diverse operations, like signing, verifying signatures, key derivation, etc. The asymmetric keys themselves are often referred to as the \"internal key\", and are handled by backends, such as providers (through EVP_KEYMGMT(3)) or ENGINEs.[1]\n\n\u003e So we\u0027d need another patch to disable this feature for keys coming from the HSM. Does it make sense to you?\n\nI forgot to mention that I added a check for a pkcs11 uri in key_store() as-well. So an error is thrown if a pkcs11 uri is used with -k (--save-keys). This might be an issue if you want to save keys to files while using a pkcs11 uri as well, but I can\u0027t think of a situation like that that makes sense. I.e. using a pkcs11 uri for ROT and saving subordinate keys to file/disk is a huge security risk. In that case using a HSM doesn\u0027t make sense... It would still be possiby though, but you\u0027ll have to run the tool twice. First to generate/write the keys than to use the pkcs11 uri with files combination for input.\n\n1: https://www.openssl.org/docs/man3.0/man3/EVP_PKEY_new.html",
+      "parentUuid": "bae68e89_96496acb",
+      "revId": "b93332139ade901af0dd553ca989311565459ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "35691ea6_fc9b3afa",
