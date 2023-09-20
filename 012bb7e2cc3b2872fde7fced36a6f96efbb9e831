@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67726001_15fabf1b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-20T11:39:37Z",
+      "side": 1,
+      "message": "The correct scope name would be cert-create (hyphen, not underscore), see [1]. Otherwise, either the CI will complain or the change log generation will be negatively impacted.\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/changelog.yaml#n1332",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "012bb7e2cc3b2872fde7fced36a6f96efbb9e831",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f19f1aa_c3b407a3",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-20T11:39:37Z",
+      "side": 1,
+      "message": "(minor) Perhaps change this to:\n\n Key not specified.\\n\n\n(i.e. no mention of filename)",
+      "range": {
+        "startLine": 255,
+        "startChar": 11,
+        "endLine": 255,
+        "endChar": 23
+      },
+      "revId": "012bb7e2cc3b2872fde7fced36a6f96efbb9e831",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
