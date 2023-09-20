@@ -104,6 +104,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cf60088_585a2b01",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-09-20T02:29:39Z",
+      "side": 1,
+      "message": "Ahh, I see. I think it might be better to encapsulate those things in separate functions (both on the sender and the receiver side) rather than let every platform open-code it on their own, e.g. you could offer an API like:\n```\nvoid transfer_list_to_handoff_args(struct transfer_list_header *tl,\n                                   struct entry_point_info *ep_info);\nstruct transfer_list_header *transfer_list_from_handoff_args(u_register_t x0,\n                                                             u_register_t x1,\n                                                             u_register_t x2,\n                                                             u_register_t x3);\n```",
+      "parentUuid": "e81eb070_40c96f50",
+      "revId": "bd236c374cee03e9071669f160880b0194d23477",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75c470ed_72f433fc",
