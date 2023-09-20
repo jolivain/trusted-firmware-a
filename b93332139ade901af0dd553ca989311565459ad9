@@ -162,6 +162,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "50f39be9_81e72a61",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1001111
+      },
+      "writtenOn": "2023-09-20T15:03:52Z",
+      "side": 1,
+      "message": "I pushed another update.\n\n\u003e Aah, I see. We\u0027ll need to update the doc on the environment variables as well.\nI updated docs/getting_started/build-options.rst for the key related environment variables.\n\nI fixed the hypen in the commit message.\n\nI found a way to suppress the deprecation warnings by defining OPENSSL_SUPPRESS_DEPRECATED before importing the openssl headers in tools/cert_create/src/key.c. This is not very pretty, but it will make TF-A OpenCI happy.",
+      "parentUuid": "ca035dcf_d5593e97",
+      "revId": "b93332139ade901af0dd553ca989311565459ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "35691ea6_fc9b3afa",
