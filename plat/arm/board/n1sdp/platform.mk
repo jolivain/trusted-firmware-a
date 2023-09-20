@@ -14,6 +14,10 @@ PLAT_INCLUDES		:=	-I${N1SDP_BASE}/include
 
 N1SDP_CPU_SOURCES	:=	lib/cpus/aarch64/neoverse_n1.S
 
+# Neoverse n1 cores supports Armv8.5 extensions
+ARM_ARCH_MAJOR := 8
+ARM_ARCH_MINOR := 5
+
 # GIC-600 configuration
 GICV3_SUPPORT_GIC600		:=	1
 GICV3_IMPL_GIC600_MULTICHIP	:=	1
