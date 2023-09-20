@@ -12,6 +12,9 @@
 /* Cortex-A35 Main ID register for revision 0 */
 #define CORTEX_A35_MIDR				U(0x410FD040)
 
+/* L2 Extended Control Register */
+#define CORTEX_A35_L2ECTLR_EL1			S3_1_C11_C0_3
+
 /*******************************************************************************
  * CPU Extended Control register specific definitions.
  * CPUECTLR_EL1 is an implementation-specific register.
