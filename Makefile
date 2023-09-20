@@ -401,17 +401,8 @@ DTC_CPPFLAGS		+=	-P -nostdinc -Iinclude -Ifdts -undef \
 				-x assembler-with-cpp $(DEFINES)
 
 ################################################################################
-# Setup ARCH_MAJOR/MINOR before parsing arch_features.
-################################################################################
-ifeq (${ENABLE_RME},1)
-	ARM_ARCH_MAJOR := 8
-	ARM_ARCH_MINOR := 6
-endif
-
-################################################################################
 # Common sources and include directories
 ################################################################################
-include ${MAKE_HELPERS_DIRECTORY}arch_features.mk
 include lib/compiler-rt/compiler-rt.mk
 
 BL_COMMON_SOURCES	+=	common/bl_common.c			\
@@ -443,6 +434,26 @@ INCLUDES		+=	-Iinclude				\
 				${SPD_INCLUDES}
 
 include common/backtrace/backtrace.mk
+
+################################################################################
+# Include the platform specific Makefile after the SPD Makefile (the platform
+# makefile may use all previous definitions in this file)
+################################################################################
+include ${PLAT_MAKEFILE_FULL}
+
+################################################################################
+# Setup ARCH_MAJOR/MINOR before parsing arch_features.
+################################################################################
+ifeq (${ENABLE_RME},1)
+	ARM_ARCH_MAJOR := 8
+	ARM_ARCH_MINOR := 6
+endif
+
+################################################################################
+# Setup arch_features based on ARM_ARCH_MAJOR, ARM_ARCH_MINOR provided from
+# platform.
+################################################################################
+include ${MAKE_HELPERS_DIRECTORY}arch_features.mk
 
 ################################################################################
 # Process BRANCH_PROTECTION value and set
@@ -661,14 +672,7 @@ include services/std_svc/rmmd/rmmd.mk
 $(warning "RME is an experimental feature")
 endif
 
-################################################################################
-# Include the platform specific Makefile after the SPD Makefile (the platform
-# makefile may use all previous definitions in this file)
-################################################################################
-
-include ${PLAT_MAKEFILE_FULL}
-
-################################################################################
+###############################################################################
 # Platform specific Makefile might provide us ARCH_MAJOR/MINOR use that to come
 # up with appropriate march values for compiler.
 ################################################################################
