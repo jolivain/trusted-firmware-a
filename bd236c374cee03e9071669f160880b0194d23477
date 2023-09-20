@@ -71,6 +71,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8f13545_f2545ee4",
+        "filename": "Makefile",
+        "patchSetId": 18
+      },
+      "lineNbr": 1195,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-20T17:27:47Z",
+      "side": 1,
+      "message": "Please also mark this feature as experimental until we get a platform where we test it end-to-end. For e.g. look at DRTM in the Makefile.",
+      "range": {
+        "startLine": 1195,
+        "startChar": 1,
+        "endLine": 1195,
+        "endChar": 14
+      },
+      "revId": "bd236c374cee03e9071669f160880b0194d23477",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a053cb8_b25cf2ee",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 18
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-20T17:27:47Z",
+      "side": 1,
+      "message": "Please mention that this is based 0.9 version of spec. Also, since the spec itself is ongoing fundamental changes(e.g signature) i would recommend to also mention experimental feature.",
+      "range": {
+        "startLine": 948,
+        "startChar": 54,
+        "endLine": 948,
+        "endChar": 55
+      },
+      "revId": "bd236c374cee03e9071669f160880b0194d23477",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc2263d8_8a450fe4",
         "filename": "include/lib/transfer_list.h",
         "patchSetId": 18
