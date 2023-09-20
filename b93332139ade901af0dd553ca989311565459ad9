@@ -108,6 +108,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bae68e89_96496acb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-20T08:41:52Z",
+      "side": 1,
+      "message": "Thanks Robin.\n\n\u003e I\u0027m not sure that you mean with you last point.\n\nAfter looking more into it, this might not be necessary. But let me try to explain what I had in mind.\n\ncert_create tool can be directly invoked, like this (copied from [1]):\n\n tools/cert_create/cert_create -n \\\n    --rot-key build/stm32mp1/release/rot_key.pem \\\n    --tfw-nvctr 0 \\\n    --ntfw-nvctr 0 \\\n    --key-alg ecdsa --hash-alg sha256 \\\n    --trusted-key-cert build/stm32mp1/release/trusted_key.crt \\\n    --tos-fw \u003coptee_directory\u003e/tee-header_v2.bin \\\n    --tos-fw-extra1 \u003coptee_directory\u003e/tee-pager_v2.bin \\\n    --tos-fw-extra2 \u003coptee_directory\u003e/tee-pageable_v2.bin \\\n    --tos-fw-cert build/stm32mp1/release/tos_fw_content.crt \\\n    --tos-fw-key-cert build/stm32mp1/release/tos_fw_key.crt \\\n    --nt-fw \u003cu-boot_directory\u003e/u-boot-nodtb.bin \\\n    --nt-fw-cert build/stm32mp1/release/nt_fw_content.crt \\\n    --nt-fw-key-cert build/stm32mp1/release/nt_fw_key.crt \\\n    --hw-config \u003cu-boot_directory\u003e/u-boot.dtb \\\n    --fw-config build/stm32mp1/release/fdts/fw-config.dtb \\\n    --stm32mp-cfg-cert build/stm32mp1/release/stm32mp_cfg_cert.crt\n\nIn this example, we pass the root-of-trust public key file through \"--rot-key build/stm32mp1/release/rot_key.pem\". With your patch, if I am not mistaken, I think we\u0027d pass something like \"--rot-key pkcs11:object\u003drot-key\" instead.\n\nThis is all fine.\n\nThe other option is to let TF-A build system invoke the cert_create tool, which it will do as soon as you build TF-A with \u0027make GENERATE_COT\u003d1\u0027. In this case, most of the options passed to cert_create program are aliased by some environment variable. For example, ROT_KEY environment variable value will be passed down as the value of the \u0027--rot-key\u0027 option to cert_create.\n\nI originally thought we were missing some plumbing to keep that mechanism working but I now realize that in your case, we could just pass ROT_KEY\u003d\"pkcs11:object\u003drot-key\" on the make command line and this would work just fine. So please disregard my previous comment.\n\nStill, that made me realize that we might need to update the build options documentation page [2]. For example, it says the following about ROT_KEY:\n\n\u003e ROT_KEY: This option is used when GENERATE_COT\u003d1. It specifies the file that contains the ROT private key in PEM format and enforces public key hash generation. If SAVE_KEYS\u003d1, this file name will be used to save the key.\n\nWe should probably change \"It specifies the file\" into \"It specifies the file or URI\". We would need to update all similar build options documentation...\n\nAnother thing to take into consideration is the ability of cert_create tool to save keys on the disk (TF-A SAVE_KEYS build option / cert_create -k option). I guess we do not want to support this feature when interfacing with an HSM. Retrieving keys from the HSM requires entering a PIN ; if we save them on the disk, we lose that protection. So we\u0027d need another patch to disable this feature for keys coming from the HSM. Does it make sense to you?\n\n[1] https://trustedfirmware-a.readthedocs.io/en/latest/plat/st/stm32mp1.html#trusted-boot-board\n\n[2] https://trustedfirmware-a.readthedocs.io/en/latest/getting_started/build-options.html",
+      "parentUuid": "981c0454_813538e0",
+      "revId": "b93332139ade901af0dd553ca989311565459ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "35691ea6_fc9b3afa",
