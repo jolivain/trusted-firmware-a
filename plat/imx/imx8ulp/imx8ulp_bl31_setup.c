@@ -25,6 +25,7 @@
 #include <platform_def.h>
 #include <upower_soc_defs.h>
 #include <upower_api.h>
+#include <xrdc.h>
 
 #define MAP_BL31_TOTAL										   \
 	MAP_REGION_FLAT(BL31_BASE, BL31_LIMIT - BL31_BASE, MT_MEMORY | MT_RW | MT_SECURE)
@@ -114,6 +115,11 @@ void bl31_platform_setup(void)
 
 	imx8ulp_init_scmi_server();
 	upower_init();
+
+	xrdc_apply_apd_config();
+	xrdc_apply_lpav_config();
+	xrdc_enable();
+
 	imx8ulp_caam_init();
 }
 
