@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,12 +12,7 @@
 #include <tools_share/uuid.h>
 
 #define PARTITION_TYPE_GPT		0xee
-#define GPT_HEADER_OFFSET		PLAT_PARTITION_BLOCK_SIZE
-#define GPT_ENTRY_OFFSET		(GPT_HEADER_OFFSET +		\
-					 PLAT_PARTITION_BLOCK_SIZE)
-
 #define GPT_SIGNATURE			"EFI PART"
-
 typedef struct gpt_entry {
 	struct efi_guid		type_uuid;
 	struct efi_guid		unique_uuid;

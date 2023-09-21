@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -80,14 +80,15 @@ static int load_mbr_header(uintptr_t image_handle, mbr_entry_t *mbr_entry)
  * Load GPT header and check the GPT signature and header CRC.
  * If partition numbers could be found, check & update it.
  */
-static int load_gpt_header(uintptr_t image_handle)
+static int load_gpt_header(uintptr_t image_handle, size_t header_offset,
+			size_t *part_lba)
 {
 	gpt_header_t header;
 	size_t bytes_read;
 	int result;
 	uint32_t header_crc, calc_crc;
 
-	result = io_seek(image_handle, IO_SEEK_SET, GPT_HEADER_OFFSET);
+	result = io_seek(image_handle, IO_SEEK_SET, header_offset);
 	if (result != 0) {
 		return result;
 	}
@@ -109,7 +110,7 @@ static int load_gpt_header(uintptr_t image_handle)
 	header_crc = header.header_crc;
 	header.header_crc = 0U;
 
-	calc_crc = tf_crc32(0U, (uint8_t *)&header, DEFAULT_GPT_HEADER_SIZE);
+	calc_crc = tf_crc32(0U, (uint8_t *)&header, header.size);
 	if (header_crc != calc_crc) {
 		ERROR("Invalid GPT Header CRC: Expected 0x%x but got 0x%x.\n",
 		      header_crc, calc_crc);
@@ -123,6 +124,8 @@ static int load_gpt_header(uintptr_t image_handle)
 	if (list.entry_count > PLAT_PARTITION_MAX_ENTRIES) {
 		list.entry_count = PLAT_PARTITION_MAX_ENTRIES;
 	}
+
+	*part_lba = header.part_lba;
 	return 0;
 }
 
@@ -221,6 +224,8 @@ int load_partition_table(unsigned int image_id)
 	uintptr_t dev_handle, image_handle, image_spec = 0;
 	mbr_entry_t mbr_entry;
 	int result;
+	size_t gpt_entry_offset, gpt_header_offset;
+	size_t part_lba = 0;
 
 	result = plat_get_image_source(image_id, &dev_handle, &image_spec);
 	if (result != 0) {
@@ -241,10 +246,20 @@ int load_partition_table(unsigned int image_id)
 		return result;
 	}
 	if (mbr_entry.type == PARTITION_TYPE_GPT) {
-		result = load_gpt_header(image_handle);
-		assert(result == 0);
-		result = io_seek(image_handle, IO_SEEK_SET, GPT_ENTRY_OFFSET);
-		assert(result == 0);
+		/* Try to load GPT header from LBA-1 */
+		gpt_header_offset = mbr_entry.first_lba * PLAT_PARTITION_BLOCK_SIZE;
+		result = load_gpt_header(image_handle, gpt_header_offset, &part_lba);
+		if (result != 0 || part_lba == 0) {
+			WARN("Failed to retreive Primary GPT header\n");
+			return result;
+		}
+
+		gpt_entry_offset = part_lba * PLAT_PARTITION_BLOCK_SIZE;
+		result = io_seek(image_handle, IO_SEEK_SET, gpt_entry_offset);
+		if (result != 0) {
+			WARN("Failed to seek (%i), Failed loading GPT partition table entries\n", result);
+			return result;
+		}
 		result = verify_partition_gpt(image_handle);
 	} else {
 		result = load_mbr_entries(image_handle);
