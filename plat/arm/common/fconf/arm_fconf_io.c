@@ -40,15 +40,11 @@ io_block_spec_t fip_block_spec = {
 static const io_block_spec_t gpt_spec = {
 	.offset         = PLAT_ARM_FLASH_IMAGE_BASE,
 	/*
-	 * PLAT_PARTITION_BLOCK_SIZE = 512
-	 * PLAT_PARTITION_MAX_ENTRIES = 128
-	 * each sector has 4 partition entries, and there are
-	 * 2 reserved sectors i.e. protective MBR and primary
-	 * GPT header hence length gets calculated as,
-	 * length = 512 * (128/4 + 2)
+	 * Provide access to entire Flash to use backup GPT
+	 * header located at the last partition LBAn, Incase
+	 * primary GPT header is corrupted.
 	 */
-	.length         = PLAT_PARTITION_BLOCK_SIZE *
-			  (PLAT_PARTITION_MAX_ENTRIES / 4 + 2),
+	.length         = PLAT_ARM_FLASH_IMAGE_MAX_SIZE,
 };
 #endif /* ARM_GPT_SUPPORT */
 
