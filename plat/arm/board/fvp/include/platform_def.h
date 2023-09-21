@@ -213,7 +213,7 @@ defined(IMAGE_BL2) && MEASURED_BOOT
  * Set the maximum size of BL2 to be close to half of the Trusted SRAM.
  * Maximum size of BL2 increases as Trusted SRAM size increases.
  */
-#if CRYPTO_SUPPORT
+#if CRYPTO_SUPPORT || ARM_GPT_SUPPORT
 #if (TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_RSA_AND_ECDSA) || COT_DESC_IN_DTB
 # define PLAT_ARM_MAX_BL2_SIZE	((PLAT_ARM_TRUSTED_SRAM_SIZE / 2) - \
 				 (2 * PAGE_SIZE) - \
