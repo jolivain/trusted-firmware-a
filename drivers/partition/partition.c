@@ -69,6 +69,7 @@ static int load_mbr_header(uintptr_t image_handle, mbr_entry_t *mbr_entry)
 	/* Check MBR boot signature. */
 	if ((mbr_sector[LEGACY_PARTITION_BLOCK_SIZE - 2] != MBR_SIGNATURE_FIRST) ||
 	    (mbr_sector[LEGACY_PARTITION_BLOCK_SIZE - 1] != MBR_SIGNATURE_SECOND)) {
+		WARN("MBR boot signature failure\n");
 		return -ENOENT;
 	}
 	offset = (uintptr_t)&mbr_sector + MBR_PRIMARY_ENTRY_OFFSET;
@@ -90,15 +91,19 @@ static int load_gpt_header(uintptr_t image_handle, size_t header_offset,
 
 	result = io_seek(image_handle, IO_SEEK_SET, header_offset);
 	if (result != 0) {
+		WARN("Failed to read data (%i)\n", result);
 		return result;
 	}
 	result = io_read(image_handle, (uintptr_t)&header,
 			 sizeof(gpt_header_t), &bytes_read);
 	if ((result != 0) || (sizeof(gpt_header_t) != bytes_read)) {
+		WARN("GPT header read error(%i) or read mismatch occured expected(%zu) and actual(%zu)\n",
+			result, sizeof(gpt_header_t), bytes_read);
 		return result;
 	}
 	if (memcmp(header.signature, GPT_SIGNATURE,
-		   sizeof(header.signature)) != 0) {
+			   sizeof(header.signature)) != 0) {
+		WARN("GPT header signature failure\n");
 		return -EINVAL;
 	}
 
@@ -129,6 +134,9 @@ static int load_gpt_header(uintptr_t image_handle, size_t header_offset,
 	return 0;
 }
 
+/*
+ * Load a single MBR entry based on details from MBR header.
+ */
 static int load_mbr_entry(uintptr_t image_handle, mbr_entry_t *mbr_entry,
 			int part_number)
 {
@@ -153,6 +161,7 @@ static int load_mbr_entry(uintptr_t image_handle, mbr_entry_t *mbr_entry,
 	/* Check MBR boot signature. */
 	if ((mbr_sector[LEGACY_PARTITION_BLOCK_SIZE - 2] != MBR_SIGNATURE_FIRST) ||
 	    (mbr_sector[LEGACY_PARTITION_BLOCK_SIZE - 1] != MBR_SIGNATURE_SECOND)) {
+		WARN("MBR Entry boot signature failure\n");
 		return -ENOENT;
 	}
 	offset = (uintptr_t)&mbr_sector +
@@ -163,6 +172,9 @@ static int load_mbr_entry(uintptr_t image_handle, mbr_entry_t *mbr_entry,
 	return 0;
 }
 
+/*
+ * Load MBR entries based on max number of partition entries.
+ */
 static int load_mbr_entries(uintptr_t image_handle)
 {
 	mbr_entry_t mbr_entry;
@@ -180,6 +192,9 @@ static int load_mbr_entries(uintptr_t image_handle)
 	return 0;
 }
 
+/*
+ * Try to read and load a single GPT entry.
+ */
 static int load_gpt_entry(uintptr_t image_handle, gpt_entry_t *entry)
 {
 	size_t bytes_read;
@@ -187,12 +202,20 @@ static int load_gpt_entry(uintptr_t image_handle, gpt_entry_t *entry)
 
 	assert(entry != NULL);
 	result = io_read(image_handle, (uintptr_t)entry, sizeof(gpt_entry_t),
-			 &bytes_read);
-	if (sizeof(gpt_entry_t) != bytes_read)
+				&bytes_read);
+	if (result != 0 || sizeof(gpt_entry_t) != bytes_read) {
+		WARN("GPT Entry read error(%i) or read mismatch occured expected(%zu) and actual(%zu)\n",
+			result, sizeof(gpt_entry_t), bytes_read);
 		return -EINVAL;
+	}
+
 	return result;
 }
 
+/*
+ * Retrive each entry in the patition table, parse the data from each
+ * entry and store them in the list of parttion table entries.
+ */
 static int verify_partition_gpt(uintptr_t image_handle)
 {
 	gpt_entry_t entry;
@@ -200,13 +223,19 @@ static int verify_partition_gpt(uintptr_t image_handle)
 
 	for (i = 0; i < list.entry_count; i++) {
 		result = load_gpt_entry(image_handle, &entry);
-		assert(result == 0);
+		if (result != 0) {
+			WARN("Failed to load gpt entry data(%i) error is (%i)\n",
+						i, result);
+			return result;
+		}
+
 		result = parse_gpt_entry(&entry, &list.list[i]);
 		if (result != 0) {
 			break;
 		}
 	}
 	if (i == 0) {
+		WARN("No Valid GPT Entries found\n");
 		return -EINVAL;
 	}
 	/*
@@ -219,13 +248,56 @@ static int verify_partition_gpt(uintptr_t image_handle)
 	return 0;
 }
 
+/*
+ * Load a GPT partition, Try retriving and parsing the primary GPT header,
+ * if its corrupted try loading backup GPT header and then retreive list
+ * of partition table entries found from the GPT.
+ */
+static int load_gpt(uintptr_t image_handle, unsigned int first_lba,
+			unsigned int sector_nums)
+{
+	int result;
+	ssize_t gpt_entry_offset, gpt_header_offset;
+	size_t part_lba = 0;
+
+	/* Try to load Primary GPT header from LBA1 */
+	gpt_header_offset = first_lba * PLAT_PARTITION_BLOCK_SIZE;
+	result = load_gpt_header(image_handle, gpt_header_offset, &part_lba);
+	if (result != 0 || part_lba == 0) {
+		WARN("Failed to retreive Primary GPT header, trying to retreive back-up GPT header\n");
+		/*
+		 * Primary GPT header maybe be corrupted, so now we try with
+		 * back-up GPT header, Back-up header is located in the last LBAn.
+		 */
+		gpt_header_offset = sector_nums * PLAT_PARTITION_BLOCK_SIZE;
+		result = load_gpt_header(image_handle, gpt_header_offset,
+						&part_lba);
+		if (result != 0 || part_lba == 0) {
+			WARN("Failed to retreive Backup GPT header, Partition maybe corrupted\n");
+			return result;
+		}
+	}
+
+	gpt_entry_offset = part_lba * PLAT_PARTITION_BLOCK_SIZE;
+	result = io_seek(image_handle, IO_SEEK_SET, gpt_entry_offset);
+	if (result != 0) {
+		WARN("Failed to seek (%i), Failed loading GPT partition table entries\n", result);
+		return result;
+	}
+
+	result = verify_partition_gpt(image_handle);
+
+	return result;
+}
+
+/*
+ * Load the partition table info based on the image id provided.
+ */
 int load_partition_table(unsigned int image_id)
 {
 	uintptr_t dev_handle, image_handle, image_spec = 0;
 	mbr_entry_t mbr_entry;
 	int result;
-	size_t gpt_entry_offset, gpt_header_offset;
-	size_t part_lba = 0;
 
 	result = plat_get_image_source(image_id, &dev_handle, &image_spec);
 	if (result != 0) {
@@ -246,21 +318,8 @@ int load_partition_table(unsigned int image_id)
 		return result;
 	}
 	if (mbr_entry.type == PARTITION_TYPE_GPT) {
-		/* Try to load GPT header from LBA-1 */
-		gpt_header_offset = mbr_entry.first_lba * PLAT_PARTITION_BLOCK_SIZE;
-		result = load_gpt_header(image_handle, gpt_header_offset, &part_lba);
-		if (result != 0 || part_lba == 0) {
-			WARN("Failed to retreive Primary GPT header\n");
-			return result;
-		}
-
-		gpt_entry_offset = part_lba * PLAT_PARTITION_BLOCK_SIZE;
-		result = io_seek(image_handle, IO_SEEK_SET, gpt_entry_offset);
-		if (result != 0) {
-			WARN("Failed to seek (%i), Failed loading GPT partition table entries\n", result);
-			return result;
-		}
-		result = verify_partition_gpt(image_handle);
+		result = load_gpt(image_handle, mbr_entry.first_lba,
+					mbr_entry.sector_nums);
 	} else {
 		result = load_mbr_entries(image_handle);
 	}
@@ -269,6 +328,9 @@ int load_partition_table(unsigned int image_id)
 	return result;
 }
 
+/*
+ * Try retreivng a partion table entry based on the name of the partition.
+ */
 const partition_entry_t *get_partition_entry(const char *name)
 {
 	int i;
@@ -281,6 +343,9 @@ const partition_entry_t *get_partition_entry(const char *name)
 	return NULL;
 }
 
+/*
+ * Try retreivng a partion table entry based on the GUID.
+ */
 const partition_entry_t *get_partition_entry_by_type(const uuid_t *type_uuid)
 {
 	int i;
@@ -294,6 +359,9 @@ const partition_entry_t *get_partition_entry_by_type(const uuid_t *type_uuid)
 	return NULL;
 }
 
+/*
+ * Try retreivng a partion table entry based on the UUID.
+ */
 const partition_entry_t *get_partition_entry_by_uuid(const uuid_t *part_uuid)
 {
 	int i;
@@ -307,11 +375,17 @@ const partition_entry_t *get_partition_entry_by_uuid(const uuid_t *part_uuid)
 	return NULL;
 }
 
+/*
+ * Return entry to the list of parttion table entries.
+ */
 const partition_entry_list_t *get_partition_entry_list(void)
 {
 	return &list;
 }
 
+/*
+ * Try loading partition table info for the given image ID.
+ */
 void partition_init(unsigned int image_id)
 {
 	load_partition_table(image_id);
