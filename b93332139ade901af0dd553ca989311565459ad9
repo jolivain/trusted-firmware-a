@@ -198,6 +198,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7df7759c_842756ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-21T07:46:59Z",
+      "side": 1,
+      "message": "Thanks Robin!\n\nThe patch looks good to me.\n\nI\u0027m gonna run a fuller set of tests in the CI. I had not realized the previous run would not build cert_create tool, which was pretty pointless. Hopefully all tests [*] will pass thanks to the use of OPENSSL_SUPPRESS_DEPRECATED!\n\n[*] Apart from the broken test raised in the previous patch...",
+      "parentUuid": "b51dbcf0_b3e14fbc",
+      "revId": "b93332139ade901af0dd553ca989311565459ad9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "35691ea6_fc9b3afa",
