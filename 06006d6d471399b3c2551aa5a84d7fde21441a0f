@@ -38,6 +38,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "843e5ff6_1c9907b8",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-09-21T13:58:05Z",
+      "side": 1,
+      "message": "I dont think we need to replicate the asm data structure that we had previously. We can define a regular C data structure for this and save/restore from C code.",
+      "range": {
+        "startLine": 328,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 39
+      },
+      "revId": "06006d6d471399b3c2551aa5a84d7fde21441a0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b95abfb7_1e8fe263",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 27
