@@ -30,6 +30,12 @@
 	  str	xzr, [x0, #CONSOLE_T_PUTC]
 	.endif
 
+#if !ENABLE_CONSOLE_GETC
+	.ifne \getc
+	.error "getc() support is disabled. Do not register a getc() console callback."
+	.endif
+#endif
+
 	.ifne \getc
 	  adrp	x1, console_\_driver\()_getc
 	  add	x1, x1, :lo12:console_\_driver\()_getc

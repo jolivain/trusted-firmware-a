@@ -356,3 +356,6 @@ CONDITIONAL_CMO			:= 0
 
 # By default, disable SPMD Logical partitions
 ENABLE_SPMD_LP			:= 0
+
+# getc() support from the console(s).
+ENABLE_CONSOLE_GETC		:= 0
