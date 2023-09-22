@@ -69,6 +69,42 @@
       "message": "And I am challenging this concept. The argument is that the in-place writing of SCTLR_EL2 is in fact a context restore, just obscured under a different name with funny constraints. In these configurations where it doesn\u0027t need to be contexted in and out (i.e. no SEL2), then the smc handlers do not call cm_el2_sysregs_context_{save, restore}. So this operation does, in fact become valid, as cm_prepare_el3_exit() is an initialization routine.\n\nAs for the memory footprint, this adds 16 bytes of context but removes a bunch of code (in unison with some of the previous patches) in cm_prepare_el3_exit(). I did a quick check before and after this patch and the binary came out pretty much identical for a minimal fvp config. I don\u0027t see this as a problem. The context structures need more work anyway.",
       "revId": "de9855b98ef7cf80bc14e89305b515d6490c1953",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f96ae7a4_335b527b",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 34
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-22T13:47:17Z",
+      "side": 1,
+      "message": "this is under consideration with the lower patch",
+      "parentUuid": "d10a2768_08788b6a",
+      "revId": "de9855b98ef7cf80bc14e89305b515d6490c1953",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "252f4024_c3780334",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 34
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-22T13:47:17Z",
+      "side": 1,
+      "message": "this is under consideration with the lower patch",
+      "parentUuid": "77ea1709_acdbda9c",
+      "revId": "de9855b98ef7cf80bc14e89305b515d6490c1953",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
