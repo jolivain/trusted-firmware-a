@@ -359,3 +359,8 @@ CONDITIONAL_CMO			:= 0
 
 # By default, disable SPMD Logical partitions
 ENABLE_SPMD_LP			:= 0
+
+# getc() support from the console(s).
+# Disabled by default because it constitutes an attack vector into TF-A. It
+# should only be enabled if there is a use case for it.
+ENABLE_CONSOLE_GETC		:= 0
