@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41b41482_380a683d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 22
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-22T13:47:10Z",
+      "side": 1,
+      "message": "discussed offline, will keep it as-is and introduce in a different patch",
+      "parentUuid": "53b9b762_00b9c670",
+      "range": {
+        "startLine": 30,
+        "startChar": 37,
+        "endLine": 31,
+        "endChar": 48
+      },
+      "revId": "d26d48d1947cdd4ddb234bf983f106b9464002bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee1a599e_6b25ff71",
@@ -115,6 +139,24 @@
       "side": 1,
       "message": "Can you point me to any information on this? Why is RME so special? Why will it have \"IP impacts outside CPU\"? I would like to consider these.\n\n\u003e The sequence for scr programming is a read-modify-write so all the values set at reset will persist\n\nThis is the part which this patch changes. I want to disentangle this, as with all other registers I\u0027ve touched in this series.",
       "parentUuid": "aa09832b_6f3e99d7",
+      "revId": "d26d48d1947cdd4ddb234bf983f106b9464002bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c972ee3_4b06d58c",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 22
+      },
+      "lineNbr": 1060,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-22T13:47:10Z",
+      "side": 1,
+      "message": "discussed offline, will keep it as-is and introduce in a different patch",
+      "parentUuid": "7a647f67_0c810f00",
       "revId": "d26d48d1947cdd4ddb234bf983f106b9464002bf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }

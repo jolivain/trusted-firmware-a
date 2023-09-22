@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41823c06_aa40e465",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 51
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-22T13:47:10Z",
+      "side": 1,
+      "message": "discussed offline, will keep it as-is and introduce in a different patch",
+      "parentUuid": "d9d80141_4964699d",
+      "range": {
+        "startLine": 1080,
+        "startChar": 0,
+        "endLine": 1089,
+        "endChar": 0
+      },
+      "revId": "bac1b4c0b6385daa869b70835be84e8d8a4b2d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be53c877_40e16e47",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-07T15:48:32Z",
       "side": 1,
       "message": "not needed.",
+      "range": {
+        "startLine": 1132,
+        "startChar": 0,
+        "endLine": 1139,
+        "endChar": 7
+      },
+      "revId": "bac1b4c0b6385daa869b70835be84e8d8a4b2d57",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c9de569_801c37ea",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 51
+      },
+      "lineNbr": 1139,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-22T13:47:10Z",
+      "side": 1,
+      "message": "discussed offline, will keep it as-is and introduce in a different patch",
+      "parentUuid": "be53c877_40e16e47",
       "range": {
         "startLine": 1132,
         "startChar": 0,
