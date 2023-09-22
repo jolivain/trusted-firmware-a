@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "914325c0_235e7e58",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 60
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-22T13:47:03Z",
+      "side": 1,
+      "message": "no, until pauth is ported to feat_state",
+      "parentUuid": "b65ea0a8_78889f8a",
+      "revId": "3d60e9f0a44ac6e6e39323c17b86d72efcd9f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86bf73cd_88d6d252",
@@ -48,6 +66,30 @@
       "writtenOn": "2023-09-07T15:24:24Z",
       "side": 1,
       "message": "Not related to this patch , but a cleanup that can be done for BL31.\n\n: this needs to be made a global setting for EL3. And this can be determined based on SPMD_SPM_AT_SEL2 build flag.\n\nThis is essential to done globally not change value depending on which world EL3 is entered from . This avoids unnecessary dependancy on programming order while restoring context.",
+      "range": {
+        "startLine": 151,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 0
+      },
+      "revId": "3d60e9f0a44ac6e6e39323c17b86d72efcd9f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "837ea44b_8f0eeda3",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 60
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-22T13:47:03Z",
+      "side": 1,
+      "message": "ACK, but will be done in a different patch by Jay",
+      "parentUuid": "86bf73cd_88d6d252",
       "range": {
         "startLine": 151,
         "startChar": 0,
@@ -212,6 +254,30 @@
       "writtenOn": "2023-09-07T15:24:24Z",
       "side": 1,
       "message": "not sure why the previous logic of enabling only for NS doesn\u0027t work ? It seems we are only increasing the conditional code in Secure and Realm by inverting the logic.",
+      "range": {
+        "startLine": 400,
+        "startChar": 0,
+        "endLine": 407,
+        "endChar": 38
+      },
+      "revId": "3d60e9f0a44ac6e6e39323c17b86d72efcd9f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "435212ee_dbd17f02",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 60
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-22T13:47:03Z",
+      "side": 1,
+      "message": "discussed offline, build flags have changed, removing the unsetting",
+      "parentUuid": "e9169fe0_8308be23",
       "range": {
         "startLine": 400,
         "startChar": 0,
@@ -504,6 +570,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdeaa6fa_869d2b52",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 60
+      },
+      "lineNbr": 891,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-22T13:47:03Z",
+      "side": 1,
+      "message": "discussed offline, not relevant here",
+      "parentUuid": "b121dcd5_a907d0db",
+      "range": {
+        "startLine": 889,
+        "startChar": 3,
+        "endLine": 891,
+        "endChar": 4
+      },
+      "revId": "3d60e9f0a44ac6e6e39323c17b86d72efcd9f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8107ad1d_caf95d91",
@@ -541,6 +631,30 @@
       "side": 1,
       "message": "Same here. [ removed in top patch https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21077/53]",
       "parentUuid": "8107ad1d_caf95d91",
+      "range": {
+        "startLine": 899,
+        "startChar": 7,
+        "endLine": 899,
+        "endChar": 28
+      },
+      "revId": "3d60e9f0a44ac6e6e39323c17b86d72efcd9f4e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f559ca17_b33aff4e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 60
+      },
+      "lineNbr": 899,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-09-22T13:47:03Z",
+      "side": 1,
+      "message": "discussed offline, not relevant here",
+      "parentUuid": "5e575cb9_053589d1",
       "range": {
         "startLine": 899,
         "startChar": 7,
