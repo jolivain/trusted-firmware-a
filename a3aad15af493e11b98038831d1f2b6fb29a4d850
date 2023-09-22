@@ -46,6 +46,30 @@
       },
       "revId": "a3aad15af493e11b98038831d1f2b6fb29a4d850",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a178c5c_226f1e6e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-09-22T15:57:26Z",
+      "side": 1,
+      "message": "Ah yes - somehow missed the dependency on the patch above. It might be worthwhile mentioning that this is because of how make interprets distinguishes different types of commands i.e. only recipes should be indented with tabs.",
+      "parentUuid": "02c96e38_3fd1ff55",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 13
+      },
+      "revId": "a3aad15af493e11b98038831d1f2b6fb29a4d850",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
