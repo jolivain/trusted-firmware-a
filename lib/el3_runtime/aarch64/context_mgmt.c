@@ -148,16 +148,6 @@ static void setup_secure_context(cpu_context_t *ctx, const struct entry_point_in
 	scr_el3 &= ~(SCR_API_BIT | SCR_APK_BIT);
 #endif /* !CTX_INCLUDE_PAUTH_REGS */
 
-	/* Enable S-EL2 if the next EL is EL2 and S-EL2 is present */
-	if ((GET_EL(ep->spsr) == MODE_EL2) && is_feat_sel2_supported()) {
-		if (GET_RW(ep->spsr) != MODE_RW_64) {
-			ERROR("S-EL2 can not be used in AArch32\n.");
-			panic();
-		}
-
-		scr_el3 |= SCR_EEL2_BIT;
-	}
-
 	write_ctx_reg(state, CTX_SCR_EL3, scr_el3);
 
 	/*
@@ -478,6 +468,16 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 		scr_el3 |= SCR_TWEDEn_BIT;
 	}
 
+
+	/* Enable S-EL2 if S-EL2 is present for all the contexts*/
+	if (is_feat_sel2_supported()) {
+		if (GET_RW(ep->spsr) != MODE_RW_64) {
+			ERROR("S-EL2 can not be used in AArch32\n.");
+			panic();
+		}
+
+		scr_el3 |= SCR_EEL2_BIT;
+	}
 	/*
 	 * Populate EL3 state so that we've the right context
 	 * before doing ERET
