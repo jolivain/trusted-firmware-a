@@ -22,6 +22,30 @@
       },
       "revId": "b88196150352d2571cb6854a222aeeee47685901",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b4e9714_3f6b739b",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-09-25T13:36:54Z",
+      "side": 1,
+      "message": "This calculation is to grab SHA256, SHA384 and SHA512 algorithms. Do we support any other algorithm apart from these? AFAIK from the build option documentation [1], we don\u0027t have other cases today but please correct me if I\u0027m wrong.\n\nHence I didn\u0027t put any switch case to satisfy all algorithms, just put some calculation to satisfy available hash algorithm cases in TF-A. Anyways we are getting rid of this API once it is available in upcoming mbedTLS release.\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/getting_started/build-options.rst#n706",
+      "parentUuid": "bc3ceb31_d0e6a83e",
+      "range": {
+        "startLine": 48,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 66
+      },
+      "revId": "b88196150352d2571cb6854a222aeeee47685901",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
