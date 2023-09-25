@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "777c32e1_90533ffd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-09-25T13:45:02Z",
+      "side": 1,
+      "message": "To emphasize that it is specifically designed for a particular purpose, I used explicit keyword here. \nIn this implementation, it is designed to use MbedTLS PSA Crypto APIs during Crypto operation (instead of using existing legacy way).",
+      "parentUuid": "5cb8fd47_5cfb3e9a",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "ea6cbf0883da509402a6365b0b9280ff426eb87f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d4d4b71b_ea687682",
         "filename": "drivers/auth/mbedtls/mbedtls_crypto.mk",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-25T10:43:36Z",
       "side": 1,
       "message": "Move these lines under \u0027ifeq (${PSA_CRYPTO},1)\u0027? We do not want to disable any warnings in the general case, unless absolutely necessary.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 49
+      },
+      "revId": "ea6cbf0883da509402a6365b0b9280ff426eb87f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ffb0f58_4a150e46",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-09-25T13:45:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d4d4b71b_ea687682",
       "range": {
         "startLine": 9,
         "startChar": 0,
