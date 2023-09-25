@@ -46,6 +46,30 @@
       },
       "revId": "b88196150352d2571cb6854a222aeeee47685901",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b372877_70265506",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-25T13:54:02Z",
+      "side": 1,
+      "message": "\u003e This calculation is to grab SHA256, SHA384 and SHA512 algorithms.\n\nAh then yes it works fine with mbedTLS 3.4.1, sorry about that.\n\nStill, even if this helper function is only temporary in TF-A, I would feel better if we added an assertion:\n\n assert((md_type \u003d\u003d MBEDTLS_MD_SHA256) ||\n        (md_type \u003d\u003d MBEDTLS_MD_SHA384) ||\n        (md_type \u003d\u003d MBEDTLS_MD_SHA512))\n\nBesides, it self-documents the code, which is a good thing per se.",
+      "parentUuid": "8b4e9714_3f6b739b",
+      "range": {
+        "startLine": 48,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 66
+      },
+      "revId": "b88196150352d2571cb6854a222aeeee47685901",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
