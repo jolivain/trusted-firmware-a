@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc3ceb31_d0e6a83e",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-25T12:54:50Z",
+      "side": 1,
+      "message": "If I am not mistaken, this computation does not work with mbedTLS 3.4.1 (which is the version we currently test TF-A with).\n\nIn mbedTLS 3.4.1, MBEDTLS_MD_SHA1 for example equals 2, see [1].\nSo mbedtls_md_psa_alg_from_type(MBEDTLS_MD_SHA1) \u003d\u003d 0x02000000 | (2 + 5) \u003d\u003d 0x02000007,\nwhereas PSA_ALG_SHA_1 \u003d\u003d 0x02000005.\n\nOn the development branch, the values of the enum got changed by this commit [2] to make the conversion more efficient (see commit message and comments in [3]). As a result, MBEDTLS_MD_SHA1 equals 5 on the development branch, see [4]. So your computation would work there. But this patch is post-v3.4.1.\n\nI think a dumb switch/case - enumerating all MBEDTLS_MD_* values we support in TF-A - would be more robust. Yes, it would be less elegant and the generated code would be bigger but this is only temporary until mbedTLS library provides this helper function anyway so I think we can afford it.\n\n[1] https://github.com/Mbed-TLS/mbedtls/blob/72718dd87e087215ce9155a826ee5a66cfbe9631/include/mbedtls/md.h#L146\n[2] https://github.com/Mbed-TLS/mbedtls/commit/9b76318138034de90314ae5fda2de2cf5aa44a96\n[3] https://github.com/Mbed-TLS/mbedtls/commit/1f6d2e352dd7ebfbef16249a0425271028deed5a\n[4] https://github.com/Mbed-TLS/mbedtls/blob/development/include/mbedtls/md.h#L177",
+      "range": {
+        "startLine": 48,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 66
+      },
+      "revId": "b88196150352d2571cb6854a222aeeee47685901",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
