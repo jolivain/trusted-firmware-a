@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "658e8b82_3eb0401f",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-09-25T21:57:55Z",
+      "side": 1,
+      "message": "nitpick: could you rephrase for better clarity:\n\nIf the original exception was either a sync exception or irq or fiq, return to appropriate exception vector. Else, if the original exception corresponds to SError from lower El, simply eret back to lower EL since it has handled as soon as the PSTATE.A bit was cleared earlier in this macro.",
+      "range": {
+        "startLine": 207,
+        "startChar": 1,
+        "endLine": 210,
+        "endChar": 4
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95948888_d15536b9",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-09-25T21:57:55Z",
+      "side": 1,
+      "message": "nitpick: please rephrase.\n\nIn case of back and forth between lower EL and EL3, we can track the loop count in \"CTX_NESTED_EA_FLAG\" and leverage previous ELR in \"CTX_SAVED_EL3_EL3\" to detect this vicious cycle and further panic to indicate a problem here (Label \"check_loop_ctr\").",
+      "range": {
+        "startLine": 240,
+        "startChar": 52,
+        "endLine": 243,
+        "endChar": 29
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1818ad75_94bab29b",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 48
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-09-25T21:57:55Z",
+      "side": 1,
+      "message": "depending whether it is FFH or KFH, this flag serves different purposes. I believe we should also use appropriate name to reflect that fact.",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 26
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
