@@ -70,6 +70,30 @@
       },
       "revId": "5d172ffe54dcc52d0f5ee9a94e51ab170a34a42a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04d94623_31580ba5",
+        "filename": "docs/threat_model/threat_model_rme.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-25T14:08:36Z",
+      "side": 1,
+      "message": "Confirmed from Soby that Realm world is not allowed to issue SMC outside RMM range",
+      "parentUuid": "14caa43e_3ecfefaa",
+      "range": {
+        "startLine": 190,
+        "startChar": 13,
+        "endLine": 190,
+        "endChar": 15
+      },
+      "revId": "5d172ffe54dcc52d0f5ee9a94e51ab170a34a42a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
