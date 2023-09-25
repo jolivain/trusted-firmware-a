@@ -16,6 +16,24 @@
       "message": "Could you help to explain why the backup GPT could impact the PLAT_ARM_MAX_BL2_SIZE?",
       "revId": "ecd0755d54db16cfd4ac1519fb0b2deda4743d53",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fcd65b2_98fa666b",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-09-25T20:14:48Z",
+      "side": 1,
+      "message": "Hi Haojian,\n\nEven without the current patch stack the BL2 image is on edge, just enabling LOG_LEVEL\u003d50 makes it to overflow, thus after adding few lines of code had to use a increased size.",
+      "parentUuid": "5b0831ef_bcc8951b",
+      "revId": "ecd0755d54db16cfd4ac1519fb0b2deda4743d53",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
