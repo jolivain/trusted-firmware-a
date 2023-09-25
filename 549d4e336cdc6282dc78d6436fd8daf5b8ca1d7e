@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff8396f9_dbb3f2d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-09-25T13:40:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "802bf808_9e078bce",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 55
+      },
+      "revId": "549d4e336cdc6282dc78d6436fd8daf5b8ca1d7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3e5c02c_0b17f21e",
         "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
         "patchSetId": 3
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f4cb478_66ca8d25",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-09-25T13:40:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c3e5c02c_0b17f21e",
+      "range": {
+        "startLine": 92,
+        "startChar": 1,
+        "endLine": 92,
+        "endChar": 7
+      },
+      "revId": "549d4e336cdc6282dc78d6436fd8daf5b8ca1d7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e33cc77b_ec61736f",
         "filename": "include/drivers/auth/mbedtls/psa_mbedtls_config.h",
         "patchSetId": 3
@@ -60,6 +108,30 @@
       "writtenOn": "2023-09-25T11:06:53Z",
       "side": 1,
       "message": "I would remove this part of the comment. I think that quoting mbedtls error messages in a comment is a bad idea, these are subject to change in mbedtls over time and then this comment in TF-A will go stale. Let\u0027s just say we get build errors.",
+      "range": {
+        "startLine": 16,
+        "startChar": 33,
+        "endLine": 18,
+        "endChar": 55
+      },
+      "revId": "549d4e336cdc6282dc78d6436fd8daf5b8ca1d7e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7f72b08_5d06d179",
+        "filename": "include/drivers/auth/mbedtls/psa_mbedtls_config.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-09-25T13:40:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e33cc77b_ec61736f",
       "range": {
         "startLine": 16,
         "startChar": 33,
