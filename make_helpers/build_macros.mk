@@ -565,6 +565,10 @@ else
 	       const char version[] = "${VERSION}";' | \
 		$$(CC) $$(TF_CFLAGS) $$(CFLAGS) -xc -c - -o $(BUILD_DIR)/build_message.o
 endif
+	@echo "Linking $$@ using $(LD)"
+	@echo "TF LD Flags: $$(TF_LDFLAGS)"
+	@echo "BL LD Flags: $$(BL_LDFLAGS)"
+	@echo "Objs: $$(OBJS)"
 ifneq ($(findstring armlink,$(notdir $(LD))),)
 	$$(Q)$$(LD) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) --entry=${1}_entrypoint \
 		--predefine="-D__LINKER__=$(__LINKER__)" \
@@ -578,10 +582,13 @@ else ifneq ($(findstring gcc,$(notdir $(LD))),)
 		$(BUILD_DIR)/build_message.o \
 		$(OBJS) $(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
 else
-	$$(Q)$$(LD) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) -Map=$(MAPFILE) \
-		$(addprefix -T ,$(LINKER_SCRIPTS)) --script $(DEFAULT_LINKER_SCRIPT) \
+	@echo $$(TF_LDFLAGS) > response.file
+	@echo $$(BL_LDFLAGS) >> response.file
+	@echo $(addprefix -T ,$(LINKER_SCRIPTS)) --script $(DEFAULT_LINKER_SCRIPT) \
 		$(BUILD_DIR)/build_message.o \
-		$(OBJS) $(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
+		$(OBJS) $(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS) >> response.file
+	@echo $$(Q)$$(LD) @response.file -o $$@  -Map=$(MAPFILE)
+	$$(Q)$$(LD) @response.file -o $$@  -Map=$(MAPFILE)
 endif
 ifeq ($(DISABLE_BIN_GENERATION),1)
 	@${ECHO_BLANK_LINE}
@@ -617,7 +624,7 @@ else
 $(if $(2),$(call TOOL_ADD_IMG_PAYLOAD,$(1),$(BIN),--$(2),$(BIN),$(3)))
 endif
 
-endef
+endef # MAKE_BL
 
 # Convert device tree source file names to matching blobs
 #   $(1) = input dts
