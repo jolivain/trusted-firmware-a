@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c56c4451_07c3edd5",
+        "filename": "plat/qemu/common/common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-09-26T05:51:12Z",
+      "side": 1,
+      "message": "We\u0027re normally not indenting what\u0027s in an \"if\". I know there\u0027s exceptions, but perhaps not here.",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 64
+      },
+      "revId": "5c807737d7a14c8c5dded42d26a8fc85f2722f2b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
