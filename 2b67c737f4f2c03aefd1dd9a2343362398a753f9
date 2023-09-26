@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e19b50b1_a2b67540",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-09-26T14:10:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed4f5df9_4703a4b1",
+      "range": {
+        "startLine": 329,
+        "startChar": 0,
+        "endLine": 330,
+        "endChar": 3
+      },
+      "revId": "2b67c737f4f2c03aefd1dd9a2343362398a753f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c90d106_7df24638",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-08T06:48:40Z",
       "side": 1,
       "message": "Lines 346-363 update registers according to the register convention described in the handoff specification. This code will likely be needed on all platforms using the handoff specification. How about putting it in a common helper function? For instance:\nvoid transfer_list_set_handoff_regs(struct transfer_list_header *tl, entry_point_info_t *ep_info);",
+      "range": {
+        "startLine": 346,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 4
+      },
+      "revId": "2b67c737f4f2c03aefd1dd9a2343362398a753f9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77f0860e_2c01fd09",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-09-26T14:10:19Z",
+      "side": 1,
+      "message": "I am planing to do this optimization in the next patch set with enabling the handoff from BL2 to BL31 and BL31 to BL32 if you agree. The reason is that the patch for introducing the TL library (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/22215) is ready for merging, it will be better if we can merge this one as well to enable the basic TL functions.",
+      "parentUuid": "7c90d106_7df24638",
       "range": {
         "startLine": 346,
         "startChar": 0,
