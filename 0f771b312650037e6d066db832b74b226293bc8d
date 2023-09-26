@@ -403,6 +403,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd6a54aa_edb5893c",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-26T17:52:59Z",
+      "side": 1,
+      "message": "thanks. saw it after i wrote the comment :)",
+      "parentUuid": "58029bfb_71c4e678",
+      "range": {
+        "startLine": 60,
+        "startChar": 1,
+        "endLine": 61,
+        "endChar": 4
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fb72d6b_4763b94b",
@@ -438,6 +462,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccba1bf4_862cf707",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-26T17:52:59Z",
+      "side": 1,
+      "message": "heh yes:) missed the b.eq 1f.",
+      "parentUuid": "1dc7fe03_c926f34d",
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67ecfab6_9009d961",
@@ -469,6 +511,24 @@
       "side": 1,
       "message": "Done\n\nI also had the same feeling, i introduced this macro for some previous version of patch. I think its better to get rid of this.",
       "parentUuid": "67ecfab6_9009d961",
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c02498c_7f81ed4c",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-26T17:52:59Z",
+      "side": 1,
+      "message": "thx.",
+      "parentUuid": "7dc2fd85_6d4633dc",
       "revId": "0f771b312650037e6d066db832b74b226293bc8d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
