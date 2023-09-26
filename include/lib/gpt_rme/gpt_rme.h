@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -263,8 +263,6 @@ void gpt_disable(void);
  * transition request occurs it is routed to this function where the request is
  * validated then fulfilled if possible.
  *
- * TODO: implement support for transitioning multiple granules at once.
- *
  * Parameters
  *   base: Base address of the region to transition, must be aligned to granule
  *         size.
@@ -273,8 +271,12 @@ void gpt_disable(void);
  *
  * Return
  *    Negative Linux error code in the event of a failure, 0 for success.
+ *    The argument `last_updated` ptr, if different than NULL, is used to provide the base
+ *    address of the last page that has been updated successfully.
  */
-int gpt_delegate_pas(uint64_t base, size_t size, unsigned int src_sec_state);
-int gpt_undelegate_pas(uint64_t base, size_t size, unsigned int src_sec_state);
+int gpt_delegate_pas(uint64_t base, size_t size, unsigned int src_sec_state,
+		     uint64_t *last_updated);
+int gpt_undelegate_pas(uint64_t base, size_t size, unsigned int src_sec_state,
+		       uint64_t *last_updated);
 
 #endif /* GPT_RME_H */
