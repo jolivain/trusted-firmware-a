@@ -238,6 +238,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83884d30_6f8931b1",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-26T19:47:53Z",
+      "side": 1,
+      "message": "makes sense. thanks.",
+      "parentUuid": "6e8bd600_deca4c14",
+      "range": {
+        "startLine": 207,
+        "startChar": 1,
+        "endLine": 210,
+        "endChar": 4
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95948888_d15536b9",
