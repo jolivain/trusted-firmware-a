@@ -301,8 +301,23 @@ $(eval DEP := $(patsubst %.o,%.d,$(OBJ)))
 $(eval LIB := $(call uppercase, $(notdir $(1))))
 
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | lib$(3)_dirs
-	$$(ECHO) "  CC      $$<"
-	$$(Q)$$(CC) $$($(LIB)_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(MAKE_DEP) -c $$< -o $$@
+	$${ECHO} "  CPP $$< using $(CPP)"
+ifdef MAKE_DEP
+	$${ECHO} "MAKE_DEP: $(MAKE_DEP)"
+	$${ECHO} $(MAKE_DEP) > $$@.in
+endif
+ifdef CFLAGS
+	$${ECHO} "CFLAGS: $(CFLAGS)"
+	$${ECHO} $$(CFLAGS) >> $$@.in
+endif
+ifdef TF_CFLAGS
+	$${ECHO} "TF Flags: $(TF_CFLAGS)"
+	$${ECHO} $$(TF_CFLAGS) >> $$@.in
+endif
+ifdef $(LIB)_CFLAGS
+	$${ECHO} $$($(LIB)_CFLAGS) >> $$@.in
+endif
+	$$(Q)$$(CC) @$$@.in $$($(LIB)_CFLAGS)  -c $$< -o $$@
 
 -include $(DEP)
 
@@ -565,6 +580,10 @@ else
 	       const char version[] = "${VERSION}";' | \
 		$$(CC) $$(TF_CFLAGS) $$(CFLAGS) -xc -c - -o $(BUILD_DIR)/build_message.o
 endif
+	$${ECHO} $$(TF_LDFLAGS) > $$@.in
+	$${ECHO} $$(BL_LDFLAGS) >> $$@.in
+	$${ECHO} $(BUILD_DIR)/build_message.o $(OBJS) >> $$@.in
+	$${ECHO} $(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS) >> $$@.in
 ifneq ($(findstring armlink,$(notdir $(LD))),)
 	$$(Q)$$(LD) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) --entry=${1}_entrypoint \
 		--predefine="-D__LINKER__=$(__LINKER__)" \
@@ -573,15 +592,11 @@ ifneq ($(findstring armlink,$(notdir $(LD))),)
 		$(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS) \
 		$(BUILD_DIR)/build_message.o $(OBJS)
 else ifneq ($(findstring gcc,$(notdir $(LD))),)
-	$$(Q)$$(LD) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) -Wl,-Map=$(MAPFILE) \
-		$(addprefix -Wl$(comma)--script$(comma),$(LINKER_SCRIPTS)) -Wl,--script,$(DEFAULT_LINKER_SCRIPT) \
-		$(BUILD_DIR)/build_message.o \
-		$(OBJS) $(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
+	$$(Q)$$(LD) -o $$@ @$$@.in -Wl,-Map=$(MAPFILE) \
+		$(addprefix -Wl$(comma)--script$(comma),$(LINKER_SCRIPTS)) -Wl,--script,$(DEFAULT_LINKER_SCRIPT)
 else
-	$$(Q)$$(LD) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) -Map=$(MAPFILE) \
-		$(addprefix -T ,$(LINKER_SCRIPTS)) --script $(DEFAULT_LINKER_SCRIPT) \
-		$(BUILD_DIR)/build_message.o \
-		$(OBJS) $(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
+	$$(Q)$$(LD) @$$@.in -o $$@  -Map=$(MAPFILE) \
+		$(addprefix -T ,$(LINKER_SCRIPTS)) --script $(DEFAULT_LINKER_SCRIPT)
 endif
 ifeq ($(DISABLE_BIN_GENERATION),1)
 	@${ECHO_BLANK_LINE}
@@ -617,7 +632,7 @@ else
 $(if $(2),$(call TOOL_ADD_IMG_PAYLOAD,$(1),$(BIN),--$(2),$(BIN),$(3)))
 endif
 
-endef
+endef # MAKE_BL
 
 # Convert device tree source file names to matching blobs
 #   $(1) = input dts
