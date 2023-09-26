@@ -46,9 +46,6 @@ void plat_handle_uncontainable_ea(void)
 {
 	/* Do not change the string, CI expects it. Wait forever */
 	INFO("Injected Uncontainable Error\n");
-	while (true) {
-		wfe();
-	}
 }
 #endif
 
