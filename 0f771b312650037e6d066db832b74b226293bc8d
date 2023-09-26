@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "952868fc_cae3a91e",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-26T15:51:56Z",
+      "side": 1,
+      "message": "I am not aware of any such configuration and the plan for SPM/hafnium is to handle SErrors itself. I will capture this in documentation patch. Thanks for pointing out.",
+      "parentUuid": "cd4951d4_421b3ec5",
+      "range": {
+        "startLine": 164,
+        "startChar": 65,
+        "endLine": 164,
+        "endChar": 79
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f81f955_b920e6ca",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-26T02:44:23Z",
       "side": 1,
       "message": "is this \"will\" or \"can\"? It looks liek \"will\" because you enter this path after you saw EA bit to be set?\nImmediately after this msr instruction, is it expected that the SError will trigger at SP_ELx?\nIs that architecturally guaranteed to trigger? or is there a chance some implementations can delay SError vectoring?\n\nDo we need a barrier to ensure strs above are completed before the msr instruction? or is there implicit ordering when there is an msr to daifclr? what ensures msr completes after str to NESTED_EA_FLAG?",
+      "range": {
+        "startLine": 192,
+        "startChar": 47,
+        "endLine": 192,
+        "endChar": 52
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f564e005_c92a7319",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-26T15:51:56Z",
+      "side": 1,
+      "message": "\u003e is it expected that the SError will trigger at SP_ELx?\nYes\n\u003e Is that architecturally guaranteed to trigger?\nI think so but don\u0027t know where it is documented.\n\nInserted ISB",
+      "parentUuid": "4f81f955_b920e6ca",
       "range": {
         "startLine": 192,
         "startChar": 47,
@@ -118,6 +166,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e8bd600_deca4c14",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-26T15:51:56Z",
+      "side": 1,
+      "message": "The flow is pretty much what you mentioned, the only difference being towards the end \nsync_exception_aarch64\nsync_and_handle_pending_serror\nhandle_pending_async_ea\nserror_sp_elx\nhandle_lower_el_async_ea (platform is expected to handle all SErrors at once)\nSo return depends on whether the original exception was SError from lower EL or other exception\nIf original exception was lower EL SError exception : eret to lower EL\nFor any other exception it should go back to sync_and_handle_pending_serror line #69 and then to original vector entry to continue with original exception.\n\nJust for clarification, SError from lower EL exceptions are slightly diff from others \n\nvector_entry serror_aarch64\n\tsave_x30\n\tapply_at_speculative_wa\n\tsanitize_ea_routed_to_el3\n\tsync_and_handle_pending_serror\n\tunmask_async_ea\n\tb\thandle_lower_el_async_ea ###This meant to be called in case there was no pending error otherwise we never reach here.",
+      "parentUuid": "4d2fb9ef_611c92a5",
+      "range": {
+        "startLine": 207,
+        "startChar": 1,
+        "endLine": 210,
+        "endChar": 4
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95948888_d15536b9",
@@ -165,6 +237,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c536e3d2_9262b701",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-26T15:51:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b997dd2_ce3d46a5",
+      "range": {
+        "startLine": 240,
+        "startChar": 52,
+        "endLine": 243,
+        "endChar": 29
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d5833d7_389a1a52",
@@ -178,6 +274,30 @@
       "writtenOn": "2023-09-26T02:44:23Z",
       "side": 1,
       "message": "nit: vector",
+      "range": {
+        "startLine": 269,
+        "startChar": 19,
+        "endLine": 269,
+        "endChar": 26
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9e338c2_506d20ac",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-26T15:51:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d5833d7_389a1a52",
       "range": {
         "startLine": 269,
         "startChar": 19,
@@ -211,6 +331,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58029bfb_71c4e678",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-26T15:51:56Z",
+      "side": 1,
+      "message": "If you look at next patch, i have removed this for IESB enabled https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21685/22/include/arch/aarch64/asm_macros.S#308",
+      "parentUuid": "60d5b899_a77c12ba",
+      "range": {
+        "startLine": 60,
+        "startChar": 1,
+        "endLine": 61,
+        "endChar": 4
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fb72d6b_4763b94b",
@@ -228,6 +372,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dc7fe03_c926f34d",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-26T15:51:56Z",
+      "side": 1,
+      "message": "Let me try to explain you the reason why we can\u0027t use #else here\n\n#if \n /* this part covers NS world FFH */\n It covers cases when this macro is enabled (outgoing world can be Secure/Realm as well)\n the scr_el3.ea will distinguish weather coming from NS or S/Realm world\n#endif\n /* This part of code is applicable to NS KFH or outgoing world is Secure/Realm",
+      "parentUuid": "9fb72d6b_4763b94b",
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67ecfab6_9009d961",
@@ -241,6 +403,24 @@
       "writtenOn": "2023-09-26T02:44:23Z",
       "side": 1,
       "message": "is this really required? if this happens this is a hardware bug right? could we save some instructions in critical/hot paths if this is only in debug mode?",
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dc2fd85_6d4633dc",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-26T15:51:56Z",
+      "side": 1,
+      "message": "Done\n\nI also had the same feeling, i introduced this macro for some previous version of patch. I think its better to get rid of this.",
+      "parentUuid": "67ecfab6_9009d961",
       "revId": "0f771b312650037e6d066db832b74b226293bc8d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -268,6 +448,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2efe7c9e_8e0bd204",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-26T15:51:56Z",
+      "side": 1,
+      "message": "I agree that there is a rarest possibility of this happening but We have entered this path through synchronising errors and the only memory access we are doing is of SRAM which has slightest of chance for an SError(if this happens, the system is anyways unreliable). To avoid making this comment more complicated, i prefer not to put any more comments here.\nLet me know if you strongly feel otherwise.",
+      "parentUuid": "19bfcec8_65b340ba",
+      "range": {
+        "startLine": 204,
+        "startChar": 33,
+        "endLine": 205,
+        "endChar": 42
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1818ad75_94bab29b",
@@ -281,6 +485,30 @@
       "writtenOn": "2023-09-25T21:57:55Z",
       "side": 1,
       "message": "depending whether it is FFH or KFH, this flag serves different purposes. I believe we should also use appropriate name to reflect that fact.",
+      "range": {
+        "startLine": 67,
+        "startChar": 8,
+        "endLine": 67,
+        "endChar": 26
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fc64b63_94c75c18",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 48
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-26T15:51:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1818ad75_94bab29b",
       "range": {
         "startLine": 67,
         "startChar": 8,
