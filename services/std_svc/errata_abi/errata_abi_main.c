@@ -26,7 +26,7 @@ struct em_cpu_list cpu_list[] = {
 {
 	.cpu_partnumber = CORTEX_A78_MIDR,
 	.cpu_errata_list = {
-		[0] = {2712571, 0x00, 0x12, ERRATA_A78_2712571, ERRATA_NON_ARM_INTERCONNECT},
+		[0] = {2712571, 0x00, 0x12, ERRATA_A78_2712571},
 		[1 ... ERRATA_LIST_END] = UNDEF_ERRATA,
 	}
 },
@@ -36,7 +36,7 @@ struct em_cpu_list cpu_list[] = {
 {
 	.cpu_partnumber = CORTEX_A78_AE_MIDR,
 	.cpu_errata_list = {
-		[0] = {2712574, 0x00, 0x02, ERRATA_A78_AE_2712574, ERRATA_NON_ARM_INTERCONNECT},
+		[0] = {2712574, 0x00, 0x02, ERRATA_A78_AE_2712574},
 		[1 ... ERRATA_LIST_END] = UNDEF_ERRATA,
 	}
 },
@@ -46,7 +46,7 @@ struct em_cpu_list cpu_list[] = {
 {
 	.cpu_partnumber = CORTEX_A78C_MIDR,
 	.cpu_errata_list = {
-		[0] = {2712575, 0x01, 0x02, ERRATA_A78C_2712575, ERRATA_NON_ARM_INTERCONNECT},
+		[0] = {2712575, 0x01, 0x02, ERRATA_A78C_2712575},
 		[1 ... ERRATA_LIST_END] = UNDEF_ERRATA,
 	}
 },
@@ -56,7 +56,7 @@ struct em_cpu_list cpu_list[] = {
 {
 	.cpu_partnumber = NEOVERSE_V1_MIDR,
 	.cpu_errata_list = {
-		[0] = {2701953, 0x00, 0x11, ERRATA_V1_2701953, ERRATA_NON_ARM_INTERCONNECT},
+		[0] = {2701953, 0x00, 0x11, ERRATA_V1_2701953},
 		[1 ... ERRATA_LIST_END] = UNDEF_ERRATA,
 	}
 },
@@ -66,7 +66,7 @@ struct em_cpu_list cpu_list[] = {
 {
 	.cpu_partnumber = CORTEX_A710_MIDR,
 	.cpu_errata_list = {
-		[0] = {2701952, 0x00, 0x21, ERRATA_A710_2701952, ERRATA_NON_ARM_INTERCONNECT},
+		[0] = {2701952, 0x00, 0x21, ERRATA_A710_2701952},
 		[1 ... ERRATA_LIST_END] = UNDEF_ERRATA,
 	}
 },
@@ -76,7 +76,7 @@ struct em_cpu_list cpu_list[] = {
 {
 	.cpu_partnumber = NEOVERSE_N2_MIDR,
 	.cpu_errata_list = {
-		[0] = {2728475, 0x00, 0x02, ERRATA_N2_2728475, ERRATA_NON_ARM_INTERCONNECT},
+		[0] = {2728475, 0x00, 0x02, ERRATA_N2_2728475},
 		[1 ... ERRATA_LIST_END] = UNDEF_ERRATA,
 	}
 },
@@ -86,7 +86,7 @@ struct em_cpu_list cpu_list[] = {
 {
 	.cpu_partnumber = CORTEX_X2_MIDR,
 	.cpu_errata_list = {
-		[0] = {2701952, 0x00, 0x21, ERRATA_X2_2701952, ERRATA_NON_ARM_INTERCONNECT},
+		[0] = {2701952, 0x00, 0x21, ERRATA_X2_2701952},
 		[1 ... ERRATA_LIST_END] = UNDEF_ERRATA,
 	}
 },
@@ -96,7 +96,7 @@ struct em_cpu_list cpu_list[] = {
 {
 	.cpu_partnumber = NEOVERSE_V2_MIDR,
 	.cpu_errata_list = {
-		[0] = {2719103, 0x00, 0x01, ERRATA_V2_2719103, ERRATA_NON_ARM_INTERCONNECT},
+		[0] = {2719103, 0x00, 0x01, ERRATA_V2_2719103},
 		[1 ... ERRATA_LIST_END] = UNDEF_ERRATA,
 	}
 },
@@ -106,11 +106,12 @@ struct em_cpu_list cpu_list[] = {
 {
 	.cpu_partnumber = CORTEX_A715_MIDR,
 	.cpu_errata_list = {
-		[0] = {2701951, 0x00, 0x11, ERRATA_A715_2701951, ERRATA_NON_ARM_INTERCONNECT},
+		[0] = {2701951, 0x00, 0x11, ERRATA_A715_2701951},
 		[1 ... ERRATA_LIST_END] = UNDEF_ERRATA,
 	}
 },
 #endif /* CORTEX_A715_H_INC */
+
 };
 
 /* Function to check if the errata exists for the specific CPU and rxpx */
@@ -122,14 +123,49 @@ int32_t verify_errata_implemented(uint32_t errata_id, uint32_t forward_flag)
 	struct erratum_entry *entry = cpu_ops->errata_list_start;
 	struct erratum_entry *end = cpu_ops->errata_list_end;
 	long rev_var = cpu_get_rev_var();
+	bool id_found = false;
+
+	#if ERRATA_NON_ARM_INTERCONNECT
+
+		/* Determine the number of cpu listed in the cpu list */
+		uint8_t size_cpulist = ARRAY_SIZE(cpu_list);
+
+		/* Read the midr reg to extract cpu, revision and variant info */
+		uint32_t midr_val = read_midr();
+
+		for (int i = 0; i < size_cpulist; i++) {
+			cpu_ptr = &cpu_list[i];
+			/*
+			 * If the cpu partnumber in the cpu list, matches the midr
+			 * part number, check to see if the errata ID matches
+			 */
+			if ((EXTRACT_PARTNUM(midr_val)) == \
+				(EXTRACT_PARTNUM(cpu_ptr->cpu_partnumber))) {
+				struct em_cpu *erratum_ptr = NULL;
+				for (int j = 0; j < MAX_ERRATA_ENTRIES; j++) {
+					erratum_ptr = &cpu_ptr->cpu_errata_list[j];
+					assert(erratum_ptr != NULL);
+					if (errata_id == erratum_ptr->em_errata_id) {
+						if(RXPX_RANGE(rev_var, erratum_ptr->em_rxpx_lo, \
+                                		 erratum_ptr->em_rxpx_hi)) {
+                                         		return EM_AFFECTED;
+                                	 	}
+						id_found = true;
+                                 		break;
+					}
+				}
+				break;
+			}
+		}
+	#endif
 
 	end--;
 	assert(entry != NULL);
 	assert(end != NULL);
 
-	while(entry <= end)
+	while ((entry <= end) && (!id_found))
 	{
-		if(entry->id == errata_id) {
+		if (entry->id == errata_id) {
 			if (entry->check_func(rev_var)) {
 				if(entry->chosen)
 					return EM_HIGHER_EL_MITIGATION;
@@ -140,6 +176,7 @@ int32_t verify_errata_implemented(uint32_t errata_id, uint32_t forward_flag)
 		}
 		entry += 1;
 	}
+
 	return ret_val;
 }
 

@@ -4,13 +4,8 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
-
-#/*
-# * TODO: below lines of code to be removed
-# * after abi and framework are synchronized
-# */
-
 ifeq (${ERRATA_ABI_SUPPORT}, 1)
+ifeq (${ERRATA_NON_ARM_INTERCONNECT}, 1)
 ifeq (${CTX_INCLUDE_AARCH32_REGS}, 0)
 CORTEX_A78_H_INC	:= 1
 NEOVERSE_N2_H_INC	:= 1
@@ -21,7 +16,6 @@ CORTEX_A715_H_INC 	:= 1
 CORTEX_A78C_H_INC	:= 1
 CORTEX_X2_H_INC		:= 1
 $(eval $(call add_define, CORTEX_A78_H_INC))
-$(eval $(call add_define, NEOVERSE_N1_H_INC))
 $(eval $(call add_define, NEOVERSE_N2_H_INC))
 $(eval $(call add_define, NEOVERSE_V1_H_INC))
 $(eval $(call add_define, CORTEX_A78_AE_H_INC))
@@ -29,5 +23,6 @@ $(eval $(call add_define, CORTEX_A710_H_INC))
 $(eval $(call add_define, CORTEX_A715_H_INC))
 $(eval $(call add_define, CORTEX_A78C_H_INC))
 $(eval $(call add_define, CORTEX_X2_H_INC))
+endif
 endif
 endif
