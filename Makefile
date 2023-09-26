@@ -84,8 +84,12 @@ ifeq (${V},0)
 	ECHO:=@echo
 	CHECKCODE_ARGS	+=	--no-summary --terse
 else
-	Q:=
-	ECHO:=$(ECHO_QUIET)
+	# Make sure debug messages are suppressed - debug
+	Q:=@
+	ECHO:=@echo
+	CHECKCODE_ARGS	+=	--no-summary --terse
+#	Q:=
+#	ECHO:=$(ECHO_QUIET)
 endif
 
 ifneq ($(findstring s,$(filter-out --%,$(MAKEFLAGS))),)
