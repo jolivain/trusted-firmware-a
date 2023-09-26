@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cd4951d4_421b3ec5",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-26T02:44:23Z",
+      "side": 1,
+      "message": "just to confirm: is there any config where secure world can have EA bit set?",
+      "range": {
+        "startLine": 164,
+        "startChar": 65,
+        "endLine": 164,
+        "endChar": 79
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f81f955_b920e6ca",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-26T02:44:23Z",
+      "side": 1,
+      "message": "is this \"will\" or \"can\"? It looks liek \"will\" because you enter this path after you saw EA bit to be set?\nImmediately after this msr instruction, is it expected that the SError will trigger at SP_ELx?\nIs that architecturally guaranteed to trigger? or is there a chance some implementations can delay SError vectoring?\n\nDo we need a barrier to ensure strs above are completed before the msr instruction? or is there implicit ordering when there is an msr to daifclr? what ensures msr completes after str to NESTED_EA_FLAG?",
+      "range": {
+        "startLine": 192,
+        "startChar": 47,
+        "endLine": 192,
+        "endChar": 52
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "658e8b82_3eb0401f",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 48
@@ -14,6 +60,30 @@
       "writtenOn": "2023-09-25T21:57:55Z",
       "side": 1,
       "message": "nitpick: could you rephrase for better clarity:\n\nIf the original exception was either a sync exception or irq or fiq, return to appropriate exception vector. Else, if the original exception corresponds to SError from lower El, simply eret back to lower EL since it has handled as soon as the PSTATE.A bit was cleared earlier in this macro.",
+      "range": {
+        "startLine": 207,
+        "startChar": 1,
+        "endLine": 210,
+        "endChar": 4
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2ad718f_ed4173ea",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-26T02:44:23Z",
+      "side": 1,
+      "message": "can this even happen? i tried to chart out the call path and i dont see an exception from lower EL3 returning to here since serror_elx does ERET if from lower exception level?\nif nested, it goes into plat_el3_ea_handler right?",
+      "parentUuid": "658e8b82_3eb0401f",
       "range": {
         "startLine": 207,
         "startChar": 1,
@@ -42,6 +112,133 @@
         "startChar": 52,
         "endLine": 243,
         "endChar": 29
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b997dd2_ce3d46a5",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-26T02:44:23Z",
+      "side": 1,
+      "message": "sorry do you mean CTX_SAVED_ELR_EL3? What does CTX_SAVED_EL3_EL3 mean?",
+      "parentUuid": "95948888_d15536b9",
+      "range": {
+        "startLine": 240,
+        "startChar": 52,
+        "endLine": 243,
+        "endChar": 29
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d5833d7_389a1a52",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-26T02:44:23Z",
+      "side": 1,
+      "message": "nit: vector",
+      "range": {
+        "startLine": 269,
+        "startChar": 19,
+        "endLine": 269,
+        "endChar": 26
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60d5b899_a77c12ba",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-26T02:44:23Z",
+      "side": 1,
+      "message": "is this required if we have IESB enabled? Asking to see if we can avoid the barriers in certain cases.",
+      "range": {
+        "startLine": 60,
+        "startChar": 1,
+        "endLine": 61,
+        "endChar": 4
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fb72d6b_4763b94b",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-26T02:44:23Z",
+      "side": 1,
+      "message": "nit: an #else would be good from a readability point of view...so we can skip/follow only one path that you are interested in when reading.",
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67ecfab6_9009d961",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-26T02:44:23Z",
+      "side": 1,
+      "message": "is this really required? if this happens this is a hardware bug right? could we save some instructions in critical/hot paths if this is only in debug mode?",
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19bfcec8_65b340ba",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-26T02:44:23Z",
+      "side": 1,
+      "message": "we can end up in infinite loop here right? we unmask EA on SP_EL3, take an abort, and then take another abort when executing instructions in this handler? \nIs it worth noting that it is a possiblity and we cant do much\u003e?",
+      "range": {
+        "startLine": 204,
+        "startChar": 33,
+        "endLine": 205,
+        "endChar": 42
       },
       "revId": "0f771b312650037e6d066db832b74b226293bc8d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
