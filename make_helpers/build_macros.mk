@@ -578,6 +578,13 @@ else ifneq ($(findstring gcc,$(notdir $(LD))),)
 		$(BUILD_DIR)/build_message.o \
 		$(OBJS) $(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
 else
+	@echo "TF LD Flags: $$(TF_LDFLAGS)"
+	@echo "BL LD Flags: $$(BLD_LDFLAGS)"
+	@echo "Objs: $$(OBJS)"
+	@echo "$$(Q)$$(LD) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) -Map=$(MAPFILE) \
+		$(addprefix -T ,$(LINKER_SCRIPTS)) --script $(DEFAULT_LINKER_SCRIPT) \
+		$(BUILD_DIR)/build_message.o \
+		$(OBJS) $(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)"
 	$$(Q)$$(LD) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) -Map=$(MAPFILE) \
 		$(addprefix -T ,$(LINKER_SCRIPTS)) --script $(DEFAULT_LINKER_SCRIPT) \
 		$(BUILD_DIR)/build_message.o \
@@ -617,7 +624,7 @@ else
 $(if $(2),$(call TOOL_ADD_IMG_PAYLOAD,$(1),$(BIN),--$(2),$(BIN),$(3)))
 endif
 
-endef
+endef # MAKE_BL
 
 # Convert device tree source file names to matching blobs
 #   $(1) = input dts
