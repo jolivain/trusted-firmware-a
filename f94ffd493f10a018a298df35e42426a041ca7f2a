@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "504052bc_ca39a356",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-09-26T08:16:35Z",
+      "side": 1,
+      "message": "The failure CIs have been passed after testing them with the latest stack: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/49341/\n\nWe can ignore static check failure as newly introduced file is already covered for a build as well as for coverity as a part of this patch: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/23507\n\nso manually providing Verified+1.",
+      "revId": "f94ffd493f10a018a298df35e42426a041ca7f2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
