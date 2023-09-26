@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "591f99e3_811141b8",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-26T17:50:27Z",
+      "side": 1,
+      "message": "I also think it is critical to be certain that the SError fires before the store on line 197. Otherwise CTX_NESTED_EA_FLAG could be cleared before the nested serror starts executing.",
+      "parentUuid": "251c702c_219b900f",
+      "range": {
+        "startLine": 192,
+        "startChar": 47,
+        "endLine": 192,
+        "endChar": 52
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "658e8b82_3eb0401f",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 48
