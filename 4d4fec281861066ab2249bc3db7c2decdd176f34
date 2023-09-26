@@ -33,6 +33,24 @@
       "message": "@Olivier can we get this patch merged, please?",
       "revId": "4d4fec281861066ab2249bc3db7c2decdd176f34",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fa0289d_14f8294e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-26T14:33:55Z",
+      "side": 1,
+      "message": "Hi, I will ask TF-A folks for a review and hopefully get the CoR vote.\n\nJust out of curiosity, did you try the change at your end and confirmed this effectively solves the original \u0027scalability\u0027 issue about running the tool on different kinds of host?",
+      "parentUuid": "3e1e0084_da53557c",
+      "revId": "4d4fec281861066ab2249bc3db7c2decdd176f34",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
