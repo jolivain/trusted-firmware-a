@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2023, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -1005,8 +1005,6 @@ static int get_gpi_params(uint64_t base, gpi_info_t *gpi_info)
  * transition request occurs it is routed to this function to have the request,
  * if valid, fulfilled following A1.1.1 Delegate of RME supplement
  *
- * TODO: implement support for transitioning multiple granules at once.
- *
  * Parameters
  *   base		Base address of the region to transition, must be
  *			aligned to granule size.
@@ -1016,13 +1014,17 @@ static int get_gpi_params(uint64_t base, gpi_info_t *gpi_info)
  *
  * Return
  *   Negative Linux error code in the event of a failure, 0 for success.
+ *   The argument `last_updated` ptr, if different than NULL, is used to provide the base
+ *   address of the last page that has been updated successfully.
  */
-int gpt_delegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
+int gpt_delegate_pas(uint64_t base, size_t size, unsigned int src_sec_state,
+		     uint64_t *last_updated)
 {
 	gpi_info_t gpi_info;
 	uint64_t nse;
 	int res;
 	unsigned int target_pas;
+	const size_t gpt_pgs_size = GPT_PGS_ACTUAL_SIZE(gpt_config.p);
 
 	/* Ensure that the tables have been set up before taking requests. */
 	assert(gpt_config.plat_gpt_l0_base != 0UL);
@@ -1034,8 +1036,10 @@ int gpt_delegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
 	assert(src_sec_state == SMC_FROM_REALM ||
 	       src_sec_state == SMC_FROM_SECURE);
 
-	/* See if this is a single or a range of granule transition. */
-	if (size != GPT_PGS_ACTUAL_SIZE(gpt_config.p)) {
+	/* Size must be aligned with the page size. */
+	if ((size % gpt_pgs_size) != 0U) {
+		ERROR("[GPT] delegate/undelegate section size must be a multiple of: %zx\n",
+				gpt_pgs_size);
 		return -EINVAL;
 	}
 
@@ -1048,8 +1052,8 @@ int gpt_delegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
 	}
 
 	/* Make sure base and size are valid. */
-	if (((base & (GPT_PGS_ACTUAL_SIZE(gpt_config.p) - 1)) != 0UL) ||
-	    ((size & (GPT_PGS_ACTUAL_SIZE(gpt_config.p) - 1)) != 0UL) ||
+	if (((base & (gpt_pgs_size - 1)) != 0UL) ||
+	    ((size & (gpt_pgs_size - 1)) != 0UL) ||
 	    (size == 0UL) ||
 	    ((base + size) >= GPT_PPS_ACTUAL_SIZE(gpt_config.t))) {
 		VERBOSE("[GPT] Invalid granule transition address range!\n");
@@ -1069,46 +1073,51 @@ int gpt_delegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
 	 * given time.
 	 */
 	spin_lock(&gpt_lock);
-	res = get_gpi_params(base, &gpi_info);
-	if (res != 0) {
-		spin_unlock(&gpt_lock);
-		return res;
+
+	for (uint64_t it = base; it < (base + size); it += gpt_pgs_size) {
+		res = get_gpi_params(it, &gpi_info);
+		if (res != 0) {
+			spin_unlock(&gpt_lock);
+			return res;
+		}
+
+		/* Check that the current address is in NS state */
+		if (gpi_info.gpi != GPT_GPI_NS) {
+			VERBOSE("[GPT] Only Granule in NS state can be delegated.\n");
+			VERBOSE("      Caller: %u, Current GPI: %u, Base: %zx\n", src_sec_state,
+				gpi_info.gpi, it);
+			spin_unlock(&gpt_lock);
+			return -EPERM;
+		}
+
+		if (src_sec_state == SMC_FROM_SECURE) {
+			nse = (uint64_t)GPT_NSE_SECURE << GPT_NSE_SHIFT;
+		} else {
+			nse = (uint64_t)GPT_NSE_REALM << GPT_NSE_SHIFT;
+		}
+
+		/*
+		 * In order to maintain mutual distrust between Realm and Secure
+		 * states, remove any data speculatively fetched into the target
+		 * physical address space. Issue DC CIPAPA over address range
+		 */
+		flush_dcache_to_popa_range(nse | it, gpt_pgs_size);
+
+		write_gpt(&gpi_info.gpt_l1_desc, gpi_info.gpt_l1_addr,
+			  gpi_info.gpi_shift, gpi_info.idx, target_pas);
+		dsboshst();
+
+		gpt_tlbi_by_pa_ll(it, gpt_pgs_size);
+		dsbosh();
+
+		nse = (uint64_t)GPT_NSE_NS << GPT_NSE_SHIFT;
+
+		flush_dcache_to_popa_range(nse | it, gpt_pgs_size);
+
+		if (last_updated != NULL) {
+			*last_updated = it;
+		}
 	}
-
-	/* Check that the current address is in NS state */
-	if (gpi_info.gpi != GPT_GPI_NS) {
-		VERBOSE("[GPT] Only Granule in NS state can be delegated.\n");
-		VERBOSE("      Caller: %u, Current GPI: %u\n", src_sec_state,
-			gpi_info.gpi);
-		spin_unlock(&gpt_lock);
-		return -EPERM;
-	}
-
-	if (src_sec_state == SMC_FROM_SECURE) {
-		nse = (uint64_t)GPT_NSE_SECURE << GPT_NSE_SHIFT;
-	} else {
-		nse = (uint64_t)GPT_NSE_REALM << GPT_NSE_SHIFT;
-	}
-
-	/*
-	 * In order to maintain mutual distrust between Realm and Secure
-	 * states, remove any data speculatively fetched into the target
-	 * physical address space. Issue DC CIPAPA over address range
-	 */
-	flush_dcache_to_popa_range(nse | base,
-				   GPT_PGS_ACTUAL_SIZE(gpt_config.p));
-
-	write_gpt(&gpi_info.gpt_l1_desc, gpi_info.gpt_l1_addr,
-		  gpi_info.gpi_shift, gpi_info.idx, target_pas);
-	dsboshst();
-
-	gpt_tlbi_by_pa_ll(base, GPT_PGS_ACTUAL_SIZE(gpt_config.p));
-	dsbosh();
-
-	nse = (uint64_t)GPT_NSE_NS << GPT_NSE_SHIFT;
-
-	flush_dcache_to_popa_range(nse | base,
-				   GPT_PGS_ACTUAL_SIZE(gpt_config.p));
 
 	/* Unlock access to the L1 tables. */
 	spin_unlock(&gpt_lock);
@@ -1117,8 +1126,8 @@ int gpt_delegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
 	 * The isb() will be done as part of context
 	 * synchronization when returning to lower EL
 	 */
-	VERBOSE("[GPT] Granule 0x%" PRIx64 ", GPI 0x%x->0x%x\n",
-		base, gpi_info.gpi, target_pas);
+	VERBOSE("[GPT] Granule 0x%" PRIx64 " size:%zx, GPI 0x%x->0x%x\n",
+		base, size, gpi_info.gpi, target_pas);
 
 	return 0;
 }
@@ -1127,8 +1136,6 @@ int gpt_delegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
  * This function is the granule transition undelegate service. When a granule
  * transition request occurs it is routed to this function where the request is
  * validated then fulfilled if possible.
- *
- * TODO: implement support for transitioning multiple granules at once.
  *
  * Parameters
  *   base		Base address of the region to transition, must be
@@ -1140,11 +1147,13 @@ int gpt_delegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
  * Return
  *    Negative Linux error code in the event of a failure, 0 for success.
  */
-int gpt_undelegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
+int gpt_undelegate_pas(uint64_t base, size_t size, unsigned int src_sec_state,
+		       uint64_t *last_updated)
 {
 	gpi_info_t gpi_info;
 	uint64_t nse;
 	int res;
+	const size_t gpt_pgs_size = GPT_PGS_ACTUAL_SIZE(gpt_config.p);
 
 	/* Ensure that the tables have been set up before taking requests. */
 	assert(gpt_config.plat_gpt_l0_base != 0UL);
@@ -1156,8 +1165,9 @@ int gpt_undelegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
 	assert(src_sec_state == SMC_FROM_REALM ||
 	       src_sec_state == SMC_FROM_SECURE);
 
-	/* See if this is a single or a range of granule transition. */
-	if (size != GPT_PGS_ACTUAL_SIZE(gpt_config.p)) {
+	if ((size % gpt_pgs_size) != 0U) {
+		ERROR("[GPT] delegate/undelegate section size must be a multiple of: %zx\n",
+				gpt_pgs_size);
 		return -EINVAL;
 	}
 
@@ -1170,8 +1180,8 @@ int gpt_undelegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
 	}
 
 	/* Make sure base and size are valid. */
-	if (((base & (GPT_PGS_ACTUAL_SIZE(gpt_config.p) - 1)) != 0UL) ||
-	    ((size & (GPT_PGS_ACTUAL_SIZE(gpt_config.p) - 1)) != 0UL) ||
+	if (((base & (gpt_pgs_size - 1)) != 0UL) ||
+	    ((size & (gpt_pgs_size - 1)) != 0UL) ||
 	    (size == 0UL) ||
 	    ((base + size) >= GPT_PPS_ACTUAL_SIZE(gpt_config.t))) {
 		VERBOSE("[GPT] Invalid granule transition address range!\n");
@@ -1186,65 +1196,67 @@ int gpt_undelegate_pas(uint64_t base, size_t size, unsigned int src_sec_state)
 	 * given time.
 	 */
 	spin_lock(&gpt_lock);
+	for (uint64_t it = base; it < (base + size); it += gpt_pgs_size) {
+		res = get_gpi_params(it, &gpi_info);
+		if (res != 0) {
+			spin_unlock(&gpt_lock);
+			return res;
+		}
 
-	res = get_gpi_params(base, &gpi_info);
-	if (res != 0) {
-		spin_unlock(&gpt_lock);
-		return res;
+		/* Check that the current address is in the delegated state */
+		if ((src_sec_state == SMC_FROM_REALM  &&
+		     gpi_info.gpi != GPT_GPI_REALM) ||
+		    (src_sec_state == SMC_FROM_SECURE &&
+		     gpi_info.gpi != GPT_GPI_SECURE)) {
+			VERBOSE("[GPT] Only Granule in REALM or SECURE state can be undelegated.\n");
+			VERBOSE("      Caller: %u, Current GPI: %u\n", src_sec_state,
+				gpi_info.gpi);
+			spin_unlock(&gpt_lock);
+			return -EPERM;
+		}
+
+		/* In order to maintain mutual distrust between Realm and Secure
+		 * states, remove access now, in order to guarantee that writes
+		 * to the currently-accessible physical address space will not
+		 * later become observable.
+		 */
+		write_gpt(&gpi_info.gpt_l1_desc, gpi_info.gpt_l1_addr,
+			  gpi_info.gpi_shift, gpi_info.idx, GPT_GPI_NO_ACCESS);
+		dsboshst();
+
+		gpt_tlbi_by_pa_ll(it, gpt_pgs_size);
+		dsbosh();
+
+		if (src_sec_state == SMC_FROM_SECURE) {
+			nse = (uint64_t)GPT_NSE_SECURE << GPT_NSE_SHIFT;
+		} else {
+			nse = (uint64_t)GPT_NSE_REALM << GPT_NSE_SHIFT;
+		}
+
+		/* Ensure that the scrubbed data has made it past the PoPA */
+		flush_dcache_to_popa_range(nse | it, gpt_pgs_size);
+
+		/*
+		 * Remove any data loaded speculatively
+		 * in NS space from before the scrubbing
+		 */
+		nse = (uint64_t)GPT_NSE_NS << GPT_NSE_SHIFT;
+
+		flush_dcache_to_popa_range(nse | it, gpt_pgs_size);
+
+		/* Clear existing GPI encoding and transition granule. */
+		write_gpt(&gpi_info.gpt_l1_desc, gpi_info.gpt_l1_addr,
+			  gpi_info.gpi_shift, gpi_info.idx, GPT_GPI_NS);
+		dsboshst();
+
+		/* Ensure that all agents observe the new NS configuration */
+		gpt_tlbi_by_pa_ll(it, gpt_pgs_size);
+		dsbosh();
+
+		if (last_updated != NULL) {
+			*last_updated = it;
+		}
 	}
-
-	/* Check that the current address is in the delegated state */
-	if ((src_sec_state == SMC_FROM_REALM  &&
-	     gpi_info.gpi != GPT_GPI_REALM) ||
-	    (src_sec_state == SMC_FROM_SECURE &&
-	     gpi_info.gpi != GPT_GPI_SECURE)) {
-		VERBOSE("[GPT] Only Granule in REALM or SECURE state can be undelegated.\n");
-		VERBOSE("      Caller: %u, Current GPI: %u\n", src_sec_state,
-			gpi_info.gpi);
-		spin_unlock(&gpt_lock);
-		return -EPERM;
-	}
-
-
-	/* In order to maintain mutual distrust between Realm and Secure
-	 * states, remove access now, in order to guarantee that writes
-	 * to the currently-accessible physical address space will not
-	 * later become observable.
-	 */
-	write_gpt(&gpi_info.gpt_l1_desc, gpi_info.gpt_l1_addr,
-		  gpi_info.gpi_shift, gpi_info.idx, GPT_GPI_NO_ACCESS);
-	dsboshst();
-
-	gpt_tlbi_by_pa_ll(base, GPT_PGS_ACTUAL_SIZE(gpt_config.p));
-	dsbosh();
-
-	if (src_sec_state == SMC_FROM_SECURE) {
-		nse = (uint64_t)GPT_NSE_SECURE << GPT_NSE_SHIFT;
-	} else {
-		nse = (uint64_t)GPT_NSE_REALM << GPT_NSE_SHIFT;
-	}
-
-	/* Ensure that the scrubbed data has made it past the PoPA */
-	flush_dcache_to_popa_range(nse | base,
-				   GPT_PGS_ACTUAL_SIZE(gpt_config.p));
-
-	/*
-	 * Remove any data loaded speculatively
-	 * in NS space from before the scrubbing
-	 */
-	nse = (uint64_t)GPT_NSE_NS << GPT_NSE_SHIFT;
-
-	flush_dcache_to_popa_range(nse | base,
-				   GPT_PGS_ACTUAL_SIZE(gpt_config.p));
-
-	/* Clear existing GPI encoding and transition granule. */
-	write_gpt(&gpi_info.gpt_l1_desc, gpi_info.gpt_l1_addr,
-		  gpi_info.gpi_shift, gpi_info.idx, GPT_GPI_NS);
-	dsboshst();
-
-	/* Ensure that all agents observe the new NS configuration */
-	gpt_tlbi_by_pa_ll(base, GPT_PGS_ACTUAL_SIZE(gpt_config.p));
-	dsbosh();
 
 	/* Unlock access to the L1 tables. */
 	spin_unlock(&gpt_lock);
