@@ -217,6 +217,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c890bd43_d0112483",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-27T17:11:38Z",
+      "side": 1,
+      "message": "Hi Manish, understood. I dont want to block the patch, so feel free to merge, but i think this is functionally broken if the SError vectoring occurs after line 200 and not immediately after line 192 because the ARM ARM allows it and a CPU implementer does it that way. \nIf SError vectoring is delayed because of the implementation and it is not architecturally required, the CTX_NESTED_EA_FLAG will get cleared and the serror handler will fail to detect the nesting.",
+      "parentUuid": "1a3a638b_ad74cb03",
+      "range": {
+        "startLine": 192,
+        "startChar": 47,
+        "endLine": 192,
+        "endChar": 52
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "658e8b82_3eb0401f",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 48
