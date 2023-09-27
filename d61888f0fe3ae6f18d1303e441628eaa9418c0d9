@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e08ecbf_05e56af2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-09-27T08:31:11Z",
+      "side": 1,
+      "message": "I would expect also changes in struct console in include/drivers/console.h where link to getc is placed. And that would also find issue with drivers/arm/dcc/dcc_console.c and plat/socionext/uniphier/uniphier_console_setup.c which also define it.",
+      "revId": "d61888f0fe3ae6f18d1303e441628eaa9418c0d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
