@@ -28,6 +28,13 @@
 
 #define LIB_NAME		"mbed TLS PSA"
 
+/* Maxmum length of R_S pair in the ECDSA signature */
+#define MAX_R_S_PAIR_LEN	64U
+/* Offset for the Length field of the second SEQUENCE */
+#define LEN_OFF 		3U
+/* Offset for the value field of the BIT STRING */
+#define VAL_OFF 		3U
+
 #if CRYPTO_SUPPORT == CRYPTO_HASH_CALC_ONLY || \
 CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
 /*
@@ -107,6 +114,7 @@ CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
 
 static void construct_psa_key_alg_and_type(mbedtls_pk_type_t pk_alg,
 					   mbedtls_md_type_t md_alg,
+					   psa_ecc_family_t psa_ecc_family,
 					   psa_algorithm_t *psa_alg,
 					   psa_key_type_t *psa_key_type)
 {
@@ -117,12 +125,148 @@ static void construct_psa_key_alg_and_type(mbedtls_pk_type_t pk_alg,
 		*psa_alg = PSA_ALG_RSA_PSS(psa_md_alg);
 		*psa_key_type = PSA_KEY_TYPE_RSA_PUBLIC_KEY;
 		break;
+	case MBEDTLS_PK_ECDSA:
+		*psa_alg = PSA_ALG_ECDSA(psa_md_alg);
+		*psa_key_type = PSA_KEY_TYPE_ECC_PUBLIC_KEY(psa_ecc_family);
+		break;
 	default:
 		*psa_alg = PSA_ALG_NONE;
 		*psa_key_type = PSA_KEY_TYPE_NONE;
 		break;
 	}
 }
+
+#if TF_MBEDTLS_ECDSA || TF_MBEDTLS_RSA_AND_ECDSA
+/*
+ * SubjectPublicKeyInfo  ::=  SEQUENCE  {
+ *     algorithm            AlgorithmIdentifier,
+ *     subjectPublicKey     BIT STRING
+ * }
+ *
+ * This helper function gets a pointer to the bitstring associated to the
+ * publicKey as encoded per RFC 5280. This function assumes that the
+ * public key encoding is not bigger than 127 bytes (i.e. usually up until
+ * 384 bit curves) Returns decoded PK and its size.
+ *
+ */
+static inline void get_pksize_from_rfc5280_pk(unsigned char **p,
+					      unsigned int *size)
+{
+	unsigned char *pk_start;
+
+	/* seek till the start of the Public Key BIT STRING */
+	pk_start = (*p) + (LEN_OFF + 1 + (*p)[LEN_OFF]);
+	/*
+	 * Public Key size is available just after the 1 byte tag of BIT STRING
+	 * and -1 to remove the ASN.1 padding byte count
+	 **/
+	*size = pk_start[1] - 1;
+	/* Seek by value offset to get the data part of the Public Key */
+	*p = pk_start + VAL_OFF;
+}
+
+/*
+ *   Ecdsa-Sig-Value  ::=  SEQUENCE  {
+ *        r     INTEGER,
+ *        s     INTEGER  }
+ *
+ *   Parse the signature to retrieve the data part of ECDSA signature i.e.
+ *   R and S pair and returns rs_pair and its size.
+ */
+static inline void get_sigsize_from_rfc5480_sign(const unsigned char *sig,
+						 size_t *slen,
+						 unsigned char *r_s_pair)
+{
+	const unsigned char *sig_ptr = NULL;
+	size_t r_len, s_len;
+
+	/*
+	 * Move r in place
+	 * Grab the length after 1 byte SEQUENCE and INTEGER tag
+	 **/
+	r_len = sig[LEN_OFF];
+	/*
+	 * If the length odd then subtract 1 byte as it is a padding
+	 * byte and substract the length by 1 to get actual length.
+	 **/
+	if (r_len % 2) {
+		sig_ptr = &sig[LEN_OFF + 2];
+		r_len--;
+	} else {
+		sig_ptr = &sig[LEN_OFF + 1];
+	}
+	(void)memcpy((void *)&r_s_pair[0], (const void *)sig_ptr, r_len);
+
+	/*
+	 * Move s in place
+	 * Grab the length after 1 byte INTEGER tag
+	 */
+	s_len = sig_ptr[r_len + 1];
+	if (s_len % 2) {
+		/*
+		 * If the length odd then subtract 1 byte as it is a padding
+		 * byte and substract the length by 1 to get actual length.
+		 * Skip tag, length and first byte.
+		 **/
+		sig_ptr = &sig_ptr[r_len + 3];
+		s_len--;
+	} else {
+		/* Skip tag and length */
+		sig_ptr = &sig_ptr[r_len + 2];
+	}
+	(void)memcpy((void *)&r_s_pair[r_len], (const void *)sig_ptr, s_len);
+
+	/* Update the length of the signature we're passing */
+	*slen = s_len + r_len;
+}
+
+/*
+ * SubjectPublicKeyInfo  ::=  SEQUENCE  {
+ *     algorithm            AlgorithmIdentifier,
+ *     subjectPublicKey     BIT STRING
+ * }
+ *
+ * Parse the Public Key and retrieve ECC family. Return 0 on success,
+ * error otherwise.
+ **/
+
+static inline int get_ecc_family_from_rfc5280_pk(unsigned char *p,
+					unsigned int size,
+					psa_ecc_family_t *psa_ecc_family)
+{
+	mbedtls_asn1_buf alg_oid, alg_params;
+	mbedtls_ecp_group_id grp_id;
+	int rc;
+	unsigned char *end;
+	size_t len;
+	size_t curve_bits;
+
+        end = (unsigned char *)(p + size);
+
+	rc = mbedtls_asn1_get_tag(&p, end, &len,
+				  MBEDTLS_ASN1_CONSTRUCTED |
+				  MBEDTLS_ASN1_SEQUENCE);
+	if (rc != 0) {
+		return CRYPTO_ERR_SIGNATURE;
+	}
+
+	end = p + len;
+	mbedtls_asn1_get_alg(&p, end, &alg_oid, &alg_params);
+	if (rc != 0) {
+		return CRYPTO_ERR_SIGNATURE;
+	}
+
+	if (alg_params.tag == MBEDTLS_ASN1_OID) {
+                if (mbedtls_oid_get_ec_grp(&alg_params, &grp_id) != 0) {
+			return CRYPTO_ERR_SIGNATURE;
+                }
+        }
+
+        *psa_ecc_family = mbedtls_ecc_group_to_psa(grp_id, &curve_bits);
+
+	return rc;
+}
+#endif /* TF_MBEDTLS_ECDSA || TF_MBEDTLS_RSA_AND_ECDSA */
 
 /*
  * Verify a signature.
@@ -142,6 +286,8 @@ static int verify_signature(void *data_ptr, unsigned int data_len,
 	int rc;
 	void *sig_opts = NULL;
 	unsigned char *p, *end;
+	psa_ecc_family_t psa_ecc_family = 0U;
+	__unused unsigned char reformatted_signature[MAX_R_S_PAIR_LEN] = {0};
 
 	/* construct PSA key algo and type */
 	psa_status_t status = PSA_SUCCESS;
@@ -175,8 +321,29 @@ static int verify_signature(void *data_ptr, unsigned int data_len,
 	}
 	signature.p = p;
 
+#if TF_MBEDTLS_ECDSA || TF_MBEDTLS_RSA_AND_ECDSA
+	if (pk_alg == MBEDTLS_PK_ECDSA) {
+		/* Get decoded signature (r_s pair) and actual sign length */
+		get_sigsize_from_rfc5480_sign(signature.p,
+					      &signature.len,
+					      reformatted_signature);
+
+		signature.p = reformatted_signature;
+
+		/* Get the ECC family from the public key */
+		rc = get_ecc_family_from_rfc5280_pk((unsigned char *)pk_ptr,
+						     pk_len, &psa_ecc_family);
+		if (rc != 0) {
+			return rc;
+		}
+
+		/* Get the decoded PK data and its length */
+		get_pksize_from_rfc5280_pk((unsigned char **)&pk_ptr, &pk_len);
+	}
+#endif /* TF_MBEDTLS_ECDSA || TF_MBEDTLS_RSA_AND_ECDSA */
+
 	/* Convert this pk_alg and md_alg to PSA key type and key algorithm */
-	construct_psa_key_alg_and_type(pk_alg, md_alg,
+	construct_psa_key_alg_and_type(pk_alg, md_alg, psa_ecc_family,
 				       &psa_alg, &psa_key_type);
 
 
