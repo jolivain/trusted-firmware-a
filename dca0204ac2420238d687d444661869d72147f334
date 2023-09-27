@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6f0557fa_a1bcb1d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-27T14:51:39Z",
+      "side": 1,
+      "message": "refactor(arm) would sound more appropriate to me, since this is a platform specific change.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 15
+      },
+      "revId": "dca0204ac2420238d687d444661869d72147f334",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9e5b881_ac76dbd4",
+        "filename": "plat/arm/common/fconf/arm_fconf_io.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-27T14:51:39Z",
+      "side": 1,
+      "message": "in case",
+      "range": {
+        "startLine": 44,
+        "startChar": 47,
+        "endLine": 44,
+        "endChar": 53
+      },
+      "revId": "dca0204ac2420238d687d444661869d72147f334",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "904483c1_169042cb",
         "filename": "plat/arm/common/fconf/arm_fconf_io.c",
         "patchSetId": 1
