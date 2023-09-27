@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2869ff81_403d38c4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-09-27T22:44:51Z",
+      "side": 1,
+      "message": "nit: demand",
+      "range": {
+        "startLine": 14,
+        "startChar": 33,
+        "endLine": 14,
+        "endChar": 40
+      },
+      "revId": "6adf03266fa1379d92140c3fb4e618f93cd75823",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b4309b41_9daf55d5",
@@ -14,6 +37,29 @@
       "writtenOn": "2023-09-26T08:18:10Z",
       "side": 1,
       "message": "Propagating Verified+1 from the top patch.\n",
+      "revId": "6adf03266fa1379d92140c3fb4e618f93cd75823",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5934ba5_9da0c477",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-09-27T22:44:51Z",
+      "side": 1,
+      "message": "I would add here what you said in the commit message: \"and TF-A itself doesn\u0027t engage\nin cryptographic operations that demands randomness.\"",
+      "range": {
+        "startLine": 66,
+        "startChar": 33,
+        "endLine": 66,
+        "endChar": 34
+      },
       "revId": "6adf03266fa1379d92140c3fb4e618f93cd75823",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
