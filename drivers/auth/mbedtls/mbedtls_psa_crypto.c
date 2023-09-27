@@ -117,12 +117,105 @@ static void construct_psa_key_alg_and_type(mbedtls_pk_type_t pk_alg,
 		*psa_alg = PSA_ALG_RSA_PSS(psa_md_alg);
 		*psa_key_type = PSA_KEY_TYPE_RSA_PUBLIC_KEY;
 		break;
+	case MBEDTLS_PK_ECDSA:
+		*psa_alg = PSA_ALG_ECDSA(psa_md_alg);
+		/*
+		 * TODO: ECC family is hardcoded as of now, need to parse the PK
+		 * to get the proper family
+		 */
+		*psa_key_type = PSA_KEY_TYPE_ECC_PUBLIC_KEY(PSA_ECC_FAMILY_SECP_R1);
+		break;
 	default:
 		*psa_alg = PSA_ALG_NONE;
 		*psa_key_type = PSA_KEY_TYPE_NONE;
 		break;
 	}
 }
+
+#if TF_MBEDTLS_ECDSA || TF_MBEDTLS_RSA_AND_ECDSA
+
+#define LEN_OFF (3) /* Offset for the Length field of the second SEQUENCE */
+#define VAL_OFF (3) /* Offset for the value field of the BIT STRING */
+
+/*
+ * SubjectPublicKeyInfo  ::=  SEQUENCE  {
+ *     algorithm            AlgorithmIdentifier,
+ *     subjectPublicKey     BIT STRING
+ * }
+ *
+ * This helper function gets a pointer to the bitstring associated to the
+ * publicKey as encoded per RFC 5280. This function assumes that the
+ * public key encoding is not bigger than 127 bytes (i.e. usually up until
+ * 384 bit curves) Returns decoded PK and its size.
+ *
+ */
+static inline void get_pksize_from_rfc5280_pk(uint8_t **p, size_t *size)
+{
+	uint8_t *pk_start;
+
+	/* seek till the start of the Public Key BIT STRING */
+	pk_start = (*p) + (LEN_OFF + 1 + (*p)[LEN_OFF]);
+	/*
+	 * Public Key size is available just after the BIT string 1 byte tag and
+	 * -1 to remove the ASN.1 padding byte count
+	 **/
+	*size = *(pk_start + 1) - 1;
+	/* Seek by value offset to get the data part of the Public Key */
+	*p = pk_start + VAL_OFF;
+}
+
+/*
+ *   Ecdsa-Sig-Value  ::=  SEQUENCE  {
+ *        r     INTEGER,
+ *        s     INTEGER  }
+ *
+ *   Parse the signature to retrieve the data part of ECDSA signature i.e.
+ *   R and S pair and returns rs_pair and its size.
+ */
+static inline void get_sigsize_from_rfc5480_sign(const uint8_t *sig,
+						 size_t *slen,
+						 uint8_t *r_s_pair)
+{
+	const uint8_t *sig_ptr = NULL;
+
+	/*
+	 * Move r in place
+	 * Grab the length after 1 byte SEQUENCE and INTEGER tag
+	 **/
+	size_t r_len = sig[3];
+	/*
+	 * If the length odd then subtract 1 byte as it is a padding
+	 * byte and substract the length by 1 to get actual length.
+	 **/
+	if (r_len % 2) {
+		sig_ptr = &sig[5];
+		r_len--;
+	} else {
+		sig_ptr = &sig[4];
+	}
+	(void)memcpy((void *)&r_s_pair[0], (const void *)sig_ptr, r_len);
+
+	/*
+	 * Move s in place
+	 * Grab the length after 1 byte INTEGER tag
+	 */
+	size_t s_len = sig_ptr[r_len + 1];
+	if (s_len % 2) {
+		/*
+		 * If the length odd then subtract 1 byte as it is a padding
+		 * byte and substract the length by 1 to get actual length.
+		 **/
+		sig_ptr = &sig_ptr[3+r_len];
+		s_len--;
+	} else {
+		sig_ptr = &sig_ptr[2+r_len];
+	}
+	(void)memcpy((void *)&r_s_pair[r_len], (const void *)sig_ptr, s_len);
+
+	/* Update the length of the signature we're passing */
+	*slen = s_len + r_len;
+}
+#endif /* TF_MBEDTLS_ECDSA || TF_MBEDTLS_RSA_AND_ECDSA */
 
 /*
  * Verify a signature.
@@ -142,6 +235,7 @@ static int verify_signature(void *data_ptr, unsigned int data_len,
 	int rc;
 	void *sig_opts = NULL;
 	unsigned char *p, *end;
+	__unused uint8_t reformatted_signature[64] = {0};
 
 	/* construct PSA key algo and type */
 	psa_status_t status = PSA_SUCCESS;
@@ -189,6 +283,23 @@ static int verify_signature(void *data_ptr, unsigned int data_len,
 	psa_set_key_algorithm(&psa_key_attr, psa_alg);
 	psa_set_key_type(&psa_key_attr, psa_key_type);
 	psa_set_key_usage_flags(&psa_key_attr, PSA_KEY_USAGE_VERIFY_MESSAGE);
+
+#if TF_MBEDTLS_ECDSA || TF_MBEDTLS_RSA_AND_ECDSA
+	if (pk_alg == MBEDTLS_PK_ECDSA) {
+		/* get decoded signature (r_s pair) and actual sign length */
+		get_sigsize_from_rfc5480_sign(signature.p,
+					      &signature.len,
+					      reformatted_signature);
+
+		signature.p = reformatted_signature;
+
+		INFO("***Sign Size = %ld\n", signature.len);
+
+		/* Get the BIT STRING for the public key */
+		get_pksize_from_rfc5280_pk((uint8_t **)&pk_ptr, (size_t *)&pk_len);
+		INFO("***PK len-actual = %lx\n", (size_t)pk_len);
+	}
+#endif
 
 	/* Get the key_id using import API */
 	status = psa_import_key(&psa_key_attr,

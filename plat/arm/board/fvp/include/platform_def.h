@@ -189,7 +189,7 @@ defined(IMAGE_BL2) && MEASURED_BOOT
  * PLAT_ARM_MAX_BL1_RW_SIZE is calculated using the current BL1 RW debug size
  * plus a little space for growth.
  */
-#if TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_RSA_AND_ECDSA
+#if TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_RSA_AND_ECDSA || PSA_CRYPTO
 #define PLAT_ARM_MAX_BL1_RW_SIZE	UL(0xC000)
 #else
 #define PLAT_ARM_MAX_BL1_RW_SIZE	UL(0xB000)
