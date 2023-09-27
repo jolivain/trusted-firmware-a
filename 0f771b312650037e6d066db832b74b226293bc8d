@@ -145,6 +145,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bdc73b8b_f0b60424",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-09-27T12:39:07Z",
+      "side": 1,
+      "message": "Regarding ISB, yes you are right. I guess a dmb should be sufficient but I am checking with other folks in Arm if we can avoid this as we are modifying PSTATE.A in next instruction(see below) \n\n\n\n\u003e I also think it is critical to be certain that the SError fires before the store on line 197. Otherwise CTX_NESTED_EA_FLAG could be cleared before the nested serror starts executing.\n\nThis is certain, if you refer to RHXYGT in Arm ARM : it says that \nWrites to the PSTATE fields have side-effects on various aspects of the PE operation. For side-effects caused by\nwrites to a PSTATE field, all of the following are true:\n•The side-effect is guaranteed not to be visible to earlier instructions in the Execution stream.\n•The side-effect is guaranteed to be visible to later instructions in the Execution stream.\nOther side-effects might occur but are not guaranteed\n\nSo IOW, msr with PSTATE is kind of msr + ISB.",
+      "parentUuid": "591f99e3_811141b8",
+      "range": {
+        "startLine": 192,
+        "startChar": 47,
+        "endLine": 192,
+        "endChar": 52
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "658e8b82_3eb0401f",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 48
