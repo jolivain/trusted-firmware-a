@@ -169,6 +169,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2fac0fd_75400144",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-09-27T13:30:38Z",
+      "side": 1,
+      "message": "Thanks Manish. RHXYGT makes sense and i think it should solve the ordering of store BEFORE the MSR.\nAgree it will be good to double confirm that RHXYGT means that the SError will be treated like a \"side-effect\" and it will be take before the instruction after the msr at line 197. \nPlease let me know what you find out. I\u0027m trying to find in the ARM ARM something that says asynchronous exceptions are \"side-effects\".",
+      "parentUuid": "bdc73b8b_f0b60424",
+      "range": {
+        "startLine": 192,
+        "startChar": 47,
+        "endLine": 192,
+        "endChar": 52
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "658e8b82_3eb0401f",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 48
