@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d48e7f77_8af94107",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-27T07:26:15Z",
+      "side": 1,
+      "message": "See comment about WARN messages in previous patch",
+      "revId": "1ae501e422bf46bc700aba51c4b1097bebc773fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94145bf2_2b77e7ce",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-09-27T07:26:15Z",
+      "side": 1,
+      "message": "this change was not necessary (and it is asked by checkpatch with --strict option, to align on opening parenthesis)",
+      "revId": "1ae501e422bf46bc700aba51c4b1097bebc773fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
