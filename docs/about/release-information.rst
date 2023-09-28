@@ -54,7 +54,7 @@ depending on project requirement and partner feedback.
 +-----------------+---------------------------+------------------------------+
 | v2.9            | 4th week of May '23       | 2nd week of May '23          |
 +-----------------+---------------------------+------------------------------+
-| v3.0            | 2nd week of Nov '23       | 2nd week of Oct '23          |
+| v2.10           | 4th week of Nov '23       | 2nd week of Nov '23          |
 +-----------------+---------------------------+------------------------------+
 
 Removal of Deprecated Interfaces
