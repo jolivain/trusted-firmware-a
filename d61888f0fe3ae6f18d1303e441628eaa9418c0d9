@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1a74dab2_252b7ce5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2023-09-28T17:47:58Z",
+      "side": 1,
+      "message": "FWIW I agree with Michal that it would be good to remove it from the structure, so that other drivers adding the pointer when the option isn\u0027t set that might be added in the future can be caught automatically by the compiler. There are plenty of structures that exclude some members based on built-time options in TF-A, I don\u0027t think there\u0027s any reason to be particularly concerned about this one.",
+      "parentUuid": "5b5e9d49_761b865f",
+      "revId": "d61888f0fe3ae6f18d1303e441628eaa9418c0d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "23700cbe_930fcb0c",
         "filename": "include/arch/aarch64/console_macros.S",
         "patchSetId": 1
