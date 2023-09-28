@@ -220,6 +220,16 @@ GICV2_G0_FOR_EL3		:= 0
 # by lower ELs.
 HANDLE_EA_EL3_FIRST_NS		:= 0
 
+<<<<<<< HEAD   (b05402 Merge "fix(cpus): workaround for Neoverse V2 erratum 2662553)
+=======
+# Enable Handoff protocol using transfer lists
+TRANSFER_LIST			:= 0
+
+# Enables support for the gcc compiler option "-mharden-sls=all".
+# By default, disables all SLS hardening.
+HARDEN_SLS			:= 0
+
+>>>>>>> CHANGE (538516 feat(security): add support for SLS mitigation)
 # Secure hash algorithm flag, accepts 3 values: sha256, sha384 and sha512.
 # The default value is sha256.
 HASH_ALG			:= sha256
