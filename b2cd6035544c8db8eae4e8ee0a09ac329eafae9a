@@ -67,6 +67,24 @@
       "message": "Retrigering the CI to see why we have failures.\n",
       "revId": "b2cd6035544c8db8eae4e8ee0a09ac329eafae9a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ba54e12_8778ce53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-09-28T10:42:04Z",
+      "side": 1,
+      "message": "It seems we are missing patches to platform-ci project to include the newly added files in the coverity run.",
+      "parentUuid": "8aade11a_6ca54546",
+      "revId": "b2cd6035544c8db8eae4e8ee0a09ac329eafae9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
