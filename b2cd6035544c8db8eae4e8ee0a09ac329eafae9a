@@ -85,6 +85,24 @@
       "parentUuid": "8aade11a_6ca54546",
       "revId": "b2cd6035544c8db8eae4e8ee0a09ac329eafae9a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21f10503_c3111533",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-09-28T10:46:51Z",
+      "side": 1,
+      "message": "The L2 tests have build failures:\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/49405/\n\nE.g:\nhttps://ci.trustedfirmware.org/job/tf-a-builder/2588323/console\nhttps://ci.trustedfirmware.org/job/tf-a-builder/2588378/console",
+      "parentUuid": "5ba54e12_8778ce53",
+      "revId": "b2cd6035544c8db8eae4e8ee0a09ac329eafae9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
