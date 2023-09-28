@@ -83,6 +83,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da4cd9fa_f3d7a127",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-09-28T10:29:58Z",
+      "side": 1,
+      "message": "(minor): I feel gpt_part_entry_offset should be more suitable name here.",
+      "range": {
+        "startLine": 281,
+        "startChar": 1,
+        "endLine": 281,
+        "endChar": 17
+      },
+      "revId": "1ae501e422bf46bc700aba51c4b1097bebc773fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12c49315_034f5073",
         "filename": "drivers/partition/partition.c",
         "patchSetId": 3
