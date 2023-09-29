@@ -91,6 +91,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6bd71243_9b0ffa3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T09:29:46Z",
+      "side": 1,
+      "message": "Thanks Julius. After putting some thoughts into it, I agree with you, this is probably the best solution. It\u0027s simple - although the resulting code might come out a bit ugly with the #ifdefry and having to define different offsets values for the console fields, depending on the absence/presence of the getc function pointer - and as you say it will consistently catch any misuse in the future.",
+      "parentUuid": "1a74dab2_252b7ce5",
+      "revId": "d61888f0fe3ae6f18d1303e441628eaa9418c0d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5be9e8ac_8f280c4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T09:29:46Z",
+      "side": 1,
+      "message": "\u003e Not sure if there is a way to keep structure the same but error out of someone defines it when disabled. Maybe there is any technique around it.\n\nAt least I could not find any technique that catches this scenario at build time so far. And I am no longer convinced it\u0027s worth the effort, I\u0027d now rather remove the getc field entirely, as discussed above.\n\n\u003e At least in DCC code I don\u0027t think anybody actually tested it too. It means getting rid of untested configurations would be worth too. Or of course keep it based on enablement as you do in your patch but having a way to test it in a automated way.\n\nSorry, I am not sure what you\u0027re saying... Are you saying that the getc() implementation of the DCC console has never been tested? If that\u0027s what you meant, why was it introduced in the first place, if there was no use case for it? Should we remove it?\n\nRegarding test automation, I can\u0027t see any Xilinx boards being deployed in TF-A OpenCI LAVA [1], or did I miss it? If there are some then I guess we/Linaro could help you deploy getc() tests on these boards, else I guess it would be a task on you.\n\n[1] https://tf.validation.linaro.org/scheduler/device_types",
+      "parentUuid": "ba905724_3fdc5131",
+      "revId": "d61888f0fe3ae6f18d1303e441628eaa9418c0d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "23700cbe_930fcb0c",
         "filename": "include/arch/aarch64/console_macros.S",
         "patchSetId": 1
