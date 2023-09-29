@@ -71,6 +71,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba905724_3fdc5131",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-09-29T06:38:52Z",
+      "side": 1,
+      "message": "Not sure if there is a way to keep structure the same but error out of someone defines it when disabled. Maybe there is any technique around it.\nAt least in DCC code I don\u0027t think anybody actually tested it too. It means getting rid of untested configurations would be worth too. Or of course keep it based on enablement as you do in your patch but having a way to test it in a automated way.",
+      "parentUuid": "1ef505ff_602d227b",
+      "revId": "d61888f0fe3ae6f18d1303e441628eaa9418c0d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23700cbe_930fcb0c",
