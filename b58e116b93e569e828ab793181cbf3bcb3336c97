@@ -37,6 +37,161 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "52b9d184_6caddbb1",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T12:20:30Z",
+      "side": 1,
+      "message": "In struct gpt_header, the part_lba field is of type unsigned long long, i.e. 64-bit integer.\nAt line 128 load_gpt_header() will attempt to store this 64-bit integer into a size_t variable. On AArch64 platforms, this should be OK. However, on AArch32 platforms, size_t is a 32-bit integer, which means the value will be truncated.\n\nCan this be an issue? Can the part_lba value in the GPT header realistically be bigger than (2**32 - 1) on our systems? Should we add a runtime check nonetheless?",
+      "range": {
+        "startLine": 84,
+        "startChar": 3,
+        "endLine": 84,
+        "endChar": 19
+      },
+      "revId": "b58e116b93e569e828ab793181cbf3bcb3336c97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdf08642_c68660c8",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T12:20:30Z",
+      "side": 1,
+      "message": "Unlike header.size below, I suppose we do not need any bound checks on this header_offset value ; even if it is an abnormally big value, my understanding is that the I/O framework would not allow reading past the end of the I/O device. Is my understanding correct?",
+      "range": {
+        "startLine": 91,
+        "startChar": 45,
+        "endLine": 91,
+        "endChar": 58
+      },
+      "revId": "b58e116b93e569e828ab793181cbf3bcb3336c97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b113f04d_a2adebea",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T12:20:30Z",
+      "side": 1,
+      "message": "Do we need to validate header.size before computing the CRC over this amount of bytes? My worry is that if the GPT header is corrupted or maliciously crafted (which I assume is possible, given that the GPT image is typically stored in untrusted flash), this size value could be very big and either make us read stack memory beyond what we intended, or even trigger a pointer wrap-around.\n\nIs there a realistic, maximum size for any GPT header, which we could compare against header.size?\n\n----------\n\nFor my understanding, can header.size be different than sizeof(gpt_header_t)?",
+      "range": {
+        "startLine": 113,
+        "startChar": 45,
+        "endLine": 113,
+        "endChar": 56
+      },
+      "revId": "b58e116b93e569e828ab793181cbf3bcb3336c97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8333968_d338008c",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T12:20:30Z",
+      "side": 1,
+      "message": "Same worry on the part_lba variable type here.",
+      "range": {
+        "startLine": 228,
+        "startChar": 1,
+        "endLine": 228,
+        "endChar": 21
+      },
+      "revId": "b58e116b93e569e828ab793181cbf3bcb3336c97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6af43074_60c08beb",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T12:20:30Z",
+      "side": 1,
+      "message": "Side comment (can be addressed in a separate patch if deemed valid):\n\nDo we need to close the device (io_close()) on all subsequent error paths? What is the consequence of leaving it open?",
+      "revId": "b58e116b93e569e828ab793181cbf3bcb3336c97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4736db3b_cdee112c",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T12:20:30Z",
+      "side": 1,
+      "message": "Enclose each of the conditions in parentheses for MISRA compliance.",
+      "range": {
+        "startLine": 252,
+        "startChar": 6,
+        "endLine": 252,
+        "endChar": 34
+      },
+      "revId": "b58e116b93e569e828ab793181cbf3bcb3336c97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "367f6835_67e850e1",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T12:20:30Z",
+      "side": 1,
+      "message": "retrieve",
+      "range": {
+        "startLine": 253,
+        "startChar": 19,
+        "endLine": 253,
+        "endChar": 27
+      },
+      "revId": "b58e116b93e569e828ab793181cbf3bcb3336c97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "943bfe0e_49b3c821",
         "filename": "drivers/partition/partition.c",
         "patchSetId": 1
