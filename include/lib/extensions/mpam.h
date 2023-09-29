@@ -7,18 +7,23 @@
 #ifndef MPAM_H
 #define MPAM_H
 
+#include <context.h>
 #include <stdbool.h>
 
-#if ENABLE_MPAM_FOR_LOWER_ELS
-void mpam_init_el3(void);
+#if ENABLE_MPAM_FOR_NS
+void mpam_disable(cpu_context_t *context);
+void mpam_enable(cpu_context_t *context);
 void mpam_init_el2_unused(void);
 #else
-static inline void mpam_init_el3(void)
+static inline void mpam_disable(cpu_context_t *context)
+{
+}
+static inline void mpam_enable(cpu_context_t *context)
 {
 }
 static inline void mpam_init_el2_unused(void)
 {
 }
-#endif /* ENABLE_MPAM_FOR_LOWER_ELS */
+#endif /* ENABLE_MPAM_FOR_NS */
 
 #endif /* MPAM_H */

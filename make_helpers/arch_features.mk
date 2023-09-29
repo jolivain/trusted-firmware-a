@@ -214,7 +214,7 @@ ENABLE_AMU_FCONF			?=	0
 AMU_RESTRICT_COUNTERS			?=	0
 
 # Build option to enable MPAM for lower ELs.
-ENABLE_MPAM_FOR_LOWER_ELS		?=	0
+ENABLE_MPAM_FOR_NS		?=	0
 
 # Include nested virtualization control (Armv8.4-NV) registers in cpu context.
 # This must be set to 1 if architecture implements Nested Virtualization

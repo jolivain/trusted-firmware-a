@@ -1231,6 +1231,7 @@
 
 /* MPAM register definitions */
 #define MPAM3_EL3_MPAMEN_BIT		(ULL(1) << 63)
+#define MPAM3_EL3_TRAPLOWER_BIT		(ULL(1) << 62)
 #define MPAMHCR_EL2_TRAP_MPAMIDR_EL1	(ULL(1) << 31)
 
 #define MPAM2_EL2_TRAPMPAM0EL1		(ULL(1) << 49)
