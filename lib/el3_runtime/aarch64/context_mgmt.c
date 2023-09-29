@@ -529,10 +529,6 @@ void cm_manage_extensions_el3(void)
 		sme_init_el3();
 	}
 
-	if (is_feat_mpam_supported()) {
-		mpam_init_el3();
-	}
-
 	if (is_feat_trbe_supported()) {
 		trbe_init_el3();
 	}
@@ -572,6 +568,9 @@ static void manage_extensions_nonsecure(cpu_context_t *ctx)
 		sys_reg_trace_enable(ctx);
 	}
 
+	if (is_feat_mpam_supported()) {
+		mpam_enable(ctx);
+	}
 	pmuv3_enable(ctx);
 #endif /* IMAGE_BL31 */
 }
@@ -680,6 +679,11 @@ static void manage_extensions_secure(cpu_context_t *ctx)
 	/* NS can access this but Secure shouldn't */
 	if (is_feat_sys_reg_trace_supported()) {
 		sys_reg_trace_disable(ctx);
+	}
+
+	/* MPAM3 should be enabled only for NS currently */
+	if (is_feat_mpam_supported()) {
+		mpam_disable(ctx);
 	}
 #endif /* IMAGE_BL31 */
 }
