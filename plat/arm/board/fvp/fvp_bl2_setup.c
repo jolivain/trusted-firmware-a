@@ -48,7 +48,6 @@ struct bl_params *plat_get_next_bl_params(void)
 #if !RESET_TO_BL2 && !EL3_PAYLOAD_BASE
 	const struct dyn_cfg_dtb_info_t *fw_config_info;
 	uintptr_t fw_config_base = 0UL;
-	entry_point_info_t *ep_info;
 
 #if __aarch64__
 	/* Get BL31 image node */
@@ -59,45 +58,22 @@ struct bl_params *plat_get_next_bl_params(void)
 #endif /* __aarch64__ */
 	assert(param_node != NULL);
 
-	/* get fw_config load address */
+	/* Update the next image's ep info with the FW config address */
 	fw_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, FW_CONFIG_ID);
 	assert(fw_config_info != NULL);
 
 	fw_config_base = fw_config_info->config_addr;
 	assert(fw_config_base != 0UL);
 
-	/*
-	 * Get the entry point info of next executable image and override
-	 * arg1 of entry point info with fw_config base address
-	 */
-	ep_info = &param_node->ep_info;
-	ep_info->args.arg1 = (uint32_t)fw_config_base;
+	param_node->ep_info.args.arg1 = (uint32_t)fw_config_base;
 
-	/* grab NS HW config address */
-	hw_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, HW_CONFIG_ID);
-	assert(hw_config_info != NULL);
-
-	/* To retrieve actual size of the HW_CONFIG */
-	param_node = get_bl_mem_params_node(HW_CONFIG_ID);
-	assert(param_node != NULL);
-
-	/* Copy HW config from Secure address to NS address */
-	memcpy((void *)hw_config_info->secondary_config_addr,
-	       (void *)hw_config_info->config_addr,
-	       (size_t)param_node->image_info.image_size);
-
-	/*
-	 * Ensure HW-config device tree committed to memory, as there is
-	 * a possibility to use HW-config without cache and MMU enabled
-	 * at BL33
-	 */
-	flush_dcache_range(hw_config_info->secondary_config_addr,
-			   param_node->image_info.image_size);
-
+	/* Update BL33's ep info with the NS HW config address */
 	param_node = get_bl_mem_params_node(BL33_IMAGE_ID);
 	assert(param_node != NULL);
 
-	/* Update BL33's ep info with NS HW config address  */
+	hw_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, HW_CONFIG_ID);
+	assert(hw_config_info != NULL);
+
 	param_node->ep_info.args.arg1 = hw_config_info->secondary_config_addr;
 #endif /* !RESET_TO_BL2 && !EL3_PAYLOAD_BASE */
 
@@ -106,5 +82,28 @@ struct bl_params *plat_get_next_bl_params(void)
 
 int bl2_plat_handle_post_image_load(unsigned int image_id)
 {
+#if !RESET_TO_BL2 && !EL3_PAYLOAD_BASE
+	const bl_mem_params_node_t *param_node = get_bl_mem_params_node(image_id);
+	assert(param_node != NULL);
+
+	if (image_id == HW_CONFIG_ID) {
+		/* grab NS HW config address */
+		const struct dyn_cfg_dtb_info_t *hw_config_info =
+			FCONF_GET_PROPERTY(dyn_cfg, dtb, HW_CONFIG_ID);
+		assert(hw_config_info != NULL);
+
+		memcpy((void *)hw_config_info->secondary_config_addr,
+		       (void *)hw_config_info->config_addr,
+		       (size_t)param_node->image_info.image_size);
+
+		/*
+		 * Ensure HW-config device tree is committed to memory, as the HW-Config
+		 * might be used without cache and MMU enabled at BL33.
+		 */
+		flush_dcache_range(hw_config_info->secondary_config_addr,
+				   param_node->image_info.image_size);
+	}
+#endif /* !RESET_TO_BL2 && !EL3_PAYLOAD_BASE */
+
 	return arm_bl2_plat_handle_post_image_load(image_id);
 }
