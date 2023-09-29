@@ -6,6 +6,9 @@
 
 include common/fdt_wrappers.mk
 
+ARM_ARCH_MAJOR := 8
+ARM_ARCH_MINOR := 2
+
 # platform configs
 ENABLE_CONSOLE_SPE			:= 1
 $(eval $(call add_define,ENABLE_CONSOLE_SPE))
@@ -34,7 +37,6 @@ $(eval $(call add_define,MAX_MMAP_REGIONS))
 
 # enable RAS handling
 HANDLE_EA_EL3_FIRST_NS			:= 1
-ENABLE_FEAT_RAS				:= 1
 RAS_FFH_SUPPORT				:= 1
 
 # platform files
