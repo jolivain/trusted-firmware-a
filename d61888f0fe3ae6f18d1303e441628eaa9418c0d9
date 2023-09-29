@@ -143,6 +143,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8cff838_b4d57ee2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T12:50:00Z",
+      "side": 1,
+      "message": "Thanks for clarifying the testing status of getc() on DCC driver and Cadence console driver.\n\n\u003e Our platforms are not in OpenCI but we are running regression on our boards out of it. \n\u003e We are adding wiring for our platforms to tftf but if there is no standard test for it we are not running it.\n\nI see. Thinking out loud, if we wanted to test the console drivers within TF-A from TFTF then I guess we could leverage TF-A\u0027s debugFs feature. We could create a debugfs entry representing the console device. Then implement a dual-core TFTF test, with one core reading from this debugfs entry - wired to getc() interface in TF-A - and the other core writing to it - wired to putc() interface in TF-A.",
+      "parentUuid": "6cc70d38_838433f8",
+      "revId": "d61888f0fe3ae6f18d1303e441628eaa9418c0d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23700cbe_930fcb0c",
