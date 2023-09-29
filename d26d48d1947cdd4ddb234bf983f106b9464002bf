@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "03bde714_334b820c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 22
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-29T17:29:42Z",
+      "side": 1,
+      "message": "A bit more of what\u0027s going on:\nCurrent change fails with SEL2 enabled tests as SCR_EL3.EEL2 is clear and first ICC_SRE_EL2 write generates an exception.\n\nFrom next change SCR_EL3.EEL2 is set in any context when SPMD_SPM_AT_SEL2 is set. What happens is as follows:\n\nBL1 calls bl1_prepare_next_image (non-RME) \u003d\u003e cm_init_my_context \u003d\u003e cm_setup_context \u003d\u003e setup_context_common \u003d\u003e sets SCR_EL2.EEL2 for BL2 SEL1 context\n\nBL2 is started, bl2_entrypoint \u003d\u003e pauth_init_enable_el1 \u003d\u003e plat_init_apkey\naccesses cntpct_el0 \u003d\u003e traps to S-EL2 as explained above.",
+      "parentUuid": "887a8577_51dc653b",
+      "range": {
+        "startLine": 30,
+        "startChar": 37,
+        "endLine": 31,
+        "endChar": 48
+      },
+      "revId": "d26d48d1947cdd4ddb234bf983f106b9464002bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee1a599e_6b25ff71",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 22
