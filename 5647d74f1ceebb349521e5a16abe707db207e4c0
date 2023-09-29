@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f1bddcc_28755e79",
+        "filename": "plat/imx/imx8m/imx8m_snvs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-09-29T14:04:14Z",
+      "side": 1,
+      "message": "#include \u003cimx8m_snvs.h\u003e",
+      "revId": "5647d74f1ceebb349521e5a16abe707db207e4c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b83ad63_d4e2a5af",
+        "filename": "plat/imx/imx8m/imx8m_snvs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-09-29T14:04:14Z",
+      "side": 1,
+      "message": "Please move these definitions to imx8m_snvs.h",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 42
+      },
+      "revId": "5647d74f1ceebb349521e5a16abe707db207e4c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
