@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f17dd0b_61d76d58",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-09-29T13:40:57Z",
+      "side": 1,
+      "message": "It would be better if we can filter what value is being passed to HARDEN_SLS. \n\nifeq ($(filter $(HARDEN_SLS), 0 1),)\n    $(error \"Invalid value for HARDEN_SLS: can be 0 or 1\")\nendif",
+      "revId": "fe6f272a3d3481c02cd068f666b0f574ccfcfb9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
