@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "887a8577_51dc653b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 22
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-09-29T11:37:00Z",
+      "side": 1,
+      "message": "I\u0027m fine with the general idea of enabling EEL2 once in all contexts for the run-time and avoid flipping the bit on world switch.\nBut I sense there are cases where we should avoid it e.g. boot time for BL2 (or other S-EL1 payloads) and perhaps configurations like the SPM-MM and EL3 SPMC. For the latter, it may happen to run on SEL2-enabled hardware (through not provisioned by an image).\n\u003e This is curious as we currently run with both configurations. \nWhat I can say at least is that this is most probably the reason for the test failures:\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/49217/\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/49205/",
+      "parentUuid": "a26ef52d_a38997c2",
+      "range": {
+        "startLine": 30,
+        "startChar": 37,
+        "endLine": 31,
+        "endChar": 48
+      },
+      "revId": "d26d48d1947cdd4ddb234bf983f106b9464002bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee1a599e_6b25ff71",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 22
