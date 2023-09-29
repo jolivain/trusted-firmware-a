@@ -125,6 +125,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cc70d38_838433f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-09-29T10:24:51Z",
+      "side": 1,
+      "message": "I looked at the history and I developed DCC driver internally in 2015. We are using putc part for quite a long time but getc part was actually never used. At least I am not aware about it. \nThe code is so simple that at that time implementation was simply done. \nI pretty much think that the same was happening with cadence console developed by Soren in 2016.\nI would expect that both of them are working properly because we were validating them on different software base but I don\u0027t think we have ever called getc in TF-A code. \n\nOur platforms are not in OpenCI but we are running regression on our boards out of it. \nWe are adding wiring for our platforms to tftf but if there is no standard test for it we are not running it.",
+      "parentUuid": "5be9e8ac_8f280c4f",
+      "revId": "d61888f0fe3ae6f18d1303e441628eaa9418c0d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23700cbe_930fcb0c",
