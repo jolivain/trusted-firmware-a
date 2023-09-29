@@ -47,8 +47,10 @@ SEPARATE_CODE_AND_RODATA	:= 1
 WARMBOOT_ENABLE_DCACHE_EARLY	:= 1
 
 # Disable features unsupported in ARMv8.0
+ifeq (${ARCH},aarch64)
 ENABLE_SPE_FOR_NS		:= 0
 ENABLE_SVE_FOR_NS		:= 0
+endif
 
 # Disable workarounds unnecessary for Cortex-A7/A53
 WORKAROUND_CVE_2017_5715	:= 0
