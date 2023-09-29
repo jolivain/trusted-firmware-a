@@ -37,6 +37,116 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b14d648a_222c19c8",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T12:38:50Z",
+      "side": 1,
+      "message": "Adding a check on the \u0027result\u0027 value looked like a good thing to me. In fact, this even sounds like a bug fix to me, given that bytes_read is not initialized at line 200. Why would this change not be necessary (letting aside the WARN() addition)?",
+      "parentUuid": "94145bf2_2b77e7ce",
+      "revId": "1ae501e422bf46bc700aba51c4b1097bebc773fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a148d11_d2d5eb16",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T12:38:50Z",
+      "side": 1,
+      "message": "it\u0027s",
+      "range": {
+        "startLine": 253,
+        "startChar": 6,
+        "endLine": 253,
+        "endChar": 9
+      },
+      "revId": "1ae501e422bf46bc700aba51c4b1097bebc773fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "252c0786_16d7072d",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T12:38:50Z",
+      "side": 1,
+      "message": "Why are these signed quantities? Why note size_t?",
+      "range": {
+        "startLine": 260,
+        "startChar": 1,
+        "endLine": 260,
+        "endChar": 8
+      },
+      "revId": "1ae501e422bf46bc700aba51c4b1097bebc773fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e4d3258_6df765c5",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T12:38:50Z",
+      "side": 1,
+      "message": "Again, there might be a type conflict involving a truncation here. This could be a worry.",
+      "range": {
+        "startLine": 261,
+        "startChar": 1,
+        "endLine": 261,
+        "endChar": 21
+      },
+      "revId": "1ae501e422bf46bc700aba51c4b1097bebc773fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "676cc3dc_e90506f6",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T12:38:50Z",
+      "side": 1,
+      "message": "may be",
+      "range": {
+        "startLine": 269,
+        "startChar": 24,
+        "endLine": 269,
+        "endChar": 29
+      },
+      "revId": "1ae501e422bf46bc700aba51c4b1097bebc773fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03bb56dd_72180f50",
         "filename": "drivers/partition/partition.c",
         "patchSetId": 3
@@ -53,6 +163,29 @@
         "startChar": 22,
         "endLine": 272,
         "endChar": 33
+      },
+      "revId": "1ae501e422bf46bc700aba51c4b1097bebc773fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b568b50_3cde53cf",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T12:38:50Z",
+      "side": 1,
+      "message": "Do we need to reset part_lba to 0 prior to calling load_gpt_header() to be on the safe side? Right now, load_gpt_header() doesn\u0027t update *part_lba on error but if we ever change this in the implementation, the test at line 275 won\u0027t behave correctly.",
+      "range": {
+        "startLine": 273,
+        "startChar": 2,
+        "endLine": 274,
+        "endChar": 17
       },
       "revId": "1ae501e422bf46bc700aba51c4b1097bebc773fc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -146,6 +279,29 @@
         "startChar": 34,
         "endLine": 321,
         "endChar": 43
+      },
+      "revId": "1ae501e422bf46bc700aba51c4b1097bebc773fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6d5ed9f_49dcba9b",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-09-29T12:38:50Z",
+      "side": 1,
+      "message": "mbr_entry.first_lba is an unsigned long long (64-bit integer) and we\u0027re passing it to load_gpt(), which expects a size_t (32/64-bit integer, depending on whether we\u0027re running in AArch32 or AArch64 mode). So this raises the same types/truncation concerns as in the previous patch.",
+      "range": {
+        "startLine": 321,
+        "startChar": 34,
+        "endLine": 321,
+        "endChar": 53
       },
       "revId": "1ae501e422bf46bc700aba51c4b1097bebc773fc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
