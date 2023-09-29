@@ -125,6 +125,30 @@
       },
       "revId": "1ae501e422bf46bc700aba51c4b1097bebc773fc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b77cb38_dc416e94",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-09-29T06:41:42Z",
+      "side": 1,
+      "message": "Ignore this comment, I overlooked this variable.",
+      "parentUuid": "12c49315_034f5073",
+      "range": {
+        "startLine": 321,
+        "startChar": 34,
+        "endLine": 321,
+        "endChar": 43
+      },
+      "revId": "1ae501e422bf46bc700aba51c4b1097bebc773fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
