@@ -432,6 +432,11 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 		scr_el3 |= SCR_TWEDEn_BIT;
 	}
 
+#if ENABLE_FEAT_MPAM
+	/* Disable MPAM */
+	write_mpam3_el3(~MPAM3_EL3_MPAMEN_BIT | MPAM3_EL3_TRAPLOWER_BIT);
+#endif
+
 	/*
 	 * Populate EL3 state so that we've the right context
 	 * before doing ERET
@@ -529,10 +534,6 @@ void cm_manage_extensions_el3(void)
 		sme_init_el3();
 	}
 
-	if (is_feat_mpam_supported()) {
-		mpam_init_el3();
-	}
-
 	if (is_feat_trbe_supported()) {
 		trbe_init_el3();
 	}
@@ -572,6 +573,9 @@ static void manage_extensions_nonsecure(cpu_context_t *ctx)
 		sys_reg_trace_enable(ctx);
 	}
 
+	if (is_feat_mpam_supported()) {
+		mpam_enable(ctx);
+	}
 	pmuv3_enable(ctx);
 #endif /* IMAGE_BL31 */
 }
@@ -681,6 +685,7 @@ static void manage_extensions_secure(cpu_context_t *ctx)
 	if (is_feat_sys_reg_trace_supported()) {
 		sys_reg_trace_disable(ctx);
 	}
+
 #endif /* IMAGE_BL31 */
 }
 
