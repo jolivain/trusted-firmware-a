@@ -573,6 +573,17 @@ func el3_exit
 	isb
 	msr	S3_6_C1_C2_0, x20 /* zcr_el3 */
 sve_not_enabled:
+
+	/* -----------------------------------------------------------
+	 * Restore MPAM3_EL3 register as per context state
+	 * Currently we only enable MPAM for NS world and trap to EL3
+	 * for MPAM access in lower ELs of Secure and Realm world
+	 * -----------------------------------------------------------
+	 */
+
+	ldr	x17, [sp, #CTX_EL3STATE_OFFSET + CTX_MPAM3_EL3]
+	msr	mpam3_el3, x17
+
 #endif /* IMAGE_BL31 */
 
 #if IMAGE_BL31 && DYNAMIC_WORKAROUND_CVE_2018_3639
