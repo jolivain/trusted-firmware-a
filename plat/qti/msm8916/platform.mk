@@ -32,6 +32,10 @@ BL31_SOURCES		+=	${MSM8916_PM_SOURCES}				\
 PLAT_INCLUDES		:=	-Iplat/qti/msm8916/include
 
 ifeq (${ARCH},aarch64)
+# Disable features unsupported in ARMv8.0
+ENABLE_SPE_FOR_NS		:= 0
+ENABLE_SVE_FOR_NS		:= 0
+
 # arm_macros.S exists only on aarch64 currently
 PLAT_INCLUDES		+=	-Iinclude/plat/arm/common/${ARCH}
 endif
@@ -45,10 +49,6 @@ SEPARATE_CODE_AND_RODATA	:= 1
 
 # Single cluster
 WARMBOOT_ENABLE_DCACHE_EARLY	:= 1
-
-# Disable features unsupported in ARMv8.0
-ENABLE_SPE_FOR_NS		:= 0
-ENABLE_SVE_FOR_NS		:= 0
 
 # Disable workarounds unnecessary for Cortex-A7/A53
 WORKAROUND_CVE_2017_5715	:= 0

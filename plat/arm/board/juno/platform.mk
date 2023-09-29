@@ -70,6 +70,9 @@ else
 endif
 
 ifeq (${ARCH},aarch64)
+# Do not enable SVE
+ENABLE_SVE_FOR_NS	:=	0
+
 BL1_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S		\
 				lib/cpus/aarch64/cortex_a57.S		\
 				lib/cpus/aarch64/cortex_a72.S		\
@@ -166,9 +169,6 @@ ERRATA_A72_859971		:=	0
 # Enable option to skip L1 data cache flush during the Cortex-A57 cluster
 # power down sequence
 SKIP_A57_L1_FLUSH_PWR_DWN	:=	 1
-
-# Do not enable SVE
-ENABLE_SVE_FOR_NS		:=	0
 
 # Enable the dynamic translation tables library.
 ifeq (${ARCH},aarch32)
