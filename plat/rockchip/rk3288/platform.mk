@@ -62,7 +62,9 @@ include lib/libfdt/libfdt.mk
 $(eval $(call add_define,PLAT_SP_MIN_EXTRA_LD_SCRIPT))
 
 # Do not enable SVE
+ifeq (${ARCH},aarch64)
 ENABLE_SVE_FOR_NS	:=	0
+endif
 
 WORKAROUND_CVE_2017_5715	:=	0
 
