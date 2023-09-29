@@ -397,7 +397,7 @@ Common build options
    support in GCC for TF-A. This option is currently only supported for
    AArch64. Default is 0.
 
--  ``ENABLE_MPAM_FOR_LOWER_ELS``: Numeric value to enable lower ELs to use MPAM
+-  ``ENABLE_MPAM_FOR_NS``: Numeric value to enable lower ELs to use MPAM
    feature. MPAM is an optional Armv8.4 extension that enables various memory
    system components and resources to define partitions; software running at
    various ELs can assign themselves to desired partition to control their
