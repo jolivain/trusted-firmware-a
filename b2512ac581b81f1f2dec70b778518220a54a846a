@@ -83,6 +83,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03231cd4_fe43f928",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T15:44:58Z",
+      "side": 1,
+      "message": "Some more comments, I\u0027ll finish the review tomorrow.",
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad2e5928_4d1d2944",
@@ -177,6 +194,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "681b50c2_d4090682",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T15:44:58Z",
+      "side": 1,
+      "message": "Instead, could you please provide the encoding of the subjectPublicKey bitstring in the case of ECDSA? From my reading of the code, it seems to be something like:\n\n Tag - Size - ? - Public Key data\n\nI could not find this info in RFC 5280, did I miss it or should I look at another RFC for ECDSA-specific information?",
+      "parentUuid": "e9d73d3b_abd83c0e",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 4
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "468a9372_28cea27a",
         "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
         "patchSetId": 4
@@ -216,6 +257,29 @@
         "startChar": 62,
         "endLine": 152,
         "endChar": 63
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da71ec27_d6e3bc0a",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T15:44:58Z",
+      "side": 1,
+      "message": "Can\u0027t we use mbedtls_asn1_.*() functions for decoding this?\n\nLooks like we are more of less doing:\n1. mbedtls_asn1_get_tag(MBEDTLS_ASN1_SEQUENCE) for the outer SEQUENCE.\n2. mbedtls_asn1_get_tag(MBEDTLS_ASN1_SEQUENCE) for the inner SEQUENCE inside the key bitstring.\n3. mbedtls_asn1_get_bitstring_null() for retrieving the key data.\n\nIs the correct?\n\nUsing mbedtls_asn1_.*() functions would make the ASN.1 encoding more apparent in the code.\n\nLooks like the same comment might apply to get_sigsize_from_rfc5480_sign()?",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 25
       },
       "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
