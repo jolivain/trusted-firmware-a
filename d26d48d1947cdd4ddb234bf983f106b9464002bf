@@ -242,6 +242,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a78159a8_6a24f8be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 22
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-10-02T15:47:08Z",
+      "side": 1,
+      "message": "\u003e Are there no other configurations where BL31 might start something at SEL1 (with FEAT_SEL2 implemented) directly?\n\nThe EL3 SPMC runs S-EL1 payloads where S-EL2 if implemented is empty.\nSimilary for SPM-MM running S-EL0 payloads.\n\nso yes the conditional above might better be like\n #if IMAGE_BL31 \u0026\u0026 defined(SPD_spmd) \u0026\u0026 SPMD_SPM_AT_SEL2\n        orr     x1, x1, #SCR_EEL2_BIT\n #endif",
+      "parentUuid": "7ffb884e_1354a207",
+      "range": {
+        "startLine": 30,
+        "startChar": 37,
+        "endLine": 31,
+        "endChar": 48
+      },
+      "revId": "d26d48d1947cdd4ddb234bf983f106b9464002bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee1a599e_6b25ff71",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 22
