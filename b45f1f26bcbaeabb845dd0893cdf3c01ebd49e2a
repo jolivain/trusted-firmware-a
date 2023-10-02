@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2dc43e6c_32c9012f",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 69
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-02T15:08:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "12a62cb3_9b6e4d3f",
+      "revId": "b45f1f26bcbaeabb845dd0893cdf3c01ebd49e2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4573c5f6_5361ae63",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-10-02T14:49:27Z",
       "side": 1,
       "message": "nit: artefact from previous versions, unneeded diff now.",
+      "revId": "b45f1f26bcbaeabb845dd0893cdf3c01ebd49e2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13fa2399_698c2041",
+        "filename": "lib/extensions/sve/sve.c",
+        "patchSetId": 69
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-02T15:08:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4573c5f6_5361ae63",
       "revId": "b45f1f26bcbaeabb845dd0893cdf3c01ebd49e2a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
