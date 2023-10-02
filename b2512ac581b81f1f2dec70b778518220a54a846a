@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "83fd7a02_1fc6286a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-02T14:31:13Z",
+      "side": 1,
+      "message": "Oh yes, this not needed. Let me remove this.",
+      "parentUuid": "a74b6368_b185b700",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 14
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f782a26c_d7718923",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-10-02T14:25:46Z",
       "side": 1,
       "message": "I am yet to review the implementation of the 3 static functions but here are some initial comments on the rest of the patch.",
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97d8c91f_7008d285",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-02T14:31:13Z",
+      "side": 1,
+      "message": "Ok, I will wait for full review before any modifications.",
+      "parentUuid": "f782a26c_d7718923",
       "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
