@@ -38,6 +38,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "83a4fed0_26ca3f48",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 69
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-02T15:59:16Z",
+      "side": 1,
+      "message": "CTX_INCLUDE_PAUTH and FEAT_AUTH are kind of same. If one is enabled other will be enabled too. Meaning PAUTH is enabled in all the world.\nNow are moving this piece of code without any gaurd, pauth registers will be used in every world without saving/restoring them.",
+      "range": {
+        "startLine": 379,
+        "startChar": 0,
+        "endLine": 387,
+        "endChar": 3
+      },
+      "revId": "b45f1f26bcbaeabb845dd0893cdf3c01ebd49e2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4573c5f6_5361ae63",
         "filename": "lib/extensions/sve/sve.c",
         "patchSetId": 69
