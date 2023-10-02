@@ -218,6 +218,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "03911886_b22a2049",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-02T16:17:51Z",
+      "side": 1,
+      "message": "It is mentioned in the standard DER encoding of BIT STRING. For example refer this: https://learn.microsoft.com/en-us/windows/win32/seccertenroll/about-bit-string",
+      "parentUuid": "681b50c2_d4090682",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 4
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "468a9372_28cea27a",
         "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
         "patchSetId": 4
@@ -275,6 +299,30 @@
       "writtenOn": "2023-10-02T15:44:58Z",
       "side": 1,
       "message": "Can\u0027t we use mbedtls_asn1_.*() functions for decoding this?\n\nLooks like we are more of less doing:\n1. mbedtls_asn1_get_tag(MBEDTLS_ASN1_SEQUENCE) for the outer SEQUENCE.\n2. mbedtls_asn1_get_tag(MBEDTLS_ASN1_SEQUENCE) for the inner SEQUENCE inside the key bitstring.\n3. mbedtls_asn1_get_bitstring_null() for retrieving the key data.\n\nIs the correct?\n\nUsing mbedtls_asn1_.*() functions would make the ASN.1 encoding more apparent in the code.\n\nLooks like the same comment might apply to get_sigsize_from_rfc5480_sign()?",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 25
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5f94f19_f0e15d5b",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-02T16:17:51Z",
+      "side": 1,
+      "message": "I did not try these. I think it is better to decode directly than taking help of any mbedtls_asn1_* API.  \nI believe there will be some APIs from PSA coming soon (not as of now) to get this decoding done so we can use that directly instead. \nIf you insist then will try to look into using mbedtls_asn1_* APIs here.",
+      "parentUuid": "da71ec27_d6e3bc0a",
       "range": {
         "startLine": 157,
         "startChar": 0,
