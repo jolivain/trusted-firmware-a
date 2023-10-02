@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a17131b_7155263d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-10-02T20:27:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d58666c_f3dbe642",
+      "revId": "a4caa744013e42355151bd7644083063774310b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b12215d_e9627b54",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-09-27T08:44:27Z",
       "side": 1,
       "message": "(minor) I would move these lines just under TF_MBEDTLS_KEY_ALG\u003d\u003decdsa test but that\u0027s up to you.",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 50
+      },
+      "revId": "a4caa744013e42355151bd7644083063774310b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f4a2dd7_14570c7c",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-10-02T20:27:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b12215d_e9627b54",
       "range": {
         "startLine": 118,
         "startChar": 0,
