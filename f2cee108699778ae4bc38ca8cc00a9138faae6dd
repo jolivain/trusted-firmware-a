@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e4308a6_ee082c90",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-10-02T20:28:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5e71161d_d63c163b",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 42
+      },
+      "revId": "f2cee108699778ae4bc38ca8cc00a9138faae6dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "455bffa5_1aa72241",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-09-27T13:05:07Z",
       "side": 1,
       "message": "Although we do not use the Brainpool curve on Arm FVP platforms, I think we should align with PK_DER_LEN definition to avoid any confusion. I don\u0027t think we care about 1 extra byte...",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "f2cee108699778ae4bc38ca8cc00a9138faae6dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f764f1e_07116e2e",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-10-02T20:28:41Z",
+      "side": 1,
+      "message": "Changing this to 92 flags the \u0027Invalid ROTPK length\u0027 check in the .S file. I could either keep at 91 or change the check in the .S file.",
+      "parentUuid": "455bffa5_1aa72241",
       "range": {
         "startLine": 31,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2005667d_382073a9",
+        "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-10-02T20:28:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02ac4e09_6d171638",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 1
+      },
+      "revId": "f2cee108699778ae4bc38ca8cc00a9138faae6dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c1cdb28_175134db",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-09-27T13:05:07Z",
       "side": 1,
       "message": "It would be nice to define a macro for this complex preprocessor macro condition, such as:\n\n #define ARM_USE_DEVEL_ROTPK \\\n   (ARM_ROTPK_LOCATION_ID \u003d\u003d ARM_ROTPK_DEVEL_RSA_ID) || \\\n   (ARM_ROTPK_LOCATION_ID \u003d\u003d ARM_ROTPK_DEVEL_ECDSA_ID) || \\\n   (ARM_ROTPK_LOCATION_ID \u003d\u003d ARM_ROTPK_DEVEL_FULL_DEV_RSA_KEY_ID) || \\\n   (ARM_ROTPK_LOCATION_ID \u003d\u003d ARM_ROTPK_DEVEL_FULL_DEV_ECDSA_KEY_ID)\n\nIt would help readability in my opinion.",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 68
+      },
+      "revId": "f2cee108699778ae4bc38ca8cc00a9138faae6dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84120d9b_1dca358e",
+        "filename": "plat/arm/board/common/board_arm_trusted_boot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-10-02T20:28:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "0c1cdb28_175134db",
       "range": {
         "startLine": 149,
         "startChar": 0,
@@ -118,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9983d453_84a6f112",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-10-02T20:28:41Z",
+      "side": 1,
+      "message": "I can look in to this further if you think! I tried to implement quickly and realize this affects the cert_create aspect and doesn\u0027t act in the same way as RSA. key_alg command line option is used in cert_create (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/23584/1) to pick key_create_ecdsa_nist_p384 to generate the \"secp384r1\" curve keys, while RSA uses the size as a direct input I believe. I can look into this further if you think it makes sense to, just think it will involve some cert_create refactor changes so wanted to mention.",
+      "parentUuid": "deb746c7_735eb316",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 28
+      },
+      "revId": "f2cee108699778ae4bc38ca8cc00a9138faae6dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78179a74_58bb316e",
         "filename": "plat/arm/board/common/rotpk/arm_rotprivk_ecdsa_prime256v1.pem",
         "patchSetId": 1
@@ -129,6 +249,24 @@
       "writtenOn": "2023-09-27T12:08:33Z",
       "side": 1,
       "message": "Do we need this file, considering we\u0027ve already got arm_rotprivk_ecdsa.pem, which (I believe) is also an ECDSA NIST P-256 key?",
+      "revId": "f2cee108699778ae4bc38ca8cc00a9138faae6dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9847f939_e39d8e7f",
+        "filename": "plat/arm/board/common/rotpk/arm_rotprivk_ecdsa_prime256v1.pem",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-10-02T20:28:41Z",
+      "side": 1,
+      "message": "Oh yes! Updated the .S and tf_config to reflect that too",
+      "parentUuid": "78179a74_58bb316e",
       "revId": "f2cee108699778ae4bc38ca8cc00a9138faae6dd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
