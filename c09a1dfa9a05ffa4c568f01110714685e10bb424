@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9dc398f_7562f353",
+        "filename": "plat/qemu/common/qemu_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-10-02T07:26:10Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be EL3_PAS too?",
+      "range": {
+        "startLine": 20,
+        "startChar": 25,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "c09a1dfa9a05ffa4c568f01110714685e10bb424",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
