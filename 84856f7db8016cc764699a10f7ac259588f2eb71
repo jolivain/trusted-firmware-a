@@ -16,6 +16,24 @@
       "message": "Static check failure, due to missing configuration for the coverity tests, in platform ci scripts.",
       "revId": "84856f7db8016cc764699a10f7ac259588f2eb71",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbc07e5e_95a413f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-02T19:10:25Z",
+      "side": 1,
+      "message": "this is a false positive and is reported whenever a new file is being added, even though it is compiled by default.",
+      "parentUuid": "3a90892b_c210c700",
+      "revId": "84856f7db8016cc764699a10f7ac259588f2eb71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
