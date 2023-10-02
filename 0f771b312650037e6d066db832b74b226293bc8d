@@ -265,6 +265,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9c943957_69739172",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2023-10-02T14:55:55Z",
+      "side": 1,
+      "message": "Happy to help, thanks for being patient and checking Manish. Would\u0027ve never guessed the semantics on setting vs clearing.",
+      "parentUuid": "0d24a736_0f229d92",
+      "range": {
+        "startLine": 192,
+        "startChar": 47,
+        "endLine": 192,
+        "endChar": 52
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "658e8b82_3eb0401f",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 48
