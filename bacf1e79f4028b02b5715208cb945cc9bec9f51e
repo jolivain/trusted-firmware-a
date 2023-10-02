@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cbdfb54e_961aba08",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 65
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-10-02T12:25:03Z",
+      "side": 1,
+      "message": "The two are separate and in fact one of the higher patches removes propagating bits set in el3_common_macros to context. With root context, the setting in el3_common_macros is meant to disappear entirely",
+      "parentUuid": "fc5c7e86_f1d575e6",
+      "range": {
+        "startLine": 358,
+        "startChar": 1,
+        "endLine": 358,
+        "endChar": 24
+      },
+      "revId": "bacf1e79f4028b02b5715208cb945cc9bec9f51e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bfb44700_6d9f7c78",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 65
@@ -83,6 +107,30 @@
       "writtenOn": "2023-09-27T14:28:11Z",
       "side": 1,
       "message": "AFAIU, TFP doesn\u0027t control SVE traps.",
+      "range": {
+        "startLine": 436,
+        "startChar": 37,
+        "endLine": 437,
+        "endChar": 37
+      },
+      "revId": "bacf1e79f4028b02b5715208cb945cc9bec9f51e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "809dadb4_698d1b8f",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 65
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-10-02T12:25:03Z",
+      "side": 1,
+      "message": "\"Traps execution at all Exception levels of SME and SVE instructions to EL3 from any Security state. The exception is reported using ESR_ELx.EC value 0x07.\" from the arm arm. I think the comment is correct, no?",
+      "parentUuid": "03a64de7_4ce4775c",
       "range": {
         "startLine": 436,
         "startChar": 37,
