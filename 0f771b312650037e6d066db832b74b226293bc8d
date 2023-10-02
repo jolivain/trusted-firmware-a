@@ -241,6 +241,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d24a736_0f229d92",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 48
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-02T08:42:52Z",
+      "side": 1,
+      "message": "Thanks Raghu for insisting on checking this and now i got confirmation from ATG that we indeed need synchronisation, its not architecturally guaranteed.\nThe interesting point is setting the mask takes effect immediately without requiring synchronisation but clearing it in effect needs synchronisation.\n\nI suppose there should be some clarification in Arm ARM about this.",
+      "parentUuid": "c890bd43_d0112483",
+      "range": {
+        "startLine": 192,
+        "startChar": 47,
+        "endLine": 192,
+        "endChar": 52
+      },
+      "revId": "0f771b312650037e6d066db832b74b226293bc8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "658e8b82_3eb0401f",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 48
