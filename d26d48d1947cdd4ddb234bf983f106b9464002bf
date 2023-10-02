@@ -170,6 +170,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1229b9cb_afac400f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 22
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2023-10-02T14:41:30Z",
+      "side": 1,
+      "message": "First failure is expected as we\u0027re testing to find out if that workaround is still needed. I think it very much is.\n\nSecond failure was completely unexpected. For whatever reason (6c09af9f8 says security) BL2 runs at EL3 when RME is enabled, meaning what I said before is incorrect - we don\u0027t really run the EEL2\u003d1 everywhere configuration properly. It runs at EL3 up until RME/Hafnium at which point they handle EL2 properly. So me thinking BL2 can handle this was incorrect...\n\nThere are a 3 cases:\na) toggling EEL2 matters only for RME enabled hardware\nb) toggling EEL2 matters for all configurations\n3) toggling EEL2 doesn\u0027t matter\n\nFor a) we do this properly in context management (not in el3_common_macros!) and document it in detail, RME only of course.\nIf b) is the case, then this is a major bug that needs fixing. We are not in a position to address it with this series as it will require bigger reworks of context management or configurations that leave any EL2 empty.\nc) is a NOP.\n\nIn all 3 cases, this patch doesn\u0027t change that much. The above patch does not address any of the 3 cases so I don\u0027t think it\u0027s useful in its current form. Maybe it could be worked to solve a), but Soby will have to give input.",
+      "parentUuid": "03bde714_334b820c",
+      "range": {
+        "startLine": 30,
+        "startChar": 37,
+        "endLine": 31,
+        "endChar": 48
+      },
+      "revId": "d26d48d1947cdd4ddb234bf983f106b9464002bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee1a599e_6b25ff71",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 22
