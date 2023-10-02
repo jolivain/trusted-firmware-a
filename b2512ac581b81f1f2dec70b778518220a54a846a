@@ -1,0 +1,366 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a74b6368_b185b700",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "Looks like the end of the sentence is missing? Or should the whole paragraph be removed, as the next one seems to serve the same purpose?",
+      "range": {
+        "startLine": 16,
+        "startChar": 12,
+        "endLine": 16,
+        "endChar": 14
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f782a26c_d7718923",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "I am yet to review the implementation of the 3 static functions but here are some initial comments on the rest of the patch.",
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad2e5928_4d1d2944",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "In which unit? bytes? bits? Would be good to specify it in the comment.",
+      "range": {
+        "startLine": 31,
+        "startChar": 10,
+        "endLine": 31,
+        "endChar": 16
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2abd3569_ae4ef14f",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 31,
+        "startChar": 3,
+        "endLine": 31,
+        "endChar": 9
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "deb77a53_79054cab",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "These 2 macro names sound a bit too generic / vague to me, even though they are local to this file. I feel they should at least mention ECDSA somewhere in their names...",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 20
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9d73d3b_abd83c0e",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "AFAICS this just repeats lines 68-71 ; can we keep only 1 instance of this comment please?",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 4
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "468a9372_28cea27a",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "As the function not only returns the public key size, but also the decoded PK material, I suggest changing the function name to something like get_pkinfo_from_rfc5280_pk().\n\nActually, on the \u0027rfc5280\u0027 part of the name... Everywhere else in TF-A, we talk about ASN.1, which I believe would be a suitable equivalent here. So we can further rename into get_pkinfo_from_asn1()?\n\nOr even get_ecdsa_pkinfo_from_asn1() to clearly say this won\u0027t work for RSA public keys?",
+      "range": {
+        "startLine": 152,
+        "startChar": 19,
+        "endLine": 152,
+        "endChar": 45
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55289a60_499f42ad",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "I would suggest calling this function argument \u0027pk\u0027 to better convey its nature.",
+      "range": {
+        "startLine": 152,
+        "startChar": 62,
+        "endLine": 152,
+        "endChar": 63
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88f7642f_cb69e7d5",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "For the same reasons as above, I would rename this into get_ecdsa_siginfo_from_asn1().",
+      "range": {
+        "startLine": 176,
+        "startChar": 19,
+        "endLine": 176,
+        "endChar": 48
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf555129_95311263",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "I think the implementation looks a bit too complex to mark this function as inline. It is only called from one place in this file so chances are, the compiler will naturally inline anyway, so let the compiler decide.",
+      "range": {
+        "startLine": 176,
+        "startChar": 7,
+        "endLine": 176,
+        "endChar": 13
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "787f56b2_e189f221",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "This gets repeated again... Remove it?",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 4
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c6d7fcc_43010bbf",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "I would suggest calling this function argument \u0027pk\u0027 to better convey its nature.",
+      "range": {
+        "startLine": 233,
+        "startChar": 64,
+        "endLine": 233,
+        "endChar": 65
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff8b3ab7_62b146af",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "Same here, I would drop the inline qualifier.",
+      "range": {
+        "startLine": 233,
+        "startChar": 7,
+        "endLine": 233,
+        "endChar": 13
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70c1678d_aefdc7f5",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "(minor) The indentation of the function arguments here differs from previous definitions.",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 38
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbb670d2_1a1af135",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "The \u0027signature\u0027 variable originally is an ASN.1 encoded buffer. I think it is confusing to store the decoded signature inside the same structure, even though I agree it works type-wise, as it\u0027s just a (pointer,size) tuple. I would much prefer we refactor the code to store the signature pointer and length in 2 separate variables in both the RSA and ECDSA cases.",
+      "range": {
+        "startLine": 331,
+        "startChar": 2,
+        "endLine": 331,
+        "endChar": 11
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0437080c_5c426453",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-02T14:25:46Z",
+      "side": 1,
+      "message": "This should rather be:\n\n goto end2;",
+      "range": {
+        "startLine": 337,
+        "startChar": 3,
+        "endLine": 337,
+        "endChar": 13
+      },
+      "revId": "b2512ac581b81f1f2dec70b778518220a54a846a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
