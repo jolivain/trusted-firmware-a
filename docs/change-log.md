@@ -3,6 +3,51 @@
 This document contains a summary of the new features, changes, fixes and known
 issues in each release of Trusted Firmware-A.
 
+## [lts-2.8.9](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/refs/tags/lts-v2.8.8..refs/tags/lts-v2.8.9) (2023-10-03)
+
+### New Features
+
+- **Libraries**
+
+  - **CPU Support**
+
+    - add a concise way to implement AArch64 errata ([0fe4e97](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/0fe4e9786a8f8c823253f8f6ba3fa315e2db8cba))
+    - add a way to automatically report errata ([58c9e89](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/58c9e89e538fef0349c78102ed1d74c90e3c28b0))
+    - add errata framework helpers ([d45aac6](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/d45aac6a25017fa7a91f65752b6bec50724990f1))
+    - add more errata framework helpers ([ea07792](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/ea0779285367b022e9720beffd056e35e533ea9b))
+    - conform DSU errata to errata framework PCS ([16e0e7d](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/16e0e7dba23fda6a17593cf8f54688c3326fff78))
+    - make revision procedure call optional ([2c3d9c9](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/2c3d9c95ba5c49456b287cb8a888c179f19d6b4b))
+    - wrappers to propagate AArch32 errata info ([08f6794](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/08f67942f5bebf940b994c6197bff79ef1ec5b15))
+
+### Resolved Issues
+
+- **errata-abi:** added Neoverse N2 to Errata ABI list ([4b1dc22](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/4b1dc22f2bc957433e20df6d0a09ab62759ab44e))
+
+- **Platforms**
+
+  - **Arm**
+
+    - bl2 start address for RESET_TO_BL2+ENABLE_PIE ([451f0c9](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/451f0c9c2708b9359dac3105e49f697308a60c45))
+
+    - **FVP**
+
+      - adjust BL31 maximum size as per total SRAM size ([80ccc42](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/80ccc423bc9c1b4ab160f72a08b5f015acf813de))
+      - resolve broken workaround reference ([aebb533](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/aebb533091b8197fde92e9bb78045fc4c44fe7d6))
+
+- **Libraries**
+
+  - **CPU Support**
+
+    - fix minor issue seen with a9 cpu ([b087d2d](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/b087d2d357b0b3707c0590167a1b8449a068a988))
+    - reduce generic_errata_report()'s size ([edc4668](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/edc4668486ce27ffd69c65564eb8b93654cad9a0))
+    - revert erroneous use of override_vector_table macro in Cortex-A73 ([a5627d5](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/a5627d501a7e4d718094d32ae5d43dad1a890505))
+    - workaround for Neoverse N2 erratum 2743014 ([4e4d88b](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/4e4d88b64fff1d81b7fb636aa4ea2dcbe6a52112))
+    - workaround for Neoverse N2 erratum 2779511 ([16f2a34](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/16f2a3480afd36a14f06ea25605f1acab2c4858e))
+
+- **Documentation**
+
+  - updated certain Neoverse N2 erratum status in docs ([9d6d133](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/9d6d133ed4bed0af1f371efea5000c2ff3b0a238))
+
 ## [lts-2.8.8](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/refs/tags/lts-v2.8.7..refs/tags/lts-v2.8.8) (2023-08-01)
 
 ### Resolved issues (since lts-v2.8.7)
@@ -7043,7 +7088,7 @@ releases of TF-A.
 
 ______________________________________________________________________
 
-*Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.*
 
 [mbed tls releases]: https://tls.mbed.org/tech-updates/releases
 [pr#1002]: https://github.com/ARM-software/arm-trusted-firmware/pull/1002#issuecomment-312650193
