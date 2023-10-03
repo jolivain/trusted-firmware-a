@@ -51,6 +51,24 @@
       "message": "https://ci-builds.trustedfirmware.org/static-files/G_j0TfDp6myJqypYHGRq2aYqhg4VQhpEjlZ69lXrTy4xNjk2MzQ4Mzk4MzMyOjk6YW5vbnltb3VzOmpvYi90Zi1hLWx0czIuOC1idWlsZGVyLzM5ODEyL2FydGlmYWN0/artefacts-lava/build/html/change-log.html contains the rendered output. I found some inconsistencies with the formatting. e.g. first four lines form section 11.1.1 should have been under Libraries -\u003e CPU support. Same with section 11.1.5 and 11.1.6.\n\nShouldnt section 11.1.3 be part of 11.1.2?",
       "revId": "ab213963f743eb18f0ed15a7b214d89593f8458d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0008f4aa_ed4d3537",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-10-03T16:21:21Z",
+      "side": 1,
+      "message": "That just how the release script works, but of course, we can still make changes afterwards in the changelog.md file.\nFor example, this patch:\n\"chore: rename hayes to a520\"\nWith section \u0027chore\u0027 it will be in the Miscellaneous chapter, and as it doesn\u0027t have any scope, it is at the beginning of the chapter, without sub-section.\nAnd each section in changlog.yaml will create one chapter.\n\nBut even for major releases there are manual changes.\nAnd for example I did one in the first version of the patch that I forgot in the new version: moving \"bl2 start address for RESET_TO_BL2+ENABLE_PIE\" under the chapter:\n - **Platforms**\n  - **Arm**\n\nLet me check all that and push a new version",
+      "parentUuid": "e3d83d39_d0ca3879",
+      "revId": "ab213963f743eb18f0ed15a7b214d89593f8458d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
