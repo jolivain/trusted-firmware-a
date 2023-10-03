@@ -34,6 +34,23 @@
       "parentUuid": "5a12cebe_7edc941b",
       "revId": "ab213963f743eb18f0ed15a7b214d89593f8458d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3d83d39_d0ca3879",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-10-03T16:07:04Z",
+      "side": 1,
+      "message": "https://ci-builds.trustedfirmware.org/static-files/G_j0TfDp6myJqypYHGRq2aYqhg4VQhpEjlZ69lXrTy4xNjk2MzQ4Mzk4MzMyOjk6YW5vbnltb3VzOmpvYi90Zi1hLWx0czIuOC1idWlsZGVyLzM5ODEyL2FydGlmYWN0/artefacts-lava/build/html/change-log.html contains the rendered output. I found some inconsistencies with the formatting. e.g. first four lines form section 11.1.1 should have been under Libraries -\u003e CPU support. Same with section 11.1.5 and 11.1.6.\n\nShouldnt section 11.1.3 be part of 11.1.2?",
+      "revId": "ab213963f743eb18f0ed15a7b214d89593f8458d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
