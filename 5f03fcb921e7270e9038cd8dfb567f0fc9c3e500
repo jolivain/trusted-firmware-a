@@ -50,6 +50,57 @@
       "message": "Hi,\nCan we please add some documentation to docs/plat/rockchip.rst ?\nI am trying to learn a bit about SCMI, and this felt like a good place to start to try and build this branch, however I am not sure what the build command will look like for orangepi5?\n\nIs the boot flow documented here still accurate? https://trustedfirmware-a.readthedocs.io/en/latest/plat/rockchip.html\n\nIf not, then please can you help me understand the new one?",
       "revId": "5f03fcb921e7270e9038cd8dfb567f0fc9c3e500",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a28051d_f59165ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001115
+      },
+      "writtenOn": "2023-10-03T09:27:39Z",
+      "side": 1,
+      "message": "Hi,\nLeft some comments, see if copyrights need fixing.",
+      "revId": "5f03fcb921e7270e9038cd8dfb567f0fc9c3e500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "557f7733_6e080fb5",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/plat_scmi_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001115
+      },
+      "writtenOn": "2023-10-03T09:27:39Z",
+      "side": 1,
+      "message": "Does the copyright belong to STMicroelectronics for rockchip?",
+      "revId": "5f03fcb921e7270e9038cd8dfb567f0fc9c3e500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bc5c03f_fddb3805",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/plat_scmi_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1001115
+      },
+      "writtenOn": "2023-10-03T09:27:39Z",
+      "side": 1,
+      "message": "why not ``#define SMT_BUFFER0_BASE SCMI_SHARE_MEM_BASE`` directly?",
+      "revId": "5f03fcb921e7270e9038cd8dfb567f0fc9c3e500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
