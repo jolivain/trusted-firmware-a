@@ -310,6 +310,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7671a041_78220826",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-03T11:30:52Z",
+      "side": 1,
+      "message": "\u003e Not related to this patch but can we add sizes information for ECDSA-Brainpool-R and T that TF-A currently supports?\n\nI think this is a good idea but perhaps better done in a separate patch. ST will want to review this patch, I am sure, and we would make their lives easier if the changes were isolated.",
+      "parentUuid": "0834dd37_63b832d2",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 28
+      },
+      "revId": "f2cee108699778ae4bc38ca8cc00a9138faae6dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78179a74_58bb316e",
         "filename": "plat/arm/board/common/rotpk/arm_rotprivk_ecdsa_prime256v1.pem",
         "patchSetId": 1
