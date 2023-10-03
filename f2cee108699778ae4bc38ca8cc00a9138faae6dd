@@ -95,6 +95,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b03efef_adf9b484",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-03T08:36:36Z",
+      "side": 1,
+      "message": "Thanks, I had not realized that. Then I think we should keep ARM_ROTPK_KEY_LEN value to 91.",
+      "parentUuid": "7f764f1e_07116e2e",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 29
+      },
+      "revId": "f2cee108699778ae4bc38ca8cc00a9138faae6dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02ac4e09_6d171638",
@@ -226,6 +250,30 @@
       "side": 1,
       "message": "I can look in to this further if you think! I tried to implement quickly and realize this affects the cert_create aspect and doesn\u0027t act in the same way as RSA. key_alg command line option is used in cert_create (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/23584/1) to pick key_create_ecdsa_nist_p384 to generate the \"secp384r1\" curve keys, while RSA uses the size as a direct input I believe. I can look into this further if you think it makes sense to, just think it will involve some cert_create refactor changes so wanted to mention.",
       "parentUuid": "deb746c7_735eb316",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 28
+      },
+      "revId": "f2cee108699778ae4bc38ca8cc00a9138faae6dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f55fbca0_98b1c575",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-03T08:36:36Z",
+      "side": 1,
+      "message": "Yes, this would affect cert_create tool aswell, I had realized that beforehand.\n\nBefore we commit to doing these changes, I\u0027d like Manish\u0027s opinion on this.\n\nSo just to sum up, I am proposing we have the following combinations:\n\n   +---------------------------+------------------------------------+\n   |         KEY_ALG           |               KEY_SIZE             |\n   +\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\n   |           rsa             | 1024 , 2048 (default), 3072, 4096  |\n   +---------------------------+------------------------------------+\n   |        ecdsa-nist         |          256 (default), 384        |\n   +---------------------------+------------------------------------+\n   |  ecdsa-brainpool-regular  |            unavailable             |\n   +---------------------------+------------------------------------+\n   |  ecdsa-brainpool-twisted  |            unavailable             |\n   +---------------------------+------------------------------------+",
+      "parentUuid": "9983d453_84a6f112",
       "range": {
         "startLine": 45,
         "startChar": 0,

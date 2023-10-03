@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ee0ccc9_5cbe10f0",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-03T08:36:36Z",
+      "side": 1,
+      "message": "Ideally, changes in this file should be isolated in their own patch, since they are not in the Arm platforms layer.",
+      "revId": "386664bb6e428e2f878a07a79adf0569569008b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0479721_c3501f47",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-03T08:36:36Z",
+      "side": 1,
+      "message": "This is the length for a 2kB RSA-key, right? It would be worth adding a comment to make it explicit.",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 30
+      },
+      "revId": "386664bb6e428e2f878a07a79adf0569569008b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6394d84c_598b7a6b",
+        "filename": "plat/arm/board/common/rotpk/arm_full_dev_ecdsa_p256_rotpk.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-03T08:36:36Z",
+      "side": 1,
+      "message": "Suggest adding the following comment:\n\n /* Derived from arm_rotprivk_ecdsa.pem private key file. */",
+      "revId": "386664bb6e428e2f878a07a79adf0569569008b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb12bd44_39b6b3aa",
+        "filename": "plat/arm/board/common/rotpk/arm_full_dev_ecdsa_p384_rotpk.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-03T08:36:36Z",
+      "side": 1,
+      "message": "Suggest adding the following comment:\n\n /* Derived from arm_rotprivk_ecdsa_secp384r1.pem private key file. */",
+      "revId": "386664bb6e428e2f878a07a79adf0569569008b0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
