@@ -94,6 +94,30 @@
       },
       "revId": "8525b08909a8aa72bec3ce418d0bf58f5d83b110",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "079408d6_65b32255",
+        "filename": "plat/arm/common/fconf/arm_fconf_io.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-10-04T14:09:53Z",
+      "side": 1,
+      "message": "Just FYI, in here:\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/23504/6/drivers/partition/partition.c#291",
+      "parentUuid": "5519006b_097d8f8a",
+      "range": {
+        "startLine": 62,
+        "startChar": 19,
+        "endLine": 62,
+        "endChar": 44
+      },
+      "revId": "8525b08909a8aa72bec3ce418d0bf58f5d83b110",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
