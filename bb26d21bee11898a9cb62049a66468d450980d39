@@ -52,6 +52,24 @@
       "parentUuid": "3b9c6e40_16c06858",
       "revId": "bb26d21bee11898a9cb62049a66468d450980d39",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6a53daa_322960fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-10-04T07:46:04Z",
+      "side": 1,
+      "message": "I\u0027ve update changelog.yaml with new patches:\n- docs(changelog): update errata-abi topic: align with integration, it now sorts errata-abi scope patches\n- docs(changelog): display all sections: it clarifies things and will have to be taken in 2.10 LTS\n- docs(changelog): move errata-abi under CPU support: to sort Errata ABI patches under CPU support. Else it was under Services topic. This patch should be pushed to integration branch, if we want Errata ABI patches sorted under CPU Support.",
+      "parentUuid": "9726bd4e_3a8c809b",
+      "revId": "bb26d21bee11898a9cb62049a66468d450980d39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
