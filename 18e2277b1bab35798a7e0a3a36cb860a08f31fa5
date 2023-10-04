@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fa4fd0a7_2cc06da3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-10-04T07:03:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b757b803_322db299",
+      "range": {
+        "startLine": 7,
+        "startChar": 18,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "18e2277b1bab35798a7e0a3a36cb860a08f31fa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b840c688_0ae99796",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 11
@@ -81,6 +105,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a1fb7df_74aa2cfd",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-10-04T07:03:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c86e6b8_4b5e494f",
+      "range": {
+        "startLine": 204,
+        "startChar": 32,
+        "endLine": 204,
+        "endChar": 33
+      },
+      "revId": "18e2277b1bab35798a7e0a3a36cb860a08f31fa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b735dbd0_f65771ee",
@@ -94,6 +142,30 @@
       "writtenOn": "2023-09-07T14:09:17Z",
       "side": 1,
       "message": "Consider using instead:\n... them ...\n... these values ...\n\nChange also in the previous file",
+      "range": {
+        "startLine": 205,
+        "startChar": 36,
+        "endLine": 205,
+        "endChar": 44
+      },
+      "revId": "18e2277b1bab35798a7e0a3a36cb860a08f31fa5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aebc8d29_c3933b89",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-10-04T07:03:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b735dbd0_f65771ee",
       "range": {
         "startLine": 205,
         "startChar": 36,
