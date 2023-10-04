@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ac7d3f2_192b438a",
+        "filename": "plat/arm/common/fconf/arm_fconf_io.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-04T13:50:06Z",
+      "side": 1,
+      "message": "Why this needs to be statically placed? Can\u0027t this be retrieved during the runtime. \nI believe this is not the correct offset while handling the Backup GPT header + Partition entries information, right?",
+      "range": {
+        "startLine": 62,
+        "startChar": 19,
+        "endLine": 62,
+        "endChar": 44
+      },
+      "revId": "8525b08909a8aa72bec3ce418d0bf58f5d83b110",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
