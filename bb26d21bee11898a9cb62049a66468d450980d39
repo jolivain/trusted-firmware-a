@@ -70,6 +70,24 @@
       "parentUuid": "9726bd4e_3a8c809b",
       "revId": "bb26d21bee11898a9cb62049a66468d450980d39",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af64cf96_35365546",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-10-04T08:58:00Z",
+      "side": 1,
+      "message": "Looks like we have created new patches only for the lts branch. We will have get them merged into integration branch first and then cherry-pick to the lts branch.",
+      "parentUuid": "a6a53daa_322960fa",
+      "revId": "bb26d21bee11898a9cb62049a66468d450980d39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
