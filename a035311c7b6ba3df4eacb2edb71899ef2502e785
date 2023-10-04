@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42c1f0f6_2aadaa9d",
+        "filename": "bl31/bl31.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-04T16:24:46Z",
+      "side": 1,
+      "message": "Also, as discussed rename this to ENABLE_FEAT_MPAM",
+      "range": {
+        "startLine": 109,
+        "startChar": 9,
+        "endLine": 109,
+        "endChar": 27
+      },
+      "revId": "a035311c7b6ba3df4eacb2edb71899ef2502e785",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e5164ff_4cd17203",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-04T16:24:46Z",
+      "side": 1,
+      "message": "Consider MPAM3_EL3 is not always present and its only available if FEAT_MPAM is present, i think we should not keep it here as part of common EL3 context and gaurd it under FEAT_MPAM macro",
+      "range": {
+        "startLine": 66,
+        "startChar": 8,
+        "endLine": 66,
+        "endChar": 21
+      },
+      "revId": "a035311c7b6ba3df4eacb2edb71899ef2502e785",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c911e5a_cbaa3479",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-04T16:24:46Z",
+      "side": 1,
+      "message": "We may not need this if Secure/Realm is not going to use it, let me have more analysis on it.",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 207,
+        "endChar": 33
+      },
+      "revId": "a035311c7b6ba3df4eacb2edb71899ef2502e785",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "850be92a_8ec33321",
+        "filename": "lib/extensions/mpam/mpam.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-04T16:24:46Z",
+      "side": 1,
+      "message": "No need to write NS world here, it will be from callers PoV",
+      "range": {
+        "startLine": 22,
+        "startChar": 22,
+        "endLine": 22,
+        "endChar": 43
+      },
+      "revId": "a035311c7b6ba3df4eacb2edb71899ef2502e785",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c41e3ee5_f0e94347",
+        "filename": "lib/extensions/mpam/mpam.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-04T16:24:46Z",
+      "side": 1,
+      "message": "Why SVE/FPU here ?",
+      "range": {
+        "startLine": 37,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 54
+      },
+      "revId": "a035311c7b6ba3df4eacb2edb71899ef2502e785",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
