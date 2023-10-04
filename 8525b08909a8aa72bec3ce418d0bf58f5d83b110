@@ -118,6 +118,30 @@
       },
       "revId": "8525b08909a8aa72bec3ce418d0bf58f5d83b110",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5c6cd07_adbfcf99",
+        "filename": "plat/arm/common/fconf/arm_fconf_io.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-04T14:18:27Z",
+      "side": 1,
+      "message": "\u003e Note its \"PLAT_ARM_FLASH_IMAGE_BASE,\" so it would be platform specific base start?\n\nYes, it is platform specific but can\u0027t we retrieve this using any existing/new platform API?\n\n\u003e Also platforms can initialize just to start of flash base and driver can move based on MBR-data both offset and length and then mmap them?\n\nIt is essential then for the platform to provide the flash base as an offset in this policy. I am considering whether it would be more effective to request the base address of the flash or any supported storage media where GPT resides, and then utilize that information for calculations within the driver. (Agree if it is getting complicated then leave as it is with proper guideline to the platform).",
+      "parentUuid": "079408d6_65b32255",
+      "range": {
+        "startLine": 62,
+        "startChar": 19,
+        "endLine": 62,
+        "endChar": 44
+      },
+      "revId": "8525b08909a8aa72bec3ce418d0bf58f5d83b110",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
