@@ -644,12 +644,6 @@ subsections:
       - title: TRNG
         scope: trng
 
-      - title: ERRATA ABI
-        scope: errata-abi
-
-        deprecated:
-          - errata_abi
-
   - title: Libraries
 
     subsections:
@@ -660,6 +654,13 @@ subsections:
           - cpu
           - errata
           - errata_report
+
+        subsections:
+          - title: ERRATA ABI
+            scope: errata-abi
+
+            deprecated:
+              - errata_abi
 
       - title: EL3 Runtime
         scope: el3-runtime
