@@ -10,6 +10,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#include <common/ep_info.h>
 #include <lib/utils_def.h>
 
 #define	TRANSFER_LIST_SIGNATURE		U(0x006ed0ff)
@@ -34,6 +35,7 @@ enum transfer_list_tag_id {
 	TL_TAG_HOB_BLOCK = 2,
 	TL_TAG_HOB_LIST = 3,
 	TL_TAG_ACPI_TABLE_AGGREGATE = 4,
+	TL_TAG_OPTEE_PAGABLE_PART = 0x100,
 };
 
 enum transfer_list_ops {
@@ -80,6 +82,8 @@ struct transfer_list_entry {
 };
 
 void transfer_list_dump(struct transfer_list_header *tl);
+bool transfer_list_set_handoff_args(struct transfer_list_header *tl,
+				entry_point_info_t *ep_info);
 struct transfer_list_header *transfer_list_init(void *addr, size_t max_size);
 
 struct transfer_list_header *transfer_list_relocate(struct transfer_list_header *tl,
