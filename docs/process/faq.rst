@@ -67,9 +67,11 @@ integration problems). If this happens, the dependent patch will need reworking.
 What are these strange comments in my changes?
 ----------------------------------------------
 
-All the comments from ``ci-bot-user`` are associated with Continuous Integration
-infrastructure. The links published on the comment are not currently accessible,
-but would be after the CI has been transitioned to `trustedfirmware.org`_.
+All the comments from ``TrustedFirmware Code Review`` user (email:
+``ci@trustedfirmware.org``) are associated with Continuous Integration (CI)
+infrastructure. The links published on the comments redirect to the CI web
+interface at http://ci.trustedfirmware.org, where details of the tests failures,
+if any, can be examined.
 
 --------------
 
