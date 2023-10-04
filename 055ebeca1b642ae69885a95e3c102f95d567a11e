@@ -62,6 +62,54 @@
       },
       "revId": "055ebeca1b642ae69885a95e3c102f95d567a11e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e060253_b503a8fa",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-10-04T16:34:11Z",
+      "side": 1,
+      "message": "I can push an update for that if needed.\nYes it is only used for LTS releases.\nThis is done the same way in Linux kernel. But they are called a bit differently, for example in official tree:\nVERSION \u003d 6\nPATCHLEVEL \u003d 1\nSUBLEVEL \u003d 0\nAnd in LTS tree:\nVERSION \u003d 6\nPATCHLEVEL \u003d 1\nSUBLEVEL \u003d 28",
+      "parentUuid": "9f6338cc_f4ce3b3a",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "055ebeca1b642ae69885a95e3c102f95d567a11e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "161c76ee_031721b4",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-10-04T16:34:11Z",
+      "side": 1,
+      "message": "Yes, I can update documentation about that",
+      "parentUuid": "e8217746_cd89212c",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "055ebeca1b642ae69885a95e3c102f95d567a11e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ],
   "submitRequirementResults": []
