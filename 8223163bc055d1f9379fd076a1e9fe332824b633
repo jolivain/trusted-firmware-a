@@ -58,6 +58,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00b1539b_c29f3d53",
+        "filename": "services/std_svc/spm/common/aarch64/spm_shim_exceptions.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-10-04T07:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "004f3d1e_eb712171",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "8223163bc055d1f9379fd076a1e9fe332824b633",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d792a175_72e722be",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-09-07T13:26:17Z",
       "side": 1,
       "message": "Is this relevant for the current patch?\nCould this be squashed into a further patch, if there changes to spmc_setup.c that require this include?",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 29
+      },
+      "revId": "8223163bc055d1f9379fd076a1e9fe332824b633",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68057f47_fd3e10cd",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-10-04T07:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d792a175_72e722be",
       "range": {
         "startLine": 23,
         "startChar": 0,
