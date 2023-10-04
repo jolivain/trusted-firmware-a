@@ -18,9 +18,7 @@
 #include <common/fdt_fixup.h>
 #include <common/fdt_wrappers.h>
 #include <lib/optee_utils.h>
-#if TRANSFER_LIST
 #include <lib/transfer_list.h>
-#endif
 #include <lib/utils.h>
 #include <plat/common/platform.h>
 
@@ -51,9 +49,7 @@
 
 /* Data structure which holds the extents of the trusted SRAM for BL2 */
 static meminfo_t bl2_tzram_layout __aligned(CACHE_WRITEBACK_GRANULE);
-#if TRANSFER_LIST
 static struct transfer_list_header *bl2_tl;
-#endif
 
 void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 			       u_register_t arg2, u_register_t arg3)
@@ -243,6 +239,23 @@ static int load_sps_from_tb_fw_config(struct image_info *image_info)
 }
 #endif /*defined(SPD_spmd) && SPMD_SPM_AT_SEL2*/
 
+#if defined(SPD_opteed) || defined(AARCH32_SP_OPTEE) || defined(SPMC_OPTEE)
+static int handoff_pageable_part(uint64_t pagable_part)
+{
+#if TRANSFER_LIST
+	struct transfer_list_entry *te;
+
+	te = transfer_list_add(bl2_tl, TL_TAG_OPTEE_PAGABLE_PART,
+			       sizeof(pagable_part), &pagable_part);
+	if (!te) {
+		INFO("Cannot add TE for pageable part\n");
+		return -1;
+	}
+#endif
+	return 0;
+}
+#endif
+
 static int qemu_bl2_handle_post_image_load(unsigned int image_id)
 {
 	int err = 0;
@@ -254,14 +267,22 @@ static int qemu_bl2_handle_post_image_load(unsigned int image_id)
 #if defined(SPD_spmd)
 	bl_mem_params_node_t *bl32_mem_params = NULL;
 #endif
-#if TRANSFER_LIST
 	struct transfer_list_header *ns_tl = NULL;
-	struct transfer_list_entry *te = NULL;
-#endif
 
 	assert(bl_mem_params);
 
 	switch (image_id) {
+#if TRANSFER_LIST
+	case BL31_IMAGE_ID:
+		// arg0 is a bl_params_t reserved for bl31_early_platform_setup2
+		// we just need arg1 and arg3 for BL31 to update th TL from S
+		// to NS memory before it exits
+		bl_mem_params->ep_info.args.arg1 =
+			TRANSFER_LIST_SIGNATURE |
+			REGISTER_CONVENTION_VERSION_MASK;
+		bl_mem_params->ep_info.args.arg3 = (uintptr_t)bl2_tl;
+		break;
+#endif
 	case BL32_IMAGE_ID:
 #if defined(SPD_opteed) || defined(AARCH32_SP_OPTEE) || defined(SPMC_OPTEE)
 		pager_mem_params = get_bl_mem_params_node(BL32_EXTRA1_IMAGE_ID);
@@ -276,31 +297,41 @@ static int qemu_bl2_handle_post_image_load(unsigned int image_id)
 		if (err != 0) {
 			WARN("OPTEE header parse error.\n");
 		}
+
+		// add TL_TAG_OPTEE_PAGABLE_PART entry to the TL
+		if (handoff_pageable_part(bl_mem_params->ep_info.args.arg1)) {
+			return -1;
+		}
 #endif
 
+		INFO("Handoff to BL32\n");
+		if (!transfer_list_set_handoff_args(bl2_tl,
+						&bl_mem_params->ep_info)) {
+			INFO("Invalid TL, fallback to legacy arguments\n");
 #if defined(SPMC_OPTEE)
-		/*
-		 * Explicit zeroes to unused registers since they may have
-		 * been populated by parse_optee_header() above.
-		 *
-		 * OP-TEE expects system DTB in x2 and TOS_FW_CONFIG in x0,
-		 * the latter is filled in below for TOS_FW_CONFIG_ID and
-		 * applies to any other SPMC too.
-		 */
-		bl_mem_params->ep_info.args.arg2 = ARM_PRELOADED_DTB_BASE;
+			/*
+			 * Explicit zeroes to unused registers since they may have
+			 * been populated by parse_optee_header() above.
+			 *
+			 * OP-TEE expects system DTB in x2 and TOS_FW_CONFIG in x0,
+			 * the latter is filled in below for TOS_FW_CONFIG_ID and
+			 * applies to any other SPMC too.
+			 */
+			bl_mem_params->ep_info.args.arg2 = ARM_PRELOADED_DTB_BASE;
 #elif defined(SPD_opteed)
-		/*
-		 * OP-TEE expect to receive DTB address in x2.
-		 * This will be copied into x2 by dispatcher.
-		 */
-		bl_mem_params->ep_info.args.arg3 = ARM_PRELOADED_DTB_BASE;
+			/*
+			 * OP-TEE expect to receive DTB address in x2.
+			 * This will be copied into x2 by dispatcher.
+			 */
+			bl_mem_params->ep_info.args.arg3 = ARM_PRELOADED_DTB_BASE;
 #elif defined(AARCH32_SP_OPTEE)
-		bl_mem_params->ep_info.args.arg0 =
-					bl_mem_params->ep_info.args.arg1;
-		bl_mem_params->ep_info.args.arg1 = 0;
-		bl_mem_params->ep_info.args.arg2 = ARM_PRELOADED_DTB_BASE;
-		bl_mem_params->ep_info.args.arg3 = 0;
+			bl_mem_params->ep_info.args.arg0 =
+						bl_mem_params->ep_info.args.arg1;
+			bl_mem_params->ep_info.args.arg1 = 0;
+			bl_mem_params->ep_info.args.arg2 = ARM_PRELOADED_DTB_BASE;
+			bl_mem_params->ep_info.args.arg3 = 0;
 #endif
+		}
 		bl_mem_params->ep_info.spsr = qemu_get_spsr_for_bl32_entry();
 		break;
 
@@ -337,31 +368,12 @@ static int qemu_bl2_handle_post_image_load(unsigned int image_id)
 					(unsigned long)FW_NS_HANDOFF_BASE);
 				return -1;
 			}
-			NOTICE("Transfer list handoff to BL33\n");
-			transfer_list_dump(ns_tl);
+		}
 
-			te = transfer_list_find(ns_tl, TL_TAG_FDT);
-
-			bl_mem_params->ep_info.args.arg1 =
-				TRANSFER_LIST_SIGNATURE |
-				REGISTER_CONVENTION_VERSION_MASK;
-			bl_mem_params->ep_info.args.arg3 = (uintptr_t)ns_tl;
-
-			if (GET_RW(bl_mem_params->ep_info.spsr) == MODE_RW_32) {
-				// aarch32
-				bl_mem_params->ep_info.args.arg0 = 0;
-				bl_mem_params->ep_info.args.arg2 = te ?
-					(uintptr_t)transfer_list_entry_data(te)
-					: 0;
-			} else {
-				// aarch64
-				bl_mem_params->ep_info.args.arg0 = te ?
-					(uintptr_t)transfer_list_entry_data(te)
-					: 0;
-				bl_mem_params->ep_info.args.arg2 = 0;
-			}
-		} else {
-			// Legacy handoff
+		INFO("Handoff to BL33\n");
+		if (!transfer_list_set_handoff_args(ns_tl,
+						&bl_mem_params->ep_info)) {
+			INFO("Invalid TL, fallback to legacy arguments\n");
 			bl_mem_params->ep_info.args.arg0 = 0xffff & read_mpidr();
 		}
 #else
