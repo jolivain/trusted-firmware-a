@@ -22,6 +22,30 @@
       },
       "revId": "8525b08909a8aa72bec3ce418d0bf58f5d83b110",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dcd893d_a0d7ca8c",
+        "filename": "plat/arm/common/fconf/arm_fconf_io.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-10-04T13:53:13Z",
+      "side": 1,
+      "message": "I have added  this comment:\n\"update offset to begining LBA-33 and length to LBA-33.\"\n\nSo runtime we will need to move to FLASH_BASE + LBA-33 so still need flash base?",
+      "parentUuid": "5ac7d3f2_192b438a",
+      "range": {
+        "startLine": 62,
+        "startChar": 19,
+        "endLine": 62,
+        "endChar": 44
+      },
+      "revId": "8525b08909a8aa72bec3ce418d0bf58f5d83b110",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
