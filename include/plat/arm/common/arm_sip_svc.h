@@ -42,6 +42,16 @@
 #define ARM_SIP_SET_INTERRUPT_PENDING	U(0x82000100)
 #endif
 
+/**
+ * Arm Sip Service Call for the SPM to leverage RME to protect a give memory range.
+ * Protected memory range is one whose PAS was made secure.
+ * Unprotect relates to reverting a protect operation.
+ */
+#if SPMD_SPM_AT_SEL2 && ENABLE_RME
+#define PLAT_PROTECT_MEM_SMC64 0xC2000101
+#define PLAT_UNPROTECT_MEM_SMC64 0xC2000102
+#endif
+
 /* SiP handler specific to each Arm platform. */
 uintptr_t plat_arm_sip_handler(uint32_t smc_fid,
 				u_register_t x1,
