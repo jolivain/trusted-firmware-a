@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <arch.h>
 #include <assert.h>
 #include <inttypes.h>
 #include <string.h>
@@ -20,26 +21,60 @@ void transfer_list_dump(struct transfer_list_header *tl)
 	if (!tl) {
 		return;
 	}
-	NOTICE("Dump transfer list:\n");
-	NOTICE("signature  0x%x\n", tl->signature);
-	NOTICE("checksum   0x%x\n", tl->checksum);
-	NOTICE("version    0x%x\n", tl->version);
-	NOTICE("hdr_size   0x%x\n", tl->hdr_size);
-	NOTICE("alignment  0x%x\n", tl->alignment);
-	NOTICE("size       0x%x\n", tl->size);
-	NOTICE("max_size   0x%x\n", tl->max_size);
+	INFO("Dump transfer list:\n");
+	INFO("signature  0x%x\n", tl->signature);
+	INFO("checksum   0x%x\n", tl->checksum);
+	INFO("version    0x%x\n", tl->version);
+	INFO("hdr_size   0x%x\n", tl->hdr_size);
+	INFO("alignment  0x%x\n", tl->alignment);
+	INFO("size       0x%x\n", tl->size);
+	INFO("max_size   0x%x\n", tl->max_size);
 	while (true) {
 		te = transfer_list_next(tl, te);
 		if (!te) {
 			break;
 		}
-		NOTICE("Entry %d:\n", i++);
-		NOTICE("tag_id     0x%x\n", te->tag_id);
-		NOTICE("hdr_size   0x%x\n", te->hdr_size);
-		NOTICE("data_size  0x%x\n", te->data_size);
-		NOTICE("data_addr  0x%lx\n",
+		INFO("Entry %d:\n", i++);
+		INFO("tag_id     0x%x\n", te->tag_id);
+		INFO("hdr_size   0x%x\n", te->hdr_size);
+		INFO("data_size  0x%x\n", te->data_size);
+		INFO("data_addr  0x%lx\n",
 		(unsigned long)transfer_list_entry_data(te));
 	}
+}
+
+/*******************************************************************************
+ * Set the handoff arguments according to the transfer list payload
+ * Return true if arguments are set properly or false if not
+ ******************************************************************************/
+bool transfer_list_set_handoff_args(struct transfer_list_header *tl,
+				entry_point_info_t *ep_info)
+{
+	struct transfer_list_entry *te = NULL;
+
+	if (!ep_info || !tl ||
+		transfer_list_check_header(tl) == TL_OPS_NON) {
+		return false;
+	}
+
+	te = transfer_list_find(tl, TL_TAG_FDT);
+	ep_info->args.arg1 = TRANSFER_LIST_SIGNATURE |
+				REGISTER_CONVENTION_VERSION_MASK;
+	ep_info->args.arg3 = (uintptr_t)tl;
+
+	if (GET_RW(ep_info->spsr) == MODE_RW_32) {
+		// aarch32
+		ep_info->args.arg0 = 0;
+		ep_info->args.arg2 = te ?
+			(uintptr_t)transfer_list_entry_data(te) : 0;
+	} else {
+		// aarch64
+		ep_info->args.arg0 = te ?
+			(uintptr_t)transfer_list_entry_data(te)	: 0;
+		ep_info->args.arg2 = 0;
+	}
+
+	return true;
 }
 
 /*******************************************************************************
@@ -77,7 +112,7 @@ struct transfer_list_header *transfer_list_init(void *addr, size_t max_size)
 /*******************************************************************************
  * Relocating a transfer list to a reserved memory region specified
  * Compliant to 2.4.6 of Firmware handoff specification (v0.9)
- * Return true on success or false on error
+ * Return pointer to the relocated transfer list or NULL on error
  ******************************************************************************/
 struct transfer_list_header *transfer_list_relocate(
 						struct transfer_list_header *tl,
