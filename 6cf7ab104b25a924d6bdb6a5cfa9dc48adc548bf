@@ -16,6 +16,24 @@
       "message": "Who is the consumer of this?",
       "revId": "6cf7ab104b25a924d6bdb6a5cfa9dc48adc548bf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d629359_8d20632d",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-05T14:07:30Z",
+      "side": 1,
+      "message": "This is reserved for SPMD to reflect the PR for the spec at: https://github.com/FirmwareHandoff/firmware_handoff/pull/19, but it is not yet implemented in these patch sets.",
+      "parentUuid": "d39cca24_25ad4f85",
+      "revId": "6cf7ab104b25a924d6bdb6a5cfa9dc48adc548bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
