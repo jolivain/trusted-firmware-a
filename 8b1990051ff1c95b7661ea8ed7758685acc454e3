@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1864bdbe_5fdbe54e",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-05T08:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d04c848c_5c63322e",
+      "range": {
+        "startLine": 10,
+        "startChar": 66,
+        "endLine": 10,
+        "endChar": 67
+      },
+      "revId": "8b1990051ff1c95b7661ea8ed7758685acc454e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d934ca2_0efb4e9b",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-09-28T00:03:17Z",
       "side": 1,
       "message": "nit: remove tab",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 1
+      },
+      "revId": "8b1990051ff1c95b7661ea8ed7758685acc454e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2cc5076_6648798d",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-05T08:36:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d934ca2_0efb4e9b",
       "range": {
         "startLine": 14,
         "startChar": 0,
