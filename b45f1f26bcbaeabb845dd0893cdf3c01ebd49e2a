@@ -83,6 +83,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c550b066_efcd70d3",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 69
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-05T16:59:17Z",
+      "side": 1,
+      "message": "I have added more comments in the code on why we are using CTX_INCLUDE_PAUTH_REGS flag in place of ENABLE_PAUTH.\nPatch no 71, which we thought was ideal as CI had passed as well, was not the correct one as we were enabling PAUTH for all the worlds using a completely differnt flag, which would potentially leak the data during world switch.\nENABLE_PAUTH is an internal flag, not accessible by the user and used for el3_related PAUTH settings.\n\nWhen we guard the enabling of PAUTH to lower ELs via this flag, it would lead to crash as lower ELS of\nSecure and Realm are covered under CTX_INCLUDE_PAUTH_REGS flag. And for Non-secure world (Lower Els), its not relevant as if feature present it should be enabled unconditionally for Normal world.\n\nIts a bit tricky/confusing bit, but the CI failures, literally shown thats the evident one.\nSo to clear this part, lets remove the dependency from ENABLE_PAUTH flag here.\nCTX_INCLUDE_PAUTH_REGS is the relevant flag to handle this, as it could be set, even when\nENABLE_PAUTH is unset.\n\nHenceforth, CTX_INCLUDE_PAUTH_REGS flag is taken into consideration of guarding here.\n\nIf that is set, it means, we can enable PAUTH for all the worlds. If thats not set, then we are enabling it only for the normal worlds. With this we are also preventing data leakage between the worlds.",
+      "parentUuid": "2a8855dc_6364d986",
+      "range": {
+        "startLine": 379,
+        "startChar": 0,
+        "endLine": 387,
+        "endChar": 3
+      },
+      "revId": "b45f1f26bcbaeabb845dd0893cdf3c01ebd49e2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4573c5f6_5361ae63",
