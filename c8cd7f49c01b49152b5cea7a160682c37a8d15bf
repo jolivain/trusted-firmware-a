@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5003b22_2fca0040",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-10-05T17:12:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1485a844_7637a390",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "c8cd7f49c01b49152b5cea7a160682c37a8d15bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9465fdb5_c65ae43f",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-04T12:35:24Z",
       "side": 1,
       "message": "Change this to TF_MBEDTLS_KEY_SIZE to 256, even though it\u0027s the default value and add extra #else with #error (similar to line no.46).\n\nThis change ensures consistency with what we\u0027ve done for RSA. Additionally, It acts as a preventive measure to mitigate build failures in case an unsupported key size, other than 256 or 384, is specified?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 5
+      },
+      "revId": "c8cd7f49c01b49152b5cea7a160682c37a8d15bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bdc56a2_b55cf8d6",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-10-05T17:12:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9465fdb5_c65ae43f",
       "range": {
         "startLine": 51,
         "startChar": 0,
