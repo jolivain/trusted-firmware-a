@@ -16,6 +16,75 @@
       "message": "Sorry, this patch seems to be a subject to bottleneck in the CI system, so restarting it.",
       "revId": "3a5f80e75bee5d182fdae42c9620a665339d7727",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a64e5133_96242c7a",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-05T13:46:36Z",
+      "side": 1,
+      "message": "align",
+      "range": {
+        "startLine": 217,
+        "startChar": 16,
+        "endLine": 217,
+        "endChar": 21
+      },
+      "revId": "3a5f80e75bee5d182fdae42c9620a665339d7727",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6fa432e_b8970158",
+        "filename": "plat/arm/board/arm_fpga/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-05T13:46:36Z",
+      "side": 1,
+      "message": "aligh",
+      "range": {
+        "startLine": 44,
+        "startChar": 16,
+        "endLine": 44,
+        "endChar": 20
+      },
+      "revId": "3a5f80e75bee5d182fdae42c9620a665339d7727",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04d29e18_343b871e",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-05T13:46:36Z",
+      "side": 1,
+      "message": "align",
+      "range": {
+        "startLine": 53,
+        "startChar": 17,
+        "endLine": 53,
+        "endChar": 20
+      },
+      "revId": "3a5f80e75bee5d182fdae42c9620a665339d7727",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
