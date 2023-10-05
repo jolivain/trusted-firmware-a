@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d707d73f_24dcb74c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-05T08:36:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2869ff81_403d38c4",
+      "range": {
+        "startLine": 14,
+        "startChar": 33,
+        "endLine": 14,
+        "endChar": 40
+      },
+      "revId": "6adf03266fa1379d92140c3fb4e618f93cd75823",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b4309b41_9daf55d5",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2023-09-27T22:44:51Z",
       "side": 1,
       "message": "I would add here what you said in the commit message: \"and TF-A itself doesn\u0027t engage\nin cryptographic operations that demands randomness.\"",
+      "range": {
+        "startLine": 66,
+        "startChar": 33,
+        "endLine": 66,
+        "endChar": 34
+      },
+      "revId": "6adf03266fa1379d92140c3fb4e618f93cd75823",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b42fed02_cded0650",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-05T08:36:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5934ba5_9da0c477",
       "range": {
         "startLine": 66,
         "startChar": 33,
