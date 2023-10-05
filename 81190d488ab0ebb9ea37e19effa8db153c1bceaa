@@ -56,6 +56,30 @@
       },
       "revId": "81190d488ab0ebb9ea37e19effa8db153c1bceaa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50f6e707_73d5c0e6",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-05T11:22:15Z",
+      "side": 1,
+      "message": "Yes, Madhu. \nI believe it\u0027s safe to ensure and update the community that we have tried and tested our Code till the version we have in our CI. Sometimes there will be beta versions in the Arm Developer Site, and between the release cycle, (6-month window), there are chances, that there could be a higher version of the toolchain. \nEspecially during the last release cycle, a few of the toolchain updates insisted we modify a few bits in our Makefile/Build system. \nHenceforth, this time, I thoroughly tested the toolchain (12.3) in staging and then pushed these patches intended for production.\nI thought in this way and hence changed it. Let me know your thoughts here. I will proceed accordingly.",
+      "parentUuid": "1b62ebd3_34705495",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 8
+      },
+      "revId": "81190d488ab0ebb9ea37e19effa8db153c1bceaa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
