@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0172656_15c41837",
+        "filename": "plat/imx/imx8m/imx8m_snvs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-05T14:37:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f1bddcc_28755e79",
+      "revId": "5647d74f1ceebb349521e5a16abe707db207e4c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b83ad63_d4e2a5af",
@@ -96,6 +114,30 @@
       "side": 1,
       "message": "Also this way it is way easier to read the code.",
       "parentUuid": "3ed60333_eed9d502",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 42
+      },
+      "revId": "5647d74f1ceebb349521e5a16abe707db207e4c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "483607fa_f972234e",
+        "filename": "plat/imx/imx8m/imx8m_snvs.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-05T14:37:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1fd9b675_66a02709",
       "range": {
         "startLine": 10,
         "startChar": 0,
