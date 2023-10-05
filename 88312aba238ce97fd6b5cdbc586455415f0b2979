@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f88e574_4d432400",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-10-05T17:11:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e0cb1c7e_746c9ba3",
+      "range": {
+        "startLine": 117,
+        "startChar": 3,
+        "endLine": 117,
+        "endChar": 7
+      },
+      "revId": "88312aba238ce97fd6b5cdbc586455415f0b2979",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de65960a_c947ad29",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-10-04T12:17:02Z",
       "side": 1,
       "message": "Consider adding an assertion here:\n\n assert(key_bits \u003d\u003d 256)\n \nThat way, if we ever add another key size for ECDSA family of algorithms, we will be reminded to update this function.",
+      "revId": "88312aba238ce97fd6b5cdbc586455415f0b2979",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "912b23ad_46b81ac7",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-10-05T17:11:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de65960a_c947ad29",
       "revId": "88312aba238ce97fd6b5cdbc586455415f0b2979",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b34f054_50922575",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-10-05T17:11:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f41dd8f3_f7825106",
+      "range": {
+        "startLine": 163,
+        "startChar": 3,
+        "endLine": 163,
+        "endChar": 7
+      },
+      "revId": "88312aba238ce97fd6b5cdbc586455415f0b2979",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05879bd7_1ef60ea1",
@@ -77,6 +143,24 @@
       "writtenOn": "2023-10-04T12:17:02Z",
       "side": 1,
       "message": "Ditto here, consider adding:\n\n assert(key_bits \u003d\u003d 256)",
+      "revId": "88312aba238ce97fd6b5cdbc586455415f0b2979",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "000a8c4a_93c666aa",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-10-05T17:11:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05879bd7_1ef60ea1",
       "revId": "88312aba238ce97fd6b5cdbc586455415f0b2979",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
