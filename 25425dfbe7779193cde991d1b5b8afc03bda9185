@@ -34,6 +34,24 @@
       "parentUuid": "810b42e4_f0feb9e5",
       "revId": "25425dfbe7779193cde991d1b5b8afc03bda9185",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed77b4c5_7f727c06",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 61
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-10-06T07:22:37Z",
+      "side": 1,
+      "message": "Right, I just realised this so I believe the comment is for the record in case we want to fix this later.",
+      "parentUuid": "3542c9d6_0ff49c27",
+      "revId": "25425dfbe7779193cde991d1b5b8afc03bda9185",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
