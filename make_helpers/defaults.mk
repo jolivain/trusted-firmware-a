@@ -362,3 +362,7 @@ ENABLE_SPMD_LP			:= 0
 
 # By default, disable PSA crypto (use MbedTLS legacy crypto API).
 PSA_CRYPTO			:= 0
+
+# Disable including MPAM registers in context by default since currently
+# it's only enabled for NS world
+CTX_INCLUDE_MPAM_REGS		:= 0
