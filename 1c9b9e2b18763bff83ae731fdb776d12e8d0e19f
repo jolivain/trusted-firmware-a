@@ -69,6 +69,24 @@
       "parentUuid": "bf78c421_3144056e",
       "revId": "1c9b9e2b18763bff83ae731fdb776d12e8d0e19f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db05f346_66e9bff9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-10-06T12:47:46Z",
+      "side": 1,
+      "message": "This was a follow up to https://github.com/OP-TEE/optee_os/issues/6170 but eventually did not conclude as current change cannot work anymore with OP-TEE bumping to FF-A v1.1.\nJust for the record, atm any platform integrating the OP-TEE SPMC and attempting a cpu off hotplug leads to an optee crash.\n\n\u003e Currently we don\u0027t see when we will have time to start working on this. \n\nYes I get this.\n\n\u003e I would prefer to have compile time or run time configuration option to disable this feature in the SPMD.\n\nWe can try this, but note this would be an off spec option.",
+      "parentUuid": "3b82410f_c5274147",
+      "revId": "1c9b9e2b18763bff83ae731fdb776d12e8d0e19f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
