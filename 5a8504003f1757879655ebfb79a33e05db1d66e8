@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df442de1_2d9ca3f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 51
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-06T09:19:38Z",
+      "side": 1,
+      "message": "I seem to have lost my way a bit while reviewing this code as there are multiple things going on. Need to understand the current thinking before proceeding with review..",
+      "revId": "5a8504003f1757879655ebfb79a33e05db1d66e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf5f10a4_e4f827ea",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 51
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-06T09:19:38Z",
+      "side": 1,
+      "message": "Is this flag correct ?",
+      "range": {
+        "startLine": 122,
+        "startChar": 4,
+        "endLine": 122,
+        "endChar": 23
+      },
+      "revId": "5a8504003f1757879655ebfb79a33e05db1d66e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3635509_f4efe46c",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 51
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-06T09:19:38Z",
+      "side": 1,
+      "message": "Hmm, today we dont expect Realm world or SPM at S-EL2 to allow EA to be routed to EL3. But I suspect SPMC_AT_EL3 may route EA to EL3 and this code path need to be present even with HANDLE_EA_EL3_FIRST_NS \u003d\u003d 0.\n\nShould we remove the conditional compilation and let this be always present ?",
+      "range": {
+        "startLine": 184,
+        "startChar": 4,
+        "endLine": 184,
+        "endChar": 26
+      },
+      "revId": "5a8504003f1757879655ebfb79a33e05db1d66e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5461fdea_0d918aa6",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 51
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-06T09:19:38Z",
+      "side": 1,
+      "message": "\"...triggered due to implicit/explicit synchronizing in EL3 (and scr_el3.EA\u003d1).\"",
+      "range": {
+        "startLine": 188,
+        "startChar": 14,
+        "endLine": 188,
+        "endChar": 30
+      },
+      "revId": "5a8504003f1757879655ebfb79a33e05db1d66e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82ee87a6_e4c39fd0",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 51
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-06T09:19:38Z",
+      "side": 1,
+      "message": "\"...eret back to original EL3 handler...\".",
+      "range": {
+        "startLine": 192,
+        "startChar": 4,
+        "endLine": 192,
+        "endChar": 7
+      },
+      "revId": "5a8504003f1757879655ebfb79a33e05db1d66e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79a56c56_08e79ea2",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 51
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-06T09:19:38Z",
+      "side": 1,
+      "message": "\"...that may arise when handling this nested exception at EL3.\"",
+      "range": {
+        "startLine": 193,
+        "startChar": 15,
+        "endLine": 193,
+        "endChar": 22
+      },
+      "revId": "5a8504003f1757879655ebfb79a33e05db1d66e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b35655a1_0977d9c4",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 51
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-06T09:19:38Z",
+      "side": 1,
+      "message": "shouldn\u0027t we increment some flag to detect double fault , before we unmask EA ?",
+      "range": {
+        "startLine": 198,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 16
+      },
+      "revId": "5a8504003f1757879655ebfb79a33e05db1d66e8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
