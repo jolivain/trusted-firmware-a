@@ -87,6 +87,24 @@
       "parentUuid": "3b82410f_c5274147",
       "revId": "1c9b9e2b18763bff83ae731fdb776d12e8d0e19f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eca3602_a4373c02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-10-06T14:11:57Z",
+      "side": 1,
+      "message": "\u003e as mainline OP-TEE now declares itself as FF-A v1.1 compliant\n\nAny pointers for this info? The \"official\" manifest still sets 1.0: https://github.com/OP-TEE/build/blob/master/fvp/spmc_manifest.dts#L15C4-L15C4",
+      "parentUuid": "db05f346_66e9bff9",
+      "revId": "1c9b9e2b18763bff83ae731fdb776d12e8d0e19f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
