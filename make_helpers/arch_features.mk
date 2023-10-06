@@ -225,6 +225,9 @@ else ifeq (${ARCH},aarch32)
 	endif
 endif
 
+# Include MPAM registers as part of the cpu context
+CTX_INCLUDE_MPAM_REGS			?=	0
+
 # Include nested virtualization control (Armv8.4-NV) registers in cpu context.
 # This must be set to 1 if architecture implements Nested Virtualization
 # Extension and platform wants to use this feature in the Secure world.
