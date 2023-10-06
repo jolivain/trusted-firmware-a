@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a6dd0ca_a0f62062",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-06T14:18:04Z",
+      "side": 1,
+      "message": "${KEY_SIZE} , i.e. with curly braces.\n\nRight now, this incorrectly prints:\n\n drivers/auth/mbedtls/mbedtls_common.mk:99: *** Invalid value for KEY_SIZE: EY_SIZE.  Stop.",
+      "range": {
+        "startLine": 99,
+        "startChar": 49,
+        "endLine": 99,
+        "endChar": 57
+      },
+      "revId": "384e0a8d150cb843ae6f1f68299bb06165386408",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
