@@ -30,6 +30,7 @@ func bl2u_entrypoint
 	 * r0 is not currently used.
 	 * ---------------------------------------------
 	 */
+b .
 	mov	r11, r1
 	mov	r10, r2
 
