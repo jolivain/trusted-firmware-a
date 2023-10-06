@@ -346,6 +346,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ef92a60_0c2f868f",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44727006_fc28c212",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 26
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64d56c27_88ffa533",
@@ -369,6 +393,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a770c6e_1ffa62f4",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64d56c27_88ffa533",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 6
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dfa698e0_8ad50c77",
@@ -382,6 +430,24 @@
       "writtenOn": "2023-07-19T09:10:09Z",
       "side": 1,
       "message": "if you restore the original x30 here, then the current EL SError vector can do a `save_x30` and it can restore the value before coming back here.\n\nThen at line 164, you can do an save_x30 again.",
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96570bb2_fc850cd0",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfa698e0_8ad50c77",
       "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -890,6 +956,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11313952_af4ccaa6",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a8933da_964b2739",
+      "range": {
+        "startLine": 240,
+        "startChar": 11,
+        "endLine": 240,
+        "endChar": 18
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89c6ca59_e8757aa6",
@@ -903,6 +993,30 @@
       "writtenOn": "2023-07-18T16:09:39Z",
       "side": 1,
       "message": "same comment as above.",
+      "range": {
+        "startLine": 242,
+        "startChar": 11,
+        "endLine": 242,
+        "endChar": 18
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f166693_a828f2c9",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89c6ca59_e8757aa6",
       "range": {
         "startLine": 242,
         "startChar": 11,
@@ -977,6 +1091,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f3fbc89_6f22e442",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8ef2f2f6_178c2b63",
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5492a69_f3f1879c",
@@ -990,6 +1122,24 @@
       "writtenOn": "2023-07-18T16:09:39Z",
       "side": 1,
       "message": "/* If scr_el3.ea \u003d 1,  handle SError in firmware first */",
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dabea06_2e6328f5",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5492a69_f3f1879c",
       "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -1158,6 +1308,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "570804e8_dc4860fc",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "166e3a5d_74611632",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 58
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9c64923_bffaf042",
@@ -1181,6 +1355,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fac5e68_9bfd3d1e",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9c64923_bffaf042",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 12
+      },
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df59e908_5c00fbe0",
@@ -1194,6 +1392,24 @@
       "writtenOn": "2023-07-19T09:10:09Z",
       "side": 1,
       "message": "need to unmask PSTATE.A to detect double fault.",
+      "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2946846_e287bd14",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 35
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df59e908_5c00fbe0",
       "revId": "e2f58c5715663fa79ad8ebb515caec951bd7995d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }

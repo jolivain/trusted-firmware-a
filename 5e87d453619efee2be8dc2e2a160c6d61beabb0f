@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09a0b4c4_f2b553cf",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ac3a117_82198e0b",
+      "revId": "5e87d453619efee2be8dc2e2a160c6d61beabb0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c842bbf_31f00e0b",
@@ -84,6 +102,30 @@
       "writtenOn": "2023-05-30T09:13:46Z",
       "side": 1,
       "message": "the way I\u0027m reading this, all of these become a single logical \"thing\". Can\u0027t they be a single macro? The lost names can be comments to explain what\u0027s up",
+      "range": {
+        "startLine": 311,
+        "startChar": 1,
+        "endLine": 314,
+        "endChar": 10
+      },
+      "revId": "5e87d453619efee2be8dc2e2a160c6d61beabb0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89e45d53_8ea78e27",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9af9270f_db6c8810",
       "range": {
         "startLine": 311,
         "startChar": 1,

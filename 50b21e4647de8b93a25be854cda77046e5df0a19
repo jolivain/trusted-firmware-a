@@ -206,6 +206,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2988756f_88f0e033",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 31
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e84874a_296310c9",
+      "revId": "50b21e4647de8b93a25be854cda77046e5df0a19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "644df38b_6ab8c5b0",
@@ -301,6 +319,24 @@
       "writtenOn": "2023-07-13T16:02:30Z",
       "side": 1,
       "message": "if EA is synced and EA pends, then this will trigger when PSTATE.A\u003d 1. we will end of taking SError vector at current EL.",
+      "revId": "50b21e4647de8b93a25be854cda77046e5df0a19",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fe120b1_c10bb36a",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 31
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b8264be_1f7be960",
       "revId": "50b21e4647de8b93a25be854cda77046e5df0a19",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }

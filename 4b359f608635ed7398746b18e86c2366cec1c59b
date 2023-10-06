@@ -118,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae14a6ac_ac01a9af",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bee0d94d_6803b15f",
+      "range": {
+        "startLine": 133,
+        "startChar": 3,
+        "endLine": 133,
+        "endChar": 73
+      },
+      "revId": "4b359f608635ed7398746b18e86c2366cec1c59b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3a68794_e1659ec9",
@@ -155,6 +179,30 @@
       "side": 1,
       "message": "This is applicable to both FFH and KFH, as we are no longer using esb we need to reflect back to lower EL for SError",
       "parentUuid": "e3a68794_e1659ec9",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 151,
+        "endChar": 15
+      },
+      "revId": "4b359f608635ed7398746b18e86c2366cec1c59b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3845c1a_0c3dfdba",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af22150a_69705de1",
       "range": {
         "startLine": 142,
         "startChar": 0,
@@ -212,6 +260,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed37c2f7_52c23ecd",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b18c9595_5ad12e25",
+      "range": {
+        "startLine": 156,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 75
+      },
+      "revId": "4b359f608635ed7398746b18e86c2366cec1c59b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb4e374c_df818683",
@@ -259,6 +331,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e855f18a_c16b6241",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bafe254c_b574f17b",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 7
+      },
+      "revId": "4b359f608635ed7398746b18e86c2366cec1c59b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4d71c1a_02e65e47",
@@ -296,6 +392,30 @@
       "side": 1,
       "message": "mentioned in other comment.",
       "parentUuid": "f4d71c1a_02e65e47",
+      "range": {
+        "startLine": 57,
+        "startChar": 45,
+        "endLine": 57,
+        "endChar": 52
+      },
+      "revId": "4b359f608635ed7398746b18e86c2366cec1c59b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67a6bffe_c6f522f0",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 19
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "449d4521_8be17ee8",
       "range": {
         "startLine": 57,
         "startChar": 45,

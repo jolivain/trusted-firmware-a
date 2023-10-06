@@ -284,6 +284,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fda33078_3c0691a7",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5db8a8ea_bb116608",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f03421c6_79abc70a",
@@ -355,6 +373,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f2baf57_89365ee9",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f53d81a_eec8c285",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "794419ef_59fd3eef",
@@ -368,6 +404,24 @@
       "writtenOn": "2023-07-10T08:39:02Z",
       "side": 1,
       "message": "There is another stash and unstash of ESR_EL3 happening in this function. It would be worth analyzing whether this is enough to :\n\n1. Preserve the original ESR_EL3 once the nested EA handling is done.\n2. detect double fault cases.",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80fdbdff_e199a466",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "794419ef_59fd3eef",
       "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -457,6 +511,24 @@
       "side": 1,
       "message": "I guess i missed to update this change in patchset #28 \n\nIt should be cbz",
       "parentUuid": "d2c0fabf_408abaab",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4070ce42_83308a16",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 28
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "654c6115_3acc9f5b",
       "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -598,6 +670,24 @@
       "side": 1,
       "message": "I am using this for counter in KFH",
       "parentUuid": "9b3cd5e9_f4605492",
+      "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1ba8003_c6b05dc8",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-06T14:37:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ab20cf9_a1aa4252",
       "revId": "957a5ca128ab2ae0b2fed98773403d665b0bd87e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
