@@ -27,6 +27,7 @@ func bl31_entrypoint
 	 * Stash the previous bootloader arguments x0 - x3 for later use.
 	 * ---------------------------------------------------------------
 	 */
+b $
 	mov	x20, x0
 	mov	x21, x1
 	mov	x22, x2

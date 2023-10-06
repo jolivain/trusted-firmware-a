@@ -29,6 +29,7 @@ func bl2_entrypoint
 	 * use.
 	 * ---------------------------------------------
 	 */
+b $
 	mov	r9, r0
 	mov	r10, r1
 	mov	r11, r2

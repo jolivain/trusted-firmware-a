@@ -26,6 +26,7 @@ func bl1_entrypoint
 	 * boot mailbox mechanism.
 	 * ---------------------------------------------------------------------
 	 */
+b $
 	el3_entrypoint_common					\
 		_init_sctlr=1					\
 		_warm_boot_mailbox=!PROGRAMMABLE_RESET_ADDRESS	\

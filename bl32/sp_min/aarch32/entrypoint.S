@@ -66,6 +66,7 @@ func sp_min_entrypoint
 	 * Stash the previous bootloader arguments r0 - r3 for later use.
 	 * ---------------------------------------------------------------
 	 */
+b $
 	mov	r9, r0
 	mov	r10, r1
 	mov	r11, r2
