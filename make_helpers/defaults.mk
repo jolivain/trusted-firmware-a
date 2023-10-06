@@ -367,3 +367,7 @@ PSA_CRYPTO			:= 0
 # Disabled by default because it constitutes an attack vector into TF-A. It
 # should only be enabled if there is a use case for it.
 ENABLE_CONSOLE_GETC		:= 0
+
+# Disable including MPAM registers in context by default since currently
+# it's only enabled for NS world
+CTX_INCLUDE_MPAM_REGS		:= 0
