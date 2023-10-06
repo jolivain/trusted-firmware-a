@@ -207,18 +207,6 @@
 // Only if MTE registers in use
 #define CTX_TFSR_EL2		U(0x100)
 
-#define CTX_MPAM2_EL2		U(0x108)
-#define CTX_MPAMHCR_EL2		U(0x110)
-#define CTX_MPAMVPM0_EL2	U(0x118)
-#define CTX_MPAMVPM1_EL2	U(0x120)
-#define CTX_MPAMVPM2_EL2	U(0x128)
-#define CTX_MPAMVPM3_EL2	U(0x130)
-#define CTX_MPAMVPM4_EL2	U(0x138)
-#define CTX_MPAMVPM5_EL2	U(0x140)
-#define CTX_MPAMVPM6_EL2	U(0x148)
-#define CTX_MPAMVPM7_EL2	U(0x150)
-#define CTX_MPAMVPMV_EL2	U(0x158)
-
 // Starting with Armv8.6
 #define CTX_HDFGRTR_EL2		U(0x160)
 #define CTX_HAFGRTR_EL2		U(0x168)
@@ -375,6 +363,9 @@
 #if CTX_INCLUDE_PAUTH_REGS
 # define CTX_PAUTH_REGS_ALL	(CTX_PAUTH_REGS_END >> DWORD_SHIFT)
 #endif
+#if CTX_INCLUDE_MPAM_REGS
+# define CTX_MPAM_REGS_ALL	(CTX_MPAM_REGS_END >> DWORD_SHIFT)
+#endif
 
 /*
  * AArch64 general purpose register context structure. Usually x0-x18,
@@ -423,6 +414,11 @@ DEFINE_REG_STRUCT(cve_2018_3639, CTX_CVE_2018_3639_ALL);
 DEFINE_REG_STRUCT(pauth, CTX_PAUTH_REGS_ALL);
 #endif
 
+/* Registers associated to ARMv8.2 MPAM */
+#if CTX_INCLUDE_MPAM_REGS
+DEFINE_REG_STRUCT(mpam, CTX_MPAM_REGS_ALL);
+#endif
+
 /*
  * Macros to access members of any of the above structures using their
  * offsets
@@ -453,6 +449,9 @@ typedef struct cpu_context {
 #if CTX_INCLUDE_PAUTH_REGS
 	pauth_t pauth_ctx;
 #endif
+#if CTX_INCLUDE_MPAM_REGS
+	mpam_t	mpam_ctx;
+#endif
 } cpu_context_t;
 
 /*
@@ -481,6 +480,9 @@ extern per_world_context_t per_world_context[CPU_DATA_CONTEXT_NUM];
 #if CTX_INCLUDE_PAUTH_REGS
 # define get_pauth_ctx(h)	(&((cpu_context_t *) h)->pauth_ctx)
 #endif
+#if CTX_INCLUDE_MPAM_REGS
+# define get_mpam_ctx(h)	(&((cpu_context_t *) h)->mpam_ctx)
+#endif
 
 /*
  * Compile time assertions related to the 'cpu_context' structure to
@@ -506,6 +508,10 @@ CASSERT(CTX_CVE_2018_3639_OFFSET == __builtin_offsetof(cpu_context_t, cve_2018_3
 #if CTX_INCLUDE_PAUTH_REGS
 CASSERT(CTX_PAUTH_REGS_OFFSET == __builtin_offsetof(cpu_context_t, pauth_ctx),
 	assert_core_context_pauth_offset_mismatch);
+#endif
+#if CTX_INCLUDE_MPAM_REGS
+CASSERT(CTX_MPAM_REGS_OFFSET == __builtin_offsetof(cpu_context_t, mpam_ctx),
+	assert_core_context_mpam_offset_mismatch);
 #endif
 
 /*
