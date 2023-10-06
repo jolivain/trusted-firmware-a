@@ -51,6 +51,24 @@
       "parentUuid": "4c95b27f_b8532cd0",
       "revId": "1c9b9e2b18763bff83ae731fdb776d12e8d0e19f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b82410f_c5274147",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000018
+      },
+      "writtenOn": "2023-10-06T12:23:11Z",
+      "side": 1,
+      "message": "Power management support is sitting on our future roadmap for a long time. Currently we don\u0027t see when we will have time to start working on this. I would prefer to have compile time or run time configuration option to disable this feature in the SPMD.",
+      "parentUuid": "bf78c421_3144056e",
+      "revId": "1c9b9e2b18763bff83ae731fdb776d12e8d0e19f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
