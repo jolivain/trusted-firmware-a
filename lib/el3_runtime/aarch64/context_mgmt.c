@@ -482,7 +482,7 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 	}
 #endif /* (IMAGE_BL31 && defined(SPD_spmd) && SPMD_SPM_AT_SEL2) */
 
-	if(is_feat_mpam_supported()) {
+	if (is_feat_mpam_supported()) {
 		write_ctx_reg(get_el3state_ctx(ctx), CTX_MPAM3_EL3, \
 				MPAM3_EL3_RESET_VAL);
 	}
@@ -967,6 +967,8 @@ static void el2_sysregs_context_restore_fgt(el2_sysregs_t *ctx)
 	write_hfgwtr_el2(read_ctx_reg(ctx, CTX_HFGWTR_EL2));
 }
 
+#if CTX_INCLUDE_MPAM_REGS
+
 static void el2_sysregs_context_save_mpam(el2_sysregs_t *ctx)
 {
 	u_register_t mpam_idr = read_mpamidr_el1();
@@ -1018,6 +1020,9 @@ static void el2_sysregs_context_save_mpam(el2_sysregs_t *ctx)
 	}
 }
 
+#endif /* CTX_INCLUDE_MPAM_REGS */
+
+#if CTX_INCLUDE_MPAM_REGS
 static void el2_sysregs_context_restore_mpam(el2_sysregs_t *ctx)
 {
 	u_register_t mpam_idr = read_mpamidr_el1();
@@ -1056,6 +1061,7 @@ static void el2_sysregs_context_restore_mpam(el2_sysregs_t *ctx)
 		break;
 	}
 }
+#endif /* CTX_INCLUDE_MPAM_REGS */
 
 /* -----------------------------------------------------
  * The following registers are not added:
@@ -1183,9 +1189,12 @@ void cm_el2_sysregs_context_save(uint32_t security_state)
 #if CTX_INCLUDE_MTE_REGS
 	write_ctx_reg(el2_sysregs_ctx, CTX_TFSR_EL2, read_tfsr_el2());
 #endif
+
+#if CTX_INCLUDE_MPAM_REGS
 	if (is_feat_mpam_supported()) {
 		el2_sysregs_context_save_mpam(el2_sysregs_ctx);
 	}
+#endif
 
 	if (is_feat_fgt_supported()) {
 		el2_sysregs_context_save_fgt(el2_sysregs_ctx);
@@ -1256,9 +1265,12 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 #if CTX_INCLUDE_MTE_REGS
 	write_tfsr_el2(read_ctx_reg(el2_sysregs_ctx, CTX_TFSR_EL2));
 #endif
+
+#if CTX_INCLUDE_MPAM_REGS
 	if (is_feat_mpam_supported()) {
 		el2_sysregs_context_restore_mpam(el2_sysregs_ctx);
 	}
+#endif
 
 	if (is_feat_fgt_supported()) {
 		el2_sysregs_context_restore_fgt(el2_sysregs_ctx);
