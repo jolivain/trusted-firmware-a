@@ -51,6 +51,7 @@
 	.endm
 
 func tsp_entrypoint _align=3
+b .
 
 #if ENABLE_PIE
 		/*

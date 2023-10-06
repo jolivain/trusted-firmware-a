@@ -18,6 +18,7 @@ func bl2u_entrypoint
 	 * for future use. x0 is currently not used.
 	 * ---------------------------------------------
 	 */
+b .
 	mov	x20, x1
 	mov	x21, x2
 

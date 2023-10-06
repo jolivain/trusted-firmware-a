@@ -256,6 +256,7 @@ void bl1_print_next_bl_ep_info(const entry_point_info_t *bl_ep_info)
 {
 	NOTICE("BL1: Booting BL31\n");
 	print_entry_point_info(bl_ep_info);
+while (1);
 }
 
 #if SPIN_ON_BL1_EXIT
