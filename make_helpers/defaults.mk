@@ -356,3 +356,7 @@ CONDITIONAL_CMO			:= 0
 
 # By default, disable SPMD Logical partitions
 ENABLE_SPMD_LP			:= 0
+
+# Disable including MPAM registers in context by default since currently
+# it's only enabled for NS world
+CTX_INCLUDE_MPAM_REGS		:= 0
