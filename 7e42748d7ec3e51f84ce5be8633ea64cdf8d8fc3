@@ -16,6 +16,24 @@
       "message": "#if CTX_INCLUDE_MPAM_REGS (default 0)",
       "revId": "7e42748d7ec3e51f84ce5be8633ea64cdf8d8fc3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b93aa81_0b65e3f7",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-10-06T21:21:29Z",
+      "side": 1,
+      "message": "Added as a seperate patch(https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/23895)",
+      "parentUuid": "0b30db9a_d967cf9b",
+      "revId": "7e42748d7ec3e51f84ce5be8633ea64cdf8d8fc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
