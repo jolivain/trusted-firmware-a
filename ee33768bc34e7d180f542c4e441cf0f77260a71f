@@ -160,6 +160,24 @@
       "parentUuid": "e4750879_431e9a81",
       "revId": "ee33768bc34e7d180f542c4e441cf0f77260a71f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68528bd1_40a09b6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2023-10-07T06:58:03Z",
+      "side": 1,
+      "message": "This patch already able to work with mainline kernel by provide all the SMC/PSCI interface needed. And follow up patch may update features need by new kernel requirement.",
+      "parentUuid": "a3003e7e_fc4d5ef3",
+      "revId": "ee33768bc34e7d180f542c4e441cf0f77260a71f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
