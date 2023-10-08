@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a21726b3_1c24b748",
+        "filename": "plat/rockchip/rk3588/drivers/pmu/pm_pd_regs.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b9cffc5_c7e19b9a",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40b8fe82_7d2294cf",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "ret \u003d\u003d 0",
+      "range": {
+        "startLine": 452,
+        "startChar": 7,
+        "endLine": 452,
+        "endChar": 10
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c12a2f6_ee76560c",
+        "filename": "plat/rockchip/rk3588/drivers/pmu/pmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40b8fe82_7d2294cf",
       "range": {
         "startLine": 452,
         "startChar": 7,
@@ -58,6 +100,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91713154_d1c3c273",
+        "filename": "plat/rockchip/rk3588/drivers/pmu/pmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8689072_f464c084",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e4dd035_9b161f3e",
@@ -75,6 +135,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5885f05_232b14a3",
+        "filename": "plat/rockchip/rk3588/drivers/pmu/pmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e4dd035_9b161f3e",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81d6bf65_939f4243",
@@ -88,6 +166,24 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "(ddr_data.pmu_pd_st0 \u0026 BIT(PD_CRYPTO)) \u003d\u003d 0",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f8c716f_12380a1c",
+        "filename": "plat/rockchip/rk3588/drivers/pmu/pmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81d6bf65_939f4243",
       "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -115,6 +211,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e8748b5_086e29d3",
+        "filename": "plat/rockchip/rk3588/drivers/pmu/pmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c9bc5f6_62b82e18",
+      "range": {
+        "startLine": 707,
+        "startChar": 6,
+        "endLine": 707,
+        "endChar": 44
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64244c90_3dcddbf4",
@@ -132,6 +252,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16ead97e_293680ef",
+        "filename": "plat/rockchip/rk3588/drivers/pmu/pmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64244c90_3dcddbf4",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df874a4e_ee390688",
@@ -145,6 +283,30 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "pmu_power_domain_st(PD_DDR01) \u003d\u003d 0",
+      "range": {
+        "startLine": 885,
+        "startChar": 6,
+        "endLine": 885,
+        "endChar": 35
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0f31b2d_7577faab",
+        "filename": "plat/rockchip/rk3588/drivers/pmu/pmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 885,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df874a4e_ee390688",
       "range": {
         "startLine": 885,
         "startChar": 6,
@@ -178,6 +340,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f4b22f6_ed61eed9",
+        "filename": "plat/rockchip/rk3588/drivers/pmu/pmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 909,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c36d7277_42a9da66",
+      "range": {
+        "startLine": 909,
+        "startChar": 6,
+        "endLine": 909,
+        "endChar": 35
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "279c2a48_ca17490f",
@@ -191,6 +377,30 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "pmu_power_domain_st(PD_DDR01) \u003d\u003d 0",
+      "range": {
+        "startLine": 949,
+        "startChar": 6,
+        "endLine": 949,
+        "endChar": 35
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dd42bda_0a55519e",
+        "filename": "plat/rockchip/rk3588/drivers/pmu/pmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "279c2a48_ca17490f",
       "range": {
         "startLine": 949,
         "startChar": 6,
@@ -224,6 +434,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "309f9ef9_363810e5",
+        "filename": "plat/rockchip/rk3588/drivers/pmu/pmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3372a8d0_e5f2f4d2",
+      "range": {
+        "startLine": 964,
+        "startChar": 6,
+        "endLine": 964,
+        "endChar": 35
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b16c6f6_005f48d8",
@@ -237,6 +471,30 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "mmio_read_32(pll_base + CRU_PLL_CON(1)) \u0026 CRU_PLLCON1_PWRDOWN !\u003d 0",
+      "range": {
+        "startLine": 1384,
+        "startChar": 5,
+        "endLine": 1384,
+        "endChar": 66
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "422a5e64_64724141",
+        "filename": "plat/rockchip/rk3588/drivers/pmu/pmu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1384,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b16c6f6_005f48d8",
       "range": {
         "startLine": 1384,
         "startChar": 5,
@@ -264,6 +522,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "937dd097_9ecdcaaf",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7b419e9_8241a327",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "431b7cbe_d4157013",
@@ -277,6 +553,30 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "Should be boolean expression rate \u003d\u003d 0",
+      "range": {
+        "startLine": 308,
+        "startChar": 6,
+        "endLine": 308,
+        "endChar": 10
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f91d933_e5f00140",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "431b7cbe_d4157013",
       "range": {
         "startLine": 308,
         "startChar": 6,
@@ -310,6 +610,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df38057a_dbbb9f9a",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c22bacb5_5c5ed3c3",
+      "range": {
+        "startLine": 317,
+        "startChar": 5,
+        "endLine": 317,
+        "endChar": 38
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56144718_90637cd7",
@@ -327,6 +651,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4067c63c_21acec3f",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56144718_90637cd7",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "234233a8_85e93f6a",
@@ -340,6 +682,30 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "ret \u003d\u003d 0",
+      "range": {
+        "startLine": 371,
+        "startChar": 6,
+        "endLine": 371,
+        "endChar": 9
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cb7e0fa_d8fdc6ae",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "234233a8_85e93f6a",
       "range": {
         "startLine": 371,
         "startChar": 6,
@@ -420,6 +786,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "589013ea_1e9f9afd",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76324201_0165ad50",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8d8dc6e_480cc4f3",
@@ -433,6 +817,30 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "static boolean should not be set to false",
+      "range": {
+        "startLine": 456,
+        "startChar": 1,
+        "endLine": 456,
+        "endChar": 30
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d0751a5_ce0d02d3",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8d8dc6e_480cc4f3",
       "range": {
         "startLine": 456,
         "startChar": 1,
@@ -466,6 +874,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31f77944_a2d13bcf",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "401bfd0c_a10d11d5",
+      "range": {
+        "startLine": 458,
+        "startChar": 5,
+        "endLine": 458,
+        "endChar": 22
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bf75e470_18b42151",
@@ -483,6 +915,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d62ce7c_b1774a1c",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf75e470_18b42151",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69927a1c_e7a7006f",
@@ -496,6 +946,30 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "rate \u003d\u003d 0",
+      "range": {
+        "startLine": 539,
+        "startChar": 6,
+        "endLine": 539,
+        "endChar": 10
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb01268b_d75389ae",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69927a1c_e7a7006f",
       "range": {
         "startLine": 539,
         "startChar": 6,
@@ -529,6 +1003,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd95c534_69a6c476",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 543,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed086e93_b6221760",
+      "range": {
+        "startLine": 543,
+        "startChar": 6,
+        "endLine": 543,
+        "endChar": 9
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56d56fd3_5a52d390",
@@ -542,6 +1040,30 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "k !\u003d 0",
+      "range": {
+        "startLine": 577,
+        "startChar": 5,
+        "endLine": 577,
+        "endChar": 6
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "411d0ecc_b580ed9e",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56d56fd3_5a52d390",
       "range": {
         "startLine": 577,
         "startChar": 5,
@@ -575,6 +1097,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d537322_99d966da",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18fa3744_a1475e73",
+      "range": {
+        "startLine": 625,
+        "startChar": 1,
+        "endLine": 625,
+        "endChar": 30
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c8c7a38_558904f4",
@@ -592,6 +1138,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32c56ec5_4eebceaa",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c8c7a38_558904f4",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2456d94_2d6024c3",
@@ -605,6 +1169,30 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "rate \u003d\u003d 0",
+      "range": {
+        "startLine": 646,
+        "startChar": 6,
+        "endLine": 646,
+        "endChar": 10
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5a0a914_cade5a95",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2456d94_2d6024c3",
       "range": {
         "startLine": 646,
         "startChar": 6,
@@ -638,6 +1226,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfd79eef_45707c72",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0566f1d5_3e011c53",
+      "range": {
+        "startLine": 708,
+        "startChar": 6,
+        "endLine": 708,
+        "endChar": 10
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "988c3fda_b07622d7",
@@ -651,6 +1263,30 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "ret \u003d\u003d 0",
+      "range": {
+        "startLine": 712,
+        "startChar": 6,
+        "endLine": 712,
+        "endChar": 9
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2add08b_c7467734",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 712,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "988c3fda_b07622d7",
       "range": {
         "startLine": 712,
         "startChar": 6,
@@ -678,6 +1314,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e47233e8_13f2e80a",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 746,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f1bae81_6b44329d",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a913d07d_ff07b3ee",
@@ -691,6 +1345,30 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "src !\u003d 0",
+      "range": {
+        "startLine": 797,
+        "startChar": 5,
+        "endLine": 797,
+        "endChar": 8
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e50e29f_dcbbd770",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a913d07d_ff07b3ee",
       "range": {
         "startLine": 797,
         "startChar": 5,
@@ -724,6 +1402,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "006da071_702428f2",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93466261_b7df61d0",
+      "range": {
+        "startLine": 821,
+        "startChar": 1,
+        "endLine": 821,
+        "endChar": 29
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "637ed599_8b6182ad",
@@ -741,6 +1443,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbcda8f1_cc0099ec",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 845,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "637ed599_8b6182ad",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ac74b02_57440141",
@@ -754,6 +1474,30 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "rate \u003d\u003d 0",
+      "range": {
+        "startLine": 900,
+        "startChar": 6,
+        "endLine": 900,
+        "endChar": 10
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "580c9d01_9312ad77",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ac74b02_57440141",
       "range": {
         "startLine": 900,
         "startChar": 6,
@@ -787,6 +1531,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c53ed3e_e576b0ab",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8896598b_7c228f2e",
+      "range": {
+        "startLine": 905,
+        "startChar": 6,
+        "endLine": 905,
+        "endChar": 9
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88c0c12f_22b31f83",
@@ -800,6 +1568,24 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "mmio_read_32(CRU_BASE + CRU_CLKSEL_CON(158)) \u0026 0x4000 !\u003d 0",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dbe6d36_b1371061",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88c0c12f_22b31f83",
       "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -821,6 +1607,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1adf5af5_420b1018",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6219c244_cb5fbaa0",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27e2b1f2_d7add7e4",
@@ -834,6 +1638,24 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "ret \u003d\u003d 0",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35f8656a_fbf2bf15",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1002,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27e2b1f2_d7add7e4",
       "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -855,6 +1677,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51ed2626_6a9d54ec",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1017,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54d0bc91_b7955212",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2102b93_a8ba2866",
@@ -868,6 +1708,24 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "sys_clk_info.npu_rate !\u003d 0",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d929320c_5d889a4d",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1027,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2102b93_a8ba2866",
       "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -889,6 +1747,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a5d0296_9c2c0e9b",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1097,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64feeada_d689068a",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44eefc15_00615a6f",
@@ -902,6 +1778,24 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "ret \u003d\u003d 0",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fb7b351_b04cd230",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44eefc15_00615a6f",
       "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -923,6 +1817,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b1139ea_75dfe201",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89fb3c81_de76b8a3",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0eb92a0b_d12ef238",
@@ -940,6 +1852,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7db09286_069b0c83",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eb92a0b_d12ef238",
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a025c20_421cf7a0",
@@ -953,6 +1883,30 @@
       "writtenOn": "2023-07-18T15:38:47Z",
       "side": 1,
       "message": "(mmio_read_32(TIMER_HP_BASE + TIMER_HP_CTRL) \u0026 0x1) !\u003d 0",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 53,
+        "endChar": 54
+      },
+      "revId": "d247b8bb2f1dfb30533389cc5516e0d149c50824",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f19dd83c_220d629b",
+        "filename": "plat/rockchip/rk3588/drivers/soc/soc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T06:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a025c20_421cf7a0",
       "range": {
         "startLine": 53,
         "startChar": 5,
