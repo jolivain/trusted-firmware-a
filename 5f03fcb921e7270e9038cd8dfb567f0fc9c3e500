@@ -69,6 +69,42 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07dfd2a5_30553a28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T04:25:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a28051d_f59165ca",
+      "revId": "5f03fcb921e7270e9038cd8dfb567f0fc9c3e500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05438847_fc6160e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T04:25:15Z",
+      "side": 1,
+      "message": "The boot flow in the document is still accurate.",
+      "parentUuid": "8c7d2a73_210b83f2",
+      "revId": "5f03fcb921e7270e9038cd8dfb567f0fc9c3e500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "557f7733_6e080fb5",
@@ -86,6 +122,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d869305e_170c7603",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/plat_scmi_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T04:25:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "557f7733_6e080fb5",
+      "revId": "5f03fcb921e7270e9038cd8dfb567f0fc9c3e500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9bc5c03f_fddb3805",
@@ -99,6 +153,24 @@
       "writtenOn": "2023-10-03T09:27:39Z",
       "side": 1,
       "message": "why not ``#define SMT_BUFFER0_BASE SCMI_SHARE_MEM_BASE`` directly?",
+      "revId": "5f03fcb921e7270e9038cd8dfb567f0fc9c3e500",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a333f4d8_7ad3bff4",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/plat_scmi_def.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-10-08T04:25:15Z",
+      "side": 1,
+      "message": "SMT_BUFFER_BASE is the base of all SMT_BUFFERX_BASE",
+      "parentUuid": "9bc5c03f_fddb3805",
       "revId": "5f03fcb921e7270e9038cd8dfb567f0fc9c3e500",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
