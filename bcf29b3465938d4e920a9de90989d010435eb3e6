@@ -53,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5ce77b1_f67b6bad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 56
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "Which logic you are talking about? BTW we agreed not to use esb to avoid consuming the error",
+      "parentUuid": "c34cce49_d43aa43a",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9300bc38_d8206ecc",
@@ -66,6 +84,24 @@
       "writtenOn": "2023-10-09T07:04:08Z",
       "side": 1,
       "message": "#if RAS_FFH_SUPPORT",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "060ef761_b47c7ad0",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "I am planning to push a refactoring patch to not include ea_delegate file at all  if FFH support is not there",
+      "parentUuid": "9300bc38_d8206ecc",
       "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -93,6 +129,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b92c25fd_31149faf",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "11c3a5bf_bb2961dd",
+      "range": {
+        "startLine": 154,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 26
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77b0f980_394684cb",
@@ -106,6 +166,24 @@
       "writtenOn": "2023-10-09T07:04:08Z",
       "side": 1,
       "message": "Checks for uncontainable can be under FEAT_RAS. \n\nThis function itself can be under RAS_FFH_SUPPORT.",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8902303_bcdfef5d",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "Can be included in re-factoring patch",
+      "parentUuid": "77b0f980_394684cb",
       "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -133,6 +211,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7681b6a8_5bd65387",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "dbba3cdf_66fedbbc",
+      "range": {
+        "startLine": 327,
+        "startChar": 4,
+        "endLine": 327,
+        "endChar": 19
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "936fd8b8_f5f37fb9",
@@ -146,6 +248,24 @@
       "writtenOn": "2023-10-09T07:04:08Z",
       "side": 1,
       "message": "#if RAS_FFH_SUPPORT.",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c287e2a_7ebe3a95",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "936fd8b8_f5f37fb9",
       "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -197,6 +317,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "416afde4_edd6ec0a",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3786f429_60e5b817",
+      "range": {
+        "startLine": 380,
+        "startChar": 1,
+        "endLine": 393,
+        "endChar": 32
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a474422_4f9233ae",
@@ -210,6 +354,24 @@
       "writtenOn": "2023-10-09T06:20:38Z",
       "side": 1,
       "message": "This is a good place to unmask A",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a41ba749_42f056c9",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "As discussed it has now been moved.",
+      "parentUuid": "9a474422_4f9233ae",
       "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -231,6 +393,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f67f585_98f94fc6",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "not needed",
+      "parentUuid": "8d6554d6_4d4cd40e",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8085e4ec_1c256e0e",
@@ -244,6 +424,30 @@
       "writtenOn": "2023-10-09T06:20:38Z",
       "side": 1,
       "message": "RAS_FFH_SUPPORT",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "432b08e9_2747c79a",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8085e4ec_1c256e0e",
       "range": {
         "startLine": 64,
         "startChar": 4,
@@ -277,6 +481,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fb4076f_ea469c7f",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "I would prefer to keep macro name without RAS in exception handling(because handle EA EL3 first can happen with or without RAS extension). When we get a situation where Secure/Realm wants FFH we can either || the condition or rename this macro and remove _NS (similar to various feature renaming planned)",
+      "parentUuid": "4e0be592_7d8f9061",
+      "range": {
+        "startLine": 184,
+        "startChar": 4,
+        "endLine": 184,
+        "endChar": 26
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6600f344_32254acd",
@@ -290,6 +518,30 @@
       "writtenOn": "2023-10-09T06:20:38Z",
       "side": 1,
       "message": "can check for SAVED_ESR to differentiate this condition.",
+      "range": {
+        "startLine": 197,
+        "startChar": 38,
+        "endLine": 197,
+        "endChar": 56
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8216e0d6_cb351cea",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "I would like to avoid use of SAVED_ESR (similar to what we have done for ESR earlier) to create a confusion. There is a separate patch introduce a multi purpose and save memory \nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/23038",
+      "parentUuid": "6600f344_32254acd",
       "range": {
         "startLine": 197,
         "startChar": 38,
@@ -323,6 +575,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4412a934_c1e956ae",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2636c716_43a0c26b",
+      "range": {
+        "startLine": 200,
+        "startChar": 1,
+        "endLine": 200,
+        "endChar": 16
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0bd9ea1_62e10c07",
@@ -336,6 +612,24 @@
       "writtenOn": "2023-10-09T06:20:38Z",
       "side": 1,
       "message": "Can this be under RAS_FFH_SUPPORT since we dont expect these vectors to be used if SCR_EL3.EA \u003d 0 ?",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33bbc1d5_3f72d68d",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "Exception vector has nothing to do with RAS and i wanted to keep it this file clean of any RAS specific macro. It will be a programming error if this vector is hit with SCR_EL3.EA \u003d 0. It will eventually panic and die without any proper handler.",
+      "parentUuid": "e0bd9ea1_62e10c07",
       "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -357,6 +651,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "958d7d6a_9ffb88e9",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d35978f3_78172480",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bfc2d5f8_6cce0b84",
@@ -374,6 +686,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d3f8215_18f07c35",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 56
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "Its mentioned in detail at place of usage, let me know if you need it here",
+      "parentUuid": "bfc2d5f8_6cce0b84",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a1c1513_30d6ba07",
@@ -387,6 +717,30 @@
       "writtenOn": "2023-10-09T06:20:38Z",
       "side": 1,
       "message": "This flag can be avoided for FFH. For KFH we need a loop counter for which we can reuse one of the fields below.",
+      "range": {
+        "startLine": 68,
+        "startChar": 8,
+        "endLine": 68,
+        "endChar": 27
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bbb03a6_4ed07f52",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 56
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "\u003e For KFH we need a loop counter for which we can reuse one of the fields below.\nWhich flag?\n\nBTW, i have plans to free up some space in el3 context, https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/23038",
+      "parentUuid": "9a1c1513_30d6ba07",
       "range": {
         "startLine": 68,
         "startChar": 8,
@@ -420,6 +774,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f67212ad_f384e7cc",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 56
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "30c05339_71f70f07",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 26
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19c19fae_0c2cae08",
@@ -433,6 +811,30 @@
       "writtenOn": "2023-10-09T06:20:38Z",
       "side": 1,
       "message": "This can be re-used as reflect loop counter for KFH to save memory.\nRename as \n\nCTX_LOOP_CTR_OR_SAVED_ESR_EL3",
+      "range": {
+        "startLine": 70,
+        "startChar": 9,
+        "endLine": 70,
+        "endChar": 27
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea803461_267ae566",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 56
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-09T15:24:25Z",
+      "side": 1,
+      "message": "Its under FFH macro, we can\u0027t use them",
+      "parentUuid": "19c19fae_0c2cae08",
       "range": {
         "startLine": 70,
         "startChar": 9,
