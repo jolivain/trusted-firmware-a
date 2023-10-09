@@ -1,0 +1,251 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef7901a3_0bd44608",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-09T13:28:56Z",
+      "side": 1,
+      "message": "(minor) Maximum",
+      "range": {
+        "startLine": 31,
+        "startChar": 3,
+        "endLine": 31,
+        "endChar": 9
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01c16e5c_599af2e4",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-09T13:28:56Z",
+      "side": 1,
+      "message": "In v4, this was:\n\n #if TF_MBEDTLS_ECDSA || TF_MBEDTLS_RSA_AND_ECDSA\n \nWhy did you change it in v5? What difference does it make?",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 49
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e24cfb8c_f376fc86",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-09T13:28:56Z",
+      "side": 1,
+      "message": "mbedTLS library provides a `mbedtls_pk_parse_subpubkey()` function, which seems to do the same thing. Can\u0027t we use it, rather than implementing our own?",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 43
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02e1c16c_d0e6fae6",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-09T13:28:56Z",
+      "side": 1,
+      "message": "We need to capture the return value of mbedtls_asn1_get_alg() into rc variable.",
+      "range": {
+        "startLine": 196,
+        "startChar": 1,
+        "endLine": 196,
+        "endChar": 62
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16ba56a7_c3fdca3e",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-09T13:28:56Z",
+      "side": 1,
+      "message": "I\u0027d like to check my understanding with you.\n\nLines 195 - 207 are trying to decode the following ASN.1 sequence:\n\n    AlgorithmIdentifier  ::\u003d  SEQUENCE  {\n      algorithm               OBJECT IDENTIFIER,\n      parameters              ANY DEFINED BY algorithm OPTIONAL\n    }\n\nParameters are specific to each key algo. For ECDSA keys, the document [1] provide the details:\n\n    EcpkParameters ::\u003d CHOICE {\n      ecParameters  ECParameters,\n      namedCurve    OBJECT IDENTIFIER,\n      implicitlyCA  NULL }\n\nLooking at line 201, we only support the namedCurve option, which means the parameters are implicitly included through reference to a \"named curve\".\n\nIs my understanding correct? If yes, what was the motivation for not supporting the cases where the parameters are inherited from the issuer and where parameters are explicitly included in the certificate? Are we sure we will not encounter certificates with these?\n\n[1] https://datatracker.ietf.org/doc/html/rfc3279#page-13",
+      "range": {
+        "startLine": 201,
+        "startChar": 1,
+        "endLine": 201,
+        "endChar": 42
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c22ff82_28234a24",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-09T13:28:56Z",
+      "side": 1,
+      "message": "In the event where (alg_params.tag !\u003d MBEDTLS_ASN1_OID) (see line 201), the grp_id variable passed to mbedtls_ecc_group_to_psa() function here would be uninitialized and we\u0027d get an undefined psa_ecc_family value back.\n\n* Either we need to return CRYPTO_ERR_SIGNATURE in the event where (alg_params.tag !\u003d MBEDTLS_ASN1_OID)\n* Or we need to set an initial value for the grp_id variable when defining it at line 180.\n\nI feel we want to enforce the former.",
+      "range": {
+        "startLine": 207,
+        "startChar": 44,
+        "endLine": 207,
+        "endChar": 50
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73acddfa_b2b71cfe",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-09T13:28:56Z",
+      "side": 1,
+      "message": "mbedtls library documentation says the following about mbedtls_ecc_group_to_psa() function:\n\n\u003e This function is provided solely for the convenience of Mbed TLS and may be removed at any time without notice.\n\nThis looks fragile for us to use this in TF-A. Do you know of any alternative way of retrieving this information, which would be more stable and future-proof?",
+      "range": {
+        "startLine": 207,
+        "startChar": 19,
+        "endLine": 207,
+        "endChar": 43
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5336eb46_92b2cee2",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-09T13:28:56Z",
+      "side": 1,
+      "message": "If I am not mistaken, this computation relies on the absence of padding at the end of the public key buffer. IOW, it relies on the SubjectPublicKeyInfo Sequence to occupy all `*pk_len` bytes.\n\nHowever, I do not believe we necessarily have this guarantee... The first call to `mbedtls_asn1_get_tag()` at line 188 only enforces that the SubjectPublicKeyInfo Sequence occupies _at most_ `*pk_len` bytes, but it could be less. IOW the `len` value obtained as a result of line 188 might be less than `*pk_len`.\n\n* Either we need to check that there is no padding at the end of the SubjectPublicKeyInfo Sequence (`pk_ptr + len \u003d\u003d pk_end` after the call line 188).\n\n* Or maybe change the computation at line 109.",
+      "range": {
+        "startLine": 209,
+        "startChar": 1,
+        "endLine": 209,
+        "endChar": 58
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89729d4b_2e25216e",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-09T13:28:56Z",
+      "side": 1,
+      "message": "It would be useful to put for reference in this comment the ASN.1 encoding of what we are trying to parse:\n\n```\nEcdsa-Sig-Value  ::\u003d  SEQUENCE  {\n  r     INTEGER,\n  s     INTEGER\n}\n```",
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e273354_36f2af5e",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-09T13:28:56Z",
+      "side": 1,
+      "message": "Can\u0027t we use mbedtls_asn1_get_int() instead?",
+      "range": {
+        "startLine": 246,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 28
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdd9ab37_8e18f82e",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-09T13:28:56Z",
+      "side": 1,
+      "message": "(minor) Truncate line to 80 columns.",
+      "range": {
+        "startLine": 350,
+        "startChar": 61,
+        "endLine": 350,
+        "endChar": 69
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
