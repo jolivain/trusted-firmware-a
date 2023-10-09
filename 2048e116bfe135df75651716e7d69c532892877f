@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93e1b5c4_3f402c83",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-09T19:43:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cee5e86c_f5016125",
+      "range": {
+        "startLine": 31,
+        "startChar": 3,
+        "endLine": 31,
+        "endChar": 9
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01c16e5c_599af2e4",
@@ -189,6 +213,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e56241a_e779fd8d",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-09T19:43:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7818f919_0cf9f0d9",
+      "range": {
+        "startLine": 196,
+        "startChar": 1,
+        "endLine": 196,
+        "endChar": 62
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16ba56a7_c3fdca3e",
@@ -226,6 +274,30 @@
       "side": 1,
       "message": "This is how currently it is supported in the legacy mbedTLS implementation [1]\n\n[1]:https://github.com/Mbed-TLS/mbedtls/blob/development/library/pkparse.c#L192",
       "parentUuid": "16ba56a7_c3fdca3e",
+      "range": {
+        "startLine": 201,
+        "startChar": 1,
+        "endLine": 201,
+        "endChar": 42
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56d99e43_3df9f373",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-09T19:43:46Z",
+      "side": 1,
+      "message": "There is a case to support \"parameters are explicitly included in the certificate\" in mbedTLS library, but that needs this config to be enabled \"MBEDTLS_PK_PARSE_EC_EXTENDED\". \nI can\u0027t see this config is enabled in any of the existing mbedtls-config header of TF-A today.",
+      "parentUuid": "381f3cb4_9023fb99",
       "range": {
         "startLine": 201,
         "startChar": 1,
@@ -330,6 +402,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89c193e3_2985e227",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-09T19:43:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9171ff89_0c504d1e",
+      "range": {
+        "startLine": 207,
+        "startChar": 44,
+        "endLine": 207,
+        "endChar": 50
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5336eb46_92b2cee2",
@@ -408,6 +504,24 @@
       "side": 1,
       "message": "Acknowledged",
       "parentUuid": "89729d4b_2e25216e",
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35d5cb73_5db10232",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-09T19:43:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce4c387e_35f806da",
       "revId": "2048e116bfe135df75651716e7d69c532892877f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
