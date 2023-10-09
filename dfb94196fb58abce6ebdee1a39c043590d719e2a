@@ -33,6 +33,23 @@
       "message": "Looks good to me from a maintainer review perspective.\nObviously we need to take care of updating RSS binaries in OpenCI before we can merge this patch.",
       "revId": "dfb94196fb58abce6ebdee1a39c043590d719e2a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb6f55ad_a5280fe3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2023-10-09T21:29:01Z",
+      "side": 1,
+      "message": "I don\u0027t think we need to update any binaries for this, as it does not change any behavior.",
+      "revId": "dfb94196fb58abce6ebdee1a39c043590d719e2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
