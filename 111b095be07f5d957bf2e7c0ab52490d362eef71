@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b2fa0d9_62ec3c91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2023-10-09T21:26:13Z",
+      "side": 1,
+      "message": "I disagree with the use of a macro to hold big blocks of data. I think a static array works just as well, and avoids any potential for duplication of data within the resulting binary.",
+      "revId": "111b095be07f5d957bf2e7c0ab52490d362eef71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03bf1a75_10f8729c",
+        "filename": "plat/arm/board/fvp/fvp_plat_attest_token.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2023-10-09T21:26:13Z",
+      "side": 1,
+      "message": "This seems like a needless use of a macro. Is there a downside to using a static uint8_t[]?",
+      "revId": "111b095be07f5d957bf2e7c0ab52490d362eef71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bed197d0_ba12c0bc",
+        "filename": "plat/arm/board/fvp/fvp_realm_attest_key.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2023-10-09T21:26:13Z",
+      "side": 1,
+      "message": "Same comment on needless macro use here.",
+      "revId": "111b095be07f5d957bf2e7c0ab52490d362eef71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
