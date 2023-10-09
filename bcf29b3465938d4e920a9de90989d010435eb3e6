@@ -18,6 +18,58 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db840e8b_f2c066a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 56
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T07:04:08Z",
+      "side": 1,
+      "message": "I may have misread this code in ea_proceed. The original exception vector is saving to a different location.",
+      "parentUuid": "38911d96_1e34cc3a",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c34cce49_d43aa43a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 56
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T07:04:08Z",
+      "side": 1,
+      "message": "There is an alternative design pattern which may avoid the extra storage needed in cpu_context.\n\nWe could consume the error using esb when FEAT_RAS is available. for systems without RAS extn, we could trigger the error and on taking exception in serror_sp_elx vector, we can eret back to original location and contiue.",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9300bc38_d8206ecc",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T07:04:08Z",
+      "side": 1,
+      "message": "#if RAS_FFH_SUPPORT",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11c3a5bf_bb2961dd",
@@ -43,6 +95,63 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77b0f980_394684cb",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T07:04:08Z",
+      "side": 1,
+      "message": "Checks for uncontainable can be under FEAT_RAS. \n\nThis function itself can be under RAS_FFH_SUPPORT.",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbba3cdf_66fedbbc",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T07:04:08Z",
+      "side": 1,
+      "message": "This whole function can be in #if RAS_FFH_SUPPORT and this particular check for uncontainable error can be in FEAT_RAS build flag.",
+      "range": {
+        "startLine": 327,
+        "startChar": 4,
+        "endLine": 327,
+        "endChar": 19
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "936fd8b8_f5f37fb9",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T07:04:08Z",
+      "side": 1,
+      "message": "#if RAS_FFH_SUPPORT.",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9ad13847_9cc9e234",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 56
@@ -54,6 +163,30 @@
       "writtenOn": "2023-10-09T06:20:38Z",
       "side": 1,
       "message": "wouldn\u0027t these corrupt the original values stored before nested EA handling ?",
+      "range": {
+        "startLine": 380,
+        "startChar": 1,
+        "endLine": 393,
+        "endChar": 32
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3786f429_60e5b817",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T07:04:08Z",
+      "side": 1,
+      "message": "Ah, there is a copy in SAVED_* versions of these. Ignore.",
+      "parentUuid": "9ad13847_9cc9e234",
       "range": {
         "startLine": 380,
         "startChar": 1,
