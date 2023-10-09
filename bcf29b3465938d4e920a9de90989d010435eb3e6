@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38911d96_1e34cc3a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 56
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T06:25:21Z",
+      "side": 1,
+      "message": "There are some problems in this patch. It does seem the ea_proceed is not designed to be used with the current nested exception mechanim. We need to get some system testing results as limited testing with baremetal code is not able to detect register corruption.",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "11c3a5bf_bb2961dd",
         "filename": "bl31/aarch64/ea_delegate.S",
         "patchSetId": 56
