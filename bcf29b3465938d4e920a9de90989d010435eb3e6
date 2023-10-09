@@ -1,0 +1,296 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11c3a5bf_bb2961dd",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T06:20:38Z",
+      "side": 1,
+      "message": "RAS_FFH_SUPPORT",
+      "range": {
+        "startLine": 154,
+        "startChar": 4,
+        "endLine": 154,
+        "endChar": 26
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ad13847_9cc9e234",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T06:20:38Z",
+      "side": 1,
+      "message": "wouldn\u0027t these corrupt the original values stored before nested EA handling ?",
+      "range": {
+        "startLine": 380,
+        "startChar": 1,
+        "endLine": 393,
+        "endChar": 32
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a474422_4f9233ae",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T06:20:38Z",
+      "side": 1,
+      "message": "This is a good place to unmask A",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d6554d6_4d4cd40e",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T06:20:38Z",
+      "side": 1,
+      "message": "mask A here again.",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8085e4ec_1c256e0e",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T06:20:38Z",
+      "side": 1,
+      "message": "RAS_FFH_SUPPORT",
+      "range": {
+        "startLine": 64,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e0be592_7d8f9061",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T06:20:38Z",
+      "side": 1,
+      "message": "AS discussed, this needs to be under RAS_FFH_SUPPORT as Secure world or other worlds may want to route EA to EL3 regardless of NS.",
+      "range": {
+        "startLine": 184,
+        "startChar": 4,
+        "endLine": 184,
+        "endChar": 26
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6600f344_32254acd",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T06:20:38Z",
+      "side": 1,
+      "message": "can check for SAVED_ESR to differentiate this condition.",
+      "range": {
+        "startLine": 197,
+        "startChar": 38,
+        "endLine": 197,
+        "endChar": 56
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2636c716_43a0c26b",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T06:20:38Z",
+      "side": 1,
+      "message": "This is difficult to predict the effects of disabling the A bit this early. Can be done in ea_proceed after double fault handling checks are in place.",
+      "range": {
+        "startLine": 200,
+        "startChar": 1,
+        "endLine": 200,
+        "endChar": 16
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0bd9ea1_62e10c07",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T06:20:38Z",
+      "side": 1,
+      "message": "Can this be under RAS_FFH_SUPPORT since we dont expect these vectors to be used if SCR_EL3.EA \u003d 0 ?",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d35978f3_78172480",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 56
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T06:20:38Z",
+      "side": 1,
+      "message": "same comment as above.",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfc2d5f8_6cce0b84",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 56
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T06:20:38Z",
+      "side": 1,
+      "message": "Need more precise comments for Differentiated use of this for KFH and FFH.",
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a1c1513_30d6ba07",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 56
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T06:20:38Z",
+      "side": 1,
+      "message": "This flag can be avoided for FFH. For KFH we need a loop counter for which we can reuse one of the fields below.",
+      "range": {
+        "startLine": 68,
+        "startChar": 8,
+        "endLine": 68,
+        "endChar": 27
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30c05339_71f70f07",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 56
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T06:20:38Z",
+      "side": 1,
+      "message": "RAS_FFH_SUPPORT",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 26
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19c19fae_0c2cae08",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 56
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-09T06:20:38Z",
+      "side": 1,
+      "message": "This can be re-used as reflect loop counter for KFH to save memory.\nRename as \n\nCTX_LOOP_CTR_OR_SAVED_ESR_EL3",
+      "range": {
+        "startLine": 70,
+        "startChar": 9,
+        "endLine": 70,
+        "endChar": 27
+      },
+      "revId": "bcf29b3465938d4e920a9de90989d010435eb3e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
