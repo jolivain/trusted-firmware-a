@@ -49,12 +49,17 @@ ifneq (${DRTM_SUPPORT}, 1)
 ifneq (${SPD}, tspd)
 	ENABLE_FEAT_AMU			:= 2
 	ENABLE_FEAT_AMUv1p1		:= 2
-	ENABLE_FEAT_HCX			:= 2
 	ENABLE_MPAM_FOR_LOWER_ELS	:= 2
 	ENABLE_FEAT_RNG			:= 2
 	ENABLE_FEAT_TWED		:= 2
 	ENABLE_FEAT_GCS			:= 2
 	ENABLE_FEAT_RAS			:= 2
+
+# Enable mandatory features if available used mostly for testing on FVP platforms.
+# Real world platforms shouldnt overide any mandatory features but use ARM_ARCH_MAJOR/MINOR
+# All mandatory features should be enabled from 'arch_features.mk'
+override ENABLE_FEAT_HCX		:= 2
+
 ifeq (${ARCH}, aarch64)
 ifneq (${SPD}, spmd)
 ifeq (${SPM_MM}, 0)
@@ -69,10 +74,10 @@ endif
 
 # enable unconditionally for all builds
 ifeq (${ARCH}, aarch64)
-ifeq (${ENABLE_RME},0)
-	ENABLE_BRBE_FOR_NS		:= 2
+ifndef ENABLE_RME
+	ENABLE_BRBE_FOR_NS	:= 2
 endif
-    ENABLE_TRBE_FOR_NS		:= 2
+ENABLE_TRBE_FOR_NS		:= 2
 endif
 ENABLE_SYS_REG_TRACE_FOR_NS	:= 2
 ENABLE_FEAT_CSV2_2		:= 2
@@ -82,9 +87,14 @@ ENABLE_FEAT_MTE_PERM		:= 2
 ENABLE_FEAT_VHE			:= 2
 CTX_INCLUDE_NEVE_REGS		:= 2
 ENABLE_FEAT_SEL2		:= 2
-ENABLE_TRF_FOR_NS		:= 2
 ENABLE_FEAT_ECV			:= 2
-ENABLE_FEAT_FGT			:= 2
+
+# Enable mandatory features if available used mostly for testing on FVP platforms.
+# Real world platforms shouldnt overide any mandatory features but use ARM_ARCH_MAJOR/MINOR
+# All mandatory features should be enabled from 'arch_features.mk'
+override ENABLE_FEAT_FGT	:= 2
+override ENABLE_TRF_FOR_NS	:= 2
+
 ENABLE_FEAT_TCR2		:= 2
 ENABLE_FEAT_S2PIE		:= 2
 ENABLE_FEAT_S1PIE		:= 2

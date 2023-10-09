@@ -39,11 +39,15 @@ ENABLE_FEAT_AMU			:= 2
 ENABLE_FEAT_AMUv1p1		:= 2
 ENABLE_FEAT_CSV2_2		:= 2
 ENABLE_FEAT_ECV			:= 2
-ENABLE_FEAT_FGT			:= 2
-ENABLE_FEAT_HCX			:= 2
 ENABLE_MPAM_FOR_LOWER_ELS	:= 2
 ENABLE_SYS_REG_TRACE_FOR_NS	:= 2
-ENABLE_TRF_FOR_NS		:= 2
+
+# Enable mandatory features if available used mostly for testing purposes.
+# Real world platforms shouldnt overide any mandatory features but use ARM_ARCH_MAJOR/MINOR
+# All mandatory features should be enabled from 'arch_features.mk'
+override ENABLE_FEAT_FGT	:= 2
+override ENABLE_FEAT_HCX	:= 2
+override ENABLE_TRF_FOR_NS	:= 2
 
 # Treating this as a memory-constrained port for now
 USE_COHERENT_MEM	:=	0
