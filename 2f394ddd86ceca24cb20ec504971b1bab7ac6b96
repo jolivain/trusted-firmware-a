@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a59a7dc7_1e5bd49c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-09T14:09:27Z",
+      "side": 1,
+      "message": "Looking at the CI results, it looks like BL2 no longer fits in its Trusted SRAM budget, it is short of 1 page. Could you please investigate why? What is pushing us above the limit? Is it extra code pulled for P-384 keys support? Or is it because some data structures have grown? Or something else?\n\nFYI I think you can probably get some answers from TF-A memory layout tool [1], by comparing its output with and without this patch series. Probably the --footprint option is best suited for that job.\n\nThen we\u0027ll need another patch to increase this limit.\n\n[1] https://trustedfirmware-a.readthedocs.io/en/latest/tools/memory-layout-tool.html",
+      "revId": "2f394ddd86ceca24cb20ec504971b1bab7ac6b96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
