@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c74f33c_3ce96a8e",
+        "filename": "bl1/bl1.ld.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-10-09T20:26:20Z",
+      "side": 1,
+      "message": "Thanks, replaced tabs with spaces.",
+      "parentUuid": "01bc7bc3_4bddfee4",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 1
+      },
+      "revId": "edeaf19e31b9d0d717a3eabd3d5fea4790ca5e71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f420c8af_17c04622",
         "filename": "bl2/bl2.ld.S",
         "patchSetId": 3
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-05T13:43:03Z",
       "side": 1,
       "message": "Spaces in the linker scripts",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "edeaf19e31b9d0d717a3eabd3d5fea4790ca5e71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9895b9e2_3958c3d7",
+        "filename": "bl2/bl2.ld.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-10-09T20:26:20Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "f420c8af_17c04622",
       "range": {
         "startLine": 28,
         "startChar": 0,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27b5546b_37c64441",
+        "filename": "bl2/bl2_el3.ld.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-10-09T20:26:20Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "10ba7e48_fb0bbd2a",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 1
+      },
+      "revId": "edeaf19e31b9d0d717a3eabd3d5fea4790ca5e71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "522c38d0_d59b7be8",
         "filename": "bl2u/bl2u.ld.S",
         "patchSetId": 3
@@ -100,6 +172,30 @@
       "writtenOn": "2023-10-05T13:43:03Z",
       "side": 1,
       "message": "Spaces in the linker scripts",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 1
+      },
+      "revId": "edeaf19e31b9d0d717a3eabd3d5fea4790ca5e71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4582d37d_1c4cc4e1",
+        "filename": "bl2u/bl2u.ld.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-10-09T20:26:20Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "522c38d0_d59b7be8",
       "range": {
         "startLine": 30,
         "startChar": 0,
@@ -135,6 +231,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5d5f057e_12930e40",
+        "filename": "bl31/bl31.ld.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-10-09T20:26:20Z",
+      "side": 1,
+      "message": "Thanks, fixed",
+      "parentUuid": "97d948f9_a543c31a",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 1
+      },
+      "revId": "edeaf19e31b9d0d717a3eabd3d5fea4790ca5e71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "311e5011_a8127412",
         "filename": "bl32/sp_min/sp_min.ld.S",
         "patchSetId": 3
@@ -158,6 +278,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5679266e_698b6503",
+        "filename": "bl32/sp_min/sp_min.ld.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-10-09T20:26:20Z",
+      "side": 1,
+      "message": "Thanks, fixed",
+      "parentUuid": "311e5011_a8127412",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 1
+      },
+      "revId": "edeaf19e31b9d0d717a3eabd3d5fea4790ca5e71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e916eb1c_a6140e9a",
         "filename": "bl32/tsp/tsp.ld.S",
         "patchSetId": 3
@@ -169,6 +313,30 @@
       "writtenOn": "2023-10-05T13:43:03Z",
       "side": 1,
       "message": "Spaces in the linker scripts",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "edeaf19e31b9d0d717a3eabd3d5fea4790ca5e71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6282377c_cf76ea40",
+        "filename": "bl32/tsp/tsp.ld.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-10-09T20:26:20Z",
+      "side": 1,
+      "message": "Thanks, fixed",
+      "parentUuid": "e916eb1c_a6140e9a",
       "range": {
         "startLine": 28,
         "startChar": 0,
