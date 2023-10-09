@@ -151,6 +151,30 @@
       },
       "revId": "81190d488ab0ebb9ea37e19effa8db153c1bceaa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c19cb89_704b747f",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-10-09T10:57:57Z",
+      "side": 1,
+      "message": "Would it be safer using same wording as TF-a-tests\ne.g. \"TF-A [...] has been tested with version 12.3.Rel1 (gcc 12.3):\"\nhttps://review.trustedfirmware.org/c/TF-A/tf-a-tests/+/23758/1/docs/getting_started/requirements.rst\n\nThis promise over lesser or higher toolchain use is not guaranteed to my opinion as long as we don\u0027t test building with such toolchains in TF-A CI...",
+      "parentUuid": "b9c6bf57_ba1f7342",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 8
+      },
+      "revId": "81190d488ab0ebb9ea37e19effa8db153c1bceaa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
