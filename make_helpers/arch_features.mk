@@ -8,81 +8,9 @@
 # and enables them based on the configured architecture version.
 
 # This file follows the following format:
-#   - By default disable any mandatory features.
-#   - Then Enable mandatory feature if applicable to an Arch Version.
+#   - Enable mandatory feature if applicable to an Arch Version.
+#   - By default disable any mandatory features if they have not been defined yet.
 #   - Disable or enable any optional feature this would be enabled/disabled if needed by platform.
-
-#
-################################################################################
-# Set mandatory features by default to zero.
-################################################################################
-#
-
-#----
-# 8.1
-#----
-
-# Flag to enable access to Privileged Access Never bit of PSTATE.
-ENABLE_FEAT_PAN			:=	0
-
-# Flag to enable Virtualization Host Extensions.
-ENABLE_FEAT_VHE			:=	0
-
-#----
-# 8.2
-#----
-
-# Enable RAS Support.
-ENABLE_FEAT_RAS			:=	0
-
-#----
-# 8.4
-#----
-
-# Flag to enable Secure EL-2 feature.
-ENABLE_FEAT_SEL2		:=	0
-
-# By default, disable trace filter control register access to lower non-secure
-# exception levels, i.e. NS-EL2, or NS-EL1 if NS-EL2 is implemented, but
-# trace filter control register access is unused if FEAT_TRF is implemented.
-ENABLE_TRF_FOR_NS		:=	0
-
-# Flag to enable Data Independent Timing instructions.
-ENABLE_FEAT_DIT			:=	0
-
-#----
-# 8.5
-#----
-
-# Flag to enable access to the Random Number Generator registers.
-ENABLE_FEAT_RNG			:=	0
-
-# Flag to enable Speculation Barrier Instruction.
-ENABLE_FEAT_SB			:=	0
-
-#----
-# 8.6
-#----
-
-# Flag to enable access to the CNTPOFF_EL2 register.
-ENABLE_FEAT_ECV			:=	0
-
-# Flag to enable access to the HDFGRTR_EL2 register.
-ENABLE_FEAT_FGT			:=	0
-
-#----
-# 8.7
-#----
-
-# Flag to enable access to the HCRX_EL2 register by setting SCR_EL3.HXEn.
-ENABLE_FEAT_HCX			:=	0
-
-#----
-# 8.9
-#----
-
-# Flag to enable access to TCR2 (FEAT_TCR2).
-ENABLE_FEAT_TCR2		:=	0
 
 #
 ################################################################################
@@ -135,6 +63,78 @@ endif
 ifeq "8.9" "$(word 1, $(sort 8.9 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
 ENABLE_FEAT_TCR2			:=	1
 endif
+
+#
+################################################################################
+# Set mandatory features by default to zero.
+################################################################################
+#
+
+#----
+# 8.1
+#----
+
+# Flag to enable access to Privileged Access Never bit of PSTATE.
+ENABLE_FEAT_PAN			?=	0
+
+# Flag to enable Virtualization Host Extensions.
+ENABLE_FEAT_VHE			?=	0
+
+#----
+# 8.2
+#----
+
+# Enable RAS Support.
+ENABLE_FEAT_RAS			?=	0
+
+#----
+# 8.4
+#----
+
+# Flag to enable Secure EL-2 feature.
+ENABLE_FEAT_SEL2		?=	0
+
+# By default, disable trace filter control register access to lower non-secure
+# exception levels, i.e. NS-EL2, or NS-EL1 if NS-EL2 is implemented, but
+# trace filter control register access is unused if FEAT_TRF is implemented.
+ENABLE_TRF_FOR_NS		?=	0
+
+# Flag to enable Data Independent Timing instructions.
+ENABLE_FEAT_DIT			?=	0
+
+#----
+# 8.5
+#----
+
+# Flag to enable access to the Random Number Generator registers.
+ENABLE_FEAT_RNG			?=	0
+
+# Flag to enable Speculation Barrier Instruction.
+ENABLE_FEAT_SB			?=	0
+
+#----
+# 8.6
+#----
+
+# Flag to enable access to the CNTPOFF_EL2 register.
+ENABLE_FEAT_ECV			?=	0
+
+# Flag to enable access to the HDFGRTR_EL2 register.
+ENABLE_FEAT_FGT			?=	0
+
+#----
+# 8.7
+#----
+
+# Flag to enable access to the HCRX_EL2 register by setting SCR_EL3.HXEn.
+ENABLE_FEAT_HCX			?=	0
+
+#----
+# 8.9
+#----
+
+# Flag to enable access to TCR2 (FEAT_TCR2).
+ENABLE_FEAT_TCR2		?=	0
 
 #
 ################################################################################
