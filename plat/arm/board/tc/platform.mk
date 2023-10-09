@@ -52,7 +52,10 @@ ENABLE_TRBE_FOR_NS              := 1
 ENABLE_SYS_REG_TRACE_FOR_NS     := 1
 
 # enable trace filter control registers access to NS by default
-ENABLE_TRF_FOR_NS               := 1
+# Enable mandatory features if available used mostly for testing purposes.
+# Real world platforms shouldnt overide any mandatory features but use ARM_ARCH_MAJOR/MINOR
+# All mandatory features should be enabled from 'arch_features.mk'
+override ENABLE_TRF_FOR_NS      := 1
 
 # Include GICv3 driver files
 include drivers/arm/gic/v3/gicv3.mk
