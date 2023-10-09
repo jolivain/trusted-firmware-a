@@ -127,6 +127,30 @@
       },
       "revId": "81190d488ab0ebb9ea37e19effa8db153c1bceaa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9c6bf57_ba1f7342",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-09T09:55:49Z",
+      "side": 1,
+      "message": "We had a discussion, regarding the same above in the previous review comment.\nHope you have already considered that Chris.\n\nMy only point to state it, \u003c\u003d is that, we have already tried and tested till the version we are currently supporting/deployed in our CI. But if we state it as \u003e\u003d, we aren\u0027t sure regarding what the future updates in GCC. I agree that GCC  will remain compatible with the earlier versions. But during last release while updating from 11.3 to 12.2, we did encounter some build issues due to toolchain upgrade, wherein we resolved later.\nTaking this into consideration, I felt it would be good and safe to state as \u003c\u003d.\n\n \"I\u0027m not sure I agree with the \u003c\u003d here, we make no guarantees that we support a version of GCC prior to the one we use to test in the CI \"\n \n \u003e So does this mean, our current code base, isn\u0027t compatible with older versions of GCC ? I thought the other way as every release we do, we get updates without affecting older ones.\n \n Let me know your thoughts here.",
+      "parentUuid": "f7a88422_ba333d9a",
+      "range": {
+        "startLine": 29,
+        "startChar": 6,
+        "endLine": 29,
+        "endChar": 8
+      },
+      "revId": "81190d488ab0ebb9ea37e19effa8db153c1bceaa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
