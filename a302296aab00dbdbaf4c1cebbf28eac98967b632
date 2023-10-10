@@ -33,6 +33,24 @@
       "message": "Why are these unrelated defines re-numbered? I would not expect this to change the numbering.",
       "revId": "a302296aab00dbdbaf4c1cebbf28eac98967b632",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7a22999_02013980",
+        "filename": "include/drivers/console.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-10T06:32:41Z",
+      "side": 1,
+      "message": "These defines are re-numbered because they define offsets within the struct console. When ENABLE_CONSOLE_GETC\u003d0 we now remove the `getc` callback field, which shifts all subsequents fields up : `flush`, `base`, and the additional private driver data (which are not materialized in struct console but follow it).",
+      "parentUuid": "0ae0a0be_b0759fc7",
+      "revId": "a302296aab00dbdbaf4c1cebbf28eac98967b632",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
