@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8639fd98_936b6b49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-10T18:37:23Z",
+      "side": 1,
+      "message": "Remove TE defined for AARCH since opteed can get this from SPSR instead of args passing from BL2.",
+      "revId": "4c42b0b8baf926653c3c3cead1edb0f0c90761ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
