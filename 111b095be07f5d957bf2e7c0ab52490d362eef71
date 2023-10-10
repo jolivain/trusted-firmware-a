@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2d987cd_56aea3f1",
+        "filename": "plat/arm/board/fvp/fvp_plat_attest_token.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-10T07:28:03Z",
+      "side": 1,
+      "message": "We aim to avoid making this static and instead want to define it locally within the stack. Take a look at line number 114, where we are using memcpy to copy data from this local array to the provided \u0027buf\u0027. \nConverting this into a #define is a way to symbolically represent this data for potential modification at a later stage without delving into the actual function\u0027s implementation.\n\nPlease let me know if you still disagree.",
+      "parentUuid": "03bf1a75_10f8729c",
+      "revId": "111b095be07f5d957bf2e7c0ab52490d362eef71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bed197d0_ba12c0bc",
         "filename": "plat/arm/board/fvp/fvp_realm_attest_key.c",
         "patchSetId": 4
