@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0f31149_f5a38fa3",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-10T10:57:36Z",
+      "side": 1,
+      "message": "Is this size sufficient when using ARM_GPT_SUPPORT and TBB support together? I suspect that you\u0027re encountering a size issue only when ARM_GPT_SUPPORT is enabled without TBB, correct?\n\nI\u0027m considering whether increasing the SRAM size to FVP_TRUSTED_SRAM_SIZE \u003d 384 could resolve this issue if you\u0027re indeed facing a size problem.",
+      "range": {
+        "startLine": 216,
+        "startChar": 19,
+        "endLine": 216,
+        "endChar": 37
+      },
+      "revId": "064edc6fa15288543e2ae9c542ee5675a5b71129",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
