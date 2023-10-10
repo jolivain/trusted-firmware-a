@@ -669,8 +669,17 @@ $(warning "RME is an experimental feature")
 endif
 
 ################################################################################
-# Include the platform specific Makefile after the SPD Makefile (the platform
-# makefile may use all previous definitions in this file)
+# Firmware First handling of External aborts
+################################################################################
+ifeq ($(HANDLE_EA_EL3_FIRST_NS),1)
+	FFH_SUPPORT := 1
+else
+	FFH_SUPPORT := 0
+endif
+
+################################################################################
+# Include the platform specific Makefile which may use all previous
+# definitions in this file.
 ################################################################################
 
 include ${PLAT_MAKEFILE_FULL}
@@ -861,18 +870,9 @@ endif
 # RAS_EXTENSION is deprecated, provide alternate build options
 ifeq ($(RAS_EXTENSION),1)
         $(error "RAS_EXTENSION is now deprecated, please use ENABLE_FEAT_RAS \
-        and RAS_FFH_SUPPORT instead")
+        and HANDLE_EA_EL3_FIRST_NS instead")
 endif
 
-# RAS firmware first handling requires that EAs are handled in EL3 first
-ifeq ($(RAS_FFH_SUPPORT),1)
-	ifneq ($(ENABLE_FEAT_RAS),1)
-                $(error For RAS_FFH_SUPPORT, ENABLE_FEAT_RAS must also be 1)
-	endif
-	ifneq ($(HANDLE_EA_EL3_FIRST_NS),1)
-                $(error For RAS_FFH_SUPPORT, HANDLE_EA_EL3_FIRST_NS must also be 1)
-	endif
-endif #(RAS_FFH_SUPPORT)
 
 # When FAULT_INJECTION_SUPPORT is used, require that FEAT_RAS is enabled
 ifeq ($(FAULT_INJECTION_SUPPORT),1)
@@ -1175,6 +1175,7 @@ $(eval $(call assert_booleans,\
 	ENABLE_SME_FOR_SWD \
 	ENABLE_SVE_FOR_SWD \
 	ENABLE_FEAT_RAS	\
+	FFH_SUPPORT	\
 	ERROR_DEPRECATED \
 	FAULT_INJECTION_SUPPORT \
 	GENERATE_COT \
@@ -1229,7 +1230,6 @@ $(eval $(call assert_booleans,\
 	ERRATA_ABI_SUPPORT \
 	ERRATA_NON_ARM_INTERCONNECT \
 	CONDITIONAL_CMO \
-	RAS_FFH_SUPPORT \
 	PSA_CRYPTO	\
 	ENABLE_CONSOLE_GETC \
 )))
@@ -1335,6 +1335,7 @@ $(eval $(call add_defines,\
 	ENABLE_SVE_FOR_NS \
 	ENABLE_SVE_FOR_SWD \
 	ENABLE_FEAT_RAS \
+	FFH_SUPPORT \
 	ENCRYPT_BL31 \
 	ENCRYPT_BL32 \
 	ERROR_DEPRECATED \
@@ -1352,7 +1353,6 @@ $(eval $(call add_defines,\
 	PROGRAMMABLE_RESET_ADDRESS \
 	PSCI_EXTENDED_STATE_ID \
 	PSCI_OS_INIT_MODE \
-	RAS_FFH_SUPPORT \
 	RESET_TO_BL31 \
 	SEPARATE_CODE_AND_RODATA \
 	SEPARATE_BL2_NOLOAD_REGION \
