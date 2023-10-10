@@ -268,6 +268,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "897eb00d_31b6fd62",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-10T13:29:57Z",
+      "side": 1,
+      "message": "IIUC GPT header is full 512 bytes as per [1], after CRC, all are reserved bytes (420 bytes). header.size gives real-size of the GPT header (i.e. 92 bytes) whereas sizeof(gpt-header) I think it is always 512 bytes. \n\nIn our code, we neglected the reserved bytes so it always turns out to be 92 bytes (with the packing done by this patch).\n\nJust looking in U-boot code, looks like they took header.size[2] into consideration while CRC calculation. I\u0027m not sure why though. \n\n[1]: http://ntfs.com/guid-part-table.htm\n[2]: https://source.denx.de/u-boot/u-boot/-/blob/master/disk/part_efi.c#L113",
+      "parentUuid": "99c41388_74c476e7",
+      "range": {
+        "startLine": 113,
+        "startChar": 45,
+        "endLine": 113,
+        "endChar": 56
+      },
+      "revId": "b58e116b93e569e828ab793181cbf3bcb3336c97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c8333968_d338008c",
         "filename": "drivers/partition/partition.c",
         "patchSetId": 1
