@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f72f5064_00860b37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2023-10-10T15:49:23Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "a302296aab00dbdbaf4c1cebbf28eac98967b632",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ae0a0be_b0759fc7",
@@ -49,6 +66,24 @@
       "side": 1,
       "message": "These defines are re-numbered because they define offsets within the struct console. When ENABLE_CONSOLE_GETC\u003d0 we now remove the `getc` callback field, which shifts all subsequents fields up : `flush`, `base`, and the additional private driver data (which are not materialized in struct console but follow it).",
       "parentUuid": "0ae0a0be_b0759fc7",
+      "revId": "a302296aab00dbdbaf4c1cebbf28eac98967b632",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f634c627_1ee75300",
+        "filename": "include/drivers/console.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2023-10-10T15:49:23Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c7a22999_02013980",
       "revId": "a302296aab00dbdbaf4c1cebbf28eac98967b632",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
