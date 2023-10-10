@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0df22792_dd002406",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000811
+      },
+      "writtenOn": "2023-10-10T10:49:52Z",
+      "side": 1,
+      "message": "include order failures are not for this patch.\nNewly added file is getting compiled from platform.mk",
+      "revId": "3923462239c9e54088bd5b01fd5df469b2758582",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b34e2b31_faaeafe3",
@@ -14,6 +31,30 @@
       "writtenOn": "2023-10-10T10:17:30Z",
       "side": 1,
       "message": "this can be part of PLAT_BL_COMMON_SOURCES",
+      "range": {
+        "startLine": 127,
+        "startChar": 4,
+        "endLine": 127,
+        "endChar": 26
+      },
+      "revId": "3923462239c9e54088bd5b01fd5df469b2758582",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1fe59bc_d0250ef9",
+        "filename": "plat/xilinx/zynqmp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000811
+      },
+      "writtenOn": "2023-10-10T10:49:52Z",
+      "side": 1,
+      "message": "Ok, I missed its not a common platform file.",
+      "parentUuid": "b34e2b31_faaeafe3",
       "range": {
         "startLine": 127,
         "startChar": 4,
