@@ -813,10 +813,6 @@ Common build options
    are an optional extension for pre-Armv8.2 CPUs, but are mandatory for Armv8.2
    or later CPUs. This flag can take the values 0 or 1. The default value is 0.
 
--  ``RAS_FFH_SUPPORT``: Support to enable Firmware first handling of RAS errors
-   originating from NS world. When ``RAS_FFH_SUPPORT`` is set to ``1``,
-   ``HANDLE_EA_EL3_FIRST_NS`` and ``ENABLE_FEAT_RAS`` must also be set to ``1``.
-
 -  ``RESET_TO_BL31``: Enable BL31 entrypoint as the CPU reset vector instead
    of the BL1 entrypoint. It can take the value 0 (CPU reset to BL1
    entrypoint) or 1 (CPU reset to BL31 entrypoint).
