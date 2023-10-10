@@ -1223,6 +1223,7 @@ $(eval $(call assert_booleans,\
 	CONDITIONAL_CMO \
 	RAS_FFH_SUPPORT \
 	PSA_CRYPTO	\
+	ENABLE_FEAT_RAS	\
 )))
 
 # Numeric_Flags
@@ -1243,7 +1244,6 @@ $(eval $(call assert_numerics,\
 	ENABLE_FEAT_AMU \
 	ENABLE_FEAT_AMUv1p1 \
 	ENABLE_FEAT_CSV2_2 \
-	ENABLE_FEAT_RAS	\
 	ENABLE_FEAT_DIT \
 	ENABLE_FEAT_ECV \
 	ENABLE_FEAT_FGT \
