@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f161c207_2b1aa640",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-10-10T18:56:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdbf27da_35f7d91b",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 0
+      },
+      "revId": "557845bc55828345bac5e32e016c80fa70d7641f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5df0f8a5_ef0d4213",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-10T08:50:15Z",
       "side": 1,
       "message": "Please move these to the top of the makefile - above the platform configs",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 19
+      },
+      "revId": "557845bc55828345bac5e32e016c80fa70d7641f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e38c55b7_3d7e2c6b",
+        "filename": "plat/nvidia/tegra/soc/t194/platform_t194.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-10-10T18:56:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5df0f8a5_ef0d4213",
       "range": {
         "startLine": 35,
         "startChar": 0,
