@@ -46,6 +46,30 @@
       },
       "revId": "9d4ba4731c0943df74a7482dd04889c6e73de23e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12b33ff5_3099ad2f",
+        "filename": "docs/threat_model/threat_model_rme.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-10T11:23:58Z",
+      "side": 1,
+      "message": "I forgot why i written this comment but most likely the reason for this was Secure world EL1 is at same privilege as BL2 component. But lets ignore it for this change",
+      "parentUuid": "5ce012e6_adba92f8",
+      "range": {
+        "startLine": 90,
+        "startChar": 33,
+        "endLine": 90,
+        "endChar": 41
+      },
+      "revId": "9d4ba4731c0943df74a7482dd04889c6e73de23e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
