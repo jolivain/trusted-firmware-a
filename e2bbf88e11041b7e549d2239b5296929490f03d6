@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50c2993c_145bde55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T18:45:35Z",
+      "side": 1,
+      "message": "I believe the test fails observed for spm l2 test suite is due to an unrelated bug in CI scripts as it is unable to clone hafnium patches which have the same topic.",
+      "revId": "e2bbf88e11041b7e549d2239b5296929490f03d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
