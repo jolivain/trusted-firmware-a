@@ -1,0 +1,337 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "626f7dc0_72a1ac40",
+        "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T15:10:35Z",
+      "side": 1,
+      "message": "this is pretty much same from imx8qx_bl31_setup.c. Can you factor it into a shared helper utility?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 1
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "069239dd_4c515484",
+        "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T15:10:35Z",
+      "side": 1,
+      "message": "Please create macros for these hardcoded values. Same through lines 71 to 83.",
+      "range": {
+        "startLine": 70,
+        "startChar": 15,
+        "endLine": 70,
+        "endChar": 25
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9ea9cc3_8dec9ce1",
+        "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T15:10:35Z",
+      "side": 1,
+      "message": "create macro",
+      "range": {
+        "startLine": 111,
+        "startChar": 15,
+        "endLine": 111,
+        "endChar": 25
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d328784_6dc9ab72",
+        "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T15:10:35Z",
+      "side": 1,
+      "message": "move to the top of the file",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 43
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63dbb020_7039b4b2",
+        "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T15:10:35Z",
+      "side": 1,
+      "message": "can execution reach here",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c53e5c6_1718aca6",
+        "filename": "plat/imx/imx8ulp/imx8ulp_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T15:10:35Z",
+      "side": 1,
+      "message": "can you define a helper utility for this",
+      "range": {
+        "startLine": 26,
+        "startChar": 15,
+        "endLine": 26,
+        "endChar": 47
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34fb6ddc_a28fbe87",
+        "filename": "plat/imx/imx8ulp/imx8ulp_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T15:10:35Z",
+      "side": 1,
+      "message": "please use macros",
+      "range": {
+        "startLine": 76,
+        "startChar": 15,
+        "endLine": 76,
+        "endChar": 47
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a7d2b7f_fc59e1aa",
+        "filename": "plat/imx/imx8ulp/include/scmi.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T15:10:35Z",
+      "side": 1,
+      "message": "align with macros in following lines",
+      "range": {
+        "startLine": 61,
+        "startChar": 32,
+        "endLine": 61,
+        "endChar": 33
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5c6b886_c7c1d02c",
+        "filename": "plat/imx/imx8ulp/include/scmi_sensor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T15:10:35Z",
+      "side": 1,
+      "message": "remove this line",
+      "range": {
+        "startLine": 2,
+        "startChar": 2,
+        "endLine": 2,
+        "endChar": 23
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f69f5578_610bae0d",
+        "filename": "plat/imx/imx8ulp/include/scmi_sensor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T15:10:35Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f302919_c579192d",
+        "filename": "plat/imx/imx8ulp/include/scmi_sensor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T15:10:35Z",
+      "side": 1,
+      "message": "remove empty line",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a46101d2_10284ff0",
+        "filename": "plat/imx/imx8ulp/include/scmi_sensor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T15:10:35Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 3
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c1ec448_22e21a63",
+        "filename": "plat/imx/imx8ulp/scmi/scmi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T15:10:35Z",
+      "side": 1,
+      "message": "return ARRAY_SIZE(plat_protocol_list) - 1U;",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 14
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "264697c9_795de19e",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T15:10:35Z",
+      "side": 1,
+      "message": "!\u003d 0\nSimilar instances across other lines in this file",
+      "range": {
+        "startLine": 313,
+        "startChar": 5,
+        "endLine": 313,
+        "endChar": 8
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad0760df_a8685ace",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-10T15:10:35Z",
+      "side": 1,
+      "message": "!\u003d 0U",
+      "range": {
+        "startLine": 400,
+        "startChar": 5,
+        "endLine": 400,
+        "endChar": 8
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
