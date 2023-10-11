@@ -213,6 +213,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0c8f8ee_df93a228",
+        "filename": "plat/arm/board/common/board_common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-11T12:56:33Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8d5ed77d_74fbbfa4",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 4
+      },
+      "revId": "5f026dd1d11e80c7458e12f0f1269d885cbbbd9d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbbb62ea_a55f45c2",
@@ -274,6 +298,30 @@
       "side": 1,
       "message": "You can truncate the lines by using multiple .byte directives, like so:\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/common/protpk/arm_dev_protpk.S",
       "parentUuid": "d677ebe8_a2b24cdd",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 79
+      },
+      "revId": "5f026dd1d11e80c7458e12f0f1269d885cbbbd9d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0046f0f7_44d1c286",
+        "filename": "plat/arm/board/common/rotpk/arm_full_dev_ecdsa_p256_rotpk.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-11T12:56:33Z",
+      "side": 1,
+      "message": "+1, yes, that way this file will be more readable.",
+      "parentUuid": "30bed972_a75071e2",
       "range": {
         "startLine": 23,
         "startChar": 1,
