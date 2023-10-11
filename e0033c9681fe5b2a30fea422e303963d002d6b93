@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "119b93ed_b84c7af6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001132
+      },
+      "writtenOn": "2023-10-11T12:46:48Z",
+      "side": 1,
+      "message": "This series is only the TF-A part to add suspend to RAM support for the\nTI K3 J7200 target.\nSome modifications are also needed in Linux kernel, U-Boot (R5 SPL) and\nDM-Firmware.\nDuring the suspend sequence, TF-A save itself in DRAM, in a reserved\nmemory region dedicated to lpm.\nTF-A will be restored by R5 SPL.\nWe need to save it in DRAM (which will be in retention mode during\nsuspend) because as it runs in SRAM, it will be lost once the SOC is\npowered-off by the PMIC.",
+      "revId": "e0033c9681fe5b2a30fea422e303963d002d6b93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
