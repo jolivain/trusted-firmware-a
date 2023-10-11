@@ -8,8 +8,8 @@ ifneq (${ARCH},aarch64)
 	$(error "Error: SPMD is only supported on aarch64.")
 endif
 
-ifneq (${ENABLE_SME_FOR_NS},0)
-	$(error "Error: SPMD is not compatible with ENABLE_SME_FOR_NS")
+ifeq (${ENABLE_SME_FOR_NS},1)
+       $(error "Error: SPMD is not compatible with ENABLE_SME_FOR_NS")
 endif
 
 SPMD_SOURCES	+=	$(addprefix services/std_svc/spmd/,	\
