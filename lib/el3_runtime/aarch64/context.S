@@ -575,6 +575,29 @@ func el3_exit
 sve_not_enabled:
 #endif /* IMAGE_BL31 */
 
+#if IMAGE_BL31 && ENABLE_FEAT_MPAM == 2
+
+	mrs x8, id_aa64pfr0_el1
+	mov x8, x8, lsr #(ID_AA64PFR0_MPAM_SHIFT)
+	and x8, x8, #(ID_AA64PFR0_MPAM_MASK)
+	mrs x7, id_aa64pfr1_el1
+	mov x7, x7, lsr #(ID_AA64PFR1_MPAM_FRAC_SHIFT)
+	and x7, x7, #(ID_AA64PFR1_MPAM_FRAC_MASK)
+	orr x7, x7, x8
+	cbz x7, no_mpam
+
+	/* -----------------------------------------------------------
+	 * Restore MPAM3_EL3 register as per context state
+	 * Currently we only enable MPAM for NS world and trap to EL3
+	 * for MPAM access in lower ELs of Secure and Realm world
+	 * -----------------------------------------------------------
+	 */
+	ldr	x17, [sp, #CTX_EL3STATE_OFFSET + CTX_MPAM3_EL3]
+	msr	mpam3_el3, x17
+
+no_mpam:
+#endif /* IMAGE_BL31 && ENABLE_FEAT_MPAM */
+
 #if IMAGE_BL31 && DYNAMIC_WORKAROUND_CVE_2018_3639
 	/* ----------------------------------------------------------
 	 * Restore mitigation state as it was on entry to EL3
