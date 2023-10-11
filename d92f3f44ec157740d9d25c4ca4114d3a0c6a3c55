@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03c06872_30053878",
+        "filename": "bl1/bl1.ld.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-10-11T09:14:30Z",
+      "side": 1,
+      "message": "So don\u0027t we need the same ASSERT in the #else branch, as there we include the same .text sections from all the other object files as well? Or is this something that the linker inserts specifically before the new .text section only, and .ro is not affected?",
+      "revId": "d92f3f44ec157740d9d25c4ca4114d3a0c6a3c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
