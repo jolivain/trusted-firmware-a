@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea6a9379_9a63d7c0",
+        "filename": "plat/arm/board/fvp/fvp_plat_attest_token.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-11T07:45:32Z",
+      "side": 1,
+      "message": "\u003e The data has to live somewhere in the binary,\n\nI\u0027m not entirely certain I understood you correctly, but the core idea is that we want to avoid permanently storing this data in the binary. To clarify further, here are the reasons for not using this array as a static one:\n\nWe want to avoid storing this array in the binary, as it\u0027s a temporary or throwaway data. It is better is to prevent unnecessary growth in the data section and, consequently, the overall binary size.\n\nLocally storing this large array might increase temporary stack usage but still way within the PLATFORM_STACK_SIZE. IMO, this is a more favourable choice than increasing the overall binary size.\n\nAlso, I don\u0027t foresee any frequent changes (size-wise) in this dummy array.",
+      "parentUuid": "660e7fc7_4626c423",
+      "revId": "111b095be07f5d957bf2e7c0ab52490d362eef71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bed197d0_ba12c0bc",
         "filename": "plat/arm/board/fvp/fvp_realm_attest_key.c",
         "patchSetId": 4
