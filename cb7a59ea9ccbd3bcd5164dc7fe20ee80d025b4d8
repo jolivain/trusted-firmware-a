@@ -16,6 +16,24 @@
       "message": "I wonder if this is valid for all K3 platforms? Maybe you could also explain how BL31 is restored. Is that done by U-Boot?",
       "revId": "cb7a59ea9ccbd3bcd5164dc7fe20ee80d025b4d8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d1d2588_6446f6c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001132
+      },
+      "writtenOn": "2023-10-12T08:53:17Z",
+      "side": 1,
+      "message": "We only implemented suspend to ram for J7200 for now.\nBut these TF-A changes are valid for all K3 platforms.\nSome parts of the code for suspend to RAM (in DM-Firmware, U-Boot and kernel) are specific to the board (most of the parts are common).\nBL31 is restored by R5 SPL.\nIf SPL detects a resume (a magic value was stored in a PMIC register by DM-Firmware), SPL restores BL31 in SRAM.",
+      "parentUuid": "574d30da_6b9a32ca",
+      "revId": "cb7a59ea9ccbd3bcd5164dc7fe20ee80d025b4d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
