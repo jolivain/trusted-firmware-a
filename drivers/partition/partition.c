@@ -448,3 +448,11 @@ void partition_init(unsigned int image_id)
 {
 	load_partition_table(image_id);
 }
+
+/*
+ * Load a GPT based image.
+ */
+int gpt_partition_init(void)
+{
+	return load_partition_table(GPT_IMAGE_ID);
+}
