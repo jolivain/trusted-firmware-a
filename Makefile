@@ -621,6 +621,9 @@ endif #(SUPPORT_STACK_MEMTAG)
 ################################################################################
 # FEAT_RME
 ifeq (${ENABLE_RME},1)
+	# RME doesn't support BRBE
+	ENABLE_BRBE_FOR_NS := 0
+
 	# RME doesn't support PIE
 	ifneq (${ENABLE_PIE},0)
                 $(error ENABLE_RME does not support PIE)
@@ -643,6 +646,7 @@ ifeq (${ENABLE_RME},1)
 
 	# RME enables CSV2_2 extension by default.
 	ENABLE_FEAT_CSV2_2 = 1
+
 endif #(FEAT_RME)
 
 ################################################################################
