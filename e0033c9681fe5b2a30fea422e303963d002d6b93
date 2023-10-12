@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc6daacb_9e467405",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-10-12T07:50:14Z",
+      "side": 1,
+      "message": "To complete Madhukar\u0027s message, you should check https://trustedfirmware-a.readthedocs.io/en/latest/process/commit-style.html#commit-style\nThe warnings are reported here (if you follow the http://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/4683/, and then click on tf-a-commitlint console icon):\nhttps://ci.trustedfirmware.org/job/tf-a-commitlint/5974/console\n\nYour patches commit messages should then start with something like:\nfeat(k3): add new board j7200\nfeat(k3): map a memory region for suspend to ram\nfeat(k3): save BL31 before to enter sleep\n\nBe careful that the first letter after colon should be lower case.",
+      "parentUuid": "301ae3cb_dbdafbd8",
+      "revId": "e0033c9681fe5b2a30fea422e303963d002d6b93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "119b93ed_b84c7af6",
