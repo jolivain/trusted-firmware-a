@@ -49,6 +49,7 @@ workaround_reset_end cortex_a510, ERRATUM(2041909)
 
 check_erratum_range cortex_a510, ERRATUM(2041909), CPU_REV(0, 2), CPU_REV(0, 2)
 
+
 workaround_reset_start cortex_a510, ERRATUM(2042739), ERRATA_A510_2042739
 	/* Apply the workaround by disabling ReadPreferUnique. */
 	sysreg_bitfield_insert CORTEX_A510_CPUECTLR_EL1, CORTEX_A510_CPUECTLR_EL1_READPREFERUNIQUE_DISABLE, \
@@ -56,6 +57,32 @@ workaround_reset_start cortex_a510, ERRATUM(2042739), ERRATA_A510_2042739
 workaround_reset_end cortex_a510, ERRATUM(2042739)
 
 check_erratum_ls cortex_a510, ERRATUM(2042739), CPU_REV(0, 2)
+
+
+workaround_reset_start cortex_a510, ERRATUM(2080326), ERRATA_A510_2080326
+	/* Apply workaround */
+	mov x0, #1
+	msr S3_6_C15_C4_0, x0
+	isb
+
+	mov x0, #0x0100
+	movk x0, #0x0E08, LSL #16
+	msr S3_6_C15_C4_2, x0
+
+	mov x0, #0x0300
+	movk x0, #0x0F1F, LSL #16
+	movk x0, #0x0008, LSL #32
+	msr S3_6_C15_C4_3, x0
+
+	mov x0, #0x03F1
+	movk x0, #0x00C0, LSL #16
+	msr S3_6_C15_C4_1, x0
+
+	ISB
+workaround_reset_end cortex_a510, ERRATUM(2080326)
+
+check_erratum_range cortex_a510, ERRATUM(2080326), CPU_REV(0, 2), CPU_REV(0, 2)
+
 
 workaround_reset_start cortex_a510, ERRATUM(2172148), ERRATA_A510_2172148
 	/*
