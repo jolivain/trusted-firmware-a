@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "461f2af8_66fc7490",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-12T11:06:45Z",
+      "side": 1,
+      "message": "@Arvind,\n\nCI failures listed here are not related to this patch.\n\nIf you look at the static checks job:\n  CHECKING STYLE\n\n[*] Checking style of \u0027b409cafaa8572e017146656b9f57d1560471698a\u0027\n\n\n[*] Checking style of \u002743358e1c0f1b1af50e29dc26f226cb324bbd6454\u0027\n\n\n[*] Checking style of \u00273b571b1c8d5a8eb0be2ae1eb6a774ef93fd43fd7\u0027\n\nThe bottom two patches are not needed here, which is the leading to CI issues.\n\nKeep separate topic name for your patch and base it on top of integration branch and push it. I hope CI will pass for sure.",
+      "revId": "faf488f45b5cf50490804a4c98e79dcc409ca72a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
