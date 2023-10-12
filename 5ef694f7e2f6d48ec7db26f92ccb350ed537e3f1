@@ -16,6 +16,24 @@
       "message": "This patch should be split in 3 IMHO. 1 for bl31 linker script. 1 for plat_ehf.c file. And 1 for the \u0027feat(arm)\u0027 modifications, note the scope for this patch should be just (arm), and not (plat/arm).",
       "revId": "5ef694f7e2f6d48ec7db26f92ccb350ed537e3f1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8ff1037_e3075e14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-10-12T10:05:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8a7dc99_2bd70588",
+      "revId": "5ef694f7e2f6d48ec7db26f92ccb350ed537e3f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
