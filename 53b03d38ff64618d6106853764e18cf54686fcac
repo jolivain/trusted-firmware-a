@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "437de79f_c472d69c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-10-12T07:20:04Z",
+      "side": 1,
+      "message": "The scope is not correct, it should be (spm-mm), no underscore should be used in scope, see https://ci.trustedfirmware.org/job/tf-a-commitlint/5898/console for conventional commits warnings (we do not enforce the length of the message to be limited to 50 chars). A correct scope will ease the release process.",
+      "revId": "53b03d38ff64618d6106853764e18cf54686fcac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
