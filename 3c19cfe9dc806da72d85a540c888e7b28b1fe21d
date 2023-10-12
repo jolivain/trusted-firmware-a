@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e13b890_571f9c59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-12T16:36:28Z",
+      "side": 1,
+      "message": "Added a few comments.",
+      "revId": "3c19cfe9dc806da72d85a540c888e7b28b1fe21d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38891803_d47fd859",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-12T16:36:28Z",
+      "side": 1,
+      "message": "`ns_tl` can be a local var of `plat_get_next_bl_params()`",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 6
+      },
+      "revId": "3c19cfe9dc806da72d85a540c888e7b28b1fe21d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb889438_3b02e3b3",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-12T16:36:28Z",
+      "side": 1,
+      "message": "nit: Should be aligned in the embrace.",
+      "revId": "3c19cfe9dc806da72d85a540c888e7b28b1fe21d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9f3e45a_9bf93bcd",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-12T16:36:28Z",
+      "side": 1,
+      "message": "Can replace with macro `REGISTER_CONVENTION_VERSION_MASK` defined in transfer_list.h",
+      "range": {
+        "startLine": 106,
+        "startChar": 64,
+        "endLine": 106,
+        "endChar": 73
+      },
+      "revId": "3c19cfe9dc806da72d85a540c888e7b28b1fe21d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd4921d0_77b91d2a",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-12T16:36:28Z",
+      "side": 1,
+      "message": "nit: should align within the embrace.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 31
+      },
+      "revId": "3c19cfe9dc806da72d85a540c888e7b28b1fe21d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
