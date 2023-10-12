@@ -178,6 +178,7 @@ endif
 
 endif
 TF_MBEDTLS_KEY_ALG		:=	ecdsa
+KEY_SIZE			:=	256
 
 ifneq (${MBEDTLS_DIR},)
 MBEDTLS_MAJOR=$(shell grep -hP "define MBEDTLS_VERSION_MAJOR" \
