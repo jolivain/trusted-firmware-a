@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d886906_48bbce52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-10-12T21:21:00Z",
+      "side": 1,
+      "message": "I\u0027ll do. I thought that original author ticks Resolved, thanks.",
+      "parentUuid": "cd835470_62a7910e",
+      "revId": "d92f3f44ec157740d9d25c4ca4114d3a0c6a3c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03c06872_30053878",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-10-11T09:14:30Z",
       "side": 1,
       "message": "So don\u0027t we need the same ASSERT in the #else branch, as there we include the same .text sections from all the other object files as well? Or is this something that the linker inserts specifically before the new .text section only, and .ro is not affected?",
+      "revId": "d92f3f44ec157740d9d25c4ca4114d3a0c6a3c55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc58815f_d92bce1b",
+        "filename": "bl1/bl1.ld.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-10-12T21:21:00Z",
+      "side": 1,
+      "message": "I don\u0027t see any reason why this problem can\u0027t happen with .ro section. Thanks, I\u0027ve added the same asserts to .ro sections.",
+      "parentUuid": "03c06872_30053878",
       "revId": "d92f3f44ec157740d9d25c4ca4114d3a0c6a3c55",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
