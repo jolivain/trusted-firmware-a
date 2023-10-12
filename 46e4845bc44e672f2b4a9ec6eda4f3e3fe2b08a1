@@ -46,6 +46,30 @@
       },
       "revId": "46e4845bc44e672f2b4a9ec6eda4f3e3fe2b08a1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9bb822e_fc3d5dda",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-10-12T18:38:26Z",
+      "side": 1,
+      "message": "Oh yes Sandrine! This would be filtering that case out to set the ARM_ROTPK_KEY_LEN to 294. I\u0027ve made that change, thanks!\n\n@Manish, that\u0027s correct. This is used in place of ARM_ROTPK_HEADER_LEN for the full ROTPK scenario to check size. Do you suggest I remove here and the check in the .S files?",
+      "parentUuid": "a32db884_1aa87bb1",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 6
+      },
+      "revId": "46e4845bc44e672f2b4a9ec6eda4f3e3fe2b08a1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
