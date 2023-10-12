@@ -454,5 +454,18 @@ const partition_entry_list_t *get_partition_entry_list(void)
  */
 void partition_init(unsigned int image_id)
 {
-	load_partition_table(image_id);
+	int ret = 0;
+
+	ret = load_partition_table(image_id);
+	if (ret != 0) {
+		ERROR("Failed to parse partition with image id = %u\n", image_id);
+	}
+}
+
+/*
+ * Load a GPT based image.
+ */
+int gpt_partition_init(void)
+{
+	return load_partition_table(GPT_IMAGE_ID);
 }
