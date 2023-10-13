@@ -117,6 +117,30 @@
       },
       "revId": "e2bbf88e11041b7e549d2239b5296929490f03d6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7cbe28f_0ecb9851",
+        "filename": "plat/arm/board/fvp/fvp_sip_calls.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-13T17:22:57Z",
+      "side": 1,
+      "message": "I believe it is informally accepted within our team that we dont need to test code that\u0027s put in purely for test purposes. In the past, we used to do this using git patch application but now we moved to using dedicated build macros PLAT_TEST_xxx to simplify CI runs. If we had used git technique, we wouldn\u0027t even see this piece of code in the source file.\n\nMoreover, if we do want to test that this SiP call, adding it to tftf can be tricky since this is platform specific code but tftf test suites are shared across all platforms.\n\nLet me know your opinion.",
+      "parentUuid": "44c2b7ac_ee26ca6a",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 38,
+        "endChar": 3
+      },
+      "revId": "e2bbf88e11041b7e549d2239b5296929490f03d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
