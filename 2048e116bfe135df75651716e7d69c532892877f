@@ -119,6 +119,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17cee929_a42c623e",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-13T12:53:15Z",
+      "side": 1,
+      "message": "Ah yes sure, thanks.",
+      "parentUuid": "4c8fe0f7_16c97905",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 49
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e24cfb8c_f376fc86",
@@ -156,6 +180,30 @@
       "side": 1,
       "message": "I though of this but it needs creation of PK context and all. I feel this way getting the the information using the tag is easier. \nAgain, I believe this function short living until we get some proper proper API from mbedTLS team.",
       "parentUuid": "e24cfb8c_f376fc86",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 43
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49f6d189_e5187b6e",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-13T12:53:15Z",
+      "side": 1,
+      "message": "\u003e I though of this but it needs creation of PK context\n\nIsn\u0027t it just a matter of defining a PK context and calling `mbedtls_pk_init()` on it? Because if that\u0027s all it takes, then we\u0027re talking about replacing this whole function by the following code at the caller site:\n\n```\nmbedtls_pk_context pk;\nmbedtls_pk_init(\u0026pk);\nmbedtls_pk_parse_subpubkey(key_start, key_end, \u0026pk);\n```\n\nwhich I find much simpler! This would remove a fair chunk of code from this patch, and not the simplest and easiest to maintain on top of it!\n\nOr am I missing something about `mbedtls_pk_parse_subpubkey()` usage?",
+      "parentUuid": "3ca8e34c_216d833a",
       "range": {
         "startLine": 166,
         "startChar": 0,
@@ -308,6 +356,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85a15d77_a41b84f5",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-13T12:53:15Z",
+      "side": 1,
+      "message": "Acknowledged. Thanks for the explanation.",
+      "parentUuid": "56d99e43_3df9f373",
+      "range": {
+        "startLine": 201,
+        "startChar": 1,
+        "endLine": 201,
+        "endChar": 42
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c22ff82_28234a24",
@@ -428,6 +500,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ab8b697_c50f12e5",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-13T12:53:15Z",
+      "side": 1,
+      "message": "OK, fair enough. In this case, could you please raise a ticket on Mbed TLS Github project to request that mbedtls_ecc_group_to_psa() stays part of the public API for the foreseeable future, or ask them for advice on alternative ways of doing this?",
+      "parentUuid": "b9cd31fe_8d985021",
+      "range": {
+        "startLine": 207,
+        "startChar": 19,
+        "endLine": 207,
+        "endChar": 43
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5336eb46_92b2cee2",
         "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
         "patchSetId": 5
@@ -487,6 +583,30 @@
       "side": 1,
       "message": "Just to show-case with and example, what I\u0027m trying to achieve in the latest version of the patch i.e. v7 is as below -\n\nConsider ECDSA PK-\n3059301306072a8648ce3d020106082a8648ce3d030107034200042927b10512bae3eddcfe467828128bad2903269919f7086069c8c4df6c732838c7787964eaac00e5921fb1498a60f4606766b3d9685001558d1a974e7341513\n\nand its breakdown is as below -\n 30 59 # Sequence length 0x59 -  91 bytes long -\u003e i.e. pk_ptr + *pk_len;\n 30 13 # Sequence length 0x13 -  21 bytes long -\u003e i.e. pk_ptr + len (0x59)\n 06 07 2a8648ce3d0201  # Object ID -  7 bytes long - 1.2.840.10045.2.1 (ECC)\n 06 08 2a8648ce3d030107  # Object ID -  8 bytes long - 1.2.840.10045.3.1.7 (ECDSA \n P256)\n 03 42 # Bit stream - 0x42 (66 bytes long) -\u003e -\u003e pk_ptr + len - (oid-len(0x07) + \n param-len(0x08) - 2 x (tag-size(0x1) + len-size(0x1)))\n\nPlease let me know if this makes sense!",
       "parentUuid": "2d3037aa_708a1532",
+      "range": {
+        "startLine": 209,
+        "startChar": 1,
+        "endLine": 209,
+        "endChar": 58
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dc84804_8fa0d7af",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-13T12:53:15Z",
+      "side": 1,
+      "message": "I think the computation in v7 is more accurate because it no longer relies on `*pk_len` but rather relies on the length we got back from `mbedtls_asn1_*()` functions.",
+      "parentUuid": "e4dce824_95a62a3d",
       "range": {
         "startLine": 209,
         "startChar": 1,
@@ -587,6 +707,30 @@
       "side": 1,
       "message": "Issue is mbedtls_asn1_get_int() provides a single integer value.and also, this function assumes that integer has no padding bit.",
       "parentUuid": "6e273354_36f2af5e",
+      "range": {
+        "startLine": 246,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 28
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffbfcdb7_d7bf3032",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-13T12:53:15Z",
+      "side": 1,
+      "message": "\u003e Issue is mbedtls_asn1_get_int() provides a single integer value.\n\nBut we\u0027re already using 2 calls to mbedtls_asn1_get_tag() to retrieve R integer then S integer, so I don\u0027t see much of a difference if we use 2 calls to mbedtls_asn1_get_int()...\n\n\u003e and also, this function assumes that integer has no padding bit.\n\nRight, that is more problematic. I am surprised that Mbed TLS does not provide a variant of mbedtls_asn1_get_int() which handles the padding bit... Out of curiosity, during your testing did you encounter integers with a padding bit?",
+      "parentUuid": "60c113e1_662f65bb",
       "range": {
         "startLine": 246,
         "startChar": 0,
