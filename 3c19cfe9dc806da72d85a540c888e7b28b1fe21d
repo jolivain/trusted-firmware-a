@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f04de95_8d03c8f6",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-13T16:05:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38891803_d47fd859",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 6
+      },
+      "revId": "3c19cfe9dc806da72d85a540c888e7b28b1fe21d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb889438_3b02e3b3",
@@ -54,6 +78,24 @@
       "writtenOn": "2023-10-12T16:36:28Z",
       "side": 1,
       "message": "nit: Should be aligned in the embrace.",
+      "revId": "3c19cfe9dc806da72d85a540c888e7b28b1fe21d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f24846ad_d4f702dd",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-13T16:05:10Z",
+      "side": 1,
+      "message": "I\u0027ve opted to replace this check with an assertion instead. This is based on the assumption that failing to initialize the transfer list in the NS address space is a fatal failure.",
+      "parentUuid": "cb889438_3b02e3b3",
       "revId": "3c19cfe9dc806da72d85a540c888e7b28b1fe21d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -81,6 +123,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8adcacc9_32f32ec7",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-13T16:05:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9f3e45a_9bf93bcd",
+      "range": {
+        "startLine": 106,
+        "startChar": 64,
+        "endLine": 106,
+        "endChar": 73
+      },
+      "revId": "3c19cfe9dc806da72d85a540c888e7b28b1fe21d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd4921d0_77b91d2a",
@@ -94,6 +160,30 @@
       "writtenOn": "2023-10-12T16:36:28Z",
       "side": 1,
       "message": "nit: should align within the embrace.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 31
+      },
+      "revId": "3c19cfe9dc806da72d85a540c888e7b28b1fe21d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "874cc7d8_e1b16a77",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-13T16:05:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd4921d0_77b91d2a",
       "range": {
         "startLine": 76,
         "startChar": 0,
