@@ -71,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb6f2a2d_b86f0fe8",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-13T15:07:17Z",
+      "side": 1,
+      "message": "This is the other solutin\n\nThe other option is use something like what DIT has done lib/el3_runtime/aarch64/context.S #\n\nCheck for the GP register which you can use\n#if ENABLE_FEAT_MPAM \u003d\u003d 2\n        mrs     x8, id_aa64pfr0_el1\n        and     x8, x8, #(ID_AA64PFR0_MPAM_MASK \u003c\u003c ID_AA64PFR0_MPAM_SHIFT)\n        mrs     x7, id_aa64pfr1_el1\n        and     x7, x7, #(ID_AA64PFR1_MPAM_FRAC_MASK \u003c\u003c ID_AA64PFR1_MPAM_FRAC_SHIFT)\n        add     x7, x7, x8\n        cbz     x7, no_mmap\n#endif\n        access mpma3_el3\nno_mpam:",
+      "parentUuid": "316401ca_4e65cf94",
+      "range": {
+        "startLine": 578,
+        "startChar": 0,
+        "endLine": 591,
+        "endChar": 0
+      },
+      "revId": "ca59a8c447e2ce7718307bd9f87b23e84b32f473",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1e3b0492_3c3e37c5",
