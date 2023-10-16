@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "748ffbb4_9de21475",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-16T09:58:41Z",
+      "side": 1,
+      "message": "It appears that the scope of this patch has been expanded (apart from just avoid using macro). It now includes additional tasks, such as handling the GPT backup header when the primary GPT header fails. Is this intentional?\n\nJust a quick note for the other reviewers in this series – Govindraj and me had further discussions on the further improvements (to be taken care as a separate patch(es)) - \n\n1. Calculating the CRC for PartitionEntry information and validating it against the PartitionEntryArrayCRC32.\n2. Addressing repairing of GPT header where the primary GPT header fails, for example, when the system falls back to the Backup GPT header. In the case of PSA FWU support, the responsibility lies with the update agent. However, when the system isn\u0027t utilizing PSA-FWU support, it\u0027s imperative for TF-A BL to take action to repair the primary GPT header so that the system can seamlessly revert to using it upon the next reboot.\n\nPlease let us know if anyone has any concern here?",
+      "revId": "6d31bc8c3dc217bf90df9896183ca04e452ea93b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
