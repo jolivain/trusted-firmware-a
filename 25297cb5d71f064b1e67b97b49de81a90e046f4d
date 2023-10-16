@@ -208,6 +208,30 @@
       },
       "revId": "25297cb5d71f064b1e67b97b49de81a90e046f4d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae504a31_8c3f308a",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 866,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-16T15:56:32Z",
+      "side": 1,
+      "message": "Have a look at the patch:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/23629/1",
+      "parentUuid": "ce249358_db3a9372",
+      "range": {
+        "startLine": 866,
+        "startChar": 5,
+        "endLine": 866,
+        "endChar": 21
+      },
+      "revId": "25297cb5d71f064b1e67b97b49de81a90e046f4d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
