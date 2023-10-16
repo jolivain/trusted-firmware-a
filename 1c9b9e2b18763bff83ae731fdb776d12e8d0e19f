@@ -123,6 +123,24 @@
       "parentUuid": "3eca3602_a4373c02",
       "revId": "1c9b9e2b18763bff83ae731fdb776d12e8d0e19f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f306ba6_0618430f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-16T13:28:25Z",
+      "side": 1,
+      "message": "It seems the option for this feature is to create a patch that enables PM support in the build system.\n\nI will check if there is still the need for this from the team that initially reported the issue, will also abandon the patch, and we can take it further if they are still looking for a way to disable these messages. If that is the case, the fix can be taken as a separate patch.\n\nFeel free to reopen the comment if you think this should be sorted differently.\nThank you both for the feedback.",
+      "parentUuid": "ba27d4c0_f1fbd906",
+      "revId": "1c9b9e2b18763bff83ae731fdb776d12e8d0e19f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
