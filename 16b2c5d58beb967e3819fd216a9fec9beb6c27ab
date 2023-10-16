@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b1411506_1478998c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-16T13:57:13Z",
+      "side": 1,
+      "message": "Hello Jens, yes it should, I\u0027ve asked for Raymond to be added to the trusted-firmware-ci org, which should grant all necessary rights.",
+      "parentUuid": "67bd9488_5dfabf44",
+      "revId": "16b2c5d58beb967e3819fd216a9fec9beb6c27ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "956fce49_12dfd413",
         "filename": "lib/transfer_list/transfer_list.c",
         "patchSetId": 2
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "I think its caller should ensure passing a correct pointer here. But as a public API, it needs to check it again inside the function to avoid protential mis-use by the caller.\nCurrently in my qemu patch (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/23778), the caller falls back to \"legacy\" handoff arguments when this API returns false.",
       "parentUuid": "956fce49_12dfd413",
+      "range": {
+        "startLine": 52,
+        "startChar": 1,
+        "endLine": 58,
+        "endChar": 2
+      },
+      "revId": "16b2c5d58beb967e3819fd216a9fec9beb6c27ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fea30302_14aba0df",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-16T13:57:13Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "36857271_81d4d84c",
       "range": {
         "startLine": 52,
         "startChar": 1,
