@@ -16,6 +16,24 @@
       "message": "I dont see the need for J7200 as a seperate board. why not use K3_PM_SYSTEM_SUSPEND that is already available?",
       "revId": "3479de79b69d75c1ab4371ca952e0d669d991aea",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0e97207_bb8785ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001132
+      },
+      "writtenOn": "2023-10-17T16:05:35Z",
+      "side": 1,
+      "message": "To enable the feature with my current implementation, TF-A shall be built with TARGET_BOARD\u003dj7200 and K3_PM_SYSTEM_SUSPEND\u003d1.\n\nI need a J7200 board to fix PLAT_CLUSTER_DEVICE_START_ID, if not I get the following errors from TF-A during suspend (but suspend/resume works).\n\nERROR:   Failed to get response (-19)\nERROR:   Transfer send failed (-19)\nERROR:   Request to get cluster failed: -19\n\nFor the generic board PLAT_CLUSTER_DEVICE_START_ID is 198, which seems to correspond to the AM65x SOC (https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/am65x/devices.html, AM6_DEV_COMPUTE_CLUSTER_CPAC0).\nFor the J* SOC, if I understood correctly we should have:\n- J7200  : PLAT_CLUSTER_DEVICE_START_ID\u003d3 (J7200_DEV_COMPUTE_CLUSTER0\u003d3 https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/j7200/devices.html).\n- J721e  : PLAT_CLUSTER_DEVICE_START_ID\u003d3 (J721E_DEV_COMPUTE_CLUSTER0\u003d3 https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/j721e/devices.html)\n- J721s2 : PLAT_CLUSTER_DEVICE_START_ID\u003d6 (J721S2_DEV_COMPUTE_CLUSTER0\u003d6 https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/j721s2/devices.html)\n- J784s4 : PLAT_CLUSTER_DEVICE_START_ID\u003d6 (J784S4_DEV_COMPUTE_CLUSTER0\u003d6 https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/j784s4/devices.html)\n  \nBy the way there is the also an error for the cluster core count values.\nThe generic board has {2,2,2,2} for K3_CLUSTER{0,1,2,3}_CORE_COUNT\nFor the J* SOC we should have:\n- J7200  : {2,0,0,0} (https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/j7200/processors.html)\n- J721e  : {2,0,0,0} (https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/j721e/processors.html)\n- J721s2 : {2,0,0,0} (https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/j721s2/processors.html)\n- J784s4 : {4,4,0,0} (https://software-dl.ti.com/tisci/esd/latest/5_soc_doc/j784s4/devices.html)\n\nIf there is no error in my thought, the J7200 board which I added is also valid for J721e.",
+      "parentUuid": "936a252b_42be860a",
+      "revId": "3479de79b69d75c1ab4371ca952e0d669d991aea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
