@@ -33,6 +33,24 @@
       "message": "Looks good to me from a maintainer review perspective.\nObviously we need to take care of updating RSS binaries in OpenCI before we can merge this patch.",
       "revId": "031af52fdd56277e52195efbed7dda8834f189d1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b896564_f0feb989",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-10-17T13:32:32Z",
+      "side": 1,
+      "message": "Hi, is there a timeframe for updating the RSS CI binaries (e.g. should this happen before the Nov. release)? I believe last we talked was checking whether new RSS binaries would work with the currently deployed model? Thanks.",
+      "parentUuid": "b0cba6bc_c075fbd8",
+      "revId": "031af52fdd56277e52195efbed7dda8834f189d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
