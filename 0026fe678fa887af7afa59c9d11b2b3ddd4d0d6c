@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec61c114_b99203ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 33
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-17T20:17:45Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "cca792db_55bd05ee",
+      "revId": "0026fe678fa887af7afa59c9d11b2b3ddd4d0d6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fa55008_042dba4d",
@@ -41,6 +59,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a73416f_783c018d",
+        "filename": "include/arch/aarch64/asm_macros.S",
+        "patchSetId": 33
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-17T20:17:45Z",
+      "side": 1,
+      "message": "Done in next patch",
+      "parentUuid": "3fa55008_042dba4d",
+      "range": {
+        "startLine": 313,
+        "startChar": 2,
+        "endLine": 315,
+        "endChar": 63
+      },
+      "revId": "0026fe678fa887af7afa59c9d11b2b3ddd4d0d6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b90b73fb_c38b9f79",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-10-17T13:59:16Z",
       "side": 1,
       "message": "\u003d\u003d 0\n\nWe dont want RAS to be a dynamically enabled feature as it as compile time implications.",
+      "range": {
+        "startLine": 317,
+        "startChar": 20,
+        "endLine": 317,
+        "endChar": 24
+      },
+      "revId": "0026fe678fa887af7afa59c9d11b2b3ddd4d0d6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26ec82e4_ac14979a",
+        "filename": "include/arch/aarch64/asm_macros.S",
+        "patchSetId": 33
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-17T20:17:45Z",
+      "side": 1,
+      "message": "Done in next patch",
+      "parentUuid": "b90b73fb_c38b9f79",
       "range": {
         "startLine": 317,
         "startChar": 20,
