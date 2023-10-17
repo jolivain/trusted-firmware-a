@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fb73124_c42b4e0f",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-17T20:04:25Z",
+      "side": 1,
+      "message": "nit: can we check the sanity of this value before using? I believe it must be 0x1 always right?",
+      "range": {
+        "startLine": 250,
+        "startChar": 22,
+        "endLine": 250,
+        "endChar": 41
+      },
+      "revId": "874111ab908ae8190e639565a761c78461004694",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
