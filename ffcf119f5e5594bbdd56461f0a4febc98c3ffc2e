@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11f613bd_929f6a53",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-10-17T14:12:29Z",
+      "side": 1,
+      "message": "in AM62x, TFA runs in DDR! so do this based on flag context. I understand that J* devices SRAM is where TFA runs, but again, it is PIE at the moment, there are customers who have set the MSMC SRAM size as 0 (it is permitted) and run TFA in DDR.",
+      "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
