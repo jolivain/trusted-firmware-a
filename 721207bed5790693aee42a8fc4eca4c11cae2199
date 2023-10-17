@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5d05c20_8edc160d",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-17T09:43:14Z",
+      "side": 1,
+      "message": "@Arvind, \nI think, you should follow the way DIT  is handled. That would cover both cases (STATE\u003d1 and STATE\u003d2). Line 334.\nFirst check for STATE\u003d1, \nand further check for STATE\u003d2 and do id register read to verify feature presence.\nYou have covered STATE\u003d2 only, in which case FEAT_STATE\u003d1 is ignored.",
+      "revId": "721207bed5790693aee42a8fc4eca4c11cae2199",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
