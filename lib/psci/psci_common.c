@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -662,6 +662,8 @@ int psci_validate_state_coordination(unsigned int end_pwrlvl,
 			}
 			goto exit;
 		}
+
+		parent_idx = psci_non_cpu_pd_nodes[parent_idx].parent_node;
 	}
 
 	/*
