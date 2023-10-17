@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cb1d597_a82df730",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 61
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-17T20:11:09Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "89c3879a_e163607c",
+      "revId": "365a9b5b3f2508bd86eb0c47e4c7c7bb71e66b4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c398cceb_3a01cc25",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-10-16T14:01:12Z",
       "side": 1,
       "message": "remove this word.",
+      "range": {
+        "startLine": 231,
+        "startChar": 55,
+        "endLine": 231,
+        "endChar": 63
+      },
+      "revId": "365a9b5b3f2508bd86eb0c47e4c7c7bb71e66b4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a69dfa4_e1e952c2",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 61
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-17T20:11:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c398cceb_3a01cc25",
       "range": {
         "startLine": 231,
         "startChar": 55,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39bafb5b_d29f8034",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 61
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-17T20:11:09Z",
+      "side": 1,
+      "message": "I have done it as part of el3_exit() which gets called in normal scenarios when pending EA is not detected.",
+      "parentUuid": "d0559242_1d6eb5e6",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 16
+      },
+      "revId": "365a9b5b3f2508bd86eb0c47e4c7c7bb71e66b4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8fe3ae0_dbb53e94",
@@ -77,6 +143,24 @@
       "writtenOn": "2023-10-16T14:01:12Z",
       "side": 1,
       "message": "The counter may need to be zeroed here.",
+      "revId": "365a9b5b3f2508bd86eb0c47e4c7c7bb71e66b4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9e7f9cf_5d74dd85",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 61
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-17T20:11:09Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c8fe3ae0_dbb53e94",
       "revId": "365a9b5b3f2508bd86eb0c47e4c7c7bb71e66b4b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -98,6 +182,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cf6564d_91a761d9",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 61
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-17T20:11:09Z",
+      "side": 1,
+      "message": "I think i missed the clearing here, done now.\n\nDoes value 2 actually makes any difference? it is basically el3_ea which will end up in panic anyways",
+      "parentUuid": "c377865c_3beefd5b",
+      "revId": "365a9b5b3f2508bd86eb0c47e4c7c7bb71e66b4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25db662b_828eb304",
@@ -115,6 +217,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66dfeb38_f4421afd",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 61
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-17T20:11:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25db662b_828eb304",
+      "revId": "365a9b5b3f2508bd86eb0c47e4c7c7bb71e66b4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c129e25_e5849bc7",
@@ -128,6 +248,24 @@
       "writtenOn": "2023-10-16T14:01:12Z",
       "side": 1,
       "message": "same comment as above.",
+      "revId": "365a9b5b3f2508bd86eb0c47e4c7c7bb71e66b4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1af3ad6_0f0557fc",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 61
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-17T20:11:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c129e25_e5849bc7",
       "revId": "365a9b5b3f2508bd86eb0c47e4c7c7bb71e66b4b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -155,6 +293,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61e4935b_893a030f",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 61
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-17T20:11:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "697b1ab4_c931f537",
+      "range": {
+        "startLine": 67,
+        "startChar": 2,
+        "endLine": 67,
+        "endChar": 51
+      },
+      "revId": "365a9b5b3f2508bd86eb0c47e4c7c7bb71e66b4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec29fc38_7aa7c9d3",
@@ -168,6 +330,30 @@
       "writtenOn": "2023-10-16T14:01:12Z",
       "side": 1,
       "message": "this needs to be FFH_SUPPORT, which is to be done as part of the later patch in the stack where this is changed in other places.",
+      "range": {
+        "startLine": 69,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 26
+      },
+      "revId": "365a9b5b3f2508bd86eb0c47e4c7c7bb71e66b4b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9877c57_adf94c11",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 61
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-17T20:11:09Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ec29fc38_7aa7c9d3",
       "range": {
         "startLine": 69,
         "startChar": 4,
