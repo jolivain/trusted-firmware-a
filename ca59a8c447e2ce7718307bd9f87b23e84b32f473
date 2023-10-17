@@ -121,6 +121,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "74df29c5_0669cd2d",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 12
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-10-17T14:28:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b581344_f8f05e2a",
+      "range": {
+        "startLine": 578,
+        "startChar": 0,
+        "endLine": 591,
+        "endChar": 0
+      },
+      "revId": "ca59a8c447e2ce7718307bd9f87b23e84b32f473",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1e3b0492_3c3e37c5",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 12
@@ -218,6 +242,30 @@
       "writtenOn": "2023-10-12T12:02:00Z",
       "side": 1,
       "message": "Change this to 2 same as SPE_FOR_NS",
+      "range": {
+        "startLine": 217,
+        "startChar": 22,
+        "endLine": 217,
+        "endChar": 23
+      },
+      "revId": "ca59a8c447e2ce7718307bd9f87b23e84b32f473",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c00c7e4d_afef57eb",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 12
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-10-17T14:28:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cc71741_4ec48e74",
       "range": {
         "startLine": 217,
         "startChar": 22,

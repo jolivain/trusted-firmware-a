@@ -16,6 +16,24 @@
       "message": "@Arvind, \nI think, you should follow the way DIT  is handled. That would cover both cases (STATE\u003d1 and STATE\u003d2). Line 334.\nFirst check for STATE\u003d1, \nand further check for STATE\u003d2 and do id register read to verify feature presence.\nYou have covered STATE\u003d2 only, in which case FEAT_STATE\u003d1 is ignored.",
       "revId": "721207bed5790693aee42a8fc4eca4c11cae2199",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d21fe40_bdb295d0",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-10-17T14:28:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5d05c20_8edc160d",
+      "revId": "721207bed5790693aee42a8fc4eca4c11cae2199",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
