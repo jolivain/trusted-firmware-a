@@ -43,6 +43,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6e2bd22_b03ab87a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001115
+      },
+      "writtenOn": "2023-10-17T06:02:10Z",
+      "side": 1,
+      "message": "Left some inline comments, please address.",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "626f7dc0_72a1ac40",
         "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
         "patchSetId": 1
@@ -347,6 +364,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3cc1761d_cbac0e09",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1001115
+      },
+      "writtenOn": "2023-10-17T06:02:10Z",
+      "side": 1,
+      "message": "I think all of these can be made more readable with a simple macro, I would avoid increasing redundant code here and use a suitable 1 liner macro instead",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ff7c1153_67db8834",
         "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
         "patchSetId": 1
@@ -421,6 +455,40 @@
         "endLine": 400,
         "endChar": 8
       },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5502ccfe_5e0519b5",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1001115
+      },
+      "writtenOn": "2023-10-17T06:02:10Z",
+      "side": 1,
+      "message": "Please use a better variable name, something like count?\nEspecially since it\u0027s being used almost throughout this func",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9010877f_fa8ad86c",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1001115
+      },
+      "writtenOn": "2023-10-17T06:02:10Z",
+      "side": 1,
+      "message": "I would use a 1 liner while loop with an i++ inside.\nsomething like:\n```\nwhile(i \u003c IMX8ULP_PD_PS6 \u0026\u0026 scmi_power_domains[i].reg !\u003d pd_id)\n{\n    i++;\n}\n```",
       "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
