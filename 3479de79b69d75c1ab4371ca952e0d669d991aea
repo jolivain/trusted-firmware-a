@@ -51,6 +51,24 @@
       "message": "@manorit - Can you look at this closer.",
       "revId": "3479de79b69d75c1ab4371ca952e0d669d991aea",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31134a41_2dbaccdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2023-10-18T14:40:51Z",
+      "side": 1,
+      "message": "All of the above is correct. AM65x was our first K3 SoC and we believed we would be able to support all subsequent K3 SoCs with the same TARGET_BOARD, hence we named it \"generic\". But as you have found that hasn\u0027t worked out so well and PLAT_CLUSTER_DEVICE_START_ID is only valid for AM65x, not any of the following J7* family devices. This didn\u0027t matter though as the first few J7* were only single cluster, and so we had no need to power them down independent of full sleep modes, so that variable was unused. Same reasoning was used to keep the K3_CLUSTER_CORE counts the same, it didn\u0027t hurt anything to be wrong here, and allowed us to keep on using \"generic\" target.\n\nThat changed for AM64/AM62 which forced a new TARGET_BOARD: \"lite\". J784s4 made the problem worse and we had to have a target specific for it too, the dream of all platforms using one TARGET_BOARD is gone.\n\nWhat should we do? I\u0027d say let\u0027s keep the \"generic\" target around for backwards compatibility, but I have no problem with adding SoC specific TARGET_BOARDs now.\n\nSo this specific patch is fine with me (I\u0027ve got different comments for the later ones in this series).",
+      "parentUuid": "b0e97207_bb8785ee",
+      "revId": "3479de79b69d75c1ab4371ca952e0d669d991aea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
