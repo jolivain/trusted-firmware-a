@@ -87,3 +87,8 @@ void bl2_platform_setup(void)
 	dmc_ecc_setup(plat_info.local_ddr_size);
 	arm_bl2_platform_setup();
 }
+
+int bl2_plat_handle_post_image_load(unsigned int image_id)
+{
+	return arm_bl2_plat_handle_post_image_load(image_id);
+}
