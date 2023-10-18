@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dfebf63d_93cdd15f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2023-10-18T17:00:22Z",
+      "side": 1,
+      "message": "Right, so R5 SPL will not be allowed to restore BL31 into SRAM. TFA will need to be reloaded using the same method it was loaded at boot (using ROM/TIFS from image with x509 cert). TFA will then have to be started on the warm boot path and it will have to restore its own context.\n\nThe point of TFA being in SRAM is performance and for us security. If you copy out to DDR and back with no encryption/authentication you lose that. The easier method would be to have just had TFA run out of DDR in the first place here.",
+      "parentUuid": "85a738ec_11d815d4",
+      "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "11f613bd_929f6a53",
         "filename": "plat/ti/k3/common/k3_psci.c",
         "patchSetId": 5
