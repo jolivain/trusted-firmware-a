@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ede0bd7f_6f6916e5",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-10-18T10:24:07Z",
+      "side": 1,
+      "message": "It is added in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20902/19/services/std_svc/spm/el3_spmc/spmc_setup.c",
+      "parentUuid": "cde61718_12984613",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 36,
+        "endChar": 26
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0675bf4_2be4002c",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-18T09:02:58Z",
       "side": 1,
       "message": "similarly.",
+      "range": {
+        "startLine": 37,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2386aa95_1166bdf2",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-10-18T10:24:07Z",
+      "side": 1,
+      "message": "It is added in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20902/19/services/std_svc/spm/el3_spmc/spmc_setup.c",
+      "parentUuid": "b0675bf4_2be4002c",
       "range": {
         "startLine": 37,
         "startChar": 1,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7251a8b6_3d8d8ace",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-10-18T10:24:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95ab4c27_3291e6ae",
+      "range": {
+        "startLine": 39,
+        "startChar": 1,
+        "endLine": 39,
+        "endChar": 30
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "325c2850_830ceb6c",
@@ -93,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4541dd6_c4b1e13f",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-10-18T10:24:07Z",
+      "side": 1,
+      "message": "I am using the same dt for Hafnium + StMM and in that case we will be booting 2 SPs",
+      "parentUuid": "325c2850_830ceb6c",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 18
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5907b2dc_8e90a0ad",
@@ -106,6 +202,30 @@
       "writtenOn": "2023-10-18T09:02:58Z",
       "side": 1,
       "message": "nitpick: full stop.",
+      "range": {
+        "startLine": 115,
+        "startChar": 47,
+        "endLine": 115,
+        "endChar": 48
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "859afd5e_215f1ee4",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-10-18T10:24:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5907b2dc_8e90a0ad",
       "range": {
         "startLine": 115,
         "startChar": 47,
