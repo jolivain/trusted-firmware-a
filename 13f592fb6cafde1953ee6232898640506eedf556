@@ -16,6 +16,92 @@
       "message": "Rendered threat model https://ci-builds.trustedfirmware.org/static-files/4S2jIZVqu-Mgx_F98TNJGxml_VsHVgNdRhO79jieqDQxNjk3NjE0NTU1MzkyOjk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvMjY5Mjc5NS9hcnRpZmFjdA\u003d\u003d/artefacts/release/build/html/threat_model/threat_model_arm_cca.html",
       "revId": "13f592fb6cafde1953ee6232898640506eedf556",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aec63288_de29940f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-10-18T09:08:30Z",
+      "side": 1,
+      "message": "Some comments. Mainly about helping consumers reading and understanding.",
+      "revId": "13f592fb6cafde1953ee6232898640506eedf556",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f84cf85_aa7f15be",
+        "filename": "docs/threat_model/threat_model_arm_cca.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-10-18T09:08:30Z",
+      "side": 1,
+      "message": "Nit: You may want to consider saying why (ie we recommend experimental feature are not used in production build and the build system signals that with build time messages).  I also appreciate we don\u0027t call this out the generic threat model and also no where in the documentation do we fully define what experimental means that I could find so maybe a bigger issue which we don\u0027t want to address with this change. Various features have their own guidance when marked experimental. See search https://trustedfirmware-a.readthedocs.io/en/latest/search.html?q\u003dExperimental\u0026check_keywords\u003dyes\u0026area\u003ddefault.\n\n\n\nAlso RME is marked as Experimental currently I assume we are removing this? https://trustedfirmware-a.readthedocs.io/en/latest/components/realm-management-extension.html#three-world-execution",
+      "range": {
+        "startLine": 66,
+        "startChar": 40,
+        "endLine": 67,
+        "endChar": 12
+      },
+      "revId": "13f592fb6cafde1953ee6232898640506eedf556",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "787d2f28_26857da7",
+        "filename": "docs/threat_model/threat_model_arm_cca.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-10-18T09:08:30Z",
+      "side": 1,
+      "message": "Interesting, I think the use case today is primarily being tested on Server platforms however the CCA support being added to TF-A is not inherently only server but I understand given our current work its the only one we have actively considered.\n\nMaybe rephrase to something like \"At this time we only consider the ``Server`` target environment. New threats identified in this threat model will only be given a risk rating for this environment. Other environments may be added in a future revision.\"?",
+      "range": {
+        "startLine": 117,
+        "startChar": 2,
+        "endLine": 117,
+        "endChar": 52
+      },
+      "revId": "13f592fb6cafde1953ee6232898640506eedf556",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faa287af_f24ab028",
+        "filename": "docs/threat_model/threat_model_arm_cca.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-10-18T09:08:30Z",
+      "side": 1,
+      "message": "I believe you are referencing the threats in the generic threat model here https://trustedfirmware-a.readthedocs.io/en/latest/threat_model/threat_model.html#general-threats-for-all-firmware-images\n\nMaybe provide a link incase the reader is confused where to look for the details of the threat ID\u0027s referenced?",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 39
+      },
+      "revId": "13f592fb6cafde1953ee6232898640506eedf556",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
