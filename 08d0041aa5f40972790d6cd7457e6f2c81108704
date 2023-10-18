@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bc106ac_2b4536ea",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 1236,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-18T20:57:29Z",
+      "side": 1,
+      "message": "#define MPAM3_EL3_RESET_VAL  MPAM3_EL3_TRAPLOWER_BIT",
+      "revId": "08d0041aa5f40972790d6cd7457e6f2c81108704",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23f2b532_dabbd305",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-18T20:57:29Z",
+      "side": 1,
+      "message": "Replace with MPAM3_EL3_RESET_VAL.\n\nThe reason is, we can\u0027t rely on the Unknown values and its recommended to write RES0 with 0.",
+      "range": {
+        "startLine": 487,
+        "startChar": 4,
+        "endLine": 487,
+        "endChar": 22
+      },
+      "revId": "08d0041aa5f40972790d6cd7457e6f2c81108704",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
