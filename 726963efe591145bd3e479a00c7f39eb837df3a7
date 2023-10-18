@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3200aa30_7ae6f2c0",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-18T13:34:08Z",
+      "side": 1,
+      "message": "split line variable declartion.",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 41,
+        "endChar": 19
+      },
+      "revId": "726963efe591145bd3e479a00c7f39eb837df3a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cff53286_88aa64f2",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-18T13:34:08Z",
+      "side": 1,
+      "message": "The specification says it is optional. Shall not panic because of this?",
+      "range": {
+        "startLine": 61,
+        "startChar": 1,
+        "endLine": 61,
+        "endChar": 20
+      },
+      "revId": "726963efe591145bd3e479a00c7f39eb837df3a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fb0cf96_563e90fa",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-18T13:34:08Z",
+      "side": 1,
+      "message": "use explicit booleans.\nret !\u003d 0\n\nAnd lines 103, 110.",
+      "range": {
+        "startLine": 73,
+        "startChar": 5,
+        "endLine": 73,
+        "endChar": 8
+      },
+      "revId": "726963efe591145bd3e479a00c7f39eb837df3a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "983287a2_3de7036c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-18T13:34:08Z",
+      "side": 1,
+      "message": "this isn\u0027t defined in the FF-A specification.\nIs it used in loading the SP?",
+      "range": {
+        "startLine": 88,
+        "startChar": 13,
+        "endLine": 88,
+        "endChar": 23
+      },
+      "revId": "726963efe591145bd3e479a00c7f39eb837df3a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
