@@ -9,6 +9,7 @@
 #include <libfdt.h>
 #include <tc_plat.h>
 
+#include <arch_features.h>
 #include <common/bl_common.h>
 #include <common/debug.h>
 #include <drivers/arm/css/css_mhu_doorbell.h>
@@ -18,6 +19,103 @@
 #include <lib/fconf/fconf_dyn_cfg_getter.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
+
+#include <psa/crypto.h>
+#include <psa/crypto_platform.h>
+#include <psa/crypto_types.h>
+#include <psa/crypto_values.h>
+
+static void enable_rng_trap_test(bool enable)
+{
+	uint64_t scr_el3 = read_scr_el3();
+
+	INFO("**B-SCR_EL3 = %lx\n", scr_el3);
+
+	if (enable) {
+		scr_el3 |= SCR_TRNDR_BIT;
+	} else {
+		scr_el3 &= ~SCR_TRNDR_BIT;
+	}
+
+	write_scr_el3(scr_el3);
+
+	INFO("**SCR_EL3 = %lx\n", scr_el3);
+
+	isb();
+}
+
+/*
+ * We pretend using an external RNG (through MBEDTLS_PSA_CRYPTO_EXTERNAL_RNG
+ * mbedTLS config option) so we need to provide an implementation of
+ * mbedtls_psa_external_get_random(). Provide a fake one, since we do not
+ * actually have any external RNG and TF-A itself doesn't engage in
+ * cryptographic operations that demands randomness.
+ *
+ * This function currently uses 'rand' instruction (it is available only for
+ * the platform that uses Armv8.5-a+ architecture).
+ */
+psa_status_t mbedtls_psa_external_get_random(
+			mbedtls_psa_external_random_context_t *context,
+			uint8_t *output, size_t output_size,
+			size_t *output_length)
+{
+
+	u_register_t    rndr __unused;
+	u_register_t    feat_reg __unused;
+	unsigned int    rng_feat __unused;
+
+
+#if 0
+	uint64_t        cnt;
+	uint64_t        cnt_rem;
+	uint64_t        k = 0U;
+	uint64_t        j = 0U;
+#endif
+	ERROR("**Rand** - Size of O/P buffer = %zu\n", output_size);
+
+	assert(output_size != 0U);
+
+	enable_rng_trap_test(false);
+
+	ERROR("**Trap Disabled\n");
+
+	rng_feat = read_feat_rng_id_field();
+
+	ERROR("***rng-feat = %u\n", rng_feat);
+
+	feat_reg = read_id_aa64isar0_el1();
+
+	ERROR("***feat-rng = %lx\n", feat_reg);
+
+	rndr = read_rndr();
+
+	ERROR("**Read RNDR register Successfully\n");
+#if 0
+	cnt = output_size / 4U;
+	cnt_rem = output_size % 4U;
+
+	rndr = read_rndr();
+	for (uint64_t i = 0U; i < cnt; i++) {
+		k = 0U;
+		for (j = i; j < (i + 8U); j++) {
+			output[j] = (rndr >> (k * 8U)) & 0xFF;
+			k++;
+		}
+	}
+
+	for (k = 0U; k < cnt_rem; k++) {
+		output[j] = (rndr >> (k * 8U)) & 0xFF;
+	}
+#endif
+
+	enable_rng_trap_test(true);
+
+	ERROR("**Trap Enanbled back\n");
+
+	*output_length = output_size;
+
+	return PSA_SUCCESS;
+}
 
 static scmi_channel_plat_info_t tc_scmi_plat_info[] = {
 	{
