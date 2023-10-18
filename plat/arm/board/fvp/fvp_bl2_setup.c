@@ -103,3 +103,8 @@ struct bl_params *plat_get_next_bl_params(void)
 
 	return arm_bl_params;
 }
+
+int bl2_plat_handle_post_image_load(unsigned int image_id)
+{
+	return arm_bl2_plat_handle_post_image_load(image_id);
+}
