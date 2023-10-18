@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e32ff43_d577ea0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-10-18T16:37:11Z",
+      "side": 1,
+      "message": "Hi @Olivier, so the general problem of this patch breaking the DEBUG\u003d1 build still persists. Andrey is on a mission to bring the code size down (his LTO patches). There might be other tricks to reduce the memory footprint, but until this isn\u0027t solved, I am against just merging this patch as is.\nNot an expert in gerrit workflow, but would marking this patch as WIP be the right thing here?",
+      "parentUuid": "71f2d0ea_ad2935bd",
+      "revId": "c8a2e6081906586eaab6c40b472a26d71214ca33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "262ec09c_c4ce4ed5",
         "filename": "plat/allwinner/common/allwinner-common.mk",
         "patchSetId": 3
