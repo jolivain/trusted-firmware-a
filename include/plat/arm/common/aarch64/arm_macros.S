@@ -39,11 +39,11 @@ prefix:
 	 * ---------------------------------------------
 	 */
 	.macro arm_print_gic_regs
-	/* Check for GICv3 system register access */
+	/* Check for GICv3/v4 system register access */
 	mrs	x7, id_aa64pfr0_el1
 	ubfx	x7, x7, #ID_AA64PFR0_GIC_SHIFT, #ID_AA64PFR0_GIC_WIDTH
-	cmp	x7, #1
-	b.ne	print_gicv2
+	cmp	x7, #0
+	b.eq	print_gicv2
 
 	/* Check for SRE enable */
 	mrs	x8, ICC_SRE_EL3
