@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a8fd72d_4e422aaa",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 20
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-10-18T12:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19aa22a1_86f10768",
+      "range": {
+        "startLine": 14,
+        "startChar": 17,
+        "endLine": 14,
+        "endChar": 18
+      },
+      "revId": "4bcbbb5906a8d1da65b27842fd07542c47b4fb00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "931fb620_2d5b117e",
@@ -70,6 +94,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c92f0f87_0702a0bb",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 20
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-10-18T12:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d7c9f8b_750c3a61",
+      "range": {
+        "startLine": 67,
+        "startChar": 5,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "4bcbbb5906a8d1da65b27842fd07542c47b4fb00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb1254d2_f9b82b82",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 20
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-10-18T12:58:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "931fb620_2d5b117e",
+      "range": {
+        "startLine": 67,
+        "startChar": 29,
+        "endLine": 67,
+        "endChar": 52
+      },
+      "revId": "4bcbbb5906a8d1da65b27842fd07542c47b4fb00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2da1a96c_9b788d83",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-10-18T12:52:44Z",
       "side": 1,
       "message": "is it a convention in TF-A to use sel0 or should it be s_el0 ?",
+      "range": {
+        "startLine": 96,
+        "startChar": 51,
+        "endLine": 96,
+        "endChar": 55
+      },
+      "revId": "4bcbbb5906a8d1da65b27842fd07542c47b4fb00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0bcec58_2ad76256",
+        "filename": "plat/arm/board/rdn2/platform.mk",
+        "patchSetId": 20
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-10-18T12:58:42Z",
+      "side": 1,
+      "message": "Manish suggested the name. I used it as it is.",
+      "parentUuid": "2da1a96c_9b788d83",
       "range": {
         "startLine": 96,
         "startChar": 51,
