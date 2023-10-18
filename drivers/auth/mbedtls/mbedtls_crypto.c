@@ -38,6 +38,21 @@ CASSERT(CRYPTO_MD_MAX_SIZE >= MBEDTLS_MD_MAX_SIZE,
 	  CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC */
 
 /*
+ * We pretend using an external RNG (through MBEDTLS_PSA_CRYPTO_EXTERNAL_RNG
+ * mbedTLS config option) so we need to provide an implementation of
+ * mbedtls_psa_external_get_random(). Provide a fake one, since we do not
+ * actually have any external RNG and TF-A itself doesn't engage in
+ * cryptographic operations that demands randomness.
+ */
+psa_status_t mbedtls_psa_external_get_random(
+			mbedtls_psa_external_random_context_t *context,
+			uint8_t *output, size_t output_size,
+			size_t *output_length)
+{
+	return PSA_ERROR_INSUFFICIENT_ENTROPY;
+}
+
+/*
  * AlgorithmIdentifier  ::=  SEQUENCE  {
  *     algorithm               OBJECT IDENTIFIER,
  *     parameters              ANY DEFINED BY algorithm OPTIONAL
