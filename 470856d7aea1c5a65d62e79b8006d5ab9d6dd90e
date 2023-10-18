@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cde61718_12984613",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-18T09:02:58Z",
+      "side": 1,
+      "message": "I had a look a the ff-a manifest code parsing in the EL3 SPMC, couldn\u0027t find a reference to the load-address.\n\nCould you please drop this from here?",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 36,
+        "endChar": 26
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0675bf4_2be4002c",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-18T09:02:58Z",
+      "side": 1,
+      "message": "similarly.",
+      "range": {
+        "startLine": 37,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95ab4c27_3291e6ae",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-18T09:02:58Z",
+      "side": 1,
+      "message": "is this relevant?\n\nThe entry in line 43 seems to serve this purpose.",
+      "range": {
+        "startLine": 39,
+        "startChar": 1,
+        "endLine": 39,
+        "endChar": 30
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "325c2850_830ceb6c",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-18T09:02:58Z",
+      "side": 1,
+      "message": "drop.\nThe FF-A specification makes it an optional field.\nThis could be omitted, given it relates to a single partition on top of the EL3 SPMC.\nThe EL3 SPMC is not parsing it.",
+      "range": {
+        "startLine": 40,
+        "startChar": 1,
+        "endLine": 40,
+        "endChar": 18
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5907b2dc_8e90a0ad",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-18T09:02:58Z",
+      "side": 1,
+      "message": "nitpick: full stop.",
+      "range": {
+        "startLine": 115,
+        "startChar": 47,
+        "endLine": 115,
+        "endChar": 48
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
