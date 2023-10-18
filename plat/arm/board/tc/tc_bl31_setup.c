@@ -19,6 +19,37 @@
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 
+#include <psa/crypto_platform.h>
+#include <psa/crypto_types.h>
+#include <psa/crypto_values.h>
+
+/*
+ * We pretend using an external RNG (through MBEDTLS_PSA_CRYPTO_EXTERNAL_RNG
+ * mbedTLS config option) so we need to provide an implementation of
+ * mbedtls_psa_external_get_random(). Provide a fake one, since we do not
+ * actually have any external RNG and TF-A itself doesn't engage in
+ * cryptographic operations that demands randomness.
+ *
+ * This function currently uses 'rand' instruction (it is available only for
+ * the platform that uses Armv8.5-a+ architecture) but Feat RNG is not supported
+ * on all platfroms, for example TC2 platform. so just fill the buffer with some
+ * values
+ */
+psa_status_t mbedtls_psa_external_get_random(
+			mbedtls_psa_external_random_context_t *context,
+			uint8_t *output, size_t output_size,
+			size_t *output_length)
+{
+	/* Just fill the buffer with sequential values */
+	for (size_t i = 0U; i < output_size; i++) {
+		output[i] = i;
+	}
+
+	*output_length = output_size;
+
+	return PSA_SUCCESS;
+}
+
 static scmi_channel_plat_info_t tc_scmi_plat_info[] = {
 	{
 		.scmi_mbx_mem = CSS_SCMI_PAYLOAD_BASE,
