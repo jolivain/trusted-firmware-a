@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d9e2983e_7b8688ce",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-18T07:20:46Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t understand how retaining err_code would help in implementing Manish\u0027s suggestion. Please have a look at patch set 2, where I\u0027ve implemented Manish\u0027s suggestion without any err_code variable.\n\nIMO getting rid of err_code makes the code a lot easier to reason about. Returning from the function as soon as we encounter an error also plays a big role in streamlining the control flow logic.",
+      "parentUuid": "70142e91_9dcd266b",
+      "range": {
+        "startLine": 231,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 33
+      },
+      "revId": "e3afb84a6d9005652d65f7ce0cc672dae0f02484",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12ece4e8_054f3b49",
         "filename": "tools/cert_create/src/key.c",
         "patchSetId": 1
@@ -37,6 +61,24 @@
       "writtenOn": "2023-10-16T16:39:02Z",
       "side": 1,
       "message": "Would it be more efficient to relocate the duplicated code from lines 256-259 and 241-244 here, given that \u0027key-\u003ekey\u0027 holds the sane value at this point?",
+      "revId": "e3afb84a6d9005652d65f7ce0cc672dae0f02484",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28c306e9_1a65d1ba",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-18T07:20:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12ece4e8_054f3b49",
       "revId": "e3afb84a6d9005652d65f7ce0cc672dae0f02484",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
