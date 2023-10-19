@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fcd5088_e517aae8",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-10-19T17:51:21Z",
+      "side": 1,
+      "message": "Check the return here. agreed that \u0026fw_caps does\u0027nt get updated, but from debug, we should rather know when the API is not implemented Vs f/w failing for some reason.",
+      "revId": "1326e9b1a940d51e1bd211ef4a38dc05ef19efe8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
