@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b39acba1_55b68d41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-10-19T14:04:10Z",
+      "side": 1,
+      "message": "So the idea of swapping the block is a clever idea. I ran some before/after comparisons and it looks all fine to me.\nThe patch needs updating, though, as some changes to arch_features.mk have been merged meanwhile (for instance around PAUTH). I fixed that and will push an update.",
+      "revId": "12202d8a4e2dd41d0fa24baef8e5ee5572a016bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
