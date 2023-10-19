@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a66187ec_322d687c",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-19T14:03:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f11f1305_2109048c",
+      "revId": "904e3c466ac2d33a22c6f27eeb474f0f18bea74b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1ba30a8_ef062928",
@@ -35,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91b24aa8_317bbcec",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-19T14:03:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1ba30a8_ef062928",
+      "revId": "904e3c466ac2d33a22c6f27eeb474f0f18bea74b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6950ea88_45e7f893",
@@ -48,6 +84,30 @@
       "writtenOn": "2023-10-18T20:11:56Z",
       "side": 1,
       "message": "nit: rename to plat_arm_sip_handler ??",
+      "range": {
+        "startLine": 19,
+        "startChar": 10,
+        "endLine": 19,
+        "endChar": 30
+      },
+      "revId": "904e3c466ac2d33a22c6f27eeb474f0f18bea74b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14e19dba_3e43cd26",
+        "filename": "plat/arm/common/plat_arm_sip_svc.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-19T14:03:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6950ea88_45e7f893",
       "range": {
         "startLine": 19,
         "startChar": 10,
