@@ -16,6 +16,24 @@
       "message": "The default value of MPAM is 2 and if it is 1 or 0 it means platform integrator is clear whether MPAM is there or not. This check should just for MAPM\u003d\u003d2.\nRemove IMAGE_BL31 from here and keep it in continuation with sve one.\n\nAlso, create a macro named restore_mpam3_el3 and hide the implementation there.",
       "revId": "562c703788d822cfc03ee6ce23e56e7134f76935",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e89787e_193c0160",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-19T08:26:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac454d68_e11f9c4c",
+      "revId": "562c703788d822cfc03ee6ce23e56e7134f76935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
