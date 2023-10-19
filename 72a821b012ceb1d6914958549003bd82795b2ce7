@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f867c76_7488dbcd",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-10-19T16:43:13Z",
+      "side": 1,
+      "message": "Could be, depending on if this change merges before or after https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19740/4/include/services/ffa_svc.h#185",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 30
+      },
+      "revId": "72a821b012ceb1d6914958549003bd82795b2ce7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88ebe467_9a5ba036",
+        "filename": "plat/arm/board/corstone1000/common/fdts/corstone1000_spmc_manifest.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-10-19T16:43:13Z",
+      "side": 1,
+      "message": "I wouldn\u0027t recommend this as Corstone is likely to run OP-TEE as SPMC, as opposed to Hafnium.",
+      "range": {
+        "startLine": 23,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 18
+      },
+      "revId": "72a821b012ceb1d6914958549003bd82795b2ce7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ecd78c0_c4730447",
+        "filename": "plat/arm/board/n1sdp/fdts/n1sdp_optee_spmc_manifest.dts",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-10-19T16:43:13Z",
+      "side": 1,
+      "message": "nit: not necessary if no change in this file.",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "72a821b012ceb1d6914958549003bd82795b2ce7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
