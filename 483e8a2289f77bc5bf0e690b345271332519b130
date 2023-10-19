@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86086ac7_4208b9f5",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-10-19T17:05:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b7836ad_09703f65",
+      "range": {
+        "startLine": 307,
+        "startChar": 1,
+        "endLine": 307,
+        "endChar": 47
+      },
+      "revId": "483e8a2289f77bc5bf0e690b345271332519b130",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57a4b52d_58aaa1e5",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-10-19T11:44:32Z",
       "side": 1,
       "message": "Respect the return value of this function. If it indicates a failure, we should print an error message indicating that GPT loading has failed, primary and secondary. It would be beneficial if the \u0027partition_init\u0027 function also considers the return value, allowing the caller to take appropriate action.\n\nBut I\u0027ve noticed in a subsequent patch that you\u0027ve created the \u0027gpt_partition_init\u0027 function, which is utilized by Arm platforms and calls \u0027panic\u0027 on failure. I believe it would be a good practice for all platforms to transition to using this \u0027gpt_partition_init\u0027 function instead of \u0027partition_init,\u0027 with the intention of eventually deprecating the latter.",
+      "revId": "483e8a2289f77bc5bf0e690b345271332519b130",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5640c76_f9841fe4",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-10-19T17:05:50Z",
+      "side": 1,
+      "message": "Updated in later patch set: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/24068/6/drivers/partition/partition.c",
+      "parentUuid": "57a4b52d_58aaa1e5",
       "revId": "483e8a2289f77bc5bf0e690b345271332519b130",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
