@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f774fc5_233dc398",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-10-20T11:24:36Z",
+      "side": 1,
+      "message": "Rendered version here: https://ci-builds.trustedfirmware.org/static-files/fz2R3OdZ6zZ7uUVEfJGhFZf-ayvaMhrX3qY0sLNLPEgxNjk3ODAwODMzMjY2Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvMjY5Mjc5NS9hcnRpZmFjdA\u003d\u003d/artefacts/release/build/html/threat_model/threat_model.html",
+      "revId": "ca03b9e08b9562e20939c564784ccf8f5f19dda1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "628456a5_be74c3dd",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-10-20T11:24:36Z",
+      "side": 1,
+      "message": "Is this meant to be an example list and the ... at the end meant to imply there could be others not listed here?\n\nI assume ... was not meant to mean you intended to add yo this list?\n\nMaybe rephrase to make all this explicit? Something like \n\"Examples are injection of arbitrary data, sensitive data tampering, influencing the execution path, denial of service if using blocking I/O and others not listed here.\"",
+      "range": {
+        "startLine": 570,
+        "startChar": 29,
+        "endLine": 572,
+        "endChar": 67
+      },
+      "revId": "ca03b9e08b9562e20939c564784ccf8f5f19dda1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
