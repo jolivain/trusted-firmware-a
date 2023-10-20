@@ -16,6 +16,23 @@
       "message": "As discussed offline with Manish Badharkhe, making the implementation of the post image handle strongly defined since TF-A discourages weak implementations. That change is the parent to this.",
       "revId": "9ef7f49af8309d85aa5bf4e1388d02a526edf63b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16326f21_38089b2f",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-20T10:31:16Z",
+      "side": 1,
+      "message": "It\u0027s advisable to include an assert(param_node !\u003d NULL) to prevent null pointer dereferences, which would help address one of the MISRA-C violations, particularly at line number 96 and 104.",
+      "revId": "9ef7f49af8309d85aa5bf4e1388d02a526edf63b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
