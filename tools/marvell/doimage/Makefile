@@ -4,6 +4,9 @@
 # SPDX-License-Identifier:     BSD-3-Clause
 # https://spdx.org/licenses
 
+MAKE_HELPERS_DIRECTORY := ../../../make_helpers/
+include ${MAKE_HELPERS_DIRECTORY}toolchain-tools.mk
+
 PROJECT = doimage
 OBJECTS = doimage.o
 
