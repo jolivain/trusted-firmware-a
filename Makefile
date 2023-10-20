@@ -21,8 +21,10 @@ VERSION				:= ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
 MAKEOVERRIDES =
 
 MAKE_HELPERS_DIRECTORY := make_helpers/
+
 include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
+include ${MAKE_HELPERS_DIRECTORY}toolchain.mk
 
 ################################################################################
 # Default values for build configurations, and their dependencies
