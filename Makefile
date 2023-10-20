@@ -21,6 +21,7 @@ VERSION				:= ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
 MAKEOVERRIDES =
 
 MAKE_HELPERS_DIRECTORY := make_helpers/
+
 include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
 
@@ -29,6 +30,13 @@ include ${MAKE_HELPERS_DIRECTORY}build_env.mk
 ################################################################################
 
 include ${MAKE_HELPERS_DIRECTORY}defaults.mk
+
+################################################################################
+# Configure the toolchains used to build TF-A and its tools
+################################################################################
+
+include ${MAKE_HELPERS_DIRECTORY}toolchain-tf-a.mk
+include ${MAKE_HELPERS_DIRECTORY}toolchain.mk
 
 # Assertions enabled for DEBUG builds by default
 ENABLE_ASSERTIONS		:= ${DEBUG}
