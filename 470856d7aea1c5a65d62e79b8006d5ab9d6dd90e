@@ -119,6 +119,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a0d18130_3a9252fe",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-20T14:54:16Z",
+      "side": 1,
+      "message": "nitpick: S-EL0",
+      "range": {
+        "startLine": 34,
+        "startChar": 35,
+        "endLine": 34,
+        "endChar": 39
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ebf96da3_80a767fb",
         "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
         "patchSetId": 19
@@ -261,6 +284,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef9b200d_af8d188d",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-20T14:54:16Z",
+      "side": 1,
+      "message": "If the SPMC changes it in initialisation why adding it to the manifest, with an invalid value?\n\nThe specification states the field is optional. As such, if this is to provide 0, for the sake of correctness, could the parsing in EL3 SPMC be changed such that the field could be omitted, and then drop these values from here?",
+      "parentUuid": "60ea377a_3d25abb3",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 36,
+        "endChar": 26
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0675bf4_2be4002c",
         "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
         "patchSetId": 19
@@ -390,6 +437,30 @@
       "side": 1,
       "message": "According to my understanding, this is used to convert the page count to the size. this is how I implemented it in STMM.",
       "parentUuid": "3695f870_afeda43f",
+      "range": {
+        "startLine": 38,
+        "startChar": 1,
+        "endLine": 38,
+        "endChar": 31
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47e5d7ac_2645f2fd",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-10-20T14:54:16Z",
+      "side": 1,
+      "message": "Are you using the same manifest to deploy on Hafnium?",
+      "parentUuid": "7b6e7bdb_735a9910",
       "range": {
         "startLine": 38,
         "startChar": 1,
