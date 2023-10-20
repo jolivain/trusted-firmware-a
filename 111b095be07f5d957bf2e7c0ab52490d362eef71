@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7e1c06a_41bbb94a",
+        "filename": "plat/arm/board/fvp/fvp_plat_attest_token.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-20T09:08:12Z",
+      "side": 1,
+      "message": "There are two options-\n1. Static array in the global or file scope.\n2. Array on the stack, as a local variable\n\nCurrently the code is using option 2, the array is generated when the function that contains it is invoked. We must determine the array\u0027s maximum size during compilation. In the event of an exceedingly large array, a stack overflow error may occur, and this would be detected at runtime (I don\u0027t see we are encountering this case here as it is not that big array and as mentioned earlier it is always fixed so very rare chance of getting stack overflow). \nAlso, this is a dummy function and can\u0027t be used for not real use case, it is just to give the hardcoded data (instead of invoking any RSS call) back to caller so performance penalty is okay in this case instead of increasing the binary size. What do you say?",
+      "parentUuid": "2df76ba4_090b8212",
+      "revId": "111b095be07f5d957bf2e7c0ab52490d362eef71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bed197d0_ba12c0bc",
         "filename": "plat/arm/board/fvp/fvp_realm_attest_key.c",
         "patchSetId": 4
