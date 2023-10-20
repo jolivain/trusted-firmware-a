@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc9a2b99_8e0a637c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-20T12:21:25Z",
+      "side": 1,
+      "message": "There is patch under review to enable mandatory features by default based on ARCH MAJOR/MINOR https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/23947\nIt will follow up with email encouraging platforms to use in platform.mk file. I will ensure that we add this point also in email.",
+      "parentUuid": "1339e6e9_015e1f48",
+      "revId": "519b45a0f1e1d6651f8ca83f0dd462b6a615b0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d11d6178_7f479e7d",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-10-20T09:55:29Z",
       "side": 1,
       "message": "I think x29 is being corrupted. There is a prepare_el3_exit which will overwrite this value.\n\nThis was a pre-existing issue.",
+      "range": {
+        "startLine": 93,
+        "startChar": 5,
+        "endLine": 93,
+        "endChar": 8
+      },
+      "revId": "519b45a0f1e1d6651f8ca83f0dd462b6a615b0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77b80cb0_64670b01",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-20T12:21:25Z",
+      "side": 1,
+      "message": "This will only be corrupted if there is a pending async EA which gets handled in FFH mode and then you come to handle the sync exception.\n\nI agree that register corruption in this case will happen but since it is part of debug helper for collecting instrumentation data, its not critical. I will think of another solution to avoid this.",
+      "parentUuid": "d11d6178_7f479e7d",
       "range": {
         "startLine": 93,
         "startChar": 5,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf119040_30ecd2a6",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-20T12:21:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99c64456_cafc4e90",
+      "range": {
+        "startLine": 112,
+        "startChar": 1,
+        "endLine": 117,
+        "endChar": 0
+      },
+      "revId": "519b45a0f1e1d6651f8ca83f0dd462b6a615b0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95d95bf7_56f3c2ae",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-10-20T09:55:29Z",
       "side": 1,
       "message": "this may not be correct, as handle_lower_el_sync_ea expects x30 to be saved.",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 121,
+        "endChar": 49
+      },
+      "revId": "519b45a0f1e1d6651f8ca83f0dd462b6a615b0e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2264fe2c_184eb953",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-20T12:21:25Z",
+      "side": 1,
+      "message": "Actually there is no need to restore x30, this has came as part of copying from other file.",
+      "parentUuid": "95d95bf7_56f3c2ae",
       "range": {
         "startLine": 121,
         "startChar": 0,
