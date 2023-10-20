@@ -1,8 +1,12 @@
 #
-# Copyright (c) 2018-2019, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2018-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
+
+toolchains := aarch64
+
+include ../../make_helpers/toolchain.mk
 
 AS          = $(CROSS_COMPILE)as
 AR          = $(CROSS_COMPILE)ar

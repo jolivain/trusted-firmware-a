@@ -1,8 +1,12 @@
 #
-# Copyright (c) 2016, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2016-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
+
+toolchains := rk3399-m0
+
+include ../../../../../make_helpers/toolchain.mk
 
 # Cross Compile
 M0_CROSS_COMPILE ?= arm-none-eabi-
