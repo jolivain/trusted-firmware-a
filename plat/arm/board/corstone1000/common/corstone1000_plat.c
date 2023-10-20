@@ -10,6 +10,7 @@
 
 #include <drivers/generic_delay_timer.h>
 #include <drivers/io/io_storage.h>
+#include <drivers/partition/partition.h>
 #include <plat/common/platform.h>
 #include <plat/arm/common/arm_fconf_getter.h>
 #include <plat/arm/common/arm_fconf_io_storage.h>
@@ -53,6 +54,15 @@ void bl2_platform_setup(void)
 	 * index flag from the flash.
 	 */
 	set_fip_image_source();
+}
+
+void bl2_el3_plat_arch_setup(void)
+{
+	arm_bl2_el3_plat_arch_setup();
+#ifdef ARM_GPT_SUPPORT
+	partition_init(GPT_IMAGE_ID);
+#endif
+	NOTICE("Corstone1000: early at %s\n", __func__);
 }
 
 /* corstone1000 only has one always-on power domain and there
