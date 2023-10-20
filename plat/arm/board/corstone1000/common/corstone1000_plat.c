@@ -38,7 +38,7 @@ static void set_fip_image_source(void)
 	assert(policy != NULL);
 	assert(policy->image_spec != 0UL);
 
-	/* FIP Partition contains Signature area at the begining which TF-A doesn't expect */
+	/* FIP Partition contains Signature area at the beginning which TF-A doesn't expect */
 	io_block_spec_t *spec = (io_block_spec_t *)policy->image_spec;
 	spec->offset += FIP_SIGNATURE_AREA_SIZE;
 	spec->length -= FIP_SIGNATURE_AREA_SIZE;
