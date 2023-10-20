@@ -55,6 +55,13 @@ void bl2_platform_setup(void)
 	set_fip_image_source();
 }
 
+void bl2_el3_plat_arch_setup(void)
+{
+	arm_bl2_el3_plat_arch_setup();
+	partition_init(GPT_IMAGE_ID);
+	NOTICE("Corstone1000: early at %s\n", __func__);
+}
+
 /* corstone1000 only has one always-on power domain and there
  * is no power control present
  */
