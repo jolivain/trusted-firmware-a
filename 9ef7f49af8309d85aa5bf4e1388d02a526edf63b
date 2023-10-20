@@ -33,6 +33,24 @@
       "message": "It\u0027s advisable to include an assert(param_node !\u003d NULL) to prevent null pointer dereferences, which would help address one of the MISRA-C violations, particularly at line number 96 and 104.",
       "revId": "9ef7f49af8309d85aa5bf4e1388d02a526edf63b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d68444c_0c96898e",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-20T10:56:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16326f21_38089b2f",
+      "revId": "9ef7f49af8309d85aa5bf4e1388d02a526edf63b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
