@@ -96,7 +96,9 @@ export Q ECHO
 # Toolchain
 ################################################################################
 
-HOSTCC			:=	gcc
+include $(MAKE_HELPERS_DIRECTORY)toolchain.mk
+
+HOSTCC			:=	$(host-cc)
 export HOSTCC
 
 CC			:=	${CROSS_COMPILE}gcc
