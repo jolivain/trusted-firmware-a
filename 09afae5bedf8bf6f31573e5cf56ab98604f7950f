@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3dbda90_33ec8292",
+        "filename": "plat/arm/board/juno/platform.mk",
+        "patchSetId": 12
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-10-20T09:32:40Z",
+      "side": 1,
+      "message": "I\u0027m not quite sure I understand this change. Per the commmit message:\n\n\u003e if SPE and SVE is enabled for aarch32 it will cause build failure\n\nBut 0 is disabling, not enabling it? Should we just remove this line altogether?",
+      "revId": "09afae5bedf8bf6f31573e5cf56ab98604f7950f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
