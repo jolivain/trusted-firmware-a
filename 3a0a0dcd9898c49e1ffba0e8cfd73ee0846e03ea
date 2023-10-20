@@ -65,6 +65,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f714964f_08f5e054",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 36
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-20T18:03:08Z",
+      "side": 1,
+      "message": "Discussed offline with Manish P, and for now, we have agreed to proceed with the current naming (global_context).\nFurther, when we have context management  documentation,  we shall consider/establish naming convention for all apis.",
+      "parentUuid": "070b6394_f6dd81b6",
+      "range": {
+        "startLine": 446,
+        "startChar": 15,
+        "endLine": 446,
+        "endChar": 21
+      },
+      "revId": "3a0a0dcd9898c49e1ffba0e8cfd73ee0846e03ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f516513_4333cf7c",
