@@ -28,6 +28,7 @@
 #include <services/spmd_svc.h>
 #include "spmc.h"
 #include "spmc_heap.h"
+#include "spmc_notifications.h"
 #include "spmc_shared_mem.h"
 
 #include <platform_def.h>
@@ -2441,6 +2442,34 @@ uint64_t spmc_smc_handler(uint32_t smc_fid,
 	case FFA_MEM_PERM_SET:
 		return ffa_mem_perm_set_handler(smc_fid, secure_origin, x1, x2,
 						x3, x4, cookie, handle, flags);
+	case FFA_NOTIFICATION_BITMAP_CREATE:
+		return spmc_ffa_notification_bitmap_create(smc_fid,
+			secure_origin, x1, x2, x3, x4, cookie, handle, flags);
+
+	case FFA_NOTIFICATION_BITMAP_DESTROY:
+		return spmc_ffa_notification_bitmap_destroy(smc_fid,
+			secure_origin, x1, x2, x3, x4, cookie, handle, flags);
+
+	case FFA_NOTIFICATION_BIND:
+		return spmc_ffa_notification_bind(smc_fid,
+			secure_origin, x1, x2, x3, x4, cookie, handle, flags);
+
+	case FFA_NOTIFICATION_UNBIND:
+		return spmc_ffa_notification_unbind(smc_fid,
+			secure_origin, x1, x2, x3, x4, cookie, handle, flags);
+
+	case FFA_NOTIFICATION_SET:
+		return spmc_ffa_notification_set(smc_fid,
+			secure_origin, x1, x2, x3, x4, cookie, handle, flags);
+
+	case FFA_NOTIFICATION_GET:
+		return spmc_ffa_notification_get(smc_fid,
+			secure_origin, x1, x2, x3, x4, cookie, handle, flags);
+
+	case FFA_NOTIFICATION_INFO_GET_SMC32:
+	case FFA_NOTIFICATION_INFO_GET_SMC64:
+		return spmc_ffa_notification_info_get(smc_fid,
+			secure_origin, x1, x2, x3, x4, cookie, handle, flags);
 
 	default:
 		WARN("Unsupported FF-A call 0x%08x.\n", smc_fid);
