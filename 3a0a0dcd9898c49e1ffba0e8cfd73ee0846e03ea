@@ -89,6 +89,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ed07fe4_83a7657e",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 36
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-21T15:02:53Z",
+      "side": 1,
+      "message": "I kind of agree with Daniel\u0027s suggestion but you can hold it until we do the documentation. Functionality wise there won\u0027t be any change just the name change.\nLets get this patch go through and note it down for future.",
+      "parentUuid": "12396fcf_3571c56a",
+      "range": {
+        "startLine": 446,
+        "startChar": 15,
+        "endLine": 446,
+        "endChar": 21
+      },
+      "revId": "3a0a0dcd9898c49e1ffba0e8cfd73ee0846e03ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f516513_4333cf7c",
