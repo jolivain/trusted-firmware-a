@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "589ff6a9_bacb8307",
+        "filename": "Makefile",
+        "patchSetId": 13
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-23T17:31:22Z",
+      "side": 1,
+      "message": "Platform will use FFH_SUPPORT for decision making, so need to include it before we include platform makefile. Do you think it would be a problem of cyclic dependency?",
+      "parentUuid": "26b58194_73c4e689",
+      "range": {
+        "startLine": 674,
+        "startChar": 0,
+        "endLine": 677,
+        "endChar": 17
+      },
+      "revId": "f6cba21afc1a7c7300da08a438e8bb9ffb5c01dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15c996e8_bdd61189",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90ac21f7_fd91398c",
+        "filename": "plat/arm/css/sgi/sgi-common.mk",
+        "patchSetId": 13
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-23T17:31:22Z",
+      "side": 1,
+      "message": "A minor change so wont\u0027t update Copyright.",
+      "parentUuid": "15c996e8_bdd61189",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "f6cba21afc1a7c7300da08a438e8bb9ffb5c01dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d290dea_61ec984e",
@@ -60,6 +108,30 @@
       "writtenOn": "2023-10-23T16:36:15Z",
       "side": 1,
       "message": "2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "f6cba21afc1a7c7300da08a438e8bb9ffb5c01dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0ca9ced_11769e2b",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-23T17:31:22Z",
+      "side": 1,
+      "message": "same",
+      "parentUuid": "2d290dea_61ec984e",
       "range": {
         "startLine": 2,
         "startChar": 22,
