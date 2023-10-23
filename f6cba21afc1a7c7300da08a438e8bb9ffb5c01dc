@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26b58194_73c4e689",
+        "filename": "Makefile",
+        "patchSetId": 13
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-10-23T16:36:15Z",
+      "side": 1,
+      "message": "Any reason why this moved here?\n\nFrom cmt-msg \"internal macro FFH_SUPPORT which gets enabled when platforms wants\nto enable lower EL EA handling at EL3.\" \n\nSo original code location at line 867 looks correct then? if we parse this after platform makefile",
+      "range": {
+        "startLine": 674,
+        "startChar": 0,
+        "endLine": 677,
+        "endChar": 17
+      },
+      "revId": "f6cba21afc1a7c7300da08a438e8bb9ffb5c01dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15c996e8_bdd61189",
+        "filename": "plat/arm/css/sgi/sgi-common.mk",
+        "patchSetId": 13
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-10-23T16:36:15Z",
+      "side": 1,
+      "message": "nit: 2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 21,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "f6cba21afc1a7c7300da08a438e8bb9ffb5c01dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d290dea_61ec984e",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-10-23T16:36:15Z",
+      "side": 1,
+      "message": "2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "f6cba21afc1a7c7300da08a438e8bb9ffb5c01dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
