@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d7f0e12_ee6ebae7",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1001111
+      },
+      "writtenOn": "2023-10-23T07:33:38Z",
+      "side": 0,
+      "message": "If a key filepath is supplied, but the file couldn\u0027t be openend, you\u0027ll get both a warning for \u0027Cannot open..\u0027 and \u0027Cannot load..\u0027 and the err_code set at line 258 will be overwritten here.\n\nAdding an additional return at line 259 should give a correct warning and err_code.",
+      "revId": "eabcb27ae1930b7c04c0e888ca19a95e150bc727",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
