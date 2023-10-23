@@ -96,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "61e4d70e_2c087f69",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-10-23T15:30:45Z",
+      "side": 1,
+      "message": "Ok this is a nitpick but is RDN2 any kind of related to SGI?\nI had in mind SGI relates to SGI 575 but I may be wrong? Is SGI related to a family of platforms that RDN2 is part of?",
+      "parentUuid": "a53baf71_e2343e93",
+      "range": {
+        "startLine": 29,
+        "startChar": 16,
+        "endLine": 29,
+        "endChar": 20
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2587ef99_4d5e2e8d",
         "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
         "patchSetId": 19
@@ -424,6 +448,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b882627_f7d20d81",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-10-23T15:30:45Z",
+      "side": 1,
+      "message": "As above, image-size is consumed by StMM, not the SPMC.",
+      "parentUuid": "be594769_fdad7abe",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3695f870_afeda43f",
@@ -509,6 +557,30 @@
       "side": 1,
       "message": "Yes",
       "parentUuid": "47e5d7ac_2645f2fd",
+      "range": {
+        "startLine": 38,
+        "startChar": 1,
+        "endLine": 38,
+        "endChar": 31
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89a238ae_bdec83ec",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-10-23T15:30:45Z",
+      "side": 1,
+      "message": "\u003e this is how I implemented it in STMM.\nOk I see this is consumed by StMM itself, not the SPMC.",
+      "parentUuid": "5a9c65e0_2759dfae",
       "range": {
         "startLine": 38,
         "startChar": 1,
