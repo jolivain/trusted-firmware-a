@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8baaf800_35e9b92e",
+        "filename": "Makefile",
+        "patchSetId": 13
+      },
+      "lineNbr": 677,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-10-23T18:24:33Z",
+      "side": 1,
+      "message": "yes if platform sets `HANDLE_EA_EL3_FIRST_NS` then we will miss out since platform makefile is done at line 685 below so moving this to line 868 would mean its parsed from platfrom code or from cmdline ?",
+      "parentUuid": "589ff6a9_bacb8307",
+      "range": {
+        "startLine": 674,
+        "startChar": 0,
+        "endLine": 677,
+        "endChar": 17
+      },
+      "revId": "f6cba21afc1a7c7300da08a438e8bb9ffb5c01dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15c996e8_bdd61189",
