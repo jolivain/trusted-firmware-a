@@ -16,6 +16,24 @@
       "message": "If a key filepath is supplied, but the file couldn\u0027t be openend, you\u0027ll get both a warning for \u0027Cannot open..\u0027 and \u0027Cannot load..\u0027 and the err_code set at line 258 will be overwritten here.\n\nAdding an additional return at line 259 should give a correct warning and err_code.",
       "revId": "eabcb27ae1930b7c04c0e888ca19a95e150bc727",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dad72f9_31b84468",
+        "filename": "tools/cert_create/src/key.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-23T12:05:19Z",
+      "side": 0,
+      "message": "Yes but the present patch changes this behaviour. And since your comment appears on the base version of the patch (rather than the patch itself), I wanted to clarify the expected behaviour with patch v3.\n\nIf a key filepath is supplied, but the file couldn\u0027t be opened, then you\u0027ll still get the warning for \"Cannot open...\", then:\n1) if the --create-keys option was used then the tool will emit no more message and will try to create the key.\n2) otherwise, the tool will print an error message of the form \"Error opening...\" and exit.\n\nDoes that sound alright? We could remove the first warning message (\"Cannot open...\") but arguably it serves some purposes in scenario 1).",
+      "parentUuid": "6d7f0e12_ee6ebae7",
+      "revId": "eabcb27ae1930b7c04c0e888ca19a95e150bc727",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
