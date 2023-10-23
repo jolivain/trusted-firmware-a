@@ -16,6 +16,46 @@
       "message": "No major changes between the patches.\nManually adding verified +1",
       "revId": "166e2a8c04a5efb6aadcbf65160ee30d7cd1f1bf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3c5fb86_d5c7d2b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-23T15:04:03Z",
+      "side": 1,
+      "message": "One last change, otherwise, LGTM",
+      "revId": "166e2a8c04a5efb6aadcbf65160ee30d7cd1f1bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "034ff36b_7db11b54",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1306,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-23T15:04:03Z",
+      "side": 1,
+      "message": "nit: power off (unless you\u0027re referring to an actual procedure",
+      "range": {
+        "startLine": 1306,
+        "startChar": 3,
+        "endLine": 1306,
+        "endChar": 12
+      },
+      "revId": "166e2a8c04a5efb6aadcbf65160ee30d7cd1f1bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
