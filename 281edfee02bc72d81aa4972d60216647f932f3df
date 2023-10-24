@@ -70,6 +70,41 @@
       "parentUuid": "f9354286_5dc6baca",
       "revId": "281edfee02bc72d81aa4972d60216647f932f3df",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fcfa319_856e1415",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-24T14:57:08Z",
+      "side": 1,
+      "message": "Replaying Marek\u0027s CoR+1 vote.",
+      "revId": "281edfee02bc72d81aa4972d60216647f932f3df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e94df36_f6c24f84",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-24T14:57:08Z",
+      "side": 1,
+      "message": "Thanks for the nudge, Olivier. In fact I think we\u0027re good to merge this patch. Marek had self-provided his CoR+1 vote and since he\u0027s now the only official code owner, I suppose it\u0027s fine.\n\nI\u0027ll merge the series.",
+      "parentUuid": "90d3c9a4_4a627330",
+      "revId": "281edfee02bc72d81aa4972d60216647f932f3df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
