@@ -91,6 +91,29 @@
       },
       "revId": "9176f0b09051dba569ec7ac9fa6686e742f0a75d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4880880_c80a8ae2",
+        "filename": "include/export/common/tbbr/tbbr_img_def_exp.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-24T08:41:12Z",
+      "side": 1,
+      "message": "Should we now reword this as \"GPT primary header\", to better explain the difference with the next macro?",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 19
+      },
+      "revId": "9176f0b09051dba569ec7ac9fa6686e742f0a75d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
