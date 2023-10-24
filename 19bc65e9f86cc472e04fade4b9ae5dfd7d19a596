@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc29e1e7_d977a06c",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-24T08:04:23Z",
+      "side": 1,
+      "message": "Guarding this under `#ifdef MBEDTLS_CONFIG_FILE` does not sound right to me... `cot_def.h` provides definitions for the TBBR chain of trust, which ideally should be independent of which cryptographic library people use. Conceptually, none of `COT_MAX_VERIFIED_PARAMS`, `PK_DER_LEN` or `HASH_DER_LEN` macros have anything to do with Mbed TLS.\n\nBesides, `PK_DER_LEN` is one of the mandatory macros for using the TBBR CoT. If it doesn\u0027t get defined then the code in `drivers/auth/tbbr/` simply won\u0027t build successfully. So I think `cot_def.h` ought to define `PK_DER_LEN` all the time, and not only under some preprocessor condition.\n\nAFAIU, NXP platform uses a hybrid approach which does not quite fit into the mould... It has its own platform-specific CoT defined in `drivers/nxp/auth/`, which is perfectly fine. This CoT looks to be originally derived from the official TBBR CoT but from the moment it\u0027s been copied into the platform folder and forked, it\u0027s no longer *the* TBBR CoT. Thus, NXP CoT should not pull in `include/common/tbbr/cot_def.h`.\n\nI suggest we leave `cot_def.h` unmodified and we rather handle this issue within NXP platform itself by:\n- not including `cot_def.h` from `drivers/nxp/auth/tbbr/tbbr_cot.c`.\n- defining `PK_DER_LEN` and `COT_MAX_VERIFIED_PARAMS` inside `drivers/nxp/auth/tbbr/tbbr_cot.c`. Note that `HASH_DER_LEN` is already defined there.\n\n[1] https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/drivers/nxp/auth/tbbr/tbbr_cot.c#n21",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 26
+      },
+      "revId": "19bc65e9f86cc472e04fade4b9ae5dfd7d19a596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f91ce33c_58855509",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-24T08:04:23Z",
+      "side": 1,
+      "message": "This change looks unrelated. Better to pull it into a separate patch, as a general hardening improvement.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 31
+      },
+      "revId": "19bc65e9f86cc472e04fade4b9ae5dfd7d19a596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
