@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c0e572d_c634485e",
+        "filename": "plat/arm/board/fvp/fvp_plat_attest_token.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2023-10-24T14:50:46Z",
+      "side": 1,
+      "message": "Manish disassembled this the other day, and my analysis is that it\u0027s allocating a _lot_ of stack:\n```\n000000000400c4a4 \u003cplat_rmmd_get_cca_attest_token\u003e:\n 400c4a4:\td10b43ff \tsub\tsp, sp, #0x2d0\n```\n\nand that it copies twice:\n```\n 400c4bc:\tf0000021 \tadrp\tx1, 4013000 \u003c__TEXT_END_UNALIGNED__\u003e\n 400c4c0:\taa1403e2 \tmov\tx2, x20\n 400c4c4:\t913f2021 \tadd\tx1, x1, #0xfc8\n 400c4c8:\tf90013f5 \tstr\tx21, [sp, #32]\n 400c4cc:\taa0003f5 \tmov\tx21, x0\n 400c4d0:\t9100c3e0 \tadd\tx0, sp, #0x30\n 400c4d4:\t97fffc95 \tbl\t400b728 \u003cmemcpy\u003e\n 400c4d8:\tf9400260 \tldr\tx0, [x19]\n 400c4dc:\tf10a7c1f \tcmp\tx0, #0x29f\n 400c4e0:\t54000189 \tb.ls\t400c510 \u003cplat_rmmd_get_cca_attest_token+0x6c\u003e  // b.plast\n 400c4e4:\taa1403e2 \tmov\tx2, x20\n 400c4e8:\t9100c3e1 \tadd\tx1, sp, #0x30\n 400c4ec:\taa1503e0 \tmov\tx0, x21\n 400c4f0:\t97fffc8e \tbl\t400b728 \u003cmemcpy\u003e\n```\n\nNote the 2 calls to memcpy; the branch less than is to an error snippet below the return; the data is coming from the .rodata section, as Sandrine speculated.\n\nTake a reference to a static or static const could eliminate both the huge stack allocation and the first copy.",
+      "parentUuid": "7ab502d9_c3198939",
+      "revId": "111b095be07f5d957bf2e7c0ab52490d362eef71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bed197d0_ba12c0bc",
         "filename": "plat/arm/board/fvp/fvp_realm_attest_key.c",
         "patchSetId": 4
