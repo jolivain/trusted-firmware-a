@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "804700f8_211e875b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-10-24T16:19:07Z",
+      "side": 1,
+      "message": "Define a new transfer entry TL_TAG_OPTEE_PAGABLE_PART to support OP-TEE.\n\nYou should also mention what you\u0027re doing in transfer_list_dump(), or perhaps even better, do that in a separate commit.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 45
+      },
+      "revId": "57fe12119882a5a01b496b1fb605f8ecb78bf1f7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "601ae4d1_60a6052a",
@@ -14,6 +37,29 @@
       "writtenOn": "2023-10-23T18:06:09Z",
       "side": 1,
       "message": "Remove tag `TL_TAG_SPMC_MANIFEST` until it has the consumer.",
+      "revId": "57fe12119882a5a01b496b1fb605f8ecb78bf1f7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eee76e7_93b912e8",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2023-10-24T16:19:07Z",
+      "side": 1,
+      "message": "I generally try to avoid the ternary operator, it has its uses but perhaps not here.\nHow about assigning a helper variable \"fdt\" above instead if te is non-null?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 47
+      },
       "revId": "57fe12119882a5a01b496b1fb605f8ecb78bf1f7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
