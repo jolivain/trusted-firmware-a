@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa200ff9_c5f943f3",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-10-24T14:03:36Z",
+      "side": 1,
+      "message": "Just a small suggestion for a refactoring, actually spmd_is_spmc_message/spmd_handle_spmc_message are unused and it may be time to remove them for clarity.\nIf you consider removing, you could add this case statement at line 1098 and make it common with FFA_MSG_SEND_DIRECT_REQ_SMC64.",
+      "range": {
+        "startLine": 1125,
+        "startChar": 1,
+        "endLine": 1125,
+        "endChar": 37
+      },
+      "revId": "87111bf609b0321002d28024ca401756555e1439",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
