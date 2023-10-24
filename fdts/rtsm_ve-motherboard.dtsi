@@ -228,6 +228,26 @@
 					compatible = "virtio,mmio";
 					reg = <0x130000 0x200>;
 					interrupts = <42>;
+					status = "disabled";
+				};
+
+				virtio@140000 {
+					compatible = "virtio,mmio";
+					reg = <0x140000 0x200>;
+					interrupts = <43>;
+				};
+
+				virtio@150000 {
+					compatible = "virtio,mmio";
+					reg = <0x150000 0x200>;
+					interrupts = <44>;
+					status = "disabled";
+				};
+
+				virtio@200000 {
+					compatible = "virtio,mmio";
+					reg = <0x200000 0x200>;
+					interrupts = <46>;
 				};
 
 				rtc@170000 {
