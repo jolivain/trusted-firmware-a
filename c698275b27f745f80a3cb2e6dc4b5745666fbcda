@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5955a83_b21395bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-24T11:48:19Z",
+      "side": 1,
+      "message": "(minor) This is subjective but I feel one of these titles would be more descriptive:\n\nrefactor(partition): parse MBR to locate GPT header\nrefactor(partition): get GPT header location from MBR\nrefactor(partition): remove hard-coded GPT header offset/size\n\n\"macro values\" does not mean much to me and I was not able to understand the scope of the change on first reading.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 53
+      },
+      "revId": "c698275b27f745f80a3cb2e6dc4b5745666fbcda",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0e5663a_c5d0e7fd",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-24T11:48:19Z",
+      "side": 1,
+      "message": "This is off-topic but should we not check that `bytes_read \u003d\u003d PLAT_PARTITION_BLOCK_SIZE` (in addition to `result !\u003d 0`)? Otherwise, is it not possible that we read an incomplete MBR header? What would the consequences (keeping in mind that mbr_sector is defined in the bss section and thus initialized to 0)?\n\nIf this is a real issue then let\u0027s fix it in another patch.",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 2
+      },
+      "revId": "c698275b27f745f80a3cb2e6dc4b5745666fbcda",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e264cd1c_92843bd8",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-24T11:48:19Z",
+      "side": 1,
+      "message": "Should we not do these checks *before* copying the data to `mbr_entry`? Just like we\u0027ve validated the boot signature at line 69-73? Is there a reason why this cannot be done?\n\nDoing these checks after the memcpy() does not harm - since the caller ought to check the function return value before accessing `mbr_entry` - but it sounds better to me to do all checks upfront then only copy the validated data.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 2
+      },
+      "revId": "c698275b27f745f80a3cb2e6dc4b5745666fbcda",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5267103_77e8425b",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-24T11:48:19Z",
+      "side": 1,
+      "message": "Don\u0027t we need to close the device in all error code paths from this point onward? e.g. at lines 258, 266, 274?",
+      "revId": "c698275b27f745f80a3cb2e6dc4b5745666fbcda",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
