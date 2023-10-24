@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a477a59b_7c35dbca",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-24T11:10:48Z",
+      "side": 1,
+      "message": "#if CTX_INCLUDE_mpam_REGS\n\tpauth_mpam_ctx;\n#endif",
+      "revId": "5ea79af46c0c1995e07677770c441093f8600a45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3c4a795_ef224832",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-24T11:10:48Z",
+      "side": 1,
+      "message": "You need to create context for mpam\n\n#if CTX_INCLUDE_MPAM_REGS\n#define get_mapm_ctx(h)\t(\u0026((cpu_context_t *) h)-\u003empam_ctx)\n#endif",
+      "revId": "5ea79af46c0c1995e07677770c441093f8600a45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65df9c89_ecd3ff05",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-24T11:10:48Z",
+      "side": 1,
+      "message": "#if CTX_INCLUDE_MPAM_REGS\nCASSERT(CTX_mpam_REGS_OFFSET \u003d\u003d __builtin_offsetof(cpu_context_t, mpam_ctx),\n\tassert_core_context_mpam_offset_mismatch);\n#endif",
+      "revId": "5ea79af46c0c1995e07677770c441093f8600a45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
