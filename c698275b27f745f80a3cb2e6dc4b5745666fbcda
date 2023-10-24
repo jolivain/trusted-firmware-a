@@ -85,6 +85,24 @@
       "message": "Don\u0027t we need to close the device in all error code paths from this point onward? e.g. at lines 258, 266, 274?",
       "revId": "c698275b27f745f80a3cb2e6dc4b5745666fbcda",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b10fba7a_df39e7b1",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-24T11:55:15Z",
+      "side": 1,
+      "message": "Sorry, I missed your answer to this. I will look at the patch which takes care of that (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/23504/4/drivers/partition/partition.c#366), please ignore my comment here.",
+      "parentUuid": "b5267103_77e8425b",
+      "revId": "c698275b27f745f80a3cb2e6dc4b5745666fbcda",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
