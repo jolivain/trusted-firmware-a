@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cbd0bf1_b6e902ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-24T18:03:20Z",
+      "side": 1,
+      "message": "LGTM.",
+      "revId": "1ebf98eedcedae59dfb7bbbf231836b5c0044bc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "439b8171_b760baba",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 22
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-24T18:03:20Z",
+      "side": 1,
+      "message": "nit: feel free to ignore if not required.\nThere is empty space after target. wordings could be properLy organised to fit in with max char length of 80 per line.\nIn case, you are pushing an other patch, think about this part.",
+      "range": {
+        "startLine": 412,
+        "startChar": 45,
+        "endLine": 412,
+        "endChar": 53
+      },
+      "revId": "1ebf98eedcedae59dfb7bbbf231836b5c0044bc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
