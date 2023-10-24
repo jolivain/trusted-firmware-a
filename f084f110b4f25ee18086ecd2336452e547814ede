@@ -22,6 +22,30 @@
       },
       "revId": "f084f110b4f25ee18086ecd2336452e547814ede",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63dc2e08_f2e11e8a",
+        "filename": "services/std_svc/spmd/spmd.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-10-24T20:27:21Z",
+      "side": 1,
+      "message": "the problem here was we could have value 2 set in platform file like fvp causing the build error, but value \u00272\u0027 is valid it checks before enabling and using so error on value 2 is what I am trying to avoid and error only if forcefully enabled with \u00271\u0027, I have tried to clarify the same in cmt-msg",
+      "parentUuid": "5ce72a26_08b200d2",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 2
+      },
+      "revId": "f084f110b4f25ee18086ecd2336452e547814ede",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
