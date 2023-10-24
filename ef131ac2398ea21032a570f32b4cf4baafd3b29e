@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd55bf78_906d82a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2023-10-24T06:55:14Z",
+      "side": 1,
+      "message": "Thanks a lot for working on that rk3588 support.\n\nAs for basic functionality I was able to boot into Linux after replacing the binary bl31.elf with one build froms this topic. The other cpu cores also come up.\n\nBut I ran into an issue with cpu frequency scaling.\n\nWith the binary Rockchip bl31, cpufreq seems to work, but when using bl31 built from this topic I get:\n\nOn the 5.10 vendor kernel, with\n[  183.519764] arm-scmi firmware:scmi: SCMI Notifications - Core Enabled.\n[  183.520418] arm-scmi firmware:scmi: SCMI Protocol v2.0 \u0027rockchip:\u0027 Firmware version 0x0\n\ncpufreq fails on all cores with:\n\n[ 3831.447767] cpu cpu6: cpu_opp_helper: failed to set clk rate: 2304000000 -22\n[ 3831.456181] cpufreq: __target_index: Failed to change cpu frequency: -22\n\n\nAnd on a 6.6-rc kernel with\n[    0.103811] scmi_core: SCMI protocol bus registered\n[    0.203390] scmi_protocol scmi_dev.1: Enabled polling mode TX channel - prot_id:16\n[    0.204654] arm-scmi firmware:scmi: SCMI RAW Mode initialized for instance 0\n[    0.205283] arm-scmi firmware:scmi: SCMI RAW Mode COEX enabled !\n[    0.205850] arm-scmi firmware:scmi: SCMI Notifications - Core Enabled.\n[    0.206470] arm-scmi firmware:scmi: SCMI Protocol v2.0 \u0027rockchip:\u0027 Firmware version 0x0\n\nthere are no errors visible, but an openssl speed check only brings in 1/5th of the speed I got when running the binary bl31 and the cores temperature also doesn\u0027t rise as much ... so it looks like the cpu clocks are also not adjusted there.",
+      "revId": "ef131ac2398ea21032a570f32b4cf4baafd3b29e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ab5adee_c0b785e1",
+        "filename": "plat/rockchip/rk3588/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2023-10-24T06:55:14Z",
+      "side": 1,
+      "message": "Doesn\u0027t the rk3588 have more than one cpu-cluster? Same for the core counts below.",
+      "revId": "ef131ac2398ea21032a570f32b4cf4baafd3b29e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
