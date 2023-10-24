@@ -163,6 +163,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c46d0587_6da1c9e4",
+        "filename": "plat/arm/board/fvp/fvp_plat_attest_token.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-24T15:19:51Z",
+      "side": 1,
+      "message": "Thanks for the analysis, Jimmy.\n\nSo is the first `memcpy()` copying the data from the .rodata section to the array `sample_platform_token[]` onto the stack then? And the second `memcpy()` would copy the latter to the `buf` array provided as a function argument?\n\nIt\u0027s a shame the compiler was not able to see that `sample_platform_token[]` is only used as a temporary buffer and copy the data straight from .rodata to the caller-provided `buf`... Which optimization flags have you been using? I believe TF-A is compiled with `-Os` by default but I can\u0027t imagine generating 2 memcpy() calls makes for smaller code/data footprint... If anything, having a single `memcpy()` should result in smaller code!\n\nAny idea why the compiler is behaving like that? Just curious. I think you\u0027ve proved your point, Jimmy, and that we should go for the static const array solution in any case.",
+      "parentUuid": "1c0e572d_c634485e",
+      "revId": "111b095be07f5d957bf2e7c0ab52490d362eef71",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bed197d0_ba12c0bc",
         "filename": "plat/arm/board/fvp/fvp_realm_attest_key.c",
         "patchSetId": 4
