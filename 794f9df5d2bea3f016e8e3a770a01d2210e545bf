@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b16d75ec_d471150d",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-24T12:17:39Z",
+      "side": 1,
+      "message": "Should this rather report: \"Failed to seek into the GPT image\"? This is not an io_read() call but an io_seek() one.\n\nWe can even print the `header_offset` value in the message, this information could be useful to debug a problem.",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 45
+      },
+      "revId": "794f9df5d2bea3f016e8e3a770a01d2210e545bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef820fff_401c6a03",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-24T12:17:39Z",
+      "side": 1,
+      "message": "(minor) Is this const really necessary? I mean, it does not do any harm but it\u0027s a bit weird, given that part_lba is just an int, not a pointer...",
+      "range": {
+        "startLine": 232,
+        "startChar": 9,
+        "endLine": 232,
+        "endChar": 14
+      },
+      "revId": "794f9df5d2bea3f016e8e3a770a01d2210e545bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d7f61ce_f0d58b7a",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-24T12:17:39Z",
+      "side": 1,
+      "message": "(minor) Could squash these 2 lines:\n\n    return load_partition_gpt(image_handle, part_lba);",
+      "range": {
+        "startLine": 349,
+        "startChar": 1,
+        "endLine": 350,
+        "endChar": 15
+      },
+      "revId": "794f9df5d2bea3f016e8e3a770a01d2210e545bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
