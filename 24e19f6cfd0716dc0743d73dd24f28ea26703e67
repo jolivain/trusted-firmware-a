@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a98e3cb_8b080409",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1001132
+      },
+      "writtenOn": "2023-10-25T13:17:21Z",
+      "side": 1,
+      "message": "I don\u0027t understand how this address can be relative.\nWe need to save TF-A at this address.\n\nBy the way, there is some hardcoded addresses in the code, for example https://elixir.bootlin.com/arm-trusted-firmware/latest/source/plat/ti/k3/include/platform_def.h#L180.\nMaybe LPM_SAVE should be moved to the plat_k3_mmap array: https://elixir.bootlin.com/arm-trusted-firmware/latest/source/plat/ti/k3/common/k3_bl31_setup.c#L24",
+      "parentUuid": "e91fef40_db7a1b34",
+      "revId": "24e19f6cfd0716dc0743d73dd24f28ea26703e67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5f762b00_ec174e29",
         "filename": "plat/ti/k3/include/platform_def.h",
         "patchSetId": 4
