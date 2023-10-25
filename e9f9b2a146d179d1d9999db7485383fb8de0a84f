@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5e2c721_e5d5f38d",
+        "filename": "include/plat/arm/common/aarch64/arm_macros.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-25T12:14:53Z",
+      "side": 1,
+      "message": "For the bits 27:24 which represent the System register GIC CPU interface, Arm ARM states that the value 0b0000 represents the \"GIC CPU interface system registers not implemented\". Neoverse V2 TRM states something similar: \"GIC CPU interface is disabled\".\nI am wondering why the value 0 is being equated with GICv2 here.",
+      "revId": "e9f9b2a146d179d1d9999db7485383fb8de0a84f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
