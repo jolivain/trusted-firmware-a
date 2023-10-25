@@ -52,8 +52,6 @@ Other configuration flags:
   | Default: stm32mp157c-ev1.dtb
 - | ``DWL_BUFFER_BASE``: the 'serial boot' load address of FIP,
   | default location (end of the first 128MB) is used when absent
-- | ``STM32MP_EARLY_CONSOLE``: to enable early traces before clock driver is setup.
-  | Default: 0 (disabled)
 - | ``STM32MP_RECONFIGURE_CONSOLE``: to re-configure crash console (especially after BL2).
   | Default: 0 (disabled)
 - | ``STM32MP_UART_BAUDRATE``: to select UART baud rate.
@@ -75,4 +73,4 @@ Usually, two copies of fsbl are used (fsbl1 and fsbl2) instead of one partition 
 
 --------------
 
-*Copyright (c) 2023, STMicroelectronics - All Rights Reserved*
+*Copyright (c) 2023-2024, STMicroelectronics - All Rights Reserved*
