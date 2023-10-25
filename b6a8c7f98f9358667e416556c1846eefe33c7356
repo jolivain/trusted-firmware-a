@@ -70,6 +70,30 @@
       },
       "revId": "b6a8c7f98f9358667e416556c1846eefe33c7356",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87bacc49_0b0433d6",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-25T14:40:43Z",
+      "side": 1,
+      "message": "I\u0027ve reverted this line since it does quite evaluate as I intended. The MISRA errors are likely to re-appear so I\u0027ll leave the comment open for further discussion.",
+      "parentUuid": "1c1a97c9_9113c79c",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 54
+      },
+      "revId": "b6a8c7f98f9358667e416556c1846eefe33c7356",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
