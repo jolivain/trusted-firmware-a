@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "85d673d3_cdec076d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-25T19:25:20Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "804700f8_211e875b",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 45
+      },
+      "revId": "57fe12119882a5a01b496b1fb605f8ecb78bf1f7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "601ae4d1_60a6052a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-24T16:19:07Z",
       "side": 1,
       "message": "I generally try to avoid the ternary operator, it has its uses but perhaps not here.\nHow about assigning a helper variable \"fdt\" above instead if te is non-null?",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 47
+      },
+      "revId": "57fe12119882a5a01b496b1fb605f8ecb78bf1f7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01e9d982_ca011cad",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-25T19:25:20Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7eee76e7_93b912e8",
       "range": {
         "startLine": 68,
         "startChar": 0,
