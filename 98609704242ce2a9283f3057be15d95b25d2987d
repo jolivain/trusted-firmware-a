@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93a6d464_07d29448",
+        "filename": "Makefile",
+        "patchSetId": 22
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-25T11:45:46Z",
+      "side": 1,
+      "message": "Why is this required here under PAUTH?\n\nI guess you meant CTX_INCLUDE_MPAM_REGS, but even that is not required, we don\u0027t want to save/restore MPAM EL2 regs until secure/realm wants to use MPAM feature.\n\nIt has to be platform provided macro",
+      "range": {
+        "startLine": 484,
+        "startChar": 0,
+        "endLine": 486,
+        "endChar": 5
+      },
+      "revId": "98609704242ce2a9283f3057be15d95b25d2987d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
