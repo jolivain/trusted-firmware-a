@@ -51,6 +51,24 @@
       "parentUuid": "38d62323_d217c7c0",
       "revId": "789279b4d3ebfc84bcc848ca48c7c024bf37259c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0ae5ad2_3c37f02e",
+        "filename": "plat/arm/css/common/css_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-25T16:52:54Z",
+      "side": 1,
+      "message": "It would be preferable to have a single, unified function. I\u0027ve noticed that various CSS platforms, including Juno, Morello, TC, SGI, and N1SDP are all using `bl2_plat_handle_post_image_load` from the `arm_bl2_setup.c` file before this patch. Therefore, it is good to create a single `bl2_plat_handle_post_image_load` function for all these platforms by defining it in this file.\n\nWith the current patch, Juno, SGI using weak definition of `bl2_plat_handle_post_image_load` as per dump file, \n` 000000000402aa40  w    F .text  0000000000000008 bl2_plat_handle_post_image_load` that doesn\u0027t looks correct, it should use the strong definition instead, right?",
+      "parentUuid": "65e55eb5_6ce87959",
+      "revId": "789279b4d3ebfc84bcc848ca48c7c024bf37259c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
