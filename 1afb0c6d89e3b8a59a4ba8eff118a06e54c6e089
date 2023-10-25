@@ -46,6 +46,30 @@
       },
       "revId": "1afb0c6d89e3b8a59a4ba8eff118a06e54c6e089",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5690857_cd57f63b",
+        "filename": "plat/arm/common/fconf/arm_fconf_io.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-25T05:58:48Z",
+      "side": 1,
+      "message": "As you\u0027ve confirmed that the const here was incorrect, could you please explain how this code was working before? My assumption is that some code was trying to write to it and should have failed with (most likely) a permission fault?? I am guessing tests should have spot that quite easily...",
+      "parentUuid": "4f866e4f_fe754b4d",
+      "range": {
+        "startLine": 55,
+        "startChar": 10,
+        "endLine": 55,
+        "endChar": 23
+      },
+      "revId": "1afb0c6d89e3b8a59a4ba8eff118a06e54c6e089",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
