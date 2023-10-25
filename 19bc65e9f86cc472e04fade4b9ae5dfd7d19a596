@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f07dafef_5ca155e1",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-25T08:30:04Z",
+      "side": 1,
+      "message": "\u003e Guarding this under #ifdef MBEDTLS_CONFIG_FILE does not sound right to me... cot_def.h provides definitions for the TBBR chain of trust, which ideally should be independent of which cryptographic library people use.\n\nI considered this, but it appears that cot_def.h has a significant dependancy on the mbedtls_config header.\n\n\u003e  Conceptually, none of COT_MAX_VERIFIED_PARAMS, PK_DER_LEN or HASH_DER_LEN macros have anything to do with Mbed TLS.\n\nYou are correct in noting that these definitions are unrelated to mbedTLS. However, to configure them correctly, certain mbedTLS settings, such as TF_MBEDTLS_USE_RSA or TF_MBEDTLS_USE_ECDSA, are needed, even though this may seem unconventional. It appears that some cleanup of cot_def.h may be necessary, but during the initial resolution of the Coverity failure, I didn\u0027t invest much effort in that aspect.\n\n\u003e Besides, PK_DER_LEN is one of the mandatory macros for using the TBBR CoT. If it doesn\u0027t get defined then the code in drivers/auth/tbbr/ simply won\u0027t build successfully. So I think cot_def.h ought to define PK_DER_LEN all the time, and not only under some preprocessor condition.\n\nIndeed, this is the case. To ensure the correct definition of these parameters, all partners are configuring the TF_MBEDTLS_USE_* options accurately, using either the default mbedTLS configuration or platform-specific mbedTLS configuration [1], [2], and [3].\n\n\u003e AFAIU, NXP platform uses a hybrid approach which does not quite fit into the mould... It has its own platform-specific CoT defined in drivers/nxp/auth/, which is perfectly fine. This CoT looks to be originally derived from the official TBBR CoT but from the moment it\u0027s been copied into the platform folder and forked, it\u0027s no longer the TBBR CoT. Thus, NXP CoT should not pull in include/common/tbbr/cot_def.h.\n\nIf you examine the NXP Trusted Boot case without mbedTLS [4], [5], you\u0027ll notice that the auth_mod.c file is being included without tbbr_cot.c. Unfortunately, auth_mod.c relies on certain definitions from cot_def.h, and this leads to an error that we are encountering due to the inclusion of cot_def.h in the auth_mod.c file. To address this issue, I created this patch. While I acknowledge that this may not be the ideal solution, it can serve as a temporary measure until we have a more permanent resolution.\n\n\u003e I suggest we leave cot_def.h unmodified and we rather handle this issue within NXP platform itself by:\n\n\u003e * not including cot_def.h from drivers/nxp/auth/tbbr/tbbr_cot.c.\n\ntbbr_cot.c not get compiled in case of building Trusted Boot without mbedTLS support for NXP platform so I don\u0027t think this solution will work.\n\n\u003e * defining PK_DER_LEN and COT_MAX_VERIFIED_PARAMS inside drivers/nxp/auth/tbbr/tbbr_cot.c. Note that HASH_DER_LEN is already defined there.\n\ntbbr_cot.c is compiled when Trusted Boot with mbedTLS support is enabled for the NXP platform. Consequently, the definitions PK_DER_LEN, COT_MAX_VERIFIED_PARAMS, and HASH_DER_LEN are appropriately configured via the cot_def.h file. Regarding the HASH_DER_LEN redefinitions in the tbbr_cot.c file, it seems unnecessary. We\u0027re not currently experiencing any build issues since these definitions are set to the same values in tbbr_cot.c.\n\nPlease let me know your thoughts?\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/drivers/auth/mbedtls/mbedtls_config-2.h#n16\n[2]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/drivers/auth/mbedtls/mbedtls_config-3.h#n20\n[3]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/st/common/include/stm32mp_mbedtls_config-3.h#n10\n[4]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/nxp/common/tbbr/tbbr.mk#n64 \n[5]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/nxp/common/tbbr/tbbr.mk#n149",
+      "parentUuid": "cc29e1e7_d977a06c",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 26
+      },
+      "revId": "19bc65e9f86cc472e04fade4b9ae5dfd7d19a596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f91ce33c_58855509",
         "filename": "include/common/tbbr/cot_def.h",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-24T08:04:23Z",
       "side": 1,
       "message": "This change looks unrelated. Better to pull it into a separate patch, as a general hardening improvement.",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 31
+      },
+      "revId": "19bc65e9f86cc472e04fade4b9ae5dfd7d19a596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bceeb2d3_db595dc5",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-25T08:30:04Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f91ce33c_58855509",
       "range": {
         "startLine": 62,
         "startChar": 0,
