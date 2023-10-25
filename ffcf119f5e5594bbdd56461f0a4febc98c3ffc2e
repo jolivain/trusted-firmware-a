@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "87420303_9edcb073",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-10-25T20:04:30Z",
+      "side": 1,
+      "message": "What do you mean? GP devices also have firewalls (they are\u0027nt configured in \"deny everything mode by default\" - but yes it is there - the \"deny everything by default\" happens by default on HS-SE devices. We just are working to configure them to protect TFA and OPTEE on all variants of SoCs - been a journey.. getting there..",
+      "parentUuid": "237132c8_56465fdd",
+      "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "11f613bd_929f6a53",
         "filename": "plat/ti/k3/common/k3_psci.c",
         "patchSetId": 5
@@ -85,6 +103,24 @@
       "side": 1,
       "message": "Ok we set the memcpy only for J7200.\n\nThe default configuration for J7200 is to have TFA running in SRAM.\nThere is no impact to do the copy even if TFA is running in DRAM.\n\nIt could be an improvement (detect that TF-A is running in DRAM, so no need to save it) in the future.",
       "parentUuid": "11f613bd_929f6a53",
+      "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00f4b635_80ed75fa",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-10-25T20:04:30Z",
+      "side": 1,
+      "message": "I am not hung up on J7200 or not. for me this problem runs across the board - we have people running from DDR, from SRAM etc.. point is: TFA should push the context (such as GIC) inside it\u0027s own memory space. once the CPUs are down, system manager is the best person to make a choice to move the SRAM content to external storage in a \"secure manner\" as appropriate. - but that is just my view point. I just dont like to see code that will break known users.",
+      "parentUuid": "24246521_27eb2f16",
       "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
