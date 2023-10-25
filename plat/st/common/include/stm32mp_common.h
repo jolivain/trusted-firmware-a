@@ -72,12 +72,24 @@ uintptr_t get_uart_address(uint32_t instance_nb);
 int stm32mp_uart_console_setup(void);
 
 #if STM32MP_EARLY_CONSOLE
+#define EARLY_ERROR(...)	ERROR(__VA_ARGS__)
+#define EARLY_NOTICE(...)	NOTICE(__VA_ARGS__)
+#define EARLY_WARN(...)		WARN(__VA_ARGS__)
+#define EARLY_INFO(...)		INFO(__VA_ARGS__)
+#define EARLY_VERBOSE(...)	VERBOSE(__VA_ARGS__)
+
 void stm32mp_setup_early_console(void);
-#else
+#else /* !STM32MP_EARLY_CONSOLE */
+#define EARLY_ERROR(...)
+#define EARLY_NOTICE(...)
+#define EARLY_WARN(...)
+#define EARLY_INFO(...)
+#define EARLY_VERBOSE(...)
+
 static inline void stm32mp_setup_early_console(void)
 {
 }
-#endif
+#endif /* STM32MP_EARLY_CONSOLE */
 
 /*
  * Platform util functions for the GPIO driver
