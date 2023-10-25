@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d06ac3b_4ab6ac96",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-25T21:37:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5571abe_af649632",
+      "range": {
+        "startLine": 301,
+        "startChar": 2,
+        "endLine": 301,
+        "endChar": 4
+      },
+      "revId": "afcbbf7156626c91d8a5a26a835d1c2b1476577b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee812834_efd9f938",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-10-24T16:53:37Z",
       "side": 1,
       "message": "Indenting the code below with one more tab makes the code harder to read. Please break here instead if transfer_list_set_handoff_args() succeeded.",
+      "revId": "afcbbf7156626c91d8a5a26a835d1c2b1476577b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e7a41fd_859e530a",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-25T21:37:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee812834_efd9f938",
       "revId": "afcbbf7156626c91d8a5a26a835d1c2b1476577b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -58,6 +100,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "078db05b_6c82abd4",
+        "filename": "plat/qemu/common/qemu_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-25T21:37:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af5de618_0bba5679",
+      "revId": "afcbbf7156626c91d8a5a26a835d1c2b1476577b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98e6b0c4_4127d6c7",
@@ -71,6 +131,30 @@
       "writtenOn": "2023-10-24T16:53:37Z",
       "side": 1,
       "message": "Why is this needed?",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 17
+      },
+      "revId": "afcbbf7156626c91d8a5a26a835d1c2b1476577b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1437c804_bf96c43f",
+        "filename": "plat/qemu/common/qemu_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-25T21:37:36Z",
+      "side": 1,
+      "message": "`FW_NS_HANDOFF_BASE` is defined under `TRANSFER_LIST`. So have to add this to avoid build failures when `TRANSFER_LIST` is disabled.",
+      "parentUuid": "98e6b0c4_4127d6c7",
       "range": {
         "startLine": 162,
         "startChar": 0,
