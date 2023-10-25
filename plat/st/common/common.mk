@@ -1,12 +1,11 @@
 #
-# Copyright (c) 2023, STMicroelectronics - All Rights Reserved
+# Copyright (c) 2023-2024, STMicroelectronics - All Rights Reserved
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
 RESET_TO_BL2			:=	1
 
-STM32MP_EARLY_CONSOLE		?=	0
 STM32MP_RECONFIGURE_CONSOLE	?=	0
 STM32MP_UART_BAUDRATE		?=	115200
 
@@ -82,7 +81,6 @@ endif
 $(eval $(call assert_booleans,\
 	$(sort \
 		PLAT_XLAT_TABLES_DYNAMIC \
-		STM32MP_EARLY_CONSOLE \
 		STM32MP_EMMC \
 		STM32MP_EMMC_BOOT \
 		STM32MP_RAW_NAND \
@@ -104,7 +102,6 @@ $(eval $(call add_defines,\
 	$(sort \
 		PLAT_XLAT_TABLES_DYNAMIC \
 		STM32_TF_VERSION \
-		STM32MP_EARLY_CONSOLE \
 		STM32MP_EMMC \
 		STM32MP_EMMC_BOOT \
 		STM32MP_RAW_NAND \

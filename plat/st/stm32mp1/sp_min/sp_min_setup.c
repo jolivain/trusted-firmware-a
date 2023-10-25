@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2023, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2024, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -115,8 +115,6 @@ void sp_min_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 {
 	bl_params_t *params_from_bl2 = (bl_params_t *)arg0;
 	uintptr_t dt_addr = arg1;
-
-	stm32mp_setup_early_console();
 
 	/* Imprecise aborts can be masked in NonSecure */
 	write_scr(read_scr() | SCR_AW_BIT);
