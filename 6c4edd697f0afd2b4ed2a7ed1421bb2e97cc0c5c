@@ -362,6 +362,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "26fa9c70_1acdbfc7",
+        "filename": "plat/rockchip/common/plat_pm_helpers.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-10-25T21:54:21Z",
+      "side": 1,
+      "message": "OK. Can you assume that rgns has at least one element? Otherwise, you will  have to check for that.",
+      "parentUuid": "bedf3723_c96867a8",
+      "range": {
+        "startLine": 54,
+        "startChar": 32,
+        "endLine": 54,
+        "endChar": 33
+      },
+      "revId": "6c4edd697f0afd2b4ed2a7ed1421bb2e97cc0c5c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "29b65c9c_54a04492",
         "filename": "plat/rockchip/common/plat_pm_helpers.c",
         "patchSetId": 3
