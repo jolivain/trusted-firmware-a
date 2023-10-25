@@ -22,6 +22,30 @@
       },
       "revId": "b6a8c7f98f9358667e416556c1846eefe33c7356",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1c96631_0887ea81",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-25T08:58:25Z",
+      "side": 1,
+      "message": "I only added this change to satisfy MISRA:\n\nAdded for MC3R1.R20.9: (required) All identifiers used in the controlling expression of #if\u0027 or#elif\u0027 preprocessing directives shall be #define\u0027d before evaluation\nviolation: 1\n\nservice MC3R1.R20.9 --\u003e first file plat/arm/board/fvp/fvp_bl2_setup.c\nviolation: 1\n\nviolation for rule MC3R1.R20.9: (required) All identifiers used in the controlling expression of #if\u0027 or#elif\u0027 preprocessing directives shall be #define\u0027d before evaluation. (untagged)\nplat/arm/board/fvp/fvp_bl2_setup.c:85.23-85.38: Loc #1 [evidence: undefined identifier `EL3_PAYLOAD_BASE\u0027]\n\nThe suggested way of getting around this is to check that the macro is defined before evaluating it (see https://gitlab.com/MISRA/MISRA-C/MISRA-C-2012/Example-Suite/-/blob/master/R_20_09.c). If it isn\u0027t strictly required to follow this particular rule, I can remove the change.",
+      "parentUuid": "c3eae690_92551a71",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 54
+      },
+      "revId": "b6a8c7f98f9358667e416556c1846eefe33c7356",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
