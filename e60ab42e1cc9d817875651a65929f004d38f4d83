@@ -16,6 +16,92 @@
       "message": "No major change with the latest patch.( comment modified). Hence adding verified+1 as CI passed on previous patch.",
       "revId": "e60ab42e1cc9d817875651a65929f004d38f4d83",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c02acb8_6b6722ce",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 37
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-25T10:31:45Z",
+      "side": 1,
+      "message": "better to take the clobber list as args to this macro and designate the first register in the clober list as the return arg.",
+      "range": {
+        "startLine": 451,
+        "startChar": 8,
+        "endLine": 451,
+        "endChar": 26
+      },
+      "revId": "e60ab42e1cc9d817875651a65929f004d38f4d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58b384c4_31c163a1",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 37
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-25T10:31:45Z",
+      "side": 1,
+      "message": "minor, better to parametrize the regs to use and the registers to use as return.",
+      "range": {
+        "startLine": 586,
+        "startChar": 1,
+        "endLine": 586,
+        "endChar": 19
+      },
+      "revId": "e60ab42e1cc9d817875651a65929f004d38f4d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94a71fdb_2887a09c",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-25T10:31:45Z",
+      "side": 1,
+      "message": "need to have per world helper to initialize global context for that world.\n\nThe SPMD should call the secure world helper based on ENABLE_SVE_FOR_SWD. Or perhaps this should be called from manage_extensions_nonsecure() and manage_extensions_secure()..\nFor Realm, this need to be done from within RMMD.",
+      "range": {
+        "startLine": 617,
+        "startChar": 2,
+        "endLine": 623,
+        "endChar": 6
+      },
+      "revId": "e60ab42e1cc9d817875651a65929f004d38f4d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96dc76e4_4e22da06",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-10-25T10:31:45Z",
+      "side": 1,
+      "message": "Realm world copy should be initialized in RMMD",
+      "revId": "e60ab42e1cc9d817875651a65929f004d38f4d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
