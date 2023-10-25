@@ -180,7 +180,7 @@ static void setup_realm_context(cpu_context_t *ctx, const struct entry_point_inf
 
 	scr_el3 |= SCR_NS_BIT | SCR_NSE_BIT;
 
-	if (is_feat_csv2_2_supported()) {
+	if ((is_feat_csv2_2_supported()) || (is_feat_csv2_3_supported())) {
 		/* Enable access to the SCXTNUM_ELx registers. */
 		scr_el3 |= SCR_EnSCXT_BIT;
 	}
@@ -248,7 +248,7 @@ static void setup_ns_context(cpu_context_t *ctx, const struct entry_point_info *
 	scr_el3 |= SCR_TERR_BIT;
 #endif
 
-	if (is_feat_csv2_2_supported()) {
+	if ((is_feat_csv2_2_supported()) || (is_feat_csv2_3_supported())) {
 		/* Enable access to the SCXTNUM_ELx registers. */
 		scr_el3 |= SCR_EnSCXT_BIT;
 	}
@@ -1263,7 +1263,7 @@ void cm_el2_sysregs_context_save(uint32_t security_state)
 		write_ctx_reg(el2_sysregs_ctx, CTX_TRFCR_EL2, read_trfcr_el2());
 	}
 
-	if (is_feat_csv2_2_supported()) {
+	if ((is_feat_csv2_2_supported()) || (is_feat_csv2_3_supported())) {
 		write_ctx_reg(el2_sysregs_ctx, CTX_SCXTNUM_EL2, read_scxtnum_el2());
 	}
 
@@ -1335,7 +1335,7 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 		write_trfcr_el2(read_ctx_reg(el2_sysregs_ctx, CTX_TRFCR_EL2));
 	}
 
-	if (is_feat_csv2_2_supported()) {
+	if ((is_feat_csv2_2_supported()) || (is_feat_csv2_3_supported())) {
 		write_scxtnum_el2(read_ctx_reg(el2_sysregs_ctx, CTX_SCXTNUM_EL2));
 	}
 
