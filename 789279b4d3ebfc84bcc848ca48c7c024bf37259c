@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7e5e2cb_fc36c6af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-25T08:54:44Z",
+      "side": 1,
+      "message": "Change LGTM! apart from the comment. It looks to be in the direction of removal of weak attribute for this function: bl2_plat_handle_post_image_load.\n\nAs a next step, could you please check which platforms use this function as a weak? This information may assist in the removal of the weak attribute for this function [1].\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/common/plat_bl_common.c#n26",
+      "revId": "789279b4d3ebfc84bcc848ca48c7c024bf37259c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38d62323_d217c7c0",
+        "filename": "plat/arm/css/common/css_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-25T08:54:44Z",
+      "side": 1,
+      "message": "It appears that you missed adding the \u0027bl2_plat_handle_post_image_load\u0027 function in this file or am I missing something?",
+      "revId": "789279b4d3ebfc84bcc848ca48c7c024bf37259c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
