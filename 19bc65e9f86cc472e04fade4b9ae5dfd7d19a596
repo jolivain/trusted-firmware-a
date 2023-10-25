@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e26e47e3_0b36905b",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-25T13:03:57Z",
+      "side": 1,
+      "message": "Thanks for the detailed explanation, I think I understand better now.\n\nI agree with you, we need to do some cleanup in `cot_def.h` and other header files to disentangle mbedTLS from CoT definitions. Unfortunately the current situation is quite messy... Perhaps `cot_def.h` ultimately should rely on `KEY_SIZE`, `KEY_ALG` and `HASH_ALG` variables, instead of the mbedtls-specific `TF_MBEDTLS_*` macros... Anyway, that\u0027s a discussion for the future.\n\nIn the meantime, I agree we need a temporary workaround. Confining it to NXP platform layer might be preferable to any generic file hack. We could handle that from NXP makefile using the following patch:\n\n```\ndiff --git a/plat/nxp/common/tbbr/tbbr.mk b/plat/nxp/common/tbbr/tbbr.mk\nindex 4aac9d634..e2cd28304 100644\n--- a/plat/nxp/common/tbbr/tbbr.mk\n+++ b/plat/nxp/common/tbbr/tbbr.mk\n@@ -67,6 +67,11 @@ ifeq (${MBEDTLS_DIR},)\n     include $(PLAT_DRIVERS_PATH)/auth/csf_hdr_parser/csf_hdr.mk\n     PLAT_TBBR_SOURCES  +\u003d      $(CSF_HDR_SOURCES)\n \n+    # Hack: cot_def.h has a strong dependency on Mbed TLS library and requires\n+    # TF_MBEDTLS_KEY_SIZE to be defined.\n+    TF_MBEDTLS_KEY_SIZE        :\u003d      256\n+    $(eval $(call add_define,TF_MBEDTLS_KEY_SIZE))\n+\n     SCP_BL2_PRE_TOOL_FILTER    :\u003d CST_SCP_BL2\n     BL31_PRE_TOOL_FILTER       :\u003d CST_BL31\n     BL32_PRE_TOOL_FILTER       :\u003d CST_BL32\n```\n\nWe could achieve something equivalent with CI scripts changes. Adding `CFLAGS\u003d\u0027-DTF_MBEDTLS_KEY_SIZE\u003d256\u0027` would work just as well but NXP would have to edit their own build scripts as well, which might be too much of an ask...\n\nI think I\u0027d prefer one of these 2 temporary solutions. It sounds less invasive to me. Let\u0027s propose such a patch to NXP and see what they say.\n\nIf they don\u0027t accept it, then I would lean towards reverting the \"Invalid value for TF_MBEDTLS_KEY_SIZE\" error message from `cot_def.h` until we\u0027ve done the necessary cleanups in the header files.",
+      "parentUuid": "f07dafef_5ca155e1",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 26
+      },
+      "revId": "19bc65e9f86cc472e04fade4b9ae5dfd7d19a596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f91ce33c_58855509",
         "filename": "include/common/tbbr/cot_def.h",
         "patchSetId": 2
