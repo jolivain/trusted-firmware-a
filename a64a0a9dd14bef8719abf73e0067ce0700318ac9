@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5b5f0dc_0ea8fe1b",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-25T17:41:50Z",
+      "side": 1,
+      "message": "zero initialisation may not be needed?",
+      "range": {
+        "startLine": 72,
+        "startChar": 26,
+        "endLine": 72,
+        "endChar": 27
+      },
+      "revId": "a64a0a9dd14bef8719abf73e0067ce0700318ac9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
