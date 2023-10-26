@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "96ffc6f6_0a3d46af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-26T07:51:08Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0224ac3a_82ad6dbc",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "65118482b04fc94f8ecf1e67e6f68d8c2b00b55b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "426fdc20_37ce7845",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -37,6 +61,24 @@
       "writtenOn": "2023-10-26T07:42:47Z",
       "side": 1,
       "message": "Any ideas about the root cause of the CI failures?",
+      "revId": "65118482b04fc94f8ecf1e67e6f68d8c2b00b55b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df48c98e_59f735bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-26T07:51:08Z",
+      "side": 1,
+      "message": "I\u0027m not very sure but looks like not related to this patch, It shows some `ESPI Secure interrupt handling` test failed (May be known SPM related issue?) [1], and for TFTF tests, can\u0027t see the HTML report. I will look further into it. \n\n\n[1]:\n- {\"dt\": \"2023-10-25T21:24:49.899005\", \"lvl\": \"target\", \"msg\": \"\u003e Executing \u0027Test ESPI Secure interrupt handling\u0027\"}\n- {\"dt\": \"2023-10-25T21:24:49.930375\", \"lvl\": \"target\", \"msg\": \"ERROR:   Interrupt 5000 not serviced by SP\"}\n- {\"dt\": \"2023-10-25T21:24:49.931746\", \"lvl\": \"target\", \"msg\": \"  TEST COMPLETE                                                 Failed\"}\n- {\"dt\": \"2023-10-25T21:24:49.932278\", \"lvl\": \"target\", \"msg\": \"\"}",
+      "parentUuid": "426fdc20_37ce7845",
       "revId": "65118482b04fc94f8ecf1e67e6f68d8c2b00b55b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
