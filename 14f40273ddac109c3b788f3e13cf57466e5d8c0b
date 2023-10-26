@@ -33,6 +33,24 @@
       "message": "We should be calling secure global init from here I think",
       "revId": "14f40273ddac109c3b788f3e13cf57466e5d8c0b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd4ae12c_1ec0c017",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-26T18:43:44Z",
+      "side": 1,
+      "message": "Thanks for pointing it Soby.\nBut if we place it here, we kind of overwrite the same memory from different CPUs as we only have one copy per world and this world specfic setup_context apis will be invoked from each cores.",
+      "parentUuid": "d3fae809_6ee3fa72",
+      "revId": "14f40273ddac109c3b788f3e13cf57466e5d8c0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
