@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a449c95b_d787c1bd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-26T18:46:04Z",
+      "side": 1,
+      "message": "HANDLE_EA_EL3_FIRST_NS is basically SCR_EL3.EA \u003d 1 for NS world. FFH_SUPPORT is a super set which gets enabled if any of the world requires handling of EAs at EL3. To avoid using NS specific macro in generic code we came up with FFH_SUPPORT macro.\n\nFEAT_RAS and FFH_SUPPORT are orthogonal macros and RAS_FFH_SUPPORT was combination of these two, To avoid too many macros removed RAS_FFH_SUPPORT",
+      "parentUuid": "fbd34839_f53a6c08",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 8
+      },
+      "revId": "f0bc8e72016e19ae778c10781ede2fad7494bac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "633ecad0_f0f93c7a",
         "filename": "plat/arm/board/rdn2/rdn2_plat.c",
         "patchSetId": 16
@@ -60,6 +84,30 @@
       "writtenOn": "2023-10-26T18:33:19Z",
       "side": 1,
       "message": "Why do we use only one macro here?",
+      "range": {
+        "startLine": 487,
+        "startChar": 4,
+        "endLine": 487,
+        "endChar": 19
+      },
+      "revId": "f0bc8e72016e19ae778c10781ede2fad7494bac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71b9da54_3f174c0a",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-26T18:46:04Z",
+      "side": 1,
+      "message": "tegra194_ea_handler() has some ras related implementation so i thought this is required only when RAS extension is present. Is tegra194_ea_handler() is capable of handling EA which are not RAS errors ?",
+      "parentUuid": "30afd545_47ad40c3",
       "range": {
         "startLine": 487,
         "startChar": 4,
