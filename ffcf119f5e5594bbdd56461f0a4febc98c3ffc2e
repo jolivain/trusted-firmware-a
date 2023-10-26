@@ -213,6 +213,24 @@
       "parentUuid": "b680967a_fa324cd8",
       "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2644c78_38de7786",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2023-10-26T15:29:05Z",
+      "side": 1,
+      "message": "Don\u0027t rely on K3_PM_SYSTEM_SUSPEND, as a compile time option it is going away. It was a temp solution until we had the API to query the firmware if suspend is supported on a given platform at runtime. See https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/24004\n\nAlso I have firewalls protecting TFA/OPTEE on both GP and HS. And this will be getting rolled out to everyone here soon. SPL will *not* be able to restore TFA back into SRAM like you do here after that point. SPL cannot be trusted, TFA must be saved and restored by a secure entity. On J7200 this could either be DMSC or TFA itself. For TFA itself you would have to reload a fresh copy using the normal methods (certificate loading) and then TFA will detect that it is on a resume path in early start and reload its old context (which should just be just the data area, code/rodata sections should be read-only and will be the same).\n\nLastly, the area in DDR you save this to cannot be hard-coded here, not because of PIE (I think we are confusing topics here), but because we cannot be sure that memory is firewalled and reserved from other users. You will have to communicate the chosen area to U-Boot/Linux (via DT carveout) and also ensure it is firewalled (using the certificate that wraps TFA). In which case this can be set a build time by the system integrator, if you make this location a build time option it would be more acceptable (I\u0027m still not 100% onboard here, but much better than hard-coded).",
+      "parentUuid": "cc976287_dc8668c7",
+      "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
