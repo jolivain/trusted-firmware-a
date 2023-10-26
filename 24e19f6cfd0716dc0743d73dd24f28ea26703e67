@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "79c34f3b_a21c9dc0",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1001132
+      },
+      "writtenOn": "2023-10-26T07:49:23Z",
+      "side": 1,
+      "message": "It is a first step. \nI\u0027m agree, TFA running in DDR is a possibility which should be supported in the future.\nBut the \"default\" configuration is to have TFA running in SRAM, so it\u0027s our use case for now.\n\nBy the way I noticed that the cluster core count values have an impact on the regions which can be mapped.\nSo yes it should not build with other targets, I have to map LPM_SAVE only for J7200.",
+      "parentUuid": "386d0ce4_220dfbe0",
+      "revId": "24e19f6cfd0716dc0743d73dd24f28ea26703e67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5f762b00_ec174e29",
         "filename": "plat/ti/k3/include/platform_def.h",
         "patchSetId": 4
