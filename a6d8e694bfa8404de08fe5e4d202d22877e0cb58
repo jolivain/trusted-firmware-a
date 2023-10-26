@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ae0faf3_399bc036",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_plat.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-10-26T15:16:45Z",
+      "side": 1,
+      "message": "This line is not properly placed, see https://ci.trustedfirmware.org/job/tf-a-static-checks/6768/\nThere is also a typo in a previous patch",
+      "revId": "a6d8e694bfa8404de08fe5e4d202d22877e0cb58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
