@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55507e59_579fd9fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001137
+      },
+      "writtenOn": "2023-10-26T14:12:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19fa9543_89cef5f6",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "59609d597e51a2950ccb98636a7b200d225ea9da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61a0fcac_da4e1602",
@@ -61,6 +85,24 @@
       "writtenOn": "2023-10-26T14:01:06Z",
       "side": 1,
       "message": "seems you are missing this at the beginning of the file:\n#include \u003cdrivers/partition/partition.h\u003e",
+      "revId": "59609d597e51a2950ccb98636a7b200d225ea9da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6edac7bc_44164a10",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_plat.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1001137
+      },
+      "writtenOn": "2023-10-26T14:12:01Z",
+      "side": 1,
+      "message": "Yes, the same has been added in the new patchset.",
+      "parentUuid": "61a0fcac_da4e1602",
       "revId": "59609d597e51a2950ccb98636a7b200d225ea9da",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
