@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d7efa85_751bd063",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-10-26T11:45:46Z",
+      "side": 1,
+      "message": "Thomas - I think you might be missing my point. Let me try this again: People are already using PIE(DDR included) for TFA. we cannot add a new feature by breaking existing users. At least NOT in mainline.",
+      "parentUuid": "79c34f3b_a21c9dc0",
+      "revId": "24e19f6cfd0716dc0743d73dd24f28ea26703e67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5f762b00_ec174e29",
         "filename": "plat/ti/k3/include/platform_def.h",
         "patchSetId": 4
