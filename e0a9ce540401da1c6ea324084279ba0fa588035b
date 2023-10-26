@@ -16,6 +16,23 @@
       "message": "https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/1448/\n\nFailure due to cert creation but TF-A build passes, Cert creation failure nothing to do with the change itself.",
       "revId": "e0a9ce540401da1c6ea324084279ba0fa588035b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d392b44d_7bc4cfc0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2023-10-26T18:35:09Z",
+      "side": 1,
+      "message": "Dont we need similar changes in platform_t186.mk, platform_t210.mk too?",
+      "revId": "e0a9ce540401da1c6ea324084279ba0fa588035b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
