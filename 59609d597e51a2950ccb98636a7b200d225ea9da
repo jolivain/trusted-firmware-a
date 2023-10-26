@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f293198f_b02a4da2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-10-26T14:01:06Z",
+      "side": 1,
+      "message": "should be corstone-1000, to match the scope in changelog.yaml",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "59609d597e51a2950ccb98636a7b200d225ea9da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61a0fcac_da4e1602",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_plat.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-10-26T14:01:06Z",
+      "side": 1,
+      "message": "seems you are missing this at the beginning of the file:\n#include \u003cdrivers/partition/partition.h\u003e",
+      "revId": "59609d597e51a2950ccb98636a7b200d225ea9da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
