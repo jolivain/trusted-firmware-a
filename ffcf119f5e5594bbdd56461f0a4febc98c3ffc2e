@@ -195,6 +195,24 @@
       "parentUuid": "b64716d0_a03ffc9f",
       "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc976287_dc8668c7",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1001144
+      },
+      "writtenOn": "2023-10-26T12:39:12Z",
+      "side": 1,
+      "message": "Good we make progress then. The last issue being PIE. Regarding PIE, just to be clear, are you talking about Position Independent Executable? If that\u0027s the case, then TFA can still be run from anywhere. The only absolute address added is where to store the TFA context. Indeed, it can\u0027t be just anywhere, as it has to reside in DDR because any other memory location would result in data loss. As for the memory location, we need to have a fixed address in order to be able to restore it during a resume, and we also need to share its location with other components of the system to ensure that no one else will write to it. I don\u0027t see how a regression could be introduced, as this region is only used when K3_PM_SYSTEM_SUSPEND is enabled for the j7200. Finally, there are already some region of the memory where we can put TFA such as the location of the DM firmware.",
+      "parentUuid": "b680967a_fa324cd8",
+      "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
