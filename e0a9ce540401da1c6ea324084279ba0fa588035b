@@ -33,6 +33,24 @@
       "message": "Dont we need similar changes in platform_t186.mk, platform_t210.mk too?",
       "revId": "e0a9ce540401da1c6ea324084279ba0fa588035b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "640a65f4_8f25212b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-10-26T18:40:02Z",
+      "side": 1,
+      "message": "Currently only t194 has this, I cant find other makefile having this:\n\n[...]\n\n grep -r ENABLE_FEAT_RAS plat/nvidia/tegra/*\nplat/nvidia/tegra/soc/t194/platform_t194.mk:ENABLE_FEAT_RAS\t\t\t\t:\u003d 1\n\n[...]",
+      "parentUuid": "d392b44d_7bc4cfc0",
+      "revId": "e0a9ce540401da1c6ea324084279ba0fa588035b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
