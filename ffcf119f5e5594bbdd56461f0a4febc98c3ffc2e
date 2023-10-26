@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "57627b16_86d59fc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-10-26T11:42:40Z",
+      "side": 1,
+      "message": "That is because it is a WIP and we have\u0027nt setup the firewalls yet - the approach we are taking here will get in the way when we do attempt to protect TFA and OPTEE.\nWithout doing that protection, we can not remove:\n\"I/TC: WARNING: This OP-TEE configuration might be insecure!\" warning from OPTEE.",
+      "parentUuid": "db2a330a_4bcada73",
+      "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "11f613bd_929f6a53",
         "filename": "plat/ti/k3/common/k3_psci.c",
         "patchSetId": 5
@@ -157,6 +175,24 @@
       "side": 1,
       "message": "It is our goal for the midterm to support more SoCs and have a more global solution. However, trying to achieve full support from day one doesn\u0027t seem like a good approach. I believe that working incrementally is a much better strategy and will ultimately yield better and faster results in the long term. Restricting support for S2R to J7200 is a way to prevent regression because, as of now, there is no S2R on this platform, and S2R has to be specifically selected. As a second step, we can explore how to store only the context and restore it from TF-A loaded from the boot media.",
       "parentUuid": "00f4b635_80ed75fa",
+      "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b680967a_fa324cd8",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-10-26T11:42:40Z",
+      "side": 1,
+      "message": "I am OK for incremental support, BUT I am not OK for breaking existing usage model - which for me, this does - PIE will need to be always functional as we add new features.",
+      "parentUuid": "b64716d0_a03ffc9f",
       "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
