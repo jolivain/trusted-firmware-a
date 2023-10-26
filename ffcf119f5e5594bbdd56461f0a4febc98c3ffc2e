@@ -123,6 +123,24 @@
       "parentUuid": "24246521_27eb2f16",
       "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b64716d0_a03ffc9f",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1001144
+      },
+      "writtenOn": "2023-10-26T07:38:18Z",
+      "side": 1,
+      "message": "It is our goal for the midterm to support more SoCs and have a more global solution. However, trying to achieve full support from day one doesn\u0027t seem like a good approach. I believe that working incrementally is a much better strategy and will ultimately yield better and faster results in the long term. Restricting support for S2R to J7200 is a way to prevent regression because, as of now, there is no S2R on this platform, and S2R has to be specifically selected. As a second step, we can explore how to store only the context and restore it from TF-A loaded from the boot media.",
+      "parentUuid": "00f4b635_80ed75fa",
+      "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
