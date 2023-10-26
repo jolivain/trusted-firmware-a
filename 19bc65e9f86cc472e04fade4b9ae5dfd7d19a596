@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "defde35f_dc360ba0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-26T07:52:05Z",
+      "side": 1,
+      "message": "I am now happy with the general approach proposed in this patch. I just have one suggestion which would make the fix more logical in my view.",
+      "revId": "19bc65e9f86cc472e04fade4b9ae5dfd7d19a596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc29e1e7_d977a06c",
@@ -113,6 +130,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1604d01_ea7355c2",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-26T07:52:05Z",
+      "side": 1,
+      "message": "OK, fair enough.",
+      "parentUuid": "bb825bb7_5a5c1a43",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 26
+      },
+      "revId": "19bc65e9f86cc472e04fade4b9ae5dfd7d19a596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f91ce33c_58855509",
@@ -155,6 +196,29 @@
         "startChar": 0,
         "endLine": 63,
         "endChar": 31
+      },
+      "revId": "19bc65e9f86cc472e04fade4b9ae5dfd7d19a596",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "700dd590_f7d81466",
+        "filename": "include/common/tbbr/cot_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-26T07:52:05Z",
+      "side": 1,
+      "message": "It would make sense to enclose these lines in the `#ifdef MBEDTLS_CONFIG_FILE` block as well, even though they are not causing any build issues at this time.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 6
       },
       "revId": "19bc65e9f86cc472e04fade4b9ae5dfd7d19a596",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
