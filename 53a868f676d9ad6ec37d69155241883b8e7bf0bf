@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "583ab1c0_7e8a2e34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-10-26T12:32:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdd4d994_755a7fcc",
+      "revId": "53a868f676d9ad6ec37d69155241883b8e7bf0bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05dfa6d0_999dec75",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7fba1891_77d46b0b",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-10-26T12:32:59Z",
+      "side": 1,
+      "message": "Will let andrew comment.",
+      "parentUuid": "05dfa6d0_999dec75",
+      "revId": "53a868f676d9ad6ec37d69155241883b8e7bf0bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e1975e3_d0e5fb79",
         "filename": "plat/ti/k3/include/platform_def.h",
         "patchSetId": 1
@@ -48,6 +84,24 @@
       "writtenOn": "2023-10-26T06:16:32Z",
       "side": 1,
       "message": "Just wondering, where does this end up being used?\nand why was it 9/10 before and why we\u0027re making it 4 now?",
+      "revId": "53a868f676d9ad6ec37d69155241883b8e7bf0bf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f393a7b3_8ee20f4b",
+        "filename": "plat/ti/k3/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-10-26T12:32:59Z",
+      "side": 1,
+      "message": "used by xlat_tables_v2 when you enable DEBUG\u003d1 LOG_LEVEL\u003d50, you get this as response - this is a dump of the page table that is created. each level 1 table costs us 4k. What Andrew has done is to do the entire access configuration using a more flat Level 1 table and use level 2 lookup - he actually only uses 3 of them in case of am65  with 1 spare and all 4 in case of am62 (reason is the memory layout of secureproxy base address for AM62 class family costs us one more L1 table)\n\nprior to this patch: https://gist.github.com/nmenon/3d33d84ef58649cbc2fa8c7cde87d372\nwith this patch: https://gist.github.com/nmenon/551596ae692b77912b9d0712e450930a",
+      "parentUuid": "2e1975e3_d0e5fb79",
       "revId": "53a868f676d9ad6ec37d69155241883b8e7bf0bf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
