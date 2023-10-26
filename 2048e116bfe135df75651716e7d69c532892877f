@@ -238,6 +238,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43b089fb_9beb478c",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-26T07:39:58Z",
+      "side": 1,
+      "message": "OK, let\u0027s keep the code as is. Thanks for explaining your thoughts.",
+      "parentUuid": "7d1cb027_d73cc057",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 43
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02e1c16c_d0e6fae6",
@@ -570,6 +594,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c0a24fd_fae19101",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-26T07:39:58Z",
+      "side": 1,
+      "message": "Thank you.",
+      "parentUuid": "fa9effae_bdfcd4f8",
+      "range": {
+        "startLine": 207,
+        "startChar": 19,
+        "endLine": 207,
+        "endChar": 43
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5336eb46_92b2cee2",
@@ -803,6 +851,30 @@
       "side": 1,
       "message": "mbedtls_asn1_get_int() function is primarily designed for retrieving single integer, whereas R and S consist of byte streams, each typically around 32 bytes in size.\nFurthermore, it does not account for padding bytes, and in our case, particularly for the \u0027S\u0027 part, padding byte is present.",
       "parentUuid": "ffbfcdb7_d7bf3032",
+      "range": {
+        "startLine": 246,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 28
+      },
+      "revId": "2048e116bfe135df75651716e7d69c532892877f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15fd0a2b_615f956e",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-26T07:39:58Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "43887520_f2c3b935",
       "range": {
         "startLine": 246,
         "startChar": 0,
