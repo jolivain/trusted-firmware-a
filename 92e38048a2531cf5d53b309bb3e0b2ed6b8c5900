@@ -34,6 +34,276 @@
       "parentUuid": "bc083779_980b13e8",
       "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e843779_3614e23a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-10-26T12:41:40Z",
+      "side": 1,
+      "message": "Hi Manish,\n\nFew comments inline.",
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95835cb3_b2dde749",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-10-26T12:41:40Z",
+      "side": 1,
+      "message": "Comment-1: Is RAS architectural support check required here? Or just FFH_SUPPORT would suffice . The PLAT_RAS_PRI macro is used for GIC configuration and RAS independent. Consider a platform where PE has no support for RAS, while an external component(e.g SMMU, SRAM) supports RAS and wants to report/handle errors FFH way.\n \nIf you agree with this Comment-1 then ENABLE_FEAT_RAS flag can be removed from the platform code and only guarded for FFH_SUPPORT.",
+      "range": {
+        "startLine": 777,
+        "startChar": 4,
+        "endLine": 777,
+        "endChar": 19
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5caef24c_ac8682fd",
+        "filename": "plat/arm/board/rdn2/platform.mk",
+        "patchSetId": 14
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-10-26T12:41:40Z",
+      "side": 1,
+      "message": "Same Comment-1 applies here",
+      "range": {
+        "startLine": 72,
+        "startChar": 7,
+        "endLine": 72,
+        "endChar": 50
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c40e038c_f00f5ccc",
+        "filename": "plat/arm/board/rdn2/rdn2_plat.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-10-26T12:41:40Z",
+      "side": 1,
+      "message": "Same Comment-1 applies here",
+      "range": {
+        "startLine": 140,
+        "startChar": 4,
+        "endLine": 140,
+        "endChar": 20
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d81bacf_a65c748b",
+        "filename": "plat/arm/board/rdn2/rdn2_security.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-10-26T12:41:40Z",
+      "side": 1,
+      "message": "Same Comment-1 applies here",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 20
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a0df534_ad6d6387",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-10-26T12:41:40Z",
+      "side": 1,
+      "message": "Same Comment-1 applies here\nThis ras_init is mostly software implementation that programs GIC to configure new EHF priority PLAT_RAS_PRI. This has to enabled to handle FFH for RAS errors on other IP\u0027s e.g SRAM, SMMU. This will work even if PE does not support RAS.\nSo can we remove ENABLE_FEAT_RAS check from here?",
+      "range": {
+        "startLine": 298,
+        "startChar": 3,
+        "endLine": 298,
+        "endChar": 19
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e403e8cb_93f83356",
+        "filename": "plat/arm/common/arm_gicv3.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-10-26T12:41:40Z",
+      "side": 1,
+      "message": "Same Comment-1 applies here",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 19
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6f21606_0ad24f82",
+        "filename": "plat/arm/css/sgi/include/sgi_base_platform_def.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-10-26T12:41:40Z",
+      "side": 1,
+      "message": "Same Comment-1 applies here",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 207,
+        "endChar": 20
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8eb0dcf6_e45b211a",
+        "filename": "plat/arm/css/sgi/sgi_plat.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-10-26T12:41:40Z",
+      "side": 1,
+      "message": "Same Comment-1 applies here",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 20
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7ae40fe_e79e29fb",
+        "filename": "plat/arm/css/sgi/sgi_plat_v2.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-10-26T12:41:40Z",
+      "side": 1,
+      "message": "Same Comment-1 applies here",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 19
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af8d5609_8436e8e7",
+        "filename": "plat/common/aarch64/plat_ehf.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-10-26T12:41:40Z",
+      "side": 1,
+      "message": "Same Comment-1 applies here",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 19
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c719e2d_b3589cf4",
+        "filename": "plat/common/aarch64/plat_ehf.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000510
+      },
+      "writtenOn": "2023-10-26T12:41:40Z",
+      "side": 1,
+      "message": "Same Comment-1 applies here",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
