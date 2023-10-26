@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9dd0356b_4b3b1f7d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-26T15:29:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92332a95_ff07c7e6",
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7e843779_3614e23a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 14
@@ -76,6 +94,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc0bf846_e1374b8e",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-26T15:29:49Z",
+      "side": 1,
+      "message": "I agree with your logic but i am not sure if any such platform exists in TF-A with PE does not have RAS support but still wants to use EA for external components.\n\nIf a platform wants to support EA first handling for external components then they need to introduce something similar to what is done in FVP\nifeq (${HANDLE_EA_EL3_FIRST_NS},1)\nifeq (${ENABLE_FEAT_RAS},1)\nBL31_SOURCES            +\u003d      plat/arm/board/fvp/aarch64/fvp_ras.c\nelse\nBL31_SOURCES            +\u003d      plat/arm/board/fvp/aarch64/fvp_ea.c\nendif\nendif\n\nAlso, this patch is meant to be as par with what existed before. if you agree can we keep it as is for now and think about the scenario you mentioned later (based on individual platform needs ?)",
+      "parentUuid": "95835cb3_b2dde749",
+      "range": {
+        "startLine": 777,
+        "startChar": 4,
+        "endLine": 777,
+        "endChar": 19
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5caef24c_ac8682fd",
@@ -89,6 +131,30 @@
       "writtenOn": "2023-10-26T12:41:40Z",
       "side": 1,
       "message": "Same Comment-1 applies here",
+      "range": {
+        "startLine": 72,
+        "startChar": 7,
+        "endLine": 72,
+        "endChar": 50
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e7b21b8_80fb179e",
+        "filename": "plat/arm/board/rdn2/platform.mk",
+        "patchSetId": 14
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-26T15:29:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5caef24c_ac8682fd",
       "range": {
         "startLine": 72,
         "startChar": 7,
@@ -122,6 +188,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81264577_7a996db9",
+        "filename": "plat/arm/board/rdn2/rdn2_plat.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-26T15:29:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c40e038c_f00f5ccc",
+      "range": {
+        "startLine": 140,
+        "startChar": 4,
+        "endLine": 140,
+        "endChar": 20
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d81bacf_a65c748b",
@@ -135,6 +225,30 @@
       "writtenOn": "2023-10-26T12:41:40Z",
       "side": 1,
       "message": "Same Comment-1 applies here",
+      "range": {
+        "startLine": 18,
+        "startChar": 4,
+        "endLine": 18,
+        "endChar": 20
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87ca7200_b13f536e",
+        "filename": "plat/arm/board/rdn2/rdn2_security.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-26T15:29:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4d81bacf_a65c748b",
       "range": {
         "startLine": 18,
         "startChar": 4,
@@ -168,6 +282,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6f53798_e332d279",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-26T15:29:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3a0df534_ad6d6387",
+      "range": {
+        "startLine": 298,
+        "startChar": 3,
+        "endLine": 298,
+        "endChar": 19
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e403e8cb_93f83356",
@@ -181,6 +319,30 @@
       "writtenOn": "2023-10-26T12:41:40Z",
       "side": 1,
       "message": "Same Comment-1 applies here",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 19
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "783efb3a_8a2ce776",
+        "filename": "plat/arm/common/arm_gicv3.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-26T15:29:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e403e8cb_93f83356",
       "range": {
         "startLine": 44,
         "startChar": 4,
@@ -214,6 +376,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b56029e_354ca665",
+        "filename": "plat/arm/css/sgi/include/sgi_base_platform_def.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-26T15:29:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a6f21606_0ad24f82",
+      "range": {
+        "startLine": 207,
+        "startChar": 4,
+        "endLine": 207,
+        "endChar": 20
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8eb0dcf6_e45b211a",
@@ -227,6 +413,30 @@
       "writtenOn": "2023-10-26T12:41:40Z",
       "side": 1,
       "message": "Same Comment-1 applies here",
+      "range": {
+        "startLine": 96,
+        "startChar": 4,
+        "endLine": 96,
+        "endChar": 20
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "719ea608_442f9dce",
+        "filename": "plat/arm/css/sgi/sgi_plat.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-26T15:29:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8eb0dcf6_e45b211a",
       "range": {
         "startLine": 96,
         "startChar": 4,
@@ -260,6 +470,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5940899_37655a2f",
+        "filename": "plat/arm/css/sgi/sgi_plat_v2.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-26T15:29:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e7ae40fe_e79e29fb",
+      "range": {
+        "startLine": 90,
+        "startChar": 4,
+        "endLine": 90,
+        "endChar": 19
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af8d5609_8436e8e7",
@@ -283,6 +517,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40d529ef_7ec7eacb",
+        "filename": "plat/common/aarch64/plat_ehf.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-26T15:29:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "af8d5609_8436e8e7",
+      "range": {
+        "startLine": 15,
+        "startChar": 4,
+        "endLine": 15,
+        "endChar": 19
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c719e2d_b3589cf4",
@@ -296,6 +554,30 @@
       "writtenOn": "2023-10-26T12:41:40Z",
       "side": 1,
       "message": "Same Comment-1 applies here",
+      "range": {
+        "startLine": 29,
+        "startChar": 4,
+        "endLine": 29,
+        "endChar": 19
+      },
+      "revId": "92e38048a2531cf5d53b309bb3e0b2ed6b8c5900",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bc20bc2_cc43a2c3",
+        "filename": "plat/common/aarch64/plat_ehf.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-26T15:29:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8c719e2d_b3589cf4",
       "range": {
         "startLine": 29,
         "startChar": 4,
