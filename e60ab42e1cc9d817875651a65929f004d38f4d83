@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ba76997_c42b2d72",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 37
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-26T14:57:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c02acb8_6b6722ce",
+      "range": {
+        "startLine": 451,
+        "startChar": 8,
+        "endLine": 451,
+        "endChar": 26
+      },
+      "revId": "e60ab42e1cc9d817875651a65929f004d38f4d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58b384c4_31c163a1",
@@ -54,6 +78,30 @@
       "writtenOn": "2023-10-25T10:31:45Z",
       "side": 1,
       "message": "minor, better to parametrize the regs to use and the registers to use as return.",
+      "range": {
+        "startLine": 586,
+        "startChar": 1,
+        "endLine": 586,
+        "endChar": 19
+      },
+      "revId": "e60ab42e1cc9d817875651a65929f004d38f4d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9293194c_159bc01b",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 37
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-26T14:57:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58b384c4_31c163a1",
       "range": {
         "startLine": 586,
         "startChar": 1,
@@ -87,6 +135,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd61984e_489d3e50",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-26T14:57:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94a71fdb_2887a09c",
+      "range": {
+        "startLine": 617,
+        "startChar": 2,
+        "endLine": 623,
+        "endChar": 6
+      },
+      "revId": "e60ab42e1cc9d817875651a65929f004d38f4d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96dc76e4_4e22da06",
@@ -100,6 +172,24 @@
       "writtenOn": "2023-10-25T10:31:45Z",
       "side": 1,
       "message": "Realm world copy should be initialized in RMMD",
+      "revId": "e60ab42e1cc9d817875651a65929f004d38f4d83",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b91a52bb_517da06c",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 37
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-26T14:57:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96dc76e4_4e22da06",
       "revId": "e60ab42e1cc9d817875651a65929f004d38f4d83",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
