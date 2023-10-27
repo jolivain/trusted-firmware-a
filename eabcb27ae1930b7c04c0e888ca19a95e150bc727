@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8b8939a_945a7387",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_plat.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-27T14:22:28Z",
+      "side": 0,
+      "message": "I\u0027m curious why this logic was removed. Does this mean there won\u0027t be a boot bank flag, and the system will always boot with a single FIP?\nCan you please mention the rational behind this removal also, as it is not just FIP offset and length change (i.e. to bypass the signature area).",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 2
+      },
+      "revId": "eabcb27ae1930b7c04c0e888ca19a95e150bc727",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
