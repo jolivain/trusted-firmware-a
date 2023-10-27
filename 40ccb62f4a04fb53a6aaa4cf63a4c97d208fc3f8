@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b18b0d53_750e3483",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-10-27T09:34:17Z",
+      "side": 1,
+      "message": "As already discussed, we should mark those DT nodes with:\nstatus \u003d \"disabled\";\nsince that is the FVP default.\nAlso there is an always-enabled virtio-9p device at 1400000, so please add that node, too. You can omit the status property from that one, though.\nCheck the respective DT file in the Linux kernel tree source.",
+      "revId": "40ccb62f4a04fb53a6aaa4cf63a4c97d208fc3f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
