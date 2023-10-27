@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "493a10a7_8fd5ac8a",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-27T09:51:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "253e983c_637dc198",
+      "range": {
+        "startLine": 46,
+        "startChar": 1,
+        "endLine": 46,
+        "endChar": 18
+      },
+      "revId": "36baa854fe3a5ec82c7bb8a48cd3c21b055c5917",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3eb70c9_47a86d36",
@@ -87,6 +111,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94691586_181ffce4",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-27T09:51:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "767da13f_ae65213d",
+      "range": {
+        "startLine": 96,
+        "startChar": 34,
+        "endLine": 96,
+        "endChar": 38
+      },
+      "revId": "36baa854fe3a5ec82c7bb8a48cd3c21b055c5917",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cceb4123_83fadb87",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-27T09:51:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3eb70c9_47a86d36",
+      "range": {
+        "startLine": 96,
+        "startChar": 1,
+        "endLine": 96,
+        "endChar": 39
+      },
+      "revId": "36baa854fe3a5ec82c7bb8a48cd3c21b055c5917",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52eb6e62_8bbce27c",
@@ -110,6 +182,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "263d26f5_872ce60a",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-27T09:51:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52eb6e62_8bbce27c",
+      "range": {
+        "startLine": 74,
+        "startChar": 7,
+        "endLine": 74,
+        "endChar": 25
+      },
+      "revId": "36baa854fe3a5ec82c7bb8a48cd3c21b055c5917",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9205f37_87190f9b",
@@ -123,6 +219,30 @@
       "writtenOn": "2023-10-25T13:49:31Z",
       "side": 1,
       "message": "What\u0027s the reason for requiring this define when TRANSFER_LIST is not set?",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 27
+      },
+      "revId": "36baa854fe3a5ec82c7bb8a48cd3c21b055c5917",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9787ac1_75f7d1e3",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-27T09:51:57Z",
+      "side": 1,
+      "message": "Removed it, there\u0027s no need if we\u0027re guarding the region mappign in fvp_common.c.",
+      "parentUuid": "c9205f37_87190f9b",
       "range": {
         "startLine": 135,
         "startChar": 0,
