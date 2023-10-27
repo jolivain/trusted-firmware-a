@@ -231,6 +231,24 @@
       "parentUuid": "cc976287_dc8668c7",
       "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "725bead1_acd72586",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-10-27T12:31:07Z",
+      "side": 1,
+      "message": "PIE \u003d Position Independent executable. Yes build time is way better an option than hardcoding - the reason I bring in PIE is because - customers move the location of TFA based on their needs. I dont want a proliferation of board files.\n\nAnother reason I dont like this approach of using SRAM is insecure storage to DDR - entire reason to run TFA in SRAM was to provide some level of security for TFA. if we did\u0027nt want that and are willing to run TFA from DDR, then we dont need all the LPM_SAVE stuff anyways (it is already running from DDR). If we are strongly going down this road - it MUST be a compile switch isolated - I am not sure which customers will prefer this approach, but i think it is broken - when running TFA from SRAM should be the responsibility of another entity to encrypt and store to DDR in a secure location. Again - we need to ensure firewalls are properly configured as well.",
+      "parentUuid": "c2644c78_38de7786",
+      "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
