@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "097c4d70_823f7055",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-27T09:06:48Z",
+      "side": 1,
+      "message": "nit: Why this alignment was removed? In patch 17, it seemed to be fine. What prompted this change?",
+      "range": {
+        "startLine": 235,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 4
+      },
+      "revId": "88490976a004f8d0e12acc827aea3fb2d9f55c58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
