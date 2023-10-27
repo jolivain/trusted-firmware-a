@@ -90,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a02fafb_47d4a684",
+        "filename": "plat/arm/board/rdn2/rdn2_plat.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-27T08:25:30Z",
+      "side": 1,
+      "message": "One of the examples of FFH_SUPPORT without RAS is in the file plat/marvell/armada/a3k/common/a3700_ea.c Platform handles a specific EA which is not a RAS error. While ras_platform_setup are basically for handling RAS errors. In future if platform need it then they can register a handler similar to how its done for FVP",
+      "parentUuid": "633ecad0_f0f93c7a",
+      "range": {
+        "startLine": 140,
+        "startChar": 4,
+        "endLine": 140,
+        "endChar": 34
+      },
+      "revId": "f0bc8e72016e19ae778c10781ede2fad7494bac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "30afd545_47ad40c3",
         "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
         "patchSetId": 16
