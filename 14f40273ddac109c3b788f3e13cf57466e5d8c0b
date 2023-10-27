@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4c1613fe_cffd6068",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 42
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-27T14:09:13Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "48d7aadd_4243d63a",
+      "range": {
+        "startLine": 11,
+        "startChar": 33,
+        "endLine": 11,
+        "endChar": 57
+      },
+      "revId": "14f40273ddac109c3b788f3e13cf57466e5d8c0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "25f2d5c2_c635f81e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 42
@@ -66,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f461c641_9310f950",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 42
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-27T14:09:13Z",
+      "side": 1,
+      "message": "ok.",
+      "parentUuid": "74ccef26_f67bec52",
+      "range": {
+        "startLine": 330,
+        "startChar": 8,
+        "endLine": 330,
+        "endChar": 19
+      },
+      "revId": "14f40273ddac109c3b788f3e13cf57466e5d8c0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "969ecae0_2c930642",
         "filename": "include/lib/el3_runtime/aarch64/context.h",
         "patchSetId": 42
@@ -77,6 +125,30 @@
       "writtenOn": "2023-10-27T12:40:23Z",
       "side": 1,
       "message": "Call it per-world context?!",
+      "range": {
+        "startLine": 444,
+        "startChar": 3,
+        "endLine": 444,
+        "endChar": 49
+      },
+      "revId": "14f40273ddac109c3b788f3e13cf57466e5d8c0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e41a5fd2_f07aafd2",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 42
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-27T14:09:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "969ecae0_2c930642",
       "range": {
         "startLine": 444,
         "startChar": 3,
@@ -181,6 +253,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "492c4d76_229879f3",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 632,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-27T14:09:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5130c313_2f964dc9",
+      "range": {
+        "startLine": 632,
+        "startChar": 50,
+        "endLine": 632,
+        "endChar": 64
+      },
+      "revId": "14f40273ddac109c3b788f3e13cf57466e5d8c0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd583007_33299330",
@@ -194,6 +290,30 @@
       "writtenOn": "2023-10-27T12:40:23Z",
       "side": 1,
       "message": "nit: SPM",
+      "range": {
+        "startLine": 647,
+        "startChar": 43,
+        "endLine": 647,
+        "endChar": 57
+      },
+      "revId": "14f40273ddac109c3b788f3e13cf57466e5d8c0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc485d82_39bae1bf",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 647,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-27T14:09:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd583007_33299330",
       "range": {
         "startLine": 647,
         "startChar": 43,
@@ -235,6 +355,24 @@
       "side": 1,
       "message": "Yes added comment above to fix this issue as well.",
       "parentUuid": "b1ce3b26_3664cf28",
+      "revId": "14f40273ddac109c3b788f3e13cf57466e5d8c0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffc12943_051ec275",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-27T14:09:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "054611fb_cc15d69f",
       "revId": "14f40273ddac109c3b788f3e13cf57466e5d8c0b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
