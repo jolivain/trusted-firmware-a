@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abeb2ae6_d15d8845",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-10-27T15:00:53Z",
+      "side": 1,
+      "message": "Thanks Yann. While I was editing the commit message, I\u0027ve flagged this patch as a breaking change for downstream platforms. Only 2 upstream platforms were using CryptoCell drivers: Arm Juno platform (which I confirm no longer needs it) and Nuvoton platform, which is pending answer from the maintainers.",
+      "revId": "e012a8037f2cd9ad44b796ae1a0f87cdb1a927cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
