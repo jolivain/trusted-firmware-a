@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "543b671d_693a8bea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-10-27T13:28:38Z",
+      "side": 1,
+      "message": "Some minor remarks, otherwise LGTM",
+      "revId": "07ac8c2aa9065e924e5a07b941eb3f8777c0867a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7ad11d9_05dd8e44",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 695,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-10-27T13:28:38Z",
+      "side": 1,
+      "message": "this star should then be removed",
+      "range": {
+        "startLine": 695,
+        "startChar": 66,
+        "endLine": 695,
+        "endChar": 67
+      },
+      "revId": "07ac8c2aa9065e924e5a07b941eb3f8777c0867a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
