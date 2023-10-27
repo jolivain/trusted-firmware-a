@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1bc86d85_397b1319",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-27T12:19:14Z",
+      "side": 1,
+      "message": "Ok. \nThen I believe one of the possible solution is to: \nJust have the helper functions ( i.e \n1. manage_extensions_secure_global\n2. manage_extensions_nonsecure_global\n3. manage_extensiosn_realm_global\nand remove the manage_extyensions_global api, being called from cold and warm boot entry points.\n\nThe helper functions could be called respectively from the world context setup functions,\nsetup_ns_cotext, setup_secure_context, setup_realm_context, and make sure they are getting invoked once via some global flags as such.\n\nI hope this would fix the issue.",
+      "parentUuid": "06921873_549564c0",
+      "revId": "14f40273ddac109c3b788f3e13cf57466e5d8c0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b1ce3b26_3664cf28",
         "filename": "lib/psci/psci_common.c",
         "patchSetId": 42
@@ -84,6 +102,24 @@
       "writtenOn": "2023-10-27T07:17:16Z",
       "side": 1,
       "message": "This is called for every CPU in warm boot path, so will this be re-init for every CPU as well which need to be avoided.",
+      "revId": "14f40273ddac109c3b788f3e13cf57466e5d8c0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "054611fb_cc15d69f",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 992,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-27T12:19:14Z",
+      "side": 1,
+      "message": "Yes added comment above to fix this issue as well.",
+      "parentUuid": "b1ce3b26_3664cf28",
       "revId": "14f40273ddac109c3b788f3e13cf57466e5d8c0b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
