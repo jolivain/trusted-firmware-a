@@ -103,6 +103,24 @@
       "message": "this can\u0027t stay here - it\u0027s not the global ctx function",
       "revId": "14f40273ddac109c3b788f3e13cf57466e5d8c0b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20d17290_9de44b94",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-27T12:07:31Z",
+      "side": 1,
+      "message": "could you please elaborate ? \nRME related initialization should happen here and not in context_management file is what, insisted from Soby from previous comments. Please take a look at those comments.",
+      "parentUuid": "3d1e39a7_8f131297",
+      "revId": "14f40273ddac109c3b788f3e13cf57466e5d8c0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
