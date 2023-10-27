@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "31eeb359_741750ab",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-27T13:47:13Z",
+      "side": 1,
+      "message": "I\u0027m curious to know how this platform will utilize Cryptocell after the Cryptocell driver removal.The Makefile of this platform includes Crytpocell makefile [1], (that in-turns needs Cryptocell source files).\nAre you suggesting that we should postpone merging this patch until we receive confirmation from the NPCM845X platform team? Otherwise, I\u0027m concerned that this will be breaking change for that platform IIUC.\n\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/nuvoton/npcm845x/platform.mk#n345",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 63
+      },
+      "revId": "07ac8c2aa9065e924e5a07b941eb3f8777c0867a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "543b671d_693a8bea",
