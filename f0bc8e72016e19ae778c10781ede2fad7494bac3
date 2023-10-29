@@ -67,6 +67,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bbcbc266_cfe9cf4d",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-29T04:21:07Z",
+      "side": 1,
+      "message": "I believe this should be:\n#if FFH_SUPPORT",
+      "revId": "f0bc8e72016e19ae778c10781ede2fad7494bac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "633ecad0_f0f93c7a",
         "filename": "plat/arm/board/rdn2/rdn2_plat.c",
         "patchSetId": 16
