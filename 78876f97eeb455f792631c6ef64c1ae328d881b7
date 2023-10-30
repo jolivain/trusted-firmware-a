@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44c71940_9e1a7495",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 24
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-10-30T19:33:05Z",
+      "side": 1,
+      "message": "Can rephrase? \"Platforms that don\u0027t have NS-EL2 unused\" to \"Platforms that want to disable NS_EL2 usage\" ?",
+      "range": {
+        "startLine": 682,
+        "startChar": 15,
+        "endLine": 682,
+        "endChar": 54
+      },
+      "revId": "78876f97eeb455f792631c6ef64c1ae328d881b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc2ff270_70e04152",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 24
