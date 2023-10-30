@@ -82,6 +82,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64173f9c_3843821e",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-30T10:34:26Z",
+      "side": 1,
+      "message": "It should be FEAT_RAS only. As in the next patch this file gets compiled only if FFH_SUpport is there.\nThis part of code is only to take care of RAS related errors, if there is no RAS support you directly go to ea_proceed",
+      "parentUuid": "bbcbc266_cfe9cf4d",
+      "revId": "f0bc8e72016e19ae778c10781ede2fad7494bac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "633ecad0_f0f93c7a",
