@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e0b1b57_5faa87e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-30T16:21:14Z",
+      "side": 1,
+      "message": "nit: entry",
+      "revId": "c80a5a665e0c8f9b2b81da58347dda282a90bae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cb1649f3_ed0307a5",
@@ -14,6 +31,63 @@
       "writtenOn": "2023-10-25T19:25:20Z",
       "side": 1,
       "message": "Addressed review comments.",
+      "revId": "c80a5a665e0c8f9b2b81da58347dda282a90bae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14e28b9c_fc5a9623",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-30T16:21:14Z",
+      "side": 1,
+      "message": "I think it might be a good idea to split the refactoring done in this patch from the feature enhancements. This will help make it easier to manage the history in the long run and make what is generally a simple but very useful enhancement easier to review.",
+      "revId": "c80a5a665e0c8f9b2b81da58347dda282a90bae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afa4abb3_6789e3aa",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-30T16:21:14Z",
+      "side": 1,
+      "message": "nit: Version (for case consistency with line 20)",
+      "revId": "c80a5a665e0c8f9b2b81da58347dda282a90bae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0a2ab26_47014212",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-10-30T16:21:14Z",
+      "side": 1,
+      "message": "Any reason for straying from decimal formatting above?",
+      "range": {
+        "startLine": 42,
+        "startChar": 29,
+        "endLine": 42,
+        "endChar": 34
+      },
       "revId": "c80a5a665e0c8f9b2b81da58347dda282a90bae6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
