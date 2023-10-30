@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecac4cb3_06f31b84",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 21
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-30T22:46:49Z",
+      "side": 1,
+      "message": "SP_ELx",
+      "range": {
+        "startLine": 1143,
+        "startChar": 16,
+        "endLine": 1143,
+        "endChar": 22
+      },
+      "revId": "994fca5497bce5bbe352d991b688a6e00a8926b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "526ed2e8_8c90a578",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 21
+      },
+      "lineNbr": 1152,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-30T22:46:49Z",
+      "side": 1,
+      "message": "Based on [1], isnt it applicable in all scenarios where FFH_SUPPORT is true?\n\n[1] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/23983/17//COMMIT_MSG#9",
+      "range": {
+        "startLine": 1151,
+        "startChar": 58,
+        "endLine": 1152,
+        "endChar": 55
+      },
+      "revId": "994fca5497bce5bbe352d991b688a6e00a8926b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11e2d8f8_1d05ae2a",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 21
+      },
+      "lineNbr": 1163,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-10-30T22:46:49Z",
+      "side": 1,
+      "message": "nitpick: replace with originated?",
+      "range": {
+        "startLine": 1162,
+        "startChar": 81,
+        "endLine": 1163,
+        "endChar": 3
+      },
+      "revId": "994fca5497bce5bbe352d991b688a6e00a8926b5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
