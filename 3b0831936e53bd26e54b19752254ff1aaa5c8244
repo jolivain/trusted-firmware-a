@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d51cddd_c8f7ffbf",
+        "filename": "lib/extensions/spe/spe.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-10-30T21:01:25Z",
+      "side": 1,
+      "message": "Hi Jayanth, \nIt\u0027s not clear to me why you need to save the core state into a context structure in memory, since the suspend (standby/retention) mode preserves the core state. In case it is still necessary, can you please add a comment to explain why it is?",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 69
+      },
+      "revId": "3b0831936e53bd26e54b19752254ff1aaa5c8244",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
