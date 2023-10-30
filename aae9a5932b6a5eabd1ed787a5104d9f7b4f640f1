@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f771628_52521110",
+        "filename": "services/std_svc/sdei/sdei_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-30T18:19:14Z",
+      "side": 1,
+      "message": "parentheses missing for the entire condition\nif ( !( plat_ic_is_ppi(intr_num) || plat_ic_is_spi(intr_num) ) )",
+      "revId": "aae9a5932b6a5eabd1ed787a5104d9f7b4f640f1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
