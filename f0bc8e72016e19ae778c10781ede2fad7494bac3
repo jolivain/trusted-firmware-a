@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d42145e6_590d67c9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-30T11:56:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a449c95b_d787c1bd",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 8
+      },
+      "revId": "f0bc8e72016e19ae778c10781ede2fad7494bac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "89676682_de4342ec",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 16
@@ -147,6 +171,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37c71f27_76c0a8eb",
+        "filename": "plat/arm/board/rdn2/rdn2_plat.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-30T11:56:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7a02fafb_47d4a684",
+      "range": {
+        "startLine": 140,
+        "startChar": 4,
+        "endLine": 140,
+        "endChar": 34
+      },
+      "revId": "f0bc8e72016e19ae778c10781ede2fad7494bac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30afd545_47ad40c3",
@@ -184,6 +232,30 @@
       "side": 1,
       "message": "tegra194_ea_handler() has some ras related implementation so i thought this is required only when RAS extension is present. Is tegra194_ea_handler() is capable of handling EA which are not RAS errors ?",
       "parentUuid": "30afd545_47ad40c3",
+      "range": {
+        "startLine": 487,
+        "startChar": 4,
+        "endLine": 487,
+        "endChar": 19
+      },
+      "revId": "f0bc8e72016e19ae778c10781ede2fad7494bac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bbeadba_6f9767fe",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_ras.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 487,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-30T11:56:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "71b9da54_3f174c0a",
       "range": {
         "startLine": 487,
         "startChar": 4,
