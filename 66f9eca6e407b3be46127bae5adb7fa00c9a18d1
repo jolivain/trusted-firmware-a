@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdfeb784_db55d0be",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-30T11:58:05Z",
+      "side": 1,
+      "message": "Since i have restricted ea_delegate to be compiled only for FFH_SUPPORT, i have to bring this handling (which is required unconditionally) in runtime_exceptions.S If you have really strong opinion then i can try separate them into w patches otherwise we can it as is.",
+      "parentUuid": "cc7166c2_6bea51af",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "66f9eca6e407b3be46127bae5adb7fa00c9a18d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3e79e89_d859988a",
@@ -41,6 +65,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b65784fd_ee64d81d",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-30T11:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3e79e89_d859988a",
+      "revId": "66f9eca6e407b3be46127bae5adb7fa00c9a18d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9b13a5d_2a05f9a8",
@@ -54,6 +96,24 @@
       "writtenOn": "2023-10-30T03:37:16Z",
       "side": 1,
       "message": "same as previous comment",
+      "revId": "66f9eca6e407b3be46127bae5adb7fa00c9a18d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92a65a40_9beb0c94",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-30T11:58:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9b13a5d_2a05f9a8",
       "revId": "66f9eca6e407b3be46127bae5adb7fa00c9a18d1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
