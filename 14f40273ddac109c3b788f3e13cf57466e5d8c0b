@@ -232,6 +232,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "116bc902_8089fd66",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-10-30T11:01:17Z",
+      "side": 1,
+      "message": "\u003eBut we should not couple secure and non secure init in a single function. As there might be systems with just NS, RL in future (without S). Hence Secure needs to have its own function and caller which can be isolated in future.\n\nThe current allocation of context memory is in such a way currently that it always allocates memory for Secure world. Initialising Secure world memory at cold boot won\u0027t harm.",
+      "parentUuid": "1bc86d85_397b1319",
+      "revId": "14f40273ddac109c3b788f3e13cf57466e5d8c0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5130c313_2f964dc9",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 42
