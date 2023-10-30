@@ -46,6 +46,30 @@
       },
       "revId": "848f5c30d6713ee969b204ed687ee767f1ec5ec4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db02411d_3a77bdec",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_plat.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-30T21:59:51Z",
+      "side": 1,
+      "message": "Thanks, but I believe it would be beneficial to make the code more generic. \nWe\u0027ve introduced the `partition_init` function for all Arm platforms that run BL2 and S-EL1, and this code has been exercised/tested on FVP and TC platforms. Additionally, I don\u0027t foresee any significant issues with placing this code in a generic file, especially given that it is protected by the `ARM_GPT_SUPPORT` flag.",
+      "parentUuid": "495fbb50_59bfb5f3",
+      "range": {
+        "startLine": 63,
+        "startChar": 1,
+        "endLine": 63,
+        "endChar": 30
+      },
+      "revId": "848f5c30d6713ee969b204ed687ee767f1ec5ec4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
