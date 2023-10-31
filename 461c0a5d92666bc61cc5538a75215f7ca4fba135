@@ -16,6 +16,23 @@
       "message": "All the tests related to CI+1 and CI+2 have been tested explicitly via tf-ci-gateway jobs on internal CI ( based out of master )and majority of them have passed. Only few test failures which were due to infra issues.\nThose failed cases have been tested on local-CI and they are passing as well.\nHence Manually providing Verified +1.\n\nStatic Checks:\nhttps://jenkins.oss.arm.com/job/tf-static-checks/18451/\n\nBuild tests :\n https://jenkins.oss.arm.com/view/TF/job/tf-ci-gateway/128668/\n \n CI+2 tests:\nhttps://jenkins.oss.arm.com/view/TF/job/tf-ci-gateway/128669/\nhttps://jenkins.oss.arm.com/view/TF/job/tf-ci-gateway/128670/\nhttps://jenkins.oss.arm.com/view/TF/job/tf-ci-gateway/128671/\nhttps://jenkins.oss.arm.com/view/TF/job/tf-ci-gateway/128672/",
       "revId": "461c0a5d92666bc61cc5538a75215f7ca4fba135",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b45dab6_966f4a88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 53
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-31T14:43:36Z",
+      "side": 1,
+      "message": "@Mark Dykes,\ncould you please provide MR+1 vote, if no further comments.\n\nThanks!",
+      "revId": "461c0a5d92666bc61cc5538a75215f7ca4fba135",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
