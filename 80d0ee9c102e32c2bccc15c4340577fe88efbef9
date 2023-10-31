@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1df2c074_004f804d",
+        "filename": "plat/arm/common/arm_bl2_el3_setup.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-31T16:04:59Z",
+      "side": 1,
+      "message": "Thanks, for putting this call in the common layer.\n\nApologies, but we recently performed some refactoring, and now there\u0027s a robust call available [1]. Can you please use that instead? Additionally, could you move the `gpt_partition_init` call to the `arm_bl2_el3_early_platform_setup` function, similar to [1]?\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/common/arm_bl2_setup.c#n87",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 1
+      },
+      "revId": "80d0ee9c102e32c2bccc15c4340577fe88efbef9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
