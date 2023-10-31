@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ff6f5d9_d04bb62b",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 23
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1000709
+      },
+      "writtenOn": "2023-10-31T07:31:05Z",
+      "side": 1,
+      "message": "It seems that this line broke builds, e.g. http://ci.trustedfirmware.org/job/tf-a-eclair-daily/48/display/redirect , http://ci.trustedfirmware.org/job/tf-a-coverity/778/display/redirect . Apparently, $(error) can\u0027t be used in that context.",
+      "revId": "edebefbcbc01f4ab67a7838e0191736fd9ee0192",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ],
   "submitRequirementResults": []
 }
