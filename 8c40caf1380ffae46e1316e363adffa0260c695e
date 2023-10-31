@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e937aa5_0bebb3bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2023-10-31T19:15:16Z",
+      "side": 1,
+      "message": "will remove, thanks",
+      "parentUuid": "dcfdb976_b15df6d7",
+      "range": {
+        "startLine": 16,
+        "startChar": 36,
+        "endLine": 16,
+        "endChar": 41
+      },
+      "revId": "8c40caf1380ffae46e1316e363adffa0260c695e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ca788a98_fce1d5db",
         "filename": "plat/imx/common/imx_sip_handler.c",
         "patchSetId": 3
@@ -66,6 +90,48 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f178ff8c_9bff29c3",
+        "filename": "plat/imx/common/imx_sip_handler.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2023-10-31T19:15:16Z",
+      "side": 1,
+      "message": "will do.",
+      "parentUuid": "ca788a98_fce1d5db",
+      "range": {
+        "startLine": 184,
+        "startChar": 38,
+        "endLine": 184,
+        "endChar": 43
+      },
+      "revId": "8c40caf1380ffae46e1316e363adffa0260c695e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcd7d3d0_7e0332f1",
+        "filename": "plat/imx/common/imx_sip_handler.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2023-10-31T19:15:16Z",
+      "side": 1,
+      "message": "At 0x9E0 address another address is stored, which points to the event buffer.\n\nOn line 191-192 it\u0027s dereferenced to obtain an address of actual event buffer with sanity checks.",
+      "parentUuid": "1c4bbfcf_0920c337",
+      "revId": "8c40caf1380ffae46e1316e363adffa0260c695e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1750f672_d0bb8c16",
         "filename": "plat/imx/common/imx_sip_handler.c",
         "patchSetId": 3
@@ -77,6 +143,24 @@
       "writtenOn": "2023-10-31T17:53:31Z",
       "side": 1,
       "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "8c40caf1380ffae46e1316e363adffa0260c695e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "470316cd_c6569475",
+        "filename": "plat/imx/common/imx_sip_handler.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2023-10-31T19:15:16Z",
+      "side": 1,
+      "message": "yep, will fix. thanks",
+      "parentUuid": "1750f672_d0bb8c16",
       "revId": "8c40caf1380ffae46e1316e363adffa0260c695e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -100,6 +184,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a4d7f1eb_9414dbcf",
+        "filename": "plat/imx/common/imx_sip_handler.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2023-10-31T19:15:16Z",
+      "side": 1,
+      "message": "that\u0027s a typo, will remove",
+      "parentUuid": "6e075f0d_37a30fb5",
+      "revId": "8c40caf1380ffae46e1316e363adffa0260c695e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "61943640_250f8e87",
         "filename": "plat/imx/common/imx_sip_handler.c",
         "patchSetId": 3
@@ -111,6 +213,24 @@
       "writtenOn": "2023-10-31T17:53:31Z",
       "side": 1,
       "message": "remove",
+      "revId": "8c40caf1380ffae46e1316e363adffa0260c695e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "204c9f5f_fcc2f16e",
+        "filename": "plat/imx/common/imx_sip_handler.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2023-10-31T19:15:16Z",
+      "side": 1,
+      "message": "+",
+      "parentUuid": "61943640_250f8e87",
       "revId": "8c40caf1380ffae46e1316e363adffa0260c695e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
