@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c1cbd959_614db380",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "yes, already in the changlog.yaml change patch, anything missing?",
+      "parentUuid": "740a3f7e_97b682ef",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d34fb8a8_0151f191",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -60,6 +84,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "72418387_66ee0fec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "thx, will add it.",
+      "parentUuid": "d34fb8a8_0151f191",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d334a91_411df8e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ok, will address them, thx for review.",
+      "parentUuid": "d6e2bd22_b03ab87a",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "626f7dc0_72a1ac40",
         "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
         "patchSetId": 1
@@ -71,6 +131,30 @@
       "writtenOn": "2023-10-10T15:10:35Z",
       "side": 1,
       "message": "this is pretty much same from imx8qx_bl31_setup.c. Can you factor it into a shared helper utility?",
+      "range": {
+        "startLine": 45,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 1
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8690f438_3bb5d274",
+        "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ok, thx, will refine it.",
+      "parentUuid": "626f7dc0_72a1ac40",
       "range": {
         "startLine": 45,
         "startChar": 0,
@@ -106,6 +190,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "332ecb38_bb626284",
+        "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "sorry, my bad,will fix it. thx for review ^_^",
+      "parentUuid": "069239dd_4c515484",
+      "range": {
+        "startLine": 70,
+        "startChar": 15,
+        "endLine": 70,
+        "endChar": 25
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f9ea9cc3_8dec9ce1",
         "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
         "patchSetId": 1
@@ -117,6 +225,30 @@
       "writtenOn": "2023-10-10T15:10:35Z",
       "side": 1,
       "message": "create macro",
+      "range": {
+        "startLine": 111,
+        "startChar": 15,
+        "endLine": 111,
+        "endChar": 25
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dfe4474_4c253a9b",
+        "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ok, sure.",
+      "parentUuid": "f9ea9cc3_8dec9ce1",
       "range": {
         "startLine": 111,
         "startChar": 15,
@@ -152,6 +284,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "52381737_69785904",
+        "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "sure, thx.",
+      "parentUuid": "5d328784_6dc9ab72",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 43
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "63dbb020_7039b4b2",
         "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
         "patchSetId": 1
@@ -169,6 +325,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "317f340d_37eba2a1",
+        "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "should be no chance, will refine it.",
+      "parentUuid": "63dbb020_7039b4b2",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c53e5c6_1718aca6",
         "filename": "plat/imx/imx8ulp/imx8ulp_psci.c",
         "patchSetId": 1
@@ -180,6 +354,30 @@
       "writtenOn": "2023-10-10T15:10:35Z",
       "side": 1,
       "message": "can you define a helper utility for this",
+      "range": {
+        "startLine": 26,
+        "startChar": 15,
+        "endLine": 26,
+        "endChar": 47
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20277e8f_d7b6a938",
+        "filename": "plat/imx/imx8ulp/imx8ulp_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ok, thx.",
+      "parentUuid": "8c53e5c6_1718aca6",
       "range": {
         "startLine": 26,
         "startChar": 15,
@@ -215,6 +413,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "746d3d33_db99aceb",
+        "filename": "plat/imx/imx8ulp/imx8ulp_psci.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ok, thx.",
+      "parentUuid": "34fb6ddc_a28fbe87",
+      "range": {
+        "startLine": 76,
+        "startChar": 15,
+        "endLine": 76,
+        "endChar": 47
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a7d2b7f_fc59e1aa",
         "filename": "plat/imx/imx8ulp/include/scmi.h",
         "patchSetId": 1
@@ -226,6 +448,30 @@
       "writtenOn": "2023-10-10T15:10:35Z",
       "side": 1,
       "message": "align with macros in following lines",
+      "range": {
+        "startLine": 61,
+        "startChar": 32,
+        "endLine": 61,
+        "endChar": 33
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e37c800_7eb36adb",
+        "filename": "plat/imx/imx8ulp/include/scmi.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ok, thx.",
+      "parentUuid": "4a7d2b7f_fc59e1aa",
       "range": {
         "startLine": 61,
         "startChar": 32,
@@ -261,6 +507,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "611aeb38_1568c37b",
+        "filename": "plat/imx/imx8ulp/include/scmi_sensor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ok, thx.",
+      "parentUuid": "b5c6b886_c7c1d02c",
+      "range": {
+        "startLine": 2,
+        "startChar": 2,
+        "endLine": 2,
+        "endChar": 23
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f69f5578_610bae0d",
         "filename": "plat/imx/imx8ulp/include/scmi_sensor.h",
         "patchSetId": 1
@@ -272,6 +542,30 @@
       "writtenOn": "2023-10-10T15:10:35Z",
       "side": 1,
       "message": "remove",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 0
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09db0a2d_94814a02",
+        "filename": "plat/imx/imx8ulp/include/scmi_sensor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "f69f5578_610bae0d",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -301,6 +595,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ba2926c_ac3fc2ea",
+        "filename": "plat/imx/imx8ulp/include/scmi_sensor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ok.",
+      "parentUuid": "7f302919_c579192d",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d47c6ed8_5c409ac7",
         "filename": "plat/imx/imx8ulp/include/scmi_sensor.h",
         "patchSetId": 1
@@ -318,6 +630,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "903455eb_dd1c871f",
+        "filename": "plat/imx/imx8ulp/include/scmi_sensor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ok, will fix it.",
+      "parentUuid": "d47c6ed8_5c409ac7",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a46101d2_10284ff0",
         "filename": "plat/imx/imx8ulp/include/scmi_sensor.h",
         "patchSetId": 1
@@ -329,6 +659,30 @@
       "writtenOn": "2023-10-10T15:10:35Z",
       "side": 1,
       "message": "remove",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 3
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89592369_b97cfb85",
+        "filename": "plat/imx/imx8ulp/include/scmi_sensor.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "a46101d2_10284ff0",
       "range": {
         "startLine": 153,
         "startChar": 0,
@@ -364,6 +718,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "408e65bc_a37bb2d6",
+        "filename": "plat/imx/imx8ulp/scmi/scmi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "thx, will fix it.",
+      "parentUuid": "6c1ec448_22e21a63",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 14
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3cc1761d_cbac0e09",
         "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
         "patchSetId": 1
@@ -375,6 +753,24 @@
       "writtenOn": "2023-10-17T06:02:10Z",
       "side": 1,
       "message": "I think all of these can be made more readable with a simple macro, I would avoid increasing redundant code here and use a suitable 1 liner macro instead",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5b4b75f_06900a3f",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "thx, it is the right way. will regine it.",
+      "parentUuid": "3cc1761d_cbac0e09",
       "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -398,6 +794,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "722a34b4_566b2f14",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "need to follow MISRA-C rules anything missing? ^_^",
+      "parentUuid": "ff7c1153_67db8834",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "38e8ded3_d93998a8",
         "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
         "patchSetId": 1
@@ -415,6 +829,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5d9f3a6b_c0b27478",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "38e8ded3_d93998a8",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "264697c9_795de19e",
         "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
         "patchSetId": 1
@@ -426,6 +858,30 @@
       "writtenOn": "2023-10-10T15:10:35Z",
       "side": 1,
       "message": "!\u003d 0\nSimilar instances across other lines in this file",
+      "range": {
+        "startLine": 313,
+        "startChar": 5,
+        "endLine": 313,
+        "endChar": 8
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ac152d6_6b5ec471",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "thx, will fix all of them.",
+      "parentUuid": "264697c9_795de19e",
       "range": {
         "startLine": 313,
         "startChar": 5,
@@ -461,6 +917,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23cd66d5_0f3ae780",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ok, will fix it.",
+      "parentUuid": "ad0760df_a8685ace",
+      "range": {
+        "startLine": 400,
+        "startChar": 5,
+        "endLine": 400,
+        "endChar": 8
+      },
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5502ccfe_5e0519b5",
         "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
         "patchSetId": 1
@@ -478,6 +958,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d001322d_8f0ed725",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ok, thx. will refine it.",
+      "parentUuid": "5502ccfe_5e0519b5",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9010877f_fa8ad86c",
         "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
         "patchSetId": 1
@@ -489,6 +987,24 @@
       "writtenOn": "2023-10-17T06:02:10Z",
       "side": 1,
       "message": "I would use a 1 liner while loop with an i++ inside.\nsomething like:\n```\nwhile(i \u003c IMX8ULP_PD_PS6 \u0026\u0026 scmi_power_domains[i].reg !\u003d pd_id)\n{\n    i++;\n}\n```",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4807f8a4_c587654a",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "good suggestion. will refine it.",
+      "parentUuid": "9010877f_fa8ad86c",
       "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -529,6 +1045,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8f7a503a_4bcd36b1",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_sensor.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ok, sure. will address  it.",
+      "parentUuid": "79d88a06_e15f5307",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83d8cb44_c54b0a8e",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_sensor.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "ok. thx for suggestion.",
+      "parentUuid": "aaef1258_311f81cd",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "121e1178_3672ca4c",
         "filename": "plat/imx/imx8ulp/upower/upower_api.c",
         "patchSetId": 1
@@ -540,6 +1092,24 @@
       "writtenOn": "2023-10-11T02:59:05Z",
       "side": 1,
       "message": "Definition is needed for all error values. And bracket is not needed.",
+      "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9db1499_875f533d",
+        "filename": "plat/imx/imx8ulp/upower/upower_api.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2023-10-31T09:17:53Z",
+      "side": 1,
+      "message": "for, will use error macro. for bracket, it should be used for MISRA-C. or someting wrong from me?",
+      "parentUuid": "121e1178_3672ca4c",
       "revId": "5c54ca0f268eb4b35821831efcfd816f6e5a5048",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
