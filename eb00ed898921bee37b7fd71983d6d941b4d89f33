@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e73752c_b088ccdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 52
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-10-31T11:08:51Z",
+      "side": 1,
+      "message": "For CI, I will try to test explicitly via tf-ci-gateway and update here soon. \nCI+2 will not pass due to makefile improvements. Hence will rebase my patch on top of master and test it on ci-gateway and will add Verified+1 manually.",
+      "revId": "eb00ed898921bee37b7fd71983d6d941b4d89f33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
