@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b64a351f_460dbafe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-31T15:56:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e0b1b57_5faa87e9",
+      "revId": "c80a5a665e0c8f9b2b81da58347dda282a90bae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cb1649f3_ed0307a5",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -52,6 +70,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3a1e1f0_8e1a8dc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-31T15:56:52Z",
+      "side": 1,
+      "message": "There is no logical refactoring in this PR, most of them are coding/comment style fixes to compliant with clang-format, so this time I will prefer to have them in one patch.",
+      "parentUuid": "14e28b9c_fc5a9623",
+      "revId": "c80a5a665e0c8f9b2b81da58347dda282a90bae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afa4abb3_6789e3aa",
@@ -65,6 +101,24 @@
       "writtenOn": "2023-10-30T16:21:14Z",
       "side": 1,
       "message": "nit: Version (for case consistency with line 20)",
+      "revId": "c80a5a665e0c8f9b2b81da58347dda282a90bae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "715b220e_061fcafe",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-31T15:56:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afa4abb3_6789e3aa",
       "revId": "c80a5a665e0c8f9b2b81da58347dda282a90bae6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -92,6 +146,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "217f3ba1_5b4284b8",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-31T15:56:52Z",
+      "side": 1,
+      "message": "The idea is from what we discussed in the update of the spec, please see reference at: https://github.com/FirmwareHandoff/firmware_handoff/pull/19\nGenerally we decided to keep most general stuffs from 0 and arm related ones (TF-A/OP-TEE/FF-A) from 0x100.",
+      "parentUuid": "e0a2ab26_47014212",
+      "range": {
+        "startLine": 42,
+        "startChar": 29,
+        "endLine": 42,
+        "endChar": 34
+      },
+      "revId": "c80a5a665e0c8f9b2b81da58347dda282a90bae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3c1cc09_7ba88ebd",
@@ -105,6 +183,30 @@
       "writtenOn": "2023-10-30T16:30:24Z",
       "side": 1,
       "message": "Considering the other functions in this function all return NULL on failure, I wonder whether we should abide by that convention here as well? Having a consistent error reporting convention makes the API behavior predictable and potentially easier to use?.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 35
+      },
+      "revId": "c80a5a665e0c8f9b2b81da58347dda282a90bae6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4310ceb4_c0540d74",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-10-31T15:56:52Z",
+      "side": 1,
+      "message": "Updated. Now it returns `entry_point_info_t *` or NULL.",
+      "parentUuid": "f3c1cc09_7ba88ebd",
       "range": {
         "startLine": 89,
         "startChar": 0,
