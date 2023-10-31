@@ -94,6 +94,30 @@
       },
       "revId": "eabcb27ae1930b7c04c0e888ca19a95e150bc727",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0c82af1_0cdd4ca1",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_plat.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-10-31T14:54:15Z",
+      "side": 0,
+      "message": "Just one more question -\nDoes TF-M on the secure enclave side also update the \u0027active-index\u0027 of the Firmware Update (FWU) metadata? I believe so that only then can TF-A determine which Firmware Image Package (FIP) to take into consideration, correct?",
+      "parentUuid": "861b85e8_8ba63746",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 2
+      },
+      "revId": "eabcb27ae1930b7c04c0e888ca19a95e150bc727",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
