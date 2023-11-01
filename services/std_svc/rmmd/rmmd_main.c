@@ -123,16 +123,6 @@ static void rmm_el2_context_init(el2_sysregs_t *regs)
 static void manage_extensions_realm(cpu_context_t *ctx)
 {
 	pmuv3_enable(ctx);
-
-	/*
-	 * If SME/SME2 is supported and enabled for NS world, then enables SME
-	 * for Realm world. RMM will save/restore required registers that are
-	 * shared with SVE/FPU so that Realm can use FPU or SVE.
-	 */
-	if (is_feat_sme_supported()) {
-		/* sme_enable() also enables SME2 if supported by hardware */
-		sme_enable(ctx);
-	}
 }
 
 #if IMAGE_BL31
@@ -152,6 +142,15 @@ static void manage_extensions_realm_per_world(void)
 		sys_reg_trace_disable_per_world(&per_world_context[CPU_CONTEXT_REALM]);
 	}
 
+	/*
+	 * If SME/SME2 is supported and enabled for NS world, then enables SME
+	 * for Realm world. RMM will save/restore required registers that are
+	 * shared with SVE/FPU so that Realm can use FPU or SVE.
+	 */
+	if (is_feat_sme_supported()) {
+		/* This call also enables SME2 if supported by hardware */
+		sme_enable_per_world(&per_world_context[CPU_CONTEXT_REALM]);
+	}
 }
 #endif /* IMAGE_BL31 */
 
