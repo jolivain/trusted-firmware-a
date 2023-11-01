@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17bbb443_5f594c1d",
+        "filename": "services/std_svc/sdei/sdei_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-11-01T20:26:04Z",
+      "side": 1,
+      "message": "both plat_ic_is_ppi and plat_ic_is_spi return integer, not boolean value. Please perform explicit comparisons:\n\nif ((plat_ic_is_ppi(intr_num) !\u003d 0) \u0026\u0026 (plat_ic_is_spi(intr_num) !\u003d 0))",
+      "revId": "693dbc2fd94251f02ca43ec183e674307296437e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
