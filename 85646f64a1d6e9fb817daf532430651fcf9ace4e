@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dbf64f7_70b25d0a",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-11-01T15:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23300bea_81fd6240",
+      "range": {
+        "startLine": 257,
+        "startChar": 1,
+        "endLine": 257,
+        "endChar": 34
+      },
+      "revId": "85646f64a1d6e9fb817daf532430651fcf9ace4e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e027ad2_fa10cb42",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-01T15:31:11Z",
       "side": 1,
       "message": "ENABLE_FEAT_RAS only",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 34
+      },
+      "revId": "85646f64a1d6e9fb817daf532430651fcf9ace4e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6da19843_77ba8b4e",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_sip_calls.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-11-01T15:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e027ad2_fa10cb42",
       "range": {
         "startLine": 74,
         "startChar": 4,
