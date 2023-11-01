@@ -16,6 +16,23 @@
       "message": "build failures are not related to this patch and are reported in non AMD-Xilinx platforms builds.",
       "revId": "2243ba3c38ae5bab894709a4e98f188815398ef1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ffc460a_ce2e04a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-11-01T11:24:47Z",
+      "side": 1,
+      "message": "Yes failures are unrelated.\n\nAn optimisation for running the CI is with a patch stack like this 3 patch stack you can just run the CI on the latest child patch (this patch) and if it passes manually set the verified +1 on the others in the stack as the changes in them are always tested with the latest child stack in the dependency.\n\nThis helps save resources on the CI system as the CI is only run once which at times of release can help with the performance for all. Thanks",
+      "revId": "2243ba3c38ae5bab894709a4e98f188815398ef1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
