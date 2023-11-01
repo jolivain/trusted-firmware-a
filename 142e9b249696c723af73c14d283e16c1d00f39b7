@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a5f1030_54d99bd3",
+        "filename": "docs/getting_started/build-internals.rst",
+        "patchSetId": 18
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-11-01T11:42:04Z",
+      "side": 1,
+      "message": "There could be a future scenario where Secure/Realm wants to use FFH, so do not want to use a generic macro name for just NS world.",
+      "parentUuid": "c3c09c6d_346ac736",
+      "range": {
+        "startLine": 19,
+        "startChar": 37,
+        "endLine": 21,
+        "endChar": 43
+      },
+      "revId": "142e9b249696c723af73c14d283e16c1d00f39b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd3ae96a_76f5c1c6",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-10-31T14:50:46Z",
       "side": 1,
       "message": "Why cant we use FFH_SUPPORT only here?",
+      "range": {
+        "startLine": 777,
+        "startChar": 4,
+        "endLine": 777,
+        "endChar": 34
+      },
+      "revId": "142e9b249696c723af73c14d283e16c1d00f39b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebbf7360_3204a329",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-11-01T11:42:04Z",
+      "side": 1,
+      "message": "For FVP platform i have two cases where\n1. FFH_SUPPORT only\n2. RAS with FFH Support\nFor the former case we do not use EHF/SDEI, so need for this.",
+      "parentUuid": "dd3ae96a_76f5c1c6",
       "range": {
         "startLine": 777,
         "startChar": 4,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "479ad93d_86bde0ef",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_setup.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-11-01T11:42:04Z",
+      "side": 1,
+      "message": "Since the function name implies ras, i have kept it under FEAT_RAS. But since this is a platform code and if you are sure that only type of EA you expect is RAS errors then i can remove the RAS.\nSince both FFH_SUPPORT and FEAT_RAS is enabled for this platform we can keep it either way. Consider a hypothetical scenario where this platform does not have RAS extension but it still wants to route EAs to EL3. In that case the build would fail.\n\nFinally, i am more interested in getting the exception handling patches soon, so i can do either way which you prefer (for nvidia platforms)",
+      "parentUuid": "a4aa77e7_8dea7241",
+      "range": {
+        "startLine": 257,
+        "startChar": 4,
+        "endLine": 257,
+        "endChar": 34
+      },
+      "revId": "142e9b249696c723af73c14d283e16c1d00f39b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "135b6a0b_0f0c59ce",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-10-31T14:50:46Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 74,
+        "startChar": 4,
+        "endLine": 74,
+        "endChar": 34
+      },
+      "revId": "142e9b249696c723af73c14d283e16c1d00f39b7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cd8a74d_cc68c883",
+        "filename": "plat/nvidia/tegra/soc/t194/plat_sip_calls.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-11-01T11:42:04Z",
+      "side": 1,
+      "message": "same",
+      "parentUuid": "135b6a0b_0f0c59ce",
       "range": {
         "startLine": 74,
         "startChar": 4,
