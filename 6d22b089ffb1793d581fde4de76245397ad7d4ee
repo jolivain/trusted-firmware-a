@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbd11407_dfd8242a",
+        "filename": "bl31/bl31.mk",
+        "patchSetId": 24
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-11-02T11:30:53Z",
+      "side": 1,
+      "message": "I am keeping it as is for now.",
+      "parentUuid": "992aa704_12994ac4",
+      "range": {
+        "startLine": 70,
+        "startChar": 30,
+        "endLine": 70,
+        "endChar": 43
+      },
+      "revId": "6d22b089ffb1793d581fde4de76245397ad7d4ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "906ca4d2_cb5a87d3",
@@ -54,6 +78,24 @@
       "writtenOn": "2023-11-01T21:21:47Z",
       "side": 1,
       "message": "I am curious where is this stated in Arm ARM.\nI could only find the following text:\n\n\"Unused values in the range 0b000000 - 0b101100 (0x00 - 0x2C) are reserved for future use for synchronous exceptions\"",
+      "revId": "6d22b089ffb1793d581fde4de76245397ad7d4ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a89a4835_008f971a",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-11-02T11:30:53Z",
+      "side": 1,
+      "message": "D19.2.39 ESR_EL3 \nEC \u003d\u003d 0b011111\nIMPLEMENTATION DEFINED exception to EL3.\nSee ISS encoding for an IMPLEMENTATION DEFINED exception to EL3.",
+      "parentUuid": "906ca4d2_cb5a87d3",
       "revId": "6d22b089ffb1793d581fde4de76245397ad7d4ee",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
