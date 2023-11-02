@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fcfdbf8_109d63ef",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2023-11-02T11:52:37Z",
+      "side": 1,
+      "message": "It sets CPTR_EL3.ESM, which disables trapping of execution of SME instructions. Remove reference to SME2.",
+      "revId": "fb12be599318f1e6b70e125ab5d3121ab00c9589",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
