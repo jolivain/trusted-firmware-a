@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a60865f_bef2729c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-11-02T08:26:50Z",
+      "side": 1,
+      "message": "As mentioned in another patch stack please only run the CI on the latest child patch in the stack and try to avoid running the CI on every patch in the stack.\n\nIf the CI is run on the latest patch all changes in the stack are tested and the verified+1 can be manually added if it passes on the latest child patch to all the other patches in the stack.\n\nThe reason we ask this is to save on CI resources as at release time lots of people are trying to get their patches tested.  CI run times can be massively extended at times of load so we need to be aware of that and do what we can to share resources.\n\nThanks\n\nJoanna",
+      "revId": "41b5a23c8fbf5ad4212d79def1f4bcf6e119dd7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
