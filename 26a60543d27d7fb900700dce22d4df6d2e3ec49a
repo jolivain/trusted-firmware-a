@@ -22,6 +22,30 @@
       },
       "revId": "26a60543d27d7fb900700dce22d4df6d2e3ec49a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23dd44d5_6868d747",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001006
+      },
+      "writtenOn": "2023-11-02T06:18:11Z",
+      "side": 1,
+      "message": "Memory corruption was because of bug in assembly code for secondary boot, which used register 8 content, and this register contained GFX info, for some customers who doesn\u0027t use GFX, it worked, for others when we changed the whole memory map it stopped working",
+      "parentUuid": "7c34e95e_8b512689",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 60
+      },
+      "revId": "26a60543d27d7fb900700dce22d4df6d2e3ec49a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
