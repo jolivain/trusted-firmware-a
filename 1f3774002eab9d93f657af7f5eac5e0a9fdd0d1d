@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bc989f69_3527ab74",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2023-11-02T11:13:43Z",
+      "side": 1,
+      "message": "Sorry, had my editor margin set to 80..",
+      "parentUuid": "0a9ecffd_3980fb97",
+      "revId": "1f3774002eab9d93f657af7f5eac5e0a9fdd0d1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0ea49072_ce8524b8",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -48,6 +66,24 @@
       "writtenOn": "2023-11-01T10:41:56Z",
       "side": 1,
       "message": "But the alias is already there, down below? There is no requirement for aliases to be defined \"in order\", before their usage. dtc would merge them, but we don\u0027t need the redundant definition.",
+      "revId": "1f3774002eab9d93f657af7f5eac5e0a9fdd0d1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92bab7ec_733d0814",
+        "filename": "fdts/fvp-base-psci-common.dtsi",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2023-11-02T11:13:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f4884d5_773c126c",
       "revId": "1f3774002eab9d93f657af7f5eac5e0a9fdd0d1d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
