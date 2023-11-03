@@ -22,6 +22,30 @@
       },
       "revId": "9fc415cd6bf3129532fa51eb5cf1610767c7525f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "178e4eb3_c9a14508",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001039
+      },
+      "writtenOn": "2023-11-03T16:54:44Z",
+      "side": 1,
+      "message": "Indeed, it changed recently with eb8700a93805 (\"refactor(fvp): do not use RSS platform token and attestation key APIs\"), moving the keys into the FVP plat code. I\u0027m updating the QEMU changes accordingly",
+      "parentUuid": "40b12bbe_ebfd23aa",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 50
+      },
+      "revId": "9fc415cd6bf3129532fa51eb5cf1610767c7525f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
