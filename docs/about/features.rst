@@ -108,6 +108,31 @@ Current features
 
 -  Position-Independent Executable (PIE) support.
 
+Experimental features
+---------------------
+
+The following features (and associated build options or libraries) are marked
+experimental. Their use through the build emits a warning message.
+
+A feature is considered experimental when still in development or isn't known
+to the TF-A team as widely deployed or proven on end products. It is generally
+advised such options aren't pulled into real deployments, or done with the
+appropriate level of supplementary integration testing.
+
+A feature is no longer considered experimental and removed from this list when
+it is generally agreed the said feature has reached a level of maturity and
+quality comparable to other features that have been integrated into products.
+
+-  Dynamic feature detection `FEATURE_DETECTION`
+-  Dynamic Root of Trust for Measurement `DRTM_SUPPORT`
+-  Firmware Handoff Transfer List `TRANSFER_LIST`
+-  MbedTLS PSA crypto APIs support `PSA_CRYPTO`
+-  MPU translation library `lib/xlat_mpu`
+-  PSA FW update support `PSA_FWU_SUPPORT`
+-  Realm Management Extension `ENABLE_RME`
+-  RSS comms driver `drivers/arm/rss`
+-  Virtual filesystem debug interface `USE_DEBUGFS`
+
 Still to come
 -------------
 
