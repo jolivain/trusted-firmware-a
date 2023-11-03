@@ -22,6 +22,30 @@
       },
       "revId": "f4e64d1f5e8277013c35dbd8e056b8071942f759",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cc6ba52_e19ef76e",
+        "filename": "plat/arm/board/morello/morello_image_load.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1001017
+      },
+      "writtenOn": "2023-11-03T12:49:49Z",
+      "side": 1,
+      "message": "We use the value to populate Type 45 SMBIOS tables with the firmware version information. If it is not received, UEFI will not generate the tables.",
+      "parentUuid": "00266baa_75c2740a",
+      "range": {
+        "startLine": 144,
+        "startChar": 46,
+        "endLine": 144,
+        "endChar": 63
+      },
+      "revId": "f4e64d1f5e8277013c35dbd8e056b8071942f759",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
