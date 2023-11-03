@@ -16,6 +16,23 @@
       "message": "marking reviewed.",
       "revId": "75aed391d1ddf40cdf3caf3afad5415845dececc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d81d78aa_cb5781e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-11-03T12:14:30Z",
+      "side": 1,
+      "message": "weird, https://ci.trustedfirmware.org/job/tf-a-builder/2791954/console -\u003e we dont touch fvp or other impacted platforms at all, and k3 default looks good.",
+      "revId": "75aed391d1ddf40cdf3caf3afad5415845dececc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
