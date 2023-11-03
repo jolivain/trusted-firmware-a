@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00266baa_75c2740a",
+        "filename": "plat/arm/board/morello/morello_image_load.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-11-03T12:26:10Z",
+      "side": 1,
+      "message": "I\u0027m curious about the use case for \u0027tfa-fw-version\u0027 in UEFI. If UEFI doesn\u0027t receive it, what action does UEFI take?",
+      "range": {
+        "startLine": 144,
+        "startChar": 46,
+        "endLine": 144,
+        "endChar": 63
+      },
+      "revId": "f4e64d1f5e8277013c35dbd8e056b8071942f759",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
