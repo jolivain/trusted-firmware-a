@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a751504_b3428242",
+        "filename": "plat/intel/soc/agilex/include/socfpga_plat_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-11-06T09:35:47Z",
+      "side": 1,
+      "message": "U(400), as it is always used as an unsigned value.\nSame for other files.\nAnd you may need to #include \u003cutils_def.h\u003e",
+      "range": {
+        "startLine": 103,
+        "startChar": 37,
+        "endLine": 103,
+        "endChar": 42
+      },
+      "revId": "94aee95da41a318173ff2a72978cbbd7357ec0d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
