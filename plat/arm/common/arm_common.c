@@ -89,8 +89,12 @@ uint32_t arm_get_spsr_for_bl33_entry(void)
 	unsigned int mode;
 	uint32_t spsr;
 
+#if LOAD_BL33_AT_EL1
 	/* Figure out what mode we enter the non-secure world in */
+	mode = MODE_EL1;
+#else
 	mode = (el_implemented(2) != EL_IMPL_NONE) ? MODE_EL2 : MODE_EL1;
+#endif
 
 	/*
 	 * TODO: Consider the possibility of specifying the SPSR in
