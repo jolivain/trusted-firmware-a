@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "680dce4b_7e7b77c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-11-06T09:03:38Z",
+      "side": 1,
+      "message": "This patch should IMHO be the last in the series, or else N5X and Stratix10 will fail to compile, and git bisect won\u0027t work. Or you need a dedicated patch for the socfpfa_sip_svc.c changes as the last one in the series.",
+      "revId": "87643c848bcd7ff9d5c05fa110c29c08ceceae0b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
