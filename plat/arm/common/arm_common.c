@@ -89,9 +89,8 @@ uint32_t arm_get_spsr_for_bl33_entry(void)
 	unsigned int mode;
 	uint32_t spsr;
 
-	/* Figure out what mode we enter the non-secure world in */
-	mode = (el_implemented(2) != EL_IMPL_NONE) ? MODE_EL2 : MODE_EL1;
-
+	/* Debug change to force BL33 to switch to EL1 */
+	mode = MODE_EL1;
 	/*
 	 * TODO: Consider the possibility of specifying the SPSR in
 	 * the FIP ToC and allowing the platform to have a say as
