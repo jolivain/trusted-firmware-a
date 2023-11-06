@@ -138,6 +138,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "452ddc6a_ed9dfb31",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-11-06T22:41:39Z",
+      "side": 1,
+      "message": "Our coding guidelines encourage us to do this. Being maintainers ourselves, it may not set right example if we ourself don\u0027t follow the guidelines.",
+      "parentUuid": "2f124925_6f0bac32",
+      "revId": "dcd21787909847a439ab0dce73942b897b241a7c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc0ee85b_b4679e33",
         "filename": "lib/psci/psci_stat.c",
         "patchSetId": 4
