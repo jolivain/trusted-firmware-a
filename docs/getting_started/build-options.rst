@@ -716,6 +716,9 @@ Common build options
 -  ``LDFLAGS``: Extra user options appended to the linkers' command line in
    addition to the one set by the build system.
 
+-  ``LOAD_BL33_AT_EL1``: Debug build option that forces loading of BL33 image
+   at EL1 even though EL2 is implemented.
+
 -  ``LOG_LEVEL``: Chooses the log level, which controls the amount of console log
    output compiled into the build. This should be one of the following:
 
