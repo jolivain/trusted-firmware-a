@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "122eb65d_9aa1611d",
+        "filename": "bl31/bl31.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-11-07T11:10:55Z",
+      "side": 0,
+      "message": "Additionally, could you please update the documentation [1] for this build option to indicate that it is now considered a production feature.\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/getting_started/build-options.rst#n901",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 50
+      },
+      "revId": "9bb15ab53ad2dc22323f4a90256a7fe7e7399960",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
