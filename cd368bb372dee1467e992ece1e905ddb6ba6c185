@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbe6c9a4_55863eb3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-11-07T14:38:28Z",
+      "side": 1,
+      "message": "Hello Margarita, Avi,\n\nPlease provide your Code-Owner review vote on this patch.\n\nNote that this patch has gone through very limited testing. I have merely done a build test, checking that the build succeeded with the following command line:\n\n    make CROSS_COMPILE\u003daarch64-none-elf- PLAT\u003dnpcm845x SPD\u003dopteed\n    \nand the CI tests won\u0027t do much more. It could be good to run more thorough tests at your end on the platform itself.",
+      "revId": "cd368bb372dee1467e992ece1e905ddb6ba6c185",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
