@@ -156,6 +156,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eae3868d_3d65975f",
+        "filename": "lib/psci/psci_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-11-07T08:28:15Z",
+      "side": 1,
+      "message": "I agree with you Madhu, but there are many cases in this file and other core files that do not follow this rule as the code was probably developed before this rule had been established. I agree this is a concern and should probably be addressed separately by explicit changes.\nThis isn\u0027t the intent of this change to fix such coding rule, would it be ok to submit additional changes with this explicit intention?",
+      "parentUuid": "452ddc6a_ed9dfb31",
+      "revId": "dcd21787909847a439ab0dce73942b897b241a7c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc0ee85b_b4679e33",
         "filename": "lib/psci/psci_stat.c",
         "patchSetId": 4
