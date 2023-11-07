@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3af65e8f_39413235",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-11-07T15:01:02Z",
+      "side": 1,
+      "message": "The only failure is static checks coming from library files, which are ignored in normal CI but because the patch itself contains these files it complains about it.\n\nOverride the failures.",
+      "revId": "cdd6089db04aee6d800132488735b9f783b6ec59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
