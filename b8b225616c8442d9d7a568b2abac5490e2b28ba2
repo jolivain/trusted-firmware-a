@@ -39,6 +39,30 @@
       },
       "revId": "b8b225616c8442d9d7a568b2abac5490e2b28ba2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "924511d0_751735bb",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2023-11-07T20:32:31Z",
+      "side": 1,
+      "message": "REQ can send both framework and partition messages, REQ2 is only for partition messages. Does that answer your question?",
+      "parentUuid": "6c12296d_a9c70086",
+      "range": {
+        "startLine": 1083,
+        "startChar": 10,
+        "endLine": 1083,
+        "endChar": 31
+      },
+      "revId": "b8b225616c8442d9d7a568b2abac5490e2b28ba2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
