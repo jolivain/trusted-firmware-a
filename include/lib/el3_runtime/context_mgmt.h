@@ -57,6 +57,10 @@ void cm_write_scr_el3_bit(uint32_t security_state,
 void cm_set_next_eret_context(uint32_t security_state);
 u_register_t cm_get_scr_el3(uint32_t security_state);
 
+#if PLATFORM_REPORT_CTX_MEM_USE
+void report_ctx_memory_usage(void);
+#endif /* PLATFORM_REPORT_CTX_MEM_USE */
+
 /* Inline definitions */
 
 /*******************************************************************************

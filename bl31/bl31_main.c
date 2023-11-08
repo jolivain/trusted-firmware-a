@@ -106,6 +106,10 @@ void bl31_setup(u_register_t arg0, u_register_t arg1, u_register_t arg2,
 	 */
 	assert(is_armv8_3_pauth_present());
 #endif /* CTX_INCLUDE_PAUTH_REGS */
+
+#if PLATFORM_REPORT_CTX_MEM_USE
+	report_ctx_memory_usage();
+#endif /* PLATFORM_REPORT_CTX_MEM_USE */
 }
 
 /*******************************************************************************
