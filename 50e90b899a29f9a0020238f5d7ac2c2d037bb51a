@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a021e716_539bda19",
+        "filename": "plat/arm/board/fvp/fvp_common_measured_boot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-11-08T10:29:48Z",
+      "side": 0,
+      "message": "Don\u0027t you need to provide an implementation of plat_mboot_measure_key() for FVP, no matter what? Looking at [platform.h](https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/plat/common/platform.h#n149), we provide a dummy implementation which just returns 0 when measured boot is *disabled*. But if measured boot is *enabled*, the platform must provide its own implementation (imx8m and qemu platforms already do this).\n\nAlso, as a side note, we will need to update TF-A doc, specifically [this paragraph](https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/design_documents/measured_boot.rst#n225).",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 0
+      },
+      "revId": "50e90b899a29f9a0020238f5d7ac2c2d037bb51a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
