@@ -33,6 +33,24 @@
       "message": "* explicit flush not needed? or we depend on enter sleep to handle it?\n* Does this happen for all cores? or just the last core going down?\n\nAlso we have no need to J7200 anymore.",
       "revId": "c24b320fd8f304f1cdb420afae8e62d521499374",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03fd42e3_553f60ce",
+        "filename": "plat/ti/k3/common/k3_psci.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1001132
+      },
+      "writtenOn": "2023-11-08T14:45:29Z",
+      "side": 1,
+      "message": "\u003e * explicit flush not needed? or we depend on enter sleep to handle it?\n\u003e * Does this happen for all cores? or just the last core going down?\n\nIf we are the last core in a cluster TF-A asks sysfw to flush L2 cache once the last core is powered down.\n\n\u003e Also we have no need to J7200 anymore.\n\nTARGET_BOARD is not needed anymore",
+      "parentUuid": "6d10571c_87fa875a",
+      "revId": "c24b320fd8f304f1cdb420afae8e62d521499374",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
