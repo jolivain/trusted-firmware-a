@@ -623,6 +623,10 @@ void manage_extensions_nonsecure_per_world(void)
 	if (is_feat_sys_reg_trace_supported()) {
 		sys_reg_trace_enable_per_world(&per_world_context[CPU_CONTEXT_NS]);
 	}
+
+	if (is_feat_mpam_supported()) {
+		mpam_enable_per_world(&per_world_context[CPU_CONTEXT_NS]);
+	}
 }
 #endif /* IMAGE_BL31 */
 
@@ -690,9 +694,6 @@ static void manage_extensions_nonsecure(cpu_context_t *ctx)
 		sme_enable(ctx);
 	}
 
-	if (is_feat_mpam_supported()) {
-		mpam_enable(ctx);
-	}
 	pmuv3_enable(ctx);
 #endif /* IMAGE_BL31 */
 }

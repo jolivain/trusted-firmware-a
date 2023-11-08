@@ -62,7 +62,6 @@
 #define CTX_ELR_EL3		U(0x20)
 #define CTX_PMCR_EL0		U(0x28)
 #define CTX_IS_IN_EL3		U(0x30)
-#define CTX_MPAM3_EL3		U(0x38)
 /* Constants required in supporting nested exception in EL3 */
 #define CTX_SAVED_ELR_EL3	U(0x40)
 /*
@@ -331,7 +330,8 @@
  ******************************************************************************/
 #define CTX_CPTR_EL3		U(0x0)
 #define CTX_ZCR_EL3		U(0x8)
-#define CTX_GLOBAL_EL3STATE_END	U(0x10)
+#define CTX_MPAM3_EL3		U(0x10)
+#define CTX_GLOBAL_EL3STATE_END	U(0x18)
 
 #ifndef __ASSEMBLER__
 
@@ -461,6 +461,7 @@ typedef struct cpu_context {
 typedef struct per_world_context {
 	uint64_t ctx_cptr_el3;
 	uint64_t ctx_zcr_el3;
+	uint64_t ctx_mpam3_el3;
 } per_world_context_t;
 
 extern per_world_context_t per_world_context[CPU_DATA_CONTEXT_NUM];
