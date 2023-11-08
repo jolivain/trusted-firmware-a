@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e01e867_7631519f",
+        "filename": "plat/ti/k3/board/j7200/board.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001132
+      },
+      "writtenOn": "2023-11-08T14:39:57Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "884e2bf1_4dba5c4d",
+      "revId": "d82fb052bf75ead7b433e13753bcf4ba4e90f038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ced1217_5bf08841",
@@ -48,6 +66,24 @@
       "writtenOn": "2023-11-08T14:15:35Z",
       "side": 1,
       "message": "do we need TARGET_BOARD anymore?\nAlso, is\u0027nt it better to bring LPM_SAVE part of bl_regions?\n\nWhat does the xlat_tables dump look like now?",
+      "revId": "d82fb052bf75ead7b433e13753bcf4ba4e90f038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "177ac5ca_efcf6439",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001132
+      },
+      "writtenOn": "2023-11-08T14:39:57Z",
+      "side": 1,
+      "message": "\u003e do we need TARGET_BOARD anymore?\n\nIndeed TARGET_BOARD is useless\n\n\u003e Also, is\u0027nt it better to bring LPM_SAVE part of bl_regions?\n\nOk, I\u0027ll move LPM_SAVE to bl_regions",
+      "parentUuid": "1ced1217_5bf08841",
       "revId": "d82fb052bf75ead7b433e13753bcf4ba4e90f038",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
