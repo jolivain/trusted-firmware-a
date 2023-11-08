@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c151a39e_18d996b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-11-08T14:15:35Z",
+      "side": 1,
+      "message": "I dont see a need for a new board J7200 anymore with this change.",
+      "revId": "d82fb052bf75ead7b433e13753bcf4ba4e90f038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ced1217_5bf08841",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-11-08T14:15:35Z",
+      "side": 1,
+      "message": "do we need TARGET_BOARD anymore?\nAlso, is\u0027nt it better to bring LPM_SAVE part of bl_regions?\n\nWhat does the xlat_tables dump look like now?",
+      "revId": "d82fb052bf75ead7b433e13753bcf4ba4e90f038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
