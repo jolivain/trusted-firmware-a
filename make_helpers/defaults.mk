@@ -374,3 +374,6 @@ ENABLE_CONSOLE_GETC		:= 0
 # functions must be enabled by platforms if they require it.
 # Disabled by default.
 INIT_UNUSED_NS_EL2		:= 0
+
+# Enable context memory usage reporting during BL31 setup.
+PLATFORM_REPORT_CTX_MEM_USE	:= 0
