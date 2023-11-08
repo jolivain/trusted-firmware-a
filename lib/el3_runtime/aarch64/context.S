@@ -380,7 +380,8 @@ endfunc fpregs_context_restore
 	 * for MPAM access in lower ELs of Secure and Realm world
 	 * -----------------------------------------------------------
 	 */
-	ldr	x17, [sp, #CTX_EL3STATE_OFFSET + CTX_MPAM3_EL3]
+
+	ldr	x17, [x9, #CTX_MPAM3_EL3]
 	msr	S3_6_C10_C5_0, x17 /* mpam3_el3 */
 
 no_mpam:
