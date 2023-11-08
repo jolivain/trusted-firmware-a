@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cfef99a_7002afdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2023-11-08T21:00:15Z",
+      "side": 1,
+      "message": "Looks like we still have static fails:\n\nERROR: License ID error in plat/rockchip/common/include/plat_pm_helpers.h\nERROR: License ID error in plat/rockchip/common/plat_pm_helpers.c\nERROR: License ID error in plat/rockchip/common/scmi/scmi.c\nERROR: License ID error in plat/rockchip/common/scmi/scmi_clock.c\nERROR: License ID error in plat/rockchip/common/scmi/scmi_clock.h\nERROR: License ID error in plat/rockchip/common/scmi/scmi_rstd.c\nERROR: License ID error in plat/rockchip/common/scmi/scmi_rstd.h\n\nI think a change to this format would be appropriate for each of these files:\n\n\n/*\n * Copyright (c) 2019-2023, Rockchip, Inc. All rights reserved.\n *\n * SPDX-License-Identifier: BSD-3-Clause\n */\n\nAlso the include order should be changed:\n\n\n3d630622e::plat/rockchip/common/plat_pm_helpers.c:\nInclude ordering error, order should be:\n\t#include \u003cassert.h\u003e\n\t#include \u003cerrno.h\u003e\n\n\t#include \u003carch_helpers.h\u003e\n\t#include \u003cbl31/bl31.h\u003e\n\t#include \u003ccommon/debug.h\u003e\n\t#include \u003cdrivers/console.h\u003e\n\t\n\t\n\t#include \u003cdrivers/delay_timer.h\u003e\n\t#include \u003clib/mmio.h\u003e\n\t#include \u003cplat/common/platform.h\u003e\n\t#include \u003cplatform_def.h\u003e\n\n\t#include \u003cplat_pm_helpers.h\u003e\n\t\nThanks!",
+      "revId": "e4ec3d79e517f83a7a17e0c78256de22f9a11c6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
