@@ -1428,6 +1428,7 @@ $(eval $(call add_defines,\
 	PSA_CRYPTO	\
 	ENABLE_CONSOLE_GETC \
 	INIT_UNUSED_NS_EL2	\
+	PLATFORM_REPORT_CTX_MEM_USE \
 )))
 
 ifeq (${SANITIZE_UB},trap)
