@@ -484,8 +484,7 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 #endif /* (IMAGE_BL31 && defined(SPD_spmd) && SPMD_SPM_AT_SEL2) */
 
 	if (is_feat_mpam_supported()) {
-		write_ctx_reg(get_el3state_ctx(ctx), CTX_MPAM3_EL3, \
-				MPAM3_EL3_RESET_VAL);
+		per_world_context[CPU_CONTEXT_NS].ctx_mpam3_el3 = MPAM3_EL3_RESET_VAL;
 	}
 
 	/*
@@ -623,6 +622,10 @@ void manage_extensions_nonsecure_per_world(void)
 	if (is_feat_sys_reg_trace_supported()) {
 		sys_reg_trace_enable_per_world(&per_world_context[CPU_CONTEXT_NS]);
 	}
+
+	if (is_feat_mpam_supported()) {
+		mpam_enable_per_world(&per_world_context[CPU_CONTEXT_NS]);
+	}
 }
 #endif /* IMAGE_BL31 */
 
@@ -690,9 +693,6 @@ static void manage_extensions_nonsecure(cpu_context_t *ctx)
 		sme_enable(ctx);
 	}
 
-	if (is_feat_mpam_supported()) {
-		mpam_enable(ctx);
-	}
 	pmuv3_enable(ctx);
 #endif /* IMAGE_BL31 */
 }
