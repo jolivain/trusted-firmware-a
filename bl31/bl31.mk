@@ -43,6 +43,7 @@ BL31_SOURCES		+=	bl31/bl31_main.c				\
 				bl31/bl31_traps.c				\
 				common/runtime_svc.c				\
 				lib/cpus/aarch64/dsu_helpers.S			\
+				lib/el3_runtime/aarch64/context_debug.c		\
 				plat/common/aarch64/platform_mp_stack.S		\
 				services/arm_arch_svc/arm_arch_svc_setup.c	\
 				services/std_svc/std_svc_setup.c		\
