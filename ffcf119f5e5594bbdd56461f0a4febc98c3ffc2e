@@ -128,6 +128,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7648f37_a7b9c110",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-11-09T12:39:16Z",
+      "side": 1,
+      "message": "Firewalls should be enabled on GP devices as well. TFA and OPTEE can manage secrets independent of what the auth scheme is.",
+      "parentUuid": "a9c11422_e7200f3c",
+      "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "11f613bd_929f6a53",
         "filename": "plat/ti/k3/common/k3_psci.c",
         "patchSetId": 5
