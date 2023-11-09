@@ -25,13 +25,6 @@
 /* ASN.1 tags */
 #define ASN1_INTEGER                 0x02
 
-#define return_if_error(rc) \
-	do { \
-		if (rc != 0) { \
-			return rc; \
-		} \
-	} while (0)
-
 #pragma weak plat_set_nv_ctr2
 
 static int cmp_auth_param_type_desc(const auth_param_type_desc_t *a,
@@ -105,12 +98,20 @@ static int auth_hash(const auth_method_param_hash_t *param,
 	 * and contain the hash algorithm */
 	rc = auth_get_param(param->hash, img_desc->parent,
 			&hash_der_ptr, &hash_der_len);
-	return_if_error(rc);
+	if (rc != 0) {
+		VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+			__func__, __LINE__, rc);
+		return rc;
+	}
 
 	/* Get the data to be hashed from the current image */
 	rc = img_parser_get_auth_param(img_desc->img_type, param->data,
 			img, img_len, &data_ptr, &data_len);
-	return_if_error(rc);
+	if (rc != 0) {
+		VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+			__func__, __LINE__, rc);
+		return rc;
+	}
 
 	/* Ask the crypto module to verify this hash */
 	rc = crypto_mod_verify_hash(data_ptr, data_len,
@@ -158,17 +159,29 @@ static int auth_signature(const auth_method_param_sig_t *param,
 	/* Get the data to be signed from current image */
 	rc = img_parser_get_auth_param(img_desc->img_type, param->data,
 			img, img_len, &data_ptr, &data_len);
-	return_if_error(rc);
+	if (rc != 0) {
+		VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+			__func__, __LINE__, rc);
+		return rc;
+	}
 
 	/* Get the signature from current image */
 	rc = img_parser_get_auth_param(img_desc->img_type, param->sig,
 			img, img_len, &sig_ptr, &sig_len);
-	return_if_error(rc);
+	if (rc != 0) {
+		VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+			__func__, __LINE__, rc);
+		return rc;
+	}
 
 	/* Get the signature algorithm from current image */
 	rc = img_parser_get_auth_param(img_desc->img_type, param->alg,
 			img, img_len, &sig_alg_ptr, &sig_alg_len);
-	return_if_error(rc);
+	if (rc != 0) {
+		VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+			__func__, __LINE__, rc);
+		return rc;
+	}
 
 	/* Get the public key from the parent. If there is no parent (NULL),
 	 * the certificate has been signed with the ROTPK, so we have to get
@@ -176,7 +189,11 @@ static int auth_signature(const auth_method_param_sig_t *param,
 	if (img_desc->parent != NULL) {
 		rc = auth_get_param(param->pk, img_desc->parent,
 				&pk_ptr, &pk_len);
-		return_if_error(rc);
+		if (rc != 0) {
+			VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+				__func__, __LINE__, rc);
+			return rc;
+		}
 	} else {
 		/*
 		 * Root certificates are signed with the ROTPK, so we have to
@@ -184,7 +201,11 @@ static int auth_signature(const auth_method_param_sig_t *param,
 		 */
 		rc = plat_get_rotpk_info(param->pk->cookie, &pk_plat_ptr,
 					 &pk_plat_len, &flags);
-		return_if_error(rc);
+		if (rc != 0) {
+			VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+				__func__, __LINE__, rc);
+			return rc;
+		}
 
 		assert(is_rotpk_flags_valid(flags));
 
@@ -192,7 +213,11 @@ static int auth_signature(const auth_method_param_sig_t *param,
 		rc = img_parser_get_auth_param(img_desc->img_type,
 					       param->pk, img, img_len,
 					       &pk_ptr, &pk_len);
-		return_if_error(rc);
+		if (rc != 0) {
+			VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+				__func__, __LINE__, rc);
+			return rc;
+		}
 
 		/*
 		 * Validate the certificate's key against the platform ROTPK.
@@ -211,7 +236,11 @@ static int auth_signature(const auth_method_param_sig_t *param,
 			 * suffixed or modified pk
 			 */
 			rc = crypto_mod_convert_pk(pk_ptr, pk_len, &cnv_pk_ptr, &cnv_pk_len);
-			return_if_error(rc);
+			if (rc != 0) {
+				VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+					__func__, __LINE__, rc);
+				return rc;
+			}
 
 			/*
 			 * The hash of the certificate's public key must match
@@ -219,7 +248,11 @@ static int auth_signature(const auth_method_param_sig_t *param,
 			 */
 			rc = crypto_mod_verify_hash(cnv_pk_ptr, cnv_pk_len,
 						    pk_plat_ptr, pk_plat_len);
-			return_if_error(rc);
+			if (rc != 0) {
+				VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+					__func__, __LINE__, rc);
+				return rc;
+			}
 		} else {
 			/* Platform supports full ROTPK */
 			if ((pk_len != pk_plat_len) ||
@@ -245,7 +278,8 @@ static int auth_signature(const auth_method_param_sig_t *param,
 		 */
 		rc = plat_mboot_measure_key(pk_oid, pk_ptr, pk_len);
 		if (rc != 0) {
-			WARN("Public Key measurement failure = %d\n", rc);
+			VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+				__func__, __LINE__, rc);
 		}
 	}
 
@@ -290,7 +324,11 @@ static int auth_nvctr(const auth_method_param_nv_ctr_t *param,
 	 * to return the counter value as a DER encoded integer */
 	rc = img_parser_get_auth_param(img_desc->img_type, param->cert_nv_ctr,
 				       img, img_len, &data_ptr, &data_len);
-	return_if_error(rc);
+	if (rc != 0) {
+		VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+			__func__, __LINE__, rc);
+		return rc;
+	}
 
 	/* Parse the DER encoded integer */
 	assert(data_ptr);
@@ -329,7 +367,11 @@ static int auth_nvctr(const auth_method_param_nv_ctr_t *param,
 
 	/* Get the counter from the platform */
 	rc = plat_get_nv_ctr(param->plat_nv_ctr->cookie, &plat_nv_ctr);
-	return_if_error(rc);
+	if (rc != 0) {
+		VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+			__func__, __LINE__, rc);
+		return rc;
+	}
 
 	if (*cert_nv_ctr < plat_nv_ctr) {
 		/* Invalid NV-counter */
@@ -417,7 +459,11 @@ int auth_mod_verify_img(unsigned int img_id,
 
 	/* Ask the parser to check the image integrity */
 	rc = img_parser_check_integrity(img_desc->img_type, img_ptr, img_len);
-	return_if_error(rc);
+	if (rc != 0) {
+		VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+			__func__, __LINE__, rc);
+		return rc;
+	}
 
 	/* Authenticate the image using the methods indicated in the image
 	 * descriptor. */
@@ -449,7 +495,11 @@ int auth_mod_verify_img(unsigned int img_id,
 			rc = 1;
 			break;
 		}
-		return_if_error(rc);
+		if (rc != 0) {
+			VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+				__func__, __LINE__, rc);
+			return rc;
+		}
 	}
 
 	/*
@@ -459,7 +509,11 @@ int auth_mod_verify_img(unsigned int img_id,
 	if (need_nv_ctr_upgrade && sig_auth_done) {
 		rc = plat_set_nv_ctr2(nv_ctr_param->plat_nv_ctr->cookie,
 				      img_desc, cert_nv_ctr);
-		return_if_error(rc);
+		if (rc != 0) {
+			VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+				__func__, __LINE__, rc);
+			return rc;
+		}
 	}
 
 	/* Extract the parameters indicated in the image descriptor to
@@ -474,7 +528,11 @@ int auth_mod_verify_img(unsigned int img_id,
 			rc = img_parser_get_auth_param(img_desc->img_type,
 					img_desc->authenticated_data[i].type_desc,
 					img_ptr, img_len, &param_ptr, &param_len);
-			return_if_error(rc);
+			if (rc != 0) {
+				VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+					__func__, __LINE__, rc);
+				return rc;
+			}
 
 			/* Check parameter size */
 			if (param_len > img_desc->authenticated_data[i].data.len) {
@@ -495,8 +553,8 @@ int auth_mod_verify_img(unsigned int img_id,
 							    param_ptr,
 							    param_len);
 				if (rc != 0) {
-					WARN("Public Key measurement "
-					     "failure = %d\n", rc);
+					VERBOSE("[TBB] %s():%d failed with error code %d.\n",
+						__func__, __LINE__, rc);
 				}
 			}
 		}
