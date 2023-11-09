@@ -34,6 +34,24 @@
       "parentUuid": "9c6443cd_cc16d2a1",
       "revId": "8f32095f316c9b6669b4df991d0e0bbff364997f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8c68f04_8adae1e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2023-11-09T12:45:36Z",
+      "side": 1,
+      "message": "That looks like a bug in firmware.\nhttps://software-dl.ti.com/tisci/esd/latest/5_soc_doc/j7200/devices.html\nPLAT_CLUSTER_DEVICE_START_ID should have been 198 instead of 3\n\nWhy not fix the firmware?",
+      "parentUuid": "03583bef_e898bce3",
+      "revId": "8f32095f316c9b6669b4df991d0e0bbff364997f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
