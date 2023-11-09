@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a9c11422_e7200f3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000966
+      },
+      "writtenOn": "2023-11-09T04:34:23Z",
+      "side": 1,
+      "message": "Hi Andrew, Nishanth,\nJust wanted to make one thing clear at the moment regarding firewalling of ATF/OP-TEE. GP devices will be no impact with that, the firewalling is happening on only HS-FS and HS-SE devices where the binaries are authenticated ( as that is the way the cert will be reaching the TIFS for firewall application, GP devices will be not authenticating hence the cert never reaches TIFS for the firewall application )",
+      "parentUuid": "57627b16_86d59fc1",
+      "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "11f613bd_929f6a53",
         "filename": "plat/ti/k3/common/k3_psci.c",
         "patchSetId": 5
