@@ -21,6 +21,7 @@ $(info MBEDTLS_VERSION_MAJOR is [${MBEDTLS_MAJOR}] MBEDTLS_VERSION_MINOR is [${M
 
 # Specify mbed TLS configuration file
 ifeq (${MBEDTLS_MAJOR}, 2)
+	$(info Building TF-A with mbedtls-2.x will be deprecated after TF-A 2.10 release, Please migrate to Mbedtls >= 3.4.1)
 	MBEDTLS_CONFIG_FILE	?=	"<drivers/auth/mbedtls/mbedtls_config-2.h>"
 else ifeq (${MBEDTLS_MAJOR}, 3)
 	ifeq (${PSA_CRYPTO},1)
