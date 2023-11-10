@@ -498,6 +498,9 @@ subsections:
         subsections:
           - title: SBSA
             scope: qemu-sbsa
+            
+            deprecated: 
+              - qemu_sbsa
 
       - title: QTI
         scope: qti
@@ -719,6 +722,7 @@ subsections:
           - errata_abi
 
   - title: Libraries
+    scope: lib
 
     subsections:
       - title: CPU Support
