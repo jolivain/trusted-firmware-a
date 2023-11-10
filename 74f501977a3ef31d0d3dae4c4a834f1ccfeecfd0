@@ -37,6 +37,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c69b2fee_15ee6392",
+        "filename": "changelog.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-11-10T15:41:40Z",
+      "side": 1,
+      "message": "This scope is a bit too general for changes specifically to the common platform code. Maybe \"platforms\"?",
+      "range": {
+        "startLine": 262,
+        "startChar": 15,
+        "endLine": 262,
+        "endChar": 21
+      },
+      "revId": "74f501977a3ef31d0d3dae4c4a834f1ccfeecfd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d4ca140_48a10aa3",
+        "filename": "changelog.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-11-10T15:41:40Z",
+      "side": 1,
+      "message": "I suggest moving this to the parent scope (Platforms) rather than creating a subsection for it.",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 23
+      },
+      "revId": "74f501977a3ef31d0d3dae4c4a834f1ccfeecfd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c425d7a6_3758ea48",
         "filename": "changelog.yaml",
         "patchSetId": 2
