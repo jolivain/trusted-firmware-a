@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "872066a9_76ef595c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2023-11-10T17:07:08Z",
+      "side": 1,
+      "message": "\"automatically\" can be ambiguous here. I would suggest changing this word to \"statically\" or \"forcibly\".\n\nIt is good to see we now have the FEAT_STATE_CHECK support on the code side. It feels like we should have this on the Make side as well. (It would be a lot clearer if we could set this to FEAT_STATE_CHECK instead of 2.)\n\nDo we already enable FEATURE_DETECTION? Is that an unrelated flag?",
+      "revId": "f99f83a9afa8027f1a71f42a48860952459b34f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f5d89864_b47dfa9e",
