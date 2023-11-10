@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0551b61d_e6e5abf8",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-11-10T15:28:48Z",
+      "side": 1,
+      "message": "Is it necessary to mention this, given that this patch will anyways appear in the v2.10 release? Can we simply say - \n\n`Deprecated: Building TF-A with Mbedtls-2.x. Please migrate to Mbedtls version 3.4.1`",
+      "range": {
+        "startLine": 24,
+        "startChar": 58,
+        "endLine": 24,
+        "endChar": 81
+      },
+      "revId": "9527c23c931e51f638b17bd84254b504c1f085d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "020fc790_4da79d3c",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-11-10T15:28:48Z",
+      "side": 1,
+      "message": "Migrate to Mbedtls v3.4.1 strictly as per the pre-requisite [1]? \n\n\n[1]: https://trustedfirmware-a.readthedocs.io/en/latest/getting_started/prerequisites.html#toolchain",
+      "range": {
+        "startLine": 24,
+        "startChar": 101,
+        "endLine": 24,
+        "endChar": 117
+      },
+      "revId": "9527c23c931e51f638b17bd84254b504c1f085d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
