@@ -107,6 +107,9 @@ ENABLE_FEAT_RNG			:= 2
 # QEMU 7.2+ has support for FGT and Linux needs it enabled to boot on max
 ENABLE_FEAT_FGT			:= 2
 
+# Enable DIT on those cores which have it implemented (V1/N2/max)
+ENABLE_FEAT_DIT			:= 2
+
 # Treating this as a memory-constrained port for now
 USE_COHERENT_MEM	:=	0
 
