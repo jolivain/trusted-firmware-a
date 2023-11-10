@@ -16,6 +16,23 @@
       "message": "Propagating from top most commit in the topic",
       "revId": "e2d9dfe2bffe4fde28f2714058c8c882ea90102a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d6a8691_50837c98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2023-11-10T10:39:31Z",
+      "side": 1,
+      "message": "There are two point of views on this series.\nIf user configures things properly never hits any issue that\u0027s why it is nice to have.\nFrom different angle it protects users from unpredictable behaviour if they pass FIT image instead of raw DTB. If FIT image is passed it ends up with non workable system. From this angle it would be good to have it in 2.10.",
+      "revId": "e2d9dfe2bffe4fde28f2714058c8c882ea90102a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
