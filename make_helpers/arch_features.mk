@@ -33,7 +33,9 @@ endif
 ifeq "8.4" "$(word 1, $(sort 8.4 $(ARM_ARCH_MAJOR).$(ARM_ARCH_MINOR)))"
 ENABLE_FEAT_SEL2			:=	1
 ENABLE_TRF_FOR_NS			:=	1
-ENABLE_FEAT_DIT				:=	1
+# Allow to override it in platform config. qemu platforms have one binary for
+# all supported cpu cores and some of them are 8.0/8.2 only.
+ENABLE_FEAT_DIT				?=	1
 endif
 
 # Enable the features which are mandatory from ARCH version 8.5 and upwards.
