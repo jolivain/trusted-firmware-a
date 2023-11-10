@@ -16,6 +16,24 @@
       "message": "Hi Sandrine,\nI\u0027m OK with the patch and the reason to get rid of this macro.\n\nThat said I found it useful when debugging TBBR boot issues: I only added \u0027ERROR(\"%s:%d\\n\", __func__, __LINE__); \\\u0027  before the return, and got the faulty line directly. Now I\u0027ll have to add it at each line.\nWe could add VERBOSE messages, but that would increase binary size for platform keeping those traces. That\u0027s not the case for ST platforms, and I could still have easier debug with these lines after the includes:\n#undef VERBOSE\n#define VERBOSE ERROR",
       "revId": "b3fa771737fa9a1b486edaff047db9b22ccee625",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f5314e2_411aedb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-11-10T15:22:22Z",
+      "side": 1,
+      "message": "Hi Yann,\n\nThanks for the feedback, I get your point. As a matter of fact, I\u0027ve been in similar situations in the past, as there are many reasons for getting an authentication failure and I found too that adding traces was the best way to narrow/pin it down.\n\nHowever, if we want to keep this patch as is (for the sake of code coverage improvements) then I can\u0027t see a way out of adding VERBOSE messages in all these error cases, as you suggested...\n\nThinking out loud, if we carefully choose the string we want to print, the same string could potentially fit all error code paths. Then the binary size would only be slightly increased, as I expect that the compiler would be able to figure out that it\u0027s the same string everywhere and only store it once in the rodata section.\n\nThis is what I have in mind:\n\n    VERBOSE(\"[TBoot] %s():%d failed with error code %d.\\n\", __func__, __LINE__, ret);\n\nwhere \"TBoot\" stands for \"trusted boot\" and helps narrowing down which module this message gets coming from.\n\nObviously this only solves the binary size increase issue but we would still need to copy \u0026 paste the same VERBOSE() line of code everywhere, which is a bit ugly... But still this seems like the best option to me.\n\nDoes that make sense to you?",
+      "parentUuid": "d5665410_9055cb68",
+      "revId": "b3fa771737fa9a1b486edaff047db9b22ccee625",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
