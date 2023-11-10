@@ -33,6 +33,23 @@
       "message": "This is actual fix which could go to 2.10.",
       "revId": "8eb6a1da1229b8f0bff33293cbb86ce20d09259d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d7f7c42_e80f1a52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2023-11-10T12:13:03Z",
+      "side": 1,
+      "message": "The v2.10 has frozen and an RC0 has been tagged. We have around 6 days of manual testing. I\u0027ve asked the team to take if there is an opportunity otherwise it will be merged post release and if you plan to use the forthcoming v2.10 LTS branch they can be pulled into that as these are platform only changes.",
+      "revId": "8eb6a1da1229b8f0bff33293cbb86ce20d09259d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
