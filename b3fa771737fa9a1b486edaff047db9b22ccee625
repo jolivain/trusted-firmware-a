@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5665410_9055cb68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-11-10T13:26:54Z",
+      "side": 1,
+      "message": "Hi Sandrine,\nI\u0027m OK with the patch and the reason to get rid of this macro.\n\nThat said I found it useful when debugging TBBR boot issues: I only added \u0027ERROR(\"%s:%d\\n\", __func__, __LINE__); \\\u0027  before the return, and got the faulty line directly. Now I\u0027ll have to add it at each line.\nWe could add VERBOSE messages, but that would increase binary size for platform keeping those traces. That\u0027s not the case for ST platforms, and I could still have easier debug with these lines after the includes:\n#undef VERBOSE\n#define VERBOSE ERROR",
+      "revId": "b3fa771737fa9a1b486edaff047db9b22ccee625",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
