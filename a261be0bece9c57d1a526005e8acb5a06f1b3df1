@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13bcdbbc_03b8236c",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-11-13T08:42:50Z",
+      "side": 1,
+      "message": "This does not work. I just tried building with mbedTLS 2.28.1 and I got the following error message:\n\n    drivers/auth/mbedtls/mbedtls_common.mk:24: *** recipe commences before first target.  Stop.\n \nTo fix this, either do not indent line 24 at all, or indent with spaces (rather than a tab, which has a special meaning in Makefiles).",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 125
+      },
+      "revId": "a261be0bece9c57d1a526005e8acb5a06f1b3df1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
