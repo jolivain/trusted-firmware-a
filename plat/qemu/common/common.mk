@@ -40,7 +40,7 @@ PLAT_INCLUDES		+=	-Iinclude/plat/arm/common/${ARCH}
 # https://developer.arm.com/documentation/102378/0201/Armv8-x-and-Armv9-x-extensions-and-features
 
 ARM_ARCH_MAJOR		:=	8
-ARM_ARCH_MINOR		:=	5
+ARM_ARCH_MINOR		:=	7
 endif
 
 PLAT_BL_COMMON_SOURCES	:=	${PLAT_QEMU_COMMON_PATH}/qemu_common.c		\
