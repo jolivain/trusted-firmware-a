@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0942aad6_19fc7b45",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2023-11-13T12:51:23Z",
+      "side": 1,
+      "message": "I would suggest we would want this change for *all* of the runtime-probable options. Note that this would also be required to be able to support individual features being enabled/disabled during silicon bringup.\n\nOn the whole, I don\u0027t understand the reasoning behind forcibly disabling using the ID registers for their intended purpose now we *have* runtime probing. Could we set all these to 2 instead? (May still want to do ?\u003d to support local overrides.)",
+      "revId": "8346a333594af66674e2611bbfdf191e0364e4a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
