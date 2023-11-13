@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c24237de_ee76a535",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-11-13T14:50:52Z",
+      "side": 1,
+      "message": "[...]\n\ntrusted-firmware-a$ make realclean -j8; make -s -j8 ARM_ROTPK_LOCATION\u003ddevel_rsa RESET_TO_BL2\u003d1 CROSS_COMPILE\u003daarch64-none-elf- ENABLE_PIE\u003d1 GENERATE_COT\u003d1 PLAT\u003dcorstone1000 ROT_KEY\u003dplat/arm/board/common/rotpk/arm_rotprivk_rsa.pem SPD\u003dspmd SPMD_SPM_AT_SEL2\u003d0 TARGET_PLATFORM\u003dfpga TRUSTED_BOARD_BOOT\u003d1  DEBUG\u003d1 V\u003d1 fiptool all MBEDTLS_DIR\u003d/ssd/tfa/mbedtls-2.28.5/\n  REALCLEAN\nIncluding services/std_svc/spmd/spmd.mk\nIncluding drivers/auth/mbedtls/mbedtls_x509.mk\nMBEDTLS_VERSION_MAJOR is [2] MBEDTLS_VERSION_MINOR is [28]\nDeprecation Notice: Please migrate to Mbedtls version 3.x (refer to TF-A documentation for the exact version number)\nIncluding drivers/auth/mbedtls/mbedtls_crypto.mk\nplat/arm/board/common/board_common.mk:26: Development keys support for FVP is deprecated. Use `regs` option instead\nBuilding corstone1000\nwriting RSA key\nSelected OpenSSL version: 3.0.7\n  HOSTCC  fiptool.c\n  HOSTCC  tbbr_config.c\n  HOSTLD  fiptool\n\nBuilt fiptool successfully\n\n\nBuilt /ssd/tfa/trusted-firmware-a/build/corstone1000/debug/bl2.bin successfully\n\n\nBuilt /ssd/tfa/trusted-firmware-a/build/corstone1000/debug/bl31.bin successfully\n\n\n[...]",
+      "revId": "267c106f02e6996071985adbe695406a4978e97f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
