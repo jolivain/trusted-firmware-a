@@ -278,6 +278,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a73dbdc5_b3b13ac5",
+        "filename": "docs/change-log.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-11-13T17:42:53Z",
+      "side": 1,
+      "message": "Hi,\nIdeally, the changelog should have defined a new sub-scope called \"exception handling\" under the el3-runtime scope. After the release, I will encourage anyone modifying the relevant code to create/use this new scope. I feel, for now, we can let it be this way.",
+      "parentUuid": "a8956669_af9a5909",
+      "range": {
+        "startLine": 822,
+        "startChar": 3,
+        "endLine": 823,
+        "endChar": 178
+      },
+      "revId": "74f501977a3ef31d0d3dae4c4a834f1ccfeecfd0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fcd46090_c7ad6324",
         "filename": "docs/change-log.md",
         "patchSetId": 2
