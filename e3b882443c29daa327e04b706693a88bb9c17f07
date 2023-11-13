@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7408c64f_13b6db0e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-11-13T16:10:01Z",
+      "side": 1,
+      "message": "Theoretically this is a breaking change. Other platforms could be using the `PLAT_RSS_NOT_SUPPORTED` build option. Among upstream platforms, only the Base AEM FVP uses it right now but we don\u0027t know about downstream platforms.\n\nTherefore, we should flag this patch as a breaking change by:\n* adding a \u0027!\u0027 in the scope of the commit title (see conventional commits spec).\n* adding a note in the commit message to explain what I\u0027ve written above (i.e. no upstream platform affected but downstream platforms could be).",
+      "revId": "e3b882443c29daa327e04b706693a88bb9c17f07",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5c696d8_c55da687",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-11-13T16:10:01Z",
+      "side": 1,
+      "message": "(minor) I would rather say \"the Base AEM FVP platform\" to make sure there is no confusion with the TC2 FVP.",
+      "range": {
+        "startLine": 10,
+        "startChar": 28,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "e3b882443c29daa327e04b706693a88bb9c17f07",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "253a28cc_74ed5206",
