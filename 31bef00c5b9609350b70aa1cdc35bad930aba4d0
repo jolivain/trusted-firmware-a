@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d3cb299_7f919a39",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-11-14T16:24:04Z",
+      "side": 1,
+      "message": "Given that `val` is a 32-bit integer, don\u0027t you need to run some checks (such as `val \u003c UINT16_MAX`) on `val` before passing it to mmio_write_16(), which will truncate it?",
+      "range": {
+        "startLine": 465,
+        "startChar": 26,
+        "endLine": 465,
+        "endChar": 29
+      },
+      "revId": "31bef00c5b9609350b70aa1cdc35bad930aba4d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
