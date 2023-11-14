@@ -200,6 +200,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad7a8a6f_d32f5b40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001132
+      },
+      "writtenOn": "2023-11-14T10:11:27Z",
+      "side": 1,
+      "message": "Hi Manorit,\n\nFor now we are saving entirely TF-A (all the SRAM where TF-A is running) during suspend, and we restore everything.\nIt\u0027s easier than saving and restore only the context.\nFor our point of view, the challenges to have something working on HS device are:\n- save and restore only the context\n- when TF-A starts it shall detect early that it is a resume, and jumps to a code section which resumes its context\n- save the context in an encrypted format.\n\nBy the way if you have any idea to encrypt/decrypt the context. \nI don\u0027t know if there is an API in TF-A to do some encryption stuffs (I suppose yes), and which key could be used.",
+      "parentUuid": "4ee8d2f7_6bbca1ae",
+      "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "11f613bd_929f6a53",
         "filename": "plat/ti/k3/common/k3_psci.c",
         "patchSetId": 5
