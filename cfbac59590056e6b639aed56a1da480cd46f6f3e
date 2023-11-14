@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "477bcf4e_55d60ada",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-11-14T15:20:29Z",
+      "side": 1,
+      "message": "Sorry, changing my vote. With this patch, it seems like no Intel platform uses `ncore_enable_ocram_firewall()` and `enable_ocram_firewall()` anymore. Should their implementation be removed from `plat/intel/soc/common/drivers/ccu/ncore_ccu.c` and `plat/intel/soc/common/soc/socfpga_firewall.c`?",
+      "revId": "cfbac59590056e6b639aed56a1da480cd46f6f3e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
