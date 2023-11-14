@@ -77,7 +77,12 @@ $(eval $(call add_defines, \
 	TC_SCMI_PD_CTRL_EN \
 ))
 
-CSS_LOAD_SCP_IMAGES	:=	1
+# Loading SCP image is required for TC2 and TC3
+ifneq ($(filter ${TARGET_PLATFORM}, 2 3),)
+	CSS_LOAD_SCP_IMAGES	:=	1
+else
+	CSS_LOAD_SCP_IMAGES	:=	0
+endif
 
 # Save DSU PMU registers on cluster off and restore them on cluster on
 PRESERVE_DSU_PMU_REGS		:= 1
