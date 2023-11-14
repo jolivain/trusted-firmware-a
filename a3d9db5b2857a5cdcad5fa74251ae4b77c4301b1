@@ -16,6 +16,23 @@
       "message": "This change gets qemu/sbsa working with Neoverse-N2 cpu.\n\nQEMU does not emulate DSU so N1/V1/N2/A710 lack it.",
       "revId": "a3d9db5b2857a5cdcad5fa74251ae4b77c4301b1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93fe07f6_16348d7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-11-14T09:58:29Z",
+      "side": 1,
+      "message": "All aarch64 qemu/virt and qemu/sbsa-ref cpus boot.\n\nA35, A53, A55, A57, A72, A76, A710, N1, V1, N2, A64FX.",
+      "revId": "a3d9db5b2857a5cdcad5fa74251ae4b77c4301b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
