@@ -160,6 +160,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "707b9ec5_4fd472f9",
+        "filename": "plat/qemu/common/common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2023-11-14T16:01:28Z",
+      "side": 1,
+      "message": "Yes. Also, being able to run the exact same software as on hardware is the explicit point of qemu_sbsa/sbsa-ref. If we need to run with different codegen options, we risk missing software bugs that corrupt different locations depending on image size/layout.",
+      "parentUuid": "17a0fe91_c05e835a",
+      "revId": "642c4aac95f9fc6eb3b8043113cd64b9a7579520",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "18eedf6b_350f4880",
