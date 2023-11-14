@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "91ff1b43_7b065b3e",
+        "filename": "drivers/renesas/common/io/io_rcar.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-11-14T13:56:27Z",
+      "side": 1,
+      "message": "I believe `(dram_end \u003c len)` check should come before `(dst \u003e dram_end - len)` check.\n\nOtherwise, when evaluating `(dst \u003e dram_end - len)` condition, `(dram_len - len)` might actually be a negative value, which would be promoted to a very big unsigned integer (uintptr_t), which probably makes the overall `(dst \u003e dram_end - len)` moot as it would be true in almost all cases.",
+      "parentUuid": "6f798a55_d807bfa1",
+      "range": {
+        "startLine": 293,
+        "startChar": 49,
+        "endLine": 293,
+        "endChar": 63
+      },
+      "revId": "73fa5a3b2f113434fcf1cfa721739bcb643047f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4060ae82_632f9a8c",
         "filename": "drivers/renesas/common/io/io_rcar.c",
         "patchSetId": 1
@@ -37,6 +61,24 @@
       "writtenOn": "2023-11-07T10:55:03Z",
       "side": 1,
       "message": "ditto",
+      "revId": "73fa5a3b2f113434fcf1cfa721739bcb643047f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f188268c_2dbce8bd",
+        "filename": "drivers/renesas/common/io/io_rcar.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-11-14T13:56:27Z",
+      "side": 1,
+      "message": "And ditto about the order of conditions #2 and #3, which I believe need to be swapped.",
+      "parentUuid": "4060ae82_632f9a8c",
       "revId": "73fa5a3b2f113434fcf1cfa721739bcb643047f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
