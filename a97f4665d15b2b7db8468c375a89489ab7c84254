@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "808dc867_5070b572",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-11-14T18:06:50Z",
+      "side": 1,
+      "message": "Thanks, looks good now.\n\nJust a general note: please don\u0027t get hung up on architecture revisions when it comes to software. From a software side there is just a set of features, some are enabled, others are not. There is no way and no need to determine a certain architecture revision. Besides, many features are allowed to be backported, and this seems common practice, also some features are rectroactively assigned to earlier architecture revisions.\nSo while the arch revision might be useful to denote some common baseline when talking about a particular implementation (\"this core implements all ARMv8.4 features\"), those numbers don\u0027t mean much otherwise. This is especially true for emulators, where features can be mixed and matched anew every time a guest starts.",
+      "revId": "a97f4665d15b2b7db8468c375a89489ab7c84254",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
