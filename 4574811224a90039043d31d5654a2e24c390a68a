@@ -70,6 +70,24 @@
       "parentUuid": "9ebc6334_9feb4ea3",
       "revId": "4574811224a90039043d31d5654a2e24c390a68a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d63af77_d856cbd5",
+        "filename": "plat/qemu/common/common.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-11-14T12:47:00Z",
+      "side": 1,
+      "message": "Ah. Thanks. Looks weird still. I would do simple if SPM endif if RME endif etc.",
+      "parentUuid": "87a16ca2_15b2b0c1",
+      "revId": "4574811224a90039043d31d5654a2e24c390a68a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
