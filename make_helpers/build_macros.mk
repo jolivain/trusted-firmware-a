@@ -108,7 +108,7 @@ endef
 # Convenience function to check for a given compiler option. A call to
 # $(call cc_option, --no-XYZ) will return --no-XYZ if supported by the compiler
 define cc_option
-	$(shell if $(CC) $(1) -c -x c /dev/null -o /dev/null >/dev/null 2>&1; then echo $(1); fi )
+	$(shell if $($(ARCH)-cc) $(1) -c -x c /dev/null -o /dev/null >/dev/null 2>&1; then echo $(1); fi )
 endef
 
 # CREATE_SEQ is a recursive function to create sequence of numbers from 1 to
@@ -302,7 +302,7 @@ $(eval LIB := $(call uppercase, $(notdir $(1))))
 
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | lib$(3)_dirs
 	$$(ECHO) "  CC      $$<"
-	$$(Q)$$(CC) $$($(LIB)_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(MAKE_DEP) -c $$< -o $$@
+	$$(Q)$$($$(ARCH)-cc) $$($(LIB)_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(MAKE_DEP) -c $$< -o $$@
 
 -include $(DEP)
 
@@ -341,7 +341,7 @@ $(eval BL_CFLAGS := $($(call uppercase,$(3))_CFLAGS) $(PLAT_BL_COMMON_CFLAGS))
 
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
 	$$(ECHO) "  CC      $$<"
-	$$(Q)$$(CC) $$(LTO_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(BL_CPPFLAGS) $(BL_CFLAGS) $(MAKE_DEP) -c $$< -o $$@
+	$$(Q)$$($$(ARCH)-cc) $$(LTO_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(BL_CPPFLAGS) $(BL_CFLAGS) $(MAKE_DEP) -c $$< -o $$@
 
 -include $(DEP)
 
@@ -563,7 +563,7 @@ else
 	@echo 'const char build_message[] = "Built : "$(BUILD_MESSAGE_TIMESTAMP); \
 	       const char version_string[] = "${VERSION_STRING}"; \
 	       const char version[] = "${VERSION}";' | \
-		$$(CC) $$(TF_CFLAGS) $$(CFLAGS) -xc -c - -o $(BUILD_DIR)/build_message.o
+		$$($$(ARCH)-cc) $$(TF_CFLAGS) $$(CFLAGS) -xc -c - -o $(BUILD_DIR)/build_message.o
 endif
 ifneq ($(findstring armlink,$(notdir $(LD))),)
 	$$(Q)$$(LD) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) --entry=${1}_entrypoint \

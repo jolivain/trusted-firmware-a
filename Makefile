@@ -104,7 +104,6 @@ export Q ECHO
 # Toolchain
 ################################################################################
 
-CC			:=	${CROSS_COMPILE}gcc
 CPP			:=	${CROSS_COMPILE}cpp
 AS			:=	${CROSS_COMPILE}gcc
 AR			:=	${CROSS_COMPILE}ar
@@ -176,25 +175,25 @@ ifneq ($(arch-features), none)
         $(info Arm Architecture Features specified: $(subst +, ,$(arch-features)))
 endif #(arch-features)
 
-ifneq ($(findstring clang,$(notdir $(CC))),)
-	ifneq ($(findstring armclang,$(notdir $(CC))),)
+ifneq ($(filter %-clang,$($(ARCH)-cc-id)),)
+	ifeq ($($(ARCH)-cc-id),arm-clang)
 		TF_CFLAGS_aarch32	:=	-target arm-arm-none-eabi
 		TF_CFLAGS_aarch64	:=	-target aarch64-arm-none-eabi
 		LD			:=	$(LINKER)
 	else
 		TF_CFLAGS_aarch32	=	$(target32-directive)
 		TF_CFLAGS_aarch64	:=	-target aarch64-elf
-		LD			:=	$(shell $(CC) --print-prog-name ld.lld)
+		LD			:=	$(shell $($(ARCH)-cc) --print-prog-name ld.lld)
 
-		AR			:=	$(shell $(CC) --print-prog-name llvm-ar)
-		OD			:=	$(shell $(CC) --print-prog-name llvm-objdump)
-		OC			:=	$(shell $(CC) --print-prog-name llvm-objcopy)
+		AR			:=	$(shell $($(ARCH)-cc) --print-prog-name llvm-ar)
+		OD			:=	$(shell $($(ARCH)-cc) --print-prog-name llvm-objdump)
+		OC			:=	$(shell $($(ARCH)-cc) --print-prog-name llvm-objcopy)
 	endif
 
-	CPP		:=	$(CC) -E $(TF_CFLAGS_$(ARCH))
-	PP		:=	$(CC) -E $(TF_CFLAGS_$(ARCH))
-	AS		:=	$(CC) -c -x assembler-with-cpp $(TF_CFLAGS_$(ARCH))
-else ifneq ($(findstring gcc,$(notdir $(CC))),)
+	CPP		:=	$($(ARCH)-cc) -E $(TF_CFLAGS_$(ARCH))
+	PP		:=	$($(ARCH)-cc) -E $(TF_CFLAGS_$(ARCH))
+	AS		:=	$($(ARCH)-cc) -c -x assembler-with-cpp $(TF_CFLAGS_$(ARCH))
+else ifeq ($($(ARCH)-cc-id),gnu-gcc)
 	ifeq ($(ENABLE_LTO),1)
 		# Enable LTO only for aarch64
 		ifeq (${ARCH},aarch64)
@@ -304,7 +303,7 @@ else ifeq (${W},3)
 endif #(W)
 
 # Compiler specific warnings
-ifeq ($(findstring clang,$(notdir $(CC))),)
+ifeq ($(filter %-clang,$($(ARCH)-cc-id)),)
 # not using clang
 WARNINGS	+=		-Wunused-but-set-variable -Wmaybe-uninitialized	\
 				-Wpacked-bitfield-compat -Wshift-overflow=2 \
@@ -344,7 +343,7 @@ ifeq (${SANITIZE_UB},trap)
 				-fsanitize-undefined-trap-on-error
 endif #(${SANITIZE_UB},trap)
 
-GCC_V_OUTPUT		:=	$(shell $(CC) -v 2>&1)
+GCC_V_OUTPUT		:=	$(shell $($(ARCH)-cc) -v 2>&1)
 
 TF_LDFLAGS		+=	-z noexecstack
 
@@ -426,7 +425,7 @@ BL_COMMON_SOURCES	+=	common/bl_common.c			\
 				plat/common/${ARCH}/platform_helpers.S	\
 				${COMPILER_RT_SRCS}
 
-ifeq ($(notdir $(CC)),armclang)
+ifeq ($($(ARCH)-cc-id),arm-clang)
 	BL_COMMON_SOURCES	+=	lib/${ARCH}/armclang_printf.S
 endif
 
@@ -607,14 +606,14 @@ include ${MAKE_HELPERS_DIRECTORY}arch_features.mk
 ifeq (${SUPPORT_STACK_MEMTAG},yes)
     ifdef mem_tag_arch_support
         # Check for armclang and clang compilers
-        ifneq ( ,$(filter $(notdir $(CC)),armclang clang))
+        ifneq ($(filter %-clang,$($(ARCH)-cc-id)),)
         # Add "memtag" architecture feature modifier if not specified
             ifeq ( ,$(findstring memtag,$(arch-features)))
                 arch-features	:=	$(arch-features)+memtag
             endif	# memtag
-            ifeq ($(notdir $(CC)),armclang)
+            ifeq ($($(ARCH)-cc-id),arm-clang)
                 TF_CFLAGS	+=	-mmemtag-stack
-            else ifeq ($(notdir $(CC)),clang)
+            else ifeq ($($(ARCH)-cc-id),llvm-clang)
                 TF_CFLAGS	+=	-fsanitize=memtag
             endif	# armclang
         endif
@@ -1489,7 +1488,7 @@ msg_start:
 
 ifeq (${ERROR_DEPRECATED},0)
 # Check if deprecated declarations and cpp warnings should be treated as error or not.
-ifneq ($(findstring clang,$(notdir $(CC))),)
+ifneq ($(filter %-clang,$($(ARCH)-cc-id)),)
     CPPFLAGS		+= 	-Wno-error=deprecated-declarations
 else
     CPPFLAGS		+= 	-Wno-error=deprecated-declarations -Wno-error=cpp
