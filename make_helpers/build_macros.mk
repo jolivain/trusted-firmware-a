@@ -318,7 +318,7 @@ $(eval DEP := $(patsubst %.o,%.d,$(OBJ)))
 
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | lib$(3)_dirs
 	$$(ECHO) "  AS      $$<"
-	$$(Q)$$(AS) $$(ASFLAGS) $(MAKE_DEP) -c $$< -o $$@
+	$$(Q)$$($$(ARCH)-as) -c -x assembler-with-cpp $$(TF_CFLAGS_$$(ARCH)) $$(ASFLAGS) $(MAKE_DEP) -c $$< -o $$@
 
 -include $(DEP)
 
@@ -364,7 +364,7 @@ $(eval BL_ASFLAGS := $($(call uppercase,$(3))_ASFLAGS) $(PLAT_BL_COMMON_ASFLAGS)
 
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
 	$$(ECHO) "  AS      $$<"
-	$$(Q)$$(AS) $$(ASFLAGS) $(BL_CPPFLAGS) $(BL_ASFLAGS) $(MAKE_DEP) -c $$< -o $$@
+	$$(Q)$$($$(ARCH)-as) -c -x assembler-with-cpp $$(TF_CFLAGS_$$(ARCH)) $$(ASFLAGS) $(BL_CPPFLAGS) $(BL_ASFLAGS) $(MAKE_DEP) -c $$< -o $$@
 
 -include $(DEP)
 

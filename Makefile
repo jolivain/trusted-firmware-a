@@ -104,7 +104,6 @@ export Q ECHO
 # Toolchain
 ################################################################################
 
-AS			:=	${CROSS_COMPILE}gcc
 AR			:=	${CROSS_COMPILE}ar
 LINKER			:=	${CROSS_COMPILE}ld
 OC			:=	${CROSS_COMPILE}objcopy
