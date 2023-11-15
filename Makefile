@@ -104,7 +104,6 @@ export Q ECHO
 # Toolchain
 ################################################################################
 
-OD			:=	${CROSS_COMPILE}objdump
 NM			:=	${CROSS_COMPILE}nm
 DTC			:=	dtc
 
@@ -170,8 +169,6 @@ ifneq ($(filter %-clang,$($(ARCH)-cc-id)),)
 	else
 		TF_CFLAGS_aarch32	=	$(target32-directive)
 		TF_CFLAGS_aarch64	:=	-target aarch64-elf
-
-		OD			:=	$(shell $($(ARCH)-cc) --print-prog-name llvm-objdump)
 	endif
 
 	AS		:=	$($(ARCH)-cc) -c -x assembler-with-cpp $(TF_CFLAGS_$(ARCH))

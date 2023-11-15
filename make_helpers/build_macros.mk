@@ -591,7 +591,7 @@ endif
 
 $(DUMP): $(ELF)
 	$${ECHO} "  OD      $$@"
-	$${Q}$${OD} -dx $$< > $$@
+	$${Q}$$($$(ARCH)-od) -dx $$< > $$@
 
 $(BIN): $(ELF)
 	$${ECHO} "  BIN     $$@"
