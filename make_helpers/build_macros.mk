@@ -483,7 +483,7 @@ all: ${LIB_DIR}/lib$(1).a
 
 ${LIB_DIR}/lib$(1).a: $(OBJS)
 	$$(ECHO) "  AR      $$@"
-	$$(Q)$$(AR) cr $$@ $$?
+	$$(Q)$$($$(ARCH)-ar) cr $$@ $$?
 endef
 
 # Generate the path to one or more preprocessed linker scripts given the paths

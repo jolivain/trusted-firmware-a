@@ -104,7 +104,6 @@ export Q ECHO
 # Toolchain
 ################################################################################
 
-AR			:=	${CROSS_COMPILE}ar
 LINKER			:=	${CROSS_COMPILE}ld
 OC			:=	${CROSS_COMPILE}objcopy
 OD			:=	${CROSS_COMPILE}objdump
@@ -182,7 +181,6 @@ ifneq ($(filter %-clang,$($(ARCH)-cc-id)),)
 		TF_CFLAGS_aarch64	:=	-target aarch64-elf
 		LD			:=	$(shell $($(ARCH)-cc) --print-prog-name ld.lld)
 
-		AR			:=	$(shell $($(ARCH)-cc) --print-prog-name llvm-ar)
 		OD			:=	$(shell $($(ARCH)-cc) --print-prog-name llvm-objdump)
 		OC			:=	$(shell $($(ARCH)-cc) --print-prog-name llvm-objcopy)
 	endif
