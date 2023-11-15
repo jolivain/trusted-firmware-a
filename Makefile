@@ -104,17 +104,10 @@ export Q ECHO
 # Toolchain
 ################################################################################
 
-LINKER			:=	${CROSS_COMPILE}ld
 OC			:=	${CROSS_COMPILE}objcopy
 OD			:=	${CROSS_COMPILE}objdump
 NM			:=	${CROSS_COMPILE}nm
 DTC			:=	dtc
-
-# Use ${LD}.bfd instead if it exists (as absolute path or together with $PATH).
-ifneq ($(strip $(wildcard ${LD}.bfd) \
-	$(foreach dir,$(subst :, ,${PATH}),$(wildcard ${dir}/${LINKER}.bfd))),)
-LINKER			:=	${LINKER}.bfd
-endif
 
 ################################################################################
 # Auxiliary tools (fiptool, cert_create, etc)
@@ -175,11 +168,9 @@ ifneq ($(filter %-clang,$($(ARCH)-cc-id)),)
 	ifeq ($($(ARCH)-cc-id),arm-clang)
 		TF_CFLAGS_aarch32	:=	-target arm-arm-none-eabi
 		TF_CFLAGS_aarch64	:=	-target aarch64-arm-none-eabi
-		LD			:=	$(LINKER)
 	else
 		TF_CFLAGS_aarch32	=	$(target32-directive)
 		TF_CFLAGS_aarch64	:=	-target aarch64-elf
-		LD			:=	$(shell $($(ARCH)-cc) --print-prog-name ld.lld)
 
 		OD			:=	$(shell $($(ARCH)-cc) --print-prog-name llvm-objdump)
 		OC			:=	$(shell $($(ARCH)-cc) --print-prog-name llvm-objcopy)
@@ -191,13 +182,8 @@ else ifeq ($($(ARCH)-cc-id),gnu-gcc)
 		# Enable LTO only for aarch64
 		ifeq (${ARCH},aarch64)
 			LTO_CFLAGS	=	-flto
-			# Use gcc as a wrapper for the ld, recommended for LTO
-			LINKER		:=	${CROSS_COMPILE}gcc
 		endif
 	endif
-	LD			=	$(LINKER)
-else
-	LD			=	$(LINKER)
 endif #(clang)
 
 # Process Debug flag
@@ -341,13 +327,13 @@ GCC_V_OUTPUT		:=	$(shell $($(ARCH)-cc) -v 2>&1)
 TF_LDFLAGS		+=	-z noexecstack
 
 # LD = armlink
-ifneq ($(findstring armlink,$(notdir $(LD))),)
+ifeq ($($(ARCH)-ld-id),arm-link)
 	TF_LDFLAGS		+=	--diag_error=warning --lto_level=O1
 	TF_LDFLAGS		+=	--remove --info=unused,unusedsymbols
 	TF_LDFLAGS		+=	$(TF_LDFLAGS_$(ARCH))
 
 # LD = gcc (used when GCC LTO is enabled)
-else ifneq ($(findstring gcc,$(notdir $(LD))),)
+else ifeq ($($(ARCH)-ld-id),gnu-gcc)
 	# Pass ld options with Wl or Xlinker switches
 	TF_LDFLAGS		+=	-Wl,--fatal-warnings -O1
 	TF_LDFLAGS		+=	-Wl,--gc-sections
@@ -386,7 +372,7 @@ else
 # therefore don't add those in that case.
 # ld.lld reports section type mismatch warnings,
 # therefore don't add --fatal-warnings to it.
-	ifeq ($(findstring ld.lld,$(notdir $(LD))),)
+	ifneq ($($(ARCH)-ld-id),llvm-lld)
 		TF_LDFLAGS	+=	$(TF_LDFLAGS_$(ARCH)) --fatal-warnings
 	endif
 
@@ -719,12 +705,12 @@ endif
 PIE_FOUND		:=	$(findstring --enable-default-pie,${GCC_V_OUTPUT})
 ifneq ($(PIE_FOUND),)
 	TF_CFLAGS	+=	-fno-PIE
-ifneq ($(findstring gcc,$(notdir $(LD))),)
+ifeq ($($(ARCH)-ld-id),gnu-gcc)
 	TF_LDFLAGS	+=	-no-pie
 endif
 endif #(PIE_FOUND)
 
-ifneq ($(findstring gcc,$(notdir $(LD))),)
+ifeq ($($(ARCH)-ld-id),gnu-gcc)
 	PIE_LDFLAGS	+=	-Wl,-pie -Wl,--no-dynamic-linker
 else
 	PIE_LDFLAGS	+=	-pie --no-dynamic-linker
@@ -1449,7 +1435,7 @@ ifeq (${DYN_DISABLE_AUTH},1)
         $(eval $(call add_define,DYN_DISABLE_AUTH))
 endif
 
-ifneq ($(findstring armlink,$(notdir $(LD))),)
+ifeq ($($(ARCH)-ld-id),arm-link)
         $(eval $(call add_define,USE_ARM_LINK))
 endif
 

@@ -102,7 +102,7 @@ endef
 # Convenience function to check for a given linker option. An call to
 # $(call ld_option, --no-XYZ) will return --no-XYZ if supported by the linker
 define ld_option
-	$(shell if $(LD) $(1) -v >/dev/null 2>&1; then echo $(1); fi )
+	$(shell if $($(ARCH)-ld) $(1) -v >/dev/null 2>&1; then echo $(1); fi )
 endef
 
 # Convenience function to check for a given compiler option. A call to
@@ -467,7 +467,7 @@ $(eval $(call MAKE_LIB_OBJS,$(BUILD_DIR),$(SOURCES),$(1)))
 .PHONY : lib${1}_dirs
 lib${1}_dirs: | ${BUILD_DIR} ${LIB_DIR}  ${ROMLIB_DIR} ${LIBWRAPPER_DIR}
 libraries: ${LIB_DIR}/lib$(1).a
-ifneq ($(findstring armlink,$(notdir $(LD))),)
+ifeq ($($(ARCH)-ld-id),arm-link)
 LDPATHS = --userlibpath=${LIB_DIR}
 LDLIBS += --library=$(1)
 else
@@ -565,20 +565,20 @@ else
 	       const char version[] = "${VERSION}";' | \
 		$$($$(ARCH)-cc) $$(TF_CFLAGS) $$(CFLAGS) -xc -c - -o $(BUILD_DIR)/build_message.o
 endif
-ifneq ($(findstring armlink,$(notdir $(LD))),)
-	$$(Q)$$(LD) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) --entry=${1}_entrypoint \
+ifeq ($($(ARCH)-ld-id),arm-link)
+	$$(Q)$$($$(ARCH)-ld) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) --entry=${1}_entrypoint \
 		--predefine="-D__LINKER__=$(__LINKER__)" \
 		--predefine="-DTF_CFLAGS=$(TF_CFLAGS)" \
 		--map --list="$(MAPFILE)" --scatter=${PLAT_DIR}/scat/${1}.scat \
 		$(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS) \
 		$(BUILD_DIR)/build_message.o $(OBJS)
-else ifneq ($(findstring gcc,$(notdir $(LD))),)
-	$$(Q)$$(LD) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) -Wl,-Map=$(MAPFILE) \
+else ifeq ($($(ARCH)-ld-id),gnu-gcc)
+	$$(Q)$$($$(ARCH)-ld) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) -Wl,-Map=$(MAPFILE) \
 		$(addprefix -Wl$(comma)--script$(comma),$(LINKER_SCRIPTS)) -Wl,--script,$(DEFAULT_LINKER_SCRIPT) \
 		$(BUILD_DIR)/build_message.o \
 		$(OBJS) $(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
 else
-	$$(Q)$$(LD) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) -Map=$(MAPFILE) \
+	$$(Q)$$($$(ARCH)-ld) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) -Map=$(MAPFILE) \
 		$(addprefix -T ,$(LINKER_SCRIPTS)) --script $(DEFAULT_LINKER_SCRIPT) \
 		$(BUILD_DIR)/build_message.o \
 		$(OBJS) $(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
