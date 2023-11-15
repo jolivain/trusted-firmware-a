@@ -595,7 +595,7 @@ $(DUMP): $(ELF)
 
 $(BIN): $(ELF)
 	$${ECHO} "  BIN     $$@"
-	$$(Q)$$(OC) -O binary $$< $$@
+	$$(Q)$$($$(ARCH)-oc) -O binary $$< $$@
 	@${ECHO_BLANK_LINE}
 	@echo "Built $$@ successfully"
 	@${ECHO_BLANK_LINE}

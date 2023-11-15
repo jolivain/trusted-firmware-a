@@ -64,7 +64,7 @@ else
 endif
 
 tf-a-%.bin: tf-a-%.elf
-	${Q}${OC} -O binary $< $@
+	${Q}$($(ARCH)-oc) -O binary $< $@
 	@echo
 	@echo "Built $@ successfully"
 	@echo
