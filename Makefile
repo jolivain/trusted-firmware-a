@@ -104,14 +104,12 @@ export Q ECHO
 # Toolchain
 ################################################################################
 
-CPP			:=	${CROSS_COMPILE}cpp
 AS			:=	${CROSS_COMPILE}gcc
 AR			:=	${CROSS_COMPILE}ar
 LINKER			:=	${CROSS_COMPILE}ld
 OC			:=	${CROSS_COMPILE}objcopy
 OD			:=	${CROSS_COMPILE}objdump
 NM			:=	${CROSS_COMPILE}nm
-PP			:=	${CROSS_COMPILE}gcc -E
 DTC			:=	dtc
 
 # Use ${LD}.bfd instead if it exists (as absolute path or together with $PATH).
@@ -190,8 +188,6 @@ ifneq ($(filter %-clang,$($(ARCH)-cc-id)),)
 		OC			:=	$(shell $($(ARCH)-cc) --print-prog-name llvm-objcopy)
 	endif
 
-	CPP		:=	$($(ARCH)-cc) -E $(TF_CFLAGS_$(ARCH))
-	PP		:=	$($(ARCH)-cc) -E $(TF_CFLAGS_$(ARCH))
 	AS		:=	$($(ARCH)-cc) -c -x assembler-with-cpp $(TF_CFLAGS_$(ARCH))
 else ifeq ($($(ARCH)-cc-id),gnu-gcc)
 	ifeq ($(ENABLE_LTO),1)
