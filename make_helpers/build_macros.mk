@@ -660,7 +660,7 @@ $(DOBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | fdt_dirs
 	$(eval DTBS       := $(addprefix $(1)/,$(call SOURCES_TO_DTBS,$(2))))
 	$$(Q)$$($$(ARCH)-cpp) -E $(TF_CFLAGS_$(ARCH)) $$(DTC_CPPFLAGS) -MT $(DTBS) -MMD -MF $(DTSDEP) -o $(DPRE) $$<
 	$${ECHO} "  DTC     $$<"
-	$$(Q)$$(DTC) $$(DTC_FLAGS) -d $(DTBDEP) -o $$@ $(DPRE)
+	$$(Q)$$($$(ARCH)-dtc) $$(DTC_FLAGS) -d $(DTBDEP) -o $$@ $(DPRE)
 
 -include $(DTBDEP)
 -include $(DTSDEP)
