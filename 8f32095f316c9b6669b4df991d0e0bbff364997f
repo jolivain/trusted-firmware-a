@@ -70,6 +70,24 @@
       "parentUuid": "b8c68f04_8adae1e8",
       "revId": "8f32095f316c9b6669b4df991d0e0bbff364997f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afacdd04_9dfca399",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001156
+      },
+      "writtenOn": "2023-11-16T05:49:21Z",
+      "side": 1,
+      "message": "It\u0027s not recommended to change device ID for already existing SoC\u0027s.\nBecause changing device ID might results in some failure down the line.\n( if people are already using hard-coded value for device ID )",
+      "parentUuid": "b1dbcd03_04efa2e3",
+      "revId": "8f32095f316c9b6669b4df991d0e0bbff364997f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
