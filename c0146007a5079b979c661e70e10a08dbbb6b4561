@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79f30a6a_97303c0c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-11-16T12:47:31Z",
+      "side": 1,
+      "message": "This scope does not exist. You should create one in changelog.yaml file. To avoid a too generic naming, you could use either mediatek-iommu or mtk-iommu, and use it here.\nThe lines to be added in changelog.yaml around line 1010 could be:\n \n          - title: IOMMU\n            scope: mediatek-iommu",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "c0146007a5079b979c661e70e10a08dbbb6b4561",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98f52e38_705e9256",
+        "filename": "plat/mediatek/drivers/iommu/mtk_iommu_priv.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-11-16T12:47:31Z",
+      "side": 1,
+      "message": "this could be at line 12",
+      "revId": "c0146007a5079b979c661e70e10a08dbbb6b4561",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cff5b0a5_c79bf2a6",
+        "filename": "plat/mediatek/drivers/iommu/mtk_iommu_smc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-11-16T12:47:31Z",
+      "side": 1,
+      "message": "to avoid duplicating the function you could put this part under DEBUG flag, put __maybe_unused on bus_id \u0026 fault_type. And use a ret value set by default at MTK_SIP_E_NOT_SUPPORTED, and that you overwrite to MTK_SIP_E_SUCCESS in case of DEBUG.",
+      "range": {
+        "startLine": 148,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 0
+      },
+      "revId": "c0146007a5079b979c661e70e10a08dbbb6b4561",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
