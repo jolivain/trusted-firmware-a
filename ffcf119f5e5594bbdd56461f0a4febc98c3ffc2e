@@ -218,6 +218,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a49a1581_50253cda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000966
+      },
+      "writtenOn": "2023-11-17T04:22:06Z",
+      "side": 1,
+      "message": "Hi Thomas,\n\nI am not sure about the encryption APIs available in TF-A, though OP-TEE does seem to have the support for secure storage related APIs (https://optee.readthedocs.io/en/latest/architecture/secure_storage.html). Am hoping that the key extraction process can be similar to how OP-TEE does with some modified version of our HUK ( as I don\u0027t think we can call those APIs directly given I assume they work with the linux filesystem that ain\u0027t up at this point of time ), that\u0027s all I know and hoping that maybe Andrew/Nishanth can give more insights as to how this could be done in a better way.",
+      "parentUuid": "ad7a8a6f_d32f5b40",
+      "revId": "ffcf119f5e5594bbdd56461f0a4febc98c3ffc2e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "11f613bd_929f6a53",
         "filename": "plat/ti/k3/common/k3_psci.c",
         "patchSetId": 5
