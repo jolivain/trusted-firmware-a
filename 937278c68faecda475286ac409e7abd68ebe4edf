@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fbb7b25_a9d82b96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000811
+      },
+      "writtenOn": "2023-11-17T05:25:30Z",
+      "side": 1,
+      "message": "⧗   input: feat(versal-net): Add Bufferless IPI Support\n\nThere exist inter-processor interrupts on Versal-Net that do not have\ncorresponding message buffers. These bufferless IPI\u0027s on Versal NET\nSOC are added to static IPI Tables.\n\nIn hardware description there exists two IPI\u0027s called \u0027IPI6\u0027 without\nbuffers that have respective system interrupt values 95 and 101. For\nthese append the string \u0027_95\u0027 or \u0027_101\u0027 to denote the difference for\neach.\n\nChange-Id: I22bf1a68cb0ed68913eb868f1c197856fc7d82d5\nSigned-off-by: Ben Levinsky \u003cben.levinsky@amd.com\u003e\n✖   subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]\n\n\ns/Add Bufferless IPI Support/add bufferless IPI support/",
+      "revId": "937278c68faecda475286ac409e7abd68ebe4edf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
