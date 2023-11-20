@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9678c60d_c763ef12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-11-20T10:46:45Z",
+      "side": 1,
+      "message": "Approving this patch, as my comment is not directly related to the present patch, which did not introduce the potential problem I am raising.",
+      "revId": "fcb447a9cf230148949eb1a96cda27c48fe5d771",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "885945a7_7b3efc39",
+        "filename": "drivers/renesas/common/io/io_rcar.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-11-20T10:46:45Z",
+      "side": 1,
+      "message": "I\u0027ve just noticed that `size` might be uninitialized, specifically if `info_2` is neither 0, 1 or 2. Perhaps a `default` clause should be added to the `switch/case` above? Alternatively a default value could be assigned at the variable declaration site at line 208.\n\nIt\u0027s probably best to address this in a separate patch, if you choose to.",
+      "range": {
+        "startLine": 247,
+        "startChar": 21,
+        "endLine": 247,
+        "endChar": 25
+      },
+      "revId": "fcb447a9cf230148949eb1a96cda27c48fe5d771",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
