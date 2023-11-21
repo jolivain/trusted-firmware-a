@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49e72541_9d156238",
+        "filename": "lib/cpus/aarch64/neoverse_v2.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-11-21T21:43:51Z",
+      "side": 1,
+      "message": "Have you considered `sysreg_bitfield_insert` macro instead of `bfi`? Your approach is more efficient anyway, as you are reading and writing to the register once. Just wanted to bring that up.",
+      "range": {
+        "startLine": 35,
+        "startChar": 8,
+        "endLine": 35,
+        "endChar": 16
+      },
+      "revId": "26cdf98fdc5b0aeb9b03e1835bc995da0d749446",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b3faeff_fdc8582a",
+        "filename": "lib/cpus/aarch64/neoverse_v2.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-11-21T21:43:51Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be better to have a macro for these? Something like NEOVERSE_V2_CPUPWRCTLR_EL1_WFI_RET_CTRL_WIDTH maybe... Same for WFE field.",
+      "range": {
+        "startLine": 35,
+        "startChar": 74,
+        "endLine": 35,
+        "endChar": 75
+      },
+      "revId": "26cdf98fdc5b0aeb9b03e1835bc995da0d749446",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
