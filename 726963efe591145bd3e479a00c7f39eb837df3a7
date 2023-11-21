@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6266f23_6edfb8a3",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-11-21T10:07:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3200aa30_7ae6f2c0",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 41,
+        "endChar": 19
+      },
+      "revId": "726963efe591145bd3e479a00c7f39eb837df3a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cff53286_88aa64f2",
@@ -70,6 +94,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d71608da_232cf383",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-11-21T10:07:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fb0cf96_563e90fa",
+      "range": {
+        "startLine": 73,
+        "startChar": 5,
+        "endLine": 73,
+        "endChar": 8
+      },
+      "revId": "726963efe591145bd3e479a00c7f39eb837df3a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "983287a2_3de7036c",
@@ -83,6 +131,30 @@
       "writtenOn": "2023-10-18T13:34:08Z",
       "side": 1,
       "message": "this isn\u0027t defined in the FF-A specification.\nIs it used in loading the SP?",
+      "range": {
+        "startLine": 88,
+        "startChar": 13,
+        "endLine": 88,
+        "endChar": 23
+      },
+      "revId": "726963efe591145bd3e479a00c7f39eb837df3a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aa9f84c_470eca7c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-11-21T10:07:33Z",
+      "side": 1,
+      "message": "StMM needs this to remap its regions. It parses the loaded blob and the requests the SPMC to remap some of its regions. This is why I have added the support for runtime perm set get.",
+      "parentUuid": "983287a2_3de7036c",
       "range": {
         "startLine": 88,
         "startChar": 13,
