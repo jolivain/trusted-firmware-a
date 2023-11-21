@@ -101,6 +101,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6601981b_b72fa0f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-11-21T14:45:12Z",
+      "side": 1,
+      "message": "Hi can you please update rebasing and fixing/resolving comments? \nAs the change did not move since June, we might consider abandoning.",
+      "parentUuid": "27d22d56_989c993b",
+      "revId": "45078ce056e18593d2ae95f4c869a6b72bd3e387",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6be685c3_b556a491",
         "filename": "drivers/arm/gic/v3/gicv3_helpers.c",
         "patchSetId": 1
