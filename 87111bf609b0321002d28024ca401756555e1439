@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a636ac0_b78d3a2c",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1116,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-11-21T18:02:02Z",
+      "side": 1,
+      "message": "I think you can remove all definitions and call sites for spmd_is_spmc_message/spmd_handle_spmc_message\n\nIt\u0027s ok to do in a later refactoring change, as I appreciate current change is not really about this.",
+      "parentUuid": "bd29e2aa_1991e1e3",
+      "range": {
+        "startLine": 1106,
+        "startChar": 0,
+        "endLine": 1116,
+        "endChar": 19
+      },
+      "revId": "87111bf609b0321002d28024ca401756555e1439",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aa200ff9_c5f943f3",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 2
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "Can you clarify what you mean by \"spmd_is_spmc_message/spmd_handle_spmc_message are unused\"? are framework messages via dir_req from SPMC to SPMD not supported anymore? It\u0027s still in the spec",
       "parentUuid": "aa200ff9_c5f943f3",
+      "range": {
+        "startLine": 1125,
+        "startChar": 1,
+        "endLine": 1125,
+        "endChar": 37
+      },
+      "revId": "87111bf609b0321002d28024ca401756555e1439",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cc36f71_ef6d9c3b",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1125,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-11-21T18:02:02Z",
+      "side": 1,
+      "message": "Hi Kathleen,\n\u003e are framework messages via dir_req from SPMC to SPMD not supported anymore? It\u0027s still in the spec\n\nFramework messages by the spec, are emitted by the SPMD (through ERET conduit) and processed by the SPMC e.g.:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/services/std_svc/spmd/spmd_pm.c#n126\nhttps://git.trustedfirmware.org/hafnium/hafnium.git/tree/src/arch/aarch64/hypervisor/handler.c#n371\n\nspmd_is_spmc_message/spmd_handle_spmc_message were provisioned into the SPMD, for potential cases of SPMC sending a message (through SMC conduit) to the SPMD. This had an impdef case long ago, but it is now emptied and those code paths do no longer have a rationale.",
+      "parentUuid": "904125a6_7a707935",
       "range": {
         "startLine": 1125,
         "startChar": 1,
