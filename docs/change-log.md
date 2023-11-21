@@ -1126,6 +1126,7 @@ issues in each release of Trusted Firmware-A.
       - only suspend booting after running plat tests ([9b26655](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/9b266556d308c0af6f932fedd1c41fbda05204aa))
       - unify TC ROM start addresses ([f9e11c7](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/f9e11c724bb7c919dc9bd5dd8fca1e04140374d2))
       - update the name of mbedtls config header ([d5fc899](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/d5fc8992c7b63675b6fc4b2c00a1e1acfdaaeee2))
+      - deprecate Arm TC1 FVP platform ([6a2b11c](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/6a2b11c29da50eed969834f6c6ee97cdb90cb51e))
 
   - **Broadcom**
 
