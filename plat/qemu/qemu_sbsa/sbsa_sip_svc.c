@@ -28,12 +28,94 @@ static int platform_version_minor;
 #define SIP_SVC_VERSION  SIP_FUNCTION_ID(1)
 #define SIP_SVC_GET_GIC  SIP_FUNCTION_ID(100)
 #define SIP_SVC_GET_GIC_ITS SIP_FUNCTION_ID(101)
+#define SIP_SVC_GET_CPU_COUNT SIP_FUNCTION_ID(200)
+#define SIP_SVC_GET_CPU_NODE SIP_FUNCTION_ID(201)
+
+#define MAX_CPUS 512 /* QEMU supports upto 512 cpus for sbsa-ref */
 
 static uint64_t gic_its_addr;
+
+typedef struct {
+	uint32_t nodeid;
+	uint32_t mpidr;
+} cpu_node;
+
+typedef struct {
+	uint32_t num_cpunodes;
+	cpu_node cpunode[MAX_CPUS];
+} cpu_info;
+
+static cpu_info sbsa_cpu_info;
 
 void sbsa_set_gic_bases(const uintptr_t gicd_base, const uintptr_t gicr_base);
 uintptr_t sbsa_get_gicd(void);
 uintptr_t sbsa_get_gicr(void);
+
+void read_cpuinfo_from_dt(void *dtb)
+{
+	int node;
+	int prev;
+	int cpunode = 0;
+	uint32_t nodeid = 0;
+	uintptr_t mpidr;
+
+	/*
+	 * QEMU gives us this DeviceTree node:
+	 * numa-node-id entries are only when NUMA config is used
+	 *
+	 *  cpus {
+	 *  	#size-cells = <0x00>;
+	 *  	#address-cells = <0x02>;
+	 *
+	 *  	cpu@0 {
+	 *  	        numa-node-id = <0x00>;
+	 *  		reg = <0x00 0x00>;
+	 *  	};
+	 *
+	 *  	cpu@1 {
+	 *  	        numa-node-id = <0x03>;
+	 *  		reg = <0x00 0x01>;
+	 *  	};
+	 *  };
+	 */
+	node = fdt_path_offset(dtb, "/cpus");
+	if (node < 0) {
+		/* Fake one cpu entry */
+		sbsa_cpu_info.num_cpunodes = 1;
+		sbsa_cpu_info.cpunode[0].nodeid = 0;
+		sbsa_cpu_info.cpunode[0].mpidr = 0;
+		INFO("No /cpus nodes. Created node for 1 cpu.\n");
+		return;
+	}
+
+	node = fdt_first_subnode(dtb, node);
+
+	while (1) {
+		if (fdt_getprop(dtb, node, "reg", NULL)) {
+			fdt_get_reg_props_by_index(dtb, node, 0, &mpidr, NULL);
+		}
+
+		if (fdt_getprop(dtb, node, "numa-node-id", NULL))  {
+			fdt_read_uint32(dtb, node, "numa-node-id", &nodeid);
+		}
+
+		sbsa_cpu_info.cpunode[cpunode].nodeid = nodeid;
+		sbsa_cpu_info.cpunode[cpunode].mpidr = mpidr;
+
+		INFO("CPU %d: node-id: %d, mpidr: %ld\n", cpunode, nodeid, mpidr);
+
+		cpunode++;
+
+		prev = node;
+		node = fdt_next_subnode(dtb, prev);
+		if (node < 0) {
+			break;
+		}
+	}
+
+	sbsa_cpu_info.num_cpunodes = cpunode;
+	INFO("Found %d cpus\n", sbsa_cpu_info.num_cpunodes);
+}
 
 void read_platform_config_from_dt(void *dtb)
 {
@@ -129,6 +211,7 @@ void sip_svc_init(void)
 	INFO("Platform version: %d.%d\n", platform_version_major, platform_version_minor);
 
 	read_platform_config_from_dt(dtb);
+	read_cpuinfo_from_dt(dtb);
 }
 
 /*
@@ -144,6 +227,7 @@ uintptr_t sbsa_sip_smc_handler(uint32_t smc_fid,
 			       u_register_t flags)
 {
 	uint32_t ns;
+	uint64_t index;
 
 	/* Determine which security state this SMC originated from */
 	ns = is_caller_non_secure(flags);
@@ -162,6 +246,15 @@ uintptr_t sbsa_sip_smc_handler(uint32_t smc_fid,
 
 	case SIP_SVC_GET_GIC_ITS:
 		SMC_RET2(handle, NULL, gic_its_addr);
+
+	case SIP_SVC_GET_CPU_COUNT:
+		SMC_RET2(handle, NULL, sbsa_cpu_info.num_cpunodes);
+
+	case SIP_SVC_GET_CPU_NODE:
+		index = x1;
+		SMC_RET3(handle, NULL,
+			 sbsa_cpu_info.cpunode[index].nodeid,
+			 sbsa_cpu_info.cpunode[index].mpidr);
 
 	default:
 		ERROR("%s: unhandled SMC (0x%x) (function id: %d)\n", __func__, smc_fid,
