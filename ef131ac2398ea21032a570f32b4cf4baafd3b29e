@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48b86efc_5835da6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-11-21T12:40:51Z",
+      "side": 1,
+      "message": "Please test again with the new patch.",
+      "parentUuid": "bd55bf78_906d82a5",
+      "revId": "ef131ac2398ea21032a570f32b4cf4baafd3b29e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3fcba92_67effd0d",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-11-01T10:37:36Z",
       "side": 1,
       "message": "The (vendor-)kernel also lists a 1800000000 frequency for cluster0?",
+      "revId": "ef131ac2398ea21032a570f32b4cf4baafd3b29e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "734f625b_152982cf",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-11-21T12:40:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3fcba92_67effd0d",
       "revId": "ef131ac2398ea21032a570f32b4cf4baafd3b29e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d63c7576_62b9a856",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-11-21T12:40:51Z",
+      "side": 1,
+      "message": "To prevent this patch from being misused on rk3588M/rk3588J, we removed some of the high frequencies before. Now we decided to add back these high frequencies and add some comments to that after our internal discussion.",
+      "parentUuid": "55e5847a_e25a345e",
+      "revId": "ef131ac2398ea21032a570f32b4cf4baafd3b29e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "217ee952_de86620c",
         "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
         "patchSetId": 5
@@ -65,6 +119,24 @@
       "writtenOn": "2023-11-01T10:37:36Z",
       "side": 1,
       "message": "Hmm, does this mean 2 of the big cores (cpub 2+3) do not scale at all right now?",
+      "revId": "ef131ac2398ea21032a570f32b4cf4baafd3b29e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9972f108_960cf7ac",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-11-21T12:40:51Z",
+      "side": 1,
+      "message": "The data in rk3588_cpub1_pvtpll_table was copied from rk3588_cpub0_pvtpll_table.\nAs shown in the following code in line 2456~2459:\nsys_clk_info.cpub23_table \u003d rk3588_cpub1_pvtpll_table;\nsys_clk_info.cpub23_rate_count \u003d ARRAY_SIZE(rk3588_cpub1_pvtpll_table);\nmemcpy(sys_clk_info.cpub23_table, sys_clk_info.cpub01_table,\n       sys_clk_info.cpub01_rate_count * sizeof(*sys_clk_info.cpub01_table));",
+      "parentUuid": "217ee952_de86620c",
       "revId": "ef131ac2398ea21032a570f32b4cf4baafd3b29e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -100,6 +172,24 @@
       "side": 1,
       "message": "If I\u0027m reading things correctly, you should have 3 clusters, 4 cores in the cluster0 and 2 cores each in cluster1 and cluster2 ?",
       "parentUuid": "0ab5adee_c0b785e1",
+      "revId": "ef131ac2398ea21032a570f32b4cf4baafd3b29e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "114fa862_b3514a8c",
+        "filename": "plat/rockchip/rk3588/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2023-11-21T12:40:51Z",
+      "side": 1,
+      "message": "If PE supports multi-thread (bit[24] of MPIDR_EL1), the cluster mask and cpu mask of mpidr is 0xff0000 and 0xff00. The mpdir of cpu0~7 in rk3588:\n0x81000000, 0x81000100, 0x81000200, 0x81000300, 0x81000400, 0x81010500, 0x81000600, 0x81000700.\n\nTo match the above mpdir , we pretend that there is eight cpus in a cluster.",
+      "parentUuid": "74457cdc_587f5e1e",
       "revId": "ef131ac2398ea21032a570f32b4cf4baafd3b29e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
