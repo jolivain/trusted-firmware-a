@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -224,6 +224,10 @@ void bakery_lock_get(bakery_lock_t *lock)
 	 * acquired.
 	 */
 	dmbish();
+
+#ifdef __COVERITY__
+	__coverity_exclusive_lock_acquire__(lock);
+#endif /* __COVERITY__ */
 }
 
 void bakery_lock_release(bakery_lock_t *lock)
@@ -247,4 +251,8 @@ void bakery_lock_release(bakery_lock_t *lock)
 
 	/* This sev is ordered by the dsbish in write_cahce_op */
 	sev();
+
+#ifdef __COVERITY__
+	__coverity_exclusive_lock_release__(lock);
+#endif /* __COVERITY__ */
 }

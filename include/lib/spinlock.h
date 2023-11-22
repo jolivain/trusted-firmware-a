@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2018, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -15,8 +15,20 @@ typedef struct spinlock {
 	volatile uint32_t lock;
 } spinlock_t;
 
+#ifdef __COVERITY__
+void spin_lock(spinlock_t *lock)
+{
+	__coverity_exclusive_lock_acquire__(lock);
+}
+
+void spin_unlock(spinlock_t *lock)
+{
+	__coverity_exclusive_lock_release__(lock);
+}
+#else
 void spin_lock(spinlock_t *lock);
 void spin_unlock(spinlock_t *lock);
+#endif /* __COVERITY__ */
 
 #else
 

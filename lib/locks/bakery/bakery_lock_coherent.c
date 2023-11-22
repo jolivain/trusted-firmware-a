@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2018, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -142,6 +142,10 @@ void bakery_lock_get(bakery_lock_t *bakery)
 	 * acquired.
 	 */
 	dmbish();
+
+#ifdef __COVERITY__
+	__coverity_exclusive_lock_acquire__(lock);
+#endif /* __COVERITY__ */
 }
 
 
@@ -165,4 +169,8 @@ void bakery_lock_release(bakery_lock_t *bakery)
 	/* Required to ensure ordering of the following sev */
 	dsb();
 	sev();
+
+#ifdef __COVERITY__
+	__coverity_exclusive_lock_release__(lock);
+#endif /* __COVERITY__ */
 }
