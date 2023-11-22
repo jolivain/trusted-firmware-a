@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -164,6 +164,7 @@ static unsigned int bakery_get_ticket(bakery_lock_t *lock,
 
 void bakery_lock_get(bakery_lock_t *lock)
 {
+#ifdef __COVERITY__
 	unsigned int they, me;
 	unsigned int my_ticket, my_prio, their_ticket;
 	bakery_info_t *their_bakery_info;
@@ -224,6 +225,10 @@ void bakery_lock_get(bakery_lock_t *lock)
 	 * acquired.
 	 */
 	dmbish();
+
+#ifdef __COVERITY__
+	__coverity_exclusive_lock_acquire__(lock);
+#endif
 }
 
 void bakery_lock_release(bakery_lock_t *lock)
@@ -247,4 +252,8 @@ void bakery_lock_release(bakery_lock_t *lock)
 
 	/* This sev is ordered by the dsbish in write_cahce_op */
 	sev();
+
+#ifdef __COVERITY__
+	__coverity_exclusive_lock_release__(lock);
+#endif
 }
