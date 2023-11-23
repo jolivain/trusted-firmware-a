@@ -40,6 +40,11 @@ const mmap_region_t plat_k3_mmap[] = {
 	{ /* sentinel */ }
 };
 
+#if K3_LPM_DDR_SAVE_ADDRESS
+IMPORT_SYM(unsigned long, __RW_START__, k3_bl31_rw_start);
+static const __attribute__((unused)) unsigned long k3_bl31_rw_end = (unsigned long) __RW_END__;
+#endif
+
 /*
  * Placeholder variables for maintaining information about the next image(s)
  */
@@ -64,6 +69,17 @@ static uint32_t k3_get_spsr_for_bl33_entry(void)
 	spsr = SPSR_64(mode, MODE_SP_ELX, DISABLE_ALL_EXCEPTIONS);
 	return spsr;
 }
+
+/*******************************************************************************
+ * Detect if it's a cold boot or a resume. Read a magic value set by R5 SPL in
+ * the scratchpad ram.
+ ******************************************************************************/
+#if K3_LPM_DDR_SAVE_ADDRESS
+static bool bl31_platform_is_resuming(void)
+{
+	return *(uint32_t *)K3_MCU_SCRATCHPAD_BASE == K3_RESUME_MAGIC_VALUE;
+}
+#endif
 
 /*******************************************************************************
  * Perform any BL3-1 early platform setup, such as console init and deciding on
@@ -121,6 +137,20 @@ void bl31_plat_arch_setup(void)
 
 	setup_page_tables(bl_regions, plat_k3_mmap);
 	enable_mmu_el3(0);
+
+#if K3_LPM_DDR_SAVE_ADDRESS
+	if (bl31_platform_is_resuming()) {
+		/*
+		 * Restore BL31 context and jump to bl31_warm_entrypoint.
+		 * The memcpy function is not used to avoid any stack
+		 * corruption when restoring the context
+		 */
+		for (unsigned long i = 0; i < (k3_bl31_rw_end - k3_bl31_rw_start); i+= (sizeof(uint32_t)))
+			*(uint32_t *)(k3_bl31_rw_start + i) = *(uint32_t *)(K3_LPM_DDR_SAVE_ADDRESS + i);
+
+		asm volatile("b bl31_warm_entrypoint");
+	}
+#endif
 }
 
 void bl31_platform_setup(void)
