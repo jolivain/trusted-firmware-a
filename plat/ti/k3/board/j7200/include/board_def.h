@@ -27,4 +27,7 @@
 #define K3_MCU_SCRATCHPAD_BASE 0x40280000
 #define K3_MCU_SCRATCHPAD_SIZE 0x1000
 
+/* Magic value set by R5 SPL during a resume */
+#define K3_RESUME_MAGIC_VALUE 0xA5A5A5A5
+
 #endif /* BOARD_DEF_H */
