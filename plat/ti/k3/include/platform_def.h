@@ -71,7 +71,7 @@
  * for each BL stage.
  */
 #if K3_LPM_DDR_SAVE_ADDRESS
-#define MAX_XLAT_TABLES		5
+#define MAX_XLAT_TABLES		6
 #else
 #define MAX_XLAT_TABLES		4
 #endif
@@ -87,8 +87,10 @@
  * required regions for each BL stage.
  */
 #if USE_COHERENT_MEM && K3_LPM_DDR_SAVE_ADDRESS
+#define MAX_MMAP_REGIONS       13
+#elif K3_LPM_DDR_SAVE_ADDRESS
 #define MAX_MMAP_REGIONS       12
-#elif USE_COHERENT_MEM || K3_LPM_DDR_SAVE_ADDRESS
+#elif USE_COHERENT_MEM
 #define MAX_MMAP_REGIONS       11
 #else
 #define MAX_MMAP_REGIONS       10
