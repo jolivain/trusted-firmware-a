@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bf6527a_3e7f2f4c",
+        "filename": "plat/mediatek/drivers/iommu/mtk_iommu_smc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2023-11-23T10:34:09Z",
+      "side": 1,
+      "message": "I don\u0027t know about details of input parameters but just a word of caution that since the input is from NS world, you need to validate them before using. The only validation you are doing is checking fo null and then doing register reads. Please ensure that it does not cause a fault if invalid values are passed.\n\nSecond point is, For above two i see you validate first argument, if the 1st argument is same for all function you can do validation in mtk_iommu_handler() itself.",
+      "revId": "a7f0ee83d236803b21a76dbe6655a63e1631506e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
