@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95fa1d69_49a89e8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:25:11Z",
+      "side": 1,
+      "message": "Generally small comments.",
+      "revId": "498f118d1290dc173f8b38222439e36a99133e90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87d1d87e_e7db0a0f",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1576,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:25:11Z",
+      "side": 1,
+      "message": "drop space after cast",
+      "range": {
+        "startLine": 1576,
+        "startChar": 23,
+        "endLine": 1576,
+        "endChar": 24
+      },
+      "revId": "498f118d1290dc173f8b38222439e36a99133e90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0f3f8ff_64b5d32e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1622,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:25:11Z",
+      "side": 1,
+      "message": "No space after the cast?",
+      "range": {
+        "startLine": 1622,
+        "startChar": 47,
+        "endLine": 1622,
+        "endChar": 49
+      },
+      "revId": "498f118d1290dc173f8b38222439e36a99133e90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7458a20_0acae98a",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1625,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:25:11Z",
+      "side": 1,
+      "message": "again",
+      "range": {
+        "startLine": 1625,
+        "startChar": 47,
+        "endLine": 1625,
+        "endChar": 48
+      },
+      "revId": "498f118d1290dc173f8b38222439e36a99133e90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdd08d82_36aa8f68",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1689,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:25:11Z",
+      "side": 1,
+      "message": "and here",
+      "range": {
+        "startLine": 1689,
+        "startChar": 32,
+        "endLine": 1689,
+        "endChar": 33
+      },
+      "revId": "498f118d1290dc173f8b38222439e36a99133e90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "339e72d6_369a8b28",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1724,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:25:11Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 1724,
+        "startChar": 5,
+        "endLine": 1724,
+        "endChar": 8
+      },
+      "revId": "498f118d1290dc173f8b38222439e36a99133e90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cecc26cd_3789e04d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1729,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:25:11Z",
+      "side": 1,
+      "message": "I am not sure what inbounds mean here. \nCould you refer explicitly to ff-a permissions?",
+      "range": {
+        "startLine": 1729,
+        "startChar": 31,
+        "endLine": 1729,
+        "endChar": 38
+      },
+      "revId": "498f118d1290dc173f8b38222439e36a99133e90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88561ef7_b35ea641",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1729,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:25:11Z",
+      "side": 1,
+      "message": "full stop\n\nAnd in other sentences if there are missing.",
+      "revId": "498f118d1290dc173f8b38222439e36a99133e90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

@@ -97,6 +97,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3fbd624e_b1f3b8e3",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1522,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:25:11Z",
+      "side": 1,
+      "message": "delete extra space.",
+      "range": {
+        "startLine": 1522,
+        "startChar": 31,
+        "endLine": 1522,
+        "endChar": 32
+      },
+      "revId": "97febefb768821b0d56dc6ceb72e13ef267c2bf7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c44e99bf_1b479048",
         "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
         "patchSetId": 6
@@ -244,6 +267,47 @@
       "side": 1,
       "message": "Hi Madhukar, I looked into the code and from my point of view, it does not make a lot of sense to move the checks to a common location. \nOnly 3 checks can be moved to a common location, and that will hinder the readability of the code. \n\nonly the following checks can be moved into a single block\n\nsecure origin\nS_EL1 SP check\nSP current state (RT_MODEL_INIT)\n\nPlease let me know if you thing otherwise.",
       "parentUuid": "3f01afa3_41a1f599",
+      "revId": "97febefb768821b0d56dc6ceb72e13ef267c2bf7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7662a531_6786a438",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1678,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:25:11Z",
+      "side": 1,
+      "message": "This comment has been pending for a while.\nAs the list of checks is short, we can keep it as is. I don\u0027t think it is critical.\nMadhukar, please reopen the comment if you think otherwise.\nThanks.",
+      "parentUuid": "60eb6861_fc4ed924",
+      "revId": "97febefb768821b0d56dc6ceb72e13ef267c2bf7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6abdd1c_63ec6b72",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1731,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:25:11Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 1731,
+        "startChar": 5,
+        "endLine": 1731,
+        "endChar": 8
+      },
       "revId": "97febefb768821b0d56dc6ceb72e13ef267c2bf7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
