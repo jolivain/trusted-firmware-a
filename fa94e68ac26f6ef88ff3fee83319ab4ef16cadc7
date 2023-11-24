@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a14ae86_2e3b9edc",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:41:16Z",
+      "side": 1,
+      "message": "Align function arguments.",
+      "range": {
+        "startLine": 299,
+        "startChar": 31,
+        "endLine": 300,
+        "endChar": 35
+      },
+      "revId": "fa94e68ac26f6ef88ff3fee83319ab4ef16cadc7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d52d4933_19e7c434",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:41:16Z",
+      "side": 1,
+      "message": "add empty line after 305",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 305,
+        "endChar": 1
+      },
+      "revId": "fa94e68ac26f6ef88ff3fee83319ab4ef16cadc7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed757781_835ec4ea",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:41:16Z",
+      "side": 1,
+      "message": "other logs below terminate with \\n",
+      "range": {
+        "startLine": 305,
+        "startChar": 33,
+        "endLine": 305,
+        "endChar": 35
+      },
+      "revId": "fa94e68ac26f6ef88ff3fee83319ab4ef16cadc7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2d7db50_31cfec0f",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:41:16Z",
+      "side": 1,
+      "message": "align arguments.",
+      "range": {
+        "startLine": 309,
+        "startChar": 24,
+        "endLine": 310,
+        "endChar": 36
+      },
+      "revId": "fa94e68ac26f6ef88ff3fee83319ab4ef16cadc7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb755dca_bdb6960e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:41:16Z",
+      "side": 1,
+      "message": "spread these lines a bit to make it easier to read.",
+      "range": {
+        "startLine": 309,
+        "startChar": 2,
+        "endLine": 314,
+        "endChar": 20
+      },
+      "revId": "fa94e68ac26f6ef88ff3fee83319ab4ef16cadc7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c1c06a3_442be8de",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 409,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:41:16Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 409,
+        "startChar": 1,
+        "endLine": 409,
+        "endChar": 25
+      },
+      "revId": "fa94e68ac26f6ef88ff3fee83319ab4ef16cadc7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b2f1a84_565f9c63",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 32
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-24T11:41:16Z",
+      "side": 1,
+      "message": "Define at the top of the scope.\nIf you wish to keep them close to the use, please define dedicated static functions for each configuration.\n\nI would actually think that is a refactor to break this function into dedicated helpers. Would look cleaner.",
+      "range": {
+        "startLine": 411,
+        "startChar": 1,
+        "endLine": 413,
+        "endChar": 44
+      },
+      "revId": "fa94e68ac26f6ef88ff3fee83319ab4ef16cadc7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
