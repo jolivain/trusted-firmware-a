@@ -16,6 +16,57 @@
       "message": "On hold due to issues with parent patches.",
       "revId": "b404a5d4dfc3c8ca256645936bef074812b4c8cf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d01ec18_0cb1af36",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 44
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-11-24T10:48:32Z",
+      "side": 1,
+      "message": "if a78* is here (iirc it has aarch64 on el0 only) then what about cortex_a76/a76ae/a77/x1?",
+      "revId": "b404a5d4dfc3c8ca256645936bef074812b4c8cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6546e500_fd20cb41",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 44
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-11-24T10:48:32Z",
+      "side": 1,
+      "message": "Neoverse N1/N2 can be done without DSU (qemu does it that way).\n\nSome erratas check is DSU present, some do not (even if should).",
+      "revId": "b404a5d4dfc3c8ca256645936bef074812b4c8cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ea55e08_4f1b23da",
+        "filename": "plat/qemu/qemu_sbsa/platform.mk",
+        "patchSetId": 44
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2023-11-24T10:48:32Z",
+      "side": 1,
+      "message": "that\u0027s not cpu",
+      "revId": "b404a5d4dfc3c8ca256645936bef074812b4c8cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
