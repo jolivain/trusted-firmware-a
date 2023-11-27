@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea686e6c_c4b7dc22",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 36
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-11-27T17:19:33Z",
+      "side": 1,
+      "message": "nitpick: I feel it does not represent any memory region type. could you rename to SP_MEM_REGION_NOT_SPECIFIED",
+      "range": {
+        "startLine": 51,
+        "startChar": 1,
+        "endLine": 51,
+        "endChar": 18
+      },
+      "revId": "eb52e08b3d7918561b2c6eb61f8bcf6f4fc0ea5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d09a9176_8f303dd0",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 36
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-11-27T17:19:33Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies",
+      "revId": "eb52e08b3d7918561b2c6eb61f8bcf6f4fc0ea5a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
