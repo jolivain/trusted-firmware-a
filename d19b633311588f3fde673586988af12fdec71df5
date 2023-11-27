@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bd9bd40_8d5b8548",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1077,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-11-27T16:18:14Z",
+      "side": 1,
+      "message": "The sequence for a gpt range operation can be done more optimally I think (ie, the blocks can be modified in one go and TLBI issues for the entire range. \n\nHence I think this API should be kept for a single page . Another API can be introduced for a range.\n\nAlso making this accept a range of pages has implication for GPT large mappings.",
+      "revId": "d19b633311588f3fde673586988af12fdec71df5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
