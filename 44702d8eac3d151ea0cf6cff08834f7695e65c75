@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86f1d3a9_7e6c09dc",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 34
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-27T13:28:38Z",
+      "side": 1,
+      "message": "For the sake of consistency, and defining a clear pattern when looking to add these functions.\nCould you create a function called \"spmc_el0_sp_setup_sctlr_el1\", and invoke it in this function?",
+      "range": {
+        "startLine": 389,
+        "startChar": 1,
+        "endLine": 389,
+        "endChar": 24
+      },
+      "revId": "44702d8eac3d151ea0cf6cff08834f7695e65c75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
