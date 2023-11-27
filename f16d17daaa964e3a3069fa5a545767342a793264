@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36683d7c_f09bba6e",
+        "filename": "common/bl_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-11-27T12:48:08Z",
+      "side": 1,
+      "message": "This produces an incorrect print when ``io_result\u003d0`` and ``image_size \u003d\u003d 0U``, indicating a failure to determine the image size. However, the IO operation was successful, and the image is with zero size. \n\n```\n\tif (io_result !\u003d 0) {\n\t\tWARN(\"Failed to determine the size of the image id\u003d%u (%i)\\n\",\n\t\t\timage_id, io_result);\t\t\t\n\t\tgoto exit;\n\t} \n\t\n\tif (image_size \u003d\u003d 0U) {\n\t        WARN(\"image id\u003d%u size is zero\\n\", image_id);\n\t        io_result \u003d -EIO;\n\t        goto exit;\n\t}\n```\n\nI think explicit check will be helpful for better readability. What do you think?",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 2
+      },
+      "revId": "f16d17daaa964e3a3069fa5a545767342a793264",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
