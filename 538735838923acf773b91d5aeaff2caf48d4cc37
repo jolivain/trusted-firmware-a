@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd7d717c_80761575",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_setup.c",
+        "patchSetId": 33
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-11-27T15:46:31Z",
+      "side": 1,
+      "message": "nitpick:\nCould you provide a little more context? Perhaps,\n\nSPMC sp manifest: Read back %s ......",
+      "range": {
+        "startLine": 83,
+        "startChar": 10,
+        "endLine": 83,
+        "endChar": 11
+      },
+      "revId": "538735838923acf773b91d5aeaff2caf48d4cc37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
