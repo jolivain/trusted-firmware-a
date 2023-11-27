@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9944f10a_d7d1b92b",
+        "filename": "fdts/rtsm_ve-motherboard.dtsi",
+        "patchSetId": 8
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2023-11-27T14:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d18dfdcc_21e15f14",
+      "revId": "1a85f5fc719ca3ba6598d17dfe644ce2fb6b5d43",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "accaf0f7_ea2d5c92",
@@ -35,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5df4bcb_a088c150",
+        "filename": "fdts/rtsm_ve-motherboard.dtsi",
+        "patchSetId": 8
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2023-11-27T14:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "accaf0f7_ea2d5c92",
+      "revId": "1a85f5fc719ca3ba6598d17dfe644ce2fb6b5d43",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1f1cd89_db9f549b",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-11-16T16:23:46Z",
       "side": 1,
       "message": "... though we *might* want have a status \u003d \"disabled\"; property here, at least for now. According to my research, the FM 11.17 release from around early 2022 was the first model that supported that device. Models prior to that would trigger an external abort when trying to access or probe this MMIO region.\nThis being almost two years old by now might mean we can ignore this, though. Happy to hear other opinions.",
+      "revId": "1a85f5fc719ca3ba6598d17dfe644ce2fb6b5d43",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "112a3cb6_4494a5cc",
+        "filename": "fdts/rtsm_ve-motherboard.dtsi",
+        "patchSetId": 8
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1001143
+      },
+      "writtenOn": "2023-11-27T14:08:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1f1cd89_db9f549b",
       "revId": "1a85f5fc719ca3ba6598d17dfe644ce2fb6b5d43",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
