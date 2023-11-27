@@ -16,6 +16,24 @@
       "message": "The sequence for a gpt range operation can be done more optimally I think (ie, the blocks can be modified in one go and TLBI issues for the entire range. \n\nHence I think this API should be kept for a single page . Another API can be introduced for a range.\n\nAlso making this accept a range of pages has implication for GPT large mappings.",
       "revId": "d19b633311588f3fde673586988af12fdec71df5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96599d39_b3c539e5",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1077,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-11-27T17:07:48Z",
+      "side": 1,
+      "message": "\u003e The sequence for a gpt range operation can be done more optimally I think (ie, the blocks can be modified in one go and TLBI issues for the entire range.\n\nAgree but actually, the TLBI range sizes are not arbitrary (from 4KB to 512GB), it would have break down from the larger possible range size given the input size, and complete with TLBIs with smaller ranges.\n\n\u003e Also making this accept a range of pages has implication for GPT large mappings.\n\nOk but should this rather land in the GPT large mapping design rather than making assumptions on the current implementation?",
+      "parentUuid": "1bd9bd40_8d5b8548",
+      "revId": "d19b633311588f3fde673586988af12fdec71df5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
