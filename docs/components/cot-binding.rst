@@ -72,9 +72,13 @@ Manifests and Certificate node bindings definition
                 non-root certificates which are authenticated using public-key
                 present in parent certificate.
 
-                This property is not required for root-certificates
-                as root-certificates are validated using root of trust
-                public key provided by platform.
+                This property is not required for all root-certificates.
+                Trusted boot firmware and CCA content certificates are
+                validated using the root of trust public key provided by
+                platform and therefore do not need to use the signing-key
+                property, while core secure world key and platform key
+                certificates do need to reference the root_keys nodes for root
+                of trust keys other than the platform provided.
 
                 Value type: <phandle>
 
@@ -323,10 +327,52 @@ Below is non-volatile counters example for ARM platform
         };
    };
 
+root-keys node binding definition
+---------------------------------
+
+- root-keys node
+        Description: Contains root keys for the root certificates.
+
+        SUBNODES
+            - Description:
+
+              Root key information present in the root certificates are shown
+              by these nodes.
+
+            - root key node
+                  Description: Provide root key information in the certificate.
+
+                  PROPERTIES
+
+                  - oid
+                     Usage:
+
+                     This property provides the Object ID of root key
+                     provided in the certificate.
+
+                     Value type: <string>
+
+Example:
+Below is root-keys example for CCA platform
+
+.. code:: c
+
+   root_keys {
+        compatible = "arm, root-key";
+
+        swd_rot_pk: swd_rot_pk {
+           oid = SWD_ROT_PK_OID;
+        };
+
+        prot_pk: prot_pk {
+           oid = PROT_PK_OID;
+        };
+   };
+
 Future update to chain of trust binding
 ---------------------------------------
 
 This binding document needs to be revisited to generalise some terminologies
 which are currently specific to X.509 certificates for e.g. Object IDs.
 
-*Copyright (c) 2020, Arm Limited. All rights reserved.*
+*Copyright (c) 2020-2024, Arm Limited. All rights reserved.*
