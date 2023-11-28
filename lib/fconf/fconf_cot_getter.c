@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2023, Arm Limited. All rights reserved.
+ * Copyright (c) 2020-2024, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -238,7 +238,11 @@ static int populate_and_set_auth_methods(const void *dtb, int node,
 	 */
 	if (type == IMG_CERT) {
 		if (root_certificate) {
-			oid = NULL;
+			/* Retrieve the optional signing-key property */
+			rc = get_oid(dtb, node, "signing-key", &oid);
+			if (rc < 0) {
+				oid = NULL;
+			}
 		} else {
 			rc = get_oid(dtb, node, "signing-key", &oid);
 			if (rc < 0) {
