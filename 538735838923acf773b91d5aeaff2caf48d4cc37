@@ -16,6 +16,24 @@
       "message": "nitpick: curious why the error message was dropped.",
       "revId": "538735838923acf773b91d5aeaff2caf48d4cc37",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df505342_465d4390",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 35
+      },
+      "lineNbr": 1729,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-11-28T09:40:25Z",
+      "side": 0,
+      "message": "TBH, I do not remember and cannot think of a good reason to remove it. \nAdded it back.",
+      "parentUuid": "c5b13317_1d15256e",
+      "revId": "538735838923acf773b91d5aeaff2caf48d4cc37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
