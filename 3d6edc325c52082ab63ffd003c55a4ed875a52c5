@@ -16,6 +16,24 @@
       "message": "I\u0027ve rebased changes on top of latest integration branch. I don\u0027t know whether CI failed because of my changes or that\u0027s old integration base of my branch or just unfortunate state of the code/CI. \n\nfvp-tbb-mbedtls build test failed because of some problem with fetching keys:\n\n```\n17:50:47 NOTICE:  Target platform: TBBR Generic\n17:50:47 WARNING: Cannot open file /home/buildslave/workspace/tf-a-builder/workspace/trusted-private-key.pem\n17:50:47 ERROR:   Cannot load key from /home/buildslave/workspace/tf-a-builder/workspace/trusted-private-key.pem\n17:50:47 ERROR:   Error loading \u0027/home/buildslave/workspace/tf-a-builder/workspace/trusted-private-key.pem\u0027\n17:50:47 make: *** [Makefile:1662: certificates] Error 1\n```\n\nIs there way to test changes before submission?",
       "revId": "3d6edc325c52082ab63ffd003c55a4ed875a52c5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6508a778_9c9935fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2023-11-28T15:40:48Z",
+      "side": 1,
+      "message": "I\u0027ve retriggered the CI - sorry for the delay!",
+      "parentUuid": "497922f2_fbebd9b1",
+      "revId": "3d6edc325c52082ab63ffd003c55a4ed875a52c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
