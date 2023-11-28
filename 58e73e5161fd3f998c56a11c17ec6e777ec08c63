@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb2f9119_8ebbbb71",
+        "filename": "plat/arm/board/tc/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-11-28T13:49:25Z",
+      "side": 1,
+      "message": "Can\u0027t we avoid undef and defining the new values? \n\nJust curious to know, is there any issue in allocating current size (i.e. 0xDC0) for both RSS-AP and SCP-AP SDS regions?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 32
+      },
+      "revId": "58e73e5161fd3f998c56a11c17ec6e777ec08c63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dfa0c23_33055707",
+        "filename": "plat/arm/board/tc/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-11-28T13:49:25Z",
+      "side": 1,
+      "message": "I think it is better to rename this to ``PLAT_ARM_RSS_AP_SDS_MEM_BASE`` or similar?",
+      "range": {
+        "startLine": 35,
+        "startChar": 8,
+        "endLine": 35,
+        "endChar": 31
+      },
+      "revId": "58e73e5161fd3f998c56a11c17ec6e777ec08c63",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
