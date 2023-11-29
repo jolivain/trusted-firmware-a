@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "844d4ce3_c106582e",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-11-29T20:19:05Z",
+      "side": 1,
+      "message": "My patch is to pass the TL to BL31, so that BL31 can copy the latest TL (which is amended by BL32) to NS memory before entering BL33.\n\nThe fact is that current QEMU BL31 itself requires all entry point information of BL32 and BL33 (currently via arg0, see `bl31_early_platform_setup2()` for reference) - These information is not part of any TEs.\n\nI think a better way is to define a new TE for this purpose.\nBut seems that is not something can be solved in this patch, I will prefer to keep current solution at the moment.",
+      "parentUuid": "055125c2_6583ba08",
+      "range": {
+        "startLine": 284,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 8
+      },
+      "revId": "30215a0a5092fbc3ab17ccfb882857fad2dc5a6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "61260a8b_4589e8c5",
         "filename": "plat/qemu/common/qemu_bl2_setup.c",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-29T08:04:00Z",
       "side": 1,
       "message": "Please break the line after \"\u0026\u0026\".",
+      "range": {
+        "startLine": 313,
+        "startChar": 22,
+        "endLine": 313,
+        "endChar": 23
+      },
+      "revId": "30215a0a5092fbc3ab17ccfb882857fad2dc5a6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa2b900a_320502c9",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-11-29T20:19:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61260a8b_4589e8c5",
       "range": {
         "startLine": 313,
         "startChar": 22,
