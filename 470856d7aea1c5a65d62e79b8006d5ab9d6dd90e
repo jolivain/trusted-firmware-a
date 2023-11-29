@@ -570,6 +570,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fde0fc60_d070b8b1",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-11-29T11:23:58Z",
+      "side": 1,
+      "message": "Hardcoded the load address and size in the maniefest.",
+      "parentUuid": "8e3dca54_b5820cd5",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 36,
+        "endChar": 26
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0675bf4_2be4002c",
