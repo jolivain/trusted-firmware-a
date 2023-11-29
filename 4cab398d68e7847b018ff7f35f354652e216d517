@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f46dcbd3_8aaa2323",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 39
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-11-29T15:23:42Z",
+      "side": 1,
+      "message": "I am concerned if this is correct. rdn2_fw_config.dts is not SPMC manifest. I believe it is consumed by TF-A BL2.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 52
+      },
+      "revId": "4cab398d68e7847b018ff7f35f354652e216d517",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
