@@ -548,6 +548,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e3dca54_b5820cd5",
+        "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2023-11-29T10:28:42Z",
+      "side": 1,
+      "message": "I think this DTS solution is not ideal.\n\nThe specification refers to passing boot information when SP is scheduled for the first time.\n\nThe main argument is that this forces the EL3 SPMC to treat the load address differently from what is expected in the specification. \nAs it stands, it creates an unnecessary delta to the way other SPMC implementations are following the specification.\nOn the other hand, it might require the other SPMCs to support the providing the load-address in the boot info descriptors.\n\nThe manifest is also used for configuring the SP state in the SPMC.\n\nI think I prefer leveraging the boot information descriptors, rather than configuring the manifest with \"dangerous\" values, and then letting the SPMC configure it.\n\nAlso, it is not clear to the system integrator perspective that the \"load-address\" field set to 0 is required.\n\nEven if Hafnium currently doesn\u0027t support providing the load-address in the boot info descriptors, we can do if that helps with future migration from EL3 SPMC to Hafnium.",
+      "parentUuid": "d0641f5d_f1e8f9fe",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 36,
+        "endChar": 26
+      },
+      "revId": "470856d7aea1c5a65d62e79b8006d5ab9d6dd90e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0675bf4_2be4002c",
         "filename": "plat/arm/board/rdn2/fdts/rdn2_stmm_sel0_manifest.dts",
         "patchSetId": 19
