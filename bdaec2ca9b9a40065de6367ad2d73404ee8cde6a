@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e782485b_f39bf7c4",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2023-11-30T10:00:20Z",
+      "side": 1,
+      "message": "Members of the metadata structure must be mapped to dice_input. Only the code hash is sent to the DPE service.",
+      "range": {
+        "startLine": 108,
+        "startChar": 5,
+        "endLine": 108,
+        "endChar": 16
+      },
+      "revId": "bdaec2ca9b9a40065de6367ad2d73404ee8cde6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
