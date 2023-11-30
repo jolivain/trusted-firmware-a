@@ -87,6 +87,24 @@
       "parentUuid": "43cc5621_b93e6f80",
       "revId": "8053f108a824a2015c457151f61bf75142d07ab5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72d9c64e_501b85dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-11-30T11:06:47Z",
+      "side": 1,
+      "message": "Hi Vijayenthiran\n\nThat\u0027s a valid point; I was primarily considering it from a readability (and CI run) perspective. Indeed, using \u0027git bisect\u0027 does result in false positives.\n\nLet\u0027s consolidate all platform changes into the previous commit to address this comment.",
+      "parentUuid": "40c37a9a_6924b59e",
+      "revId": "8053f108a824a2015c457151f61bf75142d07ab5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
