@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "050931eb_036a7659",
+        "filename": "include/export/common/tbbr/tbbr_img_def_exp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-11-30T12:08:41Z",
+      "side": 1,
+      "message": "I believe this file isn\u0027t the appropriate place to house these Measure-Boot-related definitions. These definitions are commonly used across platforms unconditionally. These newly added definitions are only necessary during \u0027MEASURED_BOOT\u0027 support.\n\nI understand the intention behind relocating it from the specific Event Log header. However, in my opinion, we should move these to a header consumed specifically by the Measured-Boot implementation. Please let me know what do you think?",
+      "revId": "356b93a5e34fc871f07febeb73670f8c0aa1e145",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
