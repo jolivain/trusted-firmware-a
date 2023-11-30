@@ -21,6 +21,7 @@
 #include "fvp_private.h"
 #include "../drivers/arm/gic/v3/gicv3_private.h"
 
+pmu_state_t pmu_state;
 
 #if ARM_RECOM_STATE_ID_ENC
 /*
@@ -46,6 +47,46 @@ const unsigned int arm_pm_idle_states[] = {
 };
 #endif
 
+void save_dsu_state(){
+
+	SAVE_PMU_REG(pmu_state,clusterpmcr_el1);
+
+	write_clusterpmcr_el1(pmu_state.clusterpmcr_el1 & ~(CLUSTERPMCR_EL1_E_BIT));
+
+	SAVE_PMU_REG(pmu_state,clusterpmcntenset_el1);
+
+	SAVE_PMU_REG(pmu_state,clusterpmccntr_el1);
+
+	SAVE_PMU_REG(pmu_state,clusterpmovsset_el1);
+
+	SAVE_PMU_REG(pmu_state,clusterpmselr_el1);
+
+	for (unsigned int i=0; i<read_counter_sel() ;i++) {
+		write_clusterpmselr_el1(i);
+		pmu_state.counter_val[i] = read_clusterpmxevcntr_el1();
+		pmu_state.counter_type[i] = read_clusterpmxevtyper_el1();
+	}
+}
+
+void restore_dsu_state(){
+
+	write_clusterpmcr_el1(pmu_state.clusterpmcr_el1);
+
+	for (unsigned int i=0 ; i<read_counter_sel() ; i++){
+		write_clusterpmselr_el1(i);
+		RESTORE_PMU_REG(clusterpmxevcntr_el1,pmu_state.counter_val[i]);
+		RESTORE_PMU_REG(clusterpmxevtyper_el1,pmu_state.counter_type[i]);
+	}
+
+	RESTORE_PMU_REG(clusterpmselr_el1,pmu_state.clusterpmselr_el1);
+
+	RESTORE_PMU_REG(clusterpmovsclr_el1,~(uint32_t)pmu_state.clusterpmovsset_el1);
+
+	RESTORE_PMU_REG(clusterpmovsset_el1,pmu_state.clusterpmovsset_el1);
+
+	RESTORE_PMU_REG(clusterpmccntr_el1,pmu_state.clusterpmccntr_el1);
+}
+
 /*******************************************************************************
  * Function which implements the common FVP specific operations to power down a
  * cluster in response to a CPU_OFF or CPU_SUSPEND request.
@@ -67,6 +108,8 @@ static void fvp_cluster_pwrdwn_common(void)
 
 	/* Program the power controller to turn the cluster off */
 	fvp_pwrc_write_pcoffr(mpidr);
+
+	save_dsu_state();
 }
 
 /*
@@ -107,6 +150,8 @@ static void fvp_power_domain_on_finish_common(const psci_power_state_t *target_s
 
 		/* Enable coherency if this cluster was off */
 		fvp_interconnect_enable();
+
+		restore_dsu_state();
 	}
 	/* Perform the common system specific operations */
 	if (target_state->pwr_domain_state[ARM_PWR_LVL2] ==

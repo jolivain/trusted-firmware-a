@@ -96,6 +96,13 @@ MEASURED_BOOT
 
 void arm_setup_romlib(void);
 
+#define read_counter_sel()  ((read_clusterpmcr_el1() >> CLUSTERPMCR_EL1_N_SHIFT) \
+			& CLUSTERPMCR_EL1_N_MASK)
+
+#define SAVE_PMU_REG(pmu_state,reg) pmu_state.reg = read_##reg()
+
+#define RESTORE_PMU_REG(reg,value) write_##reg(value)
+
 #if defined(IMAGE_BL31) || (!defined(__aarch64__) && defined(IMAGE_BL32))
 /*
  * Use this macro to instantiate lock before it is used in below
