@@ -39,6 +39,30 @@
       },
       "revId": "c9820600c9a07f395a65ab7e315323b7ff4eeb39",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb35e4d9_e15ee066",
+        "filename": "fdts/rtsm_ve-motherboard.dtsi",
+        "patchSetId": 10
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-11-30T21:57:15Z",
+      "side": 1,
+      "message": "That would be against the DT node naming rules, which state \"DO use node names matching the class of the device\". The device class here is just virtio, since the \"type\" is not (necessarily) tied to its MMIO location, it\u0027s encoded in one of the MMIO registers, at offset 0x8: \"Virtio Subsystem Device ID\".\nAnd this special behaviour (of being potentially absent, thus disabled) is really just dependent on its MMIO location, not of that being an RNG device: that 0x200000 wasn\u0027t defined in earlier models.",
+      "parentUuid": "07cc9264_b7dbfe15",
+      "range": {
+        "startLine": 245,
+        "startChar": 4,
+        "endLine": 245,
+        "endChar": 17
+      },
+      "revId": "c9820600c9a07f395a65ab7e315323b7ff4eeb39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
