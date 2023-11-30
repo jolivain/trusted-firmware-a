@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10594ecb_16fdd66f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-11-30T15:36:24Z",
+      "side": 1,
+      "message": "Just for the records: the build-id generation should be disabled by default in GCC, but it might sneak in via CFLAGS or default options. Since we eventually run binary files, the build-id is probably discarded anyway, or it is put in a non-helpful position, like here at the beginning of the file. But since we don\u0027t have a symbol pointing to the build-id, and we don\u0027t use it from the code anyway, it\u0027s fine to force it off in the Makefile.",
+      "revId": "304ad94b34c2117823169a199558e7484139caa1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
