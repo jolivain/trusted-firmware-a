@@ -16,6 +16,29 @@
       "message": "Madhu, Manish, can you please approve those two FVP DT changes?",
       "revId": "c9820600c9a07f395a65ab7e315323b7ff4eeb39",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07cc9264_b7dbfe15",
+        "filename": "fdts/rtsm_ve-motherboard.dtsi",
+        "patchSetId": 10
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2023-11-30T19:26:59Z",
+      "side": 1,
+      "message": "Curious if this node can be given the label virtio-rng",
+      "range": {
+        "startLine": 245,
+        "startChar": 4,
+        "endLine": 245,
+        "endChar": 17
+      },
+      "revId": "c9820600c9a07f395a65ab7e315323b7ff4eeb39",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
