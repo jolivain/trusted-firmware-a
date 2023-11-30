@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f29c598_a9597df5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2023-11-30T23:50:40Z",
+      "side": 1,
+      "message": "local run with tf-a, tftf, and hafnium each with top patch in this topic\n\n0000: tftf-l2-fvp/fvp-aarch64-handoff,fvp-aarch64-handoff:fvp-tftf-fip.tftf-aemv8a-debug: SUCCESS\n\nfor spm tests see ci job https://ci.trustedfirmware.org/job/tf-a-ci-gateway/55749/",
+      "revId": "e830e4cdee3d2238314326ef8c259b35d1c4f167",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
