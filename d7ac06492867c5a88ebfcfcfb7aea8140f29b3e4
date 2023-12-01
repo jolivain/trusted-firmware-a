@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b796df2_af2ea4fa",
+        "filename": "plat/arm/board/tc/tc_common_dpe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-01T15:26:38Z",
+      "side": 1,
+      "message": "This function is specifically defined when \u0027MEASURED_BOOT\u0027 support is available. Consequently, redefining it for DPE would result in a build failure (redefinition). Do you think DPE should be employed independently, without \u0027MEASURED_BOOT\u0027 support?\n\nAs far as I understand, \u0027MEASURED_BOOT\u0027 complements DPE support. DPE can be utilized with TPM for additional security, and certainly, it can operate on its own in systems lacking TPM or \u0027MEASURED_BOOT\u0027 support.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 77
+      },
+      "revId": "d7ac06492867c5a88ebfcfcfb7aea8140f29b3e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
