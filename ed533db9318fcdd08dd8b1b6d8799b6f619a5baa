@@ -39,6 +39,30 @@
       },
       "revId": "ed533db9318fcdd08dd8b1b6d8799b6f619a5baa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d55ded69_2af245c4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_pm.c",
+        "patchSetId": 43
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-12-01T21:53:14Z",
+      "side": 1,
+      "message": "Only one context is currently supported for SEL0 SP, and its state is set during primary CPU initialisation. That means, for all the CPUs, the same context will be used. A spinlock guards the context.",
+      "parentUuid": "c1273c02_b10e307d",
+      "range": {
+        "startLine": 96,
+        "startChar": 1,
+        "endLine": 109,
+        "endChar": 33
+      },
+      "revId": "ed533db9318fcdd08dd8b1b6d8799b6f619a5baa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
