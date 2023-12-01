@@ -15,6 +15,7 @@
 #include <lib/el3_runtime/cpu_data.h>
 #include <lib/gpt_rme/gpt_rme.h>
 #include <lib/spinlock.h>
+#include <lib/transfer_list.h>
 #include <lib/utils_def.h>
 #include <lib/xlat_tables/xlat_tables_compat.h>
 
@@ -271,6 +272,9 @@ void arm_bl31_early_platform_setup(void *from_bl2, uintptr_t soc_fw_config,
 void arm_bl31_platform_setup(void);
 void arm_bl31_plat_runtime_setup(void);
 void arm_bl31_plat_arch_setup(void);
+
+/* Firmware Handoff utility functions */
+void arm_bl31_set_next_ep_info(struct transfer_list_header *tl);
 
 /* TSP utility functions */
 void arm_tsp_early_platform_setup(void);
