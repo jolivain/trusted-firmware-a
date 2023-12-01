@@ -260,6 +260,8 @@ void arm_bl31_platform_setup(void);
 void arm_bl31_plat_runtime_setup(void);
 void arm_bl31_plat_arch_setup(void);
 
+void arm_bl31_set_ep_info_info(entry_point_info_t *ep_info, size_t ep_count);
+
 /* TSP utility functions */
 void arm_tsp_early_platform_setup(void);
 
