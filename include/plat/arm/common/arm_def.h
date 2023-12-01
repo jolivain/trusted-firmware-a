@@ -513,6 +513,12 @@ MEASURED_BOOT
 #define ARM_FW_CONFIG_LIMIT		((ARM_BL_RAM_BASE + PAGE_SIZE) \
 					+ (PAGE_SIZE / 2U))
 
+#ifdef PLAT_ARM_HW_CONFIG_SIZE
+#define ARM_HW_CONFIG_SIZE		PLAT_ARM_HW_CONFIG_SIZE
+#else
+#define ARM_HW_CONFIG_SIZE		U(0)
+#endif
+
 /*
  * Boot parameters passed from BL2 to BL31/BL32 are stored here
  */
