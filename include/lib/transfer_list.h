@@ -42,6 +42,7 @@ enum transfer_list_tag_id {
 	TL_TAG_HOB_LIST = 3,
 	TL_TAG_ACPI_TABLE_AGGREGATE = 4,
 	TL_TAG_OPTEE_PAGABLE_PART = 0x100,
+	TL_TAG_EXEC_EP_INFO = 0x102,
 };
 
 enum transfer_list_ops {
