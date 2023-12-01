@@ -46,6 +46,30 @@
       },
       "revId": "8c9be2cb0d80366a112057b5e4bc7798c93de20a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "651db83c_b502bf8f",
+        "filename": "lib/psa/dice_protection_environment.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-01T11:05:52Z",
+      "side": 1,
+      "message": "Thanks, Understood!\n\nIn that case, IMO, it would be advisable to keep the changes minimal for the first iteration of this work. We can introduce this API when we incorporate the DPE service regression test-suite on the AP side. What are your thoughts?",
+      "parentUuid": "d8f9ae55_36974cb9",
+      "range": {
+        "startLine": 328,
+        "startChar": 12,
+        "endLine": 328,
+        "endChar": 27
+      },
+      "revId": "8c9be2cb0d80366a112057b5e4bc7798c93de20a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
