@@ -259,6 +259,25 @@ void __init arm_bl31_early_platform_setup(void *from_bl2, uintptr_t soc_fw_confi
 # endif
 }
 
+void arm_bl31_set_ep_info_info(entry_point_info_t *ep_info, size_t ep_count) {
+	for (size_t i = 0; i < ep_count; i++) {
+		switch (GET_SECURITY_STATE(ep_info[i].h.attr)) {
+		case NON_SECURE:
+			bl33_image_ep_info = ep_info[i];
+			break;
+#if ENABLE_RME
+		case REALM:
+			rmm_image_ep_info = ep_info[i];
+			break;
+#endif
+		default:
+			bl32_image_ep_info = ep_info[i];
+			break;
+		}
+	}
+
+}
+
 void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 		u_register_t arg2, u_register_t arg3)
 {

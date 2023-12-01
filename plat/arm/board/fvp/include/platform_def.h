@@ -129,8 +129,12 @@
 #define PLAT_ARM_NS_IMAGE_BASE		(ARM_DRAM1_BASE + UL(0x8000000))
 
 #if TRANSFER_LIST
-#define FW_HANDOFF_SIZE			0x4000
+#define FW_HANDOFF_SIZE			U(0x4000)
+
 #define FW_NS_HANDOFF_BASE		(PLAT_ARM_NS_IMAGE_BASE - FW_HANDOFF_SIZE)
+#define FW_BL31_HANDOFF_BASE		ARM_BL_RAM_BASE
+#else
+#define FW_HANDOFF_SIZE			U(0)
 #endif
 
 /*
@@ -249,9 +253,15 @@ defined(IMAGE_BL2) && MEASURED_BOOT
  * BL2 and BL1-RW.
  * Size of the BL31 PROGBITS increases as the SRAM size increases.
  */
+#if TRANSFER_LIST
+#define PLAT_ARM_MAX_BL31_SIZE		(PLAT_ARM_TRUSTED_SRAM_SIZE - \
+					 ARM_SHARED_RAM_SIZE - \
+					 FW_HANDOFF_SIZE - ARM_L0_GPT_SIZE)
+#else
 #define PLAT_ARM_MAX_BL31_SIZE		(PLAT_ARM_TRUSTED_SRAM_SIZE - \
 					 ARM_SHARED_RAM_SIZE - \
 					 ARM_FW_CONFIGS_SIZE - ARM_L0_GPT_SIZE)
+#endif /* TRANSFER_LIST */
 #endif /* RESET_TO_BL31 */
 
 #ifndef __aarch64__
