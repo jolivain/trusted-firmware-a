@@ -531,6 +531,9 @@ MEASURED_BOOT
 #define ARM_FW_CONFIGS_SIZE		(PAGE_SIZE * 2)
 #define ARM_FW_CONFIGS_LIMIT		(ARM_BL_RAM_BASE + ARM_FW_CONFIGS_SIZE)
 
+/* Define memory configuration for device tree files. */
+#define ARM_HW_CONFIG_SIZE		U(0x4000)
+
 #if ENABLE_RME
 /*
  * Store the L0 GPT on Trusted SRAM next to firmware
