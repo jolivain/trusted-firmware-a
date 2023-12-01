@@ -26,6 +26,7 @@
 			secondary-load-address = <0x0 0x82000000>;
 		};
 
+#if !TRANSFER_LIST
 		/*
 		 * Load SoC and TOS firmware configs at the base of
 		 * non shared SRAM. The runtime checks ensure we don't
@@ -37,7 +38,7 @@
 			max-size = <0x200>;
 			id = <SOC_FW_CONFIG_ID>;
 		};
-
+#endif
 /* If required, SPD should enable loading of trusted OS fw config */
 #if defined(SPD_tspd) || defined(SPD_spmd)
 		tos_fw-config {
