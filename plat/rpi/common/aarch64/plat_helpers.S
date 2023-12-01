@@ -31,6 +31,9 @@
 	 */
 func plat_my_core_pos
 	mrs	x0, mpidr_el1
+	tst	x0, #MPIDR_MT_MASK
+	lsr	x1, x0, #MPIDR_AFFINITY_BITS
+	csel	x0, x1, x0, ne
 	b	plat_rpi3_calc_core_pos
 endfunc plat_my_core_pos
 
