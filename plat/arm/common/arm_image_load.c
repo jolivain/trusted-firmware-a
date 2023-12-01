@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -17,7 +17,7 @@
 #pragma weak plat_get_bl_image_load_info
 #pragma weak plat_get_next_bl_params
 
-static bl_params_t *next_bl_params_cpy_ptr;
+bl_params_t *next_bl_params_cpy_ptr;
 
 /*******************************************************************************
  * This function flushes the data structures so that they are visible
@@ -25,11 +25,13 @@ static bl_params_t *next_bl_params_cpy_ptr;
  ******************************************************************************/
 void plat_flush_next_bl_params(void)
 {
+#if !TRANSFER_LIST
 	assert(next_bl_params_cpy_ptr != NULL);
 
 	flush_bl_params_desc_args(bl_mem_params_desc_ptr,
 		bl_mem_params_desc_num,
 		next_bl_params_cpy_ptr);
+#endif
 }
 
 #if defined(SPD_spmd) && BL2_ENABLE_SP_LOAD
