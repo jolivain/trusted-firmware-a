@@ -77,6 +77,11 @@ arm_config_t arm_config;
 					  FW_HANDOFF_SIZE,    \
 					  MT_MEMORY | MT_RW | MT_NS)
 #endif
+#ifdef FW_BL31_HANDOFF_BASE
+#define MAP_FW_BL31_HANDOFF                                    \
+	MAP_REGION_FLAT(FW_BL31_HANDOFF_BASE, FW_HANDOFF_SIZE, \
+			MT_MEMORY | MT_RW | EL3_PAS)
+#endif
 #endif
 
 /*
@@ -157,7 +162,10 @@ defined(SPD_spmd))
 	ARM_MAP_OPTEE_CORE_MEM,
 	ARM_OPTEE_PAGEABLE_LOAD_MEM,
 #endif
-	{0}
+#ifdef MAP_FW_BL31_HANDOFF
+	MAP_FW_BL31_HANDOFF,
+#endif
+	{ 0 }
 };
 #endif
 #ifdef IMAGE_BL2U
@@ -194,7 +202,10 @@ const mmap_region_t plat_arm_mmap[] = {
 #ifdef MAP_FW_NS_HANDOFF
 	MAP_FW_NS_HANDOFF,
 #endif
-	{0}
+#ifdef MAP_FW_BL31_HANDOFF
+	MAP_FW_BL31_HANDOFF,
+#endif
+	{ 0 }
 };
 
 #if defined(IMAGE_BL31) && SPM_MM
