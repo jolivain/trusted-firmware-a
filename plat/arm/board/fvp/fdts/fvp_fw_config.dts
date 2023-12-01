@@ -26,6 +26,7 @@
 			secondary-load-address = <0x0 0x82000000>;
 		};
 
+#if !TRANSFER_LIST
 		/*
 		 * Load SoC and TOS firmware configs at the base of
 		 * non shared SRAM. The runtime checks ensure we don't
@@ -56,5 +57,6 @@
 			max-size = <0x200>;
 			id = <NT_FW_CONFIG_ID>;
 		};
+#endif
 	};
 };
