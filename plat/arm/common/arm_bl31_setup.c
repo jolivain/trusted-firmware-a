@@ -15,6 +15,9 @@
 #include <lib/extensions/ras.h>
 #include <lib/gpt_rme/gpt_rme.h>
 #include <lib/mmio.h>
+#if TRANSFER_LIST
+#include <lib/transfer_list.h>
+#endif
 #include <lib/xlat_tables/xlat_tables_compat.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
@@ -35,8 +38,13 @@ static entry_point_info_t rmm_image_ep_info;
  * Check that BL31_BASE is above ARM_FW_CONFIG_LIMIT. The reserved page
  * is required for SOC_FW_CONFIG/TOS_FW_CONFIG passed from BL2.
  */
+#if TRANSFER_LIST
+CASSERT(BL31_BASE >= PLAT_ARM_EL3_FW_HANDOFF_BASE + PLAT_ARM_FW_HANDOFF_SIZE,
+	assert_bl31_base_overflows);
+#else
 CASSERT(BL31_BASE >= ARM_FW_CONFIG_LIMIT, assert_bl31_base_overflows);
-#endif
+#endif /* TRANSFER_LIST */
+#endif /* RESET_TO_BL31 */
 
 /* Weak definitions may be overridden in specific ARM standard platform */
 #pragma weak bl31_early_platform_setup2
@@ -105,6 +113,36 @@ struct entry_point_info *bl31_plat_get_next_image_ep_info(uint32_t type)
 		return next_image_info;
 	else
 		return NULL;
+}
+
+/*******************************************************************************
+ * Populate the global 'entry_point_info' structures with data from the transfer
+ * list from the previous bootloader.
+ * *****************************************************************************/
+void arm_bl31_set_next_ep_info(struct transfer_list_header *tl)
+{
+	struct transfer_list_entry *te = NULL;
+	struct entry_point_info *ep;
+
+	while ((te = transfer_list_next(tl, te)) != NULL) {
+		ep = transfer_list_entry_data(te);
+
+		if (te->tag_id == TL_TAG_EXEC_EP_INFO64) {
+			switch (GET_SECURITY_STATE(ep->h.attr)) {
+			case NON_SECURE:
+				bl33_image_ep_info = *ep;
+				break;
+#if ENABLE_RME
+			case REALM:
+				rmm_image_ep_info = *ep;
+				break;
+#endif
+			default:
+				bl32_image_ep_info = *ep;
+				break;
+			}
+		}
+	}
 }
 
 /*******************************************************************************
