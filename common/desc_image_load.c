@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -58,6 +58,23 @@ int get_bl_params_node_index(unsigned int image_id)
 	for (index = 0U; index < bl_mem_params_desc_num; index++) {
 		if (bl_mem_params_desc_ptr[index].image_id == image_id)
 			return (int)index;
+	}
+
+	return -1;
+}
+
+
+/*******************************************************************************
+ * This function returns the first executable in bl_mem_params_node_t array
+ * or -1 if none found.
+ ******************************************************************************/
+int get_first_exe_img_index(const bl_mem_params_node_t *mem_params, size_t len) {
+	/* Get the list HEAD */
+	for (size_t count = 0; count < len; count++) {
+		if ((EP_GET_EXE(mem_params[count].ep_info.h.attr) == EXECUTABLE) &&
+			(EP_GET_FIRST_EXE(mem_params[count].ep_info.h.attr) == EP_FIRST_EXE)) {
+				return count;
+		}
 	}
 
 	return -1;
