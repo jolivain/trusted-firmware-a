@@ -52,6 +52,24 @@
       "parentUuid": "99ac08de_f45cf423",
       "revId": "a7f0ee83d236803b21a76dbe6655a63e1631506e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2f4cfc7_4fcd08e3",
+        "filename": "plat/mediatek/drivers/iommu/mtk_iommu_smc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2023-12-01T03:08:31Z",
+      "side": 1,
+      "message": "@manish.pandey2\n\nAssumed that you are referring to the variables `*f_sta`, `*f_pa` and `*f_id`,\nthose variables are passed in this way.\n\ncommon/mtk_smc_handlers.c\n```\nmtk_smc_handler_nsel1()\n{\n   struct smccc_res smc_ret \u003d {0};\n\n   // call mtk_iommu_handler\n   \n   \n   SMC_RET4(handle, ret, smc_ret.a1, smc_ret.a2, smc_ret.a3);\n}\n```\n\ndrivers/iommu/mtk_iommu_smc.c\n```\nmtk_iommu_handler(..., struct smccc_res *smccc_ret)\n{\n   mtk_secure_iommu_fault_report(mdl_id,\n\t\t\t\t\t(uint32_t *)\u0026smccc_ret-\u003ea1,\n\t\t\t\t\t(uint32_t *)\u0026smccc_ret-\u003ea2,\n\t\t\t\t\t(uint32_t *)\u0026smccc_ret-\u003ea3);\n}\n\nint mtk_secure_iommu_fault_report(uint32_t sec_mmu_base,\n\t\t\t\t\t uint32_t *f_sta, uint32_t *f_pa,\n\t\t\t\t\t uint32_t *f_id)\n{\n  \n  if (f_stat)\n    ....\n}\n```\n\n\nI think those variables should be safe.",
+      "parentUuid": "816d7f62_bdd94b43",
+      "revId": "a7f0ee83d236803b21a76dbe6655a63e1631506e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
