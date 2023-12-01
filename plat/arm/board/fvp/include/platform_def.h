@@ -99,6 +99,10 @@
 					FVP_DTB_DRAM_MAP_SIZE,		\
 					MT_MEMORY | MT_RO | MT_NS)
 
+
+/* Define memory configuration for device tree files. */
+#define FVP_HW_CONFIG_SIZE		U(0x4000)
+
 #if SPMC_AT_EL3
 /*
  * Number of Secure Partitions supported.
