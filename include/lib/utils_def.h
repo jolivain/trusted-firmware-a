@@ -53,6 +53,9 @@
 #define GENMASK				GENMASK_32
 #endif
 
+#define HI(addr)			(addr >> 32)
+#define LO(addr)			(addr & 0xffffffff)
+
 /*
  * This variant of div_round_up can be used in macro definition but should not
  * be used in C code as the `div` parameter is evaluated twice.
