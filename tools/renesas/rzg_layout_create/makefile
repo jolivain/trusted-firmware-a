@@ -66,14 +66,10 @@ $(eval $(call add_define,RCAR_VMA_ADJUST_ADDR))
 ###################################################
 
 #c compiler
-CC = $(CROSS_COMPILE)gcc
 CFLAGS += ${DEFINES}
 CFLAGS += -nostdinc \
 	  -I../../../include/lib/libc \
 	  -I../../../include/lib/libc/aarch64
-
-#Linker
-LD = $(CROSS_COMPILE)ld
 
 #objcopy
 objcopy = $(CROSS_COMPILE)objcopy
@@ -93,7 +89,7 @@ all: $(OUTPUT_FILE_SA0) $(OUTPUT_FILE_SA6)
 # Linker
 ###################################################
 $(OUTPUT_FILE_SA0) : $(MEMORY_DEF_SA0) $(OBJ_FILE_SA0)
-	$(LD) $(OBJ_FILE_SA0)		 	\
+	$(aarch64-ld) $(OBJ_FILE_SA0)		 	\
 	-T $(MEMORY_DEF_SA0)			\
 	-o $(OUTPUT_FILE_SA0)			\
 	-Map $(FILE_NAME_SA0).map 		\
@@ -102,7 +98,7 @@ $(OUTPUT_FILE_SA0) : $(MEMORY_DEF_SA0) $(OBJ_FILE_SA0)
 	$(objcopy) -O binary --adjust-vma=$(RCAR_VMA_ADJUST_ADDR) --srec-forceS3  $(OUTPUT_FILE_SA0) $(FILE_NAME_SA0).bin
 
 $(OUTPUT_FILE_SA6) : $(MEMORY_DEF_SA6) $(OBJ_FILE_SA6)
-	$(LD) $(OBJ_FILE_SA6)		 	\
+	$(aarch64-ld) $(OBJ_FILE_SA6)		 	\
 	-T $(MEMORY_DEF_SA6)			\
 	-o $(OUTPUT_FILE_SA6)			\
 	-Map $(FILE_NAME_SA6).map 		\
@@ -115,7 +111,7 @@ $(OUTPUT_FILE_SA6) : $(MEMORY_DEF_SA6) $(OBJ_FILE_SA6)
 ###################################################
 
 %.o:../%.c
-	$(CC) -c -I $< -o $@
+	$(aarch64-cc) -c -I $< -o $@
 
 .PHONY: clean
 clean:

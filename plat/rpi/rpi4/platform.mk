@@ -39,9 +39,9 @@ RESET_TO_BL31		:=	1
 COLD_BOOT_SINGLE_CPU	:=	0
 
 # Tune compiler for Cortex-A72
-ifeq ($(notdir $(CC)),armclang)
+ifeq ($(notdir $($(ARCH)-cc)),armclang)
     TF_CFLAGS_aarch64	+=	-mcpu=cortex-a72
-else ifneq ($(findstring clang,$(notdir $(CC))),)
+else ifneq ($(findstring clang,$(notdir $($(ARCH)-cc))),)
     TF_CFLAGS_aarch64	+=	-mcpu=cortex-a72
 else
     TF_CFLAGS_aarch64	+=	-mtune=cortex-a72
@@ -113,4 +113,3 @@ endif
 ifeq ($(SMC_PCI_SUPPORT), 1)
 BL31_SOURCES            +=      plat/rpi/rpi4/rpi4_pci_svc.c
 endif
-

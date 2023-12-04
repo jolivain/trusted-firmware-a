@@ -88,8 +88,7 @@ VERSION_MESSAGE = const char version[] = "${VERSION}";
 define MAKE_BUILD_STRINGS
 	$$(file >$1.in,$$(TF_CFLAGS) $$(CFLAGS))
 	@echo $$(BUILT_TIME_DATE_STRING) $$(VERSION_STRING_MESSAGE) $$(VERSION_MESSAGE) | \
-		$$(CC) @$1.in -x c -c - -o $1
+		$($(ARCH)-cc) @$1.in -x c -c - -o $1
 endef
 
 MSVC_NMAKE := nmake.exe
-

@@ -52,9 +52,9 @@ BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S		\
 				${LIBFDT_SRCS}
 
 # Tune compiler for Cortex-A53
-ifeq ($(notdir $(CC)),armclang)
+ifeq ($(notdir $($(ARCH)-cc)),armclang)
     TF_CFLAGS_aarch64	+=	-mcpu=cortex-a53
-else ifneq ($(findstring clang,$(notdir $(CC))),)
+else ifneq ($(findstring clang,$(notdir $($(ARCH)-cc))),)
     TF_CFLAGS_aarch64	+=	-mcpu=cortex-a53
 else
     TF_CFLAGS_aarch64	+=	-mtune=cortex-a53
