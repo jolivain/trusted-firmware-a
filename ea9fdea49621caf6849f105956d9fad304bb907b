@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8fe3493d_30c1203e",
+        "filename": "plat/arm/board/tc/plat_tc_mbedtls_config.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-04T16:40:17Z",
+      "side": 1,
+      "message": "Alright, let me do the verification after removing these options. Initially, I considered leaving them as is since they were introduced in this file earlier, and there might be a specific reason behind their inclusion.",
+      "parentUuid": "56fd955c_3c9f5f11",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 33
+      },
+      "revId": "ea9fdea49621caf6849f105956d9fad304bb907b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e1a15c1f_c0e48916",
         "filename": "plat/arm/board/tc/tc_bl31_setup.c",
         "patchSetId": 17
@@ -54,6 +78,30 @@
       "writtenOn": "2023-12-04T16:16:07Z",
       "side": 1,
       "message": "(minor) Strictly speaking, this is not true since TC2 has a TRNG IP so it *does* have an external RNG. Suggest rewording as:\n\nProvide a fake one, since we do not actually **use** any external RNG.",
+      "range": {
+        "startLine": 31,
+        "startChar": 58,
+        "endLine": 32,
+        "endChar": 33
+      },
+      "revId": "ea9fdea49621caf6849f105956d9fad304bb907b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f004862_7bfc2fbf",
+        "filename": "plat/arm/board/tc/tc_bl31_setup.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-04T16:40:17Z",
+      "side": 1,
+      "message": "Good point! Let me update this comment.",
+      "parentUuid": "e1a15c1f_c0e48916",
       "range": {
         "startLine": 31,
         "startChar": 58,
@@ -89,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e92d35c_70f3621b",
+        "filename": "plat/arm/board/tc/tc_bl31_setup.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-04T16:40:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a9598c35_b9d84568",
+      "range": {
+        "startLine": 33,
+        "startChar": 3,
+        "endLine": 33,
+        "endChar": 47
+      },
+      "revId": "ea9fdea49621caf6849f105956d9fad304bb907b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5a5fd60_66539ed4",
         "filename": "plat/arm/board/tc/tc_bl31_setup.c",
         "patchSetId": 17
@@ -100,6 +172,30 @@
       "writtenOn": "2023-12-04T16:16:07Z",
       "side": 1,
       "message": "I would move this information into the commit message. I don\u0027t think it belongs here in the code, we\u0027ve already said that we provide a fake implementation since it\u0027s just for testing purposes. Details of which implementation options we\u0027ve considered and rejected is best provided in a commit message IMO.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 50
+      },
+      "revId": "ea9fdea49621caf6849f105956d9fad304bb907b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0261cc4_bafaaed7",
+        "filename": "plat/arm/board/tc/tc_bl31_setup.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-04T16:40:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a5a5fd60_66539ed4",
       "range": {
         "startLine": 36,
         "startChar": 0,
