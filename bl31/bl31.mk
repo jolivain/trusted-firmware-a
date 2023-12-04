@@ -163,9 +163,9 @@ endif
 
 BL31_DEFAULT_LINKER_SCRIPT_SOURCE := bl31/bl31.ld.S
 
-ifneq ($(findstring gcc,$(notdir $(LD))),)
+ifneq ($(findstring gcc,$(notdir $($(ARCH)-ld))),)
         BL31_LDFLAGS	+=	-Wl,--sort-section=alignment
-else ifneq ($(findstring ld,$(notdir $(LD))),)
+else ifneq ($(findstring ld,$(notdir $($(ARCH)-ld))),)
         BL31_LDFLAGS	+=	--sort-section=alignment
 endif
 
