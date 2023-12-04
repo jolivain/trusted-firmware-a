@@ -68,6 +68,29 @@
       },
       "revId": "3dda9b800f0c5de3dfa24a16ccb0113c19ab2d8e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f78c9c86_72beaba6",
+        "filename": "tools/marvell/doimage/doimage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-12-04T15:36:23Z",
+      "side": 1,
+      "message": "Sorry, I don\u0027t think I fully understand why this is needed.\n\nAlso Please note: mbedtls2.x support will be removed soon.\n\nhttps://trustedfirmware-a.readthedocs.io/en/latest/about/release-information.html#removal-of-deprecated-interfaces\n\nThen doimage will be left broken,\n\nI had prior proposed a change as in here [1] unfortunately didn\u0027t get any feedback to get it merged and thus had to abandon it. \n\n[1]:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18888/29/tools/marvell/doimage/doimage.c",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "3dda9b800f0c5de3dfa24a16ccb0113c19ab2d8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
