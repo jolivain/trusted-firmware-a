@@ -8,11 +8,6 @@ toolchains := aarch64
 
 include ../../make_helpers/toolchain.mk
 
-AS          = $(CROSS_COMPILE)as
-AR          = $(CROSS_COMPILE)ar
-LD          = $(CROSS_COMPILE)ld
-OC          = $(CROSS_COMPILE)objcopy
-CPP         = $(CROSS_COMPILE)cpp
 ROMLIB_GEN  = ./romlib_generator.py
 BUILD_DIR   = $(BUILD_PLAT)/romlib
 LIB_DIR     = $(BUILD_PLAT)/lib
@@ -52,23 +47,23 @@ all: $(BUILD_DIR)/romlib.bin $(LIB_DIR)/libwrappers.a
 
 %.o: %.s
 	@echo "  AS      $@"
-	$(Q)$(AS) $(ASFLAGS) -o $@ $<
+	$(Q)$(aarch64-as) $(ASFLAGS) -o $@ $<
 
 $(BUILD_DIR)/%.o: %.s
 	@echo "  AS      $@"
-	$(Q)$(AS) $(ASFLAGS) -o $@ $<
+	$(Q)$(aarch64-as) $(ASFLAGS) -o $@ $<
 
 $(BUILD_DIR)/romlib.ld: romlib.ld.S
 	@echo "  PP      $@"
-	$(Q)$(CPP) $(PPFLAGS) -o $@ romlib.ld.S
+	$(Q)$(aarch64-cpp) $(PPFLAGS) -o $@ romlib.ld.S
 
 $(BUILD_DIR)/romlib.elf: $(OBJS) $(BUILD_DIR)/romlib.ld
 	@echo "  LD      $@"
-	$(Q)$(LD) -T $(BUILD_DIR)/romlib.ld -L$(LIB_DIR) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+	$(Q)$(aarch64-ld) -T $(BUILD_DIR)/romlib.ld -L$(LIB_DIR) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
 
 $(BUILD_DIR)/romlib.bin: $(BUILD_DIR)/romlib.elf
 	@echo "  BIN     $@"
-	$(Q)$(OC) -O binary $(BUILD_DIR)/romlib.elf $@
+	$(Q)$(aarch64-oc) -O binary $(BUILD_DIR)/romlib.elf $@
 
 $(WRAPPER_DIR)/jmpvar.s: $(BUILD_DIR)/romlib.elf
 	@echo "  VAR     $@"
@@ -76,7 +71,7 @@ $(WRAPPER_DIR)/jmpvar.s: $(BUILD_DIR)/romlib.elf
 
 $(LIB_DIR)/libwrappers.a: $(WRAPPER_DIR)/jmpvar.o $(WRAPPER_OBJS)
 	@echo "  AR      $@"
-	$(Q)$(AR) -rc $@ $(WRAPPER_DIR)/jmpvar.o $(WRAPPER_OBJS)
+	$(Q)$(aarch64-ar) -rc $@ $(WRAPPER_DIR)/jmpvar.o $(WRAPPER_OBJS)
 
 $(BUILD_DIR)/jmptbl.i: ../../$(PLAT_DIR)/jmptbl.i
 	@echo "  PRE     $@"
