@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb8f7a83_c0d037db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-12-04T13:30:50Z",
+      "side": 1,
+      "message": "rcar",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 14
+      },
+      "revId": "773543b046e212aef0d880c932cd6facefd10d23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffe81df7_80a7dc70",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-12-04T13:30:50Z",
+      "side": 1,
+      "message": "Ideally, those 2 words should be on next line",
+      "range": {
+        "startLine": 17,
+        "startChar": 72,
+        "endLine": 17,
+        "endChar": 78
+      },
+      "revId": "773543b046e212aef0d880c932cd6facefd10d23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "039272fc_16c3bec2",
@@ -14,6 +60,23 @@
       "writtenOn": "2023-12-03T20:48:19Z",
       "side": 1,
       "message": "Seems the CI failed on some curl issue, lets retry.",
+      "revId": "773543b046e212aef0d880c932cd6facefd10d23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "580cc368_f28adaaa",
+        "filename": "plat/renesas/common/bl2_secure_setting.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-12-04T13:30:50Z",
+      "side": 1,
+      "message": "This change is either useless, or you miss `*/` before and `/*`after",
       "revId": "773543b046e212aef0d880c932cd6facefd10d23",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
