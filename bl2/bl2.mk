@@ -15,9 +15,9 @@ ifeq (${ARCH},aarch64)
 BL2_SOURCES		+=	common/aarch64/early_exceptions.S
 endif
 
-ifneq ($(findstring gcc,$(notdir $(LD))),)
+ifeq ($($(ARCH)-ld-id),gnu-gcc)
         BL2_LDFLAGS	+=	-Wl,--sort-section=alignment
-else ifneq ($(findstring ld,$(notdir $(LD))),)
+else ifneq ($(filter llvm-lld gnu-ld,$($(ARCH)-ld-id)),)
         BL2_LDFLAGS	+=	--sort-section=alignment
 endif
 

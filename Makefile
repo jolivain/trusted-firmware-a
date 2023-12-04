@@ -170,8 +170,8 @@ ifneq ($(arch-features), none)
         $(info Arm Architecture Features specified: $(subst +, ,$(arch-features)))
 endif #(arch-features)
 
-ifneq ($(findstring clang,$(notdir $(CC))),)
-	ifneq ($(findstring armclang,$(notdir $(CC))),)
+ifneq ($(filter %-clang,$($(ARCH)-cc-id)),)
+	ifeq ($($(ARCH)-cc-id),arm-clang)
 		TF_CFLAGS_aarch32	:=	-target arm-arm-none-eabi
 		TF_CFLAGS_aarch64	:=	-target aarch64-arm-none-eabi
 	else
@@ -181,7 +181,7 @@ ifneq ($(findstring clang,$(notdir $(CC))),)
 
 	CPP		+=	$(TF_CFLAGS_$(ARCH))
 	AS		+=	$(TF_CFLAGS_$(ARCH))
-else ifneq ($(findstring gcc,$(notdir $(CC))),)
+else ifeq ($($(ARCH)-cc-id),gnu-gcc)
 	ifeq ($(ENABLE_LTO),1)
 		# Enable LTO only for aarch64
 		ifeq (${ARCH},aarch64)
@@ -286,7 +286,7 @@ else ifeq (${W},3)
 endif #(W)
 
 # Compiler specific warnings
-ifeq ($(findstring clang,$(notdir $(CC))),)
+ifeq ($(filter %-clang,$($(ARCH)-cc-id)),)
 # not using clang
 WARNINGS	+=		-Wunused-but-set-variable -Wmaybe-uninitialized	\
 				-Wpacked-bitfield-compat -Wshift-overflow=2 \
@@ -335,13 +335,13 @@ GCC_V_OUTPUT		:=	$(shell $(CC) -v 2>&1)
 TF_LDFLAGS		+=	-z noexecstack
 
 # LD = armlink
-ifneq ($(findstring armlink,$(notdir $(LD))),)
+ifeq ($($(ARCH)-ld-id),arm-link)
 	TF_LDFLAGS		+=	--diag_error=warning --lto_level=O1
 	TF_LDFLAGS		+=	--remove --info=unused,unusedsymbols
 	TF_LDFLAGS		+=	$(TF_LDFLAGS_$(ARCH))
 
 # LD = gcc (used when GCC LTO is enabled)
-else ifneq ($(findstring gcc,$(notdir $(LD))),)
+else ifeq ($($(ARCH)-ld-id),gnu-gcc)
 	# Pass ld options with Wl or Xlinker switches
 	TF_LDFLAGS		+=	-Wl,--fatal-warnings -O1
 	TF_LDFLAGS		+=	-Wl,--gc-sections
@@ -382,7 +382,7 @@ else
 # therefore don't add those in that case.
 # ld.lld reports section type mismatch warnings,
 # therefore don't add --fatal-warnings to it.
-	ifeq ($(findstring ld.lld,$(notdir $(LD))),)
+	ifneq ($($(ARCH)-ld-id),llvm-lld)
 		TF_LDFLAGS	+=	$(TF_LDFLAGS_$(ARCH)) --fatal-warnings
 	endif
 
@@ -414,7 +414,7 @@ BL_COMMON_SOURCES	+=	common/bl_common.c			\
 				plat/common/${ARCH}/platform_helpers.S	\
 				${COMPILER_RT_SRCS}
 
-ifeq ($(notdir $(CC)),armclang)
+ifeq ($($(ARCH)-cc-id),arm-clang)
 	BL_COMMON_SOURCES	+=	lib/${ARCH}/armclang_printf.S
 endif
 
@@ -595,14 +595,14 @@ include ${MAKE_HELPERS_DIRECTORY}arch_features.mk
 ifeq (${SUPPORT_STACK_MEMTAG},yes)
     ifdef mem_tag_arch_support
         # Check for armclang and clang compilers
-        ifneq ( ,$(filter $(notdir $(CC)),armclang clang))
+        ifneq ($(filter %-clang,$($(ARCH)-cc-id)),)
         # Add "memtag" architecture feature modifier if not specified
             ifeq ( ,$(findstring memtag,$(arch-features)))
                 arch-features	:=	$(arch-features)+memtag
             endif	# memtag
-            ifeq ($(notdir $(CC)),armclang)
+            ifeq ($($(ARCH)-cc-id),arm-clang)
                 TF_CFLAGS	+=	-mmemtag-stack
-            else ifeq ($(notdir $(CC)),clang)
+            else ifeq ($($(ARCH)-cc-id),llvm-clang)
                 TF_CFLAGS	+=	-fsanitize=memtag
             endif	# armclang
         endif
@@ -715,12 +715,12 @@ endif
 PIE_FOUND		:=	$(findstring --enable-default-pie,${GCC_V_OUTPUT})
 ifneq ($(PIE_FOUND),)
 	TF_CFLAGS	+=	-fno-PIE
-ifneq ($(findstring gcc,$(notdir $(LD))),)
+ifeq ($($(ARCH)-ld-id),gnu-gcc)
 	TF_LDFLAGS	+=	-no-pie
 endif
 endif #(PIE_FOUND)
 
-ifneq ($(findstring gcc,$(notdir $(LD))),)
+ifeq ($($(ARCH)-ld-id),gnu-gcc)
 	PIE_LDFLAGS	+=	-Wl,-pie -Wl,--no-dynamic-linker
 else
 	PIE_LDFLAGS	+=	-pie --no-dynamic-linker
@@ -1444,7 +1444,7 @@ ifeq (${DYN_DISABLE_AUTH},1)
         $(eval $(call add_define,DYN_DISABLE_AUTH))
 endif
 
-ifneq ($(findstring armlink,$(notdir $(LD))),)
+ifeq ($($(ARCH)-ld-id),arm-link)
         $(eval $(call add_define,USE_ARM_LINK))
 endif
 
@@ -1476,7 +1476,7 @@ msg_start:
 
 ifeq (${ERROR_DEPRECATED},0)
 # Check if deprecated declarations and cpp warnings should be treated as error or not.
-ifneq ($(findstring clang,$(notdir $(CC))),)
+ifneq ($(filter %-clang,$($(ARCH)-cc-id)),)
     CPPFLAGS		+= 	-Wno-error=deprecated-declarations
 else
     CPPFLAGS		+= 	-Wno-error=deprecated-declarations -Wno-error=cpp
