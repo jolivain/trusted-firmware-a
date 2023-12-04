@@ -16,6 +16,7 @@ MAKE_HELPERS_DIRECTORY := ../../make_helpers/
 include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
 include ${MAKE_HELPERS_DIRECTORY}defaults.mk
+include ${MAKE_HELPERS_DIRECTORY}toolchain-tools.mk
 
 OBJECTS := src/encrypt.o \
            src/cmd_opt.o \
@@ -61,7 +62,7 @@ INC_DIR := -I ./include -I ../../include/tools_share -I ${OPENSSL_DIR}/include
 LIB_DIR := -L ${OPENSSL_DIR}/lib -L ${OPENSSL_DIR}
 LIB := -lssl -lcrypto
 
-HOSTCC ?= gcc
+HOSTCC ?= $(host-cc)
 
 .PHONY: all clean realclean --openssl
 

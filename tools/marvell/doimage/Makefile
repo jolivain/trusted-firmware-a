@@ -4,6 +4,9 @@
 # SPDX-License-Identifier:     BSD-3-Clause
 # https://spdx.org/licenses
 
+MAKE_HELPERS_DIRECTORY := ../../../make_helpers/
+include ${MAKE_HELPERS_DIRECTORY}toolchain-tools.mk
+
 PROJECT = doimage
 OBJECTS = doimage.o
 
@@ -25,7 +28,7 @@ HOSTCCFLAGS += ${DOIMAGE_CC_FLAGS}
 # could get pulled in from firmware tree.
 INCLUDE_PATHS = -I.
 
-HOSTCC ?= gcc
+HOSTCC ?= $(host-cc)
 RM := rm -rf
 
 .PHONY: all clean

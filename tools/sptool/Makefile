@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018-2020, Arm Limited. All rights reserved.
+# Copyright (c) 2018-2024, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -7,6 +7,7 @@
 MAKE_HELPERS_DIRECTORY := ../../make_helpers/
 include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
+include ${MAKE_HELPERS_DIRECTORY}toolchain-tools.mk
 
 SPTOOL  ?= sptool${BIN_EXT}
 PROJECT := $(notdir ${SPTOOL})
@@ -29,7 +30,7 @@ endif
 
 INCLUDE_PATHS := -I../../include/tools_share
 
-HOSTCC ?= gcc
+HOSTCC ?= $(host-cc)
 
 .PHONY: all clean distclean
 
