@@ -91,6 +91,30 @@
       },
       "revId": "3dda9b800f0c5de3dfa24a16ccb0113c19ab2d8e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5d2894d_6376fea4",
+        "filename": "tools/marvell/doimage/doimage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-12-04T15:40:01Z",
+      "side": 1,
+      "message": "\u003e Sorry, I don\u0027t think I fully understand why this is needed.\n\nOk Ignore me, I get it now use of `MBEDTLS_BIGNUM_C` etc would need config,\nyes in that case moving `version.h` should be ok?",
+      "parentUuid": "f78c9c86_72beaba6",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "3dda9b800f0c5de3dfa24a16ccb0113c19ab2d8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
