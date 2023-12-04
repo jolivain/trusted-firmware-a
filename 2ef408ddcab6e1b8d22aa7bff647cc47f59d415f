@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b77a7318_7d64aaa2",
+        "filename": "drivers/renesas/common/io/io_rcar.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-12-04T10:36:59Z",
+      "side": 1,
+      "message": "Should there be a check for an IMAGE n+1 completely in the range of IMAGE n?\n\t\t *  |     IMAGE n     |\n\t\t *     | IMAGE n+1 |",
+      "revId": "2ef408ddcab6e1b8d22aa7bff647cc47f59d415f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
