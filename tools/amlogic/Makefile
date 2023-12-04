@@ -27,7 +27,7 @@ else
   Q :=
 endif
 
-HOSTCC := gcc
+HOSTCC := $(host-cc)
 
 .PHONY: all clean distclean
 

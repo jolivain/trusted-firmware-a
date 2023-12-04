@@ -82,7 +82,7 @@ INC_DIR += -I ./include -I ${PLAT_INCLUDE} -I ${OPENSSL_DIR}/include
 LIB_DIR := -L ${OPENSSL_DIR}/lib -L ${OPENSSL_DIR}
 LIB := -lssl -lcrypto
 
-HOSTCC ?= gcc
+HOSTCC ?= $(host-cc)
 
 .PHONY: all clean realclean --openssl
 

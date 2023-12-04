@@ -28,7 +28,7 @@ HOSTCCFLAGS += ${DOIMAGE_CC_FLAGS}
 # could get pulled in from firmware tree.
 INCLUDE_PATHS = -I.
 
-HOSTCC ?= gcc
+HOSTCC ?= $(host-cc)
 RM := rm -rf
 
 .PHONY: all clean

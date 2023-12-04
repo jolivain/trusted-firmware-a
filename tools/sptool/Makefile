@@ -30,7 +30,7 @@ endif
 
 INCLUDE_PATHS := -I../../include/tools_share
 
-HOSTCC ?= gcc
+HOSTCC ?= $(host-cc)
 
 .PHONY: all clean distclean
 

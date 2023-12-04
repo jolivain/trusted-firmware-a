@@ -59,7 +59,7 @@ else
   Q :=
 endif
 
-HOSTCC ?= gcc
+HOSTCC ?= $(host-cc)
 
 ifneq (${PLAT},)
 TF_PLATFORM_ROOT	:=	../../plat/
