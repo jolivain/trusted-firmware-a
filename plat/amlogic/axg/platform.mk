@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2020, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2020-2023, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -41,9 +41,9 @@ BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S			\
 				${GIC_SOURCES}
 
 # Tune compiler for Cortex-A53
-ifeq ($(notdir $($(ARCH)-cc)),armclang)
+ifeq ($($(ARCH)-cc-id),arm-clang)
     TF_CFLAGS_aarch64	+=	-mcpu=cortex-a53
-else ifneq ($(findstring clang,$(notdir $($(ARCH)-cc))),)
+else ifneq ($(filter %-clang,$($(ARCH)-cc-id)),)
     TF_CFLAGS_aarch64	+=	-mcpu=cortex-a53
 else
     TF_CFLAGS_aarch64	+=	-mtune=cortex-a53
