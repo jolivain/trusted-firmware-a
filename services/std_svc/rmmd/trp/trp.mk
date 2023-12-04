@@ -10,9 +10,9 @@ RMM_SOURCES		+=	services/std_svc/rmmd/trp/trp_entry.S \
 
 RMM_DEFAULT_LINKER_SCRIPT_SOURCE := services/std_svc/rmmd/trp/linker.ld.S
 
-ifneq ($(findstring gcc,$(notdir $(LD))),)
+ifeq ($($(ARCH)-ld-id),gnu-gcc)
         RMM_LDFLAGS	+=	-Wl,--sort-section=alignment
-else ifneq ($(findstring ld,$(notdir $(LD))),)
+else ifneq ($(filter llvm-lld gnu-ld,$($(ARCH)-ld-id)),)
         RMM_LDFLAGS	+=	--sort-section=alignment
 endif
 
