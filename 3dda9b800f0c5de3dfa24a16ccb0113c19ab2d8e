@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd83c505_3095779a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-05T15:43:33Z",
+      "side": 1,
+      "message": "You may need to add proper entry inside ``tools`` title [1] as a subsection. May be ``marvell-tool`` or something similar. and then change this message as ``fix(marvell-tool): ...``\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/changelog.yaml#n1345",
+      "parentUuid": "2173943e_97d37f7f",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 25
+      },
+      "revId": "3dda9b800f0c5de3dfa24a16ccb0113c19ab2d8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b0dcc54_790af610",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "What kind of link should be used?",
       "parentUuid": "1b0dcc54_790af610",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 70
+      },
+      "revId": "3dda9b800f0c5de3dfa24a16ccb0113c19ab2d8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8547de3a_739bcd1f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-05T15:43:33Z",
+      "side": 1,
+      "message": "I mean you can refer the change via link so instead of this ``refactor(mbedtls): avoid including MBEDTLS_CONFIG_FILE`` use https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/18886",
+      "parentUuid": "0e54e236_de71543d",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -268,6 +316,54 @@
       "side": 1,
       "message": "yes agree, sorry missed doimage is standalone tool.",
       "parentUuid": "8148793b_169fe6dc",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "3dda9b800f0c5de3dfa24a16ccb0113c19ab2d8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "101801ae_051be264",
+        "filename": "tools/marvell/doimage/doimage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-05T15:43:33Z",
+      "side": 1,
+      "message": "Okay, fair enough!",
+      "parentUuid": "0e8cb7d0_97a866b8",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "3dda9b800f0c5de3dfa24a16ccb0113c19ab2d8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2bb0aae_196fca20",
+        "filename": "tools/marvell/doimage/doimage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-05T15:43:33Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "727c8da6_0389b4bc",
       "range": {
         "startLine": 21,
         "startChar": 0,
