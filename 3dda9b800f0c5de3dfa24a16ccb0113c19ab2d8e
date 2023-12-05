@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e54e236_de71543d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001167
+      },
+      "writtenOn": "2023-12-05T15:27:37Z",
+      "side": 1,
+      "message": "What kind of link should be used?",
+      "parentUuid": "1b0dcc54_790af610",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 70
+      },
+      "revId": "3dda9b800f0c5de3dfa24a16ccb0113c19ab2d8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "31eaed0a_11698349",
         "filename": "tools/marvell/doimage/doimage.c",
         "patchSetId": 1
@@ -155,6 +179,30 @@
       "side": 1,
       "message": "Yes thanks Manish, Missed that initially, Ack.",
       "parentUuid": "5c839334_84c39592",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "3dda9b800f0c5de3dfa24a16ccb0113c19ab2d8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8148793b_169fe6dc",
+        "filename": "tools/marvell/doimage/doimage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1001167
+      },
+      "writtenOn": "2023-12-05T15:27:37Z",
+      "side": 1,
+      "message": "Use of mbedtls/version.h is fine. And was the intention.\n\nGoing full out mbedtls3 only including host side tools is maybe a little early imho. Many projects uses Ubuntu LTS as their base build platform and Ubuntu have not switched to mbedtls 3 yet, still shipping latest mbedtls 2.x.\n\nBut I agree that requiring mbedtls 3 for the arm-trusted-firmware-a parts do make much sense. But the Marvell doimage tool is a bundled host side tool for signing and encrypting the built firmware, not actually part of arm-trusted-firmware-a as such.\n\nThe mbedtls version status is the same in the current development version of Ubuntu, Debian, Fedora and likely many other Linux distributions as well (did not look at the others), all shipping mbedtls 2.x (2.28).",
+      "parentUuid": "31eaed0a_11698349",
       "range": {
         "startLine": 21,
         "startChar": 0,
