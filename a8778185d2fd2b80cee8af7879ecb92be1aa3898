@@ -16,6 +16,23 @@
       "message": "Tested explicitly: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/56012/",
       "revId": "a8778185d2fd2b80cee8af7879ecb92be1aa3898",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aa0092c_57cd2aa0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-05T14:20:53Z",
+      "side": 1,
+      "message": "Upgrading Vishnu\u0027s CR+1 into a COR+1, since he is the TC platform maintainer [1].\n\n[1] https://trustedfirmware-a.readthedocs.io/en/latest/about/maintainers.html#arm-total-compute-platform-port",
+      "revId": "a8778185d2fd2b80cee8af7879ecb92be1aa3898",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
