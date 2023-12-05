@@ -420,6 +420,30 @@
       },
       "revId": "3dda9b800f0c5de3dfa24a16ccb0113c19ab2d8e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f63337cf_d0faf0e8",
+        "filename": "tools/marvell/doimage/doimage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-12-05T15:51:18Z",
+      "side": 1,
+      "message": "IIUC, irrespective of mbedtls 2 or 3 using version.h should be ok?",
+      "parentUuid": "03f0c690_6d0011e5",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 27
+      },
+      "revId": "3dda9b800f0c5de3dfa24a16ccb0113c19ab2d8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
