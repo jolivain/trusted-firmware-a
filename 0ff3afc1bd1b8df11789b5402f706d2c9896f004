@@ -22,6 +22,30 @@
       },
       "revId": "0ff3afc1bd1b8df11789b5402f706d2c9896f004",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "800f2edf_20bf6ab2",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-12-06T03:11:20Z",
+      "side": 1,
+      "message": "As there is a limitation in U-Boot/Linux SMMU design. This is a work around for our platform at the moment and SDM will eventually do the rest. We have tested both conditions where there is no crash happening in firmware. \n\nCurrently there a Linux update and we have came out a better solution. We have yet to upstream that code.",
+      "parentUuid": "3787e9be_b3af8e5b",
+      "range": {
+        "startLine": 233,
+        "startChar": 30,
+        "endLine": 233,
+        "endChar": 32
+      },
+      "revId": "0ff3afc1bd1b8df11789b5402f706d2c9896f004",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
