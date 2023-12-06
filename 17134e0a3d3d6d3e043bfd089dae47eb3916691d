@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "49d372b0_842af3a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-06T15:55:56Z",
+      "side": 1,
+      "message": "Please change the case of the commit title to fix the commitlint failure reported by the CI on the next patch, like so:\n\n    fix(intel): revert back to use L4 clock",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 39
+      },
+      "revId": "17134e0a3d3d6d3e043bfd089dae47eb3916691d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e9233088_348df1cd",
