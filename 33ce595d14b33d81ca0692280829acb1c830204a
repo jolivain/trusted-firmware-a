@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0490a51b_6892a333",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001167
+      },
+      "writtenOn": "2023-12-06T12:36:45Z",
+      "side": 1,
+      "message": "The CI commit-lint step complained on the heading being too long (\u003e50 char). Not sure how to write it shorter, and don\u0027t see this rule being enforced in other commits. Do this require any action?\n\nAnd if I understand it failed on the capital I? (sentence-cese). Have pushed a new version with all lower case.",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 7,
+        "endChar": 56
+      },
+      "revId": "33ce595d14b33d81ca0692280829acb1c830204a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
