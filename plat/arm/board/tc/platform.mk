@@ -44,6 +44,14 @@ ifeq (${SPD},spmd)
 	CTX_INCLUDE_PAUTH_REGS	:=	1
 endif
 
+# TC RESOLUTION - LIST OF VALID OPTIONS (this impacts only FVP)
+TC_RESOLUTION_OPTIONS		:= 	640x480p60 \
+					1920x1080p60
+# set default to the 640x480p60 resolution mode
+TC_RESOLUTION ?= $(firstword $(TC_RESOLUTION_OPTIONS))
+ifeq ($(filter ${TC_RESOLUTION}, ${TC_RESOLUTION_OPTIONS}),)
+        $(error TC_RESOLUTION must be: ${TC_RESOLUTION_OPTIONS})
+endif
 
 ifneq ($(shell expr $(TARGET_PLATFORM) \<= 1), 0)
         $(warning Platform ${PLAT}$(TARGET_PLATFORM) is deprecated. \
@@ -61,6 +69,7 @@ endif
 $(eval $(call add_defines, \
 	TARGET_PLATFORM \
 	TARGET_FLAVOUR_$(call uppercase,${TARGET_FLAVOUR}) \
+	TC_RESOLUTION_$(call uppercase,${TC_RESOLUTION}) \
 	TC_DPU_USE_SCMI_CLK \
 	TC_SCMI_PD_CTRL_EN \
 	TC_IOMMU_EN \
