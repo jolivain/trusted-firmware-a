@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5892aa9_cc0889d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-12-06T18:12:02Z",
+      "side": 1,
+      "message": "That seems mostly alright. I compared the MMIO base addresses against some RPi-OS .dtsi file, and they match. Please move those register offsets as detailed below.\n\nWhat is the DT/PSCI story? Does their firmware stub now also provide PSCI services, and thus we don\u0027t need to patch the DTB anymore? Also the reserved memory is already covered? Just looked at their .dtsi, but was curious if you know more.",
+      "revId": "07aa88ad36698ac6eb87dbd23371e9014cd041a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4726ef3f_73e4f938",
+        "filename": "plat/rpi/rpi5/include/rpi_hw.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-12-06T18:12:02Z",
+      "side": 1,
+      "message": "So all those MBOX related offsets and the two masks below are exactly identical between the rpi3/4/5 versions of rpi_hw.h, as they are mailbox IP related, and independent of the integration. Can you please move them into include/drivers/rpi3/mailbox/rpi3_mbox.h? (I admittedly should have done this 4 years ago already, but here we go ...)",
+      "revId": "07aa88ad36698ac6eb87dbd23371e9014cd041a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b9cb562_00fa0302",
+        "filename": "plat/rpi/rpi5/include/rpi_hw.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-12-06T18:12:02Z",
+      "side": 1,
+      "message": "Similar here, those RPI3_PM_ constants are the same, please move them to plat/rpi/common/rpi3_pm.c",
+      "revId": "07aa88ad36698ac6eb87dbd23371e9014cd041a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86cf508b_cc14847a",
+        "filename": "plat/rpi/rpi5/include/rpi_hw.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-12-06T18:12:02Z",
+      "side": 1,
+      "message": "Same here, those RPI3_RNG_ constants are the same and belong into drivers/rpi3/rng/rpi3_rng.c.",
+      "revId": "07aa88ad36698ac6eb87dbd23371e9014cd041a8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
