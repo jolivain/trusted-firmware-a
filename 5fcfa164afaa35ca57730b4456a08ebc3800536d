@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e5bb58e_06ebdcfe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-12-06T11:51:50Z",
+      "side": 1,
+      "message": "This looks good in general, just some smaller comments below.",
+      "revId": "5fcfa164afaa35ca57730b4456a08ebc3800536d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e849bad2_89a109c4",
+        "filename": "plat/rpi/common/aarch64/plat_helpers.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-12-06T11:51:50Z",
+      "side": 1,
+      "message": "This has the side effect of shifting the RES1 from bit31 into the Aff2 field, but since we mask Aff0 and Aff1 in plat_rpi3_calc_core_pos(), that works at the moment. Maybe have a comment here to document that?",
+      "revId": "5fcfa164afaa35ca57730b4456a08ebc3800536d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5a14dce_72a59e78",
+        "filename": "plat/rpi/common/rpi3_topology.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-12-06T11:51:50Z",
+      "side": 1,
+      "message": "It looks a bit odd here to explicitly read MPIDR again, since we otherwise use the function argument. Maybe put this block above the masking step above, to keep the MT bit still in?",
+      "revId": "5fcfa164afaa35ca57730b4456a08ebc3800536d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
