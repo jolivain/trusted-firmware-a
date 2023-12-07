@@ -34,6 +34,24 @@
       "parentUuid": "b77a7318_7d64aaa2",
       "revId": "2ef408ddcab6e1b8d22aa7bff647cc47f59d415f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c178cfc_b3fef926",
+        "filename": "drivers/renesas/common/io/io_rcar.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2023-12-07T18:07:14Z",
+      "side": 1,
+      "message": "My bad, I read too quickly. It is OK, as the check is done on either dst or dest+len and not both at the same time.",
+      "parentUuid": "52823ce9_0d68530c",
+      "revId": "2ef408ddcab6e1b8d22aa7bff647cc47f59d415f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
