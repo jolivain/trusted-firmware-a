@@ -86,6 +86,24 @@
       "parentUuid": "c5a14dce_72a59e78",
       "revId": "5fcfa164afaa35ca57730b4456a08ebc3800536d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfcebff1_ae989484",
+        "filename": "plat/rpi/common/rpi3_topology.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-12-07T17:39:13Z",
+      "side": 1,
+      "message": "Well, it can actually be called with or without the MT (or RES1) bit. But that means we indeed cannot deduce the Aff0 meaning from just the input argument, so reading MPIDR is acceptable, I guess, though still somewhat dodgy.",
+      "parentUuid": "46f2d898_136c5cb8",
+      "revId": "5fcfa164afaa35ca57730b4456a08ebc3800536d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
