@@ -16,6 +16,24 @@
       "message": "Should there be a check for an IMAGE n+1 completely in the range of IMAGE n?\n\t\t *  |     IMAGE n     |\n\t\t *     | IMAGE n+1 |",
       "revId": "2ef408ddcab6e1b8d22aa7bff647cc47f59d415f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52823ce9_0d68530c",
+        "filename": "drivers/renesas/common/io/io_rcar.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000121
+      },
+      "writtenOn": "2023-12-07T16:17:27Z",
+      "side": 1,
+      "message": "Wouldn\u0027t such a case trip prior case 1. or 2. already ? I think it would ...",
+      "parentUuid": "b77a7318_7d64aaa2",
+      "revId": "2ef408ddcab6e1b8d22aa7bff647cc47f59d415f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
