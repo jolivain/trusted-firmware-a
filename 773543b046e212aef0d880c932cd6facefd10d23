@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "813ec686_6dac3d3c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000121
+      },
+      "writtenOn": "2023-12-07T16:26:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb8f7a83_c0d037db",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 14
+      },
+      "revId": "773543b046e212aef0d880c932cd6facefd10d23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffe81df7_80a7dc70",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-04T13:30:50Z",
       "side": 1,
       "message": "Ideally, those 2 words should be on next line",
+      "range": {
+        "startLine": 17,
+        "startChar": 72,
+        "endLine": 17,
+        "endChar": 78
+      },
+      "revId": "773543b046e212aef0d880c932cd6facefd10d23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0505569a_f989d18b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000121
+      },
+      "writtenOn": "2023-12-07T16:26:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ffe81df7_80a7dc70",
       "range": {
         "startLine": 17,
         "startChar": 72,
@@ -77,6 +125,24 @@
       "writtenOn": "2023-12-04T13:30:50Z",
       "side": 1,
       "message": "This change is either useless, or you miss `*/` before and `/*`after",
+      "revId": "773543b046e212aef0d880c932cd6facefd10d23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33b0867d_04b97245",
+        "filename": "plat/renesas/common/bl2_secure_setting.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000121
+      },
+      "writtenOn": "2023-12-07T16:26:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "580cc368_f28adaaa",
       "revId": "773543b046e212aef0d880c932cd6facefd10d23",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
