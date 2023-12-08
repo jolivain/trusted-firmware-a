@@ -16,6 +16,23 @@
       "message": "There are few comments\n1. The memory for per-core will be same so no need for a table to print memory for individual cores, print one core memory and multiply by number of cores.\n2. Each world will have same ctx memory so no need for individual table for them.\n3. The other  includes  FP PAUTH and other regs right?",
       "revId": "7f67ff81186f2d510467ee7fb3ccd821d80c6015",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8d0c469_99874b19",
+        "filename": "Makefile",
+        "patchSetId": 4
+      },
+      "lineNbr": 1431,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-08T12:58:54Z",
+      "side": 1,
+      "message": "General comments about the usage of the flag:\nI believe this feature of reporting context_memory usage is for the benefit of developers during debug sessions and need not be part of release builds. \nSo, could we add a check in the main Makefile, to ensure that this flag is set only for debug builds.\nLet me know your thoughts here.\n\nIf its needed for release builds as well, please do explain in detail for understanding it better.\n\nAlso, I presume this flag to be boolean flag.\nSo add it under the boolean flags list as well.",
+      "revId": "7f67ff81186f2d510467ee7fb3ccd821d80c6015",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
