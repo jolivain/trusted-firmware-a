@@ -729,6 +729,10 @@
 #define DAIF_IRQ_BIT		(U(1) << 1)
 #define DAIF_ABT_BIT		(U(1) << 2)
 #define DAIF_DBG_BIT		(U(1) << 3)
+#define SPSR_V_BIT		(U(1) << 28)
+#define SPSR_C_BIT		(U(1) << 29)
+#define SPSR_Z_BIT		(U(1) << 30)
+#define SPSR_N_BIT		(U(1) << 31)
 #define SPSR_DAIF_SHIFT		U(6)
 #define SPSR_DAIF_MASK		U(0xf)
 
@@ -749,11 +753,14 @@
 #define SPSR_M_MASK		U(0x1)
 #define SPSR_M_AARCH64		U(0x0)
 #define SPSR_M_AARCH32		U(0x1)
+#define SPSR_M_EL1H		U(0x5)
 #define SPSR_M_EL2H		U(0x9)
 
 #define SPSR_EL_SHIFT		U(2)
 #define SPSR_EL_WIDTH		U(2)
 
+#define SPSR_BTYPE_SHIFT_AARCH64 U(10)
+#define SPSR_BTYPE_MASK_AARCH64	 U(3)
 #define SPSR_SSBS_SHIFT_AARCH64 U(12)
 #define SPSR_SSBS_BIT_AARCH64	(ULL(1) << SPSR_SSBS_SHIFT_AARCH64)
 #define SPSR_SSBS_SHIFT_AARCH32 U(23)
@@ -764,6 +771,8 @@
 #define SPSR_DIT_BIT		BIT(24)
 
 #define SPSR_TCO_BIT_AARCH64	BIT_64(25)
+
+#define SPSR_NZCV		SPSR_V_BIT | SPSR_C_BIT | SPSR_Z_BIT | SPSR_N_BIT
 
 #define DISABLE_ALL_EXCEPTIONS \
 		(DAIF_FIQ_BIT | DAIF_IRQ_BIT | DAIF_ABT_BIT | DAIF_DBG_BIT)
@@ -945,6 +954,7 @@
 #define ESR_EC_LENGTH			U(6)
 #define ESR_ISS_SHIFT			U(0)
 #define ESR_ISS_LENGTH			U(25)
+#define ESR_IL_BIT			(U(1) << 20)
 #define EC_UNKNOWN			U(0x0)
 #define EC_WFE_WFI			U(0x1)
 #define EC_AARCH32_CP15_MRC_MCR		U(0x3)
