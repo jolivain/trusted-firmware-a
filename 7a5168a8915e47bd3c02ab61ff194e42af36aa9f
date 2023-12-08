@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83e59ca5_5efb39fb",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-08T10:30:21Z",
+      "side": 1,
+      "message": "CTX_EL3STATE_END U(0x48) ?\nas CTX_NESTED_EA_FLAG already reads U(0x40)",
+      "revId": "7a5168a8915e47bd3c02ab61ff194e42af36aa9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ec0e6ea_55c75771",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-08T10:30:21Z",
+      "side": 1,
+      "message": "nit: end with gurarding macro comment for better reading.\n#endif /*FFH_SUPPORT*/",
+      "revId": "7a5168a8915e47bd3c02ab61ff194e42af36aa9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
