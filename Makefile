@@ -362,6 +362,7 @@ else ifneq ($(findstring gcc,$(notdir $(LD))),)
 	TF_LDFLAGS		+=	-Wl,-z,common-page-size=4096 #Configure page size constants
 	TF_LDFLAGS		+=	-Wl,-z,max-page-size=4096
 	TF_LDFLAGS		+=	-Wl,--build-id=none
+	TF_LDFLAGS              +=      $(call ld_option, -Wl$(comma)--no-warn-rwx-segments)
 
 	ifeq ($(ENABLE_LTO),1)
 		ifeq (${ARCH},aarch64)
