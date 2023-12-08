@@ -374,3 +374,7 @@ ENABLE_CONSOLE_GETC		:= 0
 # functions must be enabled by platforms if they require it.
 # Disabled by default.
 INIT_UNUSED_NS_EL2		:= 0
+
+# Build option to enable UNDEF exception injection to lower EL.
+# Disabled by default.
+UNDEF_INJECTION_SUPPORT		:= 0
