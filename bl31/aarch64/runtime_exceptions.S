@@ -476,19 +476,30 @@ sysreg_handler64:
 	bl	handle_sysreg_trap
 	/*
 	 * returns:
-	 *   -1: unhandled trap, panic
+	 *   -1: unhandled trap, panic or UNDEF injection into lower
 	 *    0: handled trap, return to the trapping instruction (repeating it)
 	 *    1: handled trap, return to the next instruction
 	 */
 
 	tst	w0, w0
-	b.mi	elx_panic	/* negative return value: panic */
+	b.mi	2f
 	b.eq	1f		/* zero: do not change ELR_EL3 */
 
 	/* advance the PC to continue after the instruction */
 	ldr	x1, [x19, #CTX_EL3STATE_OFFSET + CTX_ELR_EL3]
 	add	x1, x1, #4
 	str	x1, [x19, #CTX_EL3STATE_OFFSET + CTX_ELR_EL3]
+2:
+#if UNDEF_INJECTION_SUPPORT
+	mrs	x0, spsr_el3
+	/* UNDEF injection not supported for AArch32 */
+	tst	x0, #(SPSR_M_MASK << SPSR_M_SHIFT)
+	b.ne	elx_panic
+	mov	x0, x19
+	bl	inject_undef64
+#else
+	b	elx_panic
+#endif
 1:
 	b	el3_exit
 
