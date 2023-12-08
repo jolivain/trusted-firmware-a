@@ -945,6 +945,7 @@
 #define ESR_EC_LENGTH			U(6)
 #define ESR_ISS_SHIFT			U(0)
 #define ESR_ISS_LENGTH			U(25)
+#define ESR_IL_BIT			(U(1) << 20)
 #define EC_UNKNOWN			U(0x0)
 #define EC_WFE_WFI			U(0x1)
 #define EC_AARCH32_CP15_MRC_MCR		U(0x3)

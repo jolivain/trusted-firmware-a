@@ -7,8 +7,10 @@
  * Dispatch synchronous system register traps from lower ELs.
  */
 
+#include <arch_helpers.h>
 #include <bl31/sync_handle.h>
 #include <context.h>
+#include <lib/el3_runtime/context_mgmt.h>
 
 int handle_sysreg_trap(uint64_t esr_el3, cpu_context_t *ctx)
 {
@@ -27,4 +29,30 @@ int handle_sysreg_trap(uint64_t esr_el3, cpu_context_t *ctx)
 #endif
 
 	return TRAP_RET_UNHANDLED;
+}
+
+void inject_undef64(cpu_context_t *ctx)
+{
+	u_register_t spsr_el3 = read_spsr_el3();
+	unsigned int level = (unsigned int)GET_EL(spsr_el3);
+	u_register_t esr = (EC_UNKNOWN << ESR_EC_SHIFT) | ESR_IL_BIT;
+	el3_state_t *state = get_el3state_ctx(ctx);
+	u_register_t elr_el3;
+
+	spsr_el3 |= SPSR_DAIF_MASK << SPSR_DAIF_SHIFT;
+
+	if (level == MODE_EL2) {
+		elr_el3 = read_vbar_el2() + 0x200; /* Sync exception address */
+		write_esr_el2(esr);
+		write_elr_el2(read_elr_el3());
+
+	} else {
+		elr_el3 = read_vbar_el1() + 0x200; /* Sync exception address */
+		write_esr_el1(esr);
+		write_elr_el1(read_elr_el3());
+	}
+
+	write_ctx_reg(state, CTX_SPSR_EL3, spsr_el3);
+	write_ctx_reg(state, CTX_ELR_EL3, elr_el3);
+	return;
 }
