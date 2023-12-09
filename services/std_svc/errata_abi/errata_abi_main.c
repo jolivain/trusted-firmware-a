@@ -410,6 +410,15 @@ struct em_cpu_list cpu_list[] = {
 },
 #endif /* CORTEX_A510_H_INC */
 
+#if CORTEX_A520_H_INC
+{
+       .cpu_partnumber = CORTEX_A520_MIDR,
+       .cpu_errata_list = {
+               [0 ... ERRATA_LIST_END] = UNDEF_ERRATA,
+       }
+},
+#endif /* CORTEX_A520_H_INC */
+
 #if NEOVERSE_V2_H_INC
 {
 	.cpu_partnumber = NEOVERSE_V2_MIDR,
