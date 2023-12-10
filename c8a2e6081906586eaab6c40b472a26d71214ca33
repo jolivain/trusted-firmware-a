@@ -181,6 +181,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f858fdc8_812a338e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-12-10T12:13:45Z",
+      "side": 1,
+      "message": "Because LTO patches are merged, I\u0027ve enabled LTO for sunxi_a64 platform, so it\u0027s working regardless of DEBUG value.",
+      "parentUuid": "6dee4daa_d520d48e",
+      "revId": "c8a2e6081906586eaab6c40b472a26d71214ca33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "262ec09c_c4ce4ed5",
         "filename": "plat/allwinner/common/allwinner-common.mk",
         "patchSetId": 3
