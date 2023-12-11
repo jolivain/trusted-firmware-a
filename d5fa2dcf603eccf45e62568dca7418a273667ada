@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e736bfd2_d4b766bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-12-11T17:40:59Z",
+      "side": 1,
+      "message": "Andrey, many thanks for pushing for the LTO patches, and for coming back to this patch!\nIt should be noted that the LTO trick is not enough for every compiler: on Ubuntu 20.04\u0027s GCC 9.4 it still overflows by 216 bytes. But it seems to work with Debian\u0027s 12.2.0. I had no luck with any of the non-libc compilers from kernel.org, though.\n\nAnd it\u0027s a shame that we cannot enable LTO in the platform.mk. @Jayanth, how hard would this be to change?",
+      "revId": "d5fa2dcf603eccf45e62568dca7418a273667ada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ad099e0_273f3b53",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-12-11T17:40:59Z",
+      "side": 1,
+      "message": "It looks like this indeed needs to go here, I had no luck with putting this in A64\u0027s platform.mk.\nCan you please add a comment here that we need LTO on this platform due to memory constraints? Otherwise it might puzzle people as to why this is here.\n\nIdeally we could try to move the default definition, so that it can be overridden in platform Makefiles?",
+      "revId": "d5fa2dcf603eccf45e62568dca7418a273667ada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
