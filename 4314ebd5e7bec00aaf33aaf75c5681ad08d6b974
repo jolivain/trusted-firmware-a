@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "421d1711_2d1214c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-12-11T00:01:39Z",
+      "side": 1,
+      "message": "See static check failures related to fixing tabs:\nhttps://ci.trustedfirmware.org/job/tf-a-static-checks/7270/",
+      "revId": "4314ebd5e7bec00aaf33aaf75c5681ad08d6b974",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d460b5f_b2ab6916",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-12-11T00:01:39Z",
+      "side": 1,
+      "message": "fix tabs",
+      "range": {
+        "startLine": 1491,
+        "startChar": 0,
+        "endLine": 1495,
+        "endChar": 9
+      },
+      "revId": "4314ebd5e7bec00aaf33aaf75c5681ad08d6b974",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b89c3228_06819e6f",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2023-12-11T00:01:39Z",
+      "side": 1,
+      "message": "fix tabs",
+      "range": {
+        "startLine": 1286,
+        "startChar": 0,
+        "endLine": 1286,
+        "endChar": 16
+      },
+      "revId": "4314ebd5e7bec00aaf33aaf75c5681ad08d6b974",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
