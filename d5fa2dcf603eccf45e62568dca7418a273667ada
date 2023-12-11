@@ -51,6 +51,24 @@
       "message": "It looks like this indeed needs to go here, I had no luck with putting this in A64\u0027s platform.mk.\nCan you please add a comment here that we need LTO on this platform due to memory constraints? Otherwise it might puzzle people as to why this is here.\n\nIdeally we could try to move the default definition, so that it can be overridden in platform Makefiles?",
       "revId": "d5fa2dcf603eccf45e62568dca7418a273667ada",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6100ac45_a826a223",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2023-12-11T20:21:01Z",
+      "side": 1,
+      "message": "Added comment about memory constraints.\n\nAbout moving default definition, I\u0027ve looked quickly and some platform.mk files use $(LD) to select proper linker flags and LD definition is based on ENABLE_LTO. And comment in main Makefile states, that platform.mk could use any previous definitions.",
+      "parentUuid": "1ad099e0_273f3b53",
+      "revId": "d5fa2dcf603eccf45e62568dca7418a273667ada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
