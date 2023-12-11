@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd7e5d2e_9ed3f2f7",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2023-12-11T17:35:35Z",
+      "side": 1,
+      "message": "I\u0027m confused by this wording, does this mean FEAT_CSV2_2 is implemented and FEAT_CSV2_3 not supported? Is that different then below 0b0010 by FEAT_CSV2_3 being supported but not implemented?",
+      "range": {
+        "startLine": 200,
+        "startChar": 46,
+        "endLine": 200,
+        "endChar": 85
+      },
+      "revId": "1162a9eff2662ce288aebab2052b7401add4e0fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
