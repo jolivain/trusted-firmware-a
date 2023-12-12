@@ -103,6 +103,24 @@
       "parentUuid": "b16e244c_7a7bd084",
       "revId": "484c40add3b423001bad429f8addff49cb2acadf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a9e3fc5_ea2cc9d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-12T14:37:13Z",
+      "side": 1,
+      "message": "\u003e  The FVP_TC2 model has been deployed on the CI.\n\u003e  There is a draft patch for scripts changes [1].\n\u003e  There is a companion draft patch for remapping some of the console outputs in TF-A [2].\nUploading updated RSS binaries to TF-A OpenCI will be the next task (not started).\n\nYes, these patches are currently in progress. It\u0027s worth noting that there are additional changes remaining from the CI perspective to ensure the smooth operation of the 11.23/17 FVP_TC2 model in the Open-CI environment. I\u0027m in discussions with all stakeholders to address this. Directly merging this patch is not advisable as it will break TF-A CI. Let me put my -1 vote on this patch to avoid accidental merge.",
+      "parentUuid": "073fb4d3_d1e33015",
+      "revId": "484c40add3b423001bad429f8addff49cb2acadf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
