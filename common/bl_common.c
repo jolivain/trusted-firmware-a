@@ -131,8 +131,14 @@ static int load_image(unsigned int image_id, image_info_t *image_data)
 	/* We have enough space so load the image now */
 	/* TODO: Consider whether to try to recover/retry a partially successful read */
 	io_result = io_read(image_handle, image_base, image_size, &bytes_read);
-	if ((io_result != 0) || (bytes_read < image_size)) {
+	if (io_result != 0) {
 		WARN("Failed to load image id=%u (%i)\n", image_id, io_result);
+		goto exit;
+	}
+
+	if (bytes_read < image_size) {
+		WARN("Image id=%u read too short (%i)\n", image_id, io_result);
+		io_result = -EIO;
 		goto exit;
 	}
 
