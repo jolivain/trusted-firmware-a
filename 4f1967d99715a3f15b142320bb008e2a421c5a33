@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "294ed3f8_b0ec1838",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-12-13T21:24:25Z",
+      "side": 1,
+      "message": "I would remove this and keep it consistent with the rest. For ones NOT affecting all configurations, we could take care in the documentation or around the mitigation as it will only be applied conditionally.",
+      "range": {
+        "startLine": 779,
+        "startChar": 2,
+        "endLine": 779,
+        "endChar": 30
+      },
+      "revId": "4f1967d99715a3f15b142320bb008e2a421c5a33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b009c14_a644c801",
         "filename": "lib/cpus/aarch64/cortex_x3.S",
         "patchSetId": 1
