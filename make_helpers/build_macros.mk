@@ -4,16 +4,13 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
+include $(dir $(lastword $(MAKEFILE_LIST)))utilities.mk
+
 # Report an error if the eval make function is not available.
 $(eval eval_available := T)
 ifneq (${eval_available},T)
     $(error This makefile only works with a Make program that supports $$(eval))
 endif
-
-# Some utility macros for manipulating awkward (whitespace) characters.
-blank			:=
-space			:=${blank} ${blank}
-comma			:= ,
 
 # A user defined function to recursively search for a filename below a directory
 #    $1 is the directory root of the recursive search (blank for current directory).
