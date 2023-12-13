@@ -50,6 +50,24 @@
       "message": "I don\u0027t think we need to update any binaries for this, as it does not change any behavior.",
       "revId": "dfb94196fb58abce6ebdee1a39c043590d719e2a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe8b5aeb_3bc6ce1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T07:11:15Z",
+      "side": 1,
+      "message": "Well with this patch, all \u0027type\u0027 values in the range [INT16_MIN, 0] will now be rejected, when they would previously have been accepted. This looks like a behavioral change to me.",
+      "parentUuid": "fb6f55ad_a5280fe3",
+      "revId": "dfb94196fb58abce6ebdee1a39c043590d719e2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
