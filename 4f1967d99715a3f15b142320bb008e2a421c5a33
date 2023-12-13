@@ -16,6 +16,24 @@
       "message": "@Harrison I have a small doubt, should we be passing the GET_CPU_REV parameter as well here since we have it as a condition to check the get_cpu_rev_var function?. If x0 still holds the cpu_rev_var value, then we might not need to pass the GET_CPU_REV.",
       "revId": "4f1967d99715a3f15b142320bb008e2a421c5a33",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52487203_de8834de",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-12-13T12:26:00Z",
+      "side": 1,
+      "message": "I thought so as well initially but when testing I found that this might not work if the previous errata isn\u0027t enabled since the call to get_rev_var is conditionally compiled. Can we guarantee that the two errata will always be enabled together?",
+      "parentUuid": "1b009c14_a644c801",
+      "revId": "4f1967d99715a3f15b142320bb008e2a421c5a33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
