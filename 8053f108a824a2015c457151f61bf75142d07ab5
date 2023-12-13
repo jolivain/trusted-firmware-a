@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2f92807_88b538b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T08:45:28Z",
+      "side": 1,
+      "message": "Suggest something a bit more descriptive, such as:\n\n```\nrefactor(sgi): adapt to recent SDS driver changes\n  \nThe SDS driver now requires us to explicitly pass the SDS region id to act on.\nFor the Arm SGI platform, this is always the SCP/AP SDS region.\n```",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "8053f108a824a2015c457151f61bf75142d07ab5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "37935f05_e75eed0a",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -121,6 +144,23 @@
       "side": 1,
       "message": "JFYI, in TF-A, it\u0027s not a common practice to combine platform changes and common changes to facilitate a smooth \u0027git bisect\u0027. so I\u0027m fine either-ways. \nLet\u0027s see comments from other reviewers on this.",
       "parentUuid": "72d9c64e_501b85dd",
+      "revId": "8053f108a824a2015c457151f61bf75142d07ab5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1afafc4e_19d3cfd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T08:45:28Z",
+      "side": 1,
+      "message": "The code looks good to me, just need a better commit message.",
       "revId": "8053f108a824a2015c457151f61bf75142d07ab5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
