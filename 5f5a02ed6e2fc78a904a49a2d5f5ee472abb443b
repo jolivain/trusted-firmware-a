@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53771c33_df9f1cb2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T09:09:07Z",
+      "side": 1,
+      "message": "(minor) \"update SDS driver *calls*\" might be a better fit. The API changes per se were introduced by patch [1] and the present patch just aligns with that.\n\n[1] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/24609",
+      "range": {
+        "startLine": 7,
+        "startChar": 34,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "5f5a02ed6e2fc78a904a49a2d5f5ee472abb443b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4d6d702e_77f08625",
         "filename": "plat/arm/board/juno/juno_bl1_setup.c",
         "patchSetId": 3
