@@ -116,6 +116,75 @@
       },
       "revId": "9b875a0ce86aac7aeeea427521fa52b73246fb62",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "218fbe81_0709df46",
+        "filename": "drivers/arm/css/sds/sds.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T08:35:29Z",
+      "side": 1,
+      "message": "As `PLAT_ARM_SDS_MEM_BASE`/`PLAT_ARM_SDS_MEM_BASE_2` are platform-specific addresses, and SDS regions indexes are platform-specific values too IMO, I wonder whether we should let platform code define this structure...\n\nWe could introduce the following platform interface to retrieve the list of SDS regions from the SDS driver:\n\n```\nstruct sds_region *plat_sds_get_regions(void);\n```\n\nIf we also need the number of regions defined by the platform (and we probably do) then I guess we\u0027ve got 2 options:\n\n* Option 1: Add an output parameter to the above interface:\n```\nstruct sds_region *plat_sds_get_regions(size_t *count);\n```\n\n* Option 2: Introduce a separate platform interface:\n```\nstruct size_t plat_sds_get_regions_count(void);\n```\n\nI don\u0027t have a strong preference for either option. I guess it will depend on the usage pattern in the SDS driver - whether we often need the `count` value along or whether it forces us to define temporary local variable just for the sake of passing a valid address to this interface.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 2
+      },
+      "revId": "9b875a0ce86aac7aeeea427521fa52b73246fb62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02db4a6e_b4736080",
+        "filename": "drivers/arm/css/sds/sds.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T08:35:29Z",
+      "side": 1,
+      "message": "This is the only place where I\u0027ve spotted such an assertion but I feel it\u0027s needed in all other public functions exported by this driver: `sds_struct_exists()`, `sds_struct_read()` and `sds_struct_write()`. Could you please add it there as well?\n\nBTW, there is the question of how do we check the validity of this id... Using an assertion or an \u0027if\u0027 test? Assertions are fine if the region id is always coming from platform code, which I think is the case right now. Can you please confirm?",
+      "range": {
+        "startLine": 256,
+        "startChar": 1,
+        "endLine": 256,
+        "endChar": 36
+      },
+      "revId": "9b875a0ce86aac7aeeea427521fa52b73246fb62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83a995df_28c29221",
+        "filename": "include/drivers/arm/css/sds.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T08:35:29Z",
+      "side": 1,
+      "message": "These macros look misplaced to me. I think we should let platforms define them instead.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 31
+      },
+      "revId": "9b875a0ce86aac7aeeea427521fa52b73246fb62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
