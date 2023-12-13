@@ -16,6 +16,42 @@
       "message": "I believe this file isn\u0027t the appropriate place to house these Measure-Boot-related definitions. These definitions are commonly used across platforms unconditionally. These newly added definitions are only necessary during \u0027MEASURED_BOOT\u0027 support.\n\nI understand the intention behind relocating it from the specific Event Log header. However, in my opinion, we should move these to a header consumed specifically by the Measured-Boot implementation. Please let me know what do you think?",
       "revId": "356b93a5e34fc871f07febeb73670f8c0aa1e145",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6da964b3_79350977",
+        "filename": "include/export/common/tbbr/tbbr_img_def_exp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T09:36:46Z",
+      "side": 1,
+      "message": "I fully agree with Manish.\n\nOn top of the reasons Manish already stated, all headers under `include/export/` are export headers that are intended for inclusion in third-party code which needs to interact with TF-A data structures or interfaces (see `include/export/README`), which is not the case for measured boot definitions AFAIK - so definitely not the right location for these macro definitions...\n\n\u003e we should move these to a header consumed specifically by the Measured-Boot implementation.\n\nHow about `include/drivers/measured_boot/metadata.h` for example? or `include/drivers/measured_boot/measurements_strings.h`?",
+      "parentUuid": "050931eb_036a7659",
+      "revId": "356b93a5e34fc871f07febeb73670f8c0aa1e145",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a093fb33_bf4cc4a9",
+        "filename": "include/export/common/tbbr/tbbr_img_def_exp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T09:36:46Z",
+      "side": 1,
+      "message": "Comment removed by: Sandrine Bailleux; Reason: Duplicate.",
+      "parentUuid": "050931eb_036a7659",
+      "revId": "356b93a5e34fc871f07febeb73670f8c0aa1e145",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
