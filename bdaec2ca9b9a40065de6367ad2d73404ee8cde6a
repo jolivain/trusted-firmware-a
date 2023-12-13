@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b604bce3_33075e4e",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T13:39:21Z",
+      "side": 1,
+      "message": "This comment sounds pointless to me, as I don\u0027t see anything relying on MHU communication in the rest of the function... Should we remove it?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 4
+      },
+      "revId": "bdaec2ca9b9a40065de6367ad2d73404ee8cde6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb126356_2d13796c",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T13:39:21Z",
+      "side": 1,
+      "message": "(minor) Extraneous space character.",
+      "range": {
+        "startLine": 104,
+        "startChar": 6,
+        "endLine": 104,
+        "endChar": 7
+      },
+      "revId": "bdaec2ca9b9a40065de6367ad2d73404ee8cde6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e782485b_f39bf7c4",
         "filename": "drivers/measured_boot/rss/dice_prot_env.c",
         "patchSetId": 3
@@ -19,6 +65,115 @@
         "startChar": 5,
         "endLine": 108,
         "endChar": 16
+      },
+      "revId": "bdaec2ca9b9a40065de6367ad2d73404ee8cde6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49e14a10_f7099506",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T13:39:21Z",
+      "side": 1,
+      "message": "(minor) I guess the way to hand over the handle to child components is platform specific and thus this comment should not make any mention of DTB or any other sharing mechanism.",
+      "range": {
+        "startLine": 114,
+        "startChar": 31,
+        "endLine": 114,
+        "endChar": 37
+      },
+      "revId": "bdaec2ca9b9a40065de6367ad2d73404ee8cde6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00d33048_aaf64048",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T13:39:21Z",
+      "side": 1,
+      "message": "Would it be worth printing the value of `ret` in this error message?",
+      "range": {
+        "startLine": 122,
+        "startChar": 2,
+        "endLine": 122,
+        "endChar": 37
+      },
+      "revId": "bdaec2ca9b9a40065de6367ad2d73404ee8cde6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cfa9b87_00c1f377",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T13:39:21Z",
+      "side": 1,
+      "message": "(minor) `dpe_measure_and_record()` is supposed to return an int, not a `dpe_error_t` so we should translate the return value of `dpe_derive_child()` into a generic error code. Currently this assumes that `DPE_NO_ERROR` \u003d\u003d 0, which is the case but does not sound right to me.\n\nSuggest:\n\n```\nreturn (ret \u003d\u003d DPE_NO_ERROR) ? 0 : -1;\n```\n\nor whatever negative value feels appropriate.",
+      "range": {
+        "startLine": 125,
+        "startChar": 1,
+        "endLine": 125,
+        "endChar": 12
+      },
+      "revId": "bdaec2ca9b9a40065de6367ad2d73404ee8cde6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d1a3802_394b9548",
+        "filename": "include/drivers/measured_boot/rss/dice_prot_env.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T13:39:21Z",
+      "side": 1,
+      "message": "Could you please add some comments to document these interfaces? At least I\u0027d like to see documentation for the return value of `dpe_measure_and_record()`.",
+      "revId": "bdaec2ca9b9a40065de6367ad2d73404ee8cde6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "313c14d6_665b9420",
+        "filename": "include/drivers/measured_boot/rss/dice_prot_env.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-13T13:39:21Z",
+      "side": 1,
+      "message": "For the RSS driver, there was an effort to make it standalone such that it does not need to call into the platform layer. Please refer to commit 36bcf10c23.\n\nPlease could we align the DPE driver to follow the same approach? This would require `dpe_init()` and other interfaces below to receive the pointer to the `struct dpe_metadata` to act on.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 24
       },
       "revId": "bdaec2ca9b9a40065de6367ad2d73404ee8cde6a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
