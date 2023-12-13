@@ -52,6 +52,24 @@
       "parentUuid": "52487203_de8834de",
       "revId": "4f1967d99715a3f15b142320bb008e2a421c5a33",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c46b8477_8618857a",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-12-13T18:18:37Z",
+      "side": 1,
+      "message": "Good point, but we don\u0027t know the combination of errata enabled in each platform, so I would keep each errata implementation independently working on it\u0027s own. What if, there is a new errata ID that comes before(in terms of the number) and someone unaware of this optimization might insert the new errata mitigation between the two.",
+      "parentUuid": "c9bc598c_45b6b9ef",
+      "revId": "4f1967d99715a3f15b142320bb008e2a421c5a33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
