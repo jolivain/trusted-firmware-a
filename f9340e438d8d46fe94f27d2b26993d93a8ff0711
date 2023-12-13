@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66b40d45_66bf2ecf",
+        "filename": "Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-13T16:57:16Z",
+      "side": 1,
+      "message": "Two possible options:\n\n1. We could use warning instead of Error. Let\u0027s not harden it.\n\n\n2. We could override the flag value along with the warning message.\ni.e: \nifeq (${PLATFORM_REPORT_CTX_MEM_USE}, 1)\nifeq (${DEBUG}, 0)\n\t$(warning \"PLATFORM_REPORT_CTX_MEM_USE can be applied when DEBUG\u003d1 only\")\n\toverride PLATFORM_REPORT_CTX_MEM_USE\t:\u003d 0\nendif\nendif\n\n\nThis could fix the CI issues. Let me know your thoughts.",
+      "revId": "f9340e438d8d46fe94f27d2b26993d93a8ff0711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
