@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e07b694_895c6898",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-14T08:57:55Z",
+      "side": 1,
+      "message": "AFAICS, failures reported by the CI are all due to some infrastructure issues under discussion here: https://linaro.atlassian.net/browse/TFC-558\n\nIOW there are false failures. One of the rcar3 build tests (`tf-l1-build-plat/rcar-m3n-ulcb-opteed:nil`) failed for this reason so I\u0027ve retriggered just that config to be on the safe side:\n\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/56752/\n\nLet\u0027s wait for the result and if it passes then I\u0027ll override the VR score.",
+      "revId": "4f7e0fa38fdb6a25b07afafff492985bcc4e63a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
