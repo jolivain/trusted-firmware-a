@@ -228,3 +228,46 @@ sequence0 = $(strip $(if $(call eq,$(lastword $(2)),$(1)),$(2), \
 #
 
 sequence1 = $(filter-out 0,$(call sequence0,$(1)))
+
+#
+# Increment an integer value by one.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the value to increment
+#
+# Example usage:
+#
+#     $(call increment,0) # 1
+#     $(call increment,1) # 2
+#     $(call increment,3) # 4
+#     $(call increment,5) # 6
+#
+# This function uses recursive sequence generation to emulate arithmetic
+# operations, and is therefore not suitable for operations on large values.
+#
+
+increment = $(words $(call sequence0,$(1)))
+
+#
+# Decrement an integer value by one.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the value to decrement
+#
+# Example usage:
+#
+#     $(call decrement,0) # <nothing>
+#     $(call decrement,1) # 0
+#     $(call decrement,3) # 2
+#     $(call decrement,5) # 4
+#
+# Note that a negative result yields no value.
+#
+# This function uses recursive sequence generation to emulate arithmetic
+# operations, and is therefore not suitable for operations on large values.
+#
+
+decrement = $(strip $(if $(call ne,$(1),0), \
+        $(call nth,$(call sequence0,$(1)),$(1))))
