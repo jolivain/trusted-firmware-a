@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acead21e_5a0ef636",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 779,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-12-14T17:06:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "294ed3f8_b0ec1838",
+      "range": {
+        "startLine": 779,
+        "startChar": 2,
+        "endLine": 779,
+        "endChar": 30
+      },
+      "revId": "4f1967d99715a3f15b142320bb008e2a421c5a33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b009c14_a644c801",
@@ -91,6 +115,24 @@
       "side": 1,
       "message": "Good point, but we don\u0027t know the combination of errata enabled in each platform, so I would keep each errata implementation independently working on it\u0027s own. What if, there is a new errata ID that comes before(in terms of the number) and someone unaware of this optimization might insert the new errata mitigation between the two.",
       "parentUuid": "c9bc598c_45b6b9ef",
+      "revId": "4f1967d99715a3f15b142320bb008e2a421c5a33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e616b0b8_79bf4879",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-12-14T17:06:31Z",
+      "side": 1,
+      "message": "Yes that\u0027s a valid point. I added this optimization originally but did not really consider this scenario. I think the original approach where we called get_cpu_rev_var outside the errata was probably optimal. Outside of making optimizations to the compiler i\u0027m not sure what the best way to avoid the call when we already have the result.",
+      "parentUuid": "c46b8477_8618857a",
       "revId": "4f1967d99715a3f15b142320bb008e2a421c5a33",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
