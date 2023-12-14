@@ -73,3 +73,62 @@ lower-case = $(shell echo $(call escape-shell,$(1)) | tr '[:upper:]' '[:lower:]'
 #
 
 bool = $(filter-out 0 n no f false,$(call lower-case,$(1)))
+
+#
+# Filter defined variables from a list of variable names.
+#
+# Parameters:
+#
+#   - $(1): list of variable names to filter
+#
+# Returns the input list, but with all undefined variables removed.
+#
+# Example usage:
+#
+#     VAR1 := hello
+#     VAR3 := world
+#
+#     $(call filter-defined,VAR1 VAR2 VAR3) # "VAR1 VAR3"
+#
+
+filter-defined = $(strip $(foreach v,$(1), \
+	$(if $(filter-out undefined,$(origin $(v))),$(v))))
+
+#
+# Filter undefined variables from a list of variable names.
+#
+# Parameters:
+#
+#   - $(1): list of variable names to filter
+#
+# Returns the input list, but with all defined variables removed.
+#
+# Example usage:
+#
+#     VAR1 := hello
+#     VAR3 := world
+#
+#     $(call filter-undefined,VAR1 VAR2 VAR3) # "VAR2"
+#
+
+filter-undefined = $(filter-out $(call filter-defined,$(1)),$(1))
+
+#
+# Expand a list of variable names into their values.
+#
+# Parameters:
+#
+#   - $(1): list of variable names to expand
+#
+# Returns the expansion of every variable given by the input list, in the order
+# that the list specifies them.
+#
+# Example usage:
+#
+#     VAR1 := hello
+#     VAR3 := world
+#
+#     $(call expand,VAR1 VAR2 VAR3) # "hello world"
+#
+
+expand = $(foreach v,$(call filter-defined,$(1)),$($(v)))

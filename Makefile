@@ -36,6 +36,7 @@ include ${MAKE_HELPERS_DIRECTORY}defaults.mk
 # Configure the toolchains used to build TF-A and its tools
 ################################################################################
 
+include ${MAKE_HELPERS_DIRECTORY}target.mk
 include ${MAKE_HELPERS_DIRECTORY}toolchain.mk
 
 # Assertions enabled for DEBUG builds by default
