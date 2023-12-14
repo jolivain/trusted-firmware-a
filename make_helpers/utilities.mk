@@ -271,3 +271,24 @@ increment = $(words $(call sequence0,$(1)))
 
 decrement = $(strip $(if $(call ne,$(1),0), \
         $(call nth,$(call sequence0,$(1)),$(1))))
+
+#
+# Reverse a sequence.
+#
+# This function takes the following arguments:
+#
+#  - $(1): the sequence to reverse
+#
+# Example usage:
+#
+#     $(call reverse,a) # a
+#     $(call reverse,a b) # b a
+#     $(call reverse,a b c) # c b a
+#
+# Internally, this function operates recursively, and is therefore not suitable
+# for operations on very large sequences.
+#
+
+reverse = $(strip $(if $(1), \
+        $(call reverse,$(wordlist 2,$(words $(1)),$(1))) \
+        $(firstword $(1))))
