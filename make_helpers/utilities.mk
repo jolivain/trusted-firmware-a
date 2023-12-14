@@ -45,3 +45,19 @@ merge = $(subst $(space),$(2),$(strip $(1)))
 #
 
 split = $(subst $(2),$(space),$(1))
+
+#
+# Retrieve the nth word(s) from a list.
+#
+# This function takes the following arguments:
+#
+#   - $(1): a list of words
+#   - $(2): a list of word indices to read
+#
+# Example usage:
+#
+#     $(call nth,a b c,2) # b
+#     $(call nth,a b c,1 3) # a c
+#
+
+nth = $(foreach i,$(2),$(wordlist $(i),$(i),$(1)))
