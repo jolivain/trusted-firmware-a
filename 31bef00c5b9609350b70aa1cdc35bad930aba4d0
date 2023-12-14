@@ -22,6 +22,30 @@
       },
       "revId": "31bef00c5b9609350b70aa1cdc35bad930aba4d0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ac4d6cc_0cd3bfe5",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-12-14T12:30:49Z",
+      "side": 1,
+      "message": "Linux is the user of this function and only accept 16 bits at the moment. \nLinux will truncate the val before sending over. \n\nHowever, in the future, Linux might update to use 32 bits. Thus we plan to keep 32 bits for the datatype.",
+      "parentUuid": "4d3cb299_7f919a39",
+      "range": {
+        "startLine": 465,
+        "startChar": 26,
+        "endLine": 465,
+        "endChar": 29
+      },
+      "revId": "31bef00c5b9609350b70aa1cdc35bad930aba4d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
