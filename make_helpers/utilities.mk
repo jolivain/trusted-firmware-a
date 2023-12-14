@@ -186,3 +186,45 @@ gt = $(and $(call gte,$(1),$(2)),$(call ne,$(1),$(2)))
 #
 
 gte = $(filter $(lastword $(sort $(1) $(2))),$(1))
+
+#
+# Generate a sequence of integer values starting from zero.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the maximum value
+#   - $(2): the intermediate sequence to resume (used internally)
+#
+# Example usage:
+#
+#     $(call sequence0,0) # 0
+#     $(call sequence0,1) # 0 1
+#     $(call sequence0,3) # 0 1 2 3
+#     $(call sequence0,5) # 0 1 2 3 4 5
+#
+# This function uses recursion to generate the sequence, and is therefore not
+# suitable for operations on large values.
+#
+
+sequence0 = $(strip $(if $(call eq,$(lastword $(2)),$(1)),$(2), \
+        $(call sequence0,$(1),$(2) $(words $(2)))))
+
+#
+# Generate a sequence of integer values starting from one.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the maximum value
+#
+# Example usage:
+#
+#     $(call sequence1,0) #
+#     $(call sequence1,1) # 1
+#     $(call sequence1,3) # 1 2 3
+#     $(call sequence1,5) # 1 2 3 4 5
+#
+# This function uses recursion to generate the sequence, and is therefore not
+# suitable for operations on large values.
+#
+
+sequence1 = $(filter-out 0,$(call sequence0,$(1)))
