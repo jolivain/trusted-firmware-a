@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f96a349_9aec1f2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-14T08:52:42Z",
+      "side": 1,
+      "message": "AFAICS, failures reported by the CI are all due to some infrastructure issues under discussion here: https://linaro.atlassian.net/browse/TFC-558\n\nIOW there are false failures. Moreover, they are all part of the Coverity Scan Build tests, which are not essential to validate a platform patch. Thus, I am overriding the VR score.",
+      "revId": "ae4860b0f5c283aeca4def1449f0293ef22ff508",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
