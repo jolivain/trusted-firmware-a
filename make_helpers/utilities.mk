@@ -292,3 +292,162 @@ decrement = $(strip $(if $(call ne,$(1),0), \
 reverse = $(strip $(if $(1), \
         $(call reverse,$(wordlist 2,$(words $(1)),$(1))) \
         $(firstword $(1))))
+
+#
+# Generate the cartesian product of a sequence with itself.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the sequence to generate the product of
+#   - $(2): a delimiter to merge subsequences using (optional)
+#   - $(3): the number of repetitions of the input sequence (optional)
+#
+# If no repetition count is provided, it defaults to the number of elements in
+# the input sequence.
+#
+# Example usage:
+#
+#     $(call product,a b c) # aaa aab aac aba abb abc aca acb acc baa bab bac...
+#     $(call product,a b c,:) # a:a:a a:a:b a:a:c a:b:a a:b:b a:b:c a:c:a...
+#     $(call product,a b c,,2) # aa ab ac ba bb bc ca cb cc
+#     $(call product,a b c,:,2) # a:a a:b a:c b:a b:b b:c c:a c:b c:c
+#
+# Internally, this function operates recursively, and is therefore not suitable
+# for operations on large sequences.
+#
+
+product = $(strip $(if $(call lte,$(3),1),$(1), \
+        $(call product-pairs,$(1),$(call product,$(1),$(2), \
+                $(call decrement,$(or $(3),$(words $(1))))),$(2))))
+
+#
+# Generate the cartesian product of two sequences.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the left hand list to generate the product of
+#   - $(2): the right hand list to generate the product of
+#   - $(3): a delimiter to merge subsequences using (optional)
+#
+# Example usage:
+#
+#     $(call product-pairs,a b c d,1 2) # a1 a2 b1 b2 c1 c2 d1 d2
+#     $(call product-pairs,a b c d,1 2,:) # a:1 a:2 b:1 b:2 c:1 c:2 d:1 d:2
+#
+# Internally, this function operates recursively, and is therefore not suitable
+# for operations on large sequences.
+#
+
+product-pairs = $(strip $(foreach a,$(1),$(foreach b,$(2),$(a)$(3)$(b))))
+
+#
+# Generate permutations of a sequence.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the sequence to permute
+#   - $(3): a delimiter to merge subsequences using (optional)
+#   - $(3): the number of repetitions of the sequence (optional)
+#
+# If no repetition count is provided, it defaults to the number of elements in
+# the input sequence.
+#
+# Example usage:
+#
+#     $(call permutations,a b c) # abc acb bac bca cab cba
+#     $(call permutations,a b c,:) # a:b:c a:c:b b:a:c b:c:a c:a:b c:b:a
+#     $(call permutations,a b c,:,2) # a:b a:c b:a b:c c:a c:b.
+#
+# Internally, this function operates recursively, and is therefore not suitable
+# for operations on large sequences.
+#
+
+permutations = $(strip $(foreach range, \
+        $(call product,$(call sequence1,$(words $(1))),:, \
+                $(or $(3),$(words $(1)))), \
+        $(call permutations-subsequence,$(1), \
+                $(call split,$(range),:),$(2),$(or $(3),$(words $(1))))))
+
+permutations-subsequence = $(strip $(if \
+        $(call eq,$(words $(2)),$(words $(sort $(2)))), \
+        $(call merge,$(call nth,$(1),$(2),$(3)),$(3))))
+
+#
+# Generate subsequences of a list with with a specific length.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the list to generate subsequences from
+#   - $(2): the length of the subsequences returned
+#   - $(3): a delimiter to merge subsequences using
+#
+# Example usage:
+#
+#     $(call combinations,a b c d,1) # a b c d
+#     $(call combinations,a b c d,1,:) # a b c d
+#     $(call combinations,a b c d,2) # ab ac ad bc bd cd
+#     $(call combinations,a b c d,2,:) # a:b a:c a:d b:c b:d c:d
+#     $(call combinations,a b c d,3) # abc abd acd bcd
+#     $(call combinations,a b c d,3,:) # a:b:c a:b:d a:c:d b:c:d
+#     $(call combinations,a b c d,4) # abcd
+#     $(call combinations,a b c d,4,:) # a:b:c:d
+#
+
+combinations = $(strip $(foreach range, \
+        $(call permutations,$(call sequence1,$(words $(1))),:,$(2)), \
+        $(call combinations-subsequence,$(1), \
+                $(call split,$(range),:),$(2),$(3))))
+combinations-subsequence = $(strip $(if $(call eq,$(sort $(2)),$(2)), \
+        $(call merge,$(call nth,$(1),$(2)),$(4))))
+
+#
+# Generate the power set of a set.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the set to generate the power set of
+#   - $(2): a delimiter to merge subsequences using (optional)
+#
+# Example usage:
+#
+#     $(call powerset,a b c) # a b c ab ac bc abc
+#     $(call powerset,a b c,:) # a b c a:b a:c b:c a:b:c
+#
+
+powerset = $(call powerset-ascending,$(1),$(2))
+
+#
+# Generate the power set of a set in ascending order of subset length.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the set to generate the power set of
+#   - $(2): a delimiter to merge subsets using (optional)
+#
+# Example usage:
+#
+#     $(call powerset-ascending,a b c) # a b c ab ac bc abc
+#     $(call powerset-ascending,a b c,:) # a b c a:b a:c b:c a:b:c
+#
+
+powerset-ascending = $(strip $(foreach i,
+        $(call sequence1,$(words $(1))), \
+        $(call combinations,$(1),$(i),$(2))))
+
+#
+# Generate the power set of a set in descending order of subset length.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the set to generate the power set of
+#   - $(2): a delimiter to merge subsets using (optional)
+#
+# Example usage:
+#
+#     $(call powerset-descending,a b c) # abc ab ac bc a b c
+#     $(call powerset-descending,a b c,:) # a:b:c a:b a:c b:c a b c
+#
+
+powerset-descending = $(strip $(foreach i, \
+        $(call reverse,$(call sequence1,$(words $(1)))), \
+        $(call combinations,$(1),$(i),$(2))))
