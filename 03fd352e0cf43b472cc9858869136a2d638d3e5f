@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b17eecac_5aa4e105",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-14T13:59:14Z",
+      "side": 1,
+      "message": "@Juan, \n\nLGTM. \n\nLooks like majority of the tests failed are related to an other CI issue (disk space). Checked a few tests. \nThe Makefile related errors seen previously are now resolved. \nPlease ensure again and add Verified +1 manually, if no real errors.",
+      "revId": "03fd352e0cf43b472cc9858869136a2d638d3e5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
