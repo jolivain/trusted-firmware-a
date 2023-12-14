@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5481bbc_4f932207",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-12-14T17:42:50Z",
+      "side": 1,
+      "message": "Looks good to me. Not sure we really need this plat_rpi_bl31_custom_setup() abstraction (yet), but it shouldn\u0027t really hurt. Checked that the code moved stayed the same.",
+      "revId": "bb3b55952af0e52f24fe66b6228933165397c3d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
