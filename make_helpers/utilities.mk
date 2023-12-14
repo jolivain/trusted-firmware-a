@@ -61,3 +61,128 @@ split = $(subst $(2),$(space),$(1))
 #
 
 nth = $(foreach i,$(2),$(wordlist $(i),$(i),$(1)))
+
+#
+# Check that two string or integer values are exactly equal.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the left hand side value
+#   - $(2): the right hand side value
+#
+# If the two values are equal, the left hand side value is returned.
+#
+# Example usage:
+#
+#     $(call eq,4,4) # 4
+#     $(call eq,4,5) # <nothing>
+#
+#     $(call eq,hello world!,hello world!) # hello world!
+#     $(call eq,hello world!,hello world?) # <nothing>
+#
+# Be aware that this function is lossy, and spaces are not considered in the
+# comparison.
+#
+
+eq = $(if $(filter $(call merge,$(1)),$(call merge,$(2))),$(1))
+
+#
+# Check that two string or integer values are not exactly equal.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the left hand side value
+#   - $(2): the right hand side value
+#
+# If the two values are not equal, the left hand side value is returned.
+#
+# Example usage:
+#
+#     $(call ne,4,4) # <nothing>
+#     $(call ne,4,5) # 4
+#
+#     $(call ne,hello world!,hello world!) # <nothing>
+#     $(call ne,hello world!,hello world?) # hello world!
+#
+
+ne = $(if $(filter-out $(call merge,$(2)),$(call merge,$(1))),$(1))
+
+#
+# Check that an integer value is less than another.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the left hand side value
+#   - $(2): the right hand side value
+#
+# If the left hand side value is less than the right hand side value then the
+# left hand side value is returned.
+#
+# Example usage:
+#
+#     $(call lt,4,5) # 4
+#     $(call lt,5,5) # <nothing>
+#     $(call lt,6,5) # <nothing>
+#
+
+lt = $(and $(call lte,$(1),$(2)),$(call ne,$(1),$(2)))
+
+#
+# Check that an integer value is less than or equal to another.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the left hand side value
+#   - $(2): the right hand side value
+#
+# If the left hand side value is less than or equal to the right hand side value
+# then the left hand side value is returned.
+#
+# Example usage:
+#
+#     $(call lte,4,5) # 4
+#     $(call lte,5,5) # 5
+#     $(call lte,6,5) # <nothing>
+#
+
+lte = $(filter $(firstword $(sort $(1) $(2))),$(1))
+
+#
+# Check that an integer value is greater than another.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the left hand side value
+#   - $(2): the right hand side value
+#
+# If the left hand side value is greater than the right hand side value then
+# the left hand side value is returned.
+#
+# Example usage:
+#
+#     $(call gt,4,5) # <nothing>
+#     $(call gt,5,5) # <nothing>
+#     $(call gt,6,5) # 6
+#
+
+gt = $(and $(call gte,$(1),$(2)),$(call ne,$(1),$(2)))
+
+#
+# Check that an integer value is greater than or equal to another.
+#
+# This function takes the following arguments:
+#
+#   - $(1): the left hand side value
+#   - $(2): the right hand side value
+#
+# If the left hand side value is greater than or equal to the right hand side
+# value then the left hand side value is returned.
+#
+# Example usage:
+#
+#     $(call gte,4,5) # <nothing>
+#     $(call gte,5,5) # 5
+#     $(call gte,6,5) # 6
+#
+
+gte = $(filter $(lastword $(sort $(1) $(2))),$(1))
