@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b782ccf_45b8bc7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-14T09:02:51Z",
+      "side": 1,
+      "message": "The previous CI job failed early due to https://linaro.atlassian.net/browse/TFC-558.\n\nI am launching a new one, this time using `Allow-CI+1`.\n\n@Marek: Please note that for patches purely modifying platform code, shallow tests - being triggered through `Allow-CI+1` - are enough. They carry on build tests, which is as far as TF-A OpenCI can tests rcar3 specific patches since it does not have an rcar3 board to test on.",
+      "revId": "e9afde1a2e311df0197a8e9102ef535382aef228",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
