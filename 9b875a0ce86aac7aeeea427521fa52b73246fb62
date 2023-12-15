@@ -71,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fb8fbd2_8fae3432",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-15T08:57:55Z",
+      "side": 1,
+      "message": "Faire enough!\nMy understanding is that the imperative tense is typically used in the subject line of a commit, while the commit body should provide details about the changes that have been made.\nIt seems that we are consistently using the imperative tense for the subject line, but we may not be maintaining the same consistency in the body of the commit message across TF-A commit messages.",
+      "parentUuid": "59dccb34_1c47a02c",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 6
+      },
+      "revId": "9b875a0ce86aac7aeeea427521fa52b73246fb62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ce0d2fd_74ee3ab3",
@@ -108,6 +132,30 @@
       "side": 1,
       "message": "This structure definition is only used in this C translation unit so I think this is the correct place for it. sds_private.h should be preferred for type definitions which are used across multiple C files in the implementation, which is not the case here. Let\u0027s not export definitions unless strictly necessary.",
       "parentUuid": "8ce0d2fd_74ee3ab3",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 2
+      },
+      "revId": "9b875a0ce86aac7aeeea427521fa52b73246fb62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac196127_a1aacb80",
+        "filename": "drivers/arm/css/sds/sds.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-15T08:57:55Z",
+      "side": 1,
+      "message": "Looks reasonable, initially I thought ``sds_private.h`` is included by only ``sds.c`` file but that is not the case.",
+      "parentUuid": "c5154047_0aa3bd6b",
       "range": {
         "startLine": 25,
         "startChar": 0,
