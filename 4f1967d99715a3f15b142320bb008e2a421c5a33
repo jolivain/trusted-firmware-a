@@ -135,6 +135,24 @@
       "parentUuid": "c46b8477_8618857a",
       "revId": "4f1967d99715a3f15b142320bb008e2a421c5a33",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64d5f20a_9ef7a6bd",
+        "filename": "lib/cpus/aarch64/cortex_x3.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-12-15T20:46:04Z",
+      "side": 1,
+      "message": "@Harrison, when you tested x10 retains the value of cpu_rev_var and so we don\u0027t have to add the GET_CPU_REV macro correct to apply_erratum right?",
+      "parentUuid": "e616b0b8_79bf4879",
+      "revId": "4f1967d99715a3f15b142320bb008e2a421c5a33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
