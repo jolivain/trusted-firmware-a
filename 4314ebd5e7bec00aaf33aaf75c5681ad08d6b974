@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "352d14ae_2261e6d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000957
+      },
+      "writtenOn": "2023-12-15T10:33:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "421d1711_2d1214c1",
+      "revId": "4314ebd5e7bec00aaf33aaf75c5681ad08d6b974",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d460b5f_b2ab6916",
@@ -41,6 +59,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "568c8253_962b6260",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 1495,
+      "author": {
+        "id": 1000957
+      },
+      "writtenOn": "2023-12-15T10:33:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d460b5f_b2ab6916",
+      "range": {
+        "startLine": 1491,
+        "startChar": 0,
+        "endLine": 1495,
+        "endChar": 9
+      },
+      "revId": "4314ebd5e7bec00aaf33aaf75c5681ad08d6b974",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b89c3228_06819e6f",
@@ -54,6 +96,30 @@
       "writtenOn": "2023-12-11T00:01:39Z",
       "side": 1,
       "message": "fix tabs",
+      "range": {
+        "startLine": 1286,
+        "startChar": 0,
+        "endLine": 1286,
+        "endChar": 16
+      },
+      "revId": "4314ebd5e7bec00aaf33aaf75c5681ad08d6b974",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b66c487d_75eadc64",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1000957
+      },
+      "writtenOn": "2023-12-15T10:33:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b89c3228_06819e6f",
       "range": {
         "startLine": 1286,
         "startChar": 0,
