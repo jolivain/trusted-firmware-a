@@ -16,6 +16,23 @@
       "message": "Looks good to me. Not sure we really need this plat_rpi_bl31_custom_setup() abstraction (yet), but it shouldn\u0027t really hurt. Checked that the code moved stayed the same.",
       "revId": "bb3b55952af0e52f24fe66b6228933165397c3d4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82c9c987_12a01427",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-12-15T16:00:48Z",
+      "side": 1,
+      "message": "Mario, can you please look at the CI\u0027s static analysis report and change the order of the include files? That should then fix the CI build.\nhttps://ci.trustedfirmware.org/job/tf-a-static-checks/7386/",
+      "revId": "bb3b55952af0e52f24fe66b6228933165397c3d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
