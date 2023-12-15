@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79dbc684_aea44f17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-12-15T21:49:39Z",
+      "side": 1,
+      "message": "The 3 spm l1 fails due to the patch https://review.trustedfirmware.org/c/ci/tf-a-job-configs/+/25500 pointed out by Madhu.\nThis breaks the 2.8 based LTS.\n@Paul Sololovsky, can you please add the necessary change for LTS?",
+      "revId": "03237dd7b2c2d508303d2c023b6c5e0f7d2eac9b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
