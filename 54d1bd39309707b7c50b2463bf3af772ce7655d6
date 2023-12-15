@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bf64d8c_98de7ecb",
+        "filename": "plat/intel/soc/common/include/socfpga_mailbox.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-12-15T06:09:28Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "8f87bd00_e9791a21",
+      "range": {
+        "startLine": 71,
+        "startChar": 39,
+        "endLine": 71,
+        "endChar": 40
+      },
+      "revId": "54d1bd39309707b7c50b2463bf3af772ce7655d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23885d15_ffd19021",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-20T14:51:12Z",
       "side": 1,
       "message": "(minor) Remove 1 tab to align this value with others in this file?",
+      "range": {
+        "startLine": 144,
+        "startChar": 44,
+        "endLine": 144,
+        "endChar": 45
+      },
+      "revId": "54d1bd39309707b7c50b2463bf3af772ce7655d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0065287_e701a8f4",
+        "filename": "plat/intel/soc/common/include/socfpga_sip_svc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-12-15T06:09:28Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "23885d15_ffd19021",
       "range": {
         "startLine": 144,
         "startChar": 44,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b18d7952_8d57c8b5",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-12-15T06:09:28Z",
+      "side": 1,
+      "message": "Agreed. Code updated.",
+      "parentUuid": "1e5fec40_d2c81777",
+      "range": {
+        "startLine": 1261,
+        "startChar": 46,
+        "endLine": 1261,
+        "endChar": 57
+      },
+      "revId": "54d1bd39309707b7c50b2463bf3af772ce7655d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53f969fc_e9f13482",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-11-20T14:51:12Z",
       "side": 1,
       "message": "I am confused by this expression... We\u0027re taking the address of `x1`, which is a function argument. Thus `\u0026x1` raises an address onto the stack. My understanding is that we\u0027re gonna read other functions arguments past `x1` if we access more than 64 bits in this way... Is this intentional? Or did you mean `(uint32_t *) x1`, which would rather mean there is an array of arguments starting from the address stored inside function argument `x1`?",
+      "range": {
+        "startLine": 1270,
+        "startChar": 41,
+        "endLine": 1270,
+        "endChar": 56
+      },
+      "revId": "54d1bd39309707b7c50b2463bf3af772ce7655d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb973809_8c77a1a2",
+        "filename": "plat/intel/soc/common/socfpga_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-12-15T06:09:28Z",
+      "side": 1,
+      "message": "Yes, intentional. Our Linux team is the user of this function and discussion had carried out on this matter.",
+      "parentUuid": "53f969fc_e9f13482",
       "range": {
         "startLine": 1270,
         "startChar": 41,
