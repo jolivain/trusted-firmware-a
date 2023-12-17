@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05d91ceb_9bd0113d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-12-17T22:47:20Z",
+      "side": 1,
+      "message": "New patchset passed on CI config with no EL2 context: \nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/57043/\n\n...but did not pass for config with EL2 context (SPM). There\u0027s apparently a problem when building SPM: \nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/57050/\n\nPlease, someone re-trigger once the problem is addressed. Thanks :)",
+      "revId": "7ebd3c3f52b3747fc173c2216e9430675531705a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
