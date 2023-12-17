@@ -104,6 +104,30 @@
       },
       "revId": "03fd352e0cf43b472cc9858869136a2d638d3e5f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79583565_3704758f",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2023-12-17T21:42:08Z",
+      "side": 1,
+      "message": "Right. Now that running in release mode is not allowed, this shouldn\u0027t be necessary.",
+      "parentUuid": "0b12c70e_019cfcf1",
+      "range": {
+        "startLine": 110,
+        "startChar": 31,
+        "endLine": 110,
+        "endChar": 64
+      },
+      "revId": "03fd352e0cf43b472cc9858869136a2d638d3e5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
