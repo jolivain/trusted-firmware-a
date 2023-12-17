@@ -16,6 +16,24 @@
       "message": "Sorry, changing my vote. With this patch, it seems like no Intel platform uses `ncore_enable_ocram_firewall()` and `enable_ocram_firewall()` anymore. Should their implementation be removed from `plat/intel/soc/common/drivers/ccu/ncore_ccu.c` and `plat/intel/soc/common/soc/socfpga_firewall.c`?",
       "revId": "cfbac59590056e6b639aed56a1da480cd46f6f3e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09e09f3c_75590ce7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-12-17T11:47:14Z",
+      "side": 1,
+      "message": "We would like to keep this. \nFor Linux boot flow, yes, we are no longer using it but\nfor Zephyr/Baremetal, there is a case that we need to set the firewall for OCRAM.",
+      "parentUuid": "477bcf4e_55d60ada",
+      "revId": "cfbac59590056e6b639aed56a1da480cd46f6f3e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
