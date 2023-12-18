@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2dfa369_f40d9b7a",
+        "filename": "plat/intel/soc/common/include/socfpga_ros.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-12-18T02:06:41Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "af76c81d_5fe7838b",
+      "range": {
+        "startLine": 41,
+        "startChar": 13,
+        "endLine": 41,
+        "endChar": 19
+      },
+      "revId": "1e3df309fac215126281d53b74dd15f6caca606d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "529b93e3_9c23026f",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-11-16T14:54:33Z",
       "side": 1,
       "message": "Can we restrict the scope of this variable to this file? (using static keyword)",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 16
+      },
+      "revId": "1e3df309fac215126281d53b74dd15f6caca606d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62d4a4f0_c33b25f6",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-12-18T02:06:41Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "529b93e3_9c23026f",
       "range": {
         "startLine": 28,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c39d4cdf_d1d6546b",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-12-18T02:06:41Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "47d2c3ca_17ef9a9d",
+      "range": {
+        "startLine": 49,
+        "startChar": 27,
+        "endLine": 49,
+        "endChar": 36
+      },
+      "revId": "1e3df309fac215126281d53b74dd15f6caca606d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5e69017_70df1983",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-11-16T14:54:33Z",
       "side": 1,
       "message": "Do you trust the contents of the `spt` data structure?\n\nIf it\u0027s untrusted data (maybe coming from untrusted storage?) that an attacker might be able to tamper in some way then you might want to add some checks to validate some of its fields. AFAICS, `load_and_check_spt()` merely checks the integrity of the data structure using the reference checksum value inside the `spt` data structure itself, which might be modifiable by the same attacker?\n\nFor example, if `spt.partitions` is greater than `SPT_MAX_PARTITIONS` then the loop at line 56 could cause an out-of-bounds read beyond the end of the `spt` data structure. Can this sort of things happen?",
+      "range": {
+        "startLine": 56,
+        "startChar": 34,
+        "endLine": 56,
+        "endChar": 48
+      },
+      "revId": "1e3df309fac215126281d53b74dd15f6caca606d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "711514de_f6403044",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2023-12-18T02:06:41Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "d5e69017_70df1983",
       "range": {
         "startLine": 56,
         "startChar": 34,
