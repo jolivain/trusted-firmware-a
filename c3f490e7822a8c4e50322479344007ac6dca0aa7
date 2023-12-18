@@ -71,6 +71,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "197eb092_016fecbf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-12-18T20:05:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f9dffec0_cea154c1",
+      "revId": "c3f490e7822a8c4e50322479344007ac6dca0aa7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c1a518e_e7638bb4",
@@ -84,6 +102,24 @@
       "writtenOn": "2023-12-18T16:22:23Z",
       "side": 1,
       "message": "we may have to apply_erratum if we need at power down?",
+      "revId": "c3f490e7822a8c4e50322479344007ac6dca0aa7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0655f9ae_b796a6b4",
+        "filename": "lib/cpus/aarch64/cortex_a520.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2023-12-18T20:05:35Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1c1a518e_e7638bb4",
       "revId": "c3f490e7822a8c4e50322479344007ac6dca0aa7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
