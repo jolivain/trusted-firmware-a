@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "117980cd_e3b83805",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-12-18T18:48:34Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "12891475_3161830d",
+      "revId": "c3f490e7822a8c4e50322479344007ac6dca0aa7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9dffec0_cea154c1",
@@ -65,6 +83,30 @@
       "writtenOn": "2023-12-18T16:20:43Z",
       "side": 1,
       "message": "I thought during reset? workaround_reset_start",
+      "range": {
+        "startLine": 850,
+        "startChar": 33,
+        "endLine": 850,
+        "endChar": 60
+      },
+      "revId": "c3f490e7822a8c4e50322479344007ac6dca0aa7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c1c746b_c7c13f3c",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 850,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2023-12-18T18:48:34Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "52f6f7c7_a326879a",
       "range": {
         "startLine": 850,
         "startChar": 33,
