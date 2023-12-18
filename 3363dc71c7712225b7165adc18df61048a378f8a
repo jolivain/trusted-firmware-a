@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9da79b7d_4d66ed80",
+        "filename": "plat/renesas/rcar/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1272,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-18T16:28:23Z",
+      "side": 1,
+      "message": "Does it still make sense to keep this trace under `#if RCAR_BL2_DCACHE \u003d\u003d 1`, as MMU configuration is done all the time now?",
+      "range": {
+        "startLine": 1272,
+        "startChar": 0,
+        "endLine": 1272,
+        "endChar": 33
+      },
+      "revId": "3363dc71c7712225b7165adc18df61048a378f8a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
