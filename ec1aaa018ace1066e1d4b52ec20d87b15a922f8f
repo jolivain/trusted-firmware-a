@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa374fab_99dbd1d5",
+        "filename": "plat/renesas/rcar/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-18T16:24:14Z",
+      "side": 1,
+      "message": "What is the purpose of this line? Is the idea to enable stack smashing protection for all images **except BL31**? If yes, then I feel this should be mentioned in the commit message.\n\nBTW, I am surprised that you can override the stack protection build flag in this way... The stack protector makefile (`lib/stack_protector/stack_protector.mk`) already sets `-fstack-protector-strong` as soon as `ENABLE_STACK_PROTECTOR\u003dstrong` is defined. If your platform makefile also defines `-fno-stack-protector` then I suspect you\u0027ll end up having both defined on the build command line. Then I am not sure which one will take precedence.\n\nIs this behaving as expected?",
+      "range": {
+        "startLine": 340,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 35
+      },
+      "revId": "ec1aaa018ace1066e1d4b52ec20d87b15a922f8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "783576b0_9f192834",
+        "filename": "plat/renesas/rcar/rcar_stack_protector.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-18T16:24:14Z",
+      "side": 1,
+      "message": "I discourage printing the canary value on the console, as that defeats all security benefits you might get from stack smashing protection... Unless you use stack smashing only for debug purposes? But in this case, why not using a fixed canary value, rather than one based on the current timer value (which introduces some level of indeterminism, or least some level of variability)?",
+      "range": {
+        "startLine": 36,
+        "startChar": 1,
+        "endLine": 36,
+        "endChar": 71
+      },
+      "revId": "ec1aaa018ace1066e1d4b52ec20d87b15a922f8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
