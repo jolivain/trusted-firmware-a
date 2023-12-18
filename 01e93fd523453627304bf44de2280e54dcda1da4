@@ -33,6 +33,23 @@
       "message": "Andre, could you trigger CI again? Last build failure was related to no disk space on build server probably. Many builds failed with \u0027No space left on device\u0027.",
       "revId": "01e93fd523453627304bf44de2280e54dcda1da4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d506c945_54ff6bcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2023-12-18T17:55:46Z",
+      "side": 1,
+      "message": "restarting CI, previous run stopped due to \"disk full\"",
+      "revId": "01e93fd523453627304bf44de2280e54dcda1da4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
