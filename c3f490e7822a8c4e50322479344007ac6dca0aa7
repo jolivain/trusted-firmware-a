@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1c1a518e_e7638bb4",
+        "filename": "lib/cpus/aarch64/cortex_a520.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2023-12-18T16:22:23Z",
+      "side": 1,
+      "message": "we may have to apply_erratum if we need at power down?",
+      "revId": "c3f490e7822a8c4e50322479344007ac6dca0aa7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52f6f7c7_a326879a",
         "filename": "lib/cpus/cpu-ops.mk",
         "patchSetId": 2
