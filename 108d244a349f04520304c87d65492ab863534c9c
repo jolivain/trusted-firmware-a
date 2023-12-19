@@ -46,6 +46,30 @@
       },
       "revId": "108d244a349f04520304c87d65492ab863534c9c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "005f4067_9f211b3d",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-19T14:37:18Z",
+      "side": 1,
+      "message": "The modified CPTR_RESET_VALUE worked without any real errors/failed test configs in CI.\n\nHowever, the previous patches specify there is a need to retain the CPTR_EL3_RESET value and later modify for each world. Attaching the patch link here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20623\n\nWe need to discuss and finalise on this bit before getting it merged.",
+      "parentUuid": "87bb7f63_1d747416",
+      "range": {
+        "startLine": 620,
+        "startChar": 39,
+        "endLine": 620,
+        "endChar": 65
+      },
+      "revId": "108d244a349f04520304c87d65492ab863534c9c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
