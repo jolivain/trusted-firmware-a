@@ -16,6 +16,24 @@
       "message": "Hi Vijayenthiran,\n\nWould you mind uploading the same fix to TF-A project:\n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/drivers/arm/mhu/mhu_wrapper_v2_x.c#n311\n\nTamas",
       "revId": "5df93e2ff1eb8fdb7f26b834cd4fdc2c15c86f50",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40dd0b31_fc03b3ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2023-12-19T16:22:17Z",
+      "side": 1,
+      "message": "Hi Tamas, this patch is in TF-A. There are equivalent checks in TF-M: https://git.trustedfirmware.org/TF-M/trusted-firmware-m.git/tree/platform/ext/target/arm/rss/common/native_drivers/mhu_wrapper_v2_x.c?id\u003da6987ca819551b7e1c6b5e24f25a91d5c189570b#n111",
+      "parentUuid": "f881072a_35e1c002",
+      "revId": "5df93e2ff1eb8fdb7f26b834cd4fdc2c15c86f50",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
