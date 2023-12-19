@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ab7784c_57217746",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-19T12:11:35Z",
+      "side": 1,
+      "message": "It might be worth explaining the alignment constraint in the comment above.",
+      "range": {
+        "startLine": 24,
+        "startChar": 56,
+        "endLine": 24,
+        "endChar": 69
+      },
+      "revId": "bd926bcb24a66bb018407ac5bac8e9cc057bf33e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4985560e_429aa5a9",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-19T12:11:35Z",
+      "side": 1,
+      "message": "Before this patch, there was no bit clearing if I am not mistaken. `(CNF_OPR_WORK_MODE_SDR \u003c\u003c CNF_CMN_SETTINGS_OPR)` appears to be 0 so lines 163-166 were effectively a nop. With this patch, the value of `CNF_MINICTRL(CMN_SETTINGS)` is now updated to clear all bits specified by `CNF_CMN_SETTINGS_OPR_MASK`.\n\nI just want to check with you: is this change intentional?",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 166,
+        "endChar": 27
+      },
+      "revId": "bd926bcb24a66bb018407ac5bac8e9cc057bf33e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baa6c62a_04795076",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-19T12:11:35Z",
+      "side": 1,
+      "message": "Is that line not almost identical to the previous one, let aside the casts? Should it replace line 237?",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 20
+      },
+      "revId": "bd926bcb24a66bb018407ac5bac8e9cc057bf33e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "727ed110_6ebde33a",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-19T12:11:35Z",
+      "side": 1,
+      "message": "If I am not mistaken, this should be `1u` to avoid any undefined behaviour, since we might be left-shifting by up to 31 bits.",
+      "range": {
+        "startLine": 338,
+        "startChar": 7,
+        "endLine": 338,
+        "endChar": 8
+      },
+      "revId": "bd926bcb24a66bb018407ac5bac8e9cc057bf33e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb57356c_75e64f0c",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-19T12:11:35Z",
+      "side": 1,
+      "message": "(minor) Would UINT32_MAX be more explicit here?",
+      "range": {
+        "startLine": 360,
+        "startChar": 47,
+        "endLine": 360,
+        "endChar": 57
+      },
+      "revId": "bd926bcb24a66bb018407ac5bac8e9cc057bf33e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
