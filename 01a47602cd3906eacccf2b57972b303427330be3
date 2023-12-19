@@ -16,6 +16,24 @@
       "message": "Out of curiosity, have you experienced any specific issue that prompted you to implement this change?",
       "revId": "01a47602cd3906eacccf2b57972b303427330be3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e10499b6_6a7b89ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-19T13:54:28Z",
+      "side": 1,
+      "message": "Even if it is needed, it still appears unconventional to handle such things in the common code. It seems more appropriate for this code to reside within the Renesas platform source instead.",
+      "parentUuid": "c7b87190_84db1eac",
+      "revId": "01a47602cd3906eacccf2b57972b303427330be3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
