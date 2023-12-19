@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72a7a728_3a32aef0",
+        "filename": "bl2/bl2_el3.ld.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-19T09:27:20Z",
+      "side": 1,
+      "message": "I am afraid there cannot be any rcar specific code in this generic linker file. This has to be implemented in another way...\n\nFor my understanding, could you please explain why the current ASSERT() check at line 232 is not suitable in your case? Why do you need a `BL2_IMAGE_LIMIT` macro in addition to the existing `BL2_LIMIT` one?",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 225,
+        "endChar": 6
+      },
+      "revId": "4620fff6a7e74fcd15ac0f72c4fa6039be811e0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
