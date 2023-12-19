@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c06f738_985598c4",
+        "filename": "plat/intel/soc/common/drivers/ddr/ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-19T13:51:23Z",
+      "side": 1,
+      "message": "Functions introduced by this patch do not appear to be used right now. Am I missing another patch which would make use of these?",
+      "revId": "1183404fec9f7c958471609309845a45cf98006a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36086b95_7e8f0f03",
+        "filename": "plat/intel/soc/common/drivers/ddr/ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-19T13:51:23Z",
+      "side": 1,
+      "message": "If using `printf()`, this message will always be printed, no matter the `LOG_LEVEL` value used to compile TF-A. Should this be converted to an `ERROR()`/`INFO()` call?",
+      "range": {
+        "startLine": 404,
+        "startChar": 2,
+        "endLine": 404,
+        "endChar": 8
+      },
+      "revId": "1183404fec9f7c958471609309845a45cf98006a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
