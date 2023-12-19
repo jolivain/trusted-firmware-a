@@ -16,6 +16,24 @@
       "message": "Thanks for the patch! The changes look good to me but just like for [this other patch](https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/25163/7) I think we need a dedicated CI test before we can merge it.",
       "revId": "c49ad441e04dda62375f1050648f83942387c842",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84cce4c5_d5412e7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-19T09:33:03Z",
+      "side": 1,
+      "message": "Could you please take the present patch and the [first one](https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/25163/7) out of this series? Having these 2 generic patches in their own series will help the reviews and also it will help progressing the test gap they unvealed.",
+      "parentUuid": "236e5d06_13be644b",
+      "revId": "c49ad441e04dda62375f1050648f83942387c842",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
