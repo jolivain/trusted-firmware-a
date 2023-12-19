@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8c4f26f_848e7550",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2176,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-19T13:24:18Z",
+      "side": 1,
+      "message": "If I am not mistaken, this condition will always be true, since we\u0027ve already validated that `*mbox_error` was less than `0xF` in the previous condition... Shall it be removed?",
+      "range": {
+        "startLine": 2176,
+        "startChar": 23,
+        "endLine": 2176,
+        "endChar": 43
+      },
+      "revId": "b0f447897d3e2ddd72b291cb450165f4d220663e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
