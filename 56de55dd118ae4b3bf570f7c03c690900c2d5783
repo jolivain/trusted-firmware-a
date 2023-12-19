@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0035058_8b3c9573",
+        "filename": "plat/intel/soc/common/soc/socfpga_reset_manager.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2023-12-19T13:17:03Z",
+      "side": 1,
+      "message": "The commit message only mentions about `INFO()` messages being converted into `VERBOSE()` messages. This one was an `ERROR()` so I just want to check with you: is that change intentional?\n\nThere are other examples of this throughout the file so same question applies to all these cases.",
+      "range": {
+        "startLine": 447,
+        "startChar": 3,
+        "endLine": 447,
+        "endChar": 10
+      },
+      "revId": "56de55dd118ae4b3bf570f7c03c690900c2d5783",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
