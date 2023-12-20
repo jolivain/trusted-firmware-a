@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2fbaa02_822e559b",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-12-20T16:43:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "85b9950d_1f7d7e51",
+      "revId": "6e6153f8d4772dab6cc784c5301779b6bc4aa632",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4298d739_bedbec8b",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-12-20T15:24:27Z",
       "side": 1,
       "message": "I am confused a bit here. \nif CSV2_3 is implemented, then even in that case CSV2_2 is implemented as features are backward compataible.\n\nSo this condition could be written as: \n\n\treturn (csv2 \u003e\u003d ID_AA64PFR0_CSV2_2_SUPPORTED); \n\t\n?? please correct if I am wrong here.",
+      "revId": "6e6153f8d4772dab6cc784c5301779b6bc4aa632",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "273514f0_32df2415",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2023-12-20T16:43:28Z",
+      "side": 1,
+      "message": "Hi Jayanth, \nThe document says that if csv2_3 is implemented it implies that csv2_2 is implemented. But if csv2_2 is implemented it does not imply that csv2_3 is implemented. That was the reason I added it this way. We could probably add this to line 330?",
+      "parentUuid": "4298d739_bedbec8b",
       "revId": "6e6153f8d4772dab6cc784c5301779b6bc4aa632",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
