@@ -16,6 +16,40 @@
       "message": "Build failure unrelated as it is also failing in CI Daily (https://ci.trustedfirmware.org/job/tf-a-ci-gateway/48841/) ",
       "revId": "953ff20ebcc52db13d0ada0de11580b0e8220fe8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a82f6504_4e728e32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-20T14:07:28Z",
+      "side": 1,
+      "message": "LGTM. Just a minor comment.",
+      "revId": "953ff20ebcc52db13d0ada0de11580b0e8220fe8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84f3c483_05be3bc7",
+        "filename": "bl31/aarch64/ea_delegate.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-20T14:07:28Z",
+      "side": 1,
+      "message": "nit: * missing at line 235.",
+      "revId": "953ff20ebcc52db13d0ada0de11580b0e8220fe8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
