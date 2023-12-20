@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2014-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -54,6 +54,9 @@
 #if ENABLE_RME
 #define PLAT_ARM_RMM_BASE		(RMM_BASE)
 #define PLAT_ARM_RMM_SIZE		(RMM_LIMIT - RMM_BASE)
+
+#define PLAT_ARM_GPCCR_PPS		GPCCR_PPS_64GB
+#define PLAT_ARM_GPCCR_PGS		GPCCR_PGS_4K
 #endif
 
 /*
