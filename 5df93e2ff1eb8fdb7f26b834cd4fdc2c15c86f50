@@ -52,6 +52,24 @@
       "parentUuid": "40dd0b31_fc03b3ec",
       "revId": "5df93e2ff1eb8fdb7f26b834cd4fdc2c15c86f50",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7991b96d_76ab4d73",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2023-12-20T14:31:54Z",
+      "side": 1,
+      "message": "Hi Tamas,\n\nthere isn\u0027t a equivalent api available in the TF-M side [1]. There are checks during the sender [2] and receiver [3] init to ensure the num channels are atleast 2.\n\nSo there\u0027s isn\u0027t a equivalent change needed in TF-M. Let me know if I missed anything on TF-M side.\n\n\n---------------------------------------------------------------------------------\n\n\n[1] - https://git.trustedfirmware.org/TF-M/trusted-firmware-m.git/tree/platform/ext/target/arm/rss/common/native_drivers/mhu.h?id\u003da6987ca819551b7e1c6b5e24f25a91d5c189570b\n\n[2] - https://git.trustedfirmware.org/TF-M/trusted-firmware-m.git/tree/platform/ext/target/arm/rss/common/native_drivers/mhu_wrapper_v2_x.c?id\u003da6987ca819551b7e1c6b5e24f25a91d5c189570b#n111\n\n[3] - https://git.trustedfirmware.org/TF-M/trusted-firmware-m.git/tree/platform/ext/target/arm/rss/common/native_drivers/mhu_wrapper_v2_x.c?id\u003da6987ca819551b7e1c6b5e24f25a91d5c189570b#n136",
+      "parentUuid": "c4aba67c_7373d152",
+      "revId": "5df93e2ff1eb8fdb7f26b834cd4fdc2c15c86f50",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
