@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4298d739_bedbec8b",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-20T15:24:27Z",
+      "side": 1,
+      "message": "I am confused a bit here. \nif CSV2_3 is implemented, then even in that case CSV2_2 is implemented as features are backward compataible.\n\nSo this condition could be written as: \n\n\treturn (csv2 \u003e\u003d ID_AA64PFR0_CSV2_2_SUPPORTED); \n\t\n?? please correct if I am wrong here.",
+      "revId": "6e6153f8d4772dab6cc784c5301779b6bc4aa632",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
