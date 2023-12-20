@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -325,6 +325,9 @@ void plat_arm_interconnect_enter_coherency(void);
 void plat_arm_interconnect_exit_coherency(void);
 void plat_arm_program_trusted_mailbox(uintptr_t address);
 bool plat_arm_bl1_fwu_needed(void);
+#if ENABLE_RME
+void plat_arm_bl2_gpt_setup(void);
+#endif
 __dead2 void plat_arm_error_handler(int err);
 __dead2 void plat_arm_system_reset(void);
 

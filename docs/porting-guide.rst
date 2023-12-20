@@ -2295,6 +2295,19 @@ RMM image and stores it in the area specified by manifest.
 
 When ENABLE_RME is disabled, this function is not used.
 
+Function : plat_arm_bl2_gpt_setup() [mandatory when ENABLE_RME == 1]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Arguments : void
+    Return    : void
+
+When ENABLE_RME is enabled, this function configures the L0/L1 GPT tables and
+enables GPC checks. This is a mandatory function for plat/arm based platforms.
+
+When ENABLE_RME is disabled, this function is not used.
+
 Function : bl31_plat_enable_mmu [optional]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
