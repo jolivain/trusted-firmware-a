@@ -26,6 +26,11 @@
 #define CORTEX_X3_CPUPWRCTLR_EL1_WFE_RET_CTRL_BITS_SHIFT	U(7)
 
 /*******************************************************************************
+ * CPU Auxiliary Control register specific definitions.
+ ******************************************************************************/
+#define CORTEX_X3_CPUACTLR_EL1			S3_0_C15_C1_0
+
+/*******************************************************************************
  * CPU Auxiliary Control register 2 specific definitions.
  ******************************************************************************/
 #define CORTEX_X3_CPUACTLR2_EL1			S3_0_C15_C1_1
