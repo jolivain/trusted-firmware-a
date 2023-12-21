@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7d5b90f_25be19d8",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-12-21T10:47:36Z",
+      "side": 1,
+      "message": "Then, the following calls to this function should be skipped, and the number of chars written should be returned with the appropriate error code.",
+      "parentUuid": "3f2d4644_db3df0c4",
+      "range": {
+        "startLine": 1491,
+        "startChar": 2,
+        "endLine": 1492,
+        "endChar": 9
+      },
+      "revId": "9775cfcd015b65b71301d9c3d46d9be0ab04b724",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "91f2352d_aca22bf3",
         "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
         "patchSetId": 11
