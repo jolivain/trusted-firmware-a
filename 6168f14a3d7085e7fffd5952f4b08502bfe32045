@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7d319a1_a1911ddd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2023-12-21T18:14:44Z",
+      "side": 1,
+      "message": "Ignore static check failures in CI as CI is not picking up new build coverage added. Trying CI again after rebase.",
+      "revId": "6168f14a3d7085e7fffd5952f4b08502bfe32045",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
