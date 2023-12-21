@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -75,10 +75,8 @@ static void read_feat_pauth(void)
  ***********************************************/
 static void read_feat_mte(void)
 {
-#if (CTX_INCLUDE_MTE_REGS == FEAT_STATE_ALWAYS)
-	unsigned int mte = get_armv8_5_mte_support();
-
-	feat_detect_panic((mte != MTE_UNIMPLEMENTED), "MTE");
+#if (ENABLE_FEAT_MTE == FEAT_STATE_ALWAYS)
+	feat_detect_panic(is_feat_mte_supported(), "MTE");
 #endif
 }
 
