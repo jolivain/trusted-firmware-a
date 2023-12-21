@@ -170,6 +170,8 @@ void psci_cpu_on_finish(unsigned int cpu_idx, const psci_power_state_t *state_in
 	 */
 	psci_plat_pm_ops->pwr_domain_on_finish(state_info);
 
+	psci_restore_dsu_state(&pmu_context);
+
 #if !(HW_ASSISTED_COHERENCY || WARMBOOT_ENABLE_DCACHE_EARLY)
 	/*
 	 * Arch. management: Enable data cache and manage stack memory
