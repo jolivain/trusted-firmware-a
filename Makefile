@@ -1192,6 +1192,7 @@ $(eval $(call assert_booleans,\
 	ENABLE_CONSOLE_GETC \
 	INIT_UNUSED_NS_EL2	\
 	PLATFORM_REPORT_CTX_MEM_USE \
+	PRESERVE_DSU_PMU_REGS \
 )))
 
 # Numeric_Flags
@@ -1391,6 +1392,7 @@ $(eval $(call add_defines,\
 	ENABLE_CONSOLE_GETC \
 	INIT_UNUSED_NS_EL2	\
 	PLATFORM_REPORT_CTX_MEM_USE \
+	PRESERVE_DSU_PMU_REGS \
 )))
 
 ifeq (${PLATFORM_REPORT_CTX_MEM_USE}, 1)
