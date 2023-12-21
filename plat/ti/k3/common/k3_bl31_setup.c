@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -119,10 +119,20 @@ void bl31_plat_arch_setup(void)
 
 void bl31_platform_setup(void)
 {
+	uint16_t tisci_version;
+	uint8_t tisci_sub_version;
+	uint8_t tisci_patch_version;
+
 	k3_gic_driver_init(K3_GIC_BASE);
 	k3_gic_init();
 
-	ti_sci_init();
+	ti_sci_init(&tisci_version, &tisci_sub_version, &tisci_patch_version);
+
+	if (tisci_version <= 9 && tisci_sub_version <= 1 && tisci_patch_version <= 7)
+			WARN("Not taking system power reference, please update DM and TIFS\n");
+	else if (ti_sci_device_get(PLAT_BOARD_DEVICE_ID)) {
+			WARN("Unable to take system power reference\n");
+	}
 }
 
 void platform_mem_init(void)

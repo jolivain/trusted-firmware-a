@@ -1735,7 +1735,7 @@ int ti_sci_enter_sleep(uint8_t proc_id,
  *
  * Return: 0 if all goes well, else appropriate error message
  */
-int ti_sci_init(void)
+int ti_sci_init(uint16_t *version, uint8_t *sub_version, uint8_t *patch_version)
 {
 	struct ti_sci_msg_resp_version rev_info;
 	int ret;
@@ -1750,6 +1750,10 @@ int ti_sci_init(void)
 	     rev_info.abi_major, rev_info.abi_minor,
 	     rev_info.firmware_revision,
 	     rev_info.firmware_description);
+
+	*version = rev_info.firmware_revision;
+	*sub_version = rev_info.sub_version;
+	*patch_version = rev_info.patch_version;
 
 	return 0;
 }

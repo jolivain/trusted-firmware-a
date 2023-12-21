@@ -230,6 +230,6 @@ int ti_sci_enter_sleep(uint8_t proc_id,
  *
  * Return: 0 if all goes good, else appropriate error message.
  */
-int ti_sci_init(void);
+int ti_sci_init(uint16_t *version, uint8_t *sub_version, uint8_t *patch_version);
 
 #endif /* TI_SCI_H */
