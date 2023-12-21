@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45bde042_9551fef8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-12-21T10:02:51Z",
+      "side": 1,
+      "message": "Please add more info in the commit on what was the problem and what exactly this commit will fix.",
+      "range": {
+        "startLine": 7,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 60
+      },
+      "revId": "56b8f0b8332619533478a5fabc8d6b1e82b0cfd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ffb263a_7b887ca1",
+        "filename": "include/plat/arm/common/arm_tzc_dram.ld.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-12-21T10:02:51Z",
+      "side": 1,
+      "message": "I think the cleaner approach would be to add another data section for shared mem and keep it at the front. That will remove dependency on the macro check.",
+      "range": {
+        "startLine": 30,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 21
+      },
+      "revId": "56b8f0b8332619533478a5fabc8d6b1e82b0cfd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
