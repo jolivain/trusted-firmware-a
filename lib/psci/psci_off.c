@@ -140,6 +140,8 @@ int psci_do_cpu_off(unsigned int end_pwrlvl)
 	 */
 	psci_plat_pm_ops->pwr_domain_off(&state_info);
 
+	psci_save_dsu_state(&pmu_context);
+
 #if ENABLE_PSCI_STAT
 	plat_psci_stat_accounting_start(&state_info);
 #endif

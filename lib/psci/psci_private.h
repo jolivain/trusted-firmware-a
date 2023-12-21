@@ -45,7 +45,16 @@
 /* Internally PSCI uses a uint16_t for various cpu indexes so
  * define a limit to number of CPUs that can be initialised.
  */
-#define PSCI_MAX_CPUS_INDEX	0xFFFFU
+#define PSCI_MAX_CPUS_INDEX		0xFFFFU
+
+#define PMCR_N_MAX			0x1f
+
+#define read_counter_sel()  ((read_clusterpmcr_el1() >> CLUSTERPMCR_EL1_N_SHIFT) \
+                       & CLUSTERPMCR_EL1_N_MASK)
+
+#define SAVE_PMU_REG(pmu_state,reg) pmu_state->reg = read_##reg()
+
+#define RESTORE_PMU_REG(reg,value) write_##reg(value)
 
 /* Invalid parent */
 #define PSCI_PARENT_NODE_INVALID	0xFFFFFFFFU
@@ -172,6 +181,25 @@ typedef enum suspend_mode {
 	OS_INIT = 1
 } suspend_mode_t;
 #endif
+
+typedef struct pmu_state{
+       uint64_t clusterpmcr_el1;
+       uint64_t clusterpmcntenset_el1;
+       uint64_t clusterpmccntr_el1;
+       uint64_t clusterpmovsset_el1;
+       uint64_t clusterpmselr_el1;
+       uint64_t clusterpmsevtyper_el1;
+       uint64_t counter_val[PMCR_N_MAX];
+       uint64_t counter_type[PMCR_N_MAX];
+}pmu_state_t;
+
+
+extern pmu_state_t pmu_context;
+
+void psci_save_dsu_state(pmu_state_t *pmu_context);
+
+void psci_restore_dsu_state(pmu_state_t *pmu_context);
+
 
 /*******************************************************************************
  * The following are helpers and declarations of locks.

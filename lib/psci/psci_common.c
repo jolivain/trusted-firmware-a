@@ -46,6 +46,8 @@ static plat_local_state_t
 
 unsigned int psci_plat_core_count;
 
+pmu_state_t pmu_context;
+
 /*******************************************************************************
  * Arrays that hold the platform's power domain tree information for state
  * management of power domains.
@@ -1282,4 +1284,91 @@ bool psci_are_all_cpus_on_safe(void)
 	psci_release_pwr_domain_locks(PLAT_MAX_PWR_LVL, parent_nodes);
 
 	return true;
+}
+
+/****************************************************************************
+ * This function, psci_save_dsu_state, is designed to save the
+ * current state of the Performance Monitoring Unit (PMU) for a cluster.
+ *
+ * The function performs the following operations:
+ * 1. Saves the current values of several PMU registers
+ *    (CLUSTERPMCR_EL1, CLUSTERPMCNTENSET_EL1, CLUSTERPMCCNTR_EL1,
+ *    CLUSTERPMOVSSET_EL1, and CLUSTERPMSELR_EL1) into the pmu_state structure.
+ *
+ * 2. Disables the PMU event counting by
+ *    clearing the E bit in the clusterpmcr_el1 register.
+ *
+ * 3. Iterates over the available PMU counters as
+ *    determined by the read_counter_sel() function. For each counter, it:
+ *    a. Selects the counter by writing its index to CLUSTERPMSELR_EL1.
+ *    b. Reads the current counter value (event count) and
+ *       the event type being counted from CLUSTERPMXEVCNTR_EL1 and
+ *       CLUSTERPMXEVTYPER_EL1 registers, respectively.
+ *
+ * This function is useful for preserving the DynamIQ Shared Unit's (DSU)
+ * PMU registers over a power cycle.
+ *
+ ***************************************************************************/
+
+void psci_save_dsu_state(pmu_state_t *pmu_state)
+{
+
+       SAVE_PMU_REG(pmu_state,clusterpmcr_el1);
+
+       write_clusterpmcr_el1(pmu_state->clusterpmcr_el1 &
+		             ~(CLUSTERPMCR_EL1_E_BIT));
+
+       SAVE_PMU_REG(pmu_state,clusterpmcntenset_el1);
+
+       SAVE_PMU_REG(pmu_state,clusterpmccntr_el1);
+
+       SAVE_PMU_REG(pmu_state,clusterpmovsset_el1);
+
+       SAVE_PMU_REG(pmu_state,clusterpmselr_el1);
+
+       for (unsigned int i=0; i<read_counter_sel() ;i++) {
+               write_clusterpmselr_el1(i);
+               pmu_state->counter_val[i] = read_clusterpmxevcntr_el1();
+               pmu_state->counter_type[i] = read_clusterpmxevtyper_el1();
+       }
+}
+
+/*****************************************************************************
+ * This function, psci_restore_dsu_state, restores the state of the
+ * Performance Monitoring Unit (PMU) from a previously saved state.
+ *
+ * The function performs the following operations:
+ * 1. Restores the CLUSTERPMCR_EL1 register with the
+ *    saved value from the pmu_state structure.
+ * 2. Iterates over the available PMU counters as determined
+ *    by the read_counter_sel() function. For each counter, it:
+ *    a. Selects the counter by writing its index to CLUSTERPMSELR_EL1.
+ *    b. Restores the counter value (event count) and the event type to
+ *       CLUSTERPMXEVCNTR_EL1 and CLUSTERPMXEVTYPER_EL1 registers, respectively
+ * 3. Restores several other PMU registers (CLUSTERPMSELR_EL1,
+ *    CLUSTERPMOVSCLR_EL1, CLUSTERPMOVSSET_EL1, CLUSTERPMCCNTR_EL1,
+ *    and CLUSTERPMCNTENSET_EL1) with their saved values.
+ *
+ *****************************************************************************/
+
+void psci_restore_dsu_state(pmu_state_t *pmu_state)
+{
+
+       write_clusterpmcr_el1(pmu_state->clusterpmcr_el1);
+
+       for (unsigned int i=0 ; i<read_counter_sel() ; i++){
+               write_clusterpmselr_el1(i);
+               RESTORE_PMU_REG(clusterpmxevcntr_el1,pmu_state->counter_val[i]);
+               RESTORE_PMU_REG(clusterpmxevtyper_el1,pmu_state->counter_type[i]);
+       }
+
+       RESTORE_PMU_REG(clusterpmselr_el1,pmu_state->clusterpmselr_el1);
+
+       RESTORE_PMU_REG(clusterpmovsclr_el1,~(uint32_t)pmu_state->clusterpmovsset_el1);
+
+       RESTORE_PMU_REG(clusterpmovsset_el1,pmu_state->clusterpmovsset_el1);
+
+       RESTORE_PMU_REG(clusterpmccntr_el1,pmu_state->clusterpmccntr_el1);
+
+       RESTORE_PMU_REG(clusterpmcntenset_el1,pmu_state->clusterpmcntenset_el1);
 }
