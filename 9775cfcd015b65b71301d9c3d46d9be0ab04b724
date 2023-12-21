@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca751cbf_cac010a4",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1489,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-12-21T10:32:48Z",
+      "side": 1,
+      "message": "I think the code will be more readable if the src is casted into a char pointer.",
+      "range": {
+        "startLine": 1489,
+        "startChar": 2,
+        "endLine": 1489,
+        "endChar": 37
+      },
+      "revId": "9775cfcd015b65b71301d9c3d46d9be0ab04b724",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e495c39_a7beb831",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-12-21T10:32:48Z",
+      "side": 1,
+      "message": "Are we expecting that the sender will not concatenate two strings in a single buffer?",
+      "range": {
+        "startLine": 1491,
+        "startChar": 2,
+        "endLine": 1492,
+        "endChar": 9
+      },
+      "revId": "9775cfcd015b65b71301d9c3d46d9be0ab04b724",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91f2352d_aca22bf3",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1520,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2023-12-21T10:32:48Z",
+      "side": 1,
+      "message": "bracket",
+      "range": {
+        "startLine": 1520,
+        "startChar": 24,
+        "endLine": 1520,
+        "endChar": 45
+      },
+      "revId": "9775cfcd015b65b71301d9c3d46d9be0ab04b724",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
