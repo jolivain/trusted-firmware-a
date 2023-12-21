@@ -57,6 +57,9 @@ ENABLE_SYS_REG_TRACE_FOR_NS     := 1
 # enable trace filter control registers access to NS by default
 ENABLE_TRF_FOR_NS               := 1
 
+# Save DSU PMU registers on cluster off and restore them on cluster on
+PRESERVE_DSU_REGS		:= 1
+
 # Include GICv3 driver files
 include drivers/arm/gic/v3/gicv3.mk
 
@@ -114,6 +117,7 @@ BL31_SOURCES		+=	${INTERCONNECT_SOURCES}	\
 				lib/fconf/fconf.c			\
 				lib/fconf/fconf_dyn_cfg_getter.c	\
 				drivers/cfi/v2m/v2m_flash.c		\
+				drivers/arm/dsu/dsu.c			\
 				lib/utils/mem_region.c			\
 				plat/arm/common/arm_nor_psci_mem_protect.c	\
 				drivers/arm/sbsa/sbsa.c
