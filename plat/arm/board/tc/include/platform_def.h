@@ -134,10 +134,10 @@
 
 /*
  * PLAT_ARM_MAX_BL2_SIZE is calculated using the current BL2 debug size plus a
- * little space for growth. Current size is considering that TRUSTED_BOARD_BOOT
- * and MEASURED_BOOT is enabled.
+ * little space for growth. Current size is considering that TRUSTED_BOARD_BOOT,
+ * MEASURED_BOOT and GPT support is enabled.
  */
-# define PLAT_ARM_MAX_BL2_SIZE		0x26000
+# define PLAT_ARM_MAX_BL2_SIZE		0x29000
 
 
 /*
