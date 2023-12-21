@@ -392,3 +392,7 @@ CTX_INCLUDE_MPAM_REGS		:= 0
 
 # Enable context memory usage reporting during BL31 setup.
 PLATFORM_REPORT_CTX_MEM_USE	:= 0
+
+# Allow platforms to save/restore DSU PMU registers over a power cycle.
+# Disabled by default and must be enabled by individual platforms.
+PRESERVE_DSU_PMU_REGS		:= 0
