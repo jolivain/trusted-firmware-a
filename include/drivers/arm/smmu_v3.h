@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2024, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -63,7 +63,13 @@
 #define SMMU_ROOT_CR0_GPCEN		(1UL << 1)
 #define SMMU_ROOT_CR0_ACCESSEN		(1UL << 0)
 
-int smmuv3_init(uintptr_t smmu_base);
+/*
+ * Flag to indicate if the security init can be skipped to avoid aborting all
+ * incoming transactions
+ */
+#define SMMU_V3_DRV_ENABLE_INCOMING_TRANS	(0xFF)
+
+int smmuv3_init(uintptr_t smmu_base, int enable_incoming_transactions);
 int smmuv3_security_init(uintptr_t smmu_base);
 
 int smmuv3_ns_set_abort_all(uintptr_t smmu_base);
