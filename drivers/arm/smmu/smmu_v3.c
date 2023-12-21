@@ -72,13 +72,15 @@ int __init smmuv3_security_init(uintptr_t smmu_base)
 /*
  * Initialize the SMMU by invalidating all secure caches and TLBs.
  * Abort all incoming transactions in order to implement a default
- * deny policy on reset
+ * deny policy on reset if enable_incoming_transactions is not set.
  */
-int __init smmuv3_init(uintptr_t smmu_base)
+int __init smmuv3_init(uintptr_t smmu_base, int enable_incoming_transactions)
 {
-	/* Abort all incoming transactions */
-	if (smmuv3_security_init(smmu_base) != 0)
-		return -1;
+	if (enable_incoming_transactions != SMMU_V3_DRV_ENABLE_INCOMING_TRANS) {
+		/* Abort all incoming transactions */
+		if (smmuv3_security_init(smmu_base) != 0)
+			return -1;
+	}
 
 	/*
 	 * Initiate invalidation of secure caches and TLBs if the SMMU

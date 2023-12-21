@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -74,7 +74,7 @@ void __init bl31_early_platform_setup2(u_register_t arg0,
 
 	/* On FVP RevC, initialize SMMUv3 */
 	if ((arm_config.flags & ARM_CONFIG_FVP_HAS_SMMUV3) != 0U)
-		smmuv3_init(PLAT_FVP_SMMUV3_BASE);
+		smmuv3_init(PLAT_FVP_SMMUV3_BASE, 0);
 }
 
 void __init bl31_plat_arch_setup(void)
