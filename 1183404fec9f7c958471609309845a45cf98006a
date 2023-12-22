@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4741d2c7_f5f661f9",
+        "filename": "plat/intel/soc/common/drivers/ddr/ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2023-12-22T10:59:59Z",
+      "side": 1,
+      "message": "lets we know if update needed.",
+      "parentUuid": "b5e0ac27_490d0331",
+      "revId": "1183404fec9f7c958471609309845a45cf98006a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36086b95_7e8f0f03",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "Agreed with Sandrine. Should change to use ERROR.",
       "parentUuid": "36086b95_7e8f0f03",
+      "range": {
+        "startLine": 404,
+        "startChar": 2,
+        "endLine": 404,
+        "endChar": 8
+      },
+      "revId": "1183404fec9f7c958471609309845a45cf98006a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b869abf1_8410bc04",
+        "filename": "plat/intel/soc/common/drivers/ddr/ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2023-12-22T10:59:59Z",
+      "side": 1,
+      "message": "Updated. Done.",
+      "parentUuid": "3d91a581_2aebf4f4",
       "range": {
         "startLine": 404,
         "startChar": 2,
