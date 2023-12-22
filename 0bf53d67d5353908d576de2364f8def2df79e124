@@ -70,6 +70,24 @@
       "parentUuid": "b1b991f7_51fa50ad",
       "revId": "0bf53d67d5353908d576de2364f8def2df79e124",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60be50e2_961cb7f4",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-12-22T17:48:51Z",
+      "side": 1,
+      "message": "Yes. That is what I mean. `bl_params_t` is a better solution as it packs all entry point info that the BL31 needs. Otherwise we might need to think about how to handle multiple TEs with same tag for each `entry_point_info_t`.",
+      "parentUuid": "468f3e9e_4d25f552",
+      "revId": "0bf53d67d5353908d576de2364f8def2df79e124",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
