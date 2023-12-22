@@ -22,6 +22,7 @@
 
 static struct transfer_list_header *ns_tl __unused;
 static struct transfer_list_header *bl31_tl __unused;
+static struct transfer_list_header *bl2_tl __unused;
 
 #if ENABLE_RME
 /*
@@ -51,6 +52,19 @@ static const arm_gpt_info_t arm_gpt_info = {
 
 void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1, u_register_t arg2, u_register_t arg3)
 {
+	struct transfer_list_entry *te __unused;
+
+#if TRANSFER_LIST
+	bl2_tl = (struct transfer_list_header *)arg3;
+	assert(bl2_tl != NULL);
+
+	arg0 = (u_register_t)bl2_tl;
+
+	te = transfer_list_find(bl2_tl, TL_TAG_SRAM_LAYOUT);
+	assert(te != NULL);
+
+	arg1 = (u_register_t)transfer_list_entry_data(te);
+#endif
 	arm_bl2_early_platform_setup((uintptr_t)arg0, (meminfo_t *)arg1);
 
 	/* Initialize the platform config for future decision making */
@@ -65,7 +79,7 @@ void bl2_platform_setup(void)
 	ns_tl = transfer_list_init((void *)FW_NS_HANDOFF_BASE, FW_HANDOFF_SIZE);
 	assert(ns_tl != NULL);
 
-	bl31_tl = transfer_list_init((void *)FW_BL31_HANDOFF_BASE,
+	bl31_tl = transfer_list_init((void *)FW_SECURE_HANDOFF_BASE,
 				     FW_HANDOFF_SIZE);
 	assert(bl31_tl != NULL);
 #endif
@@ -235,10 +249,13 @@ int bl2_plat_handle_pre_image_load(unsigned int image_id)
 		/* The HW_CONFIG needs to be authenticated via the normal loading
 		 * mechanism. Pre-allocate a TE for the configuration and update the
 		 * load information so the configuration is loaded directly into the TE. */
-		te = transfer_list_add(bl31_tl, TL_TAG_FDT,
-				       param_node->image_info.image_max_size,
+		te = transfer_list_add(bl31_tl, TL_TAG_FDT, ARM_HW_CONFIG_SIZE,
 				       NULL);
+
 		assert(te != NULL);
+
+		param_node->image_info.h.attr &= ~IMAGE_ATTRIB_SKIP_LOADING;
+		param_node->image_info.image_max_size = ARM_HW_CONFIG_SIZE;
 		param_node->image_info.image_base =
 			(uintptr_t)transfer_list_entry_data(te);
 	}

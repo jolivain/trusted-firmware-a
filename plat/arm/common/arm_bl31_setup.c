@@ -38,7 +38,12 @@ static entry_point_info_t rmm_image_ep_info;
  * Check that BL31_BASE is above ARM_FW_CONFIG_LIMIT. The reserved page
  * is required for SOC_FW_CONFIG/TOS_FW_CONFIG passed from BL2.
  */
+#if TRANSFER_LIST
+CASSERT(BL31_BASE >= FW_SECURE_HANDOFF_BASE + FW_HANDOFF_SIZE,
+	assert_bl31_base_overflows);
+#else
 CASSERT(BL31_BASE >= ARM_FW_CONFIG_LIMIT, assert_bl31_base_overflows);
+#endif /* TRANSFER_LIST */
 #endif
 
 /* Weak definitions may be overridden in specific ARM standard platform */
