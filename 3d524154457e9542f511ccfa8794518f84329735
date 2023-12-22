@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9250b165_b7a53012",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-22T16:02:41Z",
+      "side": 1,
+      "message": "Now that the context_debug.c file is under the macro,\nadded a corresponding coverity patch, to address the static checks failure.\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/25674/1",
+      "revId": "3d524154457e9542f511ccfa8794518f84329735",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
