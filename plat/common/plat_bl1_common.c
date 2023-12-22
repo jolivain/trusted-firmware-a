@@ -93,8 +93,10 @@ int bl1_plat_handle_post_image_load(unsigned int image_id)
 	/* Find out how much free trusted ram remains after BL1 load */
 	bl1_tzram_layout = bl1_plat_sec_mem_layout();
 
-	/* Convey this information to BL2 by storing the layout at the first free
-	 * address visible to BL2. */
+	/*
+	 * Convey this information to BL2 by storing the layout at the first free
+	 * address visible to BL2.
+	 */
 	bl1_plat_calc_bl2_layout(bl1_tzram_layout,
 				 (meminfo_t *)bl1_tzram_layout->total_base);
 
