@@ -198,6 +198,9 @@ const mmap_region_t plat_arm_mmap[] = {
 	ARM_MAP_GPT_L1_DRAM,
 	ARM_MAP_EL3_RMM_SHARED_MEM,
 #endif
+#ifdef MAP_FW_NS_HANDOFF
+	MAP_FW_NS_HANDOFF,
+#endif
 #ifdef MAP_EL3_FW_HANDOFF
 	MAP_EL3_FW_HANDOFF,
 #endif
