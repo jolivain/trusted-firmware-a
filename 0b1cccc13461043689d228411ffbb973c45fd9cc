@@ -46,6 +46,53 @@
       },
       "revId": "0b1cccc13461043689d228411ffbb973c45fd9cc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "949ea8df_be8036d1",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-27T12:32:08Z",
+      "side": 1,
+      "message": "\u003e But on the other side, we dont want the #ifs in .c file, which is why, we add an empty inline function for the else case.\n\nYes, ``report_ctx_memory_usage`` function is already encapsulated by compiling the file where it is defined under the macro ``PLATFORM_REPORT_CTX_MEM_USE``. Additionally, the header file ``context_debug.h`` is unconditionally included to make this function ``report_ctx_memory_usage``  in-lined if the the macro ``PLATFORM_REPORT_CTX_MEM_USE`` is not defined.\nTherefore, it is unnecessary for the caller to invoke this function within the ``PLATFORM_REPORT_CTX_MEM_USE`` guard (making unconditional calling of this function possible). Finally, it is better to avoid #ifdefry in the source code wherever possible.",
+      "parentUuid": "e29bb342_64b0d4e6",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 31
+      },
+      "revId": "0b1cccc13461043689d228411ffbb973c45fd9cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84294861_1b104382",
+        "filename": "lib/el3_runtime/aarch64/context_debug.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-27T12:32:08Z",
+      "side": 1,
+      "message": "Do we need this provided now this file gets compiled only when ``PLATFORM_REPORT_CTX_MEM_USE`` this macro is defined?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 31
+      },
+      "revId": "0b1cccc13461043689d228411ffbb973c45fd9cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
