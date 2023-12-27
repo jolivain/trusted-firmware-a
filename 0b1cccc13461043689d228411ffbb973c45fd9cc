@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33e0febb_a23b4ee5",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2023-12-27T12:11:35Z",
+      "side": 1,
+      "message": "This guarding is un-necessary then right?",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 31
+      },
+      "revId": "0b1cccc13461043689d228411ffbb973c45fd9cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
