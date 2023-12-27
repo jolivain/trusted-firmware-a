@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afcce380_42a827f7",
+        "filename": "bl31/bl31_main.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-27T12:35:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "949ea8df_be8036d1",
+      "range": {
+        "startLine": 111,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 31
+      },
+      "revId": "0b1cccc13461043689d228411ffbb973c45fd9cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84294861_1b104382",
@@ -85,6 +109,30 @@
       "writtenOn": "2023-12-27T12:32:08Z",
       "side": 1,
       "message": "Do we need this provided now this file gets compiled only when ``PLATFORM_REPORT_CTX_MEM_USE`` this macro is defined?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 31
+      },
+      "revId": "0b1cccc13461043689d228411ffbb973c45fd9cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf992ae0_b0a9130a",
+        "filename": "lib/el3_runtime/aarch64/context_debug.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-27T12:35:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "84294861_1b104382",
       "range": {
         "startLine": 14,
         "startChar": 0,
