@@ -52,6 +52,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "307293b5_e5626ccb",
+        "filename": "include/lib/el3_runtime/context_debug.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-27T12:04:03Z",
+      "side": 1,
+      "message": "* CONTEXT_DEBUG_H?\nDone.",
+      "parentUuid": "9ce83152_cc68b39e",
+      "revId": "3d524154457e9542f511ccfa8794518f84329735",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db9f460f_a3003708",
@@ -65,6 +83,30 @@
       "writtenOn": "2023-12-27T09:37:51Z",
       "side": 1,
       "message": "A slight adjustment may be necessary if you wish to prevent the caller from having to use this guard, as below\n\n```\n#if PLATFORM_REPORT_CTX_MEM_USE \u0026\u0026 #if defined __aarch64__\n/********************************************************************************\n * Reports the allocated memory for every security state and then reports the\n * total system-wide allocated memory.\n *******************************************************************************/\nvoid report_ctx_memory_usage(void);\n#else\nstatic inline void report_ctx_memory_usage(void) {}\n#endif /* PLATFORM_REPORT_CTX_MEM_USE */\n```",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 31
+      },
+      "revId": "3d524154457e9542f511ccfa8794518f84329735",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96a0ad6e_5664d7a9",
+        "filename": "include/lib/el3_runtime/context_debug.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-27T12:04:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db9f460f_a3003708",
       "range": {
         "startLine": 7,
         "startChar": 0,
@@ -98,6 +140,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ea35317_bf8f3f9d",
+        "filename": "lib/el3_runtime/aarch64/context_debug.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-27T12:04:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "826872af_ce60a07f",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 10
+      },
+      "revId": "3d524154457e9542f511ccfa8794518f84329735",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa893f9b_281e2bd0",
@@ -121,6 +187,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa331ef7_caf21939",
+        "filename": "lib/el3_runtime/aarch64/context_debug.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-27T12:04:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa893f9b_281e2bd0",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 6
+      },
+      "revId": "3d524154457e9542f511ccfa8794518f84329735",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81daeb5f_68481ea3",
@@ -134,6 +224,24 @@
       "writtenOn": "2023-12-27T09:37:51Z",
       "side": 1,
       "message": "0U instead? also, everywhere in this file wherever applicable,",
+      "revId": "3d524154457e9542f511ccfa8794518f84329735",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d533091f_4b11e1cc",
+        "filename": "lib/el3_runtime/aarch64/context_debug.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2023-12-27T12:04:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81daeb5f_68481ea3",
       "revId": "3d524154457e9542f511ccfa8794518f84329735",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
