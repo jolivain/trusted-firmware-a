@@ -106,6 +106,24 @@
       "parentUuid": "60be50e2_961cb7f4",
       "revId": "0bf53d67d5353908d576de2364f8def2df79e124",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6cee809_41221d23",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2023-12-28T19:31:59Z",
+      "side": 1,
+      "message": "You might be right in terms of how to differentiate different `entry_point_info_t` in BL31. However, I think currently in the spec we always assume that each TE is with a unique tag ID in the TL, so that we can use this tag ID to identify a TE.\nIf we need to support multiple TEs with a same tag ID, firstly the spec needs to provide a way for how to differentiate the TEs with same tag ID (maybe by adding a new field in the TE header?). Followed by that, some of the APIs need to be redesigned. For example, `transfer_list_find()`.",
+      "parentUuid": "adaf14d9_d9114f2e",
+      "revId": "0bf53d67d5353908d576de2364f8def2df79e124",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
