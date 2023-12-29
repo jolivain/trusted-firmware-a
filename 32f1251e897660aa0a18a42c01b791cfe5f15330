@@ -16,6 +16,24 @@
       "message": "@manorit: I want boot log of all platforms with upstream and TI bootloaders - and firmware versions where this is fixed needs to be documented.",
       "revId": "32f1251e897660aa0a18a42c01b791cfe5f15330",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e6f4cb6_a198a5da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000966
+      },
+      "writtenOn": "2023-12-29T06:23:31Z",
+      "side": 1,
+      "message": "https://gist.github.com/manorit2001/9ec52b04710d9916735fd01de53584a9 -\u003e ATF debug with ti-u-boot\nhttps://gist.github.com/manorit2001/595502c782b06f4ef3dfe0d76147a4ac -\u003e ATF debug with upstream u-boot\nhttps://gist.github.com/manorit2001/29df58b02ae641813a5e2b16042aefa0 -\u003e ATF release with upstream u-boot\nhttps://gist.github.com/manorit2001/8adcd361252461209a1153d0b253ff39 -\u003e ATF release with ti-u-boot\n\nWould update the firmware commit sha in the commit message for trackability purposes.",
+      "parentUuid": "4f0c908a_24f0dc86",
+      "revId": "32f1251e897660aa0a18a42c01b791cfe5f15330",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
