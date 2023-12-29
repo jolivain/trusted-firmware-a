@@ -124,6 +124,24 @@
       "parentUuid": "adaf14d9_d9114f2e",
       "revId": "0bf53d67d5353908d576de2364f8def2df79e124",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42ce56de_a0eca391",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2023-12-29T13:33:27Z",
+      "side": 1,
+      "message": "A redesign of the API would certainly be undesirable for this single structure. \n\nAre there any constraints in the specification that I\u0027m missing that prevent the specification of a TE whose data can be one **or more**  `entry_point_info_t`? That\u0027s the original intent of this TE type at least.",
+      "parentUuid": "a6cee809_41221d23",
+      "revId": "0bf53d67d5353908d576de2364f8def2df79e124",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
