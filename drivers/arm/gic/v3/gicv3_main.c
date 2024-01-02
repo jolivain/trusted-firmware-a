@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2024, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2023, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -35,7 +35,10 @@ static spinlock_t gic_lock;
 #pragma weak gicv3_rdistif_on
 
 /* Check interrupt ID for SGI/(E)PPI and (E)SPIs */
-static bool is_sgi_ppi(unsigned int id);
+static bool is_sgi_or_ppi(unsigned int id);
+
+/* Check for valid SGI/PPI or SPI interrupt ID */
+static bool is_valid_interrupt(unsigned int);
 
 /*
  * Helper macros to save and restore GICR and GICD registers
@@ -431,7 +434,7 @@ unsigned int gicv3_get_pending_interrupt_type(void)
  ******************************************************************************/
 unsigned int gicv3_get_interrupt_group(unsigned int id, unsigned int proc_num)
 {
-	unsigned int igroup, grpmodr;
+	unsigned int igroup = 0U, grpmodr = 0U;
 	uintptr_t gicr_base;
 	uintptr_t gicd_base;
 
@@ -446,22 +449,22 @@ unsigned int gicv3_get_interrupt_group(unsigned int id, unsigned int proc_num)
 	if (id >= MIN_LPI_ID) {
 		return INTR_GROUP1NS;
 	}
-
-	/* Check interrupt ID */
-	if (is_sgi_ppi(id)) {
-		/* SGIs: 0-15, PPIs: 16-31, EPPIs: 1056-1119 */
-		assert(gicv3_driver_data->rdistif_base_addrs != NULL);
-		gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
-		igroup = gicr_get_igroupr(gicr_base, id);
-		grpmodr = gicr_get_igrpmodr(gicr_base, id);
-	} else {
-		/* SPIs: 32-1019, ESPIs: 4096-5119 */
-		assert(gicv3_driver_data->gicd_base != 0U);
-		gicd_base = gicv3_get_multichip_base(id, gicv3_driver_data->gicd_base);
-		igroup = gicd_get_igroupr(gicd_base, id);
-		grpmodr = gicd_get_igrpmodr(gicd_base, id);
+	if (is_valid_interrupt(id)) {
+		/* Check interrupt ID */
+		if (is_sgi_or_ppi(id)) {
+			/* SGIs: 0-15, PPIs: 16-31, EPPIs: 1056-1119 */
+			assert(gicv3_driver_data->rdistif_base_addrs != NULL);
+			gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+			igroup = gicr_get_igroupr(gicr_base, id);
+			grpmodr = gicr_get_igrpmodr(gicr_base, id);
+		} else {
+			/* SPIs: 32-1019, ESPIs: 4096-5119 */
+			assert(gicv3_driver_data->gicd_base != 0U);
+			gicd_base = gicv3_get_multichip_base(id, gicv3_driver_data->gicd_base);
+			igroup = gicd_get_igroupr(gicd_base, id);
+			grpmodr = gicd_get_igrpmodr(gicd_base, id);
+		}
 	}
-
 	/*
 	 * If the IGROUP bit is set, then it is a Group 1 Non secure
 	 * interrupt
@@ -942,13 +945,14 @@ unsigned int gicv3_get_interrupt_active(unsigned int id, unsigned int proc_num)
 	assert(proc_num < gicv3_driver_data->rdistif_num);
 	assert(gicv3_driver_data->rdistif_base_addrs != NULL);
 
-	/* Check interrupt ID */
-	if (is_sgi_ppi(id)) {
-		/* For SGIs: 0-15, PPIs: 16-31 and EPPIs: 1056-1119 */
-		return gicr_get_isactiver(
-			gicv3_driver_data->rdistif_base_addrs[proc_num], id);
+	if (is_valid_interrupt(id)) {
+		/* Check interrupt ID */
+		if (is_sgi_or_ppi(id)) {
+			/* For SGIs: 0-15, PPIs: 16-31 and EPPIs: 1056-1119 */
+			return gicr_get_isactiver(
+				gicv3_driver_data->rdistif_base_addrs[proc_num], id);
+		}
 	}
-
 	/* For SPIs: 32-1019 and ESPIs: 4096-5119 */
 	gicd_base = gicv3_get_multichip_base(id, gicv3_driver_data->gicd_base);
 	return gicd_get_isactiver(gicd_base, id);
@@ -973,16 +977,17 @@ void gicv3_enable_interrupt(unsigned int id, unsigned int proc_num)
 	 * interrupt trigger are observed before enabling interrupt.
 	 */
 	dsbishst();
-
-	/* Check interrupt ID */
-	if (is_sgi_ppi(id)) {
-		/* For SGIs: 0-15, PPIs: 16-31 and EPPIs: 1056-1119 */
-		gicr_set_isenabler(
-			gicv3_driver_data->rdistif_base_addrs[proc_num], id);
-	} else {
-		/* For SPIs: 32-1019 and ESPIs: 4096-5119 */
-		gicd_base = gicv3_get_multichip_base(id, gicv3_driver_data->gicd_base);
-		gicd_set_isenabler(gicd_base, id);
+	if (is_valid_interrupt(id)) {
+		/* Check interrupt ID */
+		if (is_sgi_or_ppi(id)) {
+			/* For SGIs: 0-15, PPIs: 16-31 and EPPIs: 1056-1119 */
+			gicr_set_isenabler(
+				gicv3_driver_data->rdistif_base_addrs[proc_num], id);
+		} else {
+			/* For SPIs: 32-1019 and ESPIs: 4096-5119 */
+			gicd_base = gicv3_get_multichip_base(id, gicv3_driver_data->gicd_base);
+			gicd_set_isenabler(gicd_base, id);
+		}
 	}
 }
 
@@ -1004,25 +1009,25 @@ void gicv3_disable_interrupt(unsigned int id, unsigned int proc_num)
 	 * Disable interrupt, and ensure that any shared variable updates
 	 * depending on out of band interrupt trigger are observed afterwards.
 	 */
+	if (is_valid_interrupt(id)) {
+		/* Check interrupt ID */
+		if (is_sgi_or_ppi(id)) {
+			/* For SGIs: 0-15, PPIs: 16-31 and EPPIs: 1056-1119 */
+			gicr_set_icenabler(
+				gicv3_driver_data->rdistif_base_addrs[proc_num], id);
 
-	/* Check interrupt ID */
-	if (is_sgi_ppi(id)) {
-		/* For SGIs: 0-15, PPIs: 16-31 and EPPIs: 1056-1119 */
-		gicr_set_icenabler(
-			gicv3_driver_data->rdistif_base_addrs[proc_num], id);
+			/* Write to clear enable requires waiting for pending writes */
+			gicr_wait_for_pending_write(
+				gicv3_driver_data->rdistif_base_addrs[proc_num]);
+		} else {
+			/* For SPIs: 32-1019 and ESPIs: 4096-5119 */
+			gicd_base = gicv3_get_multichip_base(id, gicv3_driver_data->gicd_base);
+			gicd_set_icenabler(gicd_base, id);
 
-		/* Write to clear enable requires waiting for pending writes */
-		gicr_wait_for_pending_write(
-			gicv3_driver_data->rdistif_base_addrs[proc_num]);
-	} else {
-		/* For SPIs: 32-1019 and ESPIs: 4096-5119 */
-		gicd_base = gicv3_get_multichip_base(id, gicv3_driver_data->gicd_base);
-		gicd_set_icenabler(gicd_base, id);
-
-		/* Write to clear enable requires waiting for pending writes */
-		gicd_wait_for_pending_write(gicd_base);
+			/* Write to clear enable requires waiting for pending writes */
+			gicd_wait_for_pending_write(gicd_base);
+		}
 	}
-
 	dsbishst();
 }
 
@@ -1041,15 +1046,17 @@ void gicv3_set_interrupt_priority(unsigned int id, unsigned int proc_num,
 	assert(proc_num < gicv3_driver_data->rdistif_num);
 	assert(gicv3_driver_data->rdistif_base_addrs != NULL);
 
-	/* Check interrupt ID */
-	if (is_sgi_ppi(id)) {
-		/* For SGIs: 0-15, PPIs: 16-31 and EPPIs: 1056-1119 */
-		gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
-		gicr_set_ipriorityr(gicr_base, id, priority);
-	} else {
-		/* For SPIs: 32-1019 and ESPIs: 4096-5119 */
-		gicd_base = gicv3_get_multichip_base(id, gicv3_driver_data->gicd_base);
-		gicd_set_ipriorityr(gicd_base, id, priority);
+	if (is_valid_interrupt(id)) {
+		/* Check interrupt ID */
+		if (is_sgi_or_ppi(id)) {
+			/* For SGIs: 0-15, PPIs: 16-31 and EPPIs: 1056-1119 */
+			gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+			gicr_set_ipriorityr(gicr_base, id, priority);
+		} else {
+			/* For SPIs: 32-1019 and ESPIs: 4096-5119 */
+			gicd_base = gicv3_get_multichip_base(id, gicv3_driver_data->gicd_base);
+			gicd_set_ipriorityr(gicd_base, id, priority);
+		}
 	}
 }
 
@@ -1088,29 +1095,31 @@ void gicv3_set_interrupt_group(unsigned int id, unsigned int proc_num,
 		break;
 	}
 
-	/* Check interrupt ID */
-	if (is_sgi_ppi(id)) {
-		/* For SGIs: 0-15, PPIs: 16-31 and EPPIs: 1056-1119 */
-		gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
+	if (is_valid_interrupt(id)) {
+		/* Check interrupt ID */
+		if (is_sgi_or_ppi(id)) {
+			/* For SGIs: 0-15, PPIs: 16-31 and EPPIs: 1056-1119 */
+			gicr_base = gicv3_driver_data->rdistif_base_addrs[proc_num];
 
-		igroup ? gicr_set_igroupr(gicr_base, id) :
-			 gicr_clr_igroupr(gicr_base, id);
-		grpmod ? gicr_set_igrpmodr(gicr_base, id) :
-			 gicr_clr_igrpmodr(gicr_base, id);
-	} else {
-		/* For SPIs: 32-1019 and ESPIs: 4096-5119 */
+			igroup ? gicr_set_igroupr(gicr_base, id) :
+				 gicr_clr_igroupr(gicr_base, id);
+			grpmod ? gicr_set_igrpmodr(gicr_base, id) :
+				 gicr_clr_igrpmodr(gicr_base, id);
+		} else {
+			/* For SPIs: 32-1019 and ESPIs: 4096-5119 */
 
-		/* Serialize read-modify-write to Distributor registers */
-		spin_lock(&gic_lock);
+			/* Serialize read-modify-write to Distributor registers */
+			spin_lock(&gic_lock);
 
-		gicd_base = gicv3_get_multichip_base(id, gicv3_driver_data->gicd_base);
+			gicd_base = gicv3_get_multichip_base(id, gicv3_driver_data->gicd_base);
 
-		igroup ? gicd_set_igroupr(gicd_base, id) :
-			 gicd_clr_igroupr(gicd_base, id);
-		grpmod ? gicd_set_igrpmodr(gicd_base, id) :
-			 gicd_clr_igrpmodr(gicd_base, id);
+			igroup ? gicd_set_igroupr(gicd_base, id) :
+				 gicd_clr_igroupr(gicd_base, id);
+			grpmod ? gicd_set_igrpmodr(gicd_base, id) :
+				 gicd_clr_igrpmodr(gicd_base, id);
 
-		spin_unlock(&gic_lock);
+			spin_unlock(&gic_lock);
+		}
 	}
 }
 
@@ -1228,18 +1237,18 @@ void gicv3_clear_interrupt_pending(unsigned int id, unsigned int proc_num)
 	 * Clear pending interrupt, and ensure that any shared variable updates
 	 * depending on out of band interrupt trigger are observed afterwards.
 	 */
-
-	/* Check interrupt ID */
-	if (is_sgi_ppi(id)) {
-		/* For SGIs: 0-15, PPIs: 16-31 and EPPIs: 1056-1119 */
-		gicr_set_icpendr(
-			gicv3_driver_data->rdistif_base_addrs[proc_num], id);
-	} else {
-		/* For SPIs: 32-1019 and ESPIs: 4096-5119 */
-		gicd_base = gicv3_get_multichip_base(id, gicv3_driver_data->gicd_base);
-		gicd_set_icpendr(gicd_base, id);
+	if (is_valid_interrupt(id)) {
+		/* Check interrupt ID */
+		if (is_sgi_or_ppi(id)) {
+			/* For SGIs: 0-15, PPIs: 16-31 and EPPIs: 1056-1119 */
+			gicr_set_icpendr(
+				gicv3_driver_data->rdistif_base_addrs[proc_num], id);
+		} else {
+			/* For SPIs: 32-1019 and ESPIs: 4096-5119 */
+			gicd_base = gicv3_get_multichip_base(id, gicv3_driver_data->gicd_base);
+			gicd_set_icpendr(gicd_base, id);
+		}
 	}
-
 	dsbishst();
 }
 
@@ -1263,15 +1272,18 @@ void gicv3_set_interrupt_pending(unsigned int id, unsigned int proc_num)
 	 */
 	dsbishst();
 
-	/* Check interrupt ID */
-	if (is_sgi_ppi(id)) {
-		/* For SGIs: 0-15, PPIs: 16-31 and EPPIs: 1056-1119 */
-		gicr_set_ispendr(
-			gicv3_driver_data->rdistif_base_addrs[proc_num], id);
-	} else {
-		/* For SPIs: 32-1019 and ESPIs: 4096-5119 */
-		gicd_base = gicv3_get_multichip_base(id, gicv3_driver_data->gicd_base);
-		gicd_set_ispendr(gicd_base, id);
+	if (is_valid_interrupt(id)) {
+
+		/* Check interrupt ID */
+		if (is_sgi_or_ppi(id)) {
+			/* For SGIs: 0-15, PPIs: 16-31 and EPPIs: 1056-1119 */
+			gicr_set_ispendr(
+				gicv3_driver_data->rdistif_base_addrs[proc_num], id);
+		} else {
+			/* For SPIs: 32-1019 and ESPIs: 4096-5119 */
+			gicd_base = gicv3_get_multichip_base(id, gicv3_driver_data->gicd_base);
+			gicd_set_ispendr(gicd_base, id);
+		}
 	}
 }
 
@@ -1371,10 +1383,28 @@ int gicv3_rdistif_probe(const uintptr_t gicr_frame)
 }
 
 /******************************************************************************
- * This function checks the interrupt ID and returns true for SGIs and (E)PPIs
- * and false for (E)SPIs IDs.
+ * This function checks the interrupt ID and returns true for SGIs, (E)PPIs
+ * and (E)SPIs IDs. Any interrupt ID outside the range are invalid and panics.
  *****************************************************************************/
-static bool is_sgi_ppi(unsigned int id)
+static bool is_valid_interrupt(unsigned int id)
+{
+	/* Valid interrupts:
+	 * SGIs: 0-15, PPIs: 16-31, EPPIs: 1056-1119
+	 * SPIs: 32-1019, ESPIs: 4096-5119
+	 */
+	if ((IS_SGI_PPI(id)) || (IS_SPI(id))) {
+		return true;
+	}
+
+	assert(false);
+	panic();
+}
+
+
+/******************************************************************************
+ * This function passes interrupt id to validate for SGIs/(E)PPIs/(E)SPIs
+ *****************************************************************************/
+static bool is_sgi_or_ppi(unsigned int id)
 {
 	/* SGIs: 0-15, PPIs: 16-31, EPPIs: 1056-1119 */
 	if (IS_SGI_PPI(id)) {
@@ -1386,6 +1416,5 @@ static bool is_sgi_ppi(unsigned int id)
 		return false;
 	}
 
-	assert(false);
-	panic();
+	return false;
 }
