@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c106d707_04e152ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-01-02T16:05:56Z",
+      "side": 1,
+      "message": "Thanks for this cleanup patch Andre.\n\nJust sharing the reasoning behind the existing documentation of FEATURE_DETECTION  macro.\n\" I agree that FEATURE_DETECTION flag is no more completely having its influence on dynamic runtime check.\nInitially, our thoughts was to bring in feature check(reading ID_register) early at the boot phase under detect_arch_features( ) and stop boot if any errors.\nIf not, then go for dynamic runtime check if ENABLE_FEAT_STATE\u003d2.\nThe current implementation, no longer follows this pattern, as we even cover FEAT_STATE_CHECK, in detect_arch_features( ) api.\"\n\n\nAltogther, both are independent. \nPatch LGTM. Only one nit comment.",
+      "revId": "745cd674df705ff43c024f5995cde2cec9914eeb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02c5ff8f_cfff314f",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-01-02T16:05:56Z",
+      "side": 1,
+      "message": "nit: \nInstead of ENABLE_FEAT_* mechanism, could we find an alternative word here to rename this mechanism. \nSomething like \"TriState\" mechanism or maybe something similar/suitable.\nPlease do let me know your thoughts here.",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 20
+      },
+      "revId": "745cd674df705ff43c024f5995cde2cec9914eeb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
