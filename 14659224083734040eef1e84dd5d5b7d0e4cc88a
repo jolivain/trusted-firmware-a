@@ -52,6 +52,24 @@
       "parentUuid": "3def0cde_365c320e",
       "revId": "14659224083734040eef1e84dd5d5b7d0e4cc88a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a96a623_ed312d90",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-01-02T17:48:22Z",
+      "side": 1,
+      "message": "I can\u0027t see any evidence to suggest this is an intermittent failure. \n\u003e This is not an intermittent failure. Its a real failure.\n But the failure we are seeing with the arm_fpga platform, is a generic issue. Previously even during release time, we had seen this issue. Its due to memory constraints of the platform. \nWe need to save some memory in order to get through this patch, like we did previously, wherein we saved few bytes via Per_world context patch.",
+      "parentUuid": "172ef4fe_228fd1da",
+      "revId": "14659224083734040eef1e84dd5d5b7d0e4cc88a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
