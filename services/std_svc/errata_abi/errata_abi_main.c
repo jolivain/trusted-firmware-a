@@ -101,6 +101,20 @@ struct em_cpu_list cpu_list[] = {
 },
 #endif /* NEOVERSE_V2_H_INC */
 
+#if CORTEX_A715_H_INC
+{
+	.cpu_partnumber = CORTEX_A715_MIDR,
+	.cpu_errata_list = {
+		[0] = {2344187, 0x00, 0x10, ERRATA_A715_2344187},
+		[1] = {2429384, 0x00, 0x10, ERRATA_A715_2429384},
+		[2] = {2561034, 0x10, 0x10, ERRATA_A715_2561034},
+		[3] = {2701951, 0x00, 0x11, ERRATA_A715_2701951, \
+			ERRATA_NON_ARM_INTERCONNECT},
+		[4 ... ERRATA_LIST_END] = UNDEF_ERRATA,
+	}
+},
+#endif /* CORTEX_A715_H_INC */
+
 #if CORTEX_X3_H_INC
 {
 	.cpu_partnumber = CORTEX_X3_MIDR,
