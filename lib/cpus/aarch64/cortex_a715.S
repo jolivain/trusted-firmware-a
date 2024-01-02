@@ -26,6 +26,28 @@
 	wa_cve_2022_23960_bhb_vector_table CORTEX_A715_BHB_LOOP_COUNT, cortex_a715
 #endif /* WORKAROUND_CVE_2022_23960 */
 
+workaround_reset_start cortex_a715, ERRATUM(2344187), ERRATA_A715_2344187
+	sysreg_bit_set GCR_EL1, GCR_EL1_RRND_BIT
+
+	/* Mitigation upon ERRETAA and ERRETAB. */
+	mov x0, #2
+	msr CORTEX_A715_CPUPSELR_EL3, x0
+	isb
+	ldr x0, =0xd69f0bff
+	msr CORTEX_A715_CPUPOR_EL3, x0
+	ldr x0, =0xfffffbff
+	msr CORTEX_A715_CPUPMR_EL3, x0
+	mov x1, #0
+	orr x1, x1, #(1<<0)
+	orr x1, x1, #(3<<4)
+	orr x1, x1, #(0xf<<6)
+	orr x1, x1, #(1<<13)
+	orr x1, x1, #(1<<53)
+	msr CORTEX_A715_CPUPCR_EL3, x1
+workaround_reset_end cortex_a715, ERRATUM(2344187)
+
+check_erratum_ls cortex_a715, ERRATUM(2344187), CPU_REV(1, 0)
+
 workaround_runtime_start cortex_a715, ERRATUM(2561034), ERRATA_A715_2561034
 	sysreg_bit_set	CORTEX_A715_CPUACTLR2_EL1, BIT(26)
 workaround_runtime_end cortex_a715, ERRATUM(2561034), NO_ISB
