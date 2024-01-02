@@ -908,8 +908,12 @@ CPU_FLAG_LIST += ERRATA_V2_2801372
 CPU_FLAG_LIST += ERRATA_A715_2561034
 
 # Flag to apply erratum 2701951 workaround for non-arm interconnect ip.
-# This erratum applies to revisions r0p0, r1p0, and r1p1. Its is fixed in r1p2.
+# This erratum applies to revisions r0p0, r1p0, and r1p1. It is fixed in r1p2.
 CPU_FLAG_LIST += ERRATA_A715_2701951
+
+# Flag to apply erratum 2344187 workaround during reset. This erratum applies
+# to revisions r0p0, and r1p0. It is fixed in r1p1.
+CPU_FLAG_LIST += ERRATA_A715_2344187
 
 # Flag to apply DSU erratum 798953. This erratum applies to DSUs revision r0p0.
 # Applying the workaround results in higher DSU power consumption on idle.
