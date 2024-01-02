@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31d0839a_b852c972",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2024-01-02T21:35:25Z",
+      "side": 1,
+      "message": "If this is going to hang for all older firmware, that should be a concern to us.\n\nNOTE: ti_sci_init call above this does query the firmware version supported etc. why not store the version information rather than discarding it at the end of print and use it to compare against a good version baseline after which this API will be called?",
+      "revId": "05404da3479a4babee33ad81d4b940724c358a2b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
