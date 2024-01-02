@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c09e273a_bf87625d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-01-02T17:36:14Z",
+      "side": 1,
+      "message": "Minor comment, otherwise LGTM",
+      "revId": "c59aa89b45c153e6181ecf0e59e0be2691ea0a8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fb2c1b3_3894a7da",
+        "filename": "include/lib/cpus/aarch64/cortex_a35.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-01-02T17:36:14Z",
+      "side": 1,
+      "message": "nit: update copyright year to 2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "c59aa89b45c153e6181ecf0e59e0be2691ea0a8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
