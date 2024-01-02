@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "876215fe_004777c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-01-02T17:04:55Z",
+      "side": 1,
+      "message": "CI failures: build failure for arm_fpga platform. Apart from this no other real failures.\n\nFor Arm_FPGA platform, RAM overflow by 384 bytes. I believe, this issue is seen consistently with increase in the BL31 file, code size.\n\nThis failure, altogether needs to be resolved separately, and the current patch is not the real cause for it.",
+      "revId": "14659224083734040eef1e84dd5d5b7d0e4cc88a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
