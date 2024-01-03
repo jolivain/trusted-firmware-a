@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ced3036_4d287f95",
+        "filename": "plat/xilinx/versal/aarch64/versal_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2024-01-03T14:22:25Z",
+      "side": 1,
+      "message": "Please check if this else is needed because of Misra-C. If not please remove it because it is reported as an issue here.\nhttps://ci.trustedfirmware.org/job/tf-a-static-checks/7524/",
+      "revId": "be58cb24f9940d3f2250f420faba996e7f46e99e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66dcb1ff_8b5456d7",
+        "filename": "plat/xilinx/versal/aarch64/versal_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2024-01-03T14:22:25Z",
+      "side": 1,
+      "message": "This should be cpu_clock instead of VERSAL_CPU_CLOCK.",
+      "revId": "be58cb24f9940d3f2250f420faba996e7f46e99e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
