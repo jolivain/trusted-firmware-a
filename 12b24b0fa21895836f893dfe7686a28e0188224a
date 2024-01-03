@@ -3,6 +3,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "647790a2_ee5f6c2e",
+        "filename": "drivers/scmi-msg/common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-01-03T14:13:40Z",
+      "side": 1,
+      "message": "nit: update copyright year",
+      "range": {
+        "startLine": 3,
+        "startChar": 22,
+        "endLine": 3,
+        "endChar": 26
+      },
+      "revId": "12b24b0fa21895836f893dfe7686a28e0188224a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2ef2213_4e940832",
+        "filename": "drivers/scmi-msg/common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-01-03T14:13:40Z",
+      "side": 1,
+      "message": "typo: sensor",
+      "range": {
+        "startLine": 123,
+        "startChar": 3,
+        "endLine": 123,
+        "endChar": 30
+      },
+      "revId": "12b24b0fa21895836f893dfe7686a28e0188224a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c24f8407_78798bf3",
+        "filename": "drivers/scmi-msg/sensor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-01-03T14:13:40Z",
+      "side": 1,
+      "message": "nit: since this is a new file the year should be 2023, and in the format:\n\n   Copyright (c) 2023, NXP. All rights reserved.",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 2
+      },
+      "revId": "12b24b0fa21895836f893dfe7686a28e0188224a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b32deb73_8485bd11",
         "filename": "drivers/scmi-msg/sensor.h",
         "patchSetId": 2
