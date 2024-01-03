@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83a16c0b_4d910a98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-03T16:43:07Z",
+      "side": 1,
+      "message": "Only re-run CI+1, the only failing test on CI+2 should be corrected with this patch:\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/25662\nAnd the only modification between patch set 1 and 2 is inside a comment",
+      "revId": "0eb5d8c56f468b96739642a02bef75eb06f61ff6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
