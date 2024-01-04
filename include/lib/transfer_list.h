@@ -41,8 +41,10 @@ enum transfer_list_tag_id {
 	TL_TAG_HOB_BLOCK = 2,
 	TL_TAG_HOB_LIST = 3,
 	TL_TAG_ACPI_TABLE_AGGREGATE = 4,
+	TL_TAG_SRAM_LAYOUT = 0x5,
 	TL_TAG_OPTEE_PAGABLE_PART = 0x100,
 	TL_TAG_EXEC_EP_INFO = 0x102,
+	TL_TAG_TB_FW_CONFIG = 0x103,
 };
 
 enum transfer_list_ops {
