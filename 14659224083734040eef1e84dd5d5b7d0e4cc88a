@@ -149,6 +149,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20187a8a_758ba9b6",
+        "filename": "lib/extensions/spe/spe.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-01-04T11:17:12Z",
+      "side": 1,
+      "message": "We have this pattern in other files(amu.c).\nSo followed. Will remove it.",
+      "parentUuid": "c5e07b39_756ba46a",
+      "range": {
+        "startLine": 21,
+        "startChar": 30,
+        "endLine": 21,
+        "endChar": 31
+      },
+      "revId": "14659224083734040eef1e84dd5d5b7d0e4cc88a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc0a9801_e09ecbf6",
@@ -162,6 +186,30 @@
       "writtenOn": "2024-01-03T21:25:08Z",
       "side": 1,
       "message": "nit: 2024?",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "14659224083734040eef1e84dd5d5b7d0e4cc88a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bff5f972_93ba78dd",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-01-04T11:17:12Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "cc0a9801_e09ecbf6",
       "range": {
         "startLine": 2,
         "startChar": 22,
@@ -195,6 +243,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "498523ec_28b65f2d",
+        "filename": "plat/arm/board/fvp/fvp_pm.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-01-04T11:17:12Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f133f68b_05ef2318",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "14659224083734040eef1e84dd5d5b7d0e4cc88a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "947af048_5a059e13",
@@ -208,6 +280,30 @@
       "writtenOn": "2024-01-03T21:25:08Z",
       "side": 1,
       "message": "Do we still need spe.h?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 31
+      },
+      "revId": "14659224083734040eef1e84dd5d5b7d0e4cc88a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b710a6c_336bd7b4",
+        "filename": "plat/arm/board/fvp/fvp_pm.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-01-04T11:17:12Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "947af048_5a059e13",
       "range": {
         "startLine": 13,
         "startChar": 0,
