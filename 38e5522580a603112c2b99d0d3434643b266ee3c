@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e27aa7e0_b5a93c71",
+        "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-04T11:01:19Z",
+      "side": 1,
+      "message": "Ah, I see. \n\u003e I can do that in a dedicated patch if needed\n\nYes, it is better to have a dedicated patch to address this issue, rather than fixing it under the current patch.",
+      "parentUuid": "6a6dc492_0f4641e2",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "38e5522580a603112c2b99d0d3434643b266ee3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a446050_9cbe6a56",
         "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
         "patchSetId": 2
