@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4351c745_bc50fd5a",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2024-01-04T08:21:51Z",
+      "side": 1,
+      "message": "Just a though here is that we might think about to enforce the check as this one is really critical for the security behavior. Could be added later to duplicate the control in order to avoid some glitch issues.",
+      "revId": "1a0015559646ce3c72014d9d29c93036abd2a718",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
