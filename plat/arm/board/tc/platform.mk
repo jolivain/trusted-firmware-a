@@ -225,6 +225,10 @@ ifeq (${DICE_PROTECTION_ENVIRONMENT},1)
 				-Iinclude/lib/dice
 endif
 
+ifeq (${TRNG_SUPPORT},1)
+	BL31_SOURCES	+=	plat/arm/board/tc/tc_trng.c
+endif
+
 ifneq (${PLATFORM_TEST},)
     # Add this include as first, before arm_common.mk. This is necessary
     # because arm_common.mk builds Mbed TLS, and platform_test.mk can
