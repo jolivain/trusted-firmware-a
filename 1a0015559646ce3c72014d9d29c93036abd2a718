@@ -16,6 +16,24 @@
       "message": "Just a though here is that we might think about to enforce the check as this one is really critical for the security behavior. Could be added later to duplicate the control in order to avoid some glitch issues.",
       "revId": "1a0015559646ce3c72014d9d29c93036abd2a718",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9ec695d_583cd685",
+        "filename": "plat/st/stm32mp1/stm32mp1_private.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 541,
+      "author": {
+        "id": 1000144
+      },
+      "writtenOn": "2024-01-04T08:28:55Z",
+      "side": 1,
+      "message": "Other things is that we only check the secure close device around the BSEC state which is good, but not really enough.\nIn fact, the secure state is given by different assets;\n- BSEC Close device\n- Public root key hash in fuses\n- Enc_key if encryption is enabled.\n- potentially a RMA password that is not 00000000\n\nThe overall values must be taken in account to say that the chip is in real close state.",
+      "parentUuid": "4351c745_bc50fd5a",
+      "revId": "1a0015559646ce3c72014d9d29c93036abd2a718",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
