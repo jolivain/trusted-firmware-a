@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9d338f4_bc2209fc",
+        "filename": "plat/st/common/include/stm32mp_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-04T12:09:22Z",
+      "side": 1,
+      "message": "Just curious to understand how these values are derived. IIUC, these values are only used in the patch for checking purposes but aren\u0027t actually utilised elsewhere. Please correct me if I\u0027m mistaken.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 44
+      },
+      "revId": "1a0015559646ce3c72014d9d29c93036abd2a718",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4351c745_bc50fd5a",
         "filename": "plat/st/stm32mp1/stm32mp1_private.c",
         "patchSetId": 2
