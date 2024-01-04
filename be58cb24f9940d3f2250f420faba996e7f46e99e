@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66e0cc46_3586391b",
+        "filename": "plat/xilinx/versal/aarch64/versal_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1001033
+      },
+      "writtenOn": "2024-01-04T14:26:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ced3036_4d287f95",
+      "revId": "be58cb24f9940d3f2250f420faba996e7f46e99e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66dcb1ff_8b5456d7",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-03T14:22:25Z",
       "side": 1,
       "message": "This should be cpu_clock instead of VERSAL_CPU_CLOCK.",
+      "revId": "be58cb24f9940d3f2250f420faba996e7f46e99e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f49928b_d930e3a4",
+        "filename": "plat/xilinx/versal/aarch64/versal_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1001033
+      },
+      "writtenOn": "2024-01-04T14:26:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66dcb1ff_8b5456d7",
       "revId": "be58cb24f9940d3f2250f420faba996e7f46e99e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
