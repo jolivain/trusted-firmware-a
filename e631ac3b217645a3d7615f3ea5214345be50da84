@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e991a19f_a3732bb1",
+        "filename": "plat/arm/board/fvp/fvp_el3_spmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2024-01-04T13:46:56Z",
+      "side": 0,
+      "message": "change to *arm_spmc_shmem_datastore, \nallocate datastore from a new section, ensure this section is start of ARM_EL3_TZC_DRAM1_BASE region",
+      "range": {
+        "startLine": 21,
+        "startChar": 12,
+        "endLine": 21,
+        "endChar": 28
+      },
+      "revId": "e631ac3b217645a3d7615f3ea5214345be50da84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
