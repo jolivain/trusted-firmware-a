@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77389792_4dfdd79b",
+        "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-04T18:33:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e27aa7e0_b5a93c71",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "38e5522580a603112c2b99d0d3434643b266ee3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a446050_9cbe6a56",
@@ -107,6 +131,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51edc5a5_8be51e27",
+        "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-04T18:33:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0899d270_b8ef8005",
+      "revId": "38e5522580a603112c2b99d0d3434643b266ee3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df0770ab_7f0d4303",
@@ -138,6 +180,24 @@
       "side": 1,
       "message": "Acknowledged",
       "parentUuid": "df0770ab_7f0d4303",
+      "revId": "38e5522580a603112c2b99d0d3434643b266ee3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9409d975_34394d79",
+        "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-04T18:33:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0297f875_b9b201d3",
       "revId": "38e5522580a603112c2b99d0d3434643b266ee3c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -214,6 +274,30 @@
       "side": 1,
       "message": "This one is upstreamed like this in kernel, and so it is for MP1. But I can align the other ones with dashes instead of underscores.",
       "parentUuid": "e2224693_59e3a955",
+      "range": {
+        "startLine": 173,
+        "startChar": 28,
+        "endLine": 173,
+        "endChar": 43
+      },
+      "revId": "38e5522580a603112c2b99d0d3434643b266ee3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "910e7874_0a8d405b",
+        "filename": "plat/st/stm32mp2/stm32mp2_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-04T18:33:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f083be5_1cd13d60",
       "range": {
         "startLine": 173,
         "startChar": 28,
