@@ -93,6 +93,30 @@
       },
       "revId": "56b8f0b8332619533478a5fabc8d6b1e82b0cfd6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5076fab5_698ee9f3",
+        "filename": "include/plat/arm/common/arm_tzc_dram.ld.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2024-01-04T12:37:41Z",
+      "side": 1,
+      "message": "You do not have to.\nit will be changed to \nASSERT(. \u003d\u003d ALIGN(PAGE_SIZE),\n\t\"ARM_EL3_TZC_DRAM_BASE address is not aligned on a page boundary.\")\n\t.el3_tzc_dram (NOLOAD) : ALIGN(PAGE_SIZE) {\n\t*(.arm_spmc_shmem_datastore)\n\t__EL3_SEC_DRAM_START__ \u003d .;\n\t*(.arm_el3_tzc_dram)\n\t\nIn this case, __EL3_SEC_DRAM_START__  will be automatically adjusted, giving you the correct position of the start of el3_tzc_dram start.",
+      "parentUuid": "62701d7d_59c5d493",
+      "range": {
+        "startLine": 30,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 21
+      },
+      "revId": "56b8f0b8332619533478a5fabc8d6b1e82b0cfd6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
