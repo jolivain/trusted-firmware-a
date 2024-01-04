@@ -16,6 +16,23 @@
       "message": "Hi Nishanth, Andrew,\n\nPlease find a new iteration of this series.\n\nNow at resume, R5 SPL loads TF-A like during a boot (so TF-A is authenticated and the firewall is set).\nTF-A restores its context (rw section) itself.\nR5 SPL notifies TF-A that the board is resuming using a magic value in the scratchpad ram.\n\nThis series has been tested on GP and HS devices (J7200).\nThe patch series [1] has been applied on top of our U-Boot to enable the firewall.\n\nI checked that once TF-A was authenticated, the SRAM is well protected by the firewall.\n\nI didn\u0027t sent the corresponding U-Boot series.\nIt\u0027s probably not the right place to talk about this, but in fact we have the same issue with optee. For now, at resume optee is not reloaded (no need to do it, as it\u0027s located in DRAM), so the firewall doesn\u0027t protect optee memory region.\nSo we have to save optee context, and restore it at resume.\nThat\u0027s why I didn\u0027t sent the U-Boot series.\nIf you have any comments about this.\n\n[1] https://lore.kernel.org/all/20231113-binman-firewalling-v5-0-b3ba6f839606@ti.com\n\nBest Regards,\n\nThomas",
       "revId": "4159a53e0c8f79810b939c6456781053d41919c9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e48cd05_71caba42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001132
+      },
+      "writtenOn": "2024-01-04T14:08:02Z",
+      "side": 1,
+      "message": "Hello Nishanth, Andrew,\n\nI know there are also some works on suspend-resume for AM62x.\nAnd the plan is to have something common (if possible) with AM62x.\n\nBut did you have time to take a look at this new iteration ?\n\nRegards,\n\nThomas",
+      "revId": "4159a53e0c8f79810b939c6456781053d41919c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
