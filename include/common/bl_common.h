@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2024, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -158,6 +158,15 @@ IMPORT_SYM(uintptr_t, __COHERENT_RAM_START__,	BL_COHERENT_RAM_BASE);
 IMPORT_SYM(uintptr_t, __COHERENT_RAM_END__,	BL_COHERENT_RAM_END);
 #endif
 
+
+/*******************************************************************************
+ * Structure populated by platform specific code to export routines which
+ * perform load images functions
+ ******************************************************************************/
+struct plat_try_images_ops {
+	int (*next_boot_source)(void);
+};
+
 /*******************************************************************************
  * Structure used for telling the next BL how much of a particular type of
  * memory is available for its use and how much is already used.
@@ -170,6 +179,8 @@ typedef struct meminfo {
 /*******************************************************************************
  * Function & variable prototypes
  ******************************************************************************/
+int plat_setup_try_img_ops(const struct plat_try_images_ops **ops);
+
 int load_auth_image(unsigned int image_id, image_info_t *image_data);
 
 #if TRUSTED_BOARD_BOOT && defined(DYN_DISABLE_AUTH)
