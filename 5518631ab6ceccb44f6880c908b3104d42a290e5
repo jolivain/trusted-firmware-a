@@ -22,6 +22,30 @@
       },
       "revId": "5518631ab6ceccb44f6880c908b3104d42a290e5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "952eb866_96fad0cd",
+        "filename": "plat/arm/board/fvp/fvp_el3_spmc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2024-01-05T10:23:04Z",
+      "side": 1,
+      "message": "we would still need to use ARM_EL3_TZC_DRAM1_BASE, as VA is not properly relocated and causes crash. this was the workaround assuming TF-A is mapping VA-PA 1:1.\nProper way would be to fix relocation at bootup to correct VA.",
+      "parentUuid": "b893f213_a2fcfbc5",
+      "range": {
+        "startLine": 12,
+        "startChar": 14,
+        "endLine": 12,
+        "endChar": 48
+      },
+      "revId": "5518631ab6ceccb44f6880c908b3104d42a290e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
