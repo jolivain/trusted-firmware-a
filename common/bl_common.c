@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -18,6 +18,11 @@
 #include <lib/utils.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
 #include <plat/common/platform.h>
+
+/*******************************************************************************
+ * Pointer to functions exported by the platform to try loading other images
+ ******************************************************************************/
+const struct plat_try_images_ops *plat_try_img_ops __maybe_unused;
 
 #if TRUSTED_BOARD_BOOT
 # ifdef DYN_DISABLE_AUTH
@@ -199,6 +204,18 @@ static int load_auth_image_internal(unsigned int image_id,
 	return load_image(image_id, image_data);
 }
 
+#if !PSA_FWU_SUPPORT
+static int try_next_boot_source(void)
+{
+	if ((plat_try_img_ops != NULL) &&
+	    (plat_try_img_ops->next_boot_source != NULL)) {
+		return plat_try_img_ops->next_boot_source();
+	}
+
+	return 0;
+}
+#endif /* PSA_FWU_SUPPORT */
+
 /*******************************************************************************
  * Generic function to load and authenticate an image. The image is actually
  * loaded by calling the 'load_image()' function. Therefore, it returns the
@@ -220,7 +237,7 @@ int load_auth_image(unsigned int image_id, image_info_t *image_data)
 #else
 	do {
 		err = load_auth_image_internal(image_id, image_data);
-	} while ((err != 0) && (plat_try_next_boot_source() != 0));
+	} while ((err != 0) && (try_next_boot_source() != 0));
 #endif /* PSA_FWU_SUPPORT */
 
 	if (err == 0) {

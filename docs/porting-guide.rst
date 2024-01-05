@@ -1608,7 +1608,8 @@ for performing any remaining platform-specific setup that can occur after the
 MMU and data cache have been enabled.
 
 if support for multiple boot sources is required, it initializes the boot
-sequence used by plat_try_next_boot_source().
+sequence used by plat_try_images_ops->next_boot_source(), see
+plat_setup_try_img_ops().
 
 In Arm standard platforms, this function initializes the storage abstraction
 layer used to load the next bootloader image.
@@ -1882,23 +1883,27 @@ This optional function performs any BL2 platform initialization
 required before image loading, that is not done later in
 bl2_platform_setup(). Specifically, if support for multiple
 boot sources is required, it initializes the boot sequence used by
-plat_try_next_boot_source().
+plat_try_images_ops->next_boot_source(), see plat_setup_try_img_ops().
 
-Function : plat_try_next_boot_source() [optional]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Function : plat_setup_try_img_ops [optional]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
-    Argument : void
+    Argument : const struct plat_try_images_ops **ops
     Return   : int
 
-This optional function passes to the next boot source in the redundancy
-sequence.
+This optional function passes some platform handlers to try loading other
+images.
 
+plat_try_images_ops.next_boot_source()
+......................................
+
+This optional function passes to the next boot source in the redundancy
+sequence
 This function moves the current boot redundancy source to the next
 element in the boot sequence. If there are no more boot sources then it
-must return 0, otherwise it must return 1. The default implementation
-of this always returns 0.
+must return 0, otherwise it must return 1.
 
 Boot Loader Stage 2 (BL2) at EL3
 --------------------------------
@@ -3560,7 +3565,7 @@ to :ref:`Measured Boot Design` for more details.
 
 --------------
 
-*Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.*
+*Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.*
 
 .. _PSCI: https://developer.arm.com/documentation/den0022/latest/
 .. _Arm Generic Interrupt Controller version 2.0 (GICv2): http://infocenter.arm.com/help/topic/com.arm.doc.ihi0048b/index.html
