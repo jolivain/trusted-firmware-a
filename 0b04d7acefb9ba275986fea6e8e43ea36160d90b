@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a563a6ff_c561e731",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1316,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-05T20:12:31Z",
+      "side": 1,
+      "message": "Looks like there are spaces where tabs should be used for each indentation.  Please change the statements that follow to use tabs instead...",
+      "range": {
+        "startLine": 1316,
+        "startChar": 0,
+        "endLine": 1316,
+        "endChar": 7
+      },
+      "revId": "0b04d7acefb9ba275986fea6e8e43ea36160d90b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f63cf843_34b7ba6b",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-05T20:12:31Z",
+      "side": 1,
+      "message": "should be a space after the comma in each invocation...",
+      "range": {
+        "startLine": 1321,
+        "startChar": 29,
+        "endLine": 1321,
+        "endChar": 30
+      },
+      "revId": "0b04d7acefb9ba275986fea6e8e43ea36160d90b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ed7758c_184dfca5",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1329,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-05T20:12:31Z",
+      "side": 1,
+      "message": "Should be spaces around the \u003d and the \u003c",
+      "range": {
+        "startLine": 1329,
+        "startChar": 26,
+        "endLine": 1329,
+        "endChar": 27
+      },
+      "revId": "0b04d7acefb9ba275986fea6e8e43ea36160d90b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91b17dff_b6c55eb3",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1357,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-05T20:12:31Z",
+      "side": 1,
+      "message": "Same changes for this function as previous...",
+      "range": {
+        "startLine": 1357,
+        "startChar": 0,
+        "endLine": 1357,
+        "endChar": 7
+      },
+      "revId": "0b04d7acefb9ba275986fea6e8e43ea36160d90b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
