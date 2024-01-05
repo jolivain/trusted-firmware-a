@@ -3,6 +3,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "298f3da4_dd67219c",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-01-05T13:44:25Z",
+      "side": 1,
+      "message": "just to notify, there is an other patch, to clarify the description being used for Feature Detection mechanism under review. Please have a look and make changes as applicable.\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/25653",
+      "range": {
+        "startLine": 313,
+        "startChar": 5,
+        "endLine": 313,
+        "endChar": 25
+      },
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6da49cfe_bfcaadb1",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-01-05T13:44:25Z",
+      "side": 1,
+      "message": "do we need the #if, when we already the helper c funtion ?\nis_feat_mte_supported() ? here",
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "754129cc_29870844",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 1
