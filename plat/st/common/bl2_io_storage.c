@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -47,6 +47,7 @@ uintptr_t fip_dev_handle;
 uintptr_t storage_dev_handle;
 
 static const io_dev_connector_t *fip_dev_con;
+static uint32_t nand_block_sz __maybe_unused;
 
 #ifndef DECRYPTION_SUPPORT_none
 static const io_dev_connector_t *enc_dev_con;
@@ -326,6 +327,8 @@ static void boot_fmc2_nand(boot_api_context_t *boot_context)
 	io_result = io_dev_open(nand_dev_con, (uintptr_t)&nand_dev_spec,
 				&storage_dev_handle);
 	assert(io_result == 0);
+
+	nand_block_sz = nand_dev_spec.erase_size;
 }
 #endif /* STM32MP_RAW_NAND */
 
@@ -345,6 +348,8 @@ static void boot_spi_nand(boot_api_context_t *boot_context)
 				(uintptr_t)&spi_nand_dev_spec,
 				&storage_dev_handle);
 	assert(io_result == 0);
+
+	nand_block_sz = spi_nand_dev_spec.erase_size;
 }
 #endif /* STM32MP_SPI_NAND */
 
@@ -597,6 +602,47 @@ int plat_get_image_source(unsigned int image_id, uintptr_t *dev_handle,
 
 	return rc;
 }
+
+#if STM32MP_RAW_NAND || STM32MP_SPI_NAND
+/*
+ * This function shall return 0 if it cannot find an alternate
+ * image to be loaded or it returns 1 otherwise.
+ */
+static int try_nand_backup_partitions(unsigned int image_id)
+{
+	static unsigned int backup_id;
+	static unsigned int backup_block_nb;
+
+	/* Check if NAND storage used */
+	if (nand_block_sz == 0U) {
+		return 0;
+	}
+
+	if (backup_id != image_id) {
+		backup_block_nb = PLATFORM_MTD_MAX_PART_SIZE / nand_block_sz;
+		backup_id = image_id;
+	}
+
+	if (backup_block_nb-- == 0U) {
+		return 0;
+	}
+
+	image_block_spec.offset += nand_block_sz;
+
+	return 1;
+}
+
+static const struct plat_try_images_ops try_img_ops = {
+	.backup_partitions = try_nand_backup_partitions,
+};
+
+int plat_setup_try_img_ops(const struct plat_try_images_ops **ops)
+{
+	*ops = &try_img_ops;
+
+	return 0;
+}
+#endif /* STM32MP_RAW_NAND || STM32MP_SPI_NAND */
 
 #if (STM32MP_SDMMC || STM32MP_EMMC || STM32MP_SPI_NOR) && PSA_FWU_SUPPORT
 /*
