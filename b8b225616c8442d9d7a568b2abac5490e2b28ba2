@@ -63,6 +63,30 @@
       },
       "revId": "b8b225616c8442d9d7a568b2abac5490e2b28ba2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb0aef6c_0812425f",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1083,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2024-01-07T21:35:15Z",
+      "side": 1,
+      "message": "Added comment to resolve confusion. Eventually, as Olivier mentions, in his comment (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/22626/comment/aa200ff9_c5f943f3/) spmd_is_spmd_message is no longer needed and will be removed in a later patch",
+      "parentUuid": "924511d0_751735bb",
+      "range": {
+        "startLine": 1083,
+        "startChar": 10,
+        "endLine": 1083,
+        "endChar": 31
+      },
+      "revId": "b8b225616c8442d9d7a568b2abac5490e2b28ba2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
