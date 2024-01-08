@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb08db94_0a89f6ee",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1001039
+      },
+      "writtenOn": "2024-01-08T12:59:22Z",
+      "side": 1,
+      "message": "Done (using %lx instead)",
+      "parentUuid": "fa1c6310_d5f6912e",
+      "range": {
+        "startLine": 114,
+        "startChar": 7,
+        "endLine": 114,
+        "endChar": 16
+      },
+      "revId": "46e95c45c43781c1114152be7f58132153e7ff8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76af48c0_fed27c35",
@@ -64,6 +88,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7580b2d8_c989073a",
+        "filename": "plat/qemu/qemu/include/qemu_pas_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001039
+      },
+      "writtenOn": "2024-01-08T12:59:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76af48c0_fed27c35",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "46e95c45c43781c1114152be7f58132153e7ff8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b298c76d_4a6aada0",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-12-21T16:22:47Z",
       "side": 1,
       "message": "QEMU_PAS_DEF_H",
+      "range": {
+        "startLine": 108,
+        "startChar": 10,
+        "endLine": 108,
+        "endChar": 23
+      },
+      "revId": "46e95c45c43781c1114152be7f58132153e7ff8d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c81b939_511e42a8",
+        "filename": "plat/qemu/qemu/include/qemu_pas_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1001039
+      },
+      "writtenOn": "2024-01-08T12:59:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b298c76d_4a6aada0",
       "range": {
         "startLine": 108,
         "startChar": 10,
