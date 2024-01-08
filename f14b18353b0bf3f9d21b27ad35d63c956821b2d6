@@ -26,6 +26,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2a4dd2b_5f101d65",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-01-08T09:10:48Z",
+      "side": 1,
+      "message": "can this not move to CREATE_FEATURE_FUNCS?",
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6da49cfe_bfcaadb1",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 1
@@ -77,6 +94,47 @@
         "endLine": 247,
         "endChar": 5
       },
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4c75e2a_17e18193",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-01-08T09:10:48Z",
+      "side": 1,
+      "message": "that is correct as long as this is upstream. However, in the downstream not having this will immediately break the platform. TC is like this and this already happened with MPAM, luckily that flag has no functionality. So please keep this for a release or two (ideally proper deprecation process)",
+      "parentUuid": "7cebff82_447ef72f",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 5
+      },
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bec644ff_2e99efad",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-01-08T09:10:48Z",
+      "side": 1,
+      "message": "nit: is this else needed?",
       "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
