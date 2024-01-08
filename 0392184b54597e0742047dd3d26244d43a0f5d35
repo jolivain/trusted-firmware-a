@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0d3fa55_c44a53ff",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 30
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-01-08T02:30:05Z",
+      "side": 1,
+      "message": "shouldn\u0027t this all be under ENABLE_RME? DIT for example may not always exit. or EEL2 etc.how are we controlling that?",
+      "range": {
+        "startLine": 134,
+        "startChar": 8,
+        "endLine": 134,
+        "endChar": 26
+      },
+      "revId": "0392184b54597e0742047dd3d26244d43a0f5d35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
