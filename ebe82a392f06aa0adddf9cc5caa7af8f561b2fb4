@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ce639b5_dabdaabe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-01-08T16:06:09Z",
+      "side": 1,
+      "message": "There is the know coverage static build issue which will be resolved when corresponding CI patch is merged. There is an FVP build issue which is unrelated to this patch stack. Hence overriding the verified score.",
+      "revId": "ebe82a392f06aa0adddf9cc5caa7af8f561b2fb4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
