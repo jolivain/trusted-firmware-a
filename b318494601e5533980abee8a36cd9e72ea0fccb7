@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "34616d2d_8a619738",
+        "filename": "plat/intel/soc/common/drivers/sdmmc/sdmmc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-08T08:23:46Z",
+      "side": 1,
+      "message": "It is needed due to the copy is 4 bytes each time.",
+      "parentUuid": "da7d089d_58efaf4b",
+      "range": {
+        "startLine": 522,
+        "startChar": 20,
+        "endLine": 522,
+        "endChar": 37
+      },
+      "revId": "b318494601e5533980abee8a36cd9e72ea0fccb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0311a136_99a66f05",
         "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-19T13:41:59Z",
       "side": 1,
       "message": "Same question here and throughout this file: could you please explain why switching to `memcpy_s()` requires dividing the sizes by `MBOX_WORD_BYTE`?",
+      "range": {
+        "startLine": 1168,
+        "startChar": 47,
+        "endLine": 1168,
+        "endChar": 63
+      },
+      "revId": "b318494601e5533980abee8a36cd9e72ea0fccb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0938c0b_0913aafd",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1168,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-08T08:23:46Z",
+      "side": 1,
+      "message": "It is needed due to the copy is 4 bytes each time.",
+      "parentUuid": "0311a136_99a66f05",
       "range": {
         "startLine": 1168,
         "startChar": 47,
@@ -60,6 +108,24 @@
       "writtenOn": "2023-12-19T13:41:59Z",
       "side": 1,
       "message": "Changes in this file do not seem to be mentioned in the commit message.",
+      "revId": "b318494601e5533980abee8a36cd9e72ea0fccb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46c1d62a_3f919371",
+        "filename": "plat/intel/soc/common/soc/socfpga_handoff.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-08T08:23:46Z",
+      "side": 1,
+      "message": "Updated",
+      "parentUuid": "d8c4f3d4_b21a0ba6",
       "revId": "b318494601e5533980abee8a36cd9e72ea0fccb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
