@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0e1c146_189ad2ca",
+        "filename": "plat/qemu/common/trp/qemu_trp_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001039
+      },
+      "writtenOn": "2024-01-08T13:03:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae7a51c3_408f38b6",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "a2368a30e98b7af6e9f966064a7d1bb6953103e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f715ab7_48cef94f",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-21T16:44:08Z",
       "side": 1,
       "message": "nit: 2023",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "a2368a30e98b7af6e9f966064a7d1bb6953103e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43b76d03_cace6cb4",
+        "filename": "plat/qemu/common/trp/trp-qemu-common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001039
+      },
+      "writtenOn": "2024-01-08T13:03:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f715ab7_48cef94f",
       "range": {
         "startLine": 2,
         "startChar": 16,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaab7b25_9b6816d4",
+        "filename": "plat/qemu/qemu/trp/trp-qemu.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1001039
+      },
+      "writtenOn": "2024-01-08T13:03:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d545494b_f881e31f",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "a2368a30e98b7af6e9f966064a7d1bb6953103e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81f63432_2d7194cd",
@@ -83,6 +155,30 @@
       "writtenOn": "2023-12-21T16:44:08Z",
       "side": 1,
       "message": "Could the contents of trp-qemu-common.mk be pasted here and avoid creating a new common mk file?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "a2368a30e98b7af6e9f966064a7d1bb6953103e9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60d272a7_d6333631",
+        "filename": "plat/qemu/qemu/trp/trp-qemu.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001039
+      },
+      "writtenOn": "2024-01-08T13:03:10Z",
+      "side": 1,
+      "message": "trp-qemu-common.mk will soon be reused by the QEMU SBSA platform (Linaro is working on it), so I think it\u0027s useful to introduce it here",
+      "parentUuid": "81f63432_2d7194cd",
       "range": {
         "startLine": 7,
         "startChar": 0,
