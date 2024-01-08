@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff149c8f_c481956e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-08T12:05:18Z",
+      "side": 1,
+      "message": "(minor) Expand PSR acronym here?\n\nIn the commit title, I agree it\u0027s best to keep the acronym to limit the length of the text, though.",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 16
+      },
+      "revId": "ad091c3af98f64b095dccf97fd58c6b9eac6cd26",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "99feccad_73558eaf",
@@ -14,6 +37,29 @@
       "writtenOn": "2023-12-28T15:50:22Z",
       "side": 1,
       "message": "Here is the rendered version: https://ci-builds.trustedfirmware.org/static-files/_svv-b3i2CHpQPm-hHhoJ3frseYSLXpnoHmu6yd-YCUxNzAzNzc4NTY4ODg5Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvMjk4NzI0MS9hcnRpZmFjdA\u003d\u003d/artefacts/debug/build/html/threat_model/threat_model.html",
+      "revId": "ad091c3af98f64b095dccf97fd58c6b9eac6cd26",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42223145_597f77d5",
+        "filename": "docs/threat_model/threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-08T12:05:18Z",
+      "side": 1,
+      "message": "Perhaps add a brief sentence to explain what the PSR mandates? Something like:\n\nThe platform\u0027s hardware complies with the PSR specification, which sets the bare-minimum security requirements expected of System-on-Chips (SoC).",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 65
+      },
       "revId": "ad091c3af98f64b095dccf97fd58c6b9eac6cd26",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
