@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "90601be8_a83fbf8c",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-01-08T21:05:48Z",
+      "side": 1,
+      "message": "Considering its still under review will have a watch on that if that\u0027s final and gets merged will update accordingly to avoid any doc build breakage for now.",
+      "parentUuid": "298f3da4_dd67219c",
+      "range": {
+        "startLine": 313,
+        "startChar": 5,
+        "endLine": 313,
+        "endChar": 25
+      },
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2a4dd2b_5f101d65",
         "filename": "include/arch/aarch64/arch_features.h",
         "patchSetId": 1
@@ -37,6 +61,24 @@
       "writtenOn": "2024-01-08T09:10:48Z",
       "side": 1,
       "message": "can this not move to CREATE_FEATURE_FUNCS?",
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89340e6f_04bc648f",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-01-08T21:05:48Z",
+      "side": 1,
+      "message": "we have different levels of MTE compared to no mte so using vers\nto have \u0027read_func() \u003e\u003d (idvalue)\u0027 \n\n[..]\n\n/* Memory Tagging Extension is not implemented */\n#define MTE_UNIMPLEMENTED\tU(0)\n/* FEAT_MTE: MTE instructions accessible at EL0 are implemented */\n#define MTE_IMPLEMENTED_EL0\tU(1)\n/* FEAT_MTE2: Full MTE is implemented */\n#define MTE_IMPLEMENTED_ELX\tU(2)\n/*\n * FEAT_MTE3: MTE is implemented with support for\n * asymmetric Tag Check Fault handling\n */\n#define MTE_IMPLEMENTED_ASY\tU(3)\n\n[..]",
+      "parentUuid": "f2a4dd2b_5f101d65",
       "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -58,6 +100,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59370869_de6f1db6",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-01-08T21:05:48Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6da49cfe_bfcaadb1",
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "754129cc_29870844",
@@ -71,6 +131,24 @@
       "writtenOn": "2024-01-03T12:35:40Z",
       "side": 1,
       "message": "braces around \u0027if\u0027",
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48b50ee2_fe709d48",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-01-08T21:05:48Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "754129cc_29870844",
       "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -124,6 +202,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d82302e_6ff8b537",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-01-08T21:05:48Z",
+      "side": 1,
+      "message": "Hi Manish,\n\nYes I had similar comments to Boyan\u0027s to ensure downstream is broken we need this for sometime.",
+      "parentUuid": "a4c75e2a_17e18193",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 5
+      },
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bec644ff_2e99efad",
         "filename": "make_helpers/arch_features.mk",
         "patchSetId": 1
@@ -135,6 +237,24 @@
       "writtenOn": "2024-01-08T09:10:48Z",
       "side": 1,
       "message": "nit: is this else needed?",
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f447a1b2_16d5b230",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-01-08T21:05:48Z",
+      "side": 1,
+      "message": "IIUC, `is_feat_mte_supported` is available in arch32 then we should ensure `ENABLE_FEAT_MTE` is initialized to \u00270\u0027. \n\nso we ensure meet this macro expansion correctly:\n\n[..]\nif ((guard) \u003d\u003d FEAT_STATE_DISABLED)\n[...]",
+      "parentUuid": "bec644ff_2e99efad",
       "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
