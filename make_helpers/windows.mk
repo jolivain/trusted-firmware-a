@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2016-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -86,10 +86,9 @@ BUILT_TIME_DATE_STRING = const char build_message[] = "Built : "${BUILD_MESSAGE_
 VERSION_STRING_MESSAGE = const char version_string[] = "${VERSION_STRING}";
 VERSION_MESSAGE = const char version[] = "${VERSION}";
 define MAKE_BUILD_STRINGS
-	$$(file >$1.in,$$(TF_CFLAGS) $$(CFLAGS))
+	$$(file >$1.in,$$(CFLAGS))
 	@echo $$(BUILT_TIME_DATE_STRING) $$(VERSION_STRING_MESSAGE) $$(VERSION_MESSAGE) | \
 		$$(CC) @$1.in -x c -c - -o $1
 endef
 
 MSVC_NMAKE := nmake.exe
-

@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -78,7 +78,7 @@ PKA_USE_BRAINPOOL_P256T1 ?=	0
 
 ifeq ($(AARCH32_SP),sp_min)
 # Disable Neon support: sp_min runtime may conflict with non-secure world
-TF_CFLAGS		+=	-mfloat-abi=soft
+CFLAGS		+=	-mfloat-abi=soft
 endif
 
 # Not needed for Cortex-A7

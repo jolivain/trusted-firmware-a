@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2024, Arm Limited and Contributors. All rights reserved.
 # Copyright (c) 2020, NVIDIA Corporation. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -62,7 +62,7 @@ $(eval $(call add_define,ENABLE_TEGRA_WDT_LEGACY_FIQ_HANDLING))
 $(eval $(call add_define,RELOCATE_BL32_IMAGE))
 
 # platform cflags (enable signed comparisons, disable stdlib)
-TF_CFLAGS	+= -nostdlib
+CFLAGS	+= -nostdlib
 
 # override with necessary libc files for the Tegra platform
 override LIBC_SRCS :=	$(addprefix lib/libc/,		\

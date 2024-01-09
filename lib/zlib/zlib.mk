@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2018-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -22,4 +22,4 @@ ZLIB_SOURCES	+=	$(addprefix $(ZLIB_PATH)/,	\
 INCLUDES	+=	-Iinclude/lib/zlib
 
 # REVISIT: the following flags need not be given globally
-TF_CFLAGS	+=	-DZ_SOLO -DDEF_WBITS=31
+CFLAGS	+=	-DZ_SOLO -DDEF_WBITS=31

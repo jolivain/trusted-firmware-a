@@ -37,7 +37,7 @@ STM32_BINARY_MAPPING		:=	plat/st/stm32mp2/${ARCH}/stm32mp2.S
 
 # STM32MP2x is based on Cortex-A35, which is Armv8.0, and does not support BTI
 # Disable mbranch-protection to avoid adding useless code
-TF_CFLAGS			+=	-mbranch-protection=none
+CFLAGS			+=	-mbranch-protection=none
 
 # Include paths and source files
 PLAT_INCLUDES			+=	-Iplat/st/stm32mp2/include/

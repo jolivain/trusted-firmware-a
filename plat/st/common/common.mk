@@ -26,8 +26,8 @@ PLAT_XLAT_TABLES_DYNAMIC	:=	1
 # STM32 image header binary type for BL2
 STM32_HEADER_BL2_BINARY_TYPE	:=	0x10
 
-TF_CFLAGS			+=	-Wsign-compare
-TF_CFLAGS			+=	-Wformat-signedness
+CFLAGS			+=	-Wsign-compare
+CFLAGS			+=	-Wformat-signedness
 
 # Boot devices
 STM32MP_EMMC			?=	0
