@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59a4f1cb_bb1c90c0",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-01-09T17:47:13Z",
+      "side": 1,
+      "message": "Can we reuse PLATFORM_CORE_COUNT from platform_def.h?",
+      "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d990562_713f74df",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-01-09T17:47:13Z",
+      "side": 1,
+      "message": "Hmm, the structs above set my spidey sense tingling a bit. Partially because device-tree and NUMA both have things called node.\nCan we try to adjust the semantics a bit?\n\nThe struct called cpu_node holds information that comes from a DT node, but that\u0027s not interesting and could (theoretically) change. In a perfect world, we could arrange these structs in the actual topology they describe, but this is C and with cluster sizes being unstandardised, the management would be error-prone.\nCounter-proposal:\n\ntypedef struct {\n\tuint32_t nodeid;\n\tuint32_t mpidr;\n} cpu_data;\n\ntypedef struct {\n\tuint32_t num_cpunodes;\n\tcpu_data cpu[MAX_CPUS];\n} cpu_topology;",
+      "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb7877b9_3943f1a0",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-01-09T17:47:13Z",
+      "side": 1,
+      "message": "If coding style permits it, this could also be an unnamed type:\nstatic struct {\n        uint32_t num_cpunodes;\n\tcpu_node cpunode[MAX_CPUS];\n} cpu_topology;",
+      "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be25ccc8_d36a6227",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-01-09T17:47:13Z",
+      "side": 1,
+      "message": "I don\u0027t think we ever had a version that didn\u0027t generate cpu nodes, did we?\nSo could this just be a fatal error?",
+      "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb908c6f_c2c94bbf",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-01-09T17:47:13Z",
+      "side": 1,
+      "message": "This is pure cosmetic opinion, but could this be while (node \u003e 0) and skip the end test? (I don\u0027t think it can ever be 0?)",
+      "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22e8bad6_142e8cf4",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-01-09T17:47:13Z",
+      "side": 1,
+      "message": "What is the (intended) behaviour here if the cpu node does not contain a numa-node-id?",
+      "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
