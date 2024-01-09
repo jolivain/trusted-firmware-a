@@ -22,6 +22,30 @@
       },
       "revId": "b0f447897d3e2ddd72b291cb450165f4d220663e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ca13554_20c094e8",
+        "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2176,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-09T03:17:59Z",
+      "side": 1,
+      "message": "Yes. You are right on this as it will always be true. \nHowever, we are having a fuzz testing on this code which it requires all the possibility scenarios to be added in. Else it will fail the test and so we have no choice to add in this condition.",
+      "parentUuid": "a8c4f26f_848e7550",
+      "range": {
+        "startLine": 2176,
+        "startChar": 23,
+        "endLine": 2176,
+        "endChar": 43
+      },
+      "revId": "b0f447897d3e2ddd72b291cb450165f4d220663e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
