@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f80eb4ef_d9f2f793",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-09T15:05:09Z",
+      "side": 1,
+      "message": "Could you please split this patch in smaller patches in the following manner?\n\n1. Add support in the CoT DTB parser for the \u0027signing-key\u0027 property in the root certificates node (fconf changes)\n2. Introduce CCA CoT DTB (+rename cot_descriptors.dtsi)\n3. FVP platform changes.",
+      "revId": "cbe68136d582b7d6a1c3fdc06b02cd7f8b7431bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cec92a2_47a4d3e8",
+        "filename": "fdts/cca_cot_descriptors.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-09T15:05:09Z",
+      "side": 1,
+      "message": "AFAICS, the `root_keys` node is not referenced by any other node in this DTS file (i.e. there is no `\u0026root_keys`) so we do not need to assign this node a label. As a result, I believe this line could be changed into:\n\n```\nroot_keys {\n```\n\nAlso, we need to extend the [Chain of Trust bindings document](https://trustedfirmware-a.readthedocs.io/en/latest/components/cot-binding.html) to document this new `root_keys` node. I could not spot a patch to this effect in this stack...\n\nThe same document needs to be updated regarding the `signing-key` property. More specifically, the following sentence no longer holds true:\n\n\u003e This property is not required for root-certificates as root-certificates are validated using root of trust public key provided by platform.",
+      "range": {
+        "startLine": 279,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 22
+      },
+      "revId": "cbe68136d582b7d6a1c3fdc06b02cd7f8b7431bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81080ce6_9fc6a8fd",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-09T15:05:09Z",
+      "side": 1,
+      "message": "I think the changes in this file warrant a separate patch, which would be focused on adding support in the CoT DTB parser for the \u0027signing-key\u0027 property in the root certificates node.",
+      "revId": "cbe68136d582b7d6a1c3fdc06b02cd7f8b7431bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3475159e_ba5b1823",
+        "filename": "lib/fconf/fconf_cot_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-09T15:05:09Z",
+      "side": 1,
+      "message": "I feel the code would be clearer like that:\n\n```\nrc \u003d get_oid(dtb, node, \"signing-key\", \u0026oid);\nif (rc \u003c 0) {\n\t/*\n\t * The signing-key property is optional in root certificates,\n\t * mandatory otherwise.\n\t */\n\tif (root_certificate) {\n\t\toid \u003d NULL;\n\t} else {\n\t\tERROR(\"FCONF: Can\u0027t read %s property\\n\", \"signing-key\");\n\t\treturn rc;\n\t}\n}\n```",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 253,
+        "endChar": 3
+      },
+      "revId": "cbe68136d582b7d6a1c3fdc06b02cd7f8b7431bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bcf27e2_7502cee6",
+        "filename": "plat/arm/board/fvp/fdts/fvp_tb_fw_config.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-09T15:05:09Z",
+      "side": 1,
+      "message": "Let\u0027s isolate changes to this file in their own patch - these are the only FVP platform specific changes here, the rest are generic changes.",
+      "revId": "cbe68136d582b7d6a1c3fdc06b02cd7f8b7431bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
