@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "976c4f68_a89eda8a",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-01-09T08:45:46Z",
+      "side": 1,
+      "message": "sure, which is exactly what the CREATE_FEATURE_FUNCS macro is for, no? I\u0027m saying this because you can get rid of the get_armv8_5_mte_support() and have it be the standard nomenclature",
+      "parentUuid": "89340e6f_04bc648f",
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6da49cfe_bfcaadb1",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 1
@@ -255,6 +273,24 @@
       "side": 1,
       "message": "IIUC, `is_feat_mte_supported` is available in arch32 then we should ensure `ENABLE_FEAT_MTE` is initialized to \u00270\u0027. \n\nso we ensure meet this macro expansion correctly:\n\n[..]\nif ((guard) \u003d\u003d FEAT_STATE_DISABLED)\n[...]",
       "parentUuid": "bec644ff_2e99efad",
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c138d61b_1bd26037",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-01-09T08:45:46Z",
+      "side": 1,
+      "message": "then why not unconditionally default it to 0? The whole thing becomes \nENABLE_FEAT_MTE\t\t        ?\u003d\t0\nifeq (${ARCH},aarch32)\n        ifneq ($(or $(ENABLE_FEAT_MTE),0),0)\n               $(error ENABLE_FEAT_MTE is not supported for AArch32)\n        endif\nendif\n\nwith fewer lines",
+      "parentUuid": "f447a1b2_16d5b230",
       "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
