@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "afe46762_0dbae73f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-01-09T21:20:42Z",
+      "side": 1,
+      "message": "commitlint doesn\u0027t like starting with upper-case letters so moved to the end or the subject",
+      "parentUuid": "3ac67429_7fed433d",
+      "range": {
+        "startLine": 7,
+        "startChar": 20,
+        "endLine": 7,
+        "endChar": 24
+      },
+      "revId": "d12891d7427bb6ea447c288544aa831124701ad8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "25923d35_509329bf",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -83,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7fb98a28_3868952c",
+        "filename": "docs/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-01-09T21:20:42Z",
+      "side": 1,
+      "message": "I believe so! Does it look better now?",
+      "parentUuid": "17a43cb6_7f2fa430",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "d12891d7427bb6ea447c288544aa831124701ad8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2916d766_ad288325",
         "filename": "docs/supply_chain_threat_model/threat_model_supply_chain.rst",
         "patchSetId": 1
@@ -94,6 +142,30 @@
       "writtenOn": "2024-01-09T17:01:34Z",
       "side": 1,
       "message": "Servers hosted at downloads.trustedfirmware.org do not belong to Arm. Suggest rewording as: \"tf.org servers\".",
+      "range": {
+        "startLine": 116,
+        "startChar": 26,
+        "endLine": 116,
+        "endChar": 46
+      },
+      "revId": "d12891d7427bb6ea447c288544aa831124701ad8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "092b0a4c_be8fe3b1",
+        "filename": "docs/supply_chain_threat_model/threat_model_supply_chain.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-01-09T21:20:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2916d766_ad288325",
       "range": {
         "startLine": 116,
         "startChar": 26,
@@ -117,6 +189,30 @@
       "writtenOn": "2024-01-09T17:01:34Z",
       "side": 1,
       "message": "Why is this link different? I would have expected it to be a [13] link instead.",
+      "range": {
+        "startLine": 749,
+        "startChar": 3,
+        "endLine": 749,
+        "endChar": 138
+      },
+      "revId": "d12891d7427bb6ea447c288544aa831124701ad8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6cb0cc6_c660ebb3",
+        "filename": "docs/supply_chain_threat_model/threat_model_supply_chain.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-01-09T21:20:42Z",
+      "side": 1,
+      "message": "This was the only link that pointed to another area of the readthedocs itself so changed to this format, but changes back to be in the list!",
+      "parentUuid": "a47a361e_f0faf9fb",
       "range": {
         "startLine": 749,
         "startChar": 3,
