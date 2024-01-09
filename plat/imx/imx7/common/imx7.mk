@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2018-2023, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2018-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -7,7 +7,7 @@
 # Architecture
 $(eval $(call add_define,ARMV7_SUPPORTS_LARGE_PAGE_ADDRESSING))
 
-TF_CFLAGS	+=	-mfpu=neon
+CFLAGS		+=	-mfpu=neon
 ASFLAGS		+=	-mfpu=neon
 
 # Platform

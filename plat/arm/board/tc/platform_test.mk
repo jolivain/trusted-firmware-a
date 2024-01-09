@@ -1,4 +1,4 @@
-# Copyright (c) 2022-2023, Arm Limited. All rights reserved.
+# Copyright (c) 2022-2024, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -96,10 +96,10 @@ else ifeq (${PLATFORM_TEST},tfm-testsuite)
 
     # Some of the PSA functions are declared in multiple header files, that
     # triggers this warning.
-    TF_CFLAGS		+=	-Wno-error=redundant-decls
+    CFLAGS		+=	-Wno-error=redundant-decls
 
     # TODO: Created patch for warning in tf-m-tests
-    TF_CFLAGS		+=	-Wno-error=return-type
+    CFLAGS		+=	-Wno-error=return-type
 
     # Define macros that are used by the code coming from the tf-m-extras repo.
     $(eval $(call add_define,MEASUREMENT_VALUE_SIZE))

@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -194,7 +194,7 @@ endif #(clang)
 $(eval $(call add_define,DEBUG))
 ifneq (${DEBUG}, 0)
 	BUILD_TYPE	:=	debug
-	TF_CFLAGS	+=	-g -gdwarf-4
+	CFLAGS		+=	-g -gdwarf-4
 	ASFLAGS		+=	-g -Wa,-gdwarf-4
 
 	# Use LOG_LEVEL_INFO by default for debug builds
@@ -293,7 +293,7 @@ WARNINGS	+=		-Wunused-but-set-variable -Wmaybe-uninitialized	\
 				-Wlogical-op
 
 # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=105523
-TF_CFLAGS		+= 	$(call cc_option, --param=min-pagesize=0)
+CFLAGS		+= 	$(call cc_option, --param=min-pagesize=0)
 
 ifeq ($(HARDEN_SLS), 1)
         TF_CFLAGS_aarch64       +=      $(call cc_option, -mharden-sls=all)
@@ -316,17 +316,17 @@ CPPFLAGS		=	${DEFINES} ${INCLUDES} ${MBEDTLS_INC} -nostdinc	\
 				$(ERRORS) $(WARNINGS)
 ASFLAGS			+=	$(CPPFLAGS)                 			\
 				-ffreestanding -Wa,--fatal-warnings
-TF_CFLAGS		+=	$(CPPFLAGS) $(TF_CFLAGS_$(ARCH))		\
+CFLAGS			+=	$(CPPFLAGS) $(TF_CFLAGS_$(ARCH))		\
 				-ffunction-sections -fdata-sections		\
 				-ffreestanding -fno-builtin -fno-common		\
 				-Os -std=gnu99
 
 ifeq (${SANITIZE_UB},on)
-	TF_CFLAGS	+=	-fsanitize=undefined -fno-sanitize-recover
+	CFLAGS		+=	-fsanitize=undefined -fno-sanitize-recover
 endif #(${SANITIZE_UB},on)
 
 ifeq (${SANITIZE_UB},trap)
-	TF_CFLAGS	+=	-fsanitize=undefined -fno-sanitize-recover	\
+	CFLAGS		+=	-fsanitize=undefined -fno-sanitize-recover	\
 				-fsanitize-undefined-trap-on-error
 endif #(${SANITIZE_UB},trap)
 
@@ -601,9 +601,9 @@ ifeq (${SUPPORT_STACK_MEMTAG},yes)
                 arch-features	:=	$(arch-features)+memtag
             endif	# memtag
             ifeq ($($(ARCH)-cc-id),arm-clang)
-                TF_CFLAGS	+=	-mmemtag-stack
+                CFLAGS		+=	-mmemtag-stack
             else ifeq ($($(ARCH)-cc-id),llvm-clang)
-                TF_CFLAGS	+=	-fsanitize=memtag
+                CFLAGS		+=	-fsanitize=memtag
             endif	# armclang
         endif
     else
@@ -679,7 +679,7 @@ endif
 ################################################################################
 include ${MAKE_HELPERS_DIRECTORY}march.mk
 
-TF_CFLAGS   +=	$(march-directive)
+CFLAGS   +=	$(march-directive)
 
 # This internal flag is common option which is set to 1 for scenarios
 # when the BL2 is running in EL3 level. This occurs in two scenarios -
@@ -714,7 +714,7 @@ endif
 
 PIE_FOUND		:=	$(findstring --enable-default-pie,${GCC_V_OUTPUT})
 ifneq ($(PIE_FOUND),)
-	TF_CFLAGS	+=	-fno-PIE
+	CFLAGS		+=	-fno-PIE
 ifeq ($($(ARCH)-ld-id),gnu-gcc)
 	TF_LDFLAGS	+=	-no-pie
 endif
