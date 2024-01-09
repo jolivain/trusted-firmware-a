@@ -161,6 +161,7 @@ static inline bool is_feat_sxpoe_supported(void) { return false; }
 static inline bool is_feat_s2pie_supported(void) { return false; }
 static inline bool is_feat_s1pie_supported(void) { return false; }
 static inline bool is_feat_sxpie_supported(void) { return false; }
+static inline bool is_armv8_2_uao_present(void) { return false; }
 
 static inline unsigned int read_feat_pmuv3_id_field(void)
 {
