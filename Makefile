@@ -332,27 +332,27 @@ endif #(${SANITIZE_UB},trap)
 
 GCC_V_OUTPUT		:=	$(shell $(CC) -v 2>&1)
 
-TF_LDFLAGS		+=	-z noexecstack
+LDFLAGS			+=	-z noexecstack
 
 # LD = armlink
 ifeq ($($(ARCH)-ld-id),arm-link)
-	TF_LDFLAGS		+=	--diag_error=warning --lto_level=O1
-	TF_LDFLAGS		+=	--remove --info=unused,unusedsymbols
-	TF_LDFLAGS		+=	$(TF_LDFLAGS_$(ARCH))
+	LDFLAGS			+=	--diag_error=warning --lto_level=O1
+	LDFLAGS			+=	--remove --info=unused,unusedsymbols
+	LDFLAGS			+=	$(TF_LDFLAGS_$(ARCH))
 
 # LD = gcc (used when GCC LTO is enabled)
 else ifeq ($($(ARCH)-ld-id),gnu-gcc)
 	# Pass ld options with Wl or Xlinker switches
-	TF_LDFLAGS		+=	-Wl,--fatal-warnings -O1
-	TF_LDFLAGS		+=	-Wl,--gc-sections
+	LDFLAGS			+=	-Wl,--fatal-warnings -O1
+	LDFLAGS			+=	-Wl,--gc-sections
 
-	TF_LDFLAGS		+=	-Wl,-z,common-page-size=4096 #Configure page size constants
-	TF_LDFLAGS		+=	-Wl,-z,max-page-size=4096
-	TF_LDFLAGS		+=	-Wl,--build-id=none
+	LDFLAGS			+=	-Wl,-z,common-page-size=4096 #Configure page size constants
+	LDFLAGS			+=	-Wl,-z,max-page-size=4096
+	LDFLAGS			+=	-Wl,--build-id=none
 
 	ifeq ($(ENABLE_LTO),1)
 		ifeq (${ARCH},aarch64)
-			TF_LDFLAGS	+=	-flto -fuse-linker-plugin
+			LDFLAGS		+=	-flto -fuse-linker-plugin
 		endif
 	endif #(ENABLE_LTO)
 
@@ -360,30 +360,30 @@ else ifeq ($($(ARCH)-ld-id),gnu-gcc)
 # which breaks some builds, so disable if errata fix is not explicitly enabled
 	ifeq (${ARCH},aarch64)
 		ifneq (${ERRATA_A53_843419},1)
-			TF_LDFLAGS	+= 	-mno-fix-cortex-a53-843419
+			LDFLAGS		+= 	-mno-fix-cortex-a53-843419
 		endif
 	endif
-	TF_LDFLAGS		+= 	-nostdlib
-	TF_LDFLAGS		+=	$(subst --,-Xlinker --,$(TF_LDFLAGS_$(ARCH)))
+	LDFLAGS			+= 	-nostdlib
+	LDFLAGS			+=	$(subst --,-Xlinker --,$(TF_LDFLAGS_$(ARCH)))
 
 # LD = gcc-ld (ld) or llvm-ld (ld.lld) or other
 else
 # With ld.bfd version 2.39 and newer new warnings are added. Skip those since we
 # are not loaded by a elf loader.
-	TF_LDFLAGS		+=	$(call ld_option, --no-warn-rwx-segments)
-	TF_LDFLAGS		+=	-O1
-	TF_LDFLAGS		+=	--gc-sections
+	LDFLAGS			+=	$(call ld_option, --no-warn-rwx-segments)
+	LDFLAGS			+=	-O1
+	LDFLAGS			+=	--gc-sections
 
-	TF_LDFLAGS		+=	-z common-page-size=4096 # Configure page size constants
-	TF_LDFLAGS		+=	-z max-page-size=4096
-	TF_LDFLAGS		+=	--build-id=none
+	LDFLAGS			+=	-z common-page-size=4096 # Configure page size constants
+	LDFLAGS			+=	-z max-page-size=4096
+	LDFLAGS			+=	--build-id=none
 
 # ld.lld doesn't recognize the errata flags,
 # therefore don't add those in that case.
 # ld.lld reports section type mismatch warnings,
 # therefore don't add --fatal-warnings to it.
 	ifneq ($($(ARCH)-ld-id),llvm-lld)
-		TF_LDFLAGS	+=	$(TF_LDFLAGS_$(ARCH)) --fatal-warnings
+		LDFLAGS		+=	$(TF_LDFLAGS_$(ARCH)) --fatal-warnings
 	endif
 
 endif #(LD = armlink)
@@ -716,7 +716,7 @@ PIE_FOUND		:=	$(findstring --enable-default-pie,${GCC_V_OUTPUT})
 ifneq ($(PIE_FOUND),)
 	CFLAGS		+=	-fno-PIE
 ifeq ($($(ARCH)-ld-id),gnu-gcc)
-	TF_LDFLAGS	+=	-no-pie
+	LDFLAGS		+=	-no-pie
 endif
 endif #(PIE_FOUND)
 
