@@ -22,6 +22,30 @@
       },
       "revId": "32a87d440087e0a71765a61ec341af7cfcfbda97",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39c2f4a5_90d540ef",
+        "filename": "plat/intel/soc/common/bl2_plat_mem_params_desc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-09T03:15:50Z",
+      "side": 1,
+      "message": "hi Sandrine, \n\nAs you mentioned, this is DTB. DTB is just a config file and ATF is just loading it into DDR. There shall be no execution needed. \n\n\nThus, currently we set this NT_FW_CONFIG_ID to non-executable and tested working on Simics platform. What we worry is once we test it on the silicon board and it required us to update to executable then we will have a new patch on it. This is what we are not sure but by right it shouldn\u0027t set to \"EXECUTABLE\".",
+      "parentUuid": "bd158843_149100f4",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 43
+      },
+      "revId": "32a87d440087e0a71765a61ec341af7cfcfbda97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
