@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdaa76e2_fd3b1665",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-09T15:23:51Z",
+      "side": 1,
+      "message": "(minor) I feel the following would be easier to understand because it\u0027s less tied to the implementation:\n\n---\nAdd support for BL2 to get the CCA chain of trust description through the Firmware Configuration Framework (FCONF). This makes it possible to export the part of the CCA chain of trust enforced by BL2 in BL2\u0027s configuration file (TB_FW_CONFIG DTB file). BL2 will parse it when setting up the platform.\n\nThis feature can be enabled through the `COT_DESC_IN_DTB\u003d1` option. The default behaviour (`COT_DESC_IN_DTB\u003d0`) remains to hard-code the CCA CoT into BL2 image.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "55d102b0e6d9b7cde4d2f75ba53c48e62f2dbcd3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
