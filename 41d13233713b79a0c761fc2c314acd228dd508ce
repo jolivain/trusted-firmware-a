@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41b8bdf3_249268ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-01-09T11:57:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d20c7b4_68508ad5",
+      "revId": "41d13233713b79a0c761fc2c314acd228dd508ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "119f8669_42ba4944",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-12-18T13:04:06Z",
       "side": 1,
       "message": "these words in brackets are confusing. I think they refer to the 1st part of the sentence \"Lower ELs generally use ID registers to check if a feature is present or not...\", but it sounds like it\u0027s referring to the 2nd part of the sentence. Also, readers will have no idea what feature detection mechanism you\u0027re referring to. How about:\n\"Lower ELs generally use ID registers or a feature detection mechanism to check if a feature is present or not before using it. EL3 Firmware uses a feature build macro to enable a feature for use by lower ELs.\"",
+      "range": {
+        "startLine": 13,
+        "startChar": 17,
+        "endLine": 14,
+        "endChar": 20
+      },
+      "revId": "41d13233713b79a0c761fc2c314acd228dd508ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a4fd1d3_ec407338",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-01-09T11:57:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "119f8669_42ba4944",
       "range": {
         "startLine": 13,
         "startChar": 17,
