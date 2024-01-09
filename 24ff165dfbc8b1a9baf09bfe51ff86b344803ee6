@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc5e5090_7fede8df",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-09T08:03:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75e03846_25eb1a81",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 54
+      },
+      "revId": "24ff165dfbc8b1a9baf09bfe51ff86b344803ee6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9bc5655_3de301a4",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-12-22T14:01:37Z",
       "side": 1,
       "message": "0U instead",
+      "revId": "24ff165dfbc8b1a9baf09bfe51ff86b344803ee6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d06eef21_bfbc750c",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-09T08:03:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9bc5655_3de301a4",
       "revId": "24ff165dfbc8b1a9baf09bfe51ff86b344803ee6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29f7df00_94b01609",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-09T08:03:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89ba23b3_6f8a0481",
+      "range": {
+        "startLine": 123,
+        "startChar": 23,
+        "endLine": 123,
+        "endChar": 24
+      },
+      "revId": "24ff165dfbc8b1a9baf09bfe51ff86b344803ee6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22d204b8_90df1f81",
@@ -77,6 +143,30 @@
       "writtenOn": "2023-12-22T14:01:37Z",
       "side": 1,
       "message": "nit: this looks like utility function so may not be the right place to define it this in this file? Feel free to ignore.",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 53
+      },
+      "revId": "24ff165dfbc8b1a9baf09bfe51ff86b344803ee6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7013e8bf_ae5b0170",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-09T08:03:10Z",
+      "side": 1,
+      "message": "Agreed. There will be a new lib to include this util func. \nShall ignore for this round.",
+      "parentUuid": "22d204b8_90df1f81",
       "range": {
         "startLine": 174,
         "startChar": 0,
