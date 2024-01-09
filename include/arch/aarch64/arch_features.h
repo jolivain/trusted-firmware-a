@@ -51,6 +51,12 @@ static inline bool is_armv8_2_ttcnp_present(void)
 		ID_AA64MMFR2_EL1_CNP_MASK) != 0U;
 }
 
+static inline bool is_armv8_2_uao_present(void)
+{
+	return ((read_id_aa64mmfr2_el1() >> ID_AA64MMFR2_EL1_UAO_SHIFT) &
+		ID_AA64MMFR2_EL1_UAO_MASK) != 0U;
+}
+
 static inline bool is_feat_pacqarma3_present(void)
 {
 	uint64_t mask_id_aa64isar2 =
