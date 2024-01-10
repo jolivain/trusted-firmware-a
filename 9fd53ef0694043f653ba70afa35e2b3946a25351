@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a277ff2_f3cc48b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-01-10T11:31:11Z",
+      "side": 1,
+      "message": "Will look at rest of comments tomorrow.",
+      "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59a4f1cb_bb1c90c0",
@@ -18,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "926e9ac2_3d8463cf",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-01-10T11:31:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59a4f1cb_bb1c90c0",
+      "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d990562_713f74df",
@@ -31,6 +66,24 @@
       "writtenOn": "2024-01-09T17:47:13Z",
       "side": 1,
       "message": "Hmm, the structs above set my spidey sense tingling a bit. Partially because device-tree and NUMA both have things called node.\nCan we try to adjust the semantics a bit?\n\nThe struct called cpu_node holds information that comes from a DT node, but that\u0027s not interesting and could (theoretically) change. In a perfect world, we could arrange these structs in the actual topology they describe, but this is C and with cluster sizes being unstandardised, the management would be error-prone.\nCounter-proposal:\n\ntypedef struct {\n\tuint32_t nodeid;\n\tuint32_t mpidr;\n} cpu_data;\n\ntypedef struct {\n\tuint32_t num_cpunodes;\n\tcpu_data cpu[MAX_CPUS];\n} cpu_topology;",
+      "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1774faf7_9d5c13a6",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-01-10T11:31:11Z",
+      "side": 1,
+      "message": "Thanks. Renamed structs and fields.\n\nThis struct does not keep topology (socket/cluster/core/thread) so I kept cpu_info name.",
+      "parentUuid": "7d990562_713f74df",
       "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -69,6 +122,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd4f4082_87c0700f",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-01-10T11:31:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be25ccc8_d36a6227",
+      "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb908c6f_c2c94bbf",
@@ -86,6 +157,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a960ae3_d5212c1e",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-01-10T11:31:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb908c6f_c2c94bbf",
+      "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22e8bad6_142e8cf4",
@@ -99,6 +188,24 @@
       "writtenOn": "2024-01-09T17:47:13Z",
       "side": 1,
       "message": "What is the (intended) behaviour here if the cpu node does not contain a numa-node-id?",
+      "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26081f0e_78947df5",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-01-10T11:31:11Z",
+      "side": 1,
+      "message": "nodeid is initialized with 0 value and is changed only if we have \"numa-node-id\" in DT. When nodeid \u003d 0 then we have 1 node system. \n\nWhich I think is what Linux does when there is no NUMA information.",
+      "parentUuid": "22e8bad6_142e8cf4",
       "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
