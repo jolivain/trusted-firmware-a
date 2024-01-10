@@ -17,7 +17,7 @@ typedef struct {
 
 typedef struct {
 	bool tpm_based_hash_support;
-	uint32_t firmware_hash_algorithm;
+	uint16_t firmware_hash_algorithm;
 } plat_drtm_tpm_features_t;
 
 typedef struct {
