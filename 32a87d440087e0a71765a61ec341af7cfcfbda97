@@ -46,6 +46,30 @@
       },
       "revId": "32a87d440087e0a71765a61ec341af7cfcfbda97",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19e2c101_35709131",
+        "filename": "plat/intel/soc/common/bl2_plat_mem_params_desc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-10T12:51:35Z",
+      "side": 1,
+      "message": "I feel there is a misunderstanding here... Let me try to clarify what I have in mind.\n\nI am **not** challenging line 99, I think it\u0027s correct this way. As you said, the following lines are correctly saying that `NT_FW_CONFIG` image is **not** executable:\n\n```\n\t\t.image_id \u003d NT_FW_CONFIG_ID,\n\t\tSET_STATIC_PARAM_HEAD(ep_info, PARAM_IMAGE_BINARY,\n\t\t\tVERSION_2, entry_point_info_t,\n\t\t\tNON_SECURE | NON_EXECUTABLE),\n```\n\nThis is fine and should not be changed.\n\nHowever, line 92 (quoted below) is incorrect IMO:\n```\n\t\t.next_handoff_image_id \u003d NT_FW_CONFIG_ID,\n```\nThis is inconsistent with setting the `NT_FW_CONFIG` image as non-executable at line 99.\n\nIn summary, I think line 99 should be kept as is, but line 92 above should be changed into:\n\n```\n\t\t.next_handoff_image_id \u003d INVALID_IMAGE_ID,\n```",
+      "parentUuid": "39c2f4a5_90d540ef",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 43
+      },
+      "revId": "32a87d440087e0a71765a61ec341af7cfcfbda97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
