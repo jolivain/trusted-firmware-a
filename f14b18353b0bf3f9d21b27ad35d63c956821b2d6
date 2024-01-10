@@ -311,6 +311,24 @@
       "parentUuid": "c138d61b_1bd26037",
       "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc26fc0c_c27276c7",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-01-10T08:21:33Z",
+      "side": 1,
+      "message": "?\u003d only sets the variable if it hasn\u0027t been previously set so this should work as expected. :\u003d will also not set the variable if it was defined on the commandline so even that could be valid in limited circumstances.",
+      "parentUuid": "3ecd1dd8_0f911dcc",
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
