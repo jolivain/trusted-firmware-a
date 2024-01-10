@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d42d4c67_a3287ca0",
+        "filename": "plat/intel/soc/common/drivers/sdmmc/sdmmc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-10T11:07:16Z",
+      "side": 1,
+      "message": "Sorry I still don\u0027t understand the sizes here... If I am not mistaken:\n\n```\n  sizeof(resp_data) / MBOX_WORD_BYTE\n\u003d          16       / 4\n\u003d 4 bytes\n```\n\nSo this `memcpy_s()` call will only copy the first word from `resp_data` (i.e. `resp_data[0]`) into the `mmc_csd` structure. Is that the intended behaviour?",
+      "parentUuid": "cbcbd68a_7005695e",
+      "range": {
+        "startLine": 522,
+        "startChar": 20,
+        "endLine": 522,
+        "endChar": 37
+      },
+      "revId": "b318494601e5533980abee8a36cd9e72ea0fccb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0311a136_99a66f05",
         "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
         "patchSetId": 1
@@ -150,6 +174,24 @@
       "side": 1,
       "message": "Updated",
       "parentUuid": "d8c4f3d4_b21a0ba6",
+      "revId": "b318494601e5533980abee8a36cd9e72ea0fccb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b35248f_1f7b3a4b",
+        "filename": "plat/intel/soc/common/soc/socfpga_handoff.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-10T11:07:16Z",
+      "side": 1,
+      "message": "I could not see a v2 of the patch with the commit message updates... Did you forget to post it for review?",
+      "parentUuid": "46c1d62a_3f919371",
       "revId": "b318494601e5533980abee8a36cd9e72ea0fccb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
