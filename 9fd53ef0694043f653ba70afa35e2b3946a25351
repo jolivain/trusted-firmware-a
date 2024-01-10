@@ -106,6 +106,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "467b28db_0e153d73",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-01-10T13:10:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3791f3de_e0633828",
+      "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb7877b9_3943f1a0",
@@ -137,6 +155,24 @@
       "side": 1,
       "message": "...and if we keep the type unnamed, we only have one name to worry about keeping clear and concise. This variable is static, so we don\u0027t need the sbsa prefix.\n\nHow about:\n// These are non-discoverable options that can be affected by qemu configuration\nstatic struct {\n\tuint32_t num_cpus;\n\tcpu_data cpu[PLATFORM_CORE_COUNT];\n} dynamic_platform_info;\n?\n\nThen we can compartmentalise the non-discoverable things affected by qemu command line (or version) in one place (including future expansion).",
       "parentUuid": "fb7877b9_3943f1a0",
+      "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c7c9074_0c426357",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-01-10T13:10:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87ccba64_455345e9",
       "revId": "9fd53ef0694043f653ba70afa35e2b3946a25351",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
