@@ -16,6 +16,24 @@
       "message": "As I asked before. Why is it better to do the device tree parsing at EL3 instead of normal world? It would be nice to know the technical argument for if I should review something here.",
       "revId": "688fd4f4d70bfd7c9a470a89922b7c158ef80fe1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fe1ba43_92bce074",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-01-10T14:46:42Z",
+      "side": 1,
+      "message": "And yet again I regret my choice to reuse an existing encapsulation format instead of inventing my own.\n\nAs we have explained before, this is not a linux device tree. It is not even a firmware device tree. It is information passed from qemu to describe the information a hardware platform would have other mechanisms to discover at runtime, that are affected by the qemu command line. Ultimately this device tree be replaced by IPC calls to an emulated SCP. And when we do that, we won\u0027t then have to rewrite Normal world firmware to cope.",
+      "parentUuid": "a3c1aad1_25d3d1bf",
+      "revId": "688fd4f4d70bfd7c9a470a89922b7c158ef80fe1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
