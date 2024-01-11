@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6738616a_97dd0c21",
+        "filename": "docs/threat_model/supply_chain_threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-01-11T20:09:15Z",
+      "side": 1,
+      "message": "Added!",
+      "parentUuid": "ee2c93bf_0762b245",
+      "revId": "399c5001cd31042cccac3e8d0025e302ce43ba9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c8bde29_82b0ae63",
@@ -58,6 +76,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de2b44ad_032f69c1",
+        "filename": "docs/threat_model/supply_chain_threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-01-11T20:09:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6c8bde29_82b0ae63",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 381,
+        "endChar": 29
+      },
+      "revId": "399c5001cd31042cccac3e8d0025e302ce43ba9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3021b5e0_23284ced",
@@ -71,6 +113,30 @@
       "writtenOn": "2024-01-11T16:27:46Z",
       "side": 1,
       "message": "Which alerts is this referring to?",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 35
+      },
+      "revId": "399c5001cd31042cccac3e8d0025e302ce43ba9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc67622e_43983b80",
+        "filename": "docs/threat_model/supply_chain_threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-01-11T20:09:15Z",
+      "side": 1,
+      "message": "Alerts to Github vulnerabilities, is there something in place?",
+      "parentUuid": "3021b5e0_23284ced",
       "range": {
         "startLine": 480,
         "startChar": 0,
@@ -130,6 +196,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "13d94422_65dd0f76",
+        "filename": "docs/threat_model/supply_chain_threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-01-11T20:09:15Z",
+      "side": 1,
+      "message": "Ok yeah monitor is too strong of a word here then, does this sounds better?",
+      "parentUuid": "c7532f73_c50422db",
+      "range": {
+        "startLine": 511,
+        "startChar": 18,
+        "endLine": 511,
+        "endChar": 54
+      },
+      "revId": "399c5001cd31042cccac3e8d0025e302ce43ba9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d5bb62a_b5517752",
         "filename": "docs/threat_model/supply_chain_threat_model.rst",
         "patchSetId": 2
@@ -141,6 +231,30 @@
       "writtenOn": "2024-01-11T16:27:46Z",
       "side": 1,
       "message": "If they hit a maintainer then this could in theory open us up to TFA-SC-REPO-01 via Gerrit",
+      "range": {
+        "startLine": 550,
+        "startChar": 18,
+        "endLine": 550,
+        "endChar": 21
+      },
+      "revId": "399c5001cd31042cccac3e8d0025e302ce43ba9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7582a5a2_cf36e6cc",
+        "filename": "docs/threat_model/supply_chain_threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-01-11T20:09:15Z",
+      "side": 1,
+      "message": "This makes sense, thoughts on the addition?",
+      "parentUuid": "9d5bb62a_b5517752",
       "range": {
         "startLine": 550,
         "startChar": 18,
