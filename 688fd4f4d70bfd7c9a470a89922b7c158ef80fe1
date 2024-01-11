@@ -123,6 +123,24 @@
       "parentUuid": "26ac2764_70ba5a8a",
       "revId": "688fd4f4d70bfd7c9a470a89922b7c158ef80fe1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9a315b1_6a853e40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-01-11T12:57:44Z",
+      "side": 1,
+      "message": "What Marcin said. I\u0027m adding some superfluous detail below:\n\nYes. Ish. Well, route implies a specific design. The DT will go away and the information will instead come from the SCP. There is no need to map the SMC call directly to an SCP query. More likely we\u0027d retrieve the information once on boot and cache it.  \n\nThese SMCs are unique for the qemu sbsa-ref machine (known in tf-a as qemu_sbsa).\nIf we were to add generic qemu machines for other, current or future, SystemReady profiles I guess it\u0027s feasible they could be shared, or that they would have a different set of SiP functions. (There is currently no plan for this.)\n\nWhile I think it would be great if Arm could standardise some of these platform discovery type calls, I\u0027m sure the response would be along the lines of \"don\u0027t want to stifle innovation\". If they did, those would move from the SiP function ID space to the Arch function ID space and be covered by some official specification.",
+      "parentUuid": "f488da55_f0e81cdd",
+      "revId": "688fd4f4d70bfd7c9a470a89922b7c158ef80fe1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
