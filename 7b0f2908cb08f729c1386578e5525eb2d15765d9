@@ -65,6 +65,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5aca00a9_79e13859",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-01-11T09:19:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2259d71a_2887fe70",
+      "range": {
+        "startLine": 77,
+        "startChar": 30,
+        "endLine": 77,
+        "endChar": 36
+      },
+      "revId": "7b0f2908cb08f729c1386578e5525eb2d15765d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97841e71_f55c2bd2",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "Acknowledged",
       "parentUuid": "97841e71_f55c2bd2",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 14
+      },
+      "revId": "7b0f2908cb08f729c1386578e5525eb2d15765d9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ed1d29a_9196f579",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-01-11T09:19:10Z",
+      "side": 1,
+      "message": "Even better. Thanks!\n\nERROR:   No information about cpus in DeviceTree.\nBACKTRACE: START: read_cpuinfo_from_dt\n0: EL3: 0x3fcf023c\n1: EL3: 0x3fcf5b04\n2: EL3: 0x3fcf0374\n3: EL3: 0x3fcf0688\n4: EL3: 0x3fcee0b8\n5: EL3: 0x3fcd1078\nBACKTRACE: END: read_cpuinfo_from_dt",
+      "parentUuid": "732c68ed_39d22d9d",
       "range": {
         "startLine": 80,
         "startChar": 0,
