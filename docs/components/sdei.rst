@@ -354,6 +354,47 @@ implemented in assembly, following a similar pattern as below:
 
 --------------
 
+Threat Model
+------------
+
+SDEI introduces concept of super high priority events purely through Software. In doing
+so it modifies the priority scheme defined by Interrupt controllers. The Non-Secure
+clients, Hypervisor or OS, create/manage high priority events.
+
+Considering a Non-secure client is involved in SDEI state management, there exists
+some threats which are described below.
+
+Bound events
+~~~~~~~~~~~~
+
+A bound event is an SDEI event that corresponds to a client interrupt.
+The binding of event is done using SDEI_INTERRUPT_BIND SMC call to associate
+an SDEI event with a client interrupt.There is a possibility that a rogue
+client can request an invalid interrupt to be bounded. This may potentially
+cause out-of-bound memory read.
+
+TF-A implementation has checks to ensure that interrupt ID passed by client is
+architecurally valid.
+
+Recurring events
+~~~~~~~~~~~~~~~~
+
+If a malacious NS client identifies an event source and manage to trigger it
+continuously then it can potentially create a DoS attack.
+
+One of the examples is using RAS errors as potential attack vector. This can
+be done by a malacious NS client by identifying a memory region which generates
+RAS events.
+
+Dispatched events
+~~~~~~~~~~~~~~~~~
+
+For a dispatched event its clients responsibility to ensure that the handling
+finishes in finite time and notify the dispatcher through SDEI_EVENT_COMLETE
+or SDEI_EVENT_COMPLETE_AND_RESUME. If the client fails to complete the event
+handling, it might result in UNPREDICTABLE behavior in the client and potentially
+end up in unusable PE.
+
 *Copyright (c) 2017-2019, Arm Limited and Contributors. All rights reserved.*
 
 .. rubric:: Footnotes
