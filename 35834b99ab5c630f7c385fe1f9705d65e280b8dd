@@ -16,6 +16,24 @@
       "message": "Could you please explain in the commit message why we need this?\n\nWe should say that until now we only supported describing through the CoT DTB bindings chains of trust with a single ROTPK so the signing key for root certificates was implicit.\n\nNow we want to extend that to describe CoTs with multiple roots of trust so we need a way to specify for each root certificate with which ROTPK it should be verified. For that, we reuse the \u0027signing-key\u0027 property already in use for non-root certificates but we make it optional for root certificates in single-RoT CoTs and for root certificates signed with the default ROTPK in multi-RoTs CoTs.",
       "revId": "35834b99ab5c630f7c385fe1f9705d65e280b8dd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64fbcceb_ab228d99",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-01-11T17:14:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf678e51_76308627",
+      "revId": "35834b99ab5c630f7c385fe1f9705d65e280b8dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
