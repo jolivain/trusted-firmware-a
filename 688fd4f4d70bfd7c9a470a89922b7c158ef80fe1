@@ -195,6 +195,24 @@
       "parentUuid": "66878aef_2e96cedf",
       "revId": "688fd4f4d70bfd7c9a470a89922b7c158ef80fe1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd086e38_6dd2e811",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-01-11T17:23:36Z",
+      "side": 1,
+      "message": "Yes, but I was an idiot, and decided to pass the information from qemu to TF-A in the DT storage format since that meant libraries for encoding/decoding the info already existed in both, thinking that would simplify things compared to inventing our own custom format.\n\nInstead, this keeps leading to misunderstandings of what the data *is*\nand this exact conversation keeps popping up again and again and again.\n\nThis platform has been developed in an iterative fashion, which is why the DT *was* initially passed to Non-secure firmware (because again, libfdt was available, and I\u0027m an idiot). The churn was caused by the iterative platform development, not the use of the DT storage format for passing qemu runtime configuration.\nThe ABI this data-unfortunately-stored-in-device-tree forms will go away when the device tree goes away.\n\nThe purpose of this platform is the mimic a generic sbsa platform on which to run sbbr-compliant firmware, to provide a generic SystemReady SR development environment. Device tree has no relevance on a SystemReady SR platform.",
+      "parentUuid": "a3edef7d_3597b4c9",
+      "revId": "688fd4f4d70bfd7c9a470a89922b7c158ef80fe1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
