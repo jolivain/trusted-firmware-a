@@ -147,6 +147,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f2a511d_0d2fad1b",
+        "filename": "docs/threat_model/supply_chain_threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-01-12T11:28:41Z",
+      "side": 1,
+      "message": "I\u0027m not sure that there\u0027s anything formal in place; we just expect that GitHub would notify users of any identified vulnerabilities. I suppose that counts",
+      "parentUuid": "dc67622e_43983b80",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 35
+      },
+      "revId": "399c5001cd31042cccac3e8d0025e302ce43ba9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cb184ed_f294e600",
@@ -244,6 +268,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "760cfc6a_622ef84d",
+        "filename": "docs/threat_model/supply_chain_threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-01-12T11:28:41Z",
+      "side": 1,
+      "message": "I guess a mitigation could be that we warn the mailing list when spoofed versions are found and reported?",
+      "parentUuid": "5a93ca28_d7cc5790",
+      "range": {
+        "startLine": 511,
+        "startChar": 18,
+        "endLine": 511,
+        "endChar": 54
+      },
+      "revId": "399c5001cd31042cccac3e8d0025e302ce43ba9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9d5bb62a_b5517752",
         "filename": "docs/threat_model/supply_chain_threat_model.rst",
         "patchSetId": 2
@@ -279,6 +327,30 @@
       "side": 1,
       "message": "This makes sense, thoughts on the addition?",
       "parentUuid": "9d5bb62a_b5517752",
+      "range": {
+        "startLine": 550,
+        "startChar": 18,
+        "endLine": 550,
+        "endChar": 21
+      },
+      "revId": "399c5001cd31042cccac3e8d0025e302ce43ba9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26a35172_67303481",
+        "filename": "docs/threat_model/supply_chain_threat_model.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-01-12T11:28:41Z",
+      "side": 1,
+      "message": "Probably HIGH impact as well, and add \"would allow attackers to exploit TFA-SC-REPO-01\" to the threat impact, perhaps.",
+      "parentUuid": "7582a5a2_cf36e6cc",
       "range": {
         "startLine": 550,
         "startChar": 18,
