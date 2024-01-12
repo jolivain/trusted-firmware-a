@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "574de45e_682fda69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000917
+      },
+      "writtenOn": "2024-01-12T21:18:09Z",
+      "side": 1,
+      "message": "I\u0027ve tested this and it seems to work for me with a few things to note.\n1) I need to disable SCMI in U-Boot or else it fails to boot (CONFIG_SCMI_FIRMWARE\u003dn and CONFIG_SCMI_AGENT_SMCCC\u003dn). This is used for BSP U-Boot but U-Boot won\u0027t work with this version of A-TF if these are enabled.\n2) I get an error performing a DSI write in U-Boot. I suspect I need to have a clock set correctly before I can do this properly. Other boards where I don\u0027t need to issue DSI commands in U-Boot seem to work just fine.\n\nTL;DR this seems to work for me, however I\u0027ll need some additional SCMI stuff before I can replace the BSP A-TF in all my use cases.\n\nThank you.",
+      "revId": "0ac3577101f7119b84f2e1fa2e88ea3f977d7480",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
