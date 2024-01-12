@@ -3,6 +3,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "030b0529_ad1767ad",
+        "filename": "docs/threat_model/threat_model_fw_update_and_recovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-12T12:14:43Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 8,
+        "startChar": 64,
+        "endLine": 8,
+        "endChar": 67
+      },
+      "revId": "c309ad5b1fbd7b695282c6af6cb27171989a51d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "365b6bf6_8867eddf",
+        "filename": "docs/threat_model/threat_model_fw_update_and_recovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-12T12:14:43Z",
+      "side": 1,
+      "message": "Add a link to https://trustedfirmware-a.readthedocs.io/en/latest/components/firmware-update.html, this would provide some context to the reader on the features we\u0027re talking about.",
+      "revId": "c309ad5b1fbd7b695282c6af6cb27171989a51d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d796e96c_c0d90173",
         "filename": "docs/threat_model/threat_model_fw_update_and_recovery.rst",
         "patchSetId": 1
@@ -20,6 +60,138 @@
         "endLine": 11,
         "endChar": 52
       },
+      "revId": "c309ad5b1fbd7b695282c6af6cb27171989a51d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78e192ea_585aca82",
+        "filename": "docs/threat_model/threat_model_fw_update_and_recovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-12T12:14:43Z",
+      "side": 1,
+      "message": "Drop these words, only keep the link?",
+      "range": {
+        "startLine": 24,
+        "startChar": 67,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "c309ad5b1fbd7b695282c6af6cb27171989a51d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ca03de5_b1df437b",
+        "filename": "docs/threat_model/threat_model_fw_update_and_recovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-12T12:14:43Z",
+      "side": 1,
+      "message": "I would drop these words, they look weird, as we do not consider any other processor than the AP (was this text copied from the AP/RSS interface threat model by any chance?).",
+      "range": {
+        "startLine": 26,
+        "startChar": 21,
+        "endLine": 26,
+        "endChar": 36
+      },
+      "revId": "c309ad5b1fbd7b695282c6af6cb27171989a51d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dc05352_a05bb6d6",
+        "filename": "docs/threat_model/threat_model_fw_update_and_recovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-12T12:14:43Z",
+      "side": 1,
+      "message": "If I am not mistaken, this should refer to the \"Threats to be Mitigated by the Boot Firmware\" rather than the generic ones.",
+      "range": {
+        "startLine": 34,
+        "startChar": 33,
+        "endLine": 34,
+        "endChar": 55
+      },
+      "revId": "c309ad5b1fbd7b695282c6af6cb27171989a51d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e847d498_04a5146c",
+        "filename": "docs/threat_model/threat_model_fw_update_and_recovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-12T12:14:43Z",
+      "side": 1,
+      "message": "I am trying to understand how this sentence fits in the generic threat model and what part of the threat assessment it is changing/extending... Is that sentence meant to extend the threat **description** by pointing out one additional way an attacker may mangle firmware images when FWU is enabled? I guess the generic threat model already covered that through \"using the updating mechanism to modify the non-volatile images to execute arbitrary code\"...\n\nNote that threat #1 is about arbitrary code execution, not denial-of-service type of attack. Thus, I think it is not relevant to say that this will leave the system in an inconsistent state in the context of this threat.",
+      "range": {
+        "startLine": 40,
+        "startChar": 22,
+        "endLine": 41,
+        "endChar": 61
+      },
+      "revId": "c309ad5b1fbd7b695282c6af6cb27171989a51d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e459412_e20f574a",
+        "filename": "docs/threat_model/threat_model_fw_update_and_recovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-12T12:14:43Z",
+      "side": 1,
+      "message": "I think we should elaborate on this.\n\nIn the introductory sentence, let\u0027s explain that FWU metadata is stored in untrusted storage, thus making it accessible to an attacker.\n\nFor threat 1., let\u0027s first explain that the FWU metadata indicates which firmware bank to boot.\n\nCould you please elaborate on 2? I am not sure I understand how an attacker can pull this off. Is that tied to 1? Like, if the attacker perpetually prevents the updated firmware to run, the active firmware would never be updated and thus the anti-rollback counter would never be incremented? Is that you had in mind?\n\nAll of this needs more details IMO.",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 68
+      },
+      "revId": "c309ad5b1fbd7b695282c6af6cb27171989a51d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edc232db_aa2f7cc1",
+        "filename": "docs/threat_model/threat_model_fw_update_and_recovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-12T12:14:43Z",
+      "side": 1,
+      "message": "We\u0027re missing a copyright line at the end of this document.",
       "revId": "c309ad5b1fbd7b695282c6af6cb27171989a51d1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
