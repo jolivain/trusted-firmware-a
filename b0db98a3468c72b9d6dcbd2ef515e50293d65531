@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1222eee_5519a412",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-01-12T16:16:57Z",
+      "side": 1,
+      "message": "Since this is a platform property, could we move it to plat/qemu/qemu_sbsa/include/platform_def.h? Maybe rename it PLAT_MAX_MEM_NODES?",
+      "revId": "b0db98a3468c72b9d6dcbd2ef515e50293d65531",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a68ecf1_1334b05b",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-01-12T16:16:57Z",
+      "side": 1,
+      "message": "For maximum clarity, could we rename this something like SIP_SVC_GET_MEMORY_NODE_COUNT?",
+      "revId": "b0db98a3468c72b9d6dcbd2ef515e50293d65531",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
