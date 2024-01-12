@@ -70,6 +70,30 @@
       },
       "revId": "7220ccaf991e64b619311ba906b0ed019181e0d3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93378cde_5c8c41cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-01-12T14:45:15Z",
+      "side": 1,
+      "message": "Possibly another variant is to parametrize arm_bl2_plat_gpt_setup(), define a new function plat_arm_bl2_gpt_setup() (as you have done) and call arm_bl2_plat_gpt_setup() with the appropriate regions as parameter.",
+      "parentUuid": "b06c63d0_e4530042",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "7220ccaf991e64b619311ba906b0ed019181e0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
