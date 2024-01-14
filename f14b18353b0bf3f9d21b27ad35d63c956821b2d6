@@ -286,6 +286,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cc59fb5c_6e4302d2",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-14T00:49:27Z",
+      "side": 1,
+      "message": "As I understand it, the issue appears to be confined to the downstream TC platform. If any downstream platforms wish to adopt this patch, I recommend updating their build scripts to incorporate the new build option. While I acknowledge that this change is benign, perpetuating this practice could establish it as a standard, necessitating ongoing support for future deprecated build flags in a similar manner. \nIs it feasible for the downstream TC platform to modify its build script once this patch has been consumed?\n\nOur current deprecation policy covers platforms[1], drivers[2], and interfaces[3], but there is currently no defined policy for deprecated build options. I\u0027m uncertain about the value of supporting it unless there are compelling reasons to do so.\n\n[1]: https://trustedfirmware-a.readthedocs.io/en/latest/plat/index.html#deprecated-platforms\n[2]: https://trustedfirmware-a.readthedocs.io/en/latest/about/release-information.html#removal-of-deprecated-interfaces\n[3]: https://trustedfirmware-a.readthedocs.io/en/latest/about/release-information.html#removal-of-deprecated-drivers",
+      "parentUuid": "e5f810aa_ab2908b4",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 5
+      },
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bec644ff_2e99efad",
         "filename": "make_helpers/arch_features.mk",
         "patchSetId": 1
