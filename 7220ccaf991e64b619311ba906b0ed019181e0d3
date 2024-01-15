@@ -166,6 +166,30 @@
       },
       "revId": "7220ccaf991e64b619311ba906b0ed019181e0d3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "447b323f_edb664b8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-01-15T17:15:12Z",
+      "side": 1,
+      "message": "I realize there is no support for RESET_TO_BL31 support for RME, but I think that support needs to be there(maybe separate discussion). There could be platforms where non-TF-A boot loaders loads BL31, and BL31 runs from on chip memory. Bl31, cannot run from DDR on a CCA system afaik, so BL31 can/should be able to setup GPTs\\ since it is root anyway.",
+      "parentUuid": "856b6897_30cdcfc9",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "7220ccaf991e64b619311ba906b0ed019181e0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
