@@ -244,6 +244,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3e7eb736_64b74ab5",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:40:35Z",
+      "side": 1,
+      "message": "Also the logic assumes EL2 always has HCR_EL2.E2H\u003d1 which isn\u0027t correct.\ne.g. while EL2 boots there may be transient phase while HCR_EL2.E2H\u003d0 in which case on injecting an undef exception EL3 would infer lower EL ran at EL1 while it was running at EL2.",
+      "parentUuid": "296baeba_11692a48",
+      "range": {
+        "startLine": 47,
+        "startChar": 1,
+        "endLine": 53,
+        "endChar": 2
+      },
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7c69ea8c_e812f4bc",
         "filename": "bl31/bl31_traps.c",
         "patchSetId": 15
