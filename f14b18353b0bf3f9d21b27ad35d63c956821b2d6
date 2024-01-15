@@ -334,6 +334,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "214d4305_9ebffdfc",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-15T13:17:36Z",
+      "side": 1,
+      "message": "\u003e This practice has been perpetuated for a while now - see ENABLE_FEAT_MPAM, ENABLE_SPE_FOR_NS, ENABLE_SVE_FOR_NS. While I was in the team we wanted to default SVE and SPE to 0 (similar change to this IMO) but the discussion ended at \"we shouldn\u0027t break downstream if we can help it\" and they were kept at 2. The migration to FEAT_DETECT did result in some breakage but the decision was to send a notification to the mailing list.\n\nIIUC, this patch focuses on renaming the build option from CTX_INCLUDE_MTE_REGS to ENABLE_FEAT_MTE, without altering its default behaviour (which remains set to 0). It is good to include a cautious note in the commit message, advising downstream platforms to adopt this new flag. Additionally, following conventional commit guidelines, it\u0027s suggested to label this as a BREAKING CHANGE. This must be enough to remove this warning. \nMy only concern is that if we retain this warning and various platforms begin adopting the new flag, then soon it will become dead code. There is no monitoring for the deprecated options for TF-A in the documentation. i.e. when it was deprecated and when to remove it. I don\u0027t see any need for this atleast for the current use case.\n\nTo ensure wider communication, we should send an email via the mailing list to notify all platform owners about this modification. JFYI, similar renaming has been undertaken in the past [1].\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19276",
+      "parentUuid": "a9a38880_5df05da2",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 5
+      },
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bec644ff_2e99efad",
         "filename": "make_helpers/arch_features.mk",
         "patchSetId": 1
