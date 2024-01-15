@@ -171,76 +171,174 @@
  */
 #define CTX_EL2_SYSREGS_OFFSET	(CTX_EL1_SYSREGS_OFFSET + CTX_EL1_SYSREGS_END)
 
-#define CTX_ACTLR_EL2		U(0x0)
-#define CTX_AFSR0_EL2		U(0x8)
-#define CTX_AFSR1_EL2		U(0x10)
-#define CTX_AMAIR_EL2		U(0x18)
-#define CTX_CNTHCTL_EL2		U(0x20)
-#define CTX_CNTVOFF_EL2		U(0x28)
-#define CTX_CPTR_EL2		U(0x30)
-#define CTX_DBGVCR32_EL2	U(0x38)
-#define CTX_ELR_EL2		U(0x40)
-#define CTX_ESR_EL2		U(0x48)
-#define CTX_FAR_EL2		U(0x50)
-#define CTX_HACR_EL2		U(0x58)
-#define CTX_HCR_EL2		U(0x60)
-#define CTX_HPFAR_EL2		U(0x68)
-#define CTX_HSTR_EL2		U(0x70)
-#define CTX_ICC_SRE_EL2		U(0x78)
-#define CTX_ICH_HCR_EL2		U(0x80)
-#define CTX_ICH_VMCR_EL2	U(0x88)
-#define CTX_MAIR_EL2		U(0x90)
-#define CTX_MDCR_EL2		U(0x98)
-#define CTX_PMSCR_EL2		U(0xa0)
-#define CTX_SCTLR_EL2		U(0xa8)
-#define CTX_SPSR_EL2		U(0xb0)
-#define CTX_SP_EL2		U(0xb8)
-#define CTX_TCR_EL2		U(0xc0)
-#define CTX_TPIDR_EL2		U(0xc8)
-#define CTX_TTBR0_EL2		U(0xd0)
-#define CTX_VBAR_EL2		U(0xd8)
-#define CTX_VMPIDR_EL2		U(0xe0)
-#define CTX_VPIDR_EL2		U(0xe8)
-#define CTX_VTCR_EL2		U(0xf0)
-#define CTX_VTTBR_EL2		U(0xf8)
+#define CTX_ACTLR_EL2		U(0x8)
+#define CTX_AFSR0_EL2		U(0x10)
+#define CTX_AFSR1_EL2		U(0x18)
+#define CTX_AMAIR_EL2		U(0x20)
+#define CTX_CNTHCTL_EL2		U(0x28)
+#define CTX_CNTVOFF_EL2		U(0x30)
+#define CTX_CPTR_EL2		U(0x38)
+#define CTX_DBGVCR32_EL2	U(0x40)
+#define CTX_ELR_EL2		U(0x48)
+#define CTX_ESR_EL2		U(0x50)
+#define CTX_FAR_EL2		U(0x58)
+#define CTX_HACR_EL2		U(0x60)
+#define CTX_HCR_EL2		U(0x68)
+#define CTX_HPFAR_EL2		U(0x70)
+#define CTX_HSTR_EL2		U(0x78)
+#define CTX_ICC_SRE_EL2		U(0x80)
+#define CTX_ICH_HCR_EL2		U(0x88)
+#define CTX_ICH_VMCR_EL2	U(0x90)
+#define CTX_MAIR_EL2		U(0x98)
+#define CTX_MDCR_EL2		U(0xa0)
+#define CTX_PMSCR_EL2		U(0xa8)
+#define CTX_SCTLR_EL2		U(0xb0)
+#define CTX_SPSR_EL2		U(0xb8)
+#define CTX_SP_EL2		U(0xc0)
+#define CTX_TCR_EL2		U(0xc8)
+#define CTX_TPIDR_EL2		U(0xd0)
+#define CTX_TTBR0_EL2		U(0xd8)
+#define CTX_VBAR_EL2		U(0xe0)
+#define CTX_VMPIDR_EL2		U(0xe8)
+#define CTX_VPIDR_EL2		U(0xf0)
+#define CTX_VTCR_EL2		U(0xf8)
+#define CTX_VTTBR_EL2		U(0x100)
 
+#if CTX_INCLUDE_MTE_REGS
 // Only if MTE registers in use
-#define CTX_TFSR_EL2		U(0x100)
+#define CTX_TFSR_EL2		U(0x108)
+#define CTX_EL2_MTE_REGS_END	U(0x110) /* Align to the next 16 byte boundary */
+#else
+#define CTX_TFSR_EL2		U(0x0)
+#define CTX_EL2_MTE_REGS_END	U(0x110) /* Align to the next 16 byte boundary */
+#endif /* CTX_INCLUDE_MTE_REGS */
 
+#if ENABLE_FEAT_FGT
 // Starting with Armv8.6
-#define CTX_HDFGRTR_EL2		U(0x108)
-#define CTX_HAFGRTR_EL2		U(0x110)
-#define CTX_HDFGWTR_EL2		U(0x118)
-#define CTX_HFGITR_EL2		U(0x120)
-#define CTX_HFGRTR_EL2		U(0x128)
-#define CTX_HFGWTR_EL2		U(0x130)
-#define CTX_CNTPOFF_EL2		U(0x138)
+#define CTX_HDFGRTR_EL2		(CTX_EL2_MTE_REGS_END + U(0x0))
+#define CTX_HAFGRTR_EL2		(CTX_EL2_MTE_REGS_END + U(0x8))
+#define CTX_HDFGWTR_EL2		(CTX_EL2_MTE_REGS_END + U(0x10))
+#define CTX_HFGITR_EL2		(CTX_EL2_MTE_REGS_END + U(0x18))
+#define CTX_HFGRTR_EL2		(CTX_EL2_MTE_REGS_END + U(0x20))
+#define CTX_HFGWTR_EL2		(CTX_EL2_MTE_REGS_END + U(0x28))
+#define CTX_FGT_REGS_END	(CTX_EL2_MTE_REGS_END + U(0x30)) /* Align to the next 16 byte boundary */
+#else
+// Starting with Armv8.6
+#define CTX_HDFGRTR_EL2		U(0x0)
+#define CTX_HAFGRTR_EL2		U(0x0)
+#define CTX_HDFGWTR_EL2		U(0x0)
+#define CTX_HFGITR_EL2		U(0x0)
+#define CTX_HFGRTR_EL2		U(0x0)
+#define CTX_HFGWTR_EL2		U(0x0)
+#define CTX_FGT_REGS_END	CTX_EL2_MTE_REGS_END
+#endif /* ENABLE_FEAT_FGT */
 
-// Starting with Armv8.4
-#define CTX_CONTEXTIDR_EL2	U(0x140)
-#define CTX_TTBR1_EL2		U(0x148)
-#define CTX_VDISR_EL2		U(0x150)
-#define CTX_VSESR_EL2		U(0x158)
-#define CTX_VNCR_EL2		U(0x160)
-#define CTX_TRFCR_EL2		U(0x168)
+#if ENABLE_FEAT_ECV
+#define CTX_CNTPOFF_EL2		(CTX_FGT_REGS_END + U(0x0))
+#define CTX_ECV_REGS_END	(CTX_FGT_REGS_END + U(0x10))/* Align to the next 16 byte boundary */
+#else
+#define CTX_CNTPOFF_EL2		U(0x0)
+#define CTX_ECV_REGS_END	CTX_FGT_REGS_END
+#endif /* ENABLE_FEAT_ECV */
 
-// Starting with Armv8.5
-#define CTX_SCXTNUM_EL2		U(0x170)
+#if ENABLE_FEAT_VHE
+#define CTX_CONTEXTIDR_EL2	(CTX_ECV_REGS_END + U(0x0))
+#define CTX_TTBR1_EL2		(CTX_ECV_REGS_END + U(0x8))
+#define CTX_VHE_REGS_END	(CTX_ECV_REGS_END + U(0x10)) /* Align to the next 16 byte boundary */
+#else
+#define CTX_CONTEXTIDR_EL2	U(0x0)
+#define CTX_TTBR1_EL2		U(0x0)
+#define CTX_VHE_REGS_END	CTX_ECV_REGS_END
+#endif /* ENABLE_FEAT_VHE */
 
-// Register for FEAT_HCX
-#define CTX_HCRX_EL2            U(0x178)
+#if ENABLE_FEAT_RAS
+#define CTX_VDISR_EL2		(CTX_VHE_REGS_END + U(0x0))
+#define CTX_VSESR_EL2		(CTX_VHE_REGS_END + U(0x8))
+#define CTX_RAS_REGS_END	(CTX_VHE_REGS_END + U(0x10)) /* Align to the next 16 byte boundary */
+#else
+#define CTX_VDISR_EL2		U(0x0)
+#define CTX_VSESR_EL2		U(0x0)
+#define CTX_RAS_REGS_END	CTX_VHE_REGS_END
+#endif /* ENABLE_FEAT_RAS */
 
-// Starting with Armv8.9
-#define CTX_TCR2_EL2            U(0x180)
-#define CTX_POR_EL2             U(0x188)
-#define CTX_PIRE0_EL2           U(0x190)
-#define CTX_PIR_EL2             U(0x198)
-#define CTX_S2PIR_EL2		U(0x1a0)
-#define CTX_GCSCR_EL2           U(0x1a8)
-#define CTX_GCSPR_EL2           U(0x1b0)
+#if CTX_INCLUDE_NEVE_REGS
+#define CTX_VNCR_EL2		(CTX_RAS_REGS_END + U(0x0))
+#define CTX_NEVE_REGS_END	(CTX_RAS_REGS_END + U(0x10)) /* Align to the next 16 byte boundary */
+#else
+#define CTX_VNCR_EL2		U(0x0)
+#define CTX_NEVE_REGS_END	CTX_RAS_REGS_END
+#endif /* CTX_INCLUDE_NEVE_REGS */
+
+#if ENABLE_FEAT_TRF
+#define CTX_TRFCR_EL2		(CTX_NEVE_REGS_END + U(0x0))
+#define CTX_TRF_REGS_END	(CTX_NEVE_REGS_END + U(0x10)) /* Align to the next 16 byte boundary */
+#else
+#define CTX_TRFCR_EL2		U(0x0)
+#define CTX_TRF_REGS_END	CTX_NEVE_REGS_END
+#endif /* ENABLE_FEAT_TRF */
+
+#if ENABLE_FEAT_CSV2_2
+#define CTX_SCXTNUM_EL2		(CTX_TRF_REGS_END + U(0x0))
+#define CTX_CSV2_2_REGS_END	(CTX_TRF_REGS_END + U(0x10)) /* Align to the next 16 byte boundary */
+#else
+#define CTX_SCXTNUM_EL2		U(0x0)
+#define CTX_CSV2_2_REGS_END	CTX_TRF_REGS_END
+#endif /* ENABLE_FEAT_CSV2_2 */
+
+#if ENABLE_FEAT_HCX
+#define CTX_HCRX_EL2		(CTX_CSV2_2_REGS_END + U(0x0))
+#define CTX_HCX_REGS_END	(CTX_CSV2_2_REGS_END + U(0x10)) /* Align to the next 16 byte boundary */
+#else
+#define CTX_HCRX_EL2		U(0x0)
+#define CTX_HCX_REGS_END	CTX_CSV2_2_REGS_END
+#endif /* ENABLE_FEAT_HCX */
+
+#if ENABLE_FEAT_TCR2
+#define CTX_TCR2_EL2		(CTX_HCX_REGS_END + U(0x0))
+#define CTX_TCR2_REGS_END	(CTX_HCX_REGS_END + U(0x10)) /* Align to the next 16 byte boundary */
+#else
+#define CTX_TCR2_EL2		U(0x0)
+#define CTX_TCR2_REGS_END	CTX_HCX_REGS_END
+#endif /* ENABLE_FEAT_TCR2 */
+
+#if ENABLE_FEAT_S1PIE || ENABLE_FEAT_S2PIE
+#define CTX_PIRE0_EL2		(CTX_TCR2_REGS_END + U(0x0))
+#define CTX_PIR_EL2		(CTX_TCR2_REGS_END + U(0x8))
+#define CTX_SXPIE_REGS_END	(CTX_TCR2_REGS_END + U(0x10)) /* Align to the next 16 byte boundary */
+#else
+#define CTX_PIRE0_EL2		U(0x0)
+#define CTX_PIR_EL2		U(0x0)
+#define CTX_SXPIE_REGS_END	CTX_TCR2_REGS_END
+#endif /* (ENABLE_FEAT_S1PIE || ENABLE_FEAT_S2PIE) */
+
+#if ENABLE_FEAT_S2PIE
+#define CTX_S2PIR_EL2		(CTX_SXPIE_REGS_END + U(0x0))
+#define CTX_S2PIE_REGS_END	(CTX_SXPIE_REGS_END + U(0x10)) /* Align to the next 16 byte boundary */
+#else
+#define CTX_S2PIR_EL2		U(0x0)
+#define CTX_S2PIE_REGS_END	CTX_SXPIE_REGS_END
+#endif /* ENABLE_FEAT_S2PIE */
+
+#if ENABLE_FEAT_S1POE || ENABLE_FEAT_S2POE
+#define CTX_POR_EL2		(CTX_S2PIE_REGS_END + U(0x0))
+#define CTX_SXPOE_REGS_END	(CTX_S2PIE_REGS_END + U(0x10)) /* Align to the next 16 byte boundary */
+#else
+#define CTX_POR_EL2		U(0x0)
+#define CTX_SXPOE_REGS_END	CTX_S2PIE_REGS_END
+#endif /* (ENABLE_FEAT_S1POE || ENABLE_FEAT_S2POE) */
+
+#if ENABLE_FEAT_GCS
+#define CTX_GCSCR_EL2		(CTX_SXPOE_REGS_END + U(0x0))
+#define CTX_GCSPR_EL2		(CTX_SXPOE_REGS_END + U(0x8))
+#define CTX_GCS_REGS_END	(CTX_SXPOE_REGS_END + U(0x10))
+#else
+#define CTX_GCSCR_EL2		U(0x0)
+#define CTX_GCSPR_EL2		U(0x0)
+#define CTX_GCS_REGS_END	CTX_SXPOE_REGS_END
+#endif /* ENABLE_FEAT_GCS */
 
 /* Align to the next 16 byte boundary */
-#define CTX_EL2_SYSREGS_END	U(0x1c0)
+#define CTX_EL2_SYSREGS_END	CTX_GCS_REGS_END
 
 #endif /* CTX_INCLUDE_EL2_REGS */
 
