@@ -1,0 +1,360 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37c6b2f2_d3895747",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "nitpick: into",
+      "range": {
+        "startLine": 21,
+        "startChar": 10,
+        "endLine": 21,
+        "endChar": 15
+      },
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb243fe3_42317049",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "nitpick \u0027a synchronous exception\u0027 ?",
+      "range": {
+        "startLine": 20,
+        "startChar": 52,
+        "endLine": 21,
+        "endChar": 9
+      },
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7420c54_e3d5b62e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 28,
+        "startChar": 62,
+        "endLine": 28,
+        "endChar": 72
+      },
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3765b2d_94bce828",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "HCR_EL2",
+      "range": {
+        "startLine": 29,
+        "startChar": 19,
+        "endLine": 29,
+        "endChar": 22
+      },
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b0c9dc6_18f5cca6",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "nitpick: 2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acb77f3a_546895d4",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "nitpick: lower EL",
+      "range": {
+        "startLine": 479,
+        "startChar": 47,
+        "endLine": 479,
+        "endChar": 52
+      },
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91192f10_7be5880a",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 15
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "Should it jump to 1f for the case \u00271: handled trap, return to the next instruction\u0027 ?",
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61898651_aaefc91d",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "range": {
+        "startLine": 40,
+        "startChar": 3,
+        "endLine": 40,
+        "endChar": 26
+      },
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14e79ae5_d8e10e19",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "range": {
+        "startLine": 41,
+        "startChar": 3,
+        "endLine": 41,
+        "endChar": 26
+      },
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce891560_2ca2bff7",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "nitpick: blank",
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "296baeba_11692a48",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "I\u0027m not sure this logic is bulletproof. I believe this highly depends on the EL2 design e.g. there can be cases of running at EL2 where HCR_EL2.TGE is clear.",
+      "range": {
+        "startLine": 47,
+        "startChar": 1,
+        "endLine": 53,
+        "endChar": 2
+      },
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c69ea8c_e812f4bc",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "Does this depend on the handler/thread mode selection at which point the exception is triggered?\n0x200 is the offset of an exception occurring when lower EL was in handler mode. It would have to be 0x0 for thread mode.",
+      "range": {
+        "startLine": 74,
+        "startChar": 30,
+        "endLine": 74,
+        "endChar": 35
+      },
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaed6aa4_8225a66c",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "Should this be distinguished for cases where the exception occurs in the lower EL (second half of the vector table)?",
+      "range": {
+        "startLine": 82,
+        "startChar": 30,
+        "endLine": 82,
+        "endChar": 35
+      },
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3fca154_51e55992",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "nitpick: remove parentheses",
+      "range": {
+        "startLine": 88,
+        "startChar": 24,
+        "endLine": 88,
+        "endChar": 25
+      },
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd02b141_34330476",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "nitpick: remove parentheses",
+      "range": {
+        "startLine": 131,
+        "startChar": 15,
+        "endLine": 131,
+        "endChar": 16
+      },
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9db4d5bd_d2528ad6",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-15T13:19:46Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 149,
+        "startChar": 1,
+        "endLine": 149,
+        "endChar": 8
+      },
+      "revId": "4268e6ab335d9b6ca16b82f6ae2af2dc91779d18",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
