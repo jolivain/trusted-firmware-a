@@ -310,6 +310,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a9a38880_5df05da2",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-01-15T09:42:46Z",
+      "side": 1,
+      "message": "\u003e Is it feasible for the downstream TC platform to modify its build script once this patch has been consumed?\n\nIt\u0027s not about feasibility, it\u0027s about discoverability. Now that I\u0027ve caught that this is happening, fixing it is trivial. But I could have very well NOT have read this patch in review and it could have been missed. At that point things might keep working but without MTE, leading to a defect down the road with no clear way of preventing it.\n\n\u003e perpetuating this practice could establish it as a standard, necessitating ongoing support for future deprecated build flags in a similar manner.\n\nThis practice has been perpetuated for a while now - see ENABLE_FEAT_MPAM, ENABLE_SPE_FOR_NS, ENABLE_SVE_FOR_NS. While I was in the team we wanted to default SVE and SPE to 0 (similar change to this IMO) but the discussion ended at \"we shouldn\u0027t break downstream if we can help it\" and they were kept at 2. The migration to FEAT_DETECT did result in some breakage but the decision was to send a notification to the mailing list.\n\nLeaving whether this is a standard or not aside, it should be. Upstream breakage is unnecessary friction downstream and some policy (be it a mailing list notification or formal deprecation or something else entirely) should be followed. I\u0027m not saying not to do this, but I am saying to do it gradually so there\u0027s a chance to adapt.",
+      "parentUuid": "cc59fb5c_6e4302d2",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 5
+      },
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bec644ff_2e99efad",
         "filename": "make_helpers/arch_features.mk",
         "patchSetId": 1
