@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "351a5353_71019424",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-01-15T12:51:47Z",
+      "side": 1,
+      "message": "It is to quiet this:\n\n1 new defect(s) introduced to ARM-software/arm-trusted-firmware found with Coverity Scan.\n\n\nNew defect(s) Reported-by: Coverity Scan\nShowing 1 of 1 defect(s)\n\n\n** CID 413966:  Uninitialized variables  (UNINIT)\n/plat/qemu/qemu_sbsa/sbsa_sip_svc.c: 113 in read_cpuinfo_from_dt()\n\n\nIn normal situation we get MPIDR value in data from QEMU. If it is not present then we panic. In both situations we do not use \"0\" value.",
+      "parentUuid": "d17c71c5_39800bca",
+      "revId": "dbd0803237a63b4b9e6fcbb0c3b50c9441d85a98",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6b26c65_8e5f80f9",
         "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2024-01-15T11:16:50Z",
       "side": 1,
       "message": "Would be useful to print value of cpu in this message. Not that it matters which cpu it is, but it\u0027s good to see if it\u0027s the first one or not.",
+      "revId": "dbd0803237a63b4b9e6fcbb0c3b50c9441d85a98",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "237fd70f_95fbbba2",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-01-15T12:51:47Z",
+      "side": 1,
+      "message": "good point. will add",
+      "parentUuid": "f6b26c65_8e5f80f9",
       "revId": "dbd0803237a63b4b9e6fcbb0c3b50c9441d85a98",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
