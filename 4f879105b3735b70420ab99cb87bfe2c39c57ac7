@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "483d5bb2_134edfdd",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-15T15:51:45Z",
+      "side": 1,
+      "message": "those should be on one line (see checkpatch issue: https://ci.trustedfirmware.org/job/tf-a-static-checks/7691/)",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 108,
+        "endChar": 3
+      },
+      "revId": "4f879105b3735b70420ab99cb87bfe2c39c57ac7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
