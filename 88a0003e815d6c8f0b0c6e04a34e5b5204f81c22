@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8b9a4d8_8f960160",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-15T10:23:33Z",
+      "side": 1,
+      "message": "TF-A expects patches to follow conventional commit:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/commit-style.html#commit-style\n\nThe commit message header should be something like:\nfix(rockchip): fix documentation in how build bl31 in AARCH64",
+      "revId": "88a0003e815d6c8f0b0c6e04a34e5b5204f81c22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4e6c519_95ff1116",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-15T10:23:33Z",
+      "side": 1,
+      "message": "As Aarch32 SoCs expect BL32, maybe you could rephrase:\nRockchip Aarch64 SoCs expect TF-A\u0027s BL31",
+      "revId": "88a0003e815d6c8f0b0c6e04a34e5b5204f81c22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9921fef3_93863ce5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-15T10:23:33Z",
+      "side": 1,
+      "message": "Hi Michael, thanks for your patch. I\u0027ve a few minor comments for the commit message, otherwise the patch looks good to me.",
+      "revId": "88a0003e815d6c8f0b0c6e04a34e5b5204f81c22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
