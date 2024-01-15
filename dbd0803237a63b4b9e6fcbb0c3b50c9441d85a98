@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c5e59c6_00e0a885",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-01-15T13:01:25Z",
+      "side": 1,
+      "message": "Yes. I\u0027m saying that setting this to 0 would have been a (useless) way of silencing that message itself, without needing to add the call to panic().\n\nBut because you *have* added a call to the panic() function, which is tagged with the `__noreturn__` attribute, telling the compiler execution will not progress past that call, there should no longer be any \"need\" to zero this variable.\n\nBefore the addition of the else statement, `dynamic_platform_info.cpu[cpu].mpidr \u003d mpidr;` was executed regardless of whether the call to `fdt_get_reg_props_by_index()` was made. Now that situation cannot happen.",
+      "parentUuid": "351a5353_71019424",
+      "revId": "dbd0803237a63b4b9e6fcbb0c3b50c9441d85a98",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6b26c65_8e5f80f9",
         "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
         "patchSetId": 1
