@@ -104,6 +104,11 @@ void read_cpuinfo_from_dt(void *dtb)
 		if (fdt_getprop(dtb, node, "reg", NULL)) {
 			fdt_get_reg_props_by_index(dtb, node, 0, &mpidr, NULL);
 		}
+		else
+		{
+			ERROR("Incomplete information for cpu %d in DeviceTree.\n", cpu);
+			panic();
+		}
 
 		if (fdt_getprop(dtb, node, "numa-node-id", NULL))  {
 			fdt_read_uint32(dtb, node, "numa-node-id", &nodeid);
