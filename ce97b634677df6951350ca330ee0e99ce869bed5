@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "155b5f8c_b81d345f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2024-01-16T14:13:17Z",
+      "side": 1,
+      "message": "This might be called by both, but currently we are using that only by U-boot proper. There is already a similar functionality introduced in 9ce232fe \"feat(plat/imx8m): add SiP call for secondary boot\"\n\nI also plan to upstream U-Boot part https://github.com/foundriesio/u-boot/commit/7534d0ed3c7b6f76f84bd265a3cc48205925e2f7 after clean up",
+      "parentUuid": "3aed8113_23a79e8b",
+      "revId": "ce97b634677df6951350ca330ee0e99ce869bed5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "762f430b_b9e247c3",
         "filename": "plat/imx/common/imx_sip_handler.c",
         "patchSetId": 5
@@ -84,6 +102,24 @@
       "writtenOn": "2023-11-21T02:14:58Z",
       "side": 1,
       "message": "The patch looks good to me. Just curious why this function name is such generic. Maybe imx_boot_src_handler is better? Or add some comment in the header file?",
+      "revId": "ce97b634677df6951350ca330ee0e99ce869bed5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa33f3c6_6f6ea2f0",
+        "filename": "plat/imx/common/imx_sip_handler.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1000342
+      },
+      "writtenOn": "2024-01-16T14:13:17Z",
+      "side": 1,
+      "message": "Hello Jun, yes, will do",
+      "parentUuid": "762f430b_b9e247c3",
       "revId": "ce97b634677df6951350ca330ee0e99ce869bed5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
