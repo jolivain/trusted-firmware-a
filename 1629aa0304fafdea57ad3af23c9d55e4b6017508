@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d5331e8_bb1ce46a",
+        "filename": "drivers/st/bsec/bsec3.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-16T15:23:25Z",
+      "side": 1,
+      "message": "The BSEC spec just states for this BUSY bit: BSEC was busy when BSEC_OTPSR was read (operation on-going). And nothing is precised about the time it could take. And as we do not yet have timers initialized, a default value was used. That said, after checking the generated code, it seems the compiler has optimized the loop and removed the timeout check. I\u0027ll have to add a volatile. Maybe the default value could also be reduced, as timeout value may take several minutes to reach 0.",
+      "parentUuid": "35c4adc2_be0e4512",
+      "range": {
+        "startLine": 102,
+        "startChar": 1,
+        "endLine": 102,
+        "endChar": 74
+      },
+      "revId": "1629aa0304fafdea57ad3af23c9d55e4b6017508",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aac4e2b8_cfade593",
         "filename": "drivers/st/bsec/bsec3.c",
         "patchSetId": 5
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e945877f_a27ae2d5",
+        "filename": "drivers/st/bsec/bsec3.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-16T15:23:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "aac4e2b8_cfade593",
+      "revId": "1629aa0304fafdea57ad3af23c9d55e4b6017508",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f91769f7_44bf717b",
         "filename": "drivers/st/bsec/bsec3.c",
         "patchSetId": 5
@@ -54,6 +96,30 @@
       "writtenOn": "2024-01-16T10:53:49Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 476,
+        "startChar": 0,
+        "endLine": 476,
+        "endChar": 46
+      },
+      "revId": "1629aa0304fafdea57ad3af23c9d55e4b6017508",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11541bdc_b6099581",
+        "filename": "drivers/st/bsec/bsec3.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 476,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-16T15:23:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f91769f7_44bf717b",
       "range": {
         "startLine": 476,
         "startChar": 0,
