@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -1245,6 +1245,7 @@ $(eval $(call assert_booleans,\
 	ENABLE_CONSOLE_GETC \
 	INIT_UNUSED_NS_EL2	\
 	PLATFORM_REPORT_CTX_MEM_USE \
+	EARLY_CONSOLE \
 )))
 
 # Numeric_Flags
@@ -1439,6 +1440,7 @@ $(eval $(call add_defines,\
 	ENABLE_CONSOLE_GETC \
 	INIT_UNUSED_NS_EL2	\
 	PLATFORM_REPORT_CTX_MEM_USE \
+	EARLY_CONSOLE \
 )))
 
 ifeq (${PLATFORM_REPORT_CTX_MEM_USE}, 1)
