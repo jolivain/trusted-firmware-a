@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -90,6 +90,20 @@
 #else
 # define VERBOSE(...)	no_tf_log(LOG_MARKER_VERBOSE __VA_ARGS__)
 #endif
+
+#if EARLY_CONSOLE
+#define EARLY_ERROR(...)	ERROR(__VA_ARGS__)
+#define EARLY_NOTICE(...)	NOTICE(__VA_ARGS__)
+#define EARLY_WARN(...)		WARN(__VA_ARGS__)
+#define EARLY_INFO(...)		INFO(__VA_ARGS__)
+#define EARLY_VERBOSE(...)	VERBOSE(__VA_ARGS__)
+#else /* !EARLY_CONSOLE */
+#define EARLY_ERROR(...)
+#define EARLY_NOTICE(...)
+#define EARLY_WARN(...)
+#define EARLY_INFO(...)
+#define EARLY_VERBOSE(...)
+#endif /* EARLY_CONSOLE */
 
 const char *get_el_str(unsigned int el);
 
