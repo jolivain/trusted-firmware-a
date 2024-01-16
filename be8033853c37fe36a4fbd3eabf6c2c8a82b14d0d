@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "875096c0_4ebea747",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-16T13:20:55Z",
+      "side": 1,
+      "message": "Thanks for raising this. The fact that no upstream platform uses `plat_try_next_boot_source()` today worries me, as it means that this logic does not get regularly tested in TF-A OpenCI and breakages \u0026 bugs could go unnoticed. I think we should just remove this platform interface (even if it means we might break some downstream platforms).\n\nI tried to dig up why we introduced this interface in the first place...\n1. I believe this got initially requested by Broadcom, see [tf-issue#383](https://github.com/ARM-software/tf-issues/issues/383).\n2. There is further discussion on the exact requirement and how to best implement it in [PR#868](https://github.com/ARM-software/arm-trusted-firmware/pull/868).\n3. Arm ended up taking ownership of the feature development, which resulted in [PR#1141](https://github.com/ARM-software/arm-trusted-firmware/pull/1141). \n4. When the PR got proposed, Broadcom said this would fit their needs. However, I don\u0027t see Broadcom platform code using these interfaces today. Instead, they seem to handle it all in [plat_get_image_source()](https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/brcm/common/brcm_io_storage.c#n373). Maybe I am missing something...\n\n@Scott Branden: Do you have any recollection about the above boot redundancy feature development and why the Broadcom platform port does not seem to use `plat_try_next_boot_source()` today? Would it be an issue for you if we removed it?",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 7
+      },
+      "revId": "be8033853c37fe36a4fbd3eabf6c2c8a82b14d0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "89dc3995_70f05450",
@@ -14,6 +37,75 @@
       "writtenOn": "2024-01-10T12:45:21Z",
       "side": 1,
       "message": "Report Verified+1 from top patch",
+      "revId": "be8033853c37fe36a4fbd3eabf6c2c8a82b14d0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f48bbba_a3f0327c",
+        "filename": "common/bl_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-16T13:20:55Z",
+      "side": 1,
+      "message": "The following would read better IMO: \"to try loading other images\".",
+      "range": {
+        "startLine": 23,
+        "startChar": 49,
+        "endLine": 23,
+        "endChar": 76
+      },
+      "revId": "be8033853c37fe36a4fbd3eabf6c2c8a82b14d0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "198aa9f1_369a5b7e",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 1907,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-16T13:20:55Z",
+      "side": 1,
+      "message": "We need to remove this sentence, as there is no more default implementation.",
+      "range": {
+        "startLine": 1906,
+        "startChar": 43,
+        "endLine": 1907,
+        "endChar": 25
+      },
+      "revId": "be8033853c37fe36a4fbd3eabf6c2c8a82b14d0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fddde615_3769f92d",
+        "filename": "include/common/bl_common.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-16T13:20:55Z",
+      "side": 1,
+      "message": "I am not sure this is the best place for this declaration. `include/plat/common/platform.h`, which lists all interfaces a platform must/may implement, sounds like a better fit to me.\n\nIn fact, `plat_try_next_boot_source()` was originally declared in `include/plat/common/platform.h` but still you moved its equivalent in `bl_common.h` so I am guessing this was deliberate. Could you please explain your rationale?",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 0
+      },
       "revId": "be8033853c37fe36a4fbd3eabf6c2c8a82b14d0d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
