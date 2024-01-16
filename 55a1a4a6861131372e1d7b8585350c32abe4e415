@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "48c4b7c7_38860b62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-16T15:37:01Z",
+      "side": 1,
+      "message": "Hi Manish, let me check how this could be made generic without changing too much things. That would need a generic flag, is EARLY_CONSOLE OK? Other than the macros, I don\u0027t think the early console initialization could be made generic: on ST platforms, the initialization steps can differ depending on which BL it is executed in, or some other flags configuration. You can check stm32mp_setup_early_console() in plat/st/common/stm32mp_common.c",
+      "parentUuid": "b8900a46_6a1cf5c6",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 14
+      },
+      "revId": "55a1a4a6861131372e1d7b8585350c32abe4e415",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1a20a545_578ad106",
