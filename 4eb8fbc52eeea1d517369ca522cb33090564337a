@@ -16,6 +16,24 @@
       "message": "The CI reported build failures for agilex5, stratix10 and agilex platforms, all due to some header inclusion error on `socfpga_ros.h` file:\n\n```\nplat/intel/soc/agilex5/bl2_plat_setup.c:37:10: fatal error: socfpga_ros.h: No such file or directory\nplat/intel/soc/common/socfpga_storage.c:27:10: fatal error: socfpga_ros.h: No such file or directory\nplat/intel/soc/agilex/bl2_plat_setup.c:31:10: fatal error: socfpga_ros.h: No such file or directory\n```\n\nAFAICS, `socfpga_ros.h` is introduced in the [next patch](https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/25551/5) so I suggest swapping the order of these 2 patches.\n\nApart from that, the patch looks good to me.",
       "revId": "4eb8fbc52eeea1d517369ca522cb33090564337a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9033f519_6d68eead",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2024-01-16T03:34:02Z",
+      "side": 1,
+      "message": "updated.",
+      "parentUuid": "0eb84c49_700d48c9",
+      "revId": "4eb8fbc52eeea1d517369ca522cb33090564337a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
