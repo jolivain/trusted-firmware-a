@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c390a72_2a50fb33",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-16T09:39:00Z",
+      "side": 1,
+      "message": "Alright, understood. We\u0027re already utilizing acronyms in this device tree, and \u0027COT\u0027 is currently an acronym for \u0027Chain of Trust\u0027.",
+      "parentUuid": "5e625f83_9d6547f2",
+      "range": {
+        "startLine": 331,
+        "startChar": 2,
+        "endLine": 331,
+        "endChar": 11
+      },
+      "revId": "9f5e02e8909b5426e0a386e019715c83c3d25011",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "829ba184_3c043a5f",
         "filename": "docs/components/cot-binding.rst",
         "patchSetId": 2
@@ -125,6 +149,30 @@
       "side": 1,
       "message": "\u003e The inclusion of the \u0027compatible\u0027 property seems unnecessary in this context. Is this property being parsed?\n\nNo, I don\u0027t think it is being parsed. It\u0027s just a container node which contains a bunch a children node, which are being indirectly referenced by the \u0027signing-key\u0027 property.\n\n\u003e As I understand it, the \u0027root-keys\u0027 is always the child node\n\nNo, the \u0027root-keys\u0027 is no child node, it is at the top level of the tree, just like the \u0027non_volatile_counters\u0027 and \u0027cot\u0027 nodes.\n\nStill, I wonder whether we should keep the compatible property for the \u0027root_keys\u0027 node. We do not use DTB schemas and automated tools to check the conformity of our DTB files against our DTB bindings spec but as I understand, such tools exist and might rely on the compatible property to be there. Not 100% sure, though. But if they do and we want to use these tools in the future, we\u0027d better keep the compatible property. I admit this is very uncertain, given how much I know on this topic...",
       "parentUuid": "764ded15_3e140fbd",
+      "range": {
+        "startLine": 368,
+        "startChar": 8,
+        "endLine": 368,
+        "endChar": 37
+      },
+      "revId": "9f5e02e8909b5426e0a386e019715c83c3d25011",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffa52f68_a427c293",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-16T09:39:00Z",
+      "side": 1,
+      "message": "I made an error in stating that this is a child node; it is, in fact, only a container node, with sub-nodes inside being are only get referred. I believe this container node is purely logical, making the \u0027compatible\u0027 property irrelevant here. This node is very much similar to the \u0027cot\u0027 node [1] (comprising \u0027manifests\u0027 and \u0027images\u0027 sub-nodes), which also lacks the \u0027compatible\u0027 property.\n\nI am uncertain if an automated tool would pose any validation issues in this context; if it raises concerns, we can choose to overlook them. Alternatively, if compliance is necessary, it might be more appropriate to include a \"description\" property rather than the \"compatible\" property here. What do you think?\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/fdts/cot_descriptors.dtsi#n11",
+      "parentUuid": "f50a8eb7_5f61434d",
       "range": {
         "startLine": 368,
         "startChar": 8,
