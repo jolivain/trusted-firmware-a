@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b69f14b_15c9882f",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-01-16T13:01:17Z",
+      "side": 1,
+      "message": "Can you change it to something like:\n\nINFO(\"RAM %d: node-id: %d: 0x%lx - 0x%lx\\n\", memnode,\n\nSo RAM output would be similar to cpu one:\n\nINFO:    CPU 0: node-id: 0, mpidr: 0\nINFO:    CPU 1: node-id: 0, mpidr: 1\nINFO:    CPU 2: node-id: 2, mpidr: 2\nINFO:    CPU 3: node-id: 2, mpidr: 3\nINFO:    Found 4 cpus\nINFO:    RAM 0: node-id: 1: 0x100c0000000 - 0x100ffffffff\nINFO:    RAM 1: node-id: 0: 0x10000000000 - 0x100bfffffff",
+      "revId": "5e5e2ed3c8dcff45af925c0bc777f3a74b568474",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
