@@ -96,6 +96,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fa28adb_872a1de0",
+        "filename": "plat/intel/soc/common/drivers/sdmmc/sdmmc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2024-01-16T02:42:00Z",
+      "side": 1,
+      "message": "it should copy whole structure size of mmc_csd. updated in the next patch.",
+      "parentUuid": "d42d4c67_a3287ca0",
+      "range": {
+        "startLine": 522,
+        "startChar": 20,
+        "endLine": 522,
+        "endChar": 37
+      },
+      "revId": "b318494601e5533980abee8a36cd9e72ea0fccb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0311a136_99a66f05",
@@ -192,6 +216,24 @@
       "side": 1,
       "message": "I could not see a v2 of the patch with the commit message updates... Did you forget to post it for review?",
       "parentUuid": "46c1d62a_3f919371",
+      "revId": "b318494601e5533980abee8a36cd9e72ea0fccb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6320e923_67d2dc05",
+        "filename": "plat/intel/soc/common/soc/socfpga_handoff.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2024-01-16T02:42:00Z",
+      "side": 1,
+      "message": "updated.",
+      "parentUuid": "5b35248f_1f7b3a4b",
       "revId": "b318494601e5533980abee8a36cd9e72ea0fccb7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
