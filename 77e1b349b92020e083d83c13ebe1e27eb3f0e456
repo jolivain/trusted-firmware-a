@@ -16,6 +16,23 @@
       "message": "The static check fail is due to the new file: drivers/st/bsec/bsec3.c. It is unconditionally compiled for STM32MP2 (added in platform.mk in patch https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/25668), and the CI job in charge of compiling STM32MP2 (https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/22920) is already merged",
       "revId": "77e1b349b92020e083d83c13ebe1e27eb3f0e456",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43f01db0_54ec1283",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-16T10:55:07Z",
+      "side": 1,
+      "message": "Looks like this patch needs rebase.",
+      "revId": "77e1b349b92020e083d83c13ebe1e27eb3f0e456",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
