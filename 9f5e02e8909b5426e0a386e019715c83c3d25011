@@ -89,6 +89,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8422de2e_0bbe4afd",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-01-16T19:33:45Z",
+      "side": 1,
+      "message": "I think rot-keys makes sense!",
+      "parentUuid": "4c390a72_2a50fb33",
+      "range": {
+        "startLine": 331,
+        "startChar": 2,
+        "endLine": 331,
+        "endChar": 11
+      },
+      "revId": "9f5e02e8909b5426e0a386e019715c83c3d25011",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "829ba184_3c043a5f",
@@ -102,6 +126,30 @@
       "writtenOn": "2024-01-15T16:29:50Z",
       "side": 1,
       "message": "This should be root-keys as per line no. 331.",
+      "range": {
+        "startLine": 367,
+        "startChar": 3,
+        "endLine": 367,
+        "endChar": 12
+      },
+      "revId": "9f5e02e8909b5426e0a386e019715c83c3d25011",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c91de58_4a3e8eb1",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-01-16T19:33:45Z",
+      "side": 1,
+      "message": "I\u0027m not sure I should make this change, I think I\u0027m following naming convention here with using \u0027_\u0027 (underscores) in the naming of nodes. If you see for the non_volatile_counters and other naming in the file. Thoughts?",
+      "parentUuid": "829ba184_3c043a5f",
       "range": {
         "startLine": 367,
         "startChar": 3,
@@ -173,6 +221,30 @@
       "side": 1,
       "message": "I made an error in stating that this is a child node; it is, in fact, only a container node, with sub-nodes inside being are only get referred. I believe this container node is purely logical, making the \u0027compatible\u0027 property irrelevant here. This node is very much similar to the \u0027cot\u0027 node [1] (comprising \u0027manifests\u0027 and \u0027images\u0027 sub-nodes), which also lacks the \u0027compatible\u0027 property.\n\nI am uncertain if an automated tool would pose any validation issues in this context; if it raises concerns, we can choose to overlook them. Alternatively, if compliance is necessary, it might be more appropriate to include a \"description\" property rather than the \"compatible\" property here. What do you think?\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/fdts/cot_descriptors.dtsi#n11",
       "parentUuid": "f50a8eb7_5f61434d",
+      "range": {
+        "startLine": 368,
+        "startChar": 8,
+        "endLine": 368,
+        "endChar": 37
+      },
+      "revId": "9f5e02e8909b5426e0a386e019715c83c3d25011",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dbd74fe_98f975f2",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-01-16T19:33:45Z",
+      "side": 1,
+      "message": "Correct that this node is not parsed, but should the compatible property be kept in case we would want to at a later date? \n\nMy understanding is that root-keys is more similar to \u0027non_volatile_counters\u0027 than \u0027cot\u0027 since cot is more of a container with nodes, while root-keys has a sub-node of the same type. (does that make sense how I\u0027m phrasing?).\n\nMy thought is the that the question is more should it be included when root-keys isn\u0027t being parsed instead of is it valid to have there. I would think why not keep it?",
+      "parentUuid": "ffa52f68_a427c293",
       "range": {
         "startLine": 368,
         "startChar": 8,
