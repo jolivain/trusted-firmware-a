@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9201f26_df52ba5c",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-16T07:43:56Z",
+      "side": 1,
+      "message": "The DMA transfer of Cadence NAND is expecting 8 aligned data to be written to the register. Thus this is the reason for making it 8 aligned. \n\n@SieuMun, please update the comment for better explanation.",
+      "parentUuid": "1ab7784c_57217746",
+      "range": {
+        "startLine": 24,
+        "startChar": 56,
+        "endLine": 24,
+        "endChar": 69
+      },
+      "revId": "bd926bcb24a66bb018407ac5bac8e9cc057bf33e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4985560e_429aa5a9",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-12-19T12:11:35Z",
       "side": 1,
       "message": "Before this patch, there was no bit clearing if I am not mistaken. `(CNF_OPR_WORK_MODE_SDR \u003c\u003c CNF_CMN_SETTINGS_OPR)` appears to be 0 so lines 163-166 were effectively a nop. With this patch, the value of `CNF_MINICTRL(CMN_SETTINGS)` is now updated to clear all bits specified by `CNF_CMN_SETTINGS_OPR_MASK`.\n\nI just want to check with you: is this change intentional?",
+      "range": {
+        "startLine": 164,
+        "startChar": 2,
+        "endLine": 166,
+        "endChar": 27
+      },
+      "revId": "bd926bcb24a66bb018407ac5bac8e9cc057bf33e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2471ccd5_b922f6f7",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-16T07:43:56Z",
+      "side": 1,
+      "message": "Hi Sandrine, \n\nYes. You are right. This is intentional. \n\nPreviously implementation, the \u003c\u003c is 0 and the macro value is 0. As per say, it is a NOP. \nThus, this is incorrect. We need to according to the OPR_MASK.",
+      "parentUuid": "4985560e_429aa5a9",
       "range": {
         "startLine": 164,
         "startChar": 2,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a30f283_7cf6f2ec",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-16T07:43:56Z",
+      "side": 1,
+      "message": "Line 239-241 will eventually overwrite 237 (dev_info.total_size). \nShall remove 237-238.\n\n@SieuMun, please remove.",
+      "parentUuid": "baa6c62a_04795076",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 20
+      },
+      "revId": "bd926bcb24a66bb018407ac5bac8e9cc057bf33e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "727ed110_6ebde33a",
@@ -93,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a731f1d5_630fb765",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-16T07:43:56Z",
+      "side": 1,
+      "message": "@SieuMun, please update the code.",
+      "parentUuid": "727ed110_6ebde33a",
+      "range": {
+        "startLine": 338,
+        "startChar": 7,
+        "endLine": 338,
+        "endChar": 8
+      },
+      "revId": "bd926bcb24a66bb018407ac5bac8e9cc057bf33e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb57356c_75e64f0c",
@@ -106,6 +202,54 @@
       "writtenOn": "2023-12-19T12:11:35Z",
       "side": 1,
       "message": "(minor) Would UINT32_MAX be more explicit here?",
+      "range": {
+        "startLine": 360,
+        "startChar": 47,
+        "endLine": 360,
+        "endChar": 57
+      },
+      "revId": "bd926bcb24a66bb018407ac5bac8e9cc057bf33e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c06a3aa5_5d4aef83",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-16T07:43:56Z",
+      "side": 1,
+      "message": "Agreed. \n\n@SieuMun, please update the code.",
+      "parentUuid": "eb57356c_75e64f0c",
+      "range": {
+        "startLine": 360,
+        "startChar": 47,
+        "endLine": 360,
+        "endChar": 57
+      },
+      "revId": "bd926bcb24a66bb018407ac5bac8e9cc057bf33e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04d3570f_dc21ebef",
+        "filename": "drivers/cadence/nand/cdns_nand.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-16T07:43:56Z",
+      "side": 1,
+      "message": "Agreed. \n\n@SieuMun, please update the code",
+      "parentUuid": "eb57356c_75e64f0c",
       "range": {
         "startLine": 360,
         "startChar": 47,
