@@ -161,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b7937398_a5c36a23",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1000792
+      },
+      "writtenOn": "2024-01-16T14:56:31Z",
+      "side": 1,
+      "message": "On second thought, how about keeping this here so that all related macros are in one place. It should help readability and also we won\u0027t have to include sve.h.",
+      "parentUuid": "c30ffe8c_fff45d34",
+      "range": {
+        "startLine": 311,
+        "startChar": 8,
+        "endLine": 311,
+        "endChar": 28
+      },
+      "revId": "818a8474296be2d1390b1298bc04f3b74e4cb694",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "535f1c3d_ab3e86d5",
         "filename": "include/lib/el3_runtime/aarch64/context.h",
         "patchSetId": 1
