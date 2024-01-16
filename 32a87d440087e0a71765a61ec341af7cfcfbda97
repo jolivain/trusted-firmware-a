@@ -70,6 +70,30 @@
       },
       "revId": "32a87d440087e0a71765a61ec341af7cfcfbda97",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2846de09_82cd1c2a",
+        "filename": "plat/intel/soc/common/bl2_plat_mem_params_desc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-01-16T03:45:31Z",
+      "side": 1,
+      "message": "Hi Sandrine, \n\nSorry that I misunderstood previously. \n\nLine 92 will only executed when \"ARM_LINUX_KERNEL_AS_BL33 \u003d 1\". This is to allow for ATF direct boot Linux which we need to tell that the next image is DTB. \n\nHowever for other cases (U-boot-\u003eATF BL31-\u003eLinux boot or ATF-\u003eZephyr boot). This line is not needed where ARM_LINUX_KERNEL_AS_BL33 build option will be \"0\" and it will skip from line 92 to 107. Thus the code will execute line 109 which is .next_handoff_image_id \u003d INVALID_IMAGE_ID.\n\nIn short, for ATF-\u003eLinux boot, we need image_id \u003d BL31_IMAGE_ID for BL31.bin, BL33_IMAGE_ID for Linux Image and NT_FW_CONFIG_ID for Linux DTB. After that we will point next_handoff_image_id \u003d INVALID_IMAGE_ID in line 106.",
+      "parentUuid": "19e2c101_35709131",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 43
+      },
+      "revId": "32a87d440087e0a71765a61ec341af7cfcfbda97",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
