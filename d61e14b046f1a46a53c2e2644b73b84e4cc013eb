@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86495e82_e910b8dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2024-01-16T03:33:42Z",
+      "side": 1,
+      "message": "bl2 size limit increase the patch already merged. rebased is needed.",
+      "parentUuid": "977a1719_20419164",
+      "revId": "d61e14b046f1a46a53c2e2644b73b84e4cc013eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5779dd3_d291a47b",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-01-10T13:27:35Z",
       "side": 1,
       "message": "This declares `spt_ptr` as a constant pointer. Did you rather mean that `spt_ptr` points to a constant `sp_table_t` structure? If yes then this should be:\n\n```\nconst spt_table_t *spt_ptr\n```",
+      "range": {
+        "startLine": 78,
+        "startChar": 35,
+        "endLine": 78,
+        "endChar": 62
+      },
+      "revId": "d61e14b046f1a46a53c2e2644b73b84e4cc013eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "803b6dd4_15862382",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2024-01-16T03:33:42Z",
+      "side": 1,
+      "message": "updated.",
+      "parentUuid": "e5779dd3_d291a47b",
       "range": {
         "startLine": 78,
         "startChar": 35,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55652784_2939fd63",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2024-01-16T03:33:42Z",
+      "side": 1,
+      "message": "updated.",
+      "parentUuid": "3e6ffc0d_95004496",
+      "range": {
+        "startLine": 115,
+        "startChar": 24,
+        "endLine": 115,
+        "endChar": 50
+      },
+      "revId": "d61e14b046f1a46a53c2e2644b73b84e4cc013eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b2191e5_4f22f1c8",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-01-10T13:27:35Z",
       "side": 1,
       "message": "This declares `offset` as a constant pointer. Did you rather mean that `offset` points to a constant integer? If yes then this should be:\n\n```\nconst unsigned long *offset\n```",
+      "range": {
+        "startLine": 149,
+        "startChar": 34,
+        "endLine": 149,
+        "endChar": 61
+      },
+      "revId": "d61e14b046f1a46a53c2e2644b73b84e4cc013eb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a92922c_33f04292",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2024-01-16T03:33:42Z",
+      "side": 1,
+      "message": "updated.",
+      "parentUuid": "4b2191e5_4f22f1c8",
       "range": {
         "startLine": 149,
         "startChar": 34,
