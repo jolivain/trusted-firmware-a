@@ -39,6 +39,30 @@
       },
       "revId": "e0898af2a1d9186f56b68bfeb8757fb18cf790e7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0168020_cf4d13bf",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-01-16T12:04:30Z",
+      "side": 1,
+      "message": "Thanks for your review Boyan.\n\nThe only reason to have this else part for each Feature case is to overcome build failures.\nExplaining in detail, so that other reviewers, will also read it.\n\nIn context_mgmt.c file, we have already optimised/refactored code in such a way that, it should cover (FEAT_STATE_DISABLED/...FEAT_STATE_ALWAYS../FEAT_STATE_CHECK).\n\nThe issue here is the build failures due to these macros/context entries in .c file.\n\nFor Instance : \n\n\tif (is_feat_hcx_supported()) {\n\t\t/*\n\t\t * Initialize register HCRX_EL2 with its init value.\n\t\t * As the value of HCRX_EL2 is UNKNOWN on reset, there is a\n\t\t * chance that this can lead to unexpected behavior in lower\n\t\t * ELs that have not been updated since the introduction of\n\t\t * this feature if not properly initialized, especially when\n\t\t * it comes to those bits that enable/disable traps.\n\t\t */\n\t\twrite_ctx_reg(get_el2_sysregs_ctx(ctx), CTX_HCRX_EL2,\n\t\t\tHCRX_EL2_INIT_VAL);\n\t}\n\t\nThis block would throw an build error, if ENABLE_FEAT_HCX\u003d0, \n\nso either we need to guard this block again via the #define ENABLE_FEAT_HCX (which is what we refactored earlier to is_feat_hcx_supported()).\n\nNow, with this approach, we have dummy values for those macros to overcome build failures, and during\nruntime we already verify the feature presence via is_feat_supported( ), thereby we are not writing into this entry.",
+      "parentUuid": "7380162f_db7800b7",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 232,
+        "endChar": 30
+      },
+      "revId": "e0898af2a1d9186f56b68bfeb8757fb18cf790e7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
