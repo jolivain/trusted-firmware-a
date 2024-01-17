@@ -1332,6 +1332,14 @@ Firmware update options
    This flag is used in defining the firmware update metadata structure. This
    flag is by default set to '1'.
 
+- ``PSA_FWU_METADATA_IMAGE_DESC``: To be selected when the FWU
+   metadata contains image description. The default value is 1.
+
+   The version 2 of the FWU metadata allows for an opaque metadata
+   structure where a platform can choose to not include the image
+   information in the metadata structure. This option indicates if the
+   image information is part of the structure.
+
 --------------
 
 *Copyright (c) 2019-2023, Arm Limited. All rights reserved.*
