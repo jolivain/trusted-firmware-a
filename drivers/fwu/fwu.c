@@ -140,21 +140,10 @@ exit:
  ******************************************************************************/
 bool fwu_is_trial_run_state(void)
 {
-	bool trial_run = false;
-
 	assert(is_metadata_initialized);
 
-	for (unsigned int i = 0U; i < NR_OF_IMAGES_IN_FW_BANK; i++) {
-		struct fwu_image_entry *entry = &metadata.img_entry[i];
-		struct fwu_image_properties *img_props =
-			&entry->img_props[metadata.active_index];
-		if (img_props->accepted == 0) {
-			trial_run = true;
-			break;
-		}
-	}
-
-	return trial_run;
+	return metadata.bank_state[metadata.active_index] ==
+		FWU_VALID_BANK_STATE;
 }
 
 const struct fwu_metadata *fwu_get_metadata(void)
