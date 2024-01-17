@@ -16,6 +16,29 @@
       "message": "Failures are unrelated, not due to this patch.\nManually providing Verified+1.",
       "revId": "6da4d56b8617328e108edc28c60173523ba4bcf3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "951017e4_d41805c9",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-01-17T16:45:42Z",
+      "side": 1,
+      "message": "nit: is it possible to combine this with the lines above? Something like \n\n#define CTX_HDFGRTR_EL2\t\t(CTX_EL2_MTE_REGS_END + OFFSET(ENABLE_FEAT_FGT, 0x0))\n\nwhere OFFSET is some formula to produce the second parameter or 0 if the first is set? This would have to be validated but a quick google suggest !!flag may produce 0 or 1 and we can just multiply them to get that, like:\nOFFSET(flag, val) (val * !!flag)\n\nCode would be half as long and much prettier that way :)\n\nLGTM otherwise",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 31
+      },
+      "revId": "6da4d56b8617328e108edc28c60173523ba4bcf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
