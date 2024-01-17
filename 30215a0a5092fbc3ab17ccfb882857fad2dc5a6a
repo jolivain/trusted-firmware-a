@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dcd549d_08521171",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2024-01-17T20:29:20Z",
+      "side": 1,
+      "message": "Rebased to top of integration and fixed the conflicts.",
+      "parentUuid": "75915a68_914c5405",
+      "range": {
+        "startLine": 284,
+        "startChar": 0,
+        "endLine": 288,
+        "endChar": 8
+      },
+      "revId": "30215a0a5092fbc3ab17ccfb882857fad2dc5a6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "61260a8b_4589e8c5",
