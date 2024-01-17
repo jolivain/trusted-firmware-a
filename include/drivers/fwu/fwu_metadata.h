@@ -45,6 +45,29 @@ struct fwu_image_entry {
 
 } __packed;
 
+/* Firmware Image descriptor */
+struct fwu_fw_store_descriptor {
+
+	/* Number of Banks */
+	uint8_t num_banks;
+
+	/* Reserved */
+	uint8_t reserved;
+
+	/* Number of images per bank */
+	uint16_t num_images;
+
+	/* Size of image_entry(all banks) */
+	uint16_t img_entry_size;
+
+	/* Size of image bank info structure */
+	uint16_t bank_info_entry_size;
+
+	/* Array of fwu_image_entry structs */
+	struct fwu_image_entry img_entry[NR_OF_IMAGES_IN_FW_BANK];
+
+} __packed;
+
 /*
  * FWU metadata filled by the updater and consumed by TF-A for
  * various purposes as below:
@@ -66,8 +89,25 @@ struct fwu_metadata {
 	/* Previous bank index with which device booted successfully */
 	uint32_t previous_active_index;
 
+	/* Size of the entire metadata */
+	uint32_t metadata_size;
+
+	/* Offset of the image descriptor structure */
+	uint16_t desc_offset;
+
+	/* Reserved */
+	uint16_t reserved1;
+
+	/* Bank state */
+	uint8_t bank_state[4];
+
+	/* Reserved */
+	uint32_t reserved2;
+
+#if PSA_FWU_METADATA_IMAGE_DESC
 	/* Image entry information */
-	struct fwu_image_entry img_entry[NR_OF_IMAGES_IN_FW_BANK];
+	struct fwu_fw_store_descriptor fw_desc;
+#endif
 
 } __packed;
 
