@@ -34,6 +34,121 @@
       "parentUuid": "3528a572_d6e8f84a",
       "revId": "62be2a1ae3efcba0bb8b7ec8ef73b2a0f5a437e3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d28446c6_30429c30",
+        "filename": "plat/intel/soc/common/include/socfpga_ros.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-17T15:33:51Z",
+      "side": 1,
+      "message": "Sorry if I was not clear. What I meant was:\n```\nconst unsigned long *offset\n```",
+      "range": {
+        "startLine": 60,
+        "startChar": 34,
+        "endLine": 60,
+        "endChar": 55
+      },
+      "revId": "62be2a1ae3efcba0bb8b7ec8ef73b2a0f5a437e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8109c02d_82ec2ed1",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-17T15:33:51Z",
+      "side": 1,
+      "message": "Sorry if I was not clear. What I meant was:\n```\nstatic uint32_t get_current_image_index(const spt_table_t *spt_buf,\n                                        const uint32_t *img_index)\n```",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 88
+      },
+      "revId": "62be2a1ae3efcba0bb8b7ec8ef73b2a0f5a437e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea890efd_9609e63a",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-17T15:33:51Z",
+      "side": 1,
+      "message": "Sorry if I was not clear. What I meant was:\n```\nstatic uint32_t load_and_check_spt(const spt_table_t *spt_ptr, size_t offset)\n```",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 71
+      },
+      "revId": "62be2a1ae3efcba0bb8b7ec8ef73b2a0f5a437e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b05d929c_1fff345d",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-17T15:33:51Z",
+      "side": 1,
+      "message": "Sorry if I was not clear. What I meant was:\n```\nstatic uint32_t get_spt(const spt_table_t *spt_buf)\n```",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 45
+      },
+      "revId": "62be2a1ae3efcba0bb8b7ec8ef73b2a0f5a437e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85caab0e_00ec04f0",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-17T15:33:51Z",
+      "side": 1,
+      "message": "Sorry if I was not clear. What I meant was:\n```\nuint32_t ros_qspi_get_ssbl_offset(const unsigned long *offset)\n```",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 56
+      },
+      "revId": "62be2a1ae3efcba0bb8b7ec8ef73b2a0f5a437e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
