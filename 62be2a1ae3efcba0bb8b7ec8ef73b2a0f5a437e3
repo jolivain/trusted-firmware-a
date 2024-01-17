@@ -16,6 +16,24 @@
       "message": "Hi Sandrine, Manish, \n\nWe encounter static check warning whereby it recommended to use strscpy instead of strlcpy. \nHowever, we do not see any libc func that contain of strscpy. \nCould you please advise?",
       "revId": "62be2a1ae3efcba0bb8b7ec8ef73b2a0f5a437e3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f0d5c6a_1fd4a9b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-17T15:12:43Z",
+      "side": 1,
+      "message": "Hi Benjamin,\n\nThat warning comes from the `checkpatch.pl` script, which originates from the Linux kernel project. TBH I did not know that it discouraged against using `strlcpy()`. This is not something which the TF-A project adopted as a coding guideline. On the contrary, TF-A coding guidelines [here](https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html#libc-functions-that-are-banned-or-to-be-used-with-caution) encourages using `strlcpy()` in place of `strcpy()`/`strncpy()`. This is why TF-A libc does not provide an implementation of `strscpy()`.\n\nSo this looks like a conflict between Linux and TF-A coding styles to me. For now, I would consider that [TF-A coding guidelines](https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html#libc-functions-that-are-banned-or-to-be-used-with-caution) take precedence and that the static checks warning you got can be ignored. I\u0027ll give you a waiver and override the Verified score for you.\n\nThat being said, this does raise a good point. I\u0027ve just read about `strlcpy()` and `strscpy()` and I agree that `strscpy()` looks more robust and less error-prone. I think we should consider changing TF-A coding guidelines in this regard.\n\nI\u0027ll bring up the topic to the wider TF-A community.",
+      "parentUuid": "3528a572_d6e8f84a",
+      "revId": "62be2a1ae3efcba0bb8b7ec8ef73b2a0f5a437e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
