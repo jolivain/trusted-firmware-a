@@ -55,11 +55,28 @@ static int fwu_metadata_crc_check(void)
  ******************************************************************************/
 static int fwu_metadata_sanity_check(void)
 {
-	/* ToDo: add more conditions for sanity check */
+	if (metadata.metadata_size != sizeof(struct fwu_metadata))
+		return -1;
+
 	if ((metadata.active_index >= NR_OF_FW_BANKS) ||
 	    (metadata.previous_active_index >= NR_OF_FW_BANKS)) {
 		return -1;
 	}
+
+#if PSA_FWU_METADATA_IMAGE_DESC
+	if (metadata.fw_desc.num_banks > 4)
+		return -1;
+
+	if (metadata.fw_desc.num_banks != NR_OF_FW_BANKS ||
+	    metadata.fw_desc.num_images != NR_OF_IMAGES_IN_FW_BANK)
+		return -1;
+
+	if (metadata.desc_offset == 0)
+		return -1;
+#else
+	if (metadata.desc_offset != 0)
+		return -1;
+#endif
 
 	return 0;
 }
@@ -161,6 +178,8 @@ const struct fwu_metadata *fwu_get_metadata(void)
  ******************************************************************************/
 void fwu_init(void)
 {
+	assert((NR_OF_FW_BANKS > 0) && (NR_OF_FW_BANKS <= 4));
+
 	/* Load FWU metadata which will be used to load the images in the
 	 * active bank as per PSA FWU specification
 	 */
