@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "160eedbd_fbfe49cd",
+        "filename": "plat/intel/soc/common/drivers/sdmmc/sdmmc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-17T10:40:05Z",
+      "side": 1,
+      "message": "\u003e It is needed due to the copy is 4 bytes each time.\n\nAFAIK `memcpy_s()` reasons in terms of bytes, not in terms of 4-byte chunks. You cannot ask `memcpy_s()` to copy `n` bytes in chunks of 4 bytes at a time. Perhaps I missed your point?\n\nSorry if I am being stubborn but I still don\u0027t understand the size computation in the latest patch set.\n\nFirst, let\u0027s just put down the prototype of `memcpy_s()` for reference:\n\n```\nint memcpy_s(void *dst, size_t dsize, void *src, size_t ssize);\n\ndst     -\tpointer to the object to copy to\ndsize   -\tmax number of bytes to modify in the destination (typically the size of the destination object)\nsrc     -\tpointer to the object to copy from\nssize   -\tnumber of bytes to copy\n```\n\nAnd the latest version of your code:\n```\nmemcpy_s(\u0026mmc_csd, sizeof(mmc_csd) / MBOX_WORD_BYTE,\n\t\t\u0026resp_data, sizeof(resp_data) / MBOX_WORD_BYTE);\n```\n\nSo we are copying `sizeof(resp_data) / MBOX_WORD_BYTE) \u003d\u003d 16 / 4 \u003d\u003d 4` bytes from `resp_data[]` buffer into the `mmc_csd` structure (with the extra constraint that no more than a fourth of `mmc_csd` structure size should be modified in this way).\n\nIn other words, this looks equivalent to:\n```\nmmc_csd.not_used \u003d resp_data[0];\n```\n\nIs that what you want to achieve?\n\nIf you want to copy the entirety of `resp_data[]` at the start of the `mmc_csd` data structure (which is what I suspect you want to), then I think this should be:\n\n```\nmemcpy_s(\u0026mmc_csd, sizeof(mmc_csd), \u0026resp_data, sizeof(resp_data));\n```",
+      "parentUuid": "1fa28adb_872a1de0",
+      "range": {
+        "startLine": 522,
+        "startChar": 20,
+        "endLine": 522,
+        "endChar": 37
+      },
+      "revId": "b318494601e5533980abee8a36cd9e72ea0fccb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0311a136_99a66f05",
         "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
         "patchSetId": 1

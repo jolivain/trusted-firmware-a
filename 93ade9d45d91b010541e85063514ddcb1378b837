@@ -34,6 +34,24 @@
       "parentUuid": "deb4d723_cb500d8e",
       "revId": "93ade9d45d91b010541e85063514ddcb1378b837",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cfd4da5_7ef23084",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-17T10:40:05Z",
+      "side": 1,
+      "message": "I believe the `qemu-rme` build failure got fixed since you\u0027ve pushed this patch to Gerrit. Rebasing it should fix it. I\u0027ll rebase your patch and rerun the CI tests on it.",
+      "parentUuid": "12ff8f7a_ac0fcdc8",
+      "revId": "93ade9d45d91b010541e85063514ddcb1378b837",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
