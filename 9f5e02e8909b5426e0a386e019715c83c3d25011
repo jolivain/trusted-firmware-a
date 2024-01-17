@@ -162,6 +162,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b9e46401_a17a10ff",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-17T15:26:13Z",
+      "side": 1,
+      "message": "To maintain consistency, you can update line no. 331 to use \u0027rot_keys\u0027 instead of \u0027rot-keys\u0027. I\u0027m fine with the name with underscores as it is followed throughout the file. We need to check still if underscores is really as per device tree guideline or not. \nAnyways, as a separate patch will do the the name cleanup properly if requires.",
+      "parentUuid": "7c91de58_4a3e8eb1",
+      "range": {
+        "startLine": 367,
+        "startChar": 3,
+        "endLine": 367,
+        "endChar": 12
+      },
+      "revId": "9f5e02e8909b5426e0a386e019715c83c3d25011",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "764ded15_3e140fbd",
         "filename": "docs/components/cot-binding.rst",
         "patchSetId": 2
@@ -245,6 +269,30 @@
       "side": 1,
       "message": "Correct that this node is not parsed, but should the compatible property be kept in case we would want to at a later date? \n\nMy understanding is that root-keys is more similar to \u0027non_volatile_counters\u0027 than \u0027cot\u0027 since cot is more of a container with nodes, while root-keys has a sub-node of the same type. (does that make sense how I\u0027m phrasing?).\n\nMy thought is the that the question is more should it be included when root-keys isn\u0027t being parsed instead of is it valid to have there. I would think why not keep it?",
       "parentUuid": "ffa52f68_a427c293",
+      "range": {
+        "startLine": 368,
+        "startChar": 8,
+        "endLine": 368,
+        "endChar": 37
+      },
+      "revId": "9f5e02e8909b5426e0a386e019715c83c3d25011",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8232cd67_b634a824",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-17T15:26:13Z",
+      "side": 1,
+      "message": "\u003e My understanding is that root-keys is more similar to \u0027non_volatile_counters\u0027 than \u0027cot\u0027 since cot is more of a container with nodes, while root-keys has a sub-node of the same type. (does that make sense how I\u0027m phrasing?).\n\n\u0027non_volatile_counters\u0027 is node describing registers (giving hardware details) and it is being parsed in the code, so I still think it is different than logical \u0027rot_keys\u0027 node. IMO, logical nodes should use \u0027description\u0027 property rather than \u0027compatible\u0027 property to provide its details.",
+      "parentUuid": "8dbd74fe_98f975f2",
       "range": {
         "startLine": 368,
         "startChar": 8,
