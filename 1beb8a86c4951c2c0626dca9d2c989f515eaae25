@@ -16,6 +16,24 @@
       "message": "May be some details why it is done?",
       "revId": "1beb8a86c4951c2c0626dca9d2c989f515eaae25",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34350d29_194bf4f6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-18T13:40:25Z",
+      "side": 1,
+      "message": "Hi Manish, I have in mind that disabling SVE/SME EL3 traps for SEL2/1/0 only has a limited set of use cases: SPMD + SPMC at S-EL2 or S-EL1.\nOther configurations (SPM-MM mainly) must keep Adv. SIMD/SVE/SME EL3 traps.\n\nIn which case I think it would be preferable transferring the responsibility to disable el3 traps to the SPMD.\nSimilarly to how the RMMD does it:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/services/std_svc/rmmd/rmmd_main.c#n139\n\nConsequently ENABLE_[SVE|SME]_FOR_SWD options become moot and I\u0027m targeting for removing them if possible.\n\nNote though those changes are still very much work in progress!",
+      "parentUuid": "ad314028_308bc036",
+      "revId": "1beb8a86c4951c2c0626dca9d2c989f515eaae25",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
