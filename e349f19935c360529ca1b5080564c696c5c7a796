@@ -16,6 +16,108 @@
       "message": "Create a dsu driver like drivers/arm/dsu and keep the implementation there. From the platform code it should be called from cluster power off if DSU is present. \nFor now you just provide the generic implementation.",
       "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f109bd8_78bccda1",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1001127
+      },
+      "writtenOn": "2024-01-18T16:16:33Z",
+      "side": 1,
+      "message": "Why do we need to read the number of counters for each iteration ? Why not save it in a local variable and use that ?",
+      "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "665842dd_7ba7c0a4",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1359,
+      "author": {
+        "id": 1001127
+      },
+      "writtenOn": "2024-01-18T16:16:33Z",
+      "side": 1,
+      "message": "Please restore the PMCR at the end, to ensure synchronous counting of all the events, after PMCNTENSET is written.",
+      "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4476cb0e_47fad570",
+        "filename": "lib/psci/psci_off.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1001127
+      },
+      "writtenOn": "2024-01-18T16:16:33Z",
+      "side": 1,
+      "message": "Does this need to be performed for all Platforms ? Shouldn\u0027t this be invoked by a platform code that knows it has DSU ?",
+      "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a13c679d_4c773751",
+        "filename": "lib/psci/psci_on.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1001127
+      },
+      "writtenOn": "2024-01-18T16:16:33Z",
+      "side": 1,
+      "message": "Same as the save case",
+      "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5954fac5_a8cdbe31",
+        "filename": "lib/psci/psci_private.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1001127
+      },
+      "writtenOn": "2024-01-18T16:16:33Z",
+      "side": 1,
+      "message": "This looks like a \"generic\" read_counter, while it is doing clusterPMU specific counter. Rename it as such to reflect it.",
+      "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cdc0d45_79fe7ddd",
+        "filename": "lib/psci/psci_private.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1001127
+      },
+      "writtenOn": "2024-01-18T16:16:33Z",
+      "side": 1,
+      "message": "cluster_pmu_state ?",
+      "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
