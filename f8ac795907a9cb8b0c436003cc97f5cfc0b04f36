@@ -22,6 +22,30 @@
       },
       "revId": "f8ac795907a9cb8b0c436003cc97f5cfc0b04f36",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71bd8225_133aba4f",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-18T09:57:01Z",
+      "side": 1,
+      "message": "OK to change `next_boot_source` to `next_boot_media` if we keep the 2 handlers.\n\nFor the unified API, as it is platform implementation, it shouldn\u0027t be an issue here in the common code. Especially if the previous plat_try_next_boot_source() function is not used, even for downstream platforms (waiting for Scott reply on previous patch).",
+      "parentUuid": "c880ebc7_817dc915",
+      "range": {
+        "startLine": 48,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 31
+      },
+      "revId": "f8ac795907a9cb8b0c436003cc97f5cfc0b04f36",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
