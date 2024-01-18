@@ -16,6 +16,24 @@
       "message": "I propose moving both this patch and the one preceding it to a separate topic. It appears that the changes are not directly related to bsec-otp, and obtaining consensus from other platform owners and reviewers seems necessary for these modifications.",
       "revId": "b05f9935bb2e7bf5b16e57e5cd803bb3ab515116",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afe4f219_d6f4bb7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-18T10:03:17Z",
+      "side": 1,
+      "message": "Yes, that was my idea at the first place. I just wanted to push that here to let people have a view on the possible changes on top of my series.\nI will then push 2 series. One for EARLY_CONSOLE, on for BSEC. I\u0027ll check how I can   split it without too much dependencies.\nThe other question I had was about calling directly plat_setup_early_console() in the different BL init parts, instead of having it in platform functions.",
+      "parentUuid": "1188742e_62fce7f3",
+      "revId": "b05f9935bb2e7bf5b16e57e5cd803bb3ab515116",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
