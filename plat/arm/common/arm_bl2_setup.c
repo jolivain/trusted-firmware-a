@@ -142,7 +142,7 @@ static void arm_bl2_gpt_setup(const arm_pas_region_info_t *arm_pas_region_info)
 	}
 
 	/* Initialize entire protected space to GPT_GPI_ANY. */
-	if (gpt_init_l0_tables(PLAT_ARM_GPCCR_PPS, ARM_L0_GPT_ADDR_BASE,
+	if (gpt_init_l0_tables(PLAT_ARM_GPCCR_PPS, ARM_L0_GPT_BASE,
 		ARM_L0_GPT_SIZE) < 0) {
 		ERROR("gpt_init_l0_tables() failed!\n");
 		panic();
@@ -150,7 +150,7 @@ static void arm_bl2_gpt_setup(const arm_pas_region_info_t *arm_pas_region_info)
 
 	/* Carve out defined PAS ranges. */
 	if (gpt_init_pas_l1_tables(PLAT_ARM_GPCCR_PGS,
-				   ARM_L1_GPT_ADDR_BASE,
+				   ARM_L1_GPT_BASE,
 				   ARM_L1_GPT_SIZE,
 				   arm_pas_region_info->pas_region_base,
 				   arm_pas_region_info->pas_region_count) < 0) {
