@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39701f11_2242782b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-01-18T14:38:04Z",
+      "side": 1,
+      "message": "Create a dsu driver like drivers/arm/dsu and keep the implementation there. From the platform code it should be called from cluster power off if DSU is present. \nFor now you just provide the generic implementation.",
+      "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
