@@ -194,6 +194,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c0864cd2_0de6f08d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-01-18T15:38:02Z",
+      "side": 1,
+      "message": "Just to update some internal discussion. \n\nwe have to reuse code as much as possible and enable platforms to define GPT regions and other parameters as required. \n\nThe suggested solution would be to define `plat_arm_get_gpt_regions()` (similar to plat_arm_get_mmap()). The PAS array and array size from plat_arm_get_gpt_regions() can be passed to arm_bl2_plat_gpt_setup().\n\nThe platform can then implement plat_arm_get_gpt_regions() to define the PAS array as per requirement.\n\nTo acknowledge Raghu\u0027s concern, this arm_bl2_plat_gpt_setup() should be renamed to arm_gpt_setup() to convey that it is not mandatory to setup GPT at BL2 and can done in BL31 as well.",
+      "revId": "7220ccaf991e64b619311ba906b0ed019181e0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc736589_cb35e7ba",
         "filename": "docs/porting-guide.rst",
         "patchSetId": 1
