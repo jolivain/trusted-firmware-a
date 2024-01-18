@@ -16,6 +16,125 @@
       "message": "I\u0027ve tested this and it seems to work for me with a few things to note.\n1) I need to disable SCMI in U-Boot or else it fails to boot (CONFIG_SCMI_FIRMWARE\u003dn and CONFIG_SCMI_AGENT_SMCCC\u003dn). This is used for BSP U-Boot but U-Boot won\u0027t work with this version of A-TF if these are enabled.\n2) I get an error performing a DSI write in U-Boot. I suspect I need to have a clock set correctly before I can do this properly. Other boards where I don\u0027t need to issue DSI commands in U-Boot seem to work just fine.\n\nTL;DR this seems to work for me, however I\u0027ll need some additional SCMI stuff before I can replace the BSP A-TF in all my use cases.\n\nThank you.",
       "revId": "0ac3577101f7119b84f2e1fa2e88ea3f977d7480",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3607d9c_2dcd4675",
+        "filename": "docs/plat/rockchip.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-01-18T15:29:42Z",
+      "side": 1,
+      "message": "Does this patch set cover the RK3566 as well? The Rockchip provided TF-A binary blob at least works on both SoCs, so I\u0027d assume the chips do not really differ in the part relevant for TF-A? Also I guess this entry should be ordered, so it moves to the end of this list?",
+      "revId": "0ac3577101f7119b84f2e1fa2e88ea3f977d7480",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e1865d7_73463f70",
+        "filename": "include/lib/cpus/aarch64/cortex_a55.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-01-18T15:29:42Z",
+      "side": 1,
+      "message": "I couldn\u0027t find this register in the A55 TRM, since it\u0027s a DSU register.\nSo this should go into include/lib/cpus/aarch64/dsu_def.h instead?",
+      "revId": "0ac3577101f7119b84f2e1fa2e88ea3f977d7480",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86890c61_717bbb3a",
+        "filename": "include/lib/cpus/aarch64/cortex_a55.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-01-18T15:29:42Z",
+      "side": 1,
+      "message": "Why this include? There is nothing used from that header in the lines below?",
+      "revId": "0ac3577101f7119b84f2e1fa2e88ea3f977d7480",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70d9b9ae_07127d03",
+        "filename": "include/lib/cpus/aarch64/cortex_a55.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-01-18T15:29:42Z",
+      "side": 1,
+      "message": "I see this being used already by Qualcomm Kryo code, how does this work when not being already exported?",
+      "revId": "0ac3577101f7119b84f2e1fa2e88ea3f977d7480",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99148395_aaeccf63",
+        "filename": "include/lib/cpus/aarch64/cortex_a55.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-01-18T15:29:42Z",
+      "side": 1,
+      "message": "I think this is not A55 specific, but a general DSU register. So at least it should be renamed, and I guess also moved to a non core specific file.",
+      "revId": "0ac3577101f7119b84f2e1fa2e88ea3f977d7480",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d2ca5b8_56c0e5b6",
+        "filename": "lib/cpus/aarch64/cortex_a55.S",
+        "patchSetId": 16
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-01-18T15:29:42Z",
+      "side": 1,
+      "message": "That looks wrong? Initalising x1, then using x0? If 0 is really the value to write, we should use just xzr?",
+      "revId": "0ac3577101f7119b84f2e1fa2e88ea3f977d7480",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "841e59bc_c8804c60",
+        "filename": "plat/rockchip/common/aarch64/platform_common.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-01-18T15:29:42Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be cleaner to just ignore the coherent region is both start and limit are identical? RK3568 would then just provide 0 for both values in the caller, and we avoid this extra definition.",
+      "revId": "0ac3577101f7119b84f2e1fa2e88ea3f977d7480",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }

@@ -16,6 +16,91 @@
       "message": "Static check failures, please fix them \n\n\n****** Order of includes on the last patch(es) ******\n\nResult : FAILURE\n\nChecking files modified between patches origin/master and HEAD...\n\nc7f594eed::plat/rockchip/rk3568/drivers/pmu/plat_pmu_macros.S:\nInclude ordering error, order should be:\n\t#include \u003carch.h\u003e\n\t#include \u003casm_macros.S\u003e\n\t#include \u003cplatform_def.h\u003e\n\nc7f594eed::plat/rockchip/rk3568/drivers/pmu/pmu.c:\nInclude ordering error, order should be:\n\t#include \u003cassert.h\u003e\n\t#include \u003cerrno.h\u003e\n\n\t#include \u003cbakery_lock.h\u003e\n\t#include \u003ccortex_a55.h\u003e\n\t#include \u003cmmio.h\u003e\n\t#include \u003cplatform.h\u003e\n\t#include \u003cplatform_def.h\u003e\n\t#include \u003cpmu.h\u003e\n\n\t#include \u003ccpus_on_fixed_addr.h\u003e\n\t#include \u003cplat_private.h\u003e\n\t#include \u003csoc.h\u003e\n\nc7f594eed::plat/rockchip/rk3568/drivers/soc/soc.c:\nInclude ordering error, order should be:\n\t#include \u003ccommon/debug.h\u003e\n\t#include \u003clib/xlat_tables/xlat_tables_v2.h\u003e\n\t#include \u003cmmio.h\u003e\n\t#include \u003cplatform_def.h\u003e\n\n\t#include \u003csoc.h\u003e\n\nc7f594eed::plat/rockchip/rk3568/plat_sip_calls.c:\nInclude ordering error, order should be:\n\t#include \u003cassert.h\u003e\n\t#include \u003cerrno.h\u003e\n\n\t#include \u003ccommon/debug.h\u003e\n\t#include \u003ccommon/runtime_svc.h\u003e\n\t#include \u003clib/mmio.h\u003e\n\t#include \u003cplatform_def.h\u003e\n\n\t#include \u003cplat_sip_calls.h\u003e\n\t#include \u003crockchip_sip_svc.h\u003e\n\nPlease refer to the docs for further information on include statement ordering: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering.",
       "revId": "c7f594eed22c391ab4d6a42d85f400d479b2d919",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73bd3fae_cae9fcad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-01-18T15:29:42Z",
+      "side": 1,
+      "message": "Hi Shengfei, many thanks for sending this, it\u0027s good to get rid of one blob from rkbin.git!\n\nI just started looking into this. It\u0027s quite a massive patch, I wonder if this could be broken down into smaller pieces. Like providing support for some new features like the cluster power control, or not using coherent memory (?), and adding support for the PMU(?), and then only at the end add the actual platform support?\n\nAlso: does this patch set support the RK3566 as well? The BSP TF-A blob is named rk3568, but can be used on both SoCs, so I guess it\u0027s the same here? If yes, this should be mentioned in the documentation and commit message. Maybe we also call this rk356x then?",
+      "revId": "c7f594eed22c391ab4d6a42d85f400d479b2d919",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c81998c5_e832184d",
+        "filename": "plat/rockchip/rk3568/drivers/pmu/pmu.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-01-18T15:29:42Z",
+      "side": 1,
+      "message": "What \"PMU\" does this refer to? That\u0027s an overloaded term (power management unit, performance monitoring unit, ...).\nSo I guess it\u0027s a power mgmt unit, can you say where this lives and what this controls? I guess it\u0027s in the SoC, controlling internal power domains, like for the CPUs, cluster, caches, etc?\n\nSo can you add a comment here explaining this is a bit?",
+      "revId": "c7f594eed22c391ab4d6a42d85f400d479b2d919",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5cf027d_653146c8",
+        "filename": "plat/rockchip/rk3568/drivers/pmu/pmu.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-01-18T15:29:42Z",
+      "side": 1,
+      "message": "shall this function be moved to the Cortex A55 assembly file, where cortex_a55_core_pwr_dwn already lives?",
+      "revId": "c7f594eed22c391ab4d6a42d85f400d479b2d919",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cc59a14_2db4eda0",
+        "filename": "plat/rockchip/rk3568/drivers/pmu/pmu.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-01-18T15:29:42Z",
+      "side": 1,
+      "message": "That doesn\u0027t really matter here since it\u0027s the end of the road anyway, and probably goes away when putting this in cortex_a55.S, but it would be nice to add x0 to the clobber list, since you use it, which the compiler cannot know.",
+      "revId": "c7f594eed22c391ab4d6a42d85f400d479b2d919",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df3fd1cd_1ba52236",
+        "filename": "plat/rockchip/rk3568/rk3568_def.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-01-18T15:29:42Z",
+      "side": 1,
+      "message": "Can we please have consistent usage of lower case letters in hex constants? Some more below.",
+      "revId": "c7f594eed22c391ab4d6a42d85f400d479b2d919",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
