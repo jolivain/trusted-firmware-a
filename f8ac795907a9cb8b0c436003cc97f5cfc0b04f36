@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c880ebc7_817dc915",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-18T09:13:56Z",
+      "side": 1,
+      "message": "I find the current naming convention a bit confusing. The ``next_boot_source`` could encompass two scenarios:\n\n1. A backup image located within a different boot media (e.g., flash, MMC, USB) OR\n2. A backup image within the same boot media, featuring multiple copies of the same images— similar to the approach taken with the implemented backup_partitions operations.\n\nFor scenario (2), it is a valid case that the PSA FWU implementation should utilize the same media and could have multiple copies of the same image (e.g., FIP-A-1, FIP-A-2) for trial purposes in case of failure before switching the bank.\n\nIMO, using ``next_boot_media`` instead of ``next_boot_source`` would be more intuitive, as it helps segregate operations related to different media. Additionally, renaming the ``backup_partitions`` to ``single_media_backup_partitions`` would make the operation more explicit.\n\nAlternatively, considering a unified operation to cover both cases. In the case of FWU, we could restrict loading images from different media and only allow redundant copies within the same media. I\u0027m not pretty sure how easy it is though.",
+      "range": {
+        "startLine": 48,
+        "startChar": 1,
+        "endLine": 48,
+        "endChar": 31
+      },
+      "revId": "f8ac795907a9cb8b0c436003cc97f5cfc0b04f36",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
