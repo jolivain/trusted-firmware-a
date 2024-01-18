@@ -301,6 +301,30 @@
       },
       "revId": "9f5e02e8909b5426e0a386e019715c83c3d25011",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18b90be4_f5c2a1f4",
+        "filename": "docs/components/cot-binding.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-18T08:15:45Z",
+      "side": 1,
+      "message": "For reference, we discussed this matter offline yesterday and this is what I think we decided we should do:\n- Have a quick look at automated validation tools of device tree bindings to see whether the `compatible` property has any special use or meaning in this context.\nhttps://www.kernel.org/doc/html/latest/devicetree/bindings/writing-schema.html is what I have in mind, it\u0027s for the Linux kernel.\n- If the `compatible` property has nothing special then remove it, else keep it.\n- We will not add a `description` property. If the goal is to provide documentation to the reader of the DTS file then a comment is preferred, as it won\u0027t take any space in the DTB file.",
+      "parentUuid": "8232cd67_b634a824",
+      "range": {
+        "startLine": 368,
+        "startChar": 8,
+        "endLine": 368,
+        "endChar": 37
+      },
+      "revId": "9f5e02e8909b5426e0a386e019715c83c3d25011",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
