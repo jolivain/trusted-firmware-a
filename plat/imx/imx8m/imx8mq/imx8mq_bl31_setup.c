@@ -27,6 +27,7 @@
 #include <imx_uart.h>
 #include <imx8m_caam.h>
 #include <plat_imx8.h>
+#include <plat_common.h>
 
 #define TRUSTY_PARAMS_LEN_BYTES      (4096*2)
 
@@ -146,7 +147,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 			u_register_t arg2, u_register_t arg3)
 {
 	static console_t console;
-	int i;
+	int i, ret;
 	/* enable CSU NS access permission */
 	for (i = 0; i < 64; i++) {
 		mmio_write_32(IMX_CSU_BASE + i * 4, 0xffffffff);
@@ -162,9 +163,9 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	imx8m_caam_init();
 
 	/*
-	 * tell BL3-1 where the non-secure software image is located
-	 * and the entry state information.
-	 */
+	* tell BL3-1 where the non-secure software image is located
+	* and the entry state information.
+	*/
 	bl33_image_ep_info.pc = PLAT_NS_IMAGE_OFFSET;
 	bl33_image_ep_info.spsr = get_spsr_for_bl33_entry();
 	SET_SECURITY_STATE(bl33_image_ep_info.h.attr, NON_SECURE);
@@ -190,6 +191,13 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	bl32_image_ep_info.args.arg3 = BL32_FDT_OVERLAY_ADDR;
 #endif
 #endif
+	ret = imx_bl31_params_parse(arg0, IMX_NS_OCRAM_BASE, IMX_NS_OCRAM_SIZE,
+				    &bl32_image_ep_info, &bl33_image_ep_info);
+	if (ret) {
+		ret = imx_bl31_params_parse(arg0, IMX_TCM_BASE, IMX_TCM_SIZE,
+					    &bl32_image_ep_info,
+					    &bl33_image_ep_info);
+	}
 
 	bl31_tz380_setup();
 }
