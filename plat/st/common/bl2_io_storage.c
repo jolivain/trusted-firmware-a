@@ -669,9 +669,9 @@ void plat_fwu_set_images_source(const struct fwu_metadata *metadata)
 	assert(boot_idx < NR_OF_FW_BANKS);
 
 	for (i = 0U; i < NR_OF_IMAGES_IN_FW_BANK; i++) {
-		img_type_uuid = &metadata->img_entry[i].img_type_uuid;
+		img_type_uuid = &metadata->fw_desc.img_entry[i].img_type_uuid;
 
-		img_uuid = &metadata->img_entry[i].img_props[boot_idx].img_uuid;
+		img_uuid = &metadata->fw_desc.img_entry[i].img_props[boot_idx].img_uuid;
 
 		image_spec = stm32_get_image_spec(img_type_uuid);
 		if (image_spec == NULL) {
