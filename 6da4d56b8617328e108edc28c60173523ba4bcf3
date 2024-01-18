@@ -39,6 +39,30 @@
       },
       "revId": "6da4d56b8617328e108edc28c60173523ba4bcf3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74578337_3e992033",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-01-18T15:28:17Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be #define CTX_HDFGRTR_EL2 OFFSET(ENABLE_FEAT_FGT,CTX_EL2_MTE_REGS_END + 0x0)",
+      "parentUuid": "951017e4_d41805c9",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 31
+      },
+      "revId": "6da4d56b8617328e108edc28c60173523ba4bcf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
