@@ -493,6 +493,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fcc3b94f_73726ab2",
+        "filename": "docs/threat_model/threat_model_fw_update_and_recovery.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-18T13:53:09Z",
+      "side": 1,
+      "message": "Yes, that is what I mean. You elaborated nicely. \nCase (1) -\u003e  The upgraded firmware doesn\u0027t even have the opportunity to run\nCase (2) -\u003e  The upgraded firmware gets the opportunity to run, but that runs in the trial state.",
+      "parentUuid": "6fccde12_9ed9f903",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 68
+      },
+      "revId": "c309ad5b1fbd7b695282c6af6cb27171989a51d1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "edc232db_aa2f7cc1",
         "filename": "docs/threat_model/threat_model_fw_update_and_recovery.rst",
         "patchSetId": 1
