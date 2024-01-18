@@ -217,6 +217,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6d910890_14b403a2",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2298,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-01-18T14:04:11Z",
+      "side": 1,
+      "message": "The intention was indeed to make it just for platforms under the plat/arm hierarchy. Platforms not coming under plat/arm has the flexibility to setup GPT as they wish. eg: Qemu has a similar implementation here - https://github.com/ARM-software/arm-trusted-firmware/commit/6cd113fe06fdaa67a8457391eb6bcffd295f87fd\n\nThis is in fact a step towards the re-use of arm_bl2_plat_arch_setup.",
+      "parentUuid": "cc736589_cb35e7ba",
+      "range": {
+        "startLine": 2298,
+        "startChar": 11,
+        "endLine": 2298,
+        "endChar": 33
+      },
+      "revId": "7220ccaf991e64b619311ba906b0ed019181e0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c0238bb_dbf627b3",
         "filename": "docs/porting-guide.rst",
         "patchSetId": 1
@@ -228,6 +252,30 @@
       "writtenOn": "2024-01-18T12:00:47Z",
       "side": 1,
       "message": "This looks redundant information as already you mention this in line no. 2298.",
+      "range": {
+        "startLine": 2307,
+        "startChar": 20,
+        "endLine": 2307,
+        "endChar": 78
+      },
+      "revId": "7220ccaf991e64b619311ba906b0ed019181e0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24e19b75_31886182",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-01-18T14:04:11Z",
+      "side": 1,
+      "message": "The emphasis was on plat/arm this time :) None of the other platforms are obliged to implement this. However if you feel its redundant, I can append the title at 2298 to accommodate this.",
+      "parentUuid": "6c0238bb_dbf627b3",
       "range": {
         "startLine": 2307,
         "startChar": 20,
