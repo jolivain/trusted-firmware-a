@@ -228,6 +228,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc974528_d3c4a463",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-01-18T22:12:23Z",
+      "side": 1,
+      "message": "\u003e To acknowledge Raghu\u0027s concern, this arm_bl2_plat_gpt_setup() should be renamed to arm_gpt_setup() to convey that it is not mandatory to setup GPT at BL2 and can done in BL31 as well.\n\nAs this is non common code contained within arm_bl2_setup.c file, would it be necessary to rename this as arm_gpt_setup()? This would break the naming convention of the APIs within this file.\n\nOtherwise we would need to move it out of arm_bl2_setup.c into arm_common.c. However this is compiled for all BL stages and we probably would need to shield it with #if BL_IMAGE flags. However at this point its just BL2 as BL31 still can\u0027t support RME..",
+      "parentUuid": "c0864cd2_0de6f08d",
+      "revId": "7220ccaf991e64b619311ba906b0ed019181e0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1501dd32_51dea8e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-01-18T22:12:23Z",
+      "side": 1,
+      "message": "Do we have a CI for Qemu? I\u0027m positive that this change wouldn\u0027t interfere with Qemu changes as they are directly dealing with GPTLib API, but would be always great to check. I don\u0027t have a Qemu dev setup handy.",
+      "parentUuid": "250a312e_33bc3a65",
+      "revId": "7220ccaf991e64b619311ba906b0ed019181e0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc736589_cb35e7ba",
         "filename": "docs/porting-guide.rst",
         "patchSetId": 1
