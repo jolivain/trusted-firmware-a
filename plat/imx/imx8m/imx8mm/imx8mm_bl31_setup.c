@@ -31,6 +31,7 @@
 #include <imx8m_csu.h>
 #include <imx8m_snvs.h>
 #include <plat_imx8.h>
+#include <plat_common.h>
 
 #define TRUSTY_PARAMS_LEN_BYTES      (4096*2)
 
@@ -134,7 +135,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 {
 	unsigned int console_base = IMX_BOOT_UART_BASE;
 	static console_t console;
-	int i;
+	int i, ret;
 
 	/* Enable CSU NS access permission */
 	for (i = 0; i < 64; i++) {
@@ -187,6 +188,13 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	bl32_image_ep_info.args.arg3 = BL32_FDT_OVERLAY_ADDR;
 #endif
 #endif
+	ret = imx_bl31_params_parse(arg0, IMX_NS_OCRAM_SIZE, IMX_NS_OCRAM_BASE,
+				    &bl32_image_ep_info, &bl33_image_ep_info);
+	if (ret) {
+		ret = imx_bl31_params_parse(arg0, IMX_TCM_BASE, IMX_TCM_SIZE,
+					    &bl32_image_ep_info,
+					    &bl33_image_ep_info);
+	}
 
 #if !defined(SPD_opteed) && !defined(SPD_trusty)
 	enable_snvs_privileged_access();

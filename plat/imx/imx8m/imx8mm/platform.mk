@@ -30,7 +30,8 @@ IMX_GIC_SOURCES		:=	${GICV3_SOURCES}			\
 				plat/common/plat_psci_common.c		\
 				plat/imx/common/plat_imx8_gic.c
 
-BL31_SOURCES		+=	plat/imx/common/imx8_helpers.S			\
+BL31_SOURCES		+=	common/desc_image_load.c			\
+				plat/imx/common/imx8_helpers.S			\
 				plat/imx/imx8m/gpc_common.c			\
 				plat/imx/imx8m/imx_hab.c			\
 				plat/imx/imx8m/imx_aipstz.c			\
@@ -46,6 +47,7 @@ BL31_SOURCES		+=	plat/imx/common/imx8_helpers.S			\
 				plat/imx/common/imx8_topology.c			\
 				plat/imx/common/imx_sip_handler.c		\
 				plat/imx/common/imx_sip_svc.c			\
+				plat/imx/common/imx_common.c			\
 				plat/imx/common/imx_uart_console.S		\
 				lib/cpus/aarch64/cortex_a53.S			\
 				drivers/arm/tzc/tzc380.c			\
@@ -146,7 +148,7 @@ endif
 
 ENABLE_PIE		:=	1
 USE_COHERENT_MEM	:=	1
-RESET_TO_BL31		:=	1
+RESET_TO_BL31		:=	0
 A53_DISABLE_NON_TEMPORAL_HINT := 0
 
 ERRATA_A53_835769	:=	1
