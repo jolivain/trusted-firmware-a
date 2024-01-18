@@ -289,6 +289,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0abe3167_4ec5b2ef",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2298,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-18T15:22:34Z",
+      "side": 1,
+      "message": "\u003e Standardizing this across every platform is difficult as we already have bl2_plat_arch_setup(void) standardized within platform.h. Ideally MMU and GPT setup are handled within this API.\n\nAgreed. Since  this API specifically used for the Arm platform, there\u0027s no necessity to provide documentation for such plat-specific API inside this common guideline document. \nThis file primarily focuses on documenting APIs declared in this header file, ``./include/plat/common/platform.h``",
+      "parentUuid": "05c66905_894cef16",
+      "range": {
+        "startLine": 2298,
+        "startChar": 11,
+        "endLine": 2298,
+        "endChar": 33
+      },
+      "revId": "7220ccaf991e64b619311ba906b0ed019181e0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c0238bb_dbf627b3",
         "filename": "docs/porting-guide.rst",
         "patchSetId": 1
