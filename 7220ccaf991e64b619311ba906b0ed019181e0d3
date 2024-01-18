@@ -190,6 +190,52 @@
       },
       "revId": "7220ccaf991e64b619311ba906b0ed019181e0d3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc736589_cb35e7ba",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2298,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-18T12:00:47Z",
+      "side": 1,
+      "message": "It appears that the current naming convention, \u0027plat_arm_*\u0027 implies specificity to arm platforms. However, if the intention is to make this function more generic, it would be advisable to remove ``arm`` from the name. Therefore, I suggest renaming it to ``bl2_plat_gpt_setup``.",
+      "range": {
+        "startLine": 2298,
+        "startChar": 11,
+        "endLine": 2298,
+        "endChar": 33
+      },
+      "revId": "7220ccaf991e64b619311ba906b0ed019181e0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c0238bb_dbf627b3",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2307,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-18T12:00:47Z",
+      "side": 1,
+      "message": "This looks redundant information as already you mention this in line no. 2298.",
+      "range": {
+        "startLine": 2307,
+        "startChar": 20,
+        "endLine": 2307,
+        "endChar": 78
+      },
+      "revId": "7220ccaf991e64b619311ba906b0ed019181e0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
