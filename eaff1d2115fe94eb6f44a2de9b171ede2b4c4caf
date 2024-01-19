@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ccd0cff_2ee04fdf",
+        "filename": "plat/arm/board/arm_fpga/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-01-19T11:53:51Z",
+      "side": 1,
+      "message": "Would BL31_LDFLAGS not be more appropriate for this?",
+      "range": {
+        "startLine": 131,
+        "startChar": 8,
+        "endLine": 131,
+        "endChar": 20
+      },
+      "revId": "eaff1d2115fe94eb6f44a2de9b171ede2b4c4caf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
