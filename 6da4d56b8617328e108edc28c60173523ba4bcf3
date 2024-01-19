@@ -87,6 +87,30 @@
       },
       "revId": "6da4d56b8617328e108edc28c60173523ba4bcf3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90827aa7_6dbdb466",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-01-19T12:29:51Z",
+      "side": 1,
+      "message": "@Boyan and @Arvind:\nI believe you are hinting at introducing this OFFSET macro, for else cases only, to make the code look prettier, instead of directly listing (0x0).\nI hope it should be listed as : \n\n#else (!ENABLE_FEAT_FGT)\n#define CTX_HDFGRTR_EL2            OFFSET(ENABLE_FEAT_FGT,(CTX_EL2_MTE_REGS_END + U(0x0)))\n#define CTX_HAFGRTR_EL2            OFFSET(ENABLE_FEAT_FGT,(CTX_EL2_MTE_REGS_END + U(0x8)))\n#define CTX_HDFGWTR_EL2            OFFSET(ENABLE_FEAT_FGT,(CTX_EL2_MTE_REGS_END + U(0x10)))\n#define CTX_HFGITR_EL2             OFFSET(ENABLE_FEAT_FGT,(CTX_EL2_MTE_REGS_END + U(0x18)))\n#define CTX_HFGRTR_EL2             OFFSET(ENABLE_FEAT_FGT,(CTX_EL2_MTE_REGS_END + U(0x20)))\n#define CTX_HFGWTR_EL2             OFFSET(ENABLE_FEAT_FGT,(CTX_EL2_MTE_REGS_END + U(0x28)))\n#define CTX_FGT_REGS_END\t   CTX_EL2_MTE_REGS_END\n\nwhere OFFSET macro is defined as : \n#define OFFSET(Flag,Value)        ((Flag)*(Value))\n\nKindly confirm. I will modify it accordingly.",
+      "parentUuid": "5242f5da_99a90a8a",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 31
+      },
+      "revId": "6da4d56b8617328e108edc28c60173523ba4bcf3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
