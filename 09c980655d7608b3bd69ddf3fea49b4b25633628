@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7902163_ebea98af",
+        "filename": "docs/components/sdei.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-19T11:57:44Z",
+      "side": 1,
+      "message": "I think this might not be the suitable space for providing threat modelling for the component. We do have a dedicated \u0027Threat Model\u0027 section [1] in the documentation that could be utilized for this purpose. What are your thoughts?\n\n[1]: https://trustedfirmware-a.readthedocs.io/en/latest/threat_model/index.html",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 358,
+        "endChar": 12
+      },
+      "revId": "09c980655d7608b3bd69ddf3fea49b4b25633628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
