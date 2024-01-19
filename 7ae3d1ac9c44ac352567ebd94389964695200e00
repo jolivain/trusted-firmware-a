@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d8cddfc_9f67f3f7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001212
+      },
+      "writtenOn": "2024-01-19T04:46:32Z",
+      "side": 1,
+      "message": "I have tested this on Rock5b board with RK3588  with U-boot 2024.01 which we have in our rk3588 enablement efforts at collabora.\nYou can find here the repositories that use for bootloader, Linux, and the TF-A fork with these patches. \nhttps://gitlab.collabora.com/hardware-enablement/rockchip-3588",
+      "revId": "7ae3d1ac9c44ac352567ebd94389964695200e00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c6fc7af_f3273dbe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001212
+      },
+      "writtenOn": "2024-01-19T04:46:32Z",
+      "side": 1,
+      "message": "Tested-by: Eugen Hristev \u003ceugen.hristev@collabora.com\u003e",
+      "revId": "7ae3d1ac9c44ac352567ebd94389964695200e00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d4f997c4_1bd2e90e",
@@ -14,6 +48,23 @@
       "writtenOn": "2023-12-26T12:45:12Z",
       "side": 1,
       "message": "I added a comment regarding some MST setting.",
+      "revId": "7ae3d1ac9c44ac352567ebd94389964695200e00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87ea4c51_982472d5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001212
+      },
+      "writtenOn": "2024-01-19T04:46:32Z",
+      "side": 1,
+      "message": "Tested-by: Eugen Hristev \u003ceugen.hristev@collabora.com\u003e",
       "revId": "7ae3d1ac9c44ac352567ebd94389964695200e00",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
