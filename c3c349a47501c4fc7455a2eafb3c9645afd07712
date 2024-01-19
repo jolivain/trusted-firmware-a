@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2566f6e3_e1103652",
+        "filename": "include/common/debug.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-19T17:46:05Z",
+      "side": 1,
+      "message": "I seem to be overlooking the specific instances within the ST patch-stack where these macros are being utilized. Can you please point me out the patch that consumes such macros EARLY_*()?",
+      "range": {
+        "startLine": 95,
+        "startChar": 8,
+        "endLine": 95,
+        "endChar": 19
+      },
+      "revId": "c3c349a47501c4fc7455a2eafb3c9645afd07712",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
