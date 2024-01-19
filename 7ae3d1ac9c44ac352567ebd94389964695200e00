@@ -69,6 +69,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67d5ae73_079cfdfd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000111
+      },
+      "writtenOn": "2024-01-19T20:43:00Z",
+      "side": 1,
+      "message": "Do happen to have tested performance differences? For whatever reason running some openssl benchmark was way slower on the sourceful build TF-A vs. the binary one from rkbin - with all other components (u-boot, kernel) being the same.\n\nI haven\u0027t had time yet to investigate further though.",
+      "parentUuid": "87ea4c51_982472d5",
+      "revId": "7ae3d1ac9c44ac352567ebd94389964695200e00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12459459_67a4b6a0",
