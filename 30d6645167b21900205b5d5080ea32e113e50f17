@@ -92,6 +92,48 @@
       },
       "revId": "30d6645167b21900205b5d5080ea32e113e50f17",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe180c22_da81c13e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-01-19T22:21:36Z",
+      "side": 1,
+      "message": "@jayanth \nThe code evolved for existing CSV2(technically CSV2_1), CSV2_2 and new CSV2_3.\n\nWe cannot combine all 3 possible enable values(1,2,3) because CSV2(a.ka. CSV2_1) doesn\u0027t include the SCXTNUM_ELx register whereas CSV2_2 and CSV2_3 enables it.\n\nIt\u0027s more for the clarity and readability of the code, we can as well combine the CSV2_2 and CSV2_3 as Sona did originally in an internal version, with an API function name that is clear enough. That might be confusing for someone new who might have to update further extensions in this feature if it comes in the future, the fact that CSV2_3 enables CSV2_2 is not captured in the architecture document. \n\nEven if we change the code and unify CSV2_2 and CSV2_3, make sure to have the readability w.r.t the function name, would have been easier if all 3 values had similar implications and applicable to the same aarch states. CSV2(a.k.a CSV2_1) made it tough to unify, else we could have a simple name with CSV2 as \"is_feat_csv2_supported())\" and based on the different values, enable applicable feature detect. \nWe can discuss this further if needed.",
+      "parentUuid": "8cdcdd3c_8341bf21",
+      "revId": "30d6645167b21900205b5d5080ea32e113e50f17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "450ac8e6_35d9667d",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-01-19T22:21:36Z",
+      "side": 1,
+      "message": "This makes sense.",
+      "parentUuid": "fd77d0fa_48b14b5b",
+      "range": {
+        "startLine": 183,
+        "startChar": 4,
+        "endLine": 183,
+        "endChar": 66
+      },
+      "revId": "30d6645167b21900205b5d5080ea32e113e50f17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
