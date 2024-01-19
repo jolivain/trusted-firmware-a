@@ -59,6 +59,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "771e185b_b16ebc69",
+        "filename": "plat/intel/soc/common/include/socfpga_ros.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2024-01-19T06:33:09Z",
+      "side": 1,
+      "message": "Sandrine, does not need to be const after review the patch.",
+      "parentUuid": "d28446c6_30429c30",
+      "range": {
+        "startLine": 60,
+        "startChar": 34,
+        "endLine": 60,
+        "endChar": 55
+      },
+      "revId": "62be2a1ae3efcba0bb8b7ec8ef73b2a0f5a437e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8109c02d_82ec2ed1",
@@ -72,6 +96,30 @@
       "writtenOn": "2024-01-17T15:33:51Z",
       "side": 1,
       "message": "Sorry if I was not clear. What I meant was:\n```\nstatic uint32_t get_current_image_index(const spt_table_t *spt_buf,\n                                        const uint32_t *img_index)\n```",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 88
+      },
+      "revId": "62be2a1ae3efcba0bb8b7ec8ef73b2a0f5a437e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11965914_a4ad40c6",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2024-01-19T06:33:09Z",
+      "side": 1,
+      "message": "Sandrine, does not need to be const after review the patch.",
+      "parentUuid": "8109c02d_82ec2ed1",
       "range": {
         "startLine": 41,
         "startChar": 0,
@@ -105,6 +153,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ffd7c58_2bd281e5",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2024-01-19T06:33:09Z",
+      "side": 1,
+      "message": "Sandrine, does not need to be const after review the patch.",
+      "parentUuid": "ea890efd_9609e63a",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 71
+      },
+      "revId": "62be2a1ae3efcba0bb8b7ec8ef73b2a0f5a437e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b05d929c_1fff345d",
@@ -128,6 +200,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f2d4386_0763f455",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2024-01-19T06:33:09Z",
+      "side": 1,
+      "message": "Sandrine, does not need to be const after review the patch.",
+      "parentUuid": "b05d929c_1fff345d",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 45
+      },
+      "revId": "62be2a1ae3efcba0bb8b7ec8ef73b2a0f5a437e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85caab0e_00ec04f0",
@@ -141,6 +237,30 @@
       "writtenOn": "2024-01-17T15:33:51Z",
       "side": 1,
       "message": "Sorry if I was not clear. What I meant was:\n```\nuint32_t ros_qspi_get_ssbl_offset(const unsigned long *offset)\n```",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 56
+      },
+      "revId": "62be2a1ae3efcba0bb8b7ec8ef73b2a0f5a437e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8b37b4c_278cdf93",
+        "filename": "plat/intel/soc/common/socfpga_ros.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2024-01-19T06:33:09Z",
+      "side": 1,
+      "message": "Sandrine, does not need to be const after review the patch.",
+      "parentUuid": "85caab0e_00ec04f0",
       "range": {
         "startLine": 149,
         "startChar": 0,
