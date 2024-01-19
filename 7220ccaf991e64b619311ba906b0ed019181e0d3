@@ -262,6 +262,42 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "693071e8_f4eaaa88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-01-19T11:54:31Z",
+      "side": 1,
+      "message": "We only need to ensure QEMU build for RME is not broken. There is a CI build config for this, so the CI will catch this anyway. \n\nYup QEMU copies the FVP implementation so it is not affected by these changes.",
+      "parentUuid": "1501dd32_51dea8e5",
+      "revId": "7220ccaf991e64b619311ba906b0ed019181e0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58cd3a43_6c707212",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-01-19T11:54:31Z",
+      "side": 1,
+      "message": "If the movement is easy enough to arm_common.c, it can be done. Sheilding with ENABLE_RME should be sufficient.\n\nBut keeping the function here is also fine as this is a static function and hence it is OK to not have the standard prefix.",
+      "parentUuid": "fc974528_d3c4a463",
+      "revId": "7220ccaf991e64b619311ba906b0ed019181e0d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc736589_cb35e7ba",
