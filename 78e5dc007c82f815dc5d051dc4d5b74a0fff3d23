@@ -33,6 +33,24 @@
       "message": "Any updates on this ?",
       "revId": "78e5dc007c82f815dc5d051dc4d5b74a0fff3d23",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98f31fd4_70c7d295",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 53
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-01-19T13:58:29Z",
+      "side": 1,
+      "message": "There are are one or two edge-case platforms that need the CPU support library to be configured differently depending on the bootloader image that it\u0027s being linked in to, but right now we can only build a library once for all bootloader images. GENFW-8304 and GENFW-8209 are meant to clear the way on that, where GENFW-8304 is implemented by the `toolchain-detection` patch stack currently in review.",
+      "parentUuid": "a6c91fda_8ef41dda",
+      "revId": "78e5dc007c82f815dc5d051dc4d5b74a0fff3d23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
