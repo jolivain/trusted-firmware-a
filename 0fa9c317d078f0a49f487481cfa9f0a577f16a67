@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1de68927_825e068c",
+        "filename": "docs/threat_model/threat_model_fw_update_and_recovery.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-19T09:42:34Z",
+      "side": 1,
+      "message": "I would replace these words with a more elaborate introduction paragraph, such as:\n\n----\nPSA FWU is driven by metadata stored in non-volatile storage. This metadata is not cryptographically signed. Also, depending on the hardware design, it may be stored in untrusted storage, which makes it possible for software outside of TF-A security boundary or for a physical attacker to modify it in order to change the behaviour of the FWU process.\n\nBelow we provide some possible FWU metadata corruption scenarios:",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 24
+      },
+      "revId": "0fa9c317d078f0a49f487481cfa9f0a577f16a67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4606d8d7_052363e1",
+        "filename": "docs/threat_model/threat_model_fw_update_and_recovery.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-19T09:42:34Z",
+      "side": 1,
+      "message": "Suggest:\n\nBy design, no software mitigations exist to prevent this. The safeguarding of FWU metadata relies on the platform\u0027s hardware design to mitigate potential attacks on it, if this is a concern in the platform\u0027s threat model. For example, FWU metadata may be stored in secure storage under exclusive access from secure software, protecting it from physical, unauthenticated accesses and from non-secure software accesses.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 43
+      },
+      "revId": "0fa9c317d078f0a49f487481cfa9f0a577f16a67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faf7abc2_31420b6b",
+        "filename": "docs/threat_model/threat_model_fw_update_and_recovery.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-19T09:42:34Z",
+      "side": 1,
+      "message": "tries",
+      "range": {
+        "startLine": 83,
+        "startChar": 32,
+        "endLine": 83,
+        "endChar": 35
+      },
+      "revId": "0fa9c317d078f0a49f487481cfa9f0a577f16a67",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
