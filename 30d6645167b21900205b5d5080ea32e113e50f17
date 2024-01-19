@@ -34,6 +34,24 @@
       "parentUuid": "073d95d5_35526b8c",
       "revId": "30d6645167b21900205b5d5080ea32e113e50f17",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cdcdd3c_8341bf21",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-01-19T11:47:48Z",
+      "side": 1,
+      "message": "Hi Manish, \nThe second part of this if condition, will never be executed and hence raised this thought.\n\n@Bipin, kindly let me know if this is needed in all cases and please explain if I am missing anything here.",
+      "parentUuid": "c16f89fb_740cf389",
+      "revId": "30d6645167b21900205b5d5080ea32e113e50f17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
