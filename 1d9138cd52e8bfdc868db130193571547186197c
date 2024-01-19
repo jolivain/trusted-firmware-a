@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecdfb5a7_6998ac80",
+        "filename": "bl31/bl31.ld.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-01-19T13:13:15Z",
+      "side": 1,
+      "message": "\"rw\" - executable data should not end up in this region",
+      "range": {
+        "startLine": 24,
+        "startChar": 12,
+        "endLine": 24,
+        "endChar": 15
+      },
+      "revId": "1d9138cd52e8bfdc868db130193571547186197c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
