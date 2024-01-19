@@ -16,6 +16,24 @@
       "message": "In my understanding CSV2_2 and CSV2_3 are both allowing us to access the same registers:\nSCXTNUM_ELx resgisters.\n\nI don\u0027t see anything additional being introduced newly under CSV2_3 feature. It confirms CSV2_2 is present.\nIn that scenario, when does this condition holds true. \nThe second part of the logic, is_feat_scv2_3_supported(), will never be executed, because the first part of the logic already reads true, when CSV2_3 is present.\n\nIn that case, do we need this additonal condition (is_feat_csv2_3_supported())) here? \nIsn\u0027t if ((is_feat_csv2_2_supported())\n{\n\t\t/* Enable access to the SCXTNUM_ELx registers. */\n\t\tscr_el3 |\u003d SCR_EnSCXT_BIT;\n}\nsufficient to cover both the cases, as the logic checks for \u003e\u003d 2 in arch_features.h\n\n\nPlease do let me know your thoughts here.\n\nThanks!",
       "revId": "30d6645167b21900205b5d5080ea32e113e50f17",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c16f89fb_740cf389",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-01-19T11:37:45Z",
+      "side": 1,
+      "message": "Hi Jayanth, Could you please take care of comments",
+      "parentUuid": "073d95d5_35526b8c",
+      "revId": "30d6645167b21900205b5d5080ea32e113e50f17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
