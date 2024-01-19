@@ -46,6 +46,122 @@
       },
       "revId": "09c980655d7608b3bd69ddf3fea49b4b25633628",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c1effee_0d36bfe0",
+        "filename": "docs/components/sdei.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 358,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-01-19T17:17:40Z",
+      "side": 1,
+      "message": "we have a threat model document, agree it shouldn\u0027t be here. or it should be in both places (here and TM document).",
+      "parentUuid": "724e8b83_cd1f7075",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 358,
+        "endChar": 12
+      },
+      "revId": "09c980655d7608b3bd69ddf3fea49b4b25633628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8bbb986_8c27ed5f",
+        "filename": "docs/components/sdei.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-01-19T17:17:40Z",
+      "side": 1,
+      "message": "can remove super. also might be worth calling out, SDEI effectively provides software based non maskable interrupts to Hypervsior/OS",
+      "range": {
+        "startLine": 360,
+        "startChar": 27,
+        "endLine": 360,
+        "endChar": 32
+      },
+      "revId": "09c980655d7608b3bd69ddf3fea49b4b25633628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f7764a5_e0e62a38",
+        "filename": "docs/components/sdei.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-01-19T17:17:40Z",
+      "side": 1,
+      "message": "this statement looks like it is rooted in your recent findings. By itself, the threat is providing invalid arguments. That should never cause OOB memory reads by itself. It can cause any number of issues including OOB memory reads, so not clear why it is special. A generic threat which already exists in the TM is providing invalid arguments and mitigations to validate input parameters.",
+      "range": {
+        "startLine": 373,
+        "startChar": 60,
+        "endLine": 373,
+        "endChar": 63
+      },
+      "revId": "09c980655d7608b3bd69ddf3fea49b4b25633628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b93c9c0_1e853339",
+        "filename": "docs/components/sdei.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-01-19T17:17:40Z",
+      "side": 1,
+      "message": "DoS attack against whom? itself? if NS is shooting itself in the foot it is not a problem no? and all of secure world is \"service\" based, and NS provides availability anyway. so I don\u0027t think this is a threat?",
+      "range": {
+        "startLine": 383,
+        "startChar": 46,
+        "endLine": 383,
+        "endChar": 49
+      },
+      "revId": "09c980655d7608b3bd69ddf3fea49b4b25633628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7aaf99a8_597f8ee6",
+        "filename": "docs/components/sdei.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-01-19T17:17:40Z",
+      "side": 1,
+      "message": "again not clean what the threat is, against what asset. looks like NS client shooting itself in the foot, so not really an SDEI issue.",
+      "range": {
+        "startLine": 395,
+        "startChar": 29,
+        "endLine": 395,
+        "endChar": 42
+      },
+      "revId": "09c980655d7608b3bd69ddf3fea49b4b25633628",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
