@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8781cac4_8a65976a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-19T13:19:29Z",
+      "side": 1,
+      "message": "Failure is not related to patch, it seems to be infra failure: \"%curl: (92) HTTP/2 stream 0 was not closed cleanly: INTERNAL_ERROR (err 2)\" hence manually providing Verified +1.",
+      "revId": "bb4d7d71956d1365eb2d616a44a8155e68d5ca9d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
