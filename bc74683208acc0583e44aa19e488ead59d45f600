@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e34419ad_a8ad7821",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-01-19T21:32:42Z",
+      "side": 1,
+      "message": "nit: remove",
+      "range": {
+        "startLine": 15,
+        "startChar": 20,
+        "endLine": 15,
+        "endChar": 21
+      },
+      "revId": "bc74683208acc0583e44aa19e488ead59d45f600",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e96fe7a2_f269c409",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-01-19T21:32:42Z",
+      "side": 1,
+      "message": "nit: remove",
+      "range": {
+        "startLine": 17,
+        "startChar": 36,
+        "endLine": 17,
+        "endChar": 37
+      },
+      "revId": "bc74683208acc0583e44aa19e488ead59d45f600",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe5b98a_b57624ad",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-01-19T21:32:42Z",
+      "side": 1,
+      "message": "nit: make arguments all lowercase",
+      "range": {
+        "startLine": 173,
+        "startChar": 19,
+        "endLine": 173,
+        "endChar": 30
+      },
+      "revId": "bc74683208acc0583e44aa19e488ead59d45f600",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "548e759d_5e5cd6b7",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-01-19T21:32:42Z",
+      "side": 1,
+      "message": "Is there any reason why these have been shifted 8 bytes? Is it to align the end to a 16-byte boundary? If so, maybe a better approach would be to keep them as they were, and define a new macro (e.g.: CTX_EL2_BASE_REGS_END or similar) after this block to indicate the end of it, just like the other (optional) sections. The value of this new macro would be 16-bit aligned, of course.",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 31
+      },
+      "revId": "bc74683208acc0583e44aa19e488ead59d45f600",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
