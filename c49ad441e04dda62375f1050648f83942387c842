@@ -51,6 +51,24 @@
       "message": "As I said in previous comments:\n\n---\nThe changes look good to me but just like for this other patch I think we need a dedicated CI test before we can merge it.\n\nCould you please take the present patch and the first one out of this series? Having these 2 generic patches in their own series will help the reviews and also it will help progressing the test gap they unveiled.\n\n---\nPutting my MR-1 to make it more obvious.",
       "revId": "c49ad441e04dda62375f1050648f83942387c842",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6d4d9d4_4c5e5317",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000121
+      },
+      "writtenOn": "2024-01-21T18:39:10Z",
+      "side": 1,
+      "message": "There should only be the 5 rcar patches queued up right now, the core changes should all be removed at this point . Is gerrit still conflating some of the core patches into series with the rcar patches ?",
+      "parentUuid": "0bdac5df_0cf6e6dd",
+      "revId": "c49ad441e04dda62375f1050648f83942387c842",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
