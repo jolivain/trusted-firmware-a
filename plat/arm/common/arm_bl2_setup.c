@@ -131,41 +131,6 @@ void bl2_platform_setup(void)
 	arm_bl2_platform_setup();
 }
 
-#if ENABLE_RME
-static void arm_bl2_gpt_setup(arm_pas_region_info_t *arm_pas_region_info)
-{
-
-	/* Get pas region info from platform */
-	if (arm_pas_region_info == NULL) {
-		ERROR("arm_pas_region_info not initialized!!\n");
-		panic();
-	}
-
-	/* Initialize entire protected space to GPT_GPI_ANY. */
-	if (gpt_init_l0_tables(PLAT_ARM_GPCCR_PPS, ARM_L0_GPT_BASE,
-		ARM_L0_GPT_SIZE) < 0) {
-		ERROR("gpt_init_l0_tables() failed!\n");
-		panic();
-	}
-
-	/* Carve out defined PAS ranges. */
-	if (gpt_init_pas_l1_tables(PLAT_ARM_GPCCR_PGS,
-				   ARM_L1_GPT_BASE,
-				   ARM_L1_GPT_SIZE,
-				   arm_pas_region_info->pas_region_base,
-				   arm_pas_region_info->pas_region_count) < 0) {
-		ERROR("gpt_init_pas_l1_tables() failed!\n");
-		panic();
-	}
-
-	INFO("Enabling Granule Protection Checks\n");
-	if (gpt_enable() < 0) {
-		ERROR("gpt_enable() failed!\n");
-		panic();
-	}
-}
-#endif /* ENABLE_RME */
-
 /*******************************************************************************
  * Perform the very early platform specific architectural setup here.
  * When RME is enabled the secure environment is initialised before
@@ -210,7 +175,7 @@ void arm_bl2_plat_arch_setup(void)
 	 * that any Arm platform that reuses arm_bl2_plat_arch_setup must
 	 * implement plat_arm_get_pas_region_info within its platform code
 	 */
-	arm_bl2_gpt_setup(plat_arm_get_pas_region_info());
+	arm_gpt_setup(plat_arm_get_pas_region_info());
 #else
 	enable_mmu_el1(0);
 #endif

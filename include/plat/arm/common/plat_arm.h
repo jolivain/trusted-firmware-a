@@ -369,6 +369,7 @@ unsigned int plat_arm_calc_core_pos(u_register_t mpidr);
 const mmap_region_t *plat_arm_get_mmap(void);
 
 arm_pas_region_info_t *plat_arm_get_pas_region_info(void);
+void arm_gpt_setup(arm_pas_region_info_t *arm_pas_region_info);
 
 /* Allow platform to override psci_pm_ops during runtime */
 const plat_psci_ops_t *plat_arm_psci_override_pm_ops(plat_psci_ops_t *ops);

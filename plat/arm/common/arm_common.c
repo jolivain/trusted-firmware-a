@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2024, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -241,3 +241,38 @@ const mmap_region_t *plat_get_addr_mmap(void)
 {
 	return plat_arm_mmap;
 }
+
+#if ENABLE_RME
+void arm_gpt_setup(arm_pas_region_info_t *arm_pas_region_info)
+{
+
+	/* Get pas region info from platform */
+	if (arm_pas_region_info == NULL) {
+		ERROR("arm_pas_region_info not initialized!!\n");
+		panic();
+	}
+
+	/* Initialize entire protected space to GPT_GPI_ANY. */
+	if (gpt_init_l0_tables(PLAT_ARM_GPCCR_PPS, ARM_L0_GPT_BASE,
+		ARM_L0_GPT_SIZE) < 0) {
+		ERROR("gpt_init_l0_tables() failed!\n");
+		panic();
+	}
+
+	/* Carve out defined PAS ranges. */
+	if (gpt_init_pas_l1_tables(PLAT_ARM_GPCCR_PGS,
+				   ARM_L1_GPT_BASE,
+				   ARM_L1_GPT_SIZE,
+				   arm_pas_region_info->pas_region_base,
+				   arm_pas_region_info->pas_region_count) < 0) {
+		ERROR("gpt_init_pas_l1_tables() failed!\n");
+		panic();
+	}
+
+	INFO("Enabling Granule Protection Checks\n");
+	if (gpt_enable() < 0) {
+		ERROR("gpt_enable() failed!\n");
+		panic();
+	}
+}
+#endif /* ENABLE_RME */
