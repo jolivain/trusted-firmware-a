@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ea522ec_8f5745bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-22T19:32:10Z",
+      "side": 1,
+      "message": "Some issues resolved but still have failures in static check:\n\nChecking files modified between patches origin/master and HEAD...\n\nfd91c4522::plat/rockchip/rk3588/drivers/pmu/pm_pd_regs.c:\nInclude ordering error, order should be:\n\t#include \u003cassert.h\u003e\n\t#include \u003cerrno.h\u003e\n\n\t#include \u003carch_helpers.h\u003e\n\t#include \u003cbl31/bl31.h\u003e\n\t#include \u003ccommon/debug.h\u003e\n\t#include \u003cdrivers/console.h\u003e\n\t#include \u003cdrivers/delay_timer.h\u003e\n\t#include \u003clib/mmio.h\u003e\n\t#include \u003cplatform.h\u003e\n\t#include \u003cplatform_def.h\u003e\n\t#include \u003cpmu.h\u003e\n\n\t#include \u003cplat_pm_helpers.h\u003e\n\t#include \u003cplat_private.h\u003e\n\t#include \u003cpm_pd_regs.h\u003e\n\t#include \u003csoc.h\u003e\n\nfd91c4522::plat/rockchip/rk3588/drivers/pmu/pmu.c:\nInclude ordering error, order should be:\n\t#include \u003cassert.h\u003e\n\t#include \u003cerrno.h\u003e\n\n\t#include \u003carch_helpers.h\u003e\n\t#include \u003cbl31/bl31.h\u003e\n\t#include \u003ccommon/debug.h\u003e\n\t#include \u003cdrivers/arm/gicv3.h\u003e\n\t#include \u003cdrivers/console.h\u003e\n\t#include \u003cdrivers/delay_timer.h\u003e\n\t#include \u003cdrivers/ti/uart/uart_16550.h\u003e\n\t#include \u003clib/mmio.h\u003e\n\t#include \u003cplat/common/platform.h\u003e\n\t#include \u003cplatform_def.h\u003e\n\t#include \u003cpmu.h\u003e\n\n\t#include \u003ccpus_on_fixed_addr.h\u003e\n\t#include \u003cplat_pm_helpers.h\u003e\n\t#include \u003cplat_private.h\u003e\n\t#include \u003cpm_pd_regs.h\u003e\n\t#include \u003crk3588_clk.h\u003e\n\t#include \u003crockchip_sip_svc.h\u003e\n\t#include \u003csecure.h\u003e\n\t#include \u003csoc.h\u003e\n\nfd91c4522::plat/rockchip/rk3588/drivers/soc/soc.c:\nInclude ordering error, order should be:\n\t#include \u003cassert.h\u003e\n\t#include \u003cerrno.h\u003e\n\n\t#include \u003carch_helpers.h\u003e\n\t#include \u003cbl31/bl31.h\u003e\n\t#include \u003ccommon/debug.h\u003e\n\t#include \u003cdrivers/console.h\u003e\n\t#include \u003cdrivers/delay_timer.h\u003e\n\t#include \u003clib/mmio.h\u003e\n\t#include \u003clib/xlat_tables/xlat_tables_compat.h\u003e\n\t#include \u003cplatform.h\u003e\n\t#include \u003cplatform_def.h\u003e\n\t#include \u003cpmu.h\u003e\n\n\t#include \u003cplat_private.h\u003e\n\t#include \u003cplat_scmi_def.h\u003e\n\t#include \u003crk3588_clk.h\u003e\n\t#include \u003csecure.h\u003e\n\t#include \u003csoc.h\u003e\n\nPlease refer to the docs for further information on include statement ordering: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering.\n\nNew source files have been identified in your patch..\nplat/rockchip/common/plat_pm_helpers.c\nplat/rockchip/common/scmi/scmi.c\nplat/rockchip/common/scmi/scmi_clock.c\nplat/rockchip/common/scmi/scmi_rstd.c\nplat/rockchip/rk3588/drivers/pmu/pm_pd_regs.c\nplat/rockchip/rk3588/drivers/pmu/pmu.c\nplat/rockchip/rk3588/drivers/scmi/rk3588_clk.c\nplat/rockchip/rk3588/drivers/scmi/rk3588_rstd.c\nplat/rockchip/rk3588/drivers/secure/secure.c\nplat/rockchip/rk3588/drivers/soc/soc.c\nplat/rockchip/rk3588/plat_sip_calls.c\n\n1. Kindly ensure these newly added source files are covered by : \n   a. Coverity scan analysis by adding them to \"tf-cov-make\" build script with the appropriate build configurations. \n   b. Built as part of one of the platform configurations present in \"tf-l1-build-plat\" test group.\n\n   Please refer to the tf-a documentation for more detailed explanation. \n   \"https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-build-configurations\"\n\n2. Please ignore if your files are already updated. Further the Code Maintainer will \n   resolve the issue by taking appropriate action.",
+      "revId": "fd91c4522395966250cec88625004c2ad5dff21e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
