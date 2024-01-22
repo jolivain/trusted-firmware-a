@@ -1489,7 +1489,8 @@ static uint64_t spmc_ffa_console_log(uint32_t smc_fid,
 				     void *handle,
 				     uint64_t flags)
 {
-	char *chars;
+	/* maximum number of characters is 48: 6 registers of 8 bytes each. */
+	char chars[48] = {0};
 	size_t chars_max;
 	size_t chars_count = x1;
 
@@ -1509,7 +1510,7 @@ static uint64_t spmc_ffa_console_log(uint32_t smc_fid,
 			(uint32_t)SMC_GET_GP(handle, CTX_GPREG_X7),
 		};
 		chars_max = ARRAY_SIZE(registers) * sizeof(uint32_t);
-		chars = (char *)registers;
+		memcpy(chars, registers, sizeof(registers));
 	} else {
 		uint64_t registers[] = {
 			x2,
@@ -1520,7 +1521,7 @@ static uint64_t spmc_ffa_console_log(uint32_t smc_fid,
 			SMC_GET_GP(handle, CTX_GPREG_X7),
 		};
 		chars_max = ARRAY_SIZE(registers) * sizeof(uint64_t);
-		chars = (char *)registers;
+		memcpy(chars, registers, sizeof(registers));
 	}
 
 	if ((chars_count == 0) || (chars_count > chars_max)) {
