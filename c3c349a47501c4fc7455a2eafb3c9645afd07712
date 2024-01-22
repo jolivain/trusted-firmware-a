@@ -22,6 +22,30 @@
       },
       "revId": "c3c349a47501c4fc7455a2eafb3c9645afd07712",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2d4a729_1994afa2",
+        "filename": "include/common/debug.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-22T08:42:08Z",
+      "side": 1,
+      "message": "Hi Manish, an example was there:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/25731\nBut as I had to split the series in 2, this won\u0027t merge properly.\nI\u0027ll re-push it when the 2 series (early console \u0026 BSEC) are merged",
+      "parentUuid": "2566f6e3_e1103652",
+      "range": {
+        "startLine": 95,
+        "startChar": 8,
+        "endLine": 95,
+        "endChar": 19
+      },
+      "revId": "c3c349a47501c4fc7455a2eafb3c9645afd07712",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
