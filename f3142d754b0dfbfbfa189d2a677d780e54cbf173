@@ -34,6 +34,24 @@
       "parentUuid": "408c6307_b00a2ec9",
       "revId": "f3142d754b0dfbfbfa189d2a677d780e54cbf173",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9ef8db5_574784b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-01-22T17:18:48Z",
+      "side": 1,
+      "message": "I see EARLY_CONSOLE is a later patch in the series. \n\nPatches until this are submittable, if you think it can be selectively merged then i can go ahead. Else i can mark one of the patches MR -1 to avoid accidental merge",
+      "parentUuid": "e0064323_95537225",
+      "revId": "f3142d754b0dfbfbfa189d2a677d780e54cbf173",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
