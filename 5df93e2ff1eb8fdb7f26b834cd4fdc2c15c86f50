@@ -70,6 +70,23 @@
       "parentUuid": "c4aba67c_7373d152",
       "revId": "5df93e2ff1eb8fdb7f26b834cd4fdc2c15c86f50",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b534e1b1_82cf3232",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2024-01-22T08:29:05Z",
+      "side": 1,
+      "message": "The build failure on qemu is unrelated to this change:\n\n08:08:13 gcc version 12.3.1 20230626 (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) \n08:08:13 ----------\n08:08:13 \n08:08:13 services/std_svc/rmmd/trp/trp.mk:24: *** TRP is not supported on platform qemu.  Stop.\n08:08:13 + echo\n08:08:13 \n08:08:13 + echo \u0027See http://ci.trustedfirmware.org/job/tf-a-builder/3112109//artifact/artefacts/build.log for full output\u0027\n08:08:13 See http://ci.trustedfirmware.org/job/tf-a-builder/3112109//artifact/artefacts/build.log for full output\n08:08:13 + echo\n08:08:13 \n08:08:13 + cp -t /home/buildslave/workspace/tf-a-builder/workspace/artefacts/debug /home/buildslave/workspace/tf-a-builder/workspace/artefacts/build.log\n08:08:13 + exit 1",
+      "revId": "5df93e2ff1eb8fdb7f26b834cd4fdc2c15c86f50",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
