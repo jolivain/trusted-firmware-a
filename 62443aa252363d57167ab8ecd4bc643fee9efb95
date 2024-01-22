@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "078a5d13_5045270b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-22T12:26:08Z",
+      "side": 1,
+      "message": "just (st), as it will be used for STM32MP1x \u0026 STM32MP2x\nThis remark applies also for previous patch",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "62443aa252363d57167ab8ecd4bc643fee9efb95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c54d5bf_5002852c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-22T12:26:08Z",
+      "side": 1,
+      "message": "add\nConventional commits mandate a lower case letter after the colon\nSame remark applies for all patches in the series",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "62443aa252363d57167ab8ecd4bc643fee9efb95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afe32f78_2e4637cc",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-22T12:26:08Z",
+      "side": 1,
+      "message": "missing braces",
+      "revId": "62443aa252363d57167ab8ecd4bc643fee9efb95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "849f6dba_29b182a8",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 627,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-22T12:26:08Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "62443aa252363d57167ab8ecd4bc643fee9efb95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a933b8de_adc97113",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-22T12:26:08Z",
+      "side": 1,
+      "message": "this change is not needed",
+      "revId": "62443aa252363d57167ab8ecd4bc643fee9efb95",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
