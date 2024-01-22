@@ -1,4 +1,22 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eff11433_2d425640",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 40
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-01-22T14:33:27Z",
+      "side": 1,
+      "message": "This MPAM structure should have been converted to C and allocated in globals instead of extending the asm structure.",
+      "revId": "9acff28ae4947447d93df593dba9896de083466d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ],
   "submitRequirementResults": []
 }
