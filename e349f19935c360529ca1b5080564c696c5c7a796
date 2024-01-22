@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2196c35_86439b19",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-01-22T15:30:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f109bd8_78bccda1",
+      "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "665842dd_7ba7c0a4",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-01-18T16:16:33Z",
       "side": 1,
       "message": "Please restore the PMCR at the end, to ensure synchronous counting of all the events, after PMCNTENSET is written.",
+      "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5ba1dd4_f47899ff",
+        "filename": "lib/psci/psci_common.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1359,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-01-22T15:30:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "665842dd_7ba7c0a4",
       "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -69,6 +105,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aca3ddd_8a5966a1",
+        "filename": "lib/psci/psci_off.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-01-22T15:30:54Z",
+      "side": 1,
+      "message": "Done. Currently enabled only for TC platforms",
+      "parentUuid": "4476cb0e_47fad570",
+      "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a13c679d_4c773751",
@@ -82,6 +136,24 @@
       "writtenOn": "2024-01-18T16:16:33Z",
       "side": 1,
       "message": "Same as the save case",
+      "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dce231f7_ee72bda7",
+        "filename": "lib/psci/psci_on.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-01-22T15:30:54Z",
+      "side": 1,
+      "message": "Done. Enabled for TC platforms",
+      "parentUuid": "a13c679d_4c773751",
       "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -103,6 +175,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "207f6329_22f3ca17",
+        "filename": "lib/psci/psci_private.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-01-22T15:30:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5954fac5_a8cdbe31",
+      "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cdc0d45_79fe7ddd",
@@ -116,6 +206,24 @@
       "writtenOn": "2024-01-18T16:16:33Z",
       "side": 1,
       "message": "cluster_pmu_state ?",
+      "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f06d4db0_32ae9ad7",
+        "filename": "lib/psci/psci_private.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-01-22T15:30:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cdc0d45_79fe7ddd",
       "revId": "e349f19935c360529ca1b5080564c696c5c7a796",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
