@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8501ca4_e326c0ea",
+        "filename": "plat/ti/k3/common/drivers/ti_sci/ti_sci.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1743,
+      "author": {
+        "id": 1000966
+      },
+      "writtenOn": "2024-01-22T09:26:26Z",
+      "side": 1,
+      "message": "Where do you want the SYSFW ABI string to be printed then? Currently it is in tisci init I believe.",
+      "parentUuid": "c76b3b73_019cf76d",
+      "revId": "044f1227bfcd088f874fdd77bfe02e18f708a9cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cfdd4bf8_343e9c28",
         "filename": "plat/ti/k3/common/k3_bl31_setup.c",
         "patchSetId": 3
