@@ -187,6 +187,30 @@
       },
       "revId": "bc74683208acc0583e44aa19e488ead59d45f600",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad7f9ae7_8238c321",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-01-22T21:15:52Z",
+      "side": 1,
+      "message": "I see. Having a dummy offset goes against the purpose of this patch (reducing memory usage), though, but I guess it won\u0027t harm...",
+      "parentUuid": "05851bf9_9f35e815",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 31
+      },
+      "revId": "bc74683208acc0583e44aa19e488ead59d45f600",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
