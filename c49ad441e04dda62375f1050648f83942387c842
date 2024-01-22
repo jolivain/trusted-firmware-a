@@ -69,6 +69,24 @@
       "parentUuid": "0bdac5df_0cf6e6dd",
       "revId": "c49ad441e04dda62375f1050648f83942387c842",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0accdb36_3e219f06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-22T13:47:11Z",
+      "side": 1,
+      "message": "Yes, Gerrit is still showing the core changes in the \"relation chain\" frame but as \"indirect relation\". Perhaps you could abandon the core patches for the time being, to make things clearer? It will be straight forward to restore them once you\u0027ve got new versions of them to post.\n\nI reviewed the 5 rcar patches, just need to renew code-owner-review vote on 2 of them. Once done, I\u0027ll merge them.",
+      "parentUuid": "c6d4d9d4_4c5e5317",
+      "revId": "c49ad441e04dda62375f1050648f83942387c842",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
