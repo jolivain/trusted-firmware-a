@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "968ffe0b_3cfa2415",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 33
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-01-22T14:21:59Z",
+      "side": 1,
+      "message": "We would need to move some of the di",
+      "revId": "ac8213e98d999319ddd09d4762451b06fab44d78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7c069d4_856c1f4c",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 33
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-01-22T14:21:59Z",
+      "side": 1,
+      "message": "incorrect assumption, this is due to incorrect configuration of EEL2 and side effect of reusing the same code with configs wherein EEL2 is not programmed.",
+      "range": {
+        "startLine": 712,
+        "startChar": 0,
+        "endLine": 713,
+        "endChar": 37
+      },
+      "revId": "ac8213e98d999319ddd09d4762451b06fab44d78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2d2bc7a_e9878a41",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 33
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-01-22T14:21:59Z",
+      "side": 1,
+      "message": "this should be a one time operation at reset and we dont expect this to be changed... This was the intention (not sure if TF-A has deviated from that) ?",
+      "range": {
+        "startLine": 739,
+        "startChar": 0,
+        "endLine": 741,
+        "endChar": 6
+      },
+      "revId": "ac8213e98d999319ddd09d4762451b06fab44d78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
