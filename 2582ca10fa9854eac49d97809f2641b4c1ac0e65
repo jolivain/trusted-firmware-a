@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "223c30f8_0f5245e9",
+        "filename": "include/plat/arm/common/arm_sip_svc.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-01-23T21:00:02Z",
+      "side": 1,
+      "message": "SiP",
+      "range": {
+        "startLine": 46,
+        "startChar": 7,
+        "endLine": 46,
+        "endChar": 11
+      },
+      "revId": "2582ca10fa9854eac49d97809f2641b4c1ac0e65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b80f19dd_2346e511",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-01-23T21:00:02Z",
+      "side": 1,
+      "message": "is this change needed? there is no new FF-A function id being introduced here",
+      "revId": "2582ca10fa9854eac49d97809f2641b4c1ac0e65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93a49ca5_2dc6cd6f",
+        "filename": "plat/arm/common/plat_arm_sip_svc.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-01-23T21:00:02Z",
+      "side": 1,
+      "message": "I am curious why NOTICE but not INFO?",
+      "range": {
+        "startLine": 117,
+        "startChar": 2,
+        "endLine": 117,
+        "endChar": 8
+      },
+      "revId": "2582ca10fa9854eac49d97809f2641b4c1ac0e65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
