@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "549c6798_e6c59bb3",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_lsp_ras_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-23T22:10:09Z",
+      "side": 1,
+      "message": "Is this redundant if the platform.mk file already has this as a gate for inclusion in the compile?",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 32
+      },
+      "revId": "0429fb83337113c2e66564a3c28005aaa0436707",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db13001a_c4e166df",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_lsp_ras_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-23T22:10:09Z",
+      "side": 1,
+      "message": "Same here...",
+      "range": {
+        "startLine": 125,
+        "startChar": 4,
+        "endLine": 125,
+        "endChar": 32
+      },
+      "revId": "0429fb83337113c2e66564a3c28005aaa0436707",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
