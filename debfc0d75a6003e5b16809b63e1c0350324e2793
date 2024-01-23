@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c02cb709_d449711d",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-01-23T01:30:13Z",
+      "side": 1,
+      "message": "Is this for M[3:0]? If that is the case, doesn\u0027t it apply to AArch32 only?",
+      "range": {
+        "startLine": 773,
+        "startChar": 0,
+        "endLine": 773,
+        "endChar": 27
+      },
+      "revId": "debfc0d75a6003e5b16809b63e1c0350324e2793",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa652b6a_50ffb8ac",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-01-23T01:30:13Z",
+      "side": 1,
+      "message": "nit: 0x3 to be consistent with the rest.",
+      "range": {
+        "startLine": 780,
+        "startChar": 35,
+        "endLine": 780,
+        "endChar": 36
+      },
+      "revId": "debfc0d75a6003e5b16809b63e1c0350324e2793",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47e947b5_60bf74c3",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-01-23T01:30:13Z",
+      "side": 1,
+      "message": "I think it is bit 25.",
+      "range": {
+        "startLine": 976,
+        "startChar": 30,
+        "endLine": 976,
+        "endChar": 32
+      },
+      "revId": "debfc0d75a6003e5b16809b63e1c0350324e2793",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fcdcc11_cee7d140",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-01-23T01:30:13Z",
+      "side": 1,
+      "message": "Shouldn\u0027t you also include ID_PFR2_EL1.SSBS in this predicate?",
+      "range": {
+        "startLine": 107,
+        "startChar": 1,
+        "endLine": 108,
+        "endChar": 49
+      },
+      "revId": "debfc0d75a6003e5b16809b63e1c0350324e2793",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
