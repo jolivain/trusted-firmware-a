@@ -114,6 +114,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "be84412c_bfa0681d",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2024-01-23T15:18:17Z",
+      "side": 1,
+      "message": "or we could get rid of registers[] and \ncopy x2-x7 (as per size) to chars[] directly, we dont need both",
+      "parentUuid": "9ee217e1_65fa2d58",
+      "revId": "9443a91bb882976060d97ca589b1000db1e09d2f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9429722c_4312b2ba",
         "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
         "patchSetId": 1
