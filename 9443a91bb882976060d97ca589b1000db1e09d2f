@@ -97,6 +97,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9ee217e1_65fa2d58",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1513,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2024-01-23T15:09:09Z",
+      "side": 1,
+      "message": "I think we dont need to copy the args, can we move putchar in scope?",
+      "revId": "9443a91bb882976060d97ca589b1000db1e09d2f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9429722c_4312b2ba",
         "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
         "patchSetId": 1
