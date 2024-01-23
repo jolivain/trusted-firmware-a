@@ -16,6 +16,24 @@
       "message": "By enabling this argument are we ignoring potential security issues?  rwx segments seem to be an issue in general...",
       "revId": "86e489c1903c72b76c6ff3b3ff6b75774c132e59",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c52c1818_8a1d9e93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-01-23T11:07:26Z",
+      "side": 1,
+      "message": "No, the segment permissions are generally only relevant for ELF-loaded binaries where the page permissions are dictated by the segment permissions. Because we don\u0027t have or use an ELF loader which does this, we are otherwise safe from the consequences of this warning.\n\nThat\u0027s not to say that it\u0027s impossible that this case won\u0027t appear at some point in the future, but it\u0027s quite difficult to coerce the linker into not squashing multiple permissions into larger segments with more general permissions, and requires a larger refactor of the linker scripts.",
+      "parentUuid": "1a02bfdb_78e2d2cd",
+      "revId": "86e489c1903c72b76c6ff3b3ff6b75774c132e59",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
