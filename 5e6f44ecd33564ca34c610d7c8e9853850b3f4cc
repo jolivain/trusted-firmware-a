@@ -142,6 +142,30 @@
       },
       "revId": "5e6f44ecd33564ca34c610d7c8e9853850b3f4cc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16a5b026_1ef08149",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-01-23T16:08:45Z",
+      "side": 1,
+      "message": "Ack,\n\nCan I quickly check if we should encapsulate all platform parameters under a common api, say plat_arm_get_gpccr_info? (pas_base, size, PPS, PGS)\n\nThis would be a tad bit cleaner in my opinion as everything is done at single place. We can get rid of the macros. Thoughts?",
+      "parentUuid": "18e08589_1eef833a",
+      "range": {
+        "startLine": 213,
+        "startChar": 19,
+        "endLine": 213,
+        "endChar": 48
+      },
+      "revId": "5e6f44ecd33564ca34c610d7c8e9853850b3f4cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
