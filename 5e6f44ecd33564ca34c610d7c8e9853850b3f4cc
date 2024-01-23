@@ -166,6 +166,30 @@
       },
       "revId": "5e6f44ecd33564ca34c610d7c8e9853850b3f4cc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aeda353f_c7ba906e",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-01-23T16:20:03Z",
+      "side": 1,
+      "message": "Yes, might as do that since you have a structure now to encapsulate the functionality.\n\nJust to say, arm_gpt_setup() could be made a more global helper (accessible outside plat/arm), in which case having dependancy on lib/gpt APIs is better suited. Adding the plat_arm_* call inside will make it incovenient at that time, but I guess we can refactor it that time as necessary.",
+      "parentUuid": "16a5b026_1ef08149",
+      "range": {
+        "startLine": 213,
+        "startChar": 19,
+        "endLine": 213,
+        "endChar": 48
+      },
+      "revId": "5e6f44ecd33564ca34c610d7c8e9853850b3f4cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
