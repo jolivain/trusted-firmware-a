@@ -46,6 +46,30 @@
       },
       "revId": "5e6f44ecd33564ca34c610d7c8e9853850b3f4cc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccad1f1c_ab5c81a2",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-01-23T14:53:53Z",
+      "side": 1,
+      "message": "Although, this has been done to keep the prototype similar to MMU table retrieval. Let me know your thoughts.",
+      "parentUuid": "636b0d44_653ca452",
+      "range": {
+        "startLine": 213,
+        "startChar": 19,
+        "endLine": 213,
+        "endChar": 48
+      },
+      "revId": "5e6f44ecd33564ca34c610d7c8e9853850b3f4cc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
