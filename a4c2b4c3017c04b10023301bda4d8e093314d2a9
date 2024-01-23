@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43a920f2_7a2fcb2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-23T06:35:49Z",
+      "side": 1,
+      "message": "Will review if any doc changes are needed. But just so that I am understanding you right, you are suggesting any relevant doc changes in a separate patch?",
+      "parentUuid": "a9a0d65e_d71ce7cf",
+      "revId": "a4c2b4c3017c04b10023301bda4d8e093314d2a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0369fea_96ca032d",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-22T12:57:26Z",
       "side": 1,
       "message": "This link may be updated?\nSame for the 3 occurrences in docs folder",
+      "revId": "a4c2b4c3017c04b10023301bda4d8e093314d2a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4186053b_c2ba9e8d",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-23T06:35:49Z",
+      "side": 1,
+      "message": "Will do. Thanks for pointing this out.",
+      "parentUuid": "d0369fea_96ca032d",
       "revId": "a4c2b4c3017c04b10023301bda4d8e093314d2a9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
