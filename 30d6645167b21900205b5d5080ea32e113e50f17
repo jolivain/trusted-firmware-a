@@ -134,6 +134,24 @@
       },
       "revId": "30d6645167b21900205b5d5080ea32e113e50f17",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2c54366_190aa76e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-01-23T18:49:54Z",
+      "side": 1,
+      "message": "Thanks for the details, Bipin.\nMakes more sense, that from the readability aspect we need the implementation this way.",
+      "parentUuid": "fe180c22_da81c13e",
+      "revId": "30d6645167b21900205b5d5080ea32e113e50f17",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
