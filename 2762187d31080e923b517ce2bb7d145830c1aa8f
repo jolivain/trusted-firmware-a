@@ -16,6 +16,24 @@
       "message": "commit lint says\nfooter\u0027s lines must not be longer than 100 characters [footer-max-line-length]\n\nbut this is a weblink I\u0027m not sure I want to clip the link in the commit message..",
       "revId": "2762187d31080e923b517ce2bb7d145830c1aa8f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "929c9925_cb88c00d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-01-23T16:09:41Z",
+      "side": 1,
+      "message": "I think we just have to ignore it.",
+      "parentUuid": "35b953d6_3974f08f",
+      "revId": "2762187d31080e923b517ce2bb7d145830c1aa8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }

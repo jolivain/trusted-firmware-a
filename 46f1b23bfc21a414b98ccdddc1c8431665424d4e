@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d90a85e_8c9a33df",
+        "filename": "plat/arm/common/fconf/arm_fconf_sp.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-01-23T16:09:41Z",
+      "side": 1,
+      "message": "I dont see any harm with memcpy in this instance but did you consider memcpy_s?",
+      "range": {
+        "startLine": 77,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 8
+      },
+      "revId": "46f1b23bfc21a414b98ccdddc1c8431665424d4e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
