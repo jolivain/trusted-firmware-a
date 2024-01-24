@@ -34,6 +34,24 @@
       "parentUuid": "ad314028_308bc036",
       "revId": "1beb8a86c4951c2c0626dca9d2c989f515eaae25",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01ddca6b_33a3d707",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-01-24T10:46:18Z",
+      "side": 1,
+      "message": "For the sake of discussing this possibility as well:\nWould it be worth making the build system set the EANBLE_SVE/SME_FOR_SWD options if SPMD is present?\n\nThe intent in this case would be to avoid breaking downstream builds that might be using the said options...",
+      "parentUuid": "34350d29_194bf4f6",
+      "revId": "1beb8a86c4951c2c0626dca9d2c989f515eaae25",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
