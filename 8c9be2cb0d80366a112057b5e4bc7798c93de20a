@@ -153,6 +153,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af1203a7_a50bb599",
+        "filename": "include/lib/psa/dice_protection_environment.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-01-24T16:13:14Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "cfa3d451_ef58589c",
+      "range": {
+        "startLine": 8,
+        "startChar": 8,
+        "endLine": 8,
+        "endChar": 17
+      },
+      "revId": "8c9be2cb0d80366a112057b5e4bc7798c93de20a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f89a96f4_d68b4bdb",
@@ -199,6 +223,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb3cd91f_37051dcf",
+        "filename": "lib/psa/dice_protection_environment.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-01-24T16:13:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad598876_331dd0ec",
+      "range": {
+        "startLine": 225,
+        "startChar": 1,
+        "endLine": 225,
+        "endChar": 42
+      },
+      "revId": "8c9be2cb0d80366a112057b5e4bc7798c93de20a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccef2971_62c5b3f3",
@@ -212,6 +260,30 @@
       "writtenOn": "2023-12-13T13:55:03Z",
       "side": 1,
       "message": "Should this be skipped if `psa_call()` returned an error?",
+      "range": {
+        "startLine": 274,
+        "startChar": 1,
+        "endLine": 274,
+        "endChar": 35
+      },
+      "revId": "8c9be2cb0d80366a112057b5e4bc7798c93de20a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acecdee4_b6409584",
+        "filename": "lib/psa/dice_protection_environment.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-01-24T16:13:14Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ccef2971_62c5b3f3",
       "range": {
         "startLine": 274,
         "startChar": 1,
@@ -307,6 +379,30 @@
       "side": 1,
       "message": "Fair enough.",
       "parentUuid": "651db83c_b502bf8f",
+      "range": {
+        "startLine": 328,
+        "startChar": 12,
+        "endLine": 328,
+        "endChar": 27
+      },
+      "revId": "8c9be2cb0d80366a112057b5e4bc7798c93de20a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55f8f71b_2a55d7fe",
+        "filename": "lib/psa/dice_protection_environment.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-01-24T16:13:14Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "ece8adc0_183b45d1",
       "range": {
         "startLine": 328,
         "startChar": 12,
