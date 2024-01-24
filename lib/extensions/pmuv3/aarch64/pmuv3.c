@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023, Arm Limited. All rights reserved.
+ * Copyright (c) 2023-2024, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -26,9 +26,9 @@ void pmuv3_enable(cpu_context_t *ctx)
 #if CTX_INCLUDE_EL2_REGS
 	u_register_t mdcr_el2;
 
-	mdcr_el2 = read_ctx_reg(get_el2_sysregs_ctx(ctx), CTX_MDCR_EL2);
+	mdcr_el2 = read_el2_ctx_common(get_el2_sysregs_ctx(ctx), mdcr_el2);
 	mdcr_el2 = init_mdcr_el2_hpmn(mdcr_el2);
-	write_ctx_reg(get_el2_sysregs_ctx(ctx), CTX_MDCR_EL2, mdcr_el2);
+	write_el2_ctx_common(get_el2_sysregs_ctx(ctx), mdcr_el2, mdcr_el2);
 #endif /* CTX_INCLUDE_EL2_REGS */
 }
 
