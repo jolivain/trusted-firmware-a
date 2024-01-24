@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f02a5f3_bb02f1b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-24T12:05:14Z",
+      "side": 1,
+      "message": "How come we did not detect this issue before then? Is it because, despite using `OVERRIDE_LIBC\u003d1`, Arm and Tegra platforms ports do not use the `memcpy_s()` function? Or is it because we have a test gap in the OpenCI?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 42
+      },
+      "revId": "a1b3f4f4bb627d9e4935ec036b51ee09cf401265",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea731ee3_d7f61afb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-24T12:05:14Z",
+      "side": 1,
+      "message": "The code changes look good to me but I\u0027d like to clarify the testing side of things before approving the patch.",
+      "revId": "a1b3f4f4bb627d9e4935ec036b51ee09cf401265",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
