@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -112,8 +112,8 @@ __dead2 void rmmd_rmm_sync_exit(uint64_t rc)
 
 static void rmm_el2_context_init(el2_sysregs_t *regs)
 {
-	regs->ctx_regs[CTX_SPSR_EL2 >> 3] = REALM_SPSR_EL2;
-	regs->ctx_regs[CTX_SCTLR_EL2 >> 3] = SCTLR_EL2_RES1;
+	write_el2_ctx_common(regs, cm, ctx_spsr_el2, REALM_SPSR_EL2);
+	write_el2_ctx_common(regs, cm, ctx_sctlr_el2, SCTLR_EL2_RES1);
 }
 
 /*******************************************************************************
