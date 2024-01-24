@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "537d4ba1_8c655f82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-24T12:44:23Z",
+      "side": 1,
+      "message": "\u003e I\u0027m not sure how this platform code can build though as memcpy_s may not be defined. Perhaps it\u0027s just dead code?\n\nActually on second thought, provided Intel has OVERRIDE_LIBC\u003d0 then memcpy_s is defined in the C-only version of the libc implementation (lib/libc/libc.mk). So should be able to build eventually.",
+      "parentUuid": "e8c9cc1d_e9ca167c",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 42
+      },
+      "revId": "a1b3f4f4bb627d9e4935ec036b51ee09cf401265",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ea731ee3_d7f61afb",
