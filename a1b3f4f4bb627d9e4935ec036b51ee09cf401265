@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f83f22a3_88cfa7b2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-24T13:14:43Z",
+      "side": 1,
+      "message": "Right, I think I got it.\n\n* Tegra platform makefile forcefully sets `OVERRIDE_LIBC` but it does not pull `socfpga_ros.c` thus it does not use `memcpy_s()`.\n\n* Agilex and Agilex5 platforms do not override `OVERRIDE_LIBC`, which means they get the default value (`OVERRIDE_LIBC\u003d0`) and use the C-only version of the libc. Thus, they can use `memcpy_s()`, which they do from `socfpga_ros.c`.\n\nSo all is fine and this does not unveil any test gap in Intel build configs in the CI.",
+      "parentUuid": "537d4ba1_8c655f82",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 42
+      },
+      "revId": "a1b3f4f4bb627d9e4935ec036b51ee09cf401265",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ea731ee3_d7f61afb",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
