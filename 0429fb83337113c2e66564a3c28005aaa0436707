@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23fe9971_7f46171c",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_lsp_ras_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-01-24T19:43:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19cc658c_2f7bb310",
+      "range": {
+        "startLine": 32,
+        "startChar": 34,
+        "endLine": 32,
+        "endChar": 49
+      },
+      "revId": "0429fb83337113c2e66564a3c28005aaa0436707",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1813fa42_ba5c20d1",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-24T17:04:45Z",
       "side": 1,
       "message": "nitpick: space",
+      "range": {
+        "startLine": 36,
+        "startChar": 59,
+        "endLine": 36,
+        "endChar": 61
+      },
+      "revId": "0429fb83337113c2e66564a3c28005aaa0436707",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f668fa4_a663d1f2",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_lsp_ras_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-01-24T19:43:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1813fa42_ba5c20d1",
       "range": {
         "startLine": 36,
         "startChar": 59,
@@ -118,6 +166,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdc559cb_13dfa24d",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_lsp_ras_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-01-24T19:43:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebb98c0d_0a62bddb",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 32
+      },
+      "revId": "0429fb83337113c2e66564a3c28005aaa0436707",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3e6ef79_f37b8e35",
@@ -131,6 +203,30 @@
       "writtenOn": "2024-01-24T17:04:45Z",
       "side": 1,
       "message": "Could it be unsigned and avoid a cast at line 87 ?",
+      "range": {
+        "startLine": 56,
+        "startChar": 10,
+        "endLine": 56,
+        "endChar": 19
+      },
+      "revId": "0429fb83337113c2e66564a3c28005aaa0436707",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74134f1a_dde8e460",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_lsp_ras_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-01-24T19:43:45Z",
+      "side": 1,
+      "message": "The argument passed to sdei_dispatch_event must be an int while the read_ctx_reg() returns an uint32_t.\nI am not sure we can avoid a cast.",
+      "parentUuid": "e3e6ef79_f37b8e35",
       "range": {
         "startLine": 56,
         "startChar": 10,
@@ -164,6 +260,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9888517_f48754ea",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_lsp_ras_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-01-24T19:43:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5618031_d9221f60",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 22
+      },
+      "revId": "0429fb83337113c2e66564a3c28005aaa0436707",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c7c584c_e5c74c5e",
@@ -177,6 +297,24 @@
       "writtenOn": "2024-01-24T17:04:45Z",
       "side": 1,
       "message": "Check x0 (FF-A direct resp. func id) and x2 source/destination fields?",
+      "revId": "0429fb83337113c2e66564a3c28005aaa0436707",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2efb551b_69851674",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_lsp_ras_sp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-01-24T19:43:45Z",
+      "side": 1,
+      "message": "This is already done within the plat_spmd_logical_sp_smc_handler through spmd_el3_ffa_msg_direct_req() helper function.",
+      "parentUuid": "2c7c584c_e5c74c5e",
       "revId": "0429fb83337113c2e66564a3c28005aaa0436707",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -241,6 +379,30 @@
       "writtenOn": "2024-01-24T17:04:45Z",
       "side": 1,
       "message": "Would it be possible to club with the existing PLAT_TEST_SPM ?\n\nBTW I wonder that we could make PLAT_TEST_SPM\u003d1 a default for FVP?",
+      "range": {
+        "startLine": 402,
+        "startChar": 13,
+        "endLine": 402,
+        "endChar": 41
+      },
+      "revId": "0429fb83337113c2e66564a3c28005aaa0436707",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "887ce4b4_ad260f85",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-01-24T19:43:45Z",
+      "side": 1,
+      "message": "I believe it is better to keep them separate. They are used as part of different build configs and different test configs.\nPLATFORM_TEST_FFH_LSP_RAS_SP is only useful in one special test config where we validate RAS handling. PLAT_TEST_SPM is needed for all test configs that involve hafnium spmc.",
+      "parentUuid": "b247af80_26af9fe9",
       "range": {
         "startLine": 402,
         "startChar": 13,
