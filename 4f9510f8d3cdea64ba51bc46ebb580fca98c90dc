@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0bbd3f8_f4918b25",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-01-24T23:17:15Z",
+      "side": 1,
+      "message": "I don\u0027t find this line very useful, TBH. To simplify, maybe you can use `armv8-2-a-feats` to hold only the features that belong to v8.2-a specifically, and then do `FEAT_LIST +\u003d ${armv8-2-a-feats}` instead of `FEAT_LIST :\u003d ${armv8-2-a-feats}`. This way, the code looks clearer and for each version, you don\u0027t depend on the previous one, but just add on FEAT_LIST instead.\nThe same applies for the other versions further on.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 45
+      },
+      "revId": "4f9510f8d3cdea64ba51bc46ebb580fca98c90dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
