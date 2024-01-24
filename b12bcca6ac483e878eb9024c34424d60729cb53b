@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e19bd9c_42e9c53a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-24T09:43:54Z",
+      "side": 1,
+      "message": "feat(stm32mp1): only\nThis is to follow conventional commits (https://trustedfirmware-a.readthedocs.io/en/latest/process/commit-style.html#commit-style)",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 14
+      },
+      "revId": "b12bcca6ac483e878eb9024c34424d60729cb53b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "529ca9f9_19f03722",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-24T09:43:54Z",
+      "side": 1,
+      "message": "this word should be on next line",
+      "range": {
+        "startLine": 10,
+        "startChar": 57,
+        "endLine": 10,
+        "endChar": 73
+      },
+      "revId": "b12bcca6ac483e878eb9024c34424d60729cb53b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a2cd9e2_e849e01b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-24T09:43:54Z",
+      "side": 1,
+      "message": "Hi Robin, thanks for your patch.\nI\u0027ve made some comments about the patch itself.\nBut I\u0027d like to understand your use case. If STM32_TF_VERSION is not changed, no OTP fuse will be updated. So why would you update this value on a development software? Maybe I miss some information here",
+      "revId": "b12bcca6ac483e878eb9024c34424d60729cb53b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e345d828_6caeb33a",
+        "filename": "plat/st/stm32mp1/bl2_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-24T09:43:54Z",
+      "side": 1,
+      "message": "The code to check closed devices has changed this week in TF-A repository, please check https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/25664. The new test can be found at line 324.\n\nThe test also misses braces to follow MISRA recommendation.\n\nThat said it looks like, as you said in commit message, a debug feature. So it should IMHO be under DEBUG flag.",
+      "revId": "b12bcca6ac483e878eb9024c34424d60729cb53b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
