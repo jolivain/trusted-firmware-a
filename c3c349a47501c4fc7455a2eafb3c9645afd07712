@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cde44010_b91f2757",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-24T15:27:13Z",
+      "side": 1,
+      "message": "IIUC the caller needs to know whether it is being called before the normal console has been setup in order to call the appropriate macro (EARLY_ERROR() or ERROR()). I imagine this could be problematic in some cases... There could be cases where we do not know? Can\u0027t we make it transparent to the caller instead? Could we always call ERROR() and let the framework figure out which variant to call?\n\nTBH I am struggling to understand what exactly this patch buys us... When I originally read the commit title, I thought we were introducing another type of console scope, along side the existing \u0027boot\u0027 and \u0027runtime\u0027 ones, but this is not the case. Could we not achieve the same result by:\n- having platform code initialize its boot console earlier;\n- calling ERROR()-like macros as usual\n?\n\nSorry, I think I am missing something, it would be great if you could help me understand better.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 59
+      },
+      "revId": "c3c349a47501c4fc7455a2eafb3c9645afd07712",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2566f6e3_e1103652",
         "filename": "include/common/debug.h",
         "patchSetId": 4
@@ -91,6 +114,29 @@
         "startChar": 8,
         "endLine": 95,
         "endChar": 19
+      },
+      "revId": "c3c349a47501c4fc7455a2eafb3c9645afd07712",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ec74319_022b67fc",
+        "filename": "include/common/debug.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-24T15:27:13Z",
+      "side": 1,
+      "message": "Should these call `no_tf_log()` to at least enforce type checking on the arguments? (see comment at lines 51-53)",
+      "range": {
+        "startLine": 101,
+        "startChar": 8,
+        "endLine": 101,
+        "endChar": 24
       },
       "revId": "c3c349a47501c4fc7455a2eafb3c9645afd07712",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
