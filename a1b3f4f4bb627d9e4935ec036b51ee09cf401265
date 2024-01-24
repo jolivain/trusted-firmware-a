@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "188bbc16_5fbdde1c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-01-24T16:08:15Z",
+      "side": 1,
+      "message": "I can see why this mistake happened. Its because its not intuitive to update asm version of the makefile when a c source file is being added.\nCould you move lines 7 through 34 into a common file named libc_common.mk and then add it to both libc_asm.mk as well as libc.mk?\n\nThis will make sure such a mistake does not repeat in the future.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 59
+      },
+      "revId": "a1b3f4f4bb627d9e4935ec036b51ee09cf401265",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5f02a5f3_bb02f1b1",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
