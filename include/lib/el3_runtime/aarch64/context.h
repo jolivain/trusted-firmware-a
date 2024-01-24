@@ -157,102 +157,11 @@
  */
 #define CTX_EL1_SYSREGS_END		CTX_MTE_REGS_END
 
-/*
- * EL2 register set
- */
-
-#if CTX_INCLUDE_EL2_REGS
-/* For later discussion
- * ICH_AP0R<n>_EL2
- * ICH_AP1R<n>_EL2
- * AMEVCNTVOFF0<n>_EL2
- * AMEVCNTVOFF1<n>_EL2
- * ICH_LR<n>_EL2
- */
-#define CTX_EL2_SYSREGS_OFFSET	(CTX_EL1_SYSREGS_OFFSET + CTX_EL1_SYSREGS_END)
-
-#define CTX_ACTLR_EL2		U(0x0)
-#define CTX_AFSR0_EL2		U(0x8)
-#define CTX_AFSR1_EL2		U(0x10)
-#define CTX_AMAIR_EL2		U(0x18)
-#define CTX_CNTHCTL_EL2		U(0x20)
-#define CTX_CNTVOFF_EL2		U(0x28)
-#define CTX_CPTR_EL2		U(0x30)
-#define CTX_DBGVCR32_EL2	U(0x38)
-#define CTX_ELR_EL2		U(0x40)
-#define CTX_ESR_EL2		U(0x48)
-#define CTX_FAR_EL2		U(0x50)
-#define CTX_HACR_EL2		U(0x58)
-#define CTX_HCR_EL2		U(0x60)
-#define CTX_HPFAR_EL2		U(0x68)
-#define CTX_HSTR_EL2		U(0x70)
-#define CTX_ICC_SRE_EL2		U(0x78)
-#define CTX_ICH_HCR_EL2		U(0x80)
-#define CTX_ICH_VMCR_EL2	U(0x88)
-#define CTX_MAIR_EL2		U(0x90)
-#define CTX_MDCR_EL2		U(0x98)
-#define CTX_PMSCR_EL2		U(0xa0)
-#define CTX_SCTLR_EL2		U(0xa8)
-#define CTX_SPSR_EL2		U(0xb0)
-#define CTX_SP_EL2		U(0xb8)
-#define CTX_TCR_EL2		U(0xc0)
-#define CTX_TPIDR_EL2		U(0xc8)
-#define CTX_TTBR0_EL2		U(0xd0)
-#define CTX_VBAR_EL2		U(0xd8)
-#define CTX_VMPIDR_EL2		U(0xe0)
-#define CTX_VPIDR_EL2		U(0xe8)
-#define CTX_VTCR_EL2		U(0xf0)
-#define CTX_VTTBR_EL2		U(0xf8)
-
-// Only if MTE registers in use
-#define CTX_TFSR_EL2		U(0x100)
-
-// Starting with Armv8.6
-#define CTX_HDFGRTR_EL2		U(0x108)
-#define CTX_HAFGRTR_EL2		U(0x110)
-#define CTX_HDFGWTR_EL2		U(0x118)
-#define CTX_HFGITR_EL2		U(0x120)
-#define CTX_HFGRTR_EL2		U(0x128)
-#define CTX_HFGWTR_EL2		U(0x130)
-#define CTX_CNTPOFF_EL2		U(0x138)
-
-// Starting with Armv8.4
-#define CTX_CONTEXTIDR_EL2	U(0x140)
-#define CTX_TTBR1_EL2		U(0x148)
-#define CTX_VDISR_EL2		U(0x150)
-#define CTX_VSESR_EL2		U(0x158)
-#define CTX_VNCR_EL2		U(0x160)
-#define CTX_TRFCR_EL2		U(0x168)
-
-// Starting with Armv8.5
-#define CTX_SCXTNUM_EL2		U(0x170)
-
-// Register for FEAT_HCX
-#define CTX_HCRX_EL2            U(0x178)
-
-// Starting with Armv8.9
-#define CTX_TCR2_EL2            U(0x180)
-#define CTX_POR_EL2             U(0x188)
-#define CTX_PIRE0_EL2           U(0x190)
-#define CTX_PIR_EL2             U(0x198)
-#define CTX_S2PIR_EL2		U(0x1a0)
-#define CTX_GCSCR_EL2           U(0x1a8)
-#define CTX_GCSPR_EL2           U(0x1b0)
-
-/* Align to the next 16 byte boundary */
-#define CTX_EL2_SYSREGS_END	U(0x1c0)
-
-#endif /* CTX_INCLUDE_EL2_REGS */
-
 /*******************************************************************************
  * Constants that allow assembler code to access members of and the 'fp_regs'
  * structure at their correct offsets.
  ******************************************************************************/
-#if CTX_INCLUDE_EL2_REGS
-# define CTX_FPREGS_OFFSET	(CTX_EL2_SYSREGS_OFFSET + CTX_EL2_SYSREGS_END)
-#else
 # define CTX_FPREGS_OFFSET	(CTX_EL1_SYSREGS_OFFSET + CTX_EL1_SYSREGS_END)
-#endif
 #if CTX_INCLUDE_FPREGS
 #define CTX_FP_Q0		U(0x0)
 #define CTX_FP_Q1		U(0x10)
@@ -293,10 +202,10 @@
 #define CTX_FPREGS_END		U(0x220) /* Align to the next 16 byte boundary */
 #else
 #define CTX_FPREGS_END		U(0x210) /* Align to the next 16 byte boundary */
-#endif
+#endif /* CTX_INCLUDE_AARCH32_REGS */
 #else
 #define CTX_FPREGS_END		U(0)
-#endif
+#endif /* CTX_INCLUDE_FPREGS */
 
 /*******************************************************************************
  * Registers related to CVE-2018-3639
@@ -373,9 +282,7 @@
 /* Constants to determine the size of individual context structures */
 #define CTX_GPREG_ALL		(CTX_GPREGS_END >> DWORD_SHIFT)
 #define CTX_EL1_SYSREGS_ALL	(CTX_EL1_SYSREGS_END >> DWORD_SHIFT)
-#if CTX_INCLUDE_EL2_REGS
-# define CTX_EL2_SYSREGS_ALL	(CTX_EL2_SYSREGS_END >> DWORD_SHIFT)
-#endif
+
 #if CTX_INCLUDE_FPREGS
 # define CTX_FPREG_ALL		(CTX_FPREGS_END >> DWORD_SHIFT)
 #endif
@@ -387,6 +294,322 @@
 #if CTX_INCLUDE_MPAM_REGS
 # define CTX_MPAM_REGS_ALL	(CTX_MPAM_REGS_END >> DWORD_SHIFT)
 #endif
+
+/*******************************************************************************
+ * EL2 Registers:
+ * AArch64 EL2 system register context structure for preserving the
+ * architectural state during world switches.
+ ******************************************************************************/
+#if CTX_INCLUDE_EL2_REGS
+typedef struct el2_common_regs {
+	uint64_t actlr_el2;
+	uint64_t afsr0_el2;
+	uint64_t afsr1_el2;
+	uint64_t amair_el2;
+	uint64_t cnthctl_el2;
+	uint64_t cntvoff_el2;
+	uint64_t cptr_el2;
+	uint64_t dbgvcr32_el2;
+	uint64_t elr_el2;
+	uint64_t esr_el2;
+	uint64_t far_el2;
+	uint64_t hacr_el2;
+	uint64_t hcr_el2;
+	uint64_t hpfar_el2;
+	uint64_t hstr_el2;
+	uint64_t icc_sre_el2;
+	uint64_t ich_hcr_el2;
+	uint64_t ich_vmcr_el2;
+	uint64_t mair_el2;
+	uint64_t mdcr_el2;
+	uint64_t pmscr_el2;
+	uint64_t sctlr_el2;
+	uint64_t spsr_el2;
+	uint64_t sp_el2;
+	uint64_t tcr_el2;
+	uint64_t tpidr_el2;
+	uint64_t ttbr0_el2;
+	uint64_t vbar_el2;
+	uint64_t vmpidr_el2;
+	uint64_t vpidr_el2;
+	uint64_t vtcr_el2;
+	uint64_t vttbr_el2;
+} el2_common_regs_t;
+
+typedef struct el2_mte_regs {
+	uint64_t tfsr_el2;
+} el2_mte_regs_t;
+
+typedef struct el2_fgt_regs {
+	uint64_t hdfgrtr_el2;
+	uint64_t hafgrtr_el2;
+	uint64_t hdfgwtr_el2;
+	uint64_t hfgitr_el2;
+	uint64_t hfgrtr_el2;
+	uint64_t hfgwtr_el2;
+} el2_fgt_regs_t;
+
+typedef struct el2_ecv_regs {
+	uint64_t cntpoff_el2;
+} el2_ecv_regs_t;
+
+typedef struct el2_vhe_regs {
+	uint64_t contextidr_el2;
+	uint64_t ttbr1_el2;
+} el2_vhe_regs_t;
+
+typedef struct el2_ras_regs {
+	uint64_t vdisr_el2;
+	uint64_t vsesr_el2;
+} el2_ras_regs_t;
+
+typedef struct el2_neve_regs {
+	uint64_t vncr_el2;
+} el2_neve_regs_t;
+
+typedef struct el2_trf_regs {
+	uint64_t trfcr_el2;
+} el2_trf_regs_t;
+
+typedef struct el2_csv2_regs {
+	uint64_t scxtnum_el2;
+} el2_csv2_regs_t;
+
+typedef struct el2_hcx_regs {
+	uint64_t hcrx_el2;
+} el2_hcx_regs_t;
+
+typedef struct el2_tcr2_regs {
+	uint64_t tcr2_el2;
+} el2_tcr2_regs_t;
+
+typedef struct el2_sxpoe_regs {
+	uint64_t por_el2;
+} el2_sxpoe_regs_t;
+
+typedef struct el2_sxpie_regs {
+	uint64_t pire0_el2;
+	uint64_t pir_el2;
+} el2_sxpie_regs_t;
+
+typedef struct el2_s2pie_regs {
+	uint64_t s2pir_el2;
+} el2_s2pie_regs_t;
+
+typedef struct el2_gcs_regs {
+	uint64_t gcscr_el2;
+	uint64_t gcspr_el2;
+} el2_gcs_regs_t;
+
+typedef struct el2_sysregs {
+
+	el2_common_regs_t common;
+
+#if ENABLE_FEAT_MTE
+	el2_mte_regs_t mte;
+#endif
+
+#if ENABLE_FEAT_FGT
+	el2_fgt_regs_t fgt;
+#endif
+
+#if ENABLE_FEAT_ECV
+	el2_ecv_regs_t ecv;
+#endif
+
+#if ENABLE_FEAT_VHE
+	el2_vhe_regs_t vhe;
+#endif
+
+#if ENABLE_FEAT_RAS
+	el2_ras_regs_t ras;
+#endif
+
+#if CTX_INCLUDE_NEVE_REGS
+	el2_neve_regs_t neve;
+#endif
+
+#if ENABLE_TRF_FOR_NS
+	el2_trf_regs_t trf;
+#endif
+
+#if ENABLE_FEAT_CSV2_2
+	el2_csv2_regs_t csv2;
+#endif
+
+#if ENABLE_FEAT_HCX
+	el2_hcx_regs_t hcx;
+#endif
+
+#if ENABLE_FEAT_TCR2
+	el2_tcr2_regs_t tcr2;
+#endif
+
+#if (ENABLE_FEAT_S1POE || ENABLE_FEAT_S2POE)
+	el2_sxpoe_regs_t sxpoe;
+#endif
+
+#if (ENABLE_FEAT_S1PIE || ENABLE_FEAT_S2PIE)
+	el2_sxpie_regs_t sxpie;
+#endif
+
+#if ENABLE_FEAT_S2PIE
+	el2_s2pie_regs_t s2pie;
+#endif
+
+#if ENABLE_FEAT_GCS
+	el2_gcs_regs_t gcs;
+#endif
+
+} el2_sysregs_t;
+
+
+/*
+ * If the feature flag is disabled, then this macro is used in place of
+ * write_el2_ctx_* macro below, with an intent to avoid having an empty string.
+ */
+#define no_ctx()					\
+	do {						\
+			/* Do nothing */		\
+	} while (false)
+
+/*
+ * Macros to access members related to individual features of the el2_sysregs_t
+ * structures.
+ */
+#define read_el2_ctx_common(ctx, reg)		(((ctx)->common).reg)
+
+#define write_el2_ctx_common(ctx, reg, val)	((((ctx)->common).reg)	\
+							= (uint64_t) (val))
+
+#if ENABLE_FEAT_MTE
+#define read_el2_ctx_mte(ctx, reg)		(((ctx)->mte).reg)
+#define write_el2_ctx_mte(ctx, reg, val)	((((ctx)->mte).reg)	\
+							= (uint64_t) (val))
+#else
+#define read_el2_ctx_mte(ctx, reg)		ULL(0)
+#define write_el2_ctx_mte(ctx, reg, val)	no_ctx()
+#endif /* ENABLE_FEAT_MTE */
+
+#if ENABLE_FEAT_FGT
+#define read_el2_ctx_fgt(ctx, reg)		(((ctx)->fgt).reg)
+#define write_el2_ctx_fgt(ctx, reg, val)	((((ctx)->fgt).reg)	\
+							= (uint64_t) (val))
+#else
+#define read_el2_ctx_fgt(ctx, reg)		ULL(0)
+#define write_el2_ctx_fgt(ctx, reg, val)
+#endif /* ENABLE_FEAT_FGT */
+
+#if ENABLE_FEAT_ECV
+#define read_el2_ctx_ecv(ctx, reg)		(((ctx)->ecv).reg)
+#define write_el2_ctx_ecv(ctx, reg, val)	((((ctx)->ecv).reg)	\
+							= (uint64_t) (val))
+#else
+#define read_el2_ctx_ecv(ctx, reg)		ULL(0)
+#define write_el2_ctx_ecv(ctx, reg, val)
+#endif /* ENABLE_FEAT_ECV */
+
+#if ENABLE_FEAT_VHE
+#define read_el2_ctx_vhe(ctx, reg)		(((ctx)->vhe).reg)
+#define write_el2_ctx_vhe(ctx, reg, val)	((((ctx)->vhe).reg)	\
+							= (uint64_t) (val))
+#else
+#define read_el2_ctx_vhe(ctx, reg)		ULL(0)
+#define write_el2_ctx_vhe(ctx, reg, val)
+#endif /* ENABLE_FEAT_VHE */
+
+#if ENABLE_FEAT_RAS
+#define read_el2_ctx_ras(ctx, reg)		(((ctx)->ras).reg)
+#define write_el2_ctx_ras(ctx, reg, val)	((((ctx)->ras).reg)	\
+							= (uint64_t) (val))
+#else
+#define read_el2_ctx_ras(ctx, reg)		ULL(0)
+#define write_el2_ctx_ras(ctx, reg, val)
+#endif /* ENABLE_FEAT_RAS */
+
+#if CTX_INCLUDE_NEVE_REGS
+#define read_el2_ctx_neve(ctx, reg)		(((ctx)->neve).reg)
+#define write_el2_ctx_neve(ctx, reg, val)	((((ctx)->neve).reg)	\
+							= (uint64_t) (val))
+#else
+#define read_el2_ctx_neve(ctx, reg)		ULL(0)
+#define write_el2_ctx_neve(ctx, reg, val)
+#endif /* CTX_INCLUDE_NEVE_REGS */
+
+#if ENABLE_TRF_FOR_NS
+#define read_el2_ctx_trf(ctx, reg)		(((ctx)->trf).reg)
+#define write_el2_ctx_trf(ctx, reg, val)	((((ctx)->trf).reg)	\
+							= (uint64_t) (val))
+#else
+#define read_el2_ctx_trf(ctx, reg)		ULL(0)
+#define write_el2_ctx_trf(ctx, reg, val)
+#endif /* ENABLE_TRF_FOR_NS */
+
+#if ENABLE_FEAT_CSV2_2
+#define read_el2_ctx_csv2_2(ctx, reg)		(((ctx)->csv2).reg)
+#define write_el2_ctx_csv2_2(ctx, reg, val)	((((ctx)->csv2).reg)	\
+							= (uint64_t) (val))
+#else
+#define read_el2_ctx_csv2_2(ctx, reg)		ULL(0)
+#define write_el2_ctx_csv2_2(ctx, reg, val)
+#endif /* ENABLE_FEAT_CSV2_2 */
+
+#if ENABLE_FEAT_HCX
+#define read_el2_ctx_hcx(ctx, reg)		(((ctx)->hcx).reg)
+#define write_el2_ctx_hcx(ctx, reg, val)	((((ctx)->hcx).reg)	\
+							= (uint64_t) (val))
+#else
+#define read_el2_ctx_hcx(ctx, reg)		ULL(0)
+#define write_el2_ctx_hcx(ctx, reg, val)
+#endif /* ENABLE_FEAT_HCX */
+
+#if ENABLE_FEAT_TCR2
+#define read_el2_ctx_tcr2(ctx, reg)		(((ctx)->tcr2).reg)
+#define write_el2_ctx_tcr2(ctx, reg, val)	((((ctx)->tcr2).reg)	\
+							= (uint64_t) (val))
+#else
+#define read_el2_ctx_tcr2(ctx, reg)		ULL(0)
+#define write_el2_ctx_tcr2(ctx, reg, val)
+#endif /* ENABLE_FEAT_TCR2 */
+
+#if (ENABLE_FEAT_S1POE || ENABLE_FEAT_S2POE)
+#define read_el2_ctx_sxpoe(ctx, reg)		(((ctx)->sxpoe).reg)
+#define write_el2_ctx_sxpoe(ctx, reg, val)	((((ctx)->sxpoe).reg)	\
+							= (uint64_t) (val))
+#else
+#define read_el2_ctx_sxpoe(ctx, reg)		ULL(0)
+#define write_el2_ctx_sxpoe(ctx, reg, val)
+#endif /*(ENABLE_FEAT_S1POE || ENABLE_FEAT_S2POE) */
+
+#if (ENABLE_FEAT_S1PIE || ENABLE_FEAT_S2PIE)
+#define read_el2_ctx_sxpie(ctx, reg)		(((ctx)->sxpie).reg)
+#define write_el2_ctx_sxpie(ctx, reg, val)	((((ctx)->sxpie).reg)	\
+							= (uint64_t) (val))
+#else
+#define read_el2_ctx_sxpie(ctx, reg)		ULL(0)
+#define write_el2_ctx_sxpie(ctx, reg, val)
+#endif /*(ENABLE_FEAT_S1PIE || ENABLE_FEAT_S2PIE) */
+
+#if ENABLE_FEAT_S2PIE
+#define read_el2_ctx_s2pie(ctx, reg)		(((ctx)->s2pie).reg)
+#define write_el2_ctx_s2pie(ctx, reg, val)	((((ctx)->s2pie).reg)	\
+							= (uint64_t) (val))
+#else
+#define read_el2_ctx_s2pie(ctx, reg)		ULL(0)
+#define write_el2_ctx_s2pie(ctx, reg, val)
+#endif /* ENABLE_FEAT_S2PIE */
+
+#if ENABLE_FEAT_GCS
+#define read_el2_ctx_gcs(ctx, reg)		(((ctx)->gcs).reg)
+#define write_el2_ctx_gcs(ctx, reg, val)	((((ctx)->gcs).reg)	\
+							= (uint64_t) (val))
+#else
+#define read_el2_ctx_gcs(ctx, reg)		ULL(0)
+#define write_el2_ctx_gcs(ctx, reg, val)
+#endif /* ENABLE_FEAT_GCS */
+
+#endif /* CTX_INCLUDE_EL2_REGS */
+/******************************************************************************/
 
 /*
  * AArch64 general purpose register context structure. Usually x0-x18,
@@ -402,15 +625,6 @@ DEFINE_REG_STRUCT(gp_regs, CTX_GPREG_ALL);
  * architectural state during world switches.
  */
 DEFINE_REG_STRUCT(el1_sysregs, CTX_EL1_SYSREGS_ALL);
-
-
-/*
- * AArch64 EL2 system register context structure for preserving the
- * architectural state during world switches.
- */
-#if CTX_INCLUDE_EL2_REGS
-DEFINE_REG_STRUCT(el2_sysregs, CTX_EL2_SYSREGS_ALL);
-#endif
 
 /*
  * AArch64 floating point register context structure for preserving
@@ -460,19 +674,24 @@ typedef struct cpu_context {
 	gp_regs_t gpregs_ctx;
 	el3_state_t el3state_ctx;
 	el1_sysregs_t el1_sysregs_ctx;
-#if CTX_INCLUDE_EL2_REGS
-	el2_sysregs_t el2_sysregs_ctx;
-#endif
+
 #if CTX_INCLUDE_FPREGS
 	fp_regs_t fpregs_ctx;
 #endif
 	cve_2018_3639_t cve_2018_3639_ctx;
+
 #if CTX_INCLUDE_PAUTH_REGS
 	pauth_t pauth_ctx;
 #endif
+
 #if CTX_INCLUDE_MPAM_REGS
 	mpam_t	mpam_ctx;
 #endif
+
+#if CTX_INCLUDE_EL2_REGS
+	el2_sysregs_t el2_sysregs_ctx;
+#endif
+
 } cpu_context_t;
 
 /*
@@ -512,28 +731,30 @@ extern per_world_context_t per_world_context[CPU_DATA_CONTEXT_NUM];
  */
 CASSERT(CTX_GPREGS_OFFSET == __builtin_offsetof(cpu_context_t, gpregs_ctx),
 	assert_core_context_gp_offset_mismatch);
+
+CASSERT(CTX_EL3STATE_OFFSET == __builtin_offsetof(cpu_context_t, el3state_ctx),
+	assert_core_context_el3state_offset_mismatch);
+
 CASSERT(CTX_EL1_SYSREGS_OFFSET == __builtin_offsetof(cpu_context_t, el1_sysregs_ctx),
 	assert_core_context_el1_sys_offset_mismatch);
-#if CTX_INCLUDE_EL2_REGS
-CASSERT(CTX_EL2_SYSREGS_OFFSET == __builtin_offsetof(cpu_context_t, el2_sysregs_ctx),
-	assert_core_context_el2_sys_offset_mismatch);
-#endif
+
 #if CTX_INCLUDE_FPREGS
 CASSERT(CTX_FPREGS_OFFSET == __builtin_offsetof(cpu_context_t, fpregs_ctx),
 	assert_core_context_fp_offset_mismatch);
-#endif
-CASSERT(CTX_EL3STATE_OFFSET == __builtin_offsetof(cpu_context_t, el3state_ctx),
-	assert_core_context_el3state_offset_mismatch);
+#endif /* CTX_INCLUDE_FPREGS */
+
 CASSERT(CTX_CVE_2018_3639_OFFSET == __builtin_offsetof(cpu_context_t, cve_2018_3639_ctx),
 	assert_core_context_cve_2018_3639_offset_mismatch);
+
 #if CTX_INCLUDE_PAUTH_REGS
 CASSERT(CTX_PAUTH_REGS_OFFSET == __builtin_offsetof(cpu_context_t, pauth_ctx),
 	assert_core_context_pauth_offset_mismatch);
-#endif
+#endif /* CTX_INCLUDE_PAUTH_REGS */
+
 #if CTX_INCLUDE_MPAM_REGS
 CASSERT(CTX_MPAM_REGS_OFFSET == __builtin_offsetof(cpu_context_t, mpam_ctx),
 	assert_core_context_mpam_offset_mismatch);
-#endif
+#endif /* CTX_INCLUDE_MPAM_REGS */
 
 /*
  * Helper macro to set the general purpose registers that correspond to
