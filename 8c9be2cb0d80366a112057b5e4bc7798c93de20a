@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed48e19d_5accb77f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-01-24T16:13:44Z",
+      "side": 1,
+      "message": "moved around",
+      "parentUuid": "78843caf_816fb760",
+      "revId": "8c9be2cb0d80366a112057b5e4bc7798c93de20a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c08e658_f96c86c4",
@@ -190,6 +208,30 @@
       "writtenOn": "2023-12-13T13:55:03Z",
       "side": 1,
       "message": "Are we sure that this downcast from 64 to 32-bit integer will always be safe? Perhaps add a comment to explain why so?",
+      "range": {
+        "startLine": 141,
+        "startChar": 1,
+        "endLine": 141,
+        "endChar": 42
+      },
+      "revId": "8c9be2cb0d80366a112057b5e4bc7798c93de20a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0012b1d0_7a846a42",
+        "filename": "lib/psa/dice_protection_environment.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-01-24T16:13:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f89a96f4_d68b4bdb",
       "range": {
         "startLine": 141,
         "startChar": 1,
