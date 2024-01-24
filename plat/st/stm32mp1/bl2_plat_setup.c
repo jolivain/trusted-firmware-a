@@ -176,6 +176,9 @@ static void update_monotonic_counter(void)
 		assert_stm32mp1_monotonic_counter_reach_max);
 
 	/* Check if monotonic counter needs to be incremented */
+	if (!stm32mp_is_closed_device())
+		return;
+
 	if (stm32_get_otp_index(MONOTONIC_OTP, &otp, NULL) != 0) {
 		panic();
 	}
