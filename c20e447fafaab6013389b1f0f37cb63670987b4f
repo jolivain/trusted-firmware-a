@@ -94,6 +94,30 @@
       },
       "revId": "c20e447fafaab6013389b1f0f37cb63670987b4f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c1c198e_fc8a9fcf",
+        "filename": "drivers/measured_boot/rss/qcbor.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-01-24T16:10:14Z",
+      "side": 1,
+      "message": "Any recent master version is good for us. But we can mandate a tagged version `v1.2` if you like.\nThere is no way to extract version info from the header file like in mbedtls.\nWe can use a git command to check whether the expected commit hash was checked out.",
+      "parentUuid": "d01503c7_3243a13b",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "c20e447fafaab6013389b1f0f37cb63670987b4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
