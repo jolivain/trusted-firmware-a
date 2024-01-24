@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5061b72_b9714859",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-01-24T11:08:37Z",
+      "side": 1,
+      "message": "Keep the name \"gpt\" as it seems more apt.\n\narm_gpt_info,  plat_arm_get_gpt_info()",
+      "range": {
+        "startLine": 141,
+        "startChar": 29,
+        "endLine": 141,
+        "endChar": 34
+      },
+      "revId": "4c65141cf00958da806ee009e461b573f9e7de7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
