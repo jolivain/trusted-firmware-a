@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8c9cc1d_e9ca167c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-24T12:40:49Z",
+      "side": 1,
+      "message": "\u003e Arm and Tegra platforms ports do not use the memcpy_s() function?\n\nI believe so. I realized this by trying to use memcpy_s on FVP:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/25886/7/plat/arm/common/fconf/arm_fconf_sp.c#78\n\nBy greping I\u0027m seeing this:\n\n    make_helpers/defaults.mk:OVERRIDE_LIBC\t\t\t:\u003d 0\n    plat/nvidia/tegra/platform.mk:OVERRIDE_LIBC\t\t :\u003d\t1\n    plat/arm/common/arm_common.mk:OVERRIDE_LIBC\t\t\t:\u003d\t1\n    \nmeaning only Arm platforms and one Tegra platform force use the libc implementation allowing asm versions of libc functions (actually this is a rather partial asm implementation as only memset is concerned).\n    \nMoreover, only Intel platform invokes memcpy_s:\n\n    ./plat/intel/soc/common/socfpga_ros.c:\tmemcpy_s(\u0026spt_data, SPT_SIZE, spt_ptr, SPT_SIZE);\n\nI\u0027m not sure how this platform code can build though as memcpy_s may not be defined. Perhaps it\u0027s just dead code?",
+      "parentUuid": "5f02a5f3_bb02f1b1",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 42
+      },
+      "revId": "a1b3f4f4bb627d9e4935ec036b51ee09cf401265",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "ea731ee3_d7f61afb",
