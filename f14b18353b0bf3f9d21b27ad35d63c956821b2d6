@@ -404,6 +404,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d925858_97abb40a",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-24T10:03:41Z",
+      "side": 1,
+      "message": "JFYI, internally we\u0027ve decided to retain this warning for a while. We\u0027re optimistic about making a proper patch soon, one that effectively communicates the deprecated build options and outlines the removal strategy.",
+      "parentUuid": "b3f4ed7d_bd480c12",
+      "range": {
+        "startLine": 244,
+        "startChar": 0,
+        "endLine": 247,
+        "endChar": 5
+      },
+      "revId": "f14b18353b0bf3f9d21b27ad35d63c956821b2d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bec644ff_2e99efad",
