@@ -22,6 +22,30 @@
       },
       "revId": "eaff1d2115fe94eb6f44a2de9b171ede2b4c4caf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d091feb4_4b6b329b",
+        "filename": "plat/arm/board/arm_fpga/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2024-01-24T21:57:35Z",
+      "side": 1,
+      "message": "Using BL31_LDFLAGS here would cause, that debug information will be stripped from bl31.elf even for DEBUG\u003d1 builds. This is not the case now, only bl31.axf is stripped.",
+      "parentUuid": "0ccd0cff_2ee04fdf",
+      "range": {
+        "startLine": 131,
+        "startChar": 8,
+        "endLine": 131,
+        "endChar": 20
+      },
+      "revId": "eaff1d2115fe94eb6f44a2de9b171ede2b4c4caf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
