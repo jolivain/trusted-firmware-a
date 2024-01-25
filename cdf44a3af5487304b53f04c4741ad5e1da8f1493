@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef39a586_f64fbfad",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-01-25T15:45:18Z",
+      "side": 1,
+      "message": "For the bug Ack, will have a look.\n\nFor the is_feat_mte_supported() \u0026\u0026 get_armv8_5_mte_supported() comment\n\nFor features which support multiple versions (MTE, CSV2) I think we should introduce a wrapper function on top to support both feature states and versioning together of is_feat_xxx_ver1_supporte() is_feat_xxx_ver2_supported()\n\nget_feat_xxx_version()\n{\n  is_feat_xxx_version2_supported()  //Feature states sorted out here\n     return 2;\n  is_feat_xxx_version1_supported()\n     return1;\n     \n   return unsupported\n  }\n  \n  I have a comments for CSV2 feature here https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/25411/10/lib/el3_runtime/aarch64/context_mgmt.c#183",
+      "parentUuid": "3cfa5c3f_9b049700",
+      "range": {
+        "startLine": 1099,
+        "startChar": 5,
+        "endLine": 1099,
+        "endChar": 28
+      },
+      "revId": "cdf44a3af5487304b53f04c4741ad5e1da8f1493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a0b9165_24328f91",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 2
