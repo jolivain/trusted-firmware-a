@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c151ba92_f2fcf362",
+        "filename": "plat/arm/board/tc/fdts/tc_tb_fw_config.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-25T11:41:13Z",
+      "side": 1,
+      "message": "It\u0027s a bit late to change this now but have you considered using ARM_BL2_SP_LIST_DTS?\nYou can more dynamically inject a dts fragment with the list of SPs to declare.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 4
+      },
+      "revId": "004b9aaf84a539c53e96418c6da3e8992d2edea0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
