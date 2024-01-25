@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -107,7 +107,7 @@ func el1_sysregs_context_save
 #endif /* NS_TIMER_SWITCH */
 
 	/* Save MTE system registers if the build has instructed so */
-#if CTX_INCLUDE_MTE_REGS
+#if ENABLE_FEAT_MTE
 	mrs	x15, TFSRE0_EL1
 	mrs	x16, TFSR_EL1
 	stp	x15, x16, [x0, #CTX_TFSRE0_EL1]
@@ -115,7 +115,7 @@ func el1_sysregs_context_save
 	mrs	x9, RGSR_EL1
 	mrs	x10, GCR_EL1
 	stp	x9, x10, [x0, #CTX_RGSR_EL1]
-#endif /* CTX_INCLUDE_MTE_REGS */
+#endif /* ENABLE_FEAT_MTE */
 
 	ret
 endfunc el1_sysregs_context_save
@@ -206,7 +206,7 @@ func el1_sysregs_context_restore
 #endif /* NS_TIMER_SWITCH */
 
 	/* Restore MTE system registers if the build has instructed so */
-#if CTX_INCLUDE_MTE_REGS
+#if ENABLE_FEAT_MTE
 	ldp	x11, x12, [x0, #CTX_TFSRE0_EL1]
 	msr	TFSRE0_EL1, x11
 	msr	TFSR_EL1, x12
@@ -214,7 +214,7 @@ func el1_sysregs_context_restore
 	ldp	x13, x14, [x0, #CTX_RGSR_EL1]
 	msr	RGSR_EL1, x13
 	msr	GCR_EL1, x14
-#endif /* CTX_INCLUDE_MTE_REGS */
+#endif /* ENABLE_FEAT_MTE */
 
 	/* No explict ISB required here as ERET covers it */
 	ret
