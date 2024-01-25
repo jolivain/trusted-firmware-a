@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "439de781_fa2502be",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-25T13:10:04Z",
+      "side": 1,
+      "message": "I think this won\u0027t work anymore because we seek for MTE2 specifically, not MTE. Need to check if it remains helpers to get the exact implemented MTE version.",
+      "parentUuid": "4cbde766_8879f212",
+      "range": {
+        "startLine": 1099,
+        "startChar": 5,
+        "endLine": 1099,
+        "endChar": 28
+      },
+      "revId": "cdf44a3af5487304b53f04c4741ad5e1da8f1493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a0b9165_24328f91",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2024-01-25T12:28:49Z",
       "side": 1,
       "message": "Should this helper just say : flush_dcache_to_popa_range_mte (remove the `2` suffix) ? We might get variants of MTE in future and these PoPA operations are likely to remain the same.",
+      "range": {
+        "startLine": 1100,
+        "startChar": 29,
+        "endLine": 1100,
+        "endChar": 33
+      },
+      "revId": "cdf44a3af5487304b53f04c4741ad5e1da8f1493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a883812c_642f2de0",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1100,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-25T13:10:04Z",
+      "side": 1,
+      "message": "ok, this was to emphasize the above that it only applies to MTE2 and above.\nWith FEAT_MTE it shall use flush_dcache_to_popa_range (no mte variant)",
+      "parentUuid": "4a0b9165_24328f91",
       "range": {
         "startLine": 1100,
         "startChar": 29,
