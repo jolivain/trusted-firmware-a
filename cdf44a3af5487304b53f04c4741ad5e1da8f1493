@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3cfa5c3f_9b049700",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-01-25T14:53:25Z",
+      "side": 1,
+      "message": "Hmm, I see. There are DC operations for allocation tags when FEAT_MTE is present but this particular DC PoPA for same tags is only applicable when FEAT_MTE2 is present.\n\n\n(btw, we may have a bug in TF-A here : https://github.com/ARM-software/arm-trusted-firmware/blob/07da4854e919b0d0a217886666aefd95a003829a/lib/el3_runtime/aarch64/context_mgmt.c#L1259 as this register is only available when MTE2 is present).\n\n\nEither ways, we can define a combined helper or a specific mte2 variant.\n\n\n(is_feat_mte_supported() \u0026\u0026 get_armv8_5_mte_support() \u003e\u003d MTE_IMPLEMENTED_ELX)\n\nwhich might give the optimization when FEAT_MTE is 1 (or 0).",
+      "parentUuid": "439de781_fa2502be",
+      "range": {
+        "startLine": 1099,
+        "startChar": 5,
+        "endLine": 1099,
+        "endChar": 28
+      },
+      "revId": "cdf44a3af5487304b53f04c4741ad5e1da8f1493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a0b9165_24328f91",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 2
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "ok, this was to emphasize the above that it only applies to MTE2 and above.\nWith FEAT_MTE it shall use flush_dcache_to_popa_range (no mte variant)",
       "parentUuid": "4a0b9165_24328f91",
+      "range": {
+        "startLine": 1100,
+        "startChar": 29,
+        "endLine": 1100,
+        "endChar": 33
+      },
+      "revId": "cdf44a3af5487304b53f04c4741ad5e1da8f1493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78a2c523_a28d58de",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1100,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-01-25T14:53:25Z",
+      "side": 1,
+      "message": "Yes, this was strange to me as there are cache maintenance operations for MTE and not sure why the PoPA variant is only MTE2",
+      "parentUuid": "a883812c_642f2de0",
       "range": {
         "startLine": 1100,
         "startChar": 29,
