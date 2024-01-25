@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c2afeeb_2a6fc698",
+        "filename": "include/plat/arm/common/arm_sip_svc.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-01-25T19:10:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "223c30f8_0f5245e9",
+      "range": {
+        "startLine": 46,
+        "startChar": 7,
+        "endLine": 46,
+        "endChar": 11
+      },
+      "revId": "2582ca10fa9854eac49d97809f2641b4c1ac0e65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b80f19dd_2346e511",
@@ -41,6 +65,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a91c099_6c5ebc45",
+        "filename": "include/services/ffa_svc.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-01-25T19:10:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b80f19dd_2346e511",
+      "revId": "2582ca10fa9854eac49d97809f2641b4c1ac0e65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93a49ca5_2dc6cd6f",
@@ -54,6 +96,30 @@
       "writtenOn": "2024-01-23T21:00:02Z",
       "side": 1,
       "message": "I am curious why NOTICE but not INFO?",
+      "range": {
+        "startLine": 117,
+        "startChar": 2,
+        "endLine": 117,
+        "endChar": 8
+      },
+      "revId": "2582ca10fa9854eac49d97809f2641b4c1ac0e65",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65da8f46_687b4636",
+        "filename": "plat/arm/common/plat_arm_sip_svc.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-01-25T19:10:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93a49ca5_2dc6cd6f",
       "range": {
         "startLine": 117,
         "startChar": 2,
