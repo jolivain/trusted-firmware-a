@@ -22,6 +22,30 @@
       },
       "revId": "02f68f939a67f197676f6465a17c9f614a24214e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9ad5e7f_7b8d5b85",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-01-25T14:23:26Z",
+      "side": 1,
+      "message": "this is not perfect still thinking if the flag is \u003d\u003d2 and feature is not available we may context save and restore which is not correct 😞",
+      "parentUuid": "f33c5968_f407e00f",
+      "range": {
+        "startLine": 209,
+        "startChar": 4,
+        "endLine": 209,
+        "endChar": 19
+      },
+      "revId": "02f68f939a67f197676f6465a17c9f614a24214e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
