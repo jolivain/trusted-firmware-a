@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c77e9eaa_b1ef15ea",
+        "filename": "docs/plat/arm/arm-build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-25T11:23:20Z",
+      "side": 1,
+      "message": "I wonder if this really needs to be exposed and kept as an internal build flag.\nAFAIK, TRUSTY_SP_FW_CONFIG isn\u0027t used on the command line but set because of parsing ARM_SPMC_MANIFEST_DTS\nSmilarly to how OPTEE_SP_FW_CONFIG has been designed earlier.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 75
+      },
+      "revId": "4f51c0ba5eb245b518ca060e1c2fa9a8a9aa9f86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ad9ad12e_8e1da9d9",
         "filename": "docs/plat/arm/arm-build-options.rst",
         "patchSetId": 2
@@ -138,6 +161,29 @@
         "startChar": 25,
         "endLine": 17,
         "endChar": 37
+      },
+      "revId": "4f51c0ba5eb245b518ca060e1c2fa9a8a9aa9f86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d16e6aa5_84d244b8",
+        "filename": "include/plat/arm/common/fconf_arm_sp_getter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-25T11:23:20Z",
+      "side": 1,
+      "message": "This is a generic change affecting all configurations implementing secure partitions.\nI see why this is done but wouldn\u0027t there be a platform specific way to set this?",
+      "range": {
+        "startLine": 17,
+        "startChar": 27,
+        "endLine": 17,
+        "endChar": 36
       },
       "revId": "4f51c0ba5eb245b518ca060e1c2fa9a8a9aa9f86",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
