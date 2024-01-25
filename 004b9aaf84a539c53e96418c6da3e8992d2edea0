@@ -22,6 +22,30 @@
       },
       "revId": "004b9aaf84a539c53e96418c6da3e8992d2edea0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "620d480d_9d2a86db",
+        "filename": "plat/arm/board/tc/fdts/tc_tb_fw_config.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-01-25T13:30:03Z",
+      "side": 1,
+      "message": "hmm, no I hadn\u0027t considered it, but it\u0027s an interesting idea. I think it would only work for the test case (cactus and ivy) but then that will need updating tftf/CI too so I don\u0027t really want to do it. For the rest, we want FWU to be independent of the trusty/optee choice so I don\u0027t think it\u0027s useful there",
+      "parentUuid": "c151ba92_f2fcf362",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 4
+      },
+      "revId": "004b9aaf84a539c53e96418c6da3e8992d2edea0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
