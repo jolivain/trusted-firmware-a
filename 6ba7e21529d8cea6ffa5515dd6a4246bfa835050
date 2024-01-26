@@ -22,6 +22,30 @@
       },
       "revId": "6ba7e21529d8cea6ffa5515dd6a4246bfa835050",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55eb87c6_6756b6d9",
+        "filename": "Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 1033,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-01-26T16:22:56Z",
+      "side": 0,
+      "message": "Yes, there could some feats which may have just added build def options and is_feat_* options without actual any use of the feat in TF-A, we are trying to review and remove them if they are not used anywhere.\n\nBut in this case FEAT_RNG seems to be used one of the platform code, \n\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/qemu/common/qemu_stack_protector.c?h\u003dintegration#n18\n\n[...]\nu_register_t plat_get_stack_protector_canary(void)\n{\n\t/* Use the RNDR instruction if the CPU supports it */\n\tif (is_feat_rng_supported()) {\n\t\treturn read_rndr();\n\t}\n[...]",
+      "parentUuid": "874f5e0c_a2d2e930",
+      "range": {
+        "startLine": 1032,
+        "startChar": 0,
+        "endLine": 1033,
+        "endChar": 63
+      },
+      "revId": "6ba7e21529d8cea6ffa5515dd6a4246bfa835050",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
