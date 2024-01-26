@@ -12,6 +12,7 @@
 #include <bl31/interrupt_mgmt.h>
 #include <common/debug.h>
 #include <drivers/arm/css/css_scp.h>
+#include <drivers/arm/dsu.h>
 #include <lib/cassert.h>
 #include <plat/arm/common/plat_arm.h>
 
@@ -62,12 +63,36 @@ CASSERT(PLAT_MAX_PWR_LVL >= ARM_PWR_LVL1,
 CASSERT(PLAT_MAX_PWR_LVL <= CSS_SYSTEM_PWR_DMN_LVL,
 		assert_max_pwr_lvl_higher_than_css_sys_lvl);
 
+#if PRESERVE_DSU_REGS
+/*
+ * Context structure that saves the state of DSU PMU registers
+ */
+cluster_pmu_state_t cluster_pmu_context[PLAT_ARM_CLUSTER_COUNT];
+
+#endif
 /*******************************************************************************
  * Handler called when a power domain is about to be turned on. The
  * level and mpidr determine the affinity instance.
  ******************************************************************************/
 int css_pwr_domain_on(u_register_t mpidr)
 {
+#if PRESERVE_DSU_REGS
+
+	int core_pos;
+	unsigned char cluster_pos;
+
+	core_pos = plat_core_pos_by_mpidr(mpidr);
+
+	if(core_pos < 0){
+		return PSCI_E_INVALID_PARAMS;
+	}
+
+	cluster_pos = (unsigned char)
+			(core_pos / ((plat_get_power_domain_tree_desc())[1]));
+
+	dsu_restore_state(&cluster_pmu_context[cluster_pos]);
+#endif
+
 	css_scp_on(mpidr);
 
 	return PSCI_E_SUCCESS;
@@ -142,6 +167,16 @@ static void css_power_down_common(const psci_power_state_t *target_state)
 void css_pwr_domain_off(const psci_power_state_t *target_state)
 {
 	assert(CSS_CORE_PWR_STATE(target_state) == ARM_LOCAL_STATE_OFF);
+
+#if PRESERVE_DSU_REGS
+	unsigned int cluster_pos;
+
+	cluster_pos = (unsigned int)
+		(plat_my_core_pos() / ((plat_get_power_domain_tree_desc())[1]));
+
+	dsu_save_state(&cluster_pmu_context[cluster_pos]);
+#endif
+
 	css_power_down_common(target_state);
 	css_scp_off(target_state);
 }
