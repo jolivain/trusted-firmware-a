@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f0b6c1b_22ddb6b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-26T13:58:05Z",
+      "side": 1,
+      "message": "Also, update the copyright year of all modified files in this patch.",
+      "revId": "13462101f333476b480f64f08e875ab0364d4e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6c881094_4500599e",
@@ -65,6 +82,53 @@
         "startChar": 20,
         "endLine": 102,
         "endChar": 21
+      },
+      "revId": "13462101f333476b480f64f08e875ab0364d4e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1af33cd1_db2791c7",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-26T13:58:05Z",
+      "side": 1,
+      "message": "Upon reconsideration, the platform may opt to decrease the value of ``NR_OF_FW_BANKS`` to a value less than 4 to save some memory. Therefore, it is okay to retain the definition of ``NR_OF_FW_BANKS`` while implementing a check to ensure it remains below 4 during compilation.\n\nNevertheless, I suggest creating an additional define to clearly represent the maximum number of firmware banks, set at 4, something similar as below:\n\n```\n/* Number of maximum FW banks as per the specification */\n#define NR_OF_MAX_FW_BANKS 4\n```",
+      "parentUuid": "0e20e430_0d878cbe",
+      "range": {
+        "startLine": 102,
+        "startChar": 20,
+        "endLine": 102,
+        "endChar": 21
+      },
+      "revId": "13462101f333476b480f64f08e875ab0364d4e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "232fc34b_1b30f715",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-26T13:58:05Z",
+      "side": 1,
+      "message": "I believe this change should come after the introduction of this define.",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 31
       },
       "revId": "13462101f333476b480f64f08e875ab0364d4e45",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
