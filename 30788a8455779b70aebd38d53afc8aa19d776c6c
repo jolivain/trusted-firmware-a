@@ -81,6 +81,30 @@
       },
       "revId": "30788a8455779b70aebd38d53afc8aa19d776c6c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ac3d8ef_955585c2",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-26T12:36:20Z",
+      "side": 1,
+      "message": "I think it\u0027s good to return an arch feature version because the semantics should be \u0027if FEAT_MTE2 or greater is implemented then do this\u0027. Recall FEAT_MTE3 and FEAT_MTE4 also exist nowadays.",
+      "parentUuid": "36a25290_45465d16",
+      "range": {
+        "startLine": 1337,
+        "startChar": 1,
+        "endLine": 1339,
+        "endChar": 2
+      },
+      "revId": "30788a8455779b70aebd38d53afc8aa19d776c6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ],
   "submitRequirementResults": []
