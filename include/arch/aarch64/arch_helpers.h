@@ -765,7 +765,7 @@ void gpt_tlbi_by_pa_ll(uint64_t pa, size_t size);
 #define write_clusterpmcr(_v)		write_clusterpmcr_el1(_v)
 
 #define read_clusterpmcntenset()	read_clusterpmcntenset_el1()
-#define write_clusterpmcntenset(_v) 	write_clusterpmcntenset_el1(_v)
+#define write_clusterpmcntenset(_v)	write_clusterpmcntenset_el1(_v)
 
 #define read_clusterpmccntr()		read_clusterpmccntr_el1()
 #define write_clusterpmccntr(_v)	write_clusterpmccntr_el1(_v)
