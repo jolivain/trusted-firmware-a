@@ -16,6 +16,41 @@
       "message": "To me, \"initial\" means something like \"temoporary for the sake up bring up; will be replaced later with the \u0027real\u0027 thing after bringup\".\nSince\n\u003e Child components inherit their first valid context handle from their parent\n\nWould this be a root handle, which all other handles are derived from?\n\nAlso, see mark\u0027s comments.",
       "revId": "911b52edd443787b233f15f0489e3730303a364f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7b0f832_38b312de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-01-26T21:04:08Z",
+      "side": 1,
+      "message": "it\u0027s worth mentioning that my confusion comes from the \"child components\", implying a tree structure.\n\nIf there is such a tree structure, than this directly contradicts the single-use property of the context handle.\n\nIf what you meant is that there are a sequence of components that execute one at a time, with each component passing a valid context handle to the next in line, I would reword this. Something like \"All subsequent components receive a context handle from the prior component\", and/or including a baton passing analogy would help",
+      "parentUuid": "9d56a537_25821b26",
+      "revId": "911b52edd443787b233f15f0489e3730303a364f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c30044b_464463fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-01-26T21:04:08Z",
+      "side": 1,
+      "message": "To me, \"initial\" means something like \"temoporary for the sake up bring up; will be replaced later with the \u0027real\u0027 thing after bringup\".\nSince\n\u003e Child components inherit their first valid context handle from their parent\n\nWould this be a root handle, which all other handles are derived from?",
+      "revId": "911b52edd443787b233f15f0489e3730303a364f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
