@@ -34,6 +34,29 @@
       "parentUuid": "fd336614_4d67ecaa",
       "revId": "30788a8455779b70aebd38d53afc8aa19d776c6c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89fd1310_6c10e2b4",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-26T11:54:39Z",
+      "side": 1,
+      "message": "TFSR_EL2 only exists from FEAT_MTE2\n\nThis may require re-introducing get_armv8_5_mte_support",
+      "range": {
+        "startLine": 1337,
+        "startChar": 1,
+        "endLine": 1339,
+        "endChar": 2
+      },
+      "revId": "30788a8455779b70aebd38d53afc8aa19d776c6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ],
   "submitRequirementResults": []
