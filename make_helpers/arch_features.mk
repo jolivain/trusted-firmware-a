@@ -251,6 +251,7 @@ ifeq (${ARCH},aarch32)
         endif
 endif
 ENABLE_FEAT_MTE		                ?=	0
+ENABLE_FEAT_MTE2		        ?=	0
 
 #----
 # 8.6
