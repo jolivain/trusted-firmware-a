@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6217aa35_44cf8453",
+        "filename": "include/export/common/tbbr/tbbr_img_def_exp.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-01-26T20:32:20Z",
+      "side": 1,
+      "message": "Since these are all defined by the same standard as the MBoot strings, I would expect these to be defined in terms of the `MBOOT_` strings or the `MBOOT_` strings defined in terms of these (`EVLOG_` strings).",
+      "revId": "0b403073f694e128dd134fb6fe00b878c439e894",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
