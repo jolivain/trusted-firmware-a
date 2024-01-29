@@ -1003,6 +1003,8 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			write_sctlr_el2(sctlr_elx);
 		} else if (el2_implemented != EL_IMPL_NONE) {
 			init_nonsecure_el2_unused(ctx);
+		} else {
+		/* To fix the MISRA 15.7 warning - Added an empty else statement */
 		}
 	}
 
