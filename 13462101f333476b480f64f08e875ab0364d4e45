@@ -180,6 +180,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d4240dd_8a24c043",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-29T12:07:26Z",
+      "side": 1,
+      "message": "Yes. I can have a follow-up patch which changes all the structure members to match the nomenclature in the specification. And make the GUID members of type \u0027struct efi_guid\u0027.",
+      "parentUuid": "82892f80_56174855",
+      "range": {
+        "startLine": 44,
+        "startChar": 29,
+        "endLine": 44,
+        "endChar": 38
+      },
+      "revId": "13462101f333476b480f64f08e875ab0364d4e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e20e430_0d878cbe",
         "filename": "include/drivers/fwu/fwu_metadata.h",
         "patchSetId": 2
@@ -323,6 +347,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "355bfa76_d84d6382",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-29T12:07:26Z",
+      "side": 1,
+      "message": "FWIW, this is what I was planning to implement. Have a macro in the fwu_mdata.h itself.",
+      "parentUuid": "6b0dbf6b_e88e67f5",
+      "range": {
+        "startLine": 102,
+        "startChar": 20,
+        "endLine": 102,
+        "endChar": 21
+      },
+      "revId": "13462101f333476b480f64f08e875ab0364d4e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "232fc34b_1b30f715",
         "filename": "include/drivers/fwu/fwu_metadata.h",
         "patchSetId": 2
@@ -406,6 +454,30 @@
       "side": 1,
       "message": "If you\u0027ll make a dedicated patch for docs as per Manish\u0027s request, maybe you could also move the description of the flag in docs/getting_started/build-options.rst from patch 2 to the new documentation patch.",
       "parentUuid": "64023dee_e49db1f8",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 31
+      },
+      "revId": "13462101f333476b480f64f08e875ab0364d4e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0dd859c7_dabc2bfb",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-29T12:07:26Z",
+      "side": 1,
+      "message": "@Yann, I can do that. But is it not odd that I club the description of the symbol with other changes which effectively are all updating the specification URL to point to the latest version? I see the current structure of describing the symbol and it\u0027s addition as cleaner. What do you say?\n\n@Manish, Also, on Manish\u0027s comment about the adding of the flag before using it in the code, well this is how I have been adding code elsewhere. That kind of ensures that all the code is in place before adding a symbol or flag which enables it. If you have a strong opinion on this, I will revert the order.",
+      "parentUuid": "010d0ab3_81f99320",
       "range": {
         "startLine": 107,
         "startChar": 0,
