@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "42060295_69181003",
+        "filename": "Makefile",
+        "patchSetId": 5
+      },
+      "lineNbr": 999,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-29T15:13:50Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "81416cc1_bf893edb",
+      "range": {
+        "startLine": 999,
+        "startChar": 2,
+        "endLine": 999,
+        "endChar": 6
+      },
+      "revId": "d6f13611b34ea1d3b44194d5f9b8e5a14216e9f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "752ed1b5_bc775d4d",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-01-23T18:30:24Z",
       "side": 1,
       "message": "The specification states that by configuring the maximum vector length via software the effective VL will equal the maximum supported by the platform.\nIf SMCR_ELX_LEN_MAX is changed to 0xf (pending another change) this could remain as is. If it remains as 0x1ff, there should be a check to the effective VL in this function.\nSection C2.1.3 Vector Lengths of the SME specification states this can be done with the RDSVL data processing instruction (section D1.1.21 of the SME specification).\nReading back the configured vector register size allows for asserting that there is enough memory allocated for the context save/restore operations of the SME registers.\nHope this helps.",
+      "revId": "d6f13611b34ea1d3b44194d5f9b8e5a14216e9f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e553c0c2_e795e29a",
+        "filename": "lib/extensions/sme/sme.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-29T15:13:50Z",
+      "side": 1,
+      "message": "This comes from that EL3 should ideally restrict the maximum permitted SVL in a system wide way.\nThis value could be provided by the platform, similarly to how it\u0027s done for SVE:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/docs/getting_started/build-options.rst#n907\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/make_helpers/defaults.mk#n297\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/extensions/sve/sve.c#n35\n\nAs I don\u0027t intend to address it in the patch stack I\u0027m removing the TODO.",
+      "parentUuid": "752ed1b5_bc775d4d",
       "revId": "d6f13611b34ea1d3b44194d5f9b8e5a14216e9f5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
