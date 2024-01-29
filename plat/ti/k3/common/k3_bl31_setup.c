@@ -137,6 +137,26 @@ void bl31_platform_setup(void)
 	     firmware_revision,
 	     firmware_description);
 
+	/* Backward compatibility, will be removed in future.
+	 *
+	 * Older firmware have a timing issue with DM that crashes few TF-A
+	 * lite devices while trying to make calls to DM. Since there is no way
+	 * to detect what current DM version we are running - we rely on the
+	 * corresponding TIFS versioning to handle this check and ensure that
+	 * the platform boots up
+	 *
+	 * Upgrading to TIFS version 9.1.7 along with the corresponding DM from
+	 * ti-linux-firmware will enable this functionality.
+	 */
+	if (firmware_revision > 9 ||
+	    (firmware_revision == 9 && sub_version > 1) ||
+	    (firmware_revision == 9 && sub_version == 1 && patch_version >= 7)) {
+		if (ti_sci_device_get(PLAT_BOARD_DEVICE_ID)) {
+			WARN("Unable to take system power reference\n");
+		}
+	} else {
+		NOTICE("Upgrade Firmwares for Power off functionality\n");
+	}
 }
 
 void platform_mem_init(void)
