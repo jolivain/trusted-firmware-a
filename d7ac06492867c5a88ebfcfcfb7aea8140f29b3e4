@@ -22,6 +22,30 @@
       },
       "revId": "d7ac06492867c5a88ebfcfcfb7aea8140f29b3e4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5ec9b34_1f45bae0",
+        "filename": "plat/arm/board/tc/tc_common_dpe.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-01-29T11:28:37Z",
+      "side": 1,
+      "message": "I enabled it in the case of DPE as well:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/24645/3/include/plat/common/platform.h#144\n\nDICE_PROTECTION_ENVIRONMET is a flavour of MEASURED_BOOT. On the TC platform two flavours are implemented:\n- RSS based rss_measured_boot_*() for RME enabled platforms. TC is not RME capable but we used it to test the comms between RSS and TF-A.\n- RSS based dpe_derive_context() for Total Compute. \n\n\nShould we use two command line flags? \nMEASURED_BOOT\u003d\u003c0,1\u003e\nMEASURED_BOOT_FLAVOUR\u003d\u003cdpe, event-log, rss-measured-boot\u003e",
+      "parentUuid": "8b796df2_af2ea4fa",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 77
+      },
+      "revId": "d7ac06492867c5a88ebfcfcfb7aea8140f29b3e4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
