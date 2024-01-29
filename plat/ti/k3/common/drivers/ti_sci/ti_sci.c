@@ -185,17 +185,27 @@ unlock:
  *
  * Updates the SCI information in the internal data structure.
  *
+ * @firmware_description:	Human readable version string.
+ * @firmware_revision:	Version number of the firmware
+ * @abi_major:	Major version number of ABI in use by firmware
+ * @abi_minor:	Minor version number of ABI in use by firmware
+ * @sub_version:	Sub-version number of the firmware
+ * @patch_version:	Patch-version number of the firmware
+ *
  * Return: 0 if all goes well, else appropriate error message
  */
-int ti_sci_get_revision(struct ti_sci_msg_resp_version *rev_info)
+int ti_sci_get_revision(char *firmware_description, uint16_t *firmware_revision,
+		uint8_t *abi_major, uint8_t *abi_minor,
+		uint8_t *sub_version, uint8_t *patch_version)
 {
+	struct ti_sci_msg_resp_version rev_info;
 	struct ti_sci_msg_hdr hdr;
 	struct ti_sci_xfer xfer;
 	int ret;
 
 	ret = ti_sci_setup_one_xfer(TI_SCI_MSG_VERSION, 0x0,
 				    &hdr, sizeof(hdr),
-				    rev_info, sizeof(*rev_info),
+				    &rev_info, sizeof(rev_info),
 				    &xfer);
 	if (ret) {
 		ERROR("Message alloc failed (%d)\n", ret);
@@ -207,6 +217,14 @@ int ti_sci_get_revision(struct ti_sci_msg_resp_version *rev_info)
 		ERROR("Transfer send failed (%d)\n", ret);
 		return ret;
 	}
+
+	memcpy(firmware_description, rev_info.firmware_description,
+		sizeof(rev_info.firmware_description));
+	*abi_major = rev_info.abi_major;
+	*abi_minor = rev_info.abi_minor;
+	*firmware_revision = rev_info.firmware_revision;
+	*sub_version = rev_info.sub_version;
+	*patch_version = rev_info.patch_version;
 
 	return 0;
 }
@@ -1726,30 +1744,6 @@ int ti_sci_enter_sleep(uint8_t proc_id,
 		ERROR("Transfer send failed (%d)\n", ret);
 		return ret;
 	}
-
-	return 0;
-}
-
-/**
- * ti_sci_init() - Basic initialization
- *
- * Return: 0 if all goes well, else appropriate error message
- */
-int ti_sci_init(void)
-{
-	struct ti_sci_msg_resp_version rev_info;
-	int ret;
-
-	ret = ti_sci_get_revision(&rev_info);
-	if (ret) {
-		ERROR("Unable to communicate with control firmware (%d)\n", ret);
-		return ret;
-	}
-
-	INFO("SYSFW ABI: %d.%d (firmware rev 0x%04x '%s')\n",
-	     rev_info.abi_major, rev_info.abi_minor,
-	     rev_info.firmware_revision,
-	     rev_info.firmware_description);
 
 	return 0;
 }
