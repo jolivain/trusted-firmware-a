@@ -14,6 +14,16 @@
 #include <stdbool.h>
 
 /**
+ * General Message
+ *
+ * ti_sci_get_revision() - Get the revision of the SCI entity
+ *
+ **/
+int ti_sci_get_revision(char *firmware_description, uint16_t *firmware_revision,
+		uint8_t* abi_major, uint8_t* abi_minor,
+		uint8_t *sub_version, uint8_t *patch_version);
+
+/**
  * Device control operations
  *
  * - ti_sci_device_get - command to request for device managed by TISCI
@@ -224,12 +234,5 @@ int ti_sci_proc_wait_boot_status_no_wait(uint8_t proc_id,
 int ti_sci_enter_sleep(uint8_t proc_id,
 		       uint8_t mode,
 		       uint64_t core_resume_addr);
-
-/**
- * ti_sci_init() - Basic initialization
- *
- * Return: 0 if all goes good, else appropriate error message.
- */
-int ti_sci_init(void);
 
 #endif /* TI_SCI_H */
