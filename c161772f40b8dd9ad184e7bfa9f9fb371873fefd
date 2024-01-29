@@ -118,6 +118,30 @@
       },
       "revId": "c161772f40b8dd9ad184e7bfa9f9fb371873fefd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff2ea36b_e41cb30d",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-01-29T15:11:13Z",
+      "side": 0,
+      "message": "Ok. I now better see where this comes from. We can leave it like this, despite that if we are picky (as Manish stated) the current architecture effectively defines 4 bits for SMCR_ELx.LEN. Setting all 9 bits hopefully prepares for future arch that may extend the LEN field width. The supplementary [8:4] bits are Read-As-Zero/Write-Ignore, so I guess this doesn\u0027t harm. I will abandon this change as this doesn\u0027t affect the original intent for the patch stack anyways.",
+      "parentUuid": "dd4deb1c_add23e88",
+      "range": {
+        "startLine": 1044,
+        "startChar": 26,
+        "endLine": 1044,
+        "endChar": 34
+      },
+      "revId": "c161772f40b8dd9ad184e7bfa9f9fb371873fefd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
