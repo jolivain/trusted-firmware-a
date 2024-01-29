@@ -251,6 +251,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b454c303_6b9e0b33",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-29T10:23:46Z",
+      "side": 1,
+      "message": "As the struct is packed, won\u0027t that be an issue to have a variable field?",
+      "parentUuid": "ef1c4c9b_59a8eb82",
+      "range": {
+        "startLine": 102,
+        "startChar": 20,
+        "endLine": 102,
+        "endChar": 21
+      },
+      "revId": "13462101f333476b480f64f08e875ab0364d4e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "232fc34b_1b30f715",
         "filename": "include/drivers/fwu/fwu_metadata.h",
         "patchSetId": 2
@@ -310,6 +334,30 @@
       "side": 1,
       "message": "In my view, someone starting the review might struggle to grasp the purpose of this flag initially. Therefore, I believe it would be more effective to introduce and explain this flag before start consuming it. I don\u0027t feel particularly strongly about this matter, so I\u0027m open to your preference on how to proceed.",
       "parentUuid": "b1079af0_c7176f51",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 31
+      },
+      "revId": "13462101f333476b480f64f08e875ab0364d4e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "010d0ab3_81f99320",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-29T10:23:46Z",
+      "side": 1,
+      "message": "If you\u0027ll make a dedicated patch for docs as per Manish\u0027s request, maybe you could also move the description of the flag in docs/getting_started/build-options.rst from patch 2 to the new documentation patch.",
+      "parentUuid": "64023dee_e49db1f8",
       "range": {
         "startLine": 107,
         "startChar": 0,
