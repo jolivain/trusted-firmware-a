@@ -132,6 +132,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "80c71ac7_5b50a95b",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-29T07:49:15Z",
+      "side": 1,
+      "message": "Thinking a bit more about this. If we are to change a field in the structure to match the spec, I think we should also change the other uuid based fields to guid. And also change the variable type from uuid_t to struct efi_guid, since these are GUID values. What is your opinion on this proposal?",
+      "parentUuid": "ee3cdd7a_ce8c7c81",
+      "range": {
+        "startLine": 44,
+        "startChar": 29,
+        "endLine": 44,
+        "endChar": 38
+      },
+      "revId": "13462101f333476b480f64f08e875ab0364d4e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e20e430_0d878cbe",
         "filename": "include/drivers/fwu/fwu_metadata.h",
         "patchSetId": 2
