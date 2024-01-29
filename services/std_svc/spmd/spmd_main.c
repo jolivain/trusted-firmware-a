@@ -685,9 +685,6 @@ uint64_t spmd_smc_switch_state(uint32_t smc_fid,
 
 	/* Save incoming security state */
 #if SPMD_SPM_AT_SEL2
-	if (secure_state_in == NON_SECURE) {
-		cm_el1_sysregs_context_save(secure_state_in);
-	}
 	cm_el2_sysregs_context_save(secure_state_in);
 #else
 	cm_el1_sysregs_context_save(secure_state_in);
@@ -695,9 +692,6 @@ uint64_t spmd_smc_switch_state(uint32_t smc_fid,
 
 	/* Restore outgoing security state */
 #if SPMD_SPM_AT_SEL2
-	if (secure_state_out == NON_SECURE) {
-		cm_el1_sysregs_context_restore(secure_state_out);
-	}
 	cm_el2_sysregs_context_restore(secure_state_out);
 #else
 	cm_el1_sysregs_context_restore(secure_state_out);
