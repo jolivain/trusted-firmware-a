@@ -156,6 +156,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "82892f80_56174855",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-29T09:17:33Z",
+      "side": 1,
+      "message": "Hi Sughosh,\nI was initially casual in assigning names and types, but now I realize it\u0027s more beneficial to closely align them with the specified requirements. I agree with your additional suggestion; changing the names and types to match the specifications will result in a more coherent and organized codebase. \nAll this can be done as a part of separate patch. Let\u0027s do not modify this one. Agree?",
+      "parentUuid": "80c71ac7_5b50a95b",
+      "range": {
+        "startLine": 44,
+        "startChar": 29,
+        "endLine": 44,
+        "endChar": 38
+      },
+      "revId": "13462101f333476b480f64f08e875ab0364d4e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e20e430_0d878cbe",
         "filename": "include/drivers/fwu/fwu_metadata.h",
         "patchSetId": 2
@@ -262,6 +286,30 @@
       "side": 1,
       "message": "Ideally, it is better to have code in place that is getting enabled by a particular symbol, and then introduce the symbol which would result in the corresponding code getting enabled. Do you have a strong opinion on this? Else I would prefer we keep this sequence of first adding the code and then introduce the symbol.",
       "parentUuid": "232fc34b_1b30f715",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 31
+      },
+      "revId": "13462101f333476b480f64f08e875ab0364d4e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64023dee_e49db1f8",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-29T09:17:33Z",
+      "side": 1,
+      "message": "In my view, someone starting the review might struggle to grasp the purpose of this flag initially. Therefore, I believe it would be more effective to introduce and explain this flag before start consuming it. I don\u0027t feel particularly strongly about this matter, so I\u0027m open to your preference on how to proceed.",
+      "parentUuid": "b1079af0_c7176f51",
       "range": {
         "startLine": 107,
         "startChar": 0,
