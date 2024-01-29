@@ -275,6 +275,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a35f09e1_e0542b05",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-29T10:32:42Z",
+      "side": 1,
+      "message": "Certainly, it will have an impact, but my suggestion is not to alter this define unless an upgraded specification explicitly says it. The modification of this define won\u0027t be an option for the platform itself instead, it should be a  adjustment limited to the FWU header. Any changes should only be made if required by the specification. Let me know what do you think?",
+      "parentUuid": "b454c303_6b9e0b33",
+      "range": {
+        "startLine": 102,
+        "startChar": 20,
+        "endLine": 102,
+        "endChar": 21
+      },
+      "revId": "13462101f333476b480f64f08e875ab0364d4e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "232fc34b_1b30f715",
         "filename": "include/drivers/fwu/fwu_metadata.h",
         "patchSetId": 2
