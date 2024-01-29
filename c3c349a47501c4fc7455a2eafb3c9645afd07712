@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a40dd15e_1977dc7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-29T17:30:03Z",
+      "side": 1,
+      "message": "Hi Sandrine,\n\nAfter checking our downstream code, I see that only EARLY_ERROR is used on ST platforms. Those were mainly to replace ERROR traces that couldn\u0027t be displayed but have some interest when debugging. I will update the series with 2 patches using that now that st-bsec patches are merged.\n\nUsing VERBOSE won\u0027t fit our case, we cannot enable globally VERBOSE traces, as the binaries become too big, they won\u0027t fit in memory. We mainly use it locally, adding this at the beginning of the file(s) we want to debug:\n #undef VERBOSE\n #define VERBOSE INFO\n\nAs we use the EARLY_ERROR, it is good if it can also be displayed when LOG_LEVEL\u003d20, which is the case if we want to debug a release build.\n\nSo for the moment we\u0027d only need EARLY_ERROR, I can then just add that macro?",
+      "parentUuid": "381d5c9c_f4ef7858",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 59
+      },
+      "revId": "c3c349a47501c4fc7455a2eafb3c9645afd07712",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2566f6e3_e1103652",
         "filename": "include/common/debug.h",
         "patchSetId": 4
