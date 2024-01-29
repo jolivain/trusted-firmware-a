@@ -118,6 +118,30 @@
       },
       "revId": "c20e447fafaab6013389b1f0f37cb63670987b4f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8040c689_1146e041",
+        "filename": "drivers/measured_boot/rss/qcbor.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-29T09:26:05Z",
+      "side": 1,
+      "message": "IMHO, opting for the released/stable version of QCBOR in TF-A would be a wise choice (to avoid using possibly the un-tested source code). I lean towards using the tagged version of QCBOR. If there\u0027s no straightforward method to display the version, I suggest including a comment in the makefile to indicate the current version being utilized. let me know what do you think?",
+      "parentUuid": "4c1c198e_fc8a9fcf",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 17
+      },
+      "revId": "c20e447fafaab6013389b1f0f37cb63670987b4f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
