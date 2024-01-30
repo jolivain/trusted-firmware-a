@@ -46,6 +46,30 @@
       },
       "revId": "e5f6f42af3db64839eda3cda0fce080efad47b5f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb889806_b14cf9b5",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-01-30T14:19:52Z",
+      "side": 1,
+      "message": "ah yes, and we planned to solve it with root context, I remember now. So why not solve it with root context? It kind of undoes my cleanup of this area of code in preparation for root context",
+      "parentUuid": "ddff1d53_707b08f9",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 2
+      },
+      "revId": "e5f6f42af3db64839eda3cda0fce080efad47b5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
