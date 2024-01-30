@@ -94,6 +94,30 @@
       },
       "revId": "e5f6f42af3db64839eda3cda0fce080efad47b5f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "090b9045_0bf38663",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-01-30T14:25:29Z",
+      "side": 1,
+      "message": "Even with the root context we still need to set this bit early on and after this will save root copy of SCR.",
+      "parentUuid": "20bda153_04308248",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 2
+      },
+      "revId": "e5f6f42af3db64839eda3cda0fce080efad47b5f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
