@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a00ae44_73843d28",
+        "filename": "fdts/tc.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000814
+      },
+      "writtenOn": "2024-01-30T13:59:13Z",
+      "side": 1,
+      "message": "cpu idle states aren\u0027t needed for fpga and are missing in this patch for cpu8 and above so make cpu idle conditional on fpga. I added a tc merge request for this:\nhttps://gitlab.oss.arm.com/engineering/tc/trusted-firmware-a/-/merge_requests/46",
+      "revId": "5a52172486ea34c323c25e4a09cd13439a6b76df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
