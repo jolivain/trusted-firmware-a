@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b128d1b7_f33af373",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-30T14:02:15Z",
+      "side": 1,
+      "message": "We used to invoke a function to determine whether the firmware (FW) was in a trial or an accepted run state. \nHowever, with the updated specifications, three distinct states are now defined: invalid, valid, and accepted. Therefore, could we now explicitly verify if an image is accepted by checking bank_state[#bank_no] \u003d\u003d 0xFC before proceeding with actions such as incrementing the NV counter or implementing other use cases, such as setting platform-specific registers.",
+      "range": {
+        "startLine": 145,
+        "startChar": 1,
+        "endLine": 146,
+        "endChar": 23
+      },
+      "revId": "959d1a51aabb2217047b807b3c5a3e3a6bb53331",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60300b2b_61af4205",
+        "filename": "include/drivers/fwu/fwu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-30T14:02:15Z",
+      "side": 1,
+      "message": "Add one more define as below:\n``#define FWU_ACCEPTED_BANK_STATE\t\t0xFC``\nfor completeness",
+      "revId": "959d1a51aabb2217047b807b3c5a3e3a6bb53331",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
