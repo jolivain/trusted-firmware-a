@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85bb0eb9_2e5fce62",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2024-01-30T16:06:37Z",
+      "side": 1,
+      "message": "You should still check for errors here:\n\n```\nret \u003d ti_sci_get_revision(...);\nif (ret) {\n    ERROR(\"Unable to communicate with control firmware (%d)\\n\", ret);\n    return;\n}\n```\n\nOtherwise this patch looks good to me.",
+      "revId": "5039a21c893286fc062ea0a722ee1a51e4787a0e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
