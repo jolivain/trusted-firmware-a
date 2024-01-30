@@ -710,6 +710,12 @@ NXP SoC Part LS1088A and its platform port
 :|F|: plat/nxp/soc-ls1088a/ls1088ardb
 :|F|: plat/nxp/soc-ls1088a/ls1088aqds
 
+NXP SoC Part S32G274A and its platform port
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:|M|: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
+:|G|: `gprocopciucnxp`_
+:|F|: plat/nxp/s32
+
 QEMU platform port
 ^^^^^^^^^^^^^^^^^^
 :|M|: Jens Wiklander <jens.wiklander@linaro.org>
@@ -1047,3 +1053,4 @@ Conventional Changelog Extensions
 .. _xueliang-zhong-arm: https://github.com/xueliang-zhong-arm
 .. _raymo200915: https://github.com/raymo200915
 .. _harrisonmutai-arm: https://github.com/harrisonmutai-arm
+.. _gprocopciucnxp: https://github.com/gprocopciucnxp
