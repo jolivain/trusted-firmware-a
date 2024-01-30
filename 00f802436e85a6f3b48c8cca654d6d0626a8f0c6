@@ -22,6 +22,30 @@
       },
       "revId": "00f802436e85a6f3b48c8cca654d6d0626a8f0c6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31ebb10c_6bdb49dd",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_lsp_ras_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-01-30T23:28:27Z",
+      "side": 1,
+      "message": "Accessing this register from S-EL1 is leading to a trap to S-EL2 with ESR: 0x2000000\nI looked at the RAS spec but could not find a reason.",
+      "parentUuid": "d9ca00cf_12b61273",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 29
+      },
+      "revId": "00f802436e85a6f3b48c8cca654d6d0626a8f0c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
