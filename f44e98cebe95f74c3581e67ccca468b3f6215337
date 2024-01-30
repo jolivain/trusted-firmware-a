@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6187d445_46e22f00",
+        "filename": "plat/common/aarch64/plat_common.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-01-30T21:11:28Z",
+      "side": 1,
+      "message": "Since all 4 possible options are part of the above switch/case, the default return doesn\u0027t make sense. As Madhu mentioned should be an assert, only a value differing from the 4 MODE_ELx value can cause it to enter the default case and return EL1. Not sure, if it\u0027s right to return EL1 in this case, if and when variable \"el\" has some junk value.",
+      "range": {
+        "startLine": 84,
+        "startChar": 3,
+        "endLine": 84,
+        "endChar": 16
+      },
+      "revId": "f44e98cebe95f74c3581e67ccca468b3f6215337",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
