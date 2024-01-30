@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "206fa22e_2a651753",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-30T10:00:14Z",
+      "side": 1,
+      "message": "Minor comment",
+      "revId": "9fe39b200cd8710a460c30b91b4ae8145dba74fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5aff199_0b88a522",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 698,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-30T10:00:14Z",
+      "side": 1,
+      "message": "In the commit message you say it is a debug trace. It should be changed to VERBOSE then? Or do you think it is worth having this trace at each boot?",
+      "range": {
+        "startLine": 698,
+        "startChar": 1,
+        "endLine": 698,
+        "endChar": 5
+      },
+      "revId": "9fe39b200cd8710a460c30b91b4ae8145dba74fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
