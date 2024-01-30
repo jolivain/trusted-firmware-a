@@ -16,6 +16,443 @@
       "message": "Intermittent CI failures, boot test passes on rebuild: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/61722/.\n\nCorresponding CI patch addresses static check failures.",
       "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17449db6_070b5d64",
+        "filename": "plat/imx/common/imx8_helpers.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "940fc58e_786e79e9",
+        "filename": "plat/imx/common/imx_sip_svc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "544f5df9_e00d55ec",
+        "filename": "plat/imx/common/include/imx_sip_svc.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "feaf26ac_f9fddd77",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "on \u003d\u003d true",
+      "range": {
+        "startLine": 197,
+        "startChar": 5,
+        "endLine": 197,
+        "endChar": 7
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "454b2081_730a2121",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "if (((imx8ulp_psw[psw_parent].flags \u0026 ALWAYS_ON) !\u003d 0) \u0026\u0026\n\t    ((imx8ulp_psw[sram_parent].flags \u0026 ALWAYS_ON) !\u003d 0) {",
+      "range": {
+        "startLine": 231,
+        "startChar": 1,
+        "endLine": 232,
+        "endChar": 52
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7efcbf6_d335d5ba",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "(imx8ulp_psw[psw_parent].flags \u0026 ALWAYS_ON) \u003d\u003d 0",
+      "range": {
+        "startLine": 238,
+        "startChar": 6,
+        "endLine": 238,
+        "endChar": 48
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "085f8019_d7a0bc5b",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "imx8ulp_psw[psw_parent].count \u003d\u003d 0",
+      "range": {
+        "startLine": 240,
+        "startChar": 7,
+        "endLine": 240,
+        "endChar": 36
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbb21ab4_baf03c04",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "on \u003d\u003d false",
+      "range": {
+        "startLine": 241,
+        "startChar": 8,
+        "endLine": 241,
+        "endChar": 10
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24f01f25_0ef8bb16",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "on \u003d\u003d true",
+      "range": {
+        "startLine": 249,
+        "startChar": 7,
+        "endLine": 249,
+        "endChar": 9
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4ba8a5e_60e76e79",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "imx8ulp_psw[psw_parent].count \u003d\u003d 0",
+      "range": {
+        "startLine": 255,
+        "startChar": 8,
+        "endLine": 255,
+        "endChar": 37
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31efa289_65ccdf49",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "imx8ulp_psw[sram_parent].count \u003d\u003d 0",
+      "range": {
+        "startLine": 263,
+        "startChar": 7,
+        "endLine": 263,
+        "endChar": 37
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26da607e_10ee7307",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "on \u003d\u003d false",
+      "range": {
+        "startLine": 264,
+        "startChar": 8,
+        "endLine": 264,
+        "endChar": 10
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd0d7d69_8cee7e2d",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "on \u003d\u003d true",
+      "range": {
+        "startLine": 272,
+        "startChar": 7,
+        "endLine": 272,
+        "endChar": 9
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13c05d18_35dfa698",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "imx8ulp_psw[sram_parent].count \u003d\u003d 0",
+      "range": {
+        "startLine": 278,
+        "startChar": 8,
+        "endLine": 278,
+        "endChar": 38
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a77b6fbc_914a4a82",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "on \u003d\u003d true",
+      "range": {
+        "startLine": 324,
+        "startChar": 5,
+        "endLine": 324,
+        "endChar": 7
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b984d94_d0eebfc0",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 329,
+        "startChar": 6,
+        "endLine": 329,
+        "endChar": 9
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bac3a4a_acb80d4b",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 334,
+        "startChar": 6,
+        "endLine": 334,
+        "endChar": 9
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "313a2ad9_0f8fc51f",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 339,
+        "startChar": 6,
+        "endLine": 339,
+        "endChar": 9
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18caa1a1_16786a50",
+        "filename": "plat/imx/imx8ulp/scmi/scmi_pd.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-01-30T19:36:17Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 344,
+        "startChar": 6,
+        "endLine": 344,
+        "endChar": 9
+      },
+      "revId": "1f1df3c0bb30cf3081da3fac113a2c3b0a412284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
