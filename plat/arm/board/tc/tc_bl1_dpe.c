@@ -19,9 +19,12 @@
 
 #include <platform_def.h>
 
+#include "tc_dpe_cert.h"
+
 struct dpe_metadata tc_dpe_metadata[] = {
 	{
 		.id = FW_CONFIG_ID,
+		.cert_id = DPE_AP_FW_CERT_ID,
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_FW_CONFIG_STRING,
 		.allow_new_context_to_derive = false,
@@ -30,6 +33,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 		.pk_oid = ZERO_OID },
 	{
 		.id = TB_FW_CONFIG_ID,
+		.cert_id = DPE_AP_FW_CERT_ID,
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_TB_FW_CONFIG_STRING,
 		.allow_new_context_to_derive = false,
@@ -38,6 +42,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 		.pk_oid = ZERO_OID },
 	{
 		.id = BL2_IMAGE_ID,
+		.cert_id = DPE_AP_FW_CERT_ID,
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_BL2_IMAGE_STRING,
 		.allow_new_context_to_derive = true,
