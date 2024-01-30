@@ -371,6 +371,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f4b1b4eb_e9bd06fc",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-30T09:54:40Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "355bfa76_d84d6382",
+      "range": {
+        "startLine": 102,
+        "startChar": 20,
+        "endLine": 102,
+        "endChar": 21
+      },
+      "revId": "13462101f333476b480f64f08e875ab0364d4e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "232fc34b_1b30f715",
         "filename": "include/drivers/fwu/fwu_metadata.h",
         "patchSetId": 2
@@ -478,6 +502,30 @@
       "side": 1,
       "message": "@Yann, I can do that. But is it not odd that I club the description of the symbol with other changes which effectively are all updating the specification URL to point to the latest version? I see the current structure of describing the symbol and it\u0027s addition as cleaner. What do you say?\n\n@Manish, Also, on Manish\u0027s comment about the adding of the flag before using it in the code, well this is how I have been adding code elsewhere. That kind of ensures that all the code is in place before adding a symbol or flag which enables it. If you have a strong opinion on this, I will revert the order.",
       "parentUuid": "010d0ab3_81f99320",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 31
+      },
+      "revId": "13462101f333476b480f64f08e875ab0364d4e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1e30ec9_6f21bdc6",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-30T09:54:40Z",
+      "side": 1,
+      "message": "Yes you\u0027re right, I didn\u0027t remember that the docs were only updated for the doc URL. Maybe we could then also have another doc patch to present the feature and the new flag (split patch 2 of this series in 2). The series would then look like:\n1 - doc patch for URL update\n2 - doc patch to present the new flag (and the feature)\n3 - structure update (this current file)\n4 - management of the flag (patch 2 without the doc)\n...\n\n@Manish would that be OK for you?",
+      "parentUuid": "0dd859c7_dabc2bfb",
       "range": {
         "startLine": 107,
         "startChar": 0,
