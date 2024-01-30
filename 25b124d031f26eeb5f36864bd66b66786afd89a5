@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6adab9eb_fd1561a3",
+        "filename": "plat/common/aarch64/plat_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-01-30T19:50:50Z",
+      "side": 1,
+      "message": "Just trying to understand,\n\nwill \u0027el\u0027 ever evaluate to el1 or el0 from the context of current execution? or the el is read from different context?",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 16
+      },
+      "revId": "25b124d031f26eeb5f36864bd66b66786afd89a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
