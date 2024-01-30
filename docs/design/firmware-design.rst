@@ -645,6 +645,20 @@ on entry, these should be enabled during ``bl31_plat_arch_setup()``.
 Data structures used in the BL31 cold boot interface
 ''''''''''''''''''''''''''''''''''''''''''''''''''''
 
+In the cold boot flow, ``entry_point_info`` is used to represent the execution
+state of an image; that is, the state of general purpose registers, PC, and
+SPSR.
+
+.. code:: c
+
+   typedef struct entry_point_info {
+        param_header_t h;
+        uintptr_t pc;
+        uint32_t spsr;
+        aapcs64_params_t args;
+        uintptr_t lr_svc;
+   }
+
 These structures are designed to support compatibility and independent
 evolution of the structures and the firmware images. For example, a version of
 BL31 that can interpret the BL3x image information from different versions of
@@ -665,10 +679,14 @@ BL31 to detect which information is present and respond appropriately. The
         uint32_t attr;      /* attributes: unused bits SBZ */
     } param_header_t;
 
-The structures using this format are ``entry_point_info``, ``image_info`` and
-``bl31_params``. The code that allocates and populates these structures must set
-the header fields appropriately, and the ``SET_PARAM_HEAD()`` a macro is defined
-to simplify this action.
+Other structures using this format are ``image_info`` and ``bl31_params``. The
+code that allocates and populates these structures must set the header fields
+appropriately, and the ``SET_PARAM_HEAD()`` a macro is defined to simplify
+this action.
+
+In `entry_point_info`, Bits 0 and 5 of ``attr`` field are used to encode the
+security state; in other words, whether the image is to be executed in Secure,
+Non-Secure, or Realm mode.
 
 Required CPU state for BL31 Warm boot initialization
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
