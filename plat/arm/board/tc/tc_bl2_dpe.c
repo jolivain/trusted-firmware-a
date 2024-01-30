@@ -17,6 +17,8 @@
 #include <platform_def.h>
 #include <tools_share/tbbr_oid.h>
 
+#include "tc_dpe_cert.h"
+
 /*
  * The content and the values of this array depends on:
  * - build config: Which components are loaded: SPMD, TOS, SPx, etc ?
@@ -25,6 +27,7 @@
 struct dpe_metadata tc_dpe_metadata[] = {
 	{
 		.id = BL31_IMAGE_ID,
+		.cert_id = DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_BL31_IMAGE_STRING,
 		.allow_new_context_to_derive = false,
@@ -33,6 +36,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 		.pk_oid = BL31_IMAGE_KEY_OID },
 	{
 		.id = BL32_IMAGE_ID,
+		.cert_id =  DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_BL32_IMAGE_STRING,
 		.allow_new_context_to_derive = false,
@@ -42,6 +46,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 // TODO: Strings are too long for sw_type array, increase SW_TYPE_MAX_SIZE
 //	{
 //		.id = BL32_EXTRA1_IMAGE_ID,
+//		.cert_id = DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 //		.signer_id_size = SIGNER_ID_MIN_SIZE,
 //		.sw_type = MBOOT_BL32_EXTRA1_IMAGE_STRING,
 //		.allow_new_context_to_derive = false,
@@ -50,6 +55,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 //		.pk_oid = NULL },
 //	{
 //		.id = BL32_EXTRA2_IMAGE_ID,
+//		.cert_id = DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 //		.signer_id_size = SIGNER_ID_MIN_SIZE,
 //		.sw_type = MBOOT_BL32_EXTRA2_IMAGE_STRING,
 //		.allow_new_context_to_derive = false,
@@ -58,6 +64,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 //		.pk_oid = NULL },
 	{
 		.id = BL33_IMAGE_ID,
+		.cert_id = DPE_HYPERVISOR_CERT_ID,
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_BL33_IMAGE_STRING,
 		.allow_new_context_to_derive = true,
@@ -67,6 +74,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 
 	{
 		.id = HW_CONFIG_ID,
+		.cert_id = DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_HW_CONFIG_STRING,
 		.allow_new_context_to_derive = false,
@@ -75,6 +83,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 		.pk_oid = HW_CONFIG_KEY_OID },
 	{
 		.id = NT_FW_CONFIG_ID,
+		.cert_id = DPE_HYPERVISOR_CERT_ID,
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_NT_FW_CONFIG_STRING,
 		.allow_new_context_to_derive = false,
@@ -83,6 +92,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 		.pk_oid = NT_FW_CONFIG_KEY_OID },
 	{
 		.id = SCP_BL2_IMAGE_ID,
+		.cert_id = DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_SCP_BL2_IMAGE_STRING,
 		.allow_new_context_to_derive = false,
@@ -91,6 +101,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 		.pk_oid = SCP_BL2_IMAGE_KEY_OID },
 	{
 		.id = SOC_FW_CONFIG_ID,
+		.cert_id = DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_SOC_FW_CONFIG_STRING,
 		.allow_new_context_to_derive = false,
@@ -99,6 +110,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 		.pk_oid = SOC_FW_CONFIG_KEY_OID },
 	{
 		.id = TOS_FW_CONFIG_ID,
+		.cert_id = DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_TOS_FW_CONFIG_STRING,
 		.allow_new_context_to_derive = false,
@@ -108,6 +120,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 #if defined(SPD_spmd)
 	{
 		.id = SP_PKG1_ID,
+		.cert_id = DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_SP1_STRING,
 		.allow_new_context_to_derive = false,
@@ -116,6 +129,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 		.pk_oid = NULL },
 	{
 		.id = SP_PKG2_ID,
+		.cert_id = DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_SP2_STRING,
 		.allow_new_context_to_derive = false,
@@ -124,6 +138,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 		.pk_oid = NULL },
 	{
 		.id = SP_PKG3_ID,
+		.cert_id = DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_SP3_STRING,
 		.allow_new_context_to_derive = false,
@@ -132,6 +147,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 		.pk_oid = NULL },
 	{
 		.id = SP_PKG4_ID,
+		.cert_id = DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_SP4_STRING,
 		.allow_new_context_to_derive = false,
@@ -140,6 +156,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 		.pk_oid = NULL },
 	{
 		.id = SP_PKG5_ID,
+		.cert_id = DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_SP5_STRING,
 		.allow_new_context_to_derive = false,
@@ -148,6 +165,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 		.pk_oid = NULL },
 	{
 		.id = SP_PKG6_ID,
+		.cert_id = DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_SP6_STRING,
 		.allow_new_context_to_derive = false,
@@ -156,6 +174,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 		.pk_oid = NULL },
 	{
 		.id = SP_PKG7_ID,
+		.cert_id = DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_SP7_STRING,
 		.allow_new_context_to_derive = false,
@@ -164,6 +183,7 @@ struct dpe_metadata tc_dpe_metadata[] = {
 		.pk_oid = NULL },
 	{
 		.id = SP_PKG8_ID,
+		.cert_id = DPE_CERT_ID_SAME_AS_PARENT, /* AP_BL2: DPE_FW_CERT_ID */
 		.signer_id_size = SIGNER_ID_MIN_SIZE,
 		.sw_type = MBOOT_SP8_STRING,
 		.allow_new_context_to_derive = false,
