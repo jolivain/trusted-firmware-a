@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9ca00cf_12b61273",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_lsp_ras_sp.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-01-30T21:15:11Z",
+      "side": 1,
+      "message": "For your test i assume cactus is running at S-EL1 and it can access erxstatus_el1 register. Does it make sense to move it to test part?",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 29
+      },
+      "revId": "00f802436e85a6f3b48c8cca654d6d0626a8f0c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
