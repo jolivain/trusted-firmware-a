@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f08f5aca_b8fe3c8a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-01-30T22:12:15Z",
+      "side": 1,
+      "message": "\"SCR_EL3.EEL2 bit set to 1\" or \"SCR_EL3.EEL2 bit enabled\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 16
+      },
+      "revId": "691c3ce74ac39313daf5eb614e407f8c9502248c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7b2792a_afd3a96f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-01-30T22:12:15Z",
+      "side": 1,
+      "message": "nit: throughout",
+      "range": {
+        "startLine": 10,
+        "startChar": 29,
+        "endLine": 10,
+        "endChar": 40
+      },
+      "revId": "691c3ce74ac39313daf5eb614e407f8c9502248c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3cb0d48_9398115d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-01-30T22:12:15Z",
+      "side": 1,
+      "message": "nit: \"in the context\"",
+      "range": {
+        "startLine": 11,
+        "startChar": 44,
+        "endLine": 11,
+        "endChar": 54
+      },
+      "revId": "691c3ce74ac39313daf5eb614e407f8c9502248c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fea7c36d_7c23e812",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-01-30T22:12:15Z",
+      "side": 1,
+      "message": "nit: \"the SCR_EL3 register\"",
+      "range": {
+        "startLine": 12,
+        "startChar": 19,
+        "endLine": 12,
+        "endChar": 26
+      },
+      "revId": "691c3ce74ac39313daf5eb614e407f8c9502248c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d0bb5ac_4fbd60d7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-01-30T22:12:15Z",
+      "side": 1,
+      "message": "nit: and the",
+      "range": {
+        "startLine": 13,
+        "startChar": 14,
+        "endLine": 13,
+        "endChar": 19
+      },
+      "revId": "691c3ce74ac39313daf5eb614e407f8c9502248c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6862bd3c_9244d15e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-01-30T22:12:15Z",
+      "side": 1,
+      "message": "nit: the RESET",
+      "range": {
+        "startLine": 13,
+        "startChar": 8,
+        "endLine": 13,
+        "endChar": 13
+      },
+      "revId": "691c3ce74ac39313daf5eb614e407f8c9502248c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db1f3062_2dabff78",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-01-30T22:12:15Z",
+      "side": 1,
+      "message": "Modifying the SCR_EL3.EEL2 along with the EA bit at RESET also helps in mitigating against ERRATA_V2_3099206.\nor \nModifying the SCR_EL3.EEL2 along with the EA bit at RESET does also help in mitigating against ERRATA_V2_3099206.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 37
+      },
+      "revId": "691c3ce74ac39313daf5eb614e407f8c9502248c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
