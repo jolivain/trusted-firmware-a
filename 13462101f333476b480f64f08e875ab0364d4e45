@@ -534,6 +534,30 @@
       },
       "revId": "13462101f333476b480f64f08e875ab0364d4e45",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cc85ef8_f787b0d6",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-30T10:32:26Z",
+      "side": 1,
+      "message": "Hi Sughosh,  Yann,\n\n\u003e @Manish, Also, on Manish\u0027s comment about the adding of the flag before using it in the code, well this is how I have been adding code elsewhere. That kind of ensures that all the code is in place before adding a symbol or flag which enables it. If you have a strong opinion on this, I will revert the order.\n\nIt will be better to have some details of the flags before using it IMHO.\n\n\u003e @Manish would that be OK for you?\n\nI\u0027m fine with the order you mentioned. It looks neat.",
+      "parentUuid": "d1e30ec9_6f21bdc6",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 31
+      },
+      "revId": "13462101f333476b480f64f08e875ab0364d4e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
