@@ -16,6 +16,23 @@
       "message": "I had a look at the CI failures. Only commitlint checks failed and this seems to be due to an infrastructure issue:\n\n```\nBinary download from https://nodejs.org/dist/v16.17.1/node-v16.17.1.tar.xz failed, trying source.\n```\n\nI think this can be safely ignored.",
       "revId": "6c2c8528aca80848199dc86024a9bdce7b37bdc2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7bb31be_bcb1e684",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-01-30T16:12:52Z",
+      "side": 1,
+      "message": "There is no code owner for process documentation so I will upgrade YannG\u0027s CR+1 into a COR+1.",
+      "revId": "6c2c8528aca80848199dc86024a9bdce7b37bdc2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
