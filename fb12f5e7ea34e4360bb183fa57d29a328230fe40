@@ -38,6 +38,87 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1058a9cd_0bc60bc6",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-31T09:29:07Z",
+      "side": 1,
+      "message": "I mean:\n\n\tif (metadata.version !\u003d 2U) {\n\t\treturn -1;\n\t}",
+      "parentUuid": "a3e16a57_40dac8a3",
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58a597f6_a76ecf4b",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-31T09:29:07Z",
+      "side": 1,
+      "message": "4U",
+      "range": {
+        "startLine": 68,
+        "startChar": 34,
+        "endLine": 68,
+        "endChar": 35
+      },
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db61b781_96592313",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-31T09:29:07Z",
+      "side": 1,
+      "message": "0U",
+      "range": {
+        "startLine": 77,
+        "startChar": 29,
+        "endLine": 77,
+        "endChar": 30
+      },
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dcb7463_be4090b1",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-31T09:29:07Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f845b75b_e3115400",
         "filename": "drivers/fwu/fwu.c",
         "patchSetId": 2
@@ -67,6 +148,23 @@
       "side": 1,
       "message": "\u003e and also put compile time assertion to have NR_OF_FW_BANKS \u003c NR_OF_MAX_FW_BANKS.\n\u003e NR_OF_MAX_FW_BANKS we discussed in previous patch.\n\nWe already have an assertion in the fwu_init() function which is doing that. The reason I kept it in the fwu_init() function is that this is a check which does not need a metadata read. So if a platform has gotten the NR_OF_FW_BANKS wrong, we can fail very early, without a need to read the metadata.",
       "parentUuid": "f845b75b_e3115400",
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71bde9f3_8b28fa11",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-01-31T09:29:07Z",
+      "side": 1,
+      "message": "As mentioned by Manish in his comment at line 85, this should be a compilation time assert, with CASSERT macro",
       "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
