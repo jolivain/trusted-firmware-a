@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7854bda8_ebfbb5d6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-31T12:27:38Z",
+      "side": 1,
+      "message": "\u003e Sorry, I did not understand this comment. What do you mean by \"intact\"?\n\nI consider that the firmware residing in the previous active index can be considered intact. This is because the platform has opted to revert to this firmware if the updatable one fails to function as expected. \nI think FWU metadata gives information of images lying in active as well previous-active index (indeed, when both are different).",
+      "parentUuid": "51a32c6d_706f76ac",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 35
+      },
+      "revId": "442f0d44bc2b5361ff20ccc66352e9a5a6ae6426",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "efbc2532_00836247",
@@ -96,6 +120,24 @@
       "side": 1,
       "message": "Okay. I don\u0027t have a strong opinion on the nomenclature. The reason for the current wording is because it describes that the structure is describing image information.",
       "parentUuid": "e387a747_8b8a94ed",
+      "revId": "442f0d44bc2b5361ff20ccc66352e9a5a6ae6426",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea42f8b7_571a61cf",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-31T12:27:38Z",
+      "side": 1,
+      "message": "I think it describe image(s) information in each bank so I feel FW store description may sound better, also it aligns with the specification.",
+      "parentUuid": "3c467d84_8b5be8dd",
       "revId": "442f0d44bc2b5361ff20ccc66352e9a5a6ae6426",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
