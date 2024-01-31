@@ -233,7 +233,9 @@ static int load_partition_gpt(uintptr_t image_handle, gpt_header_t header)
 {
 	const signed long long gpt_entry_offset = LBA(header.part_lba);
 	gpt_entry_t entry;
-	int result, i;
+	int result;
+	unsigned int i;
+	uint32_t calc_crc = 0U;
 
 	result = io_seek(image_handle, IO_SEEK_SET, gpt_entry_offset);
 	if (result != 0) {
@@ -242,13 +244,19 @@ static int load_partition_gpt(uintptr_t image_handle, gpt_header_t header)
 		return result;
 	}
 
-	for (i = 0; i < list.entry_count; i++) {
+	for (i = 0; i < header.list_num; i++) {
 		result = load_gpt_entry(image_handle, &entry);
 		if (result != 0) {
-			VERBOSE("Failed to load gpt entry data(%i) error is (%i)\n",
+			VERBOSE("Failed to load gpt entry data(%u) error is (%i)\n",
 				i, result);
 			return result;
 		}
+
+		/*
+		 * Calculate CRC of Partition entry array to compare with CRC
+		 * value in header
+		 */
+		calc_crc = tf_crc32(calc_crc, (uint8_t *)&entry, sizeof(gpt_entry_t));
 
 		result = parse_gpt_entry(&entry, &list.list[i]);
 		if (result != 0) {
@@ -259,12 +267,42 @@ static int load_partition_gpt(uintptr_t image_handle, gpt_header_t header)
 		VERBOSE("No Valid GPT Entries found\n");
 		return -EINVAL;
 	}
+
 	/*
 	 * Only records the valid partition number that is loaded from
 	 * partition table.
 	 */
 	list.entry_count = i;
 	dump_entries(list.entry_count);
+
+	/*
+	 * If there are less entries than the possible number of entries from the header,
+	 * continue to load the partition entry table to calculate the full CRC in order
+	 * to check against the partition CRC from the header for validation.
+	 */
+	if (i != header.list_num) {
+		/*
+		 * Increment i since the for loop break did not allow for i to be incremented
+		 * after the last GPT entry was loaded.
+		 */
+		i++;
+		for (; i < header.list_num; i++) {
+			result = load_gpt_entry(image_handle, &entry);
+			if (result != 0) {
+				VERBOSE("Failed to load gpt entry data(%u) error is (%i)\n",
+					i, result);
+				return result;
+			}
+
+			calc_crc = tf_crc32(calc_crc, (uint8_t *)&entry, sizeof(gpt_entry_t));
+		}
+	}
+
+	if (header.part_crc != calc_crc) {
+		ERROR("Invalid GPT Partition Array Entry CRC: Expected 0x%x"
+				" but got 0x%x.\n", header.part_crc, calc_crc);
+		return -EINVAL;
+	}
 
 	return 0;
 }
