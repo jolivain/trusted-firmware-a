@@ -475,6 +475,30 @@
       },
       "revId": "4f51c0ba5eb245b518ca060e1c2fa9a8a9aa9f86",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88810f1d_cf623138",
+        "filename": "include/plat/arm/common/fconf_arm_sp_getter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-01-31T17:46:16Z",
+      "side": 1,
+      "message": "I believe the reason has already been mentioned by Olivier in a previous comment, that is due to limited trusted DRAM size.\nI am of the opinion that if the platform opts against increasing the SP size due to size constraints, then the generic definition of this value becomes a blocker for them.",
+      "parentUuid": "35fa8e3f_f258551b",
+      "range": {
+        "startLine": 17,
+        "startChar": 27,
+        "endLine": 17,
+        "endChar": 36
+      },
+      "revId": "4f51c0ba5eb245b518ca060e1c2fa9a8a9aa9f86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
