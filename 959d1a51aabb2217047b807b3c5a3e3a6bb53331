@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c398c999_96d0a46c",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-31T09:20:17Z",
+      "side": 1,
+      "message": "\u003e We used to invoke a function to determine whether the firmware (FW) was in a trial or an accepted run state. \n\nCan you tell me which function is that?\n\n\u003e However, with the updated specifications, three distinct states are now defined: invalid, valid, and accepted. Therefore, could we now explicitly verify if an image is accepted by checking bank_state[#bank_no] \u003d\u003d 0xFC before proceeding with actions such as incrementing the NV counter or implementing other use cases, such as setting platform-specific registers.\n\nThe point of this patch is to simplify the logic of the function fwu_is_trial_run_state(), which is used to specifically return if the current active bank is in the Trial State.\n\nSo with the current version of the metadata, this information can be obtained from the top level structure, without having to loop through all the images of the active bank.\n\nFor your question, the ST platform is current using the above API to check if the platform is in Trial State, and if it is, update the NV counters. Thus I don\u0027t think any addition API is needed. What though can be done, is to move the function get_valid_bank() as an API to the fwu.c file. It is currently a static function for the ST platform. Then all platforms can use this function to get a valid bank to boot from in the scenario when the Trial counter expires. Would that be fine with you?",
+      "parentUuid": "b128d1b7_f33af373",
+      "range": {
+        "startLine": 145,
+        "startChar": 1,
+        "endLine": 146,
+        "endChar": 23
+      },
+      "revId": "959d1a51aabb2217047b807b3c5a3e3a6bb53331",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "60300b2b_61af4205",
         "filename": "include/drivers/fwu/fwu.h",
         "patchSetId": 2
@@ -37,6 +61,24 @@
       "writtenOn": "2024-01-30T14:02:15Z",
       "side": 1,
       "message": "Add one more define as below:\n``#define FWU_ACCEPTED_BANK_STATE\t\t0xFC``\nfor completeness",
+      "revId": "959d1a51aabb2217047b807b3c5a3e3a6bb53331",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a627f70_694553a8",
+        "filename": "include/drivers/fwu/fwu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-31T09:20:17Z",
+      "side": 1,
+      "message": "Okay",
+      "parentUuid": "60300b2b_61af4205",
       "revId": "959d1a51aabb2217047b807b3c5a3e3a6bb53331",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
