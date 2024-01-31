@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "51a32c6d_706f76ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-31T09:02:19Z",
+      "side": 1,
+      "message": "Sorry, I did not understand this comment. What do you mean by \"intact\"?\n\nThe FWU metadata will only contain image information on those images that are updatable by the ABI. If there are images which are not being updated through the ABI presented in the spec, they are not included in the metadata.",
+      "parentUuid": "b9c47943_5f108f7a",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 35
+      },
+      "revId": "442f0d44bc2b5361ff20ccc66352e9a5a6ae6426",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "efbc2532_00836247",
@@ -60,6 +84,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3c467d84_8b5be8dd",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-31T09:02:19Z",
+      "side": 1,
+      "message": "Okay. I don\u0027t have a strong opinion on the nomenclature. The reason for the current wording is because it describes that the structure is describing image information.",
+      "parentUuid": "e387a747_8b8a94ed",
+      "revId": "442f0d44bc2b5361ff20ccc66352e9a5a6ae6426",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae82de1f_94d24424",
         "filename": "docs/getting_started/build-options.rst",
         "patchSetId": 2
@@ -71,6 +113,30 @@
       "writtenOn": "2024-01-30T13:45:21Z",
       "side": 1,
       "message": "FW store description instead to align with the specification.",
+      "range": {
+        "startLine": 1339,
+        "startChar": 60,
+        "endLine": 1340,
+        "endChar": 15
+      },
+      "revId": "442f0d44bc2b5361ff20ccc66352e9a5a6ae6426",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c2f8301_b13cbf3b",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1340,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-31T09:02:19Z",
+      "side": 1,
+      "message": "Okay",
+      "parentUuid": "ae82de1f_94d24424",
       "range": {
         "startLine": 1339,
         "startChar": 60,
