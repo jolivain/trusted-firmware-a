@@ -46,6 +46,30 @@
       },
       "revId": "004b9aaf84a539c53e96418c6da3e8992d2edea0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e58accf6_485e4d0e",
+        "filename": "plat/arm/board/tc/fdts/tc_tb_fw_config.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-01-31T15:05:06Z",
+      "side": 1,
+      "message": "on a second thought, I don\u0027t think it\u0027s useful. We want trusted services to be in, as above, and cactus and ivy are already in so it would just be change for the sake of change. I\u0027d rather not",
+      "parentUuid": "620d480d_9d2a86db",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 4
+      },
+      "revId": "004b9aaf84a539c53e96418c6da3e8992d2edea0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
