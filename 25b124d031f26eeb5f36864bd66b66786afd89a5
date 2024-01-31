@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "78396f6c_8b82c083",
+        "filename": "plat/common/aarch64/plat_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-01-31T15:20:12Z",
+      "side": 1,
+      "message": "To add on to what Arvind mentioned, get_el_str() can be called with SPSR value which can be any EL",
+      "parentUuid": "7e6e4d81_63f1faf4",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 16
+      },
+      "revId": "25b124d031f26eeb5f36864bd66b66786afd89a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ecc28269_be5637d0",
         "filename": "plat/common/aarch64/plat_common.c",
         "patchSetId": 2

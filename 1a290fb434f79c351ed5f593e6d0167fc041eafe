@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b25d9dc3_1372bda3",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-01-31T15:20:12Z",
+      "side": 1,
+      "message": "Ideally empty else condition looks ugly, what i want here is to look at the logic and see it can be covered in more clearer way. If there is no possibility then leave it as is.",
+      "range": {
+        "startLine": 1006,
+        "startChar": 0,
+        "endLine": 1007,
+        "endChar": 69
+      },
+      "revId": "1a290fb434f79c351ed5f593e6d0167fc041eafe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
