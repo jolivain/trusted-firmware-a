@@ -54,6 +54,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fd7dcfd_c52a3827",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-31T10:49:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1058a9cd_0bc60bc6",
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58a597f6_a76ecf4b",
@@ -67,6 +85,30 @@
       "writtenOn": "2024-01-31T09:29:07Z",
       "side": 1,
       "message": "4U",
+      "range": {
+        "startLine": 68,
+        "startChar": 34,
+        "endLine": 68,
+        "endChar": 35
+      },
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4f82fa9_42feec57",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-31T10:49:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "58a597f6_a76ecf4b",
       "range": {
         "startLine": 68,
         "startChar": 34,
@@ -100,6 +142,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "888dce75_f9d17508",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-31T10:49:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "db61b781_96592313",
+      "range": {
+        "startLine": 77,
+        "startChar": 29,
+        "endLine": 77,
+        "endChar": 30
+      },
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4dcb7463_be4090b1",
@@ -113,6 +179,24 @@
       "writtenOn": "2024-01-31T09:29:07Z",
       "side": 1,
       "message": "ditto",
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca509694_d72fedd1",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-31T10:49:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4dcb7463_be4090b1",
       "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -165,6 +249,24 @@
       "writtenOn": "2024-01-31T09:29:07Z",
       "side": 1,
       "message": "As mentioned by Manish in his comment at line 85, this should be a compilation time assert, with CASSERT macro",
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f161def_e75580ca",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-31T10:49:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "71bde9f3_8b28fa11",
       "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
