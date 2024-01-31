@@ -642,6 +642,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c2068ee_726d9df0",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2024-01-31T22:04:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25412f24_b7dbb100",
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e95a1da_ad04bda8",
@@ -724,6 +742,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d97e27e2_c29b9203",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2024-01-31T22:04:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16003c95_f0f8584e",
+      "range": {
+        "startLine": 268,
+        "startChar": 28,
+        "endLine": 268,
+        "endChar": 36
+      },
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63f88601_9afbe61e",
@@ -761,6 +803,30 @@
       "side": 1,
       "message": "Again, happy to be corrected if other people are more familiar, but the way I understand it I think properties only have the vendor prefix if they are properties that are specific to a single vendor when the whole node is not. But in our case, the whole node is specific to us, so the vendor name should only be listed in the compatible string (which still needs to be added here).\n\nSo, basically, you want to add a property with the name \"compatible\" and the value \"google,widevine\" or something like that (we tend to use \"google\", not \"chromeos\", for our other compatible strings too), and then I think the other property names should be fine the way they are (except for the underscores, I think the normal style in device tree names is to use dashes \u0027-\u0027 instead of underscores \u0027_\u0027).",
       "parentUuid": "63f88601_9afbe61e",
+      "range": {
+        "startLine": 272,
+        "startChar": 26,
+        "endLine": 272,
+        "endChar": 37
+      },
+      "revId": "17f5992456fefbc13b2c4291c7ad98f5c991d268",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6076de1_60e591c2",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1001027
+      },
+      "writtenOn": "2024-01-31T22:04:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55bee9ea_0323dded",
       "range": {
         "startLine": 272,
         "startChar": 26,
