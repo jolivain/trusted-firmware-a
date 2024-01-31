@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c84a2c1e_6ba60567",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-31T09:25:54Z",
+      "side": 1,
+      "message": "Yes, will add that check here.",
+      "parentUuid": "a3e16a57_40dac8a3",
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f845b75b_e3115400",
         "filename": "drivers/fwu/fwu.c",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-30T15:11:21Z",
       "side": 1,
       "message": "and also put compile time assertion to have NR_OF_FW_BANKS \u003c NR_OF_MAX_FW_BANKS.\nNR_OF_MAX_FW_BANKS we discussed in previous patch.",
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61f01784_cc982587",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-01-31T09:25:54Z",
+      "side": 1,
+      "message": "\u003e and also put compile time assertion to have NR_OF_FW_BANKS \u003c NR_OF_MAX_FW_BANKS.\n\u003e NR_OF_MAX_FW_BANKS we discussed in previous patch.\n\nWe already have an assertion in the fwu_init() function which is doing that. The reason I kept it in the fwu_init() function is that this is a check which does not need a metadata read. So if a platform has gotten the NR_OF_FW_BANKS wrong, we can fail very early, without a need to read the metadata.",
+      "parentUuid": "f845b75b_e3115400",
       "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
