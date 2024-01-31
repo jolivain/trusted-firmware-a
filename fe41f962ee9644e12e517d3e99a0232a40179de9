@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d62df137_051efb53",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-01-31T15:11:54Z",
+      "side": 1,
+      "message": "This should be part of css_pwr_domain_on_finisher_common() at line 110",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 0
+      },
+      "revId": "fe41f962ee9644e12e517d3e99a0232a40179de9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "214cee9f_c937c6dc",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-01-31T15:11:54Z",
+      "side": 1,
+      "message": "This should be called from css_power_down_common() in the line 159 when you are sure that cluster is going down.",
+      "range": {
+        "startLine": 171,
+        "startChar": 0,
+        "endLine": 178,
+        "endChar": 6
+      },
+      "revId": "fe41f962ee9644e12e517d3e99a0232a40179de9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
