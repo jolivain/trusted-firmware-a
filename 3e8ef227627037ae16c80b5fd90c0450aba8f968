@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6840e7d9_f03ae26a",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2024-01-31T13:06:20Z",
+      "side": 1,
+      "message": "as I mentioned previously in my review -\u003e we wont be able to drop this check, ever. This is because over the last 8-10 years we have a ton of firmwares on older products without this support, and that is not something we can randomly regress. \n\nSo, in fact document the fact in the code so that no one is tempted to remove the code in the future (and ofcourse, drop the above comment -\u003e which btw, is wrong c coding style..)\n\n```\n/*\n * multi-line comment\n * multi-line comment\n */\n```",
+      "revId": "3e8ef227627037ae16c80b5fd90c0450aba8f968",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
