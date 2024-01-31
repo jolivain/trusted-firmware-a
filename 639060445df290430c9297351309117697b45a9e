@@ -33,6 +33,41 @@
       "message": "Uggh.. https://software-dl.ti.com/tisci/esd/latest/2_tisci_msgs/general/core.html#message-data-structures does\u0027nt tell me the length of the description 😞 but fine, I will go with https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/firmware/ti_sci.h#n116\n\nJust a style question - why not just pass a structure with all these around? easier to update if something changes etc.. sending so many parameters as function arguments looks feels wrong.\n\nyou already have ti_sci_msg_resp_version -\u003e just allocate that and pass it as a pointer?",
       "revId": "639060445df290430c9297351309117697b45a9e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "709f1712_9195cd27",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2024-01-31T15:18:43Z",
+      "side": 1,
+      "message": "\"ti_sci_msg_resp_version\" is part of the protocol towards the firmware, it should not be exposed to the users. What I mean by this is no one should have to include \u003cti_sci_protocol.h\u003e, the user facing API is all in \u003cti_sci.h\u003e. (note these header names are the reverse of what they are in U-Boot/Linux). This way if something changes on the protocol side then we don\u0027t have to change anything on the user side, or vice versa.",
+      "parentUuid": "84fc7d82_f7b95f08",
+      "revId": "639060445df290430c9297351309117697b45a9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f2320dd_c18f8773",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000106
+      },
+      "writtenOn": "2024-01-31T15:18:43Z",
+      "side": 1,
+      "message": "This project uses K\u0026R style braces.",
+      "revId": "639060445df290430c9297351309117697b45a9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
