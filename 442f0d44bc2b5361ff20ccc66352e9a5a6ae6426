@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "4612de5f_dc2bf2c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-01T07:10:43Z",
+      "side": 1,
+      "message": "Thinking more about this. I think we do need to mention that the firmware store information contains information on images that are updatable by this spec defined ABI. A platform can, and mostly will contain at least one firmware image on the storage media that is not updatable by the ABI\u0027s. So I think it is better to highlight that the images described in the firmware store descriptor contain information on updatable images.\n\nI will change the symbol name based on your suggestion. You can check the text and maybe we can discuss in the next version if you think there should be modifications.",
+      "parentUuid": "7854bda8_ebfbb5d6",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 35
+      },
+      "revId": "442f0d44bc2b5361ff20ccc66352e9a5a6ae6426",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "efbc2532_00836247",
@@ -85,6 +109,24 @@
       "writtenOn": "2024-01-30T13:45:21Z",
       "side": 1,
       "message": "Just out of curiosity, is there any ST platform variant that does not need FW store description?",
+      "revId": "442f0d44bc2b5361ff20ccc66352e9a5a6ae6426",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ccc3c67_7d21d493",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-01T07:10:43Z",
+      "side": 1,
+      "message": "Currently not.",
+      "parentUuid": "efbc2532_00836247",
       "revId": "442f0d44bc2b5361ff20ccc66352e9a5a6ae6426",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -138,6 +180,24 @@
       "side": 1,
       "message": "I think it describe image(s) information in each bank so I feel FW store description may sound better, also it aligns with the specification.",
       "parentUuid": "3c467d84_8b5be8dd",
+      "revId": "442f0d44bc2b5361ff20ccc66352e9a5a6ae6426",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "098adbe1_a92d5080",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-01T07:10:43Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ea42f8b7_571a61cf",
       "revId": "442f0d44bc2b5361ff20ccc66352e9a5a6ae6426",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
