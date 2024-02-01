@@ -34,6 +34,24 @@
       "parentUuid": "6840e7d9_f03ae26a",
       "revId": "3e8ef227627037ae16c80b5fd90c0450aba8f968",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b95c5205_26ba99ee",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2024-02-01T13:52:42Z",
+      "side": 1,
+      "message": "Yes - that is how industrial and automotive products are, different components in the system are upgraded at different cycles and costs of updates are tremendously varied - for example an TFA update is rather cheap compared to a Firmware upgrade since safety recertification will need to be done.",
+      "parentUuid": "0e4f3371_c5637dbe",
+      "revId": "3e8ef227627037ae16c80b5fd90c0450aba8f968",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
