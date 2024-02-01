@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e84b4c85_9d0cc11d",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-02-01T22:37:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23a02e9b_76bed476",
+      "range": {
+        "startLine": 338,
+        "startChar": 14,
+        "endLine": 338,
+        "endChar": 17
+      },
+      "revId": "ee15b4daa055e52a1230ada53145c46cf651c685",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "70361c8d_21a02b82",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-29T09:43:32Z",
       "side": 1,
       "message": "If I\u0027m picky I\u0027m not sure this wording is fully correct (and line 337).\n\ncm_el2_sysregs_context_save/restore are traversed when CTX_INCLUDE_EL2_REGS\u003d1 for the cases of RMMD or SPMD present.",
+      "range": {
+        "startLine": 342,
+        "startChar": 45,
+        "endLine": 342,
+        "endChar": 65
+      },
+      "revId": "ee15b4daa055e52a1230ada53145c46cf651c685",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e5a7bf6_a89b8e22",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-02-01T22:37:01Z",
+      "side": 1,
+      "message": "Hi Olivier,\n\nI removed \"in the Secure world\" context in new documentation does that suffice?",
+      "parentUuid": "70361c8d_21a02b82",
       "range": {
         "startLine": 342,
         "startChar": 45,
