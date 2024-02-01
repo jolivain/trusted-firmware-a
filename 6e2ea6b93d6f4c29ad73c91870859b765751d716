@@ -16,6 +16,24 @@
       "message": "Hi Jayanth, thanks for the patch.\nFor me you should keep Patrick\u0027s patch (or series once the issues are solved) and just have the plat/arm/common/arm_pm.c modification in this patch.\nI\u0027ve asked him to update his series.\nOr should he take your patch on top of his series?",
       "revId": "6e2ea6b93d6f4c29ad73c91870859b765751d716",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94667c43_69f0f77c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-02-01T16:15:46Z",
+      "side": 1,
+      "message": "Hi Yann,\n\nThanks for the confirmation.\n\nIf needed, I  will abandon my patch, if he modifies/includes (arm_pm.c) change as part of his patch and get through the CI.\n\nLet me know if that works.\n\nIf not, I will modify this patch to keep only the changes with arm_pm.c, so that he can rebase on top of my change and trigger the CI.",
+      "parentUuid": "c7abfcfa_77775c54",
+      "revId": "6e2ea6b93d6f4c29ad73c91870859b765751d716",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
