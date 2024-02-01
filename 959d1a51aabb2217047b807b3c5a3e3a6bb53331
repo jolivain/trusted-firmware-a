@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f86601ed_a6e80f3b",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-01T06:44:37Z",
+      "side": 1,
+      "message": "\u003e \u003e Can you tell me which function is that?\n\u003e \n\u003e See this [1], When FW is is trial state we avoid incrementing the NV-counter.\n\u003e \n\u003e \u003e The point of this patch is to simplify the logic of the function fwu_is_trial_run_state(), which is used to specifically return if the current active bank is in the Trial State.\n\u003e \n\u003e So with the current version of the metadata, this information can be obtained from the top level structure, without having to loop through all the images of the active bank.\n\u003e \n\u003e Yes, I understood this. In the context of FWU metadata version 1, the API returned a binary value (either \u0027trial\u0027 or \u0027accepted\u0027), making the existing implementation appropriate.\n\u003e \n\u003e However, with the introduction of FWU metadata version 2, we now have three states (valid, invalid, accepted). In your current implementation, \u0027valid\u0027 is treated as the \u0027trial\u0027 run state, and all other states are considered \u0027accepted\u0027. This appears to be incorrect IMO\n\u003e \n\u003e I propose the following adjustments:\n\u003e \n\u003e 1. **Accepted State:**\n\u003e    - When the bank is in the \u0027accepted\u0027 state:\n\u003e      a. Update the NV counter.\n\u003e      b. For the ST platform, additionally set the trial boot count to the maximum \n\u003e         value [2]\n\u003e \n\u003e 2. **Invalid State:**\n\u003e    - When the bank is in the \u0027invalid\u0027 state:\n\u003e      a. Decide to switch to the previous active bank during boot. Trying out an \n\u003e      invalid bank seems unnecessary when its corruption is known. Let me know\n\u003e      what do you think?\n\u003e \n\u003e 3. **Trial State:**\n\u003e    - When the bank is in the \u0027trial\u0027/\u0027valid\u0027 run state:\n\u003e      a. Do not increment the NV counter.\n\u003e      b. For the ST platform, attempt the trial image for a certain number of \n\u003e         retrials and eventually switch back to the previous active index.\n\u003e \n\u003e Please review the proposed changes and consider incorporating them into the implementation. This adjustment ensures that each state is handled appropriately and aligns with the changes introduced in FWU metadata version 2.\n\u003e \n\u003e You can find the relevant code at [auth_mod.c line 391][1] and [bl2_io_storage.c line 638][2].\n\nOkay. I think I now understand your point. So what I would propose is to change the name of the fwu_is_trial_run_state() API to something like fwu_get_active_bank_state(). Then, the caller function can check if the bank is in Trial State or Accepted State, and take appropriate action. What do you say?\n\n\u003e \n\u003e \u003e For your question, the ST platform is current using the above API to check if the platform is in Trial State, and if it is, update the NV counters. Thus I don\u0027t think any addition API is needed. What though can be done, is to move the function get_valid_bank() as an API to the fwu.c file. It is currently a static function for the ST platform. Then all platforms can use this function to get a valid bank to boot from in the scenario when the Trial counter expires. Would that be fine with you?\n\u003e \n\u003e Let this code be platform-specific. Trial counter setting and management I feel is more like a platform-specific thing. What do you think?\n\nFine by me. Although if you check the get_valid_bank() function implementation, there is nothing platform specific about it. And some other platform which wants to select a valid bank to boot from(in case of failure to boot from the current active bank) might use a similar function to get a valid bank. I leave it to you. If you think this should be a static function, I will kepp it that way.\n\n\u003e \n\u003e \n\u003e [1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/drivers/auth/auth_mod.c#n391\n\u003e [2]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/st/common/bl2_io_storage.c#n638",
+      "parentUuid": "dc7014ff_ac038dd3",
+      "range": {
+        "startLine": 145,
+        "startChar": 1,
+        "endLine": 146,
+        "endChar": 23
+      },
+      "revId": "959d1a51aabb2217047b807b3c5a3e3a6bb53331",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "60300b2b_61af4205",
         "filename": "include/drivers/fwu/fwu.h",
         "patchSetId": 2
