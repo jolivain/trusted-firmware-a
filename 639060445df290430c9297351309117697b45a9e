@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a5a6486_1ea7c232",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000966
+      },
+      "writtenOn": "2024-02-01T08:37:18Z",
+      "side": 1,
+      "message": "do you guys want a new structure or do you want to expose the structure from the protocol like it was done previously?",
+      "parentUuid": "848d3649_bf859fdb",
+      "revId": "639060445df290430c9297351309117697b45a9e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8f2320dd_c18f8773",
         "filename": "plat/ti/k3/common/k3_bl31_setup.c",
         "patchSetId": 3
