@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d189ca41_0a7de795",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000690
+      },
+      "writtenOn": "2024-02-01T16:46:47Z",
+      "side": 1,
+      "message": "Hi,\n\nI made a comment, I can propose the modification to check if it is enough to solve the issue.\n\nFirst the correction proposed in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26207/comment/613356f6_7abe6f4b/\n\nAnd after my patches.\n\nPatrick",
+      "parentUuid": "94667c43_69f0f77c",
+      "revId": "6e2ea6b93d6f4c29ad73c91870859b765751d716",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "613356f6_7abe6f4b",
@@ -49,6 +67,24 @@
       "writtenOn": "2024-02-01T16:34:35Z",
       "side": 1,
       "message": "I think the test must change here:\n\nif PSCI_EXTENDED_STATE_ID \u003d\u003d 0\n\nbecause PLAT_MAX_PWR_LVL is not linked to OSI\n\n\u003d\u003e ARM_LAST_AT_PLVL_MASK : bit 25:24 is only used in power_state encoding\n   for original format in PSCI specification.\n   see chapter 5.4.2 CPU_SUSPEND parameters: power_state\n   \u003d\u003e 5.4.2.1 Origin Format\n   \u003d\u003e 5.4.2.2 Extendeted StateId format\n\nmoreover ARM_LAST_AT_PLVL_MASK should be not defined\nin include/plat/arm/common/plat_arm.h:129\n\n#if ARM_RECOM_STATE_ID_ENC\n...\n#if PSCI_OS_INIT_MODE\n#define ARM_LAST_AT_PLVL_MASK\t\t(ARM_LOCAL_PSTATE_MASK \u003c\u003c\t\\\n\t\t\t\t\t (ARM_LOCAL_PSTATE_WIDTH *\t\\\n\t\t\t\t\t  (PLAT_MAX_PWR_LVL + 1)))\n#endif /* __PSCI_OS_INIT_MODE__ */\n\n\u003d\u003e the test here can be modified also in this include file\n\nfor example, move this deine in the else of PSCI_EXTENDED_STATE_ID test\nin include/plat/arm/common/plat_arm.h:\n-----------------------------------------------------------------------\n\n#if ARM_RECOM_STATE_ID_ENC\n/*\n * Macros used to parse state information from State-ID if it is using the\n * recommended encoding for State-ID.\n */\n#define ARM_LOCAL_PSTATE_WIDTH\t\t4\n#define ARM_LOCAL_PSTATE_MASK\t\t((1 \u003c\u003c ARM_LOCAL_PSTATE_WIDTH) - 1)\n\n#if PSCI_OS_INIT_MODE\n#define ARM_LAST_AT_PLVL_MASK\t\t(ARM_LOCAL_PSTATE_MASK \u003c\u003c\t\\\n\t\t\t\t\t (ARM_LOCAL_PSTATE_WIDTH *\t\\\n\t\t\t\t\t  (PLAT_MAX_PWR_LVL + 1)))\n#endif /* __PSCI_OS_INIT_MODE__ */\n\n/* Make composite power state parameter till power level 0 */\n#if PSCI_EXTENDED_STATE_ID\n\n#define arm_make_pwrstate_lvl0(lvl0_state, pwr_lvl, type) \\\n\t\t(((lvl0_state) \u003c\u003c PSTATE_ID_SHIFT) | ((type) \u003c\u003c PSTATE_TYPE_SHIFT))\n#else\n#define arm_make_pwrstate_lvl0(lvl0_state, pwr_lvl, type) \\\n\t\t(((lvl0_state) \u003c\u003c PSTATE_ID_SHIFT) | \\\n\t\t((pwr_lvl) \u003c\u003c PSTATE_PWR_LVL_SHIFT) | \\\n\t\t((type) \u003c\u003c PSTATE_TYPE_SHIFT))\n\n#define ARM_LAST_AT_PLVL_MASK\t\t(ARM_LOCAL_PSTATE_MASK \u003c\u003c\t\\\n\t\t\t\t\t (ARM_LOCAL_PSTATE_WIDTH *\t\\\n\t\t\t\t\t  (PLAT_MAX_PWR_LVL + 1)))\n#endif /* __PSCI_EXTENDED_STATE_ID__ */\n\n-----------------------------------------------------------------------\n\nand the test here can change here\n\n#ifdef ARM_LAST_AT_PLVL_MASK\n\t\tif ((power_state \u0026 ~ARM_LAST_AT_PLVL_MASK) \u003d\u003d\n\t\t\t\t\tarm_pm_idle_states[i])\n#else\n\t\tif (power_state \u003d\u003d arm_pm_idle_states[i])\n#endif /* __PSCI_OS_INIT_MODE__ */\n\n\nNB: arm_pm_idle_states[i] not use ARM_LAST_AT_PLVL\n    plat/arm/css/common/css_pm.c \u003d\u003e use only arm_make_pwrstate_lvl2 macro\n\nI hope that this modification the test are OK for ARM platform without other\nmodification",
+      "revId": "6e2ea6b93d6f4c29ad73c91870859b765751d716",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "627e578e_4fa0f72d",
+        "filename": "plat/arm/common/arm_pm.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000690
+      },
+      "writtenOn": "2024-02-01T16:46:47Z",
+      "side": 1,
+      "message": "I will push the modified patch to check if test issues are solved with my proposal",
+      "parentUuid": "613356f6_7abe6f4b",
       "revId": "6e2ea6b93d6f4c29ad73c91870859b765751d716",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
