@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "459e0910_23d6fb64",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-01T11:20:02Z",
+      "side": 1,
+      "message": "\u003e \u003e Okay. I think I now understand your point. So what I would propose is to change the name of the fwu_is_trial_run_state() API to something like fwu_get_active_bank_state(). Then, the caller function can check if the bank is in Trial State or Accepted State, and take appropriate action. What do you say?\n\u003e \n\u003e This seems to be good idea. That way caller get to know the state of the active-bank and do the operation accordingly.\n\u003e \n\u003e \u003e Fine by me. Although if you check the get_valid_bank() function implementation, there is nothing platform specific about it. And some other platform which wants to select a valid bank to boot from(in case of failure to boot from the current active bank) might use a similar function to get a valid bank. I leave it to you. If you think this should be a static function, I will kepp it that way.\n\u003e \n\u003e I put some query around this function ``get_valid_bank()`` in next patch, somehow overlooked this implementation. If we agree to have this function then yes, better to move it into the FWU driver layer.\n\nYes, I have replied on that thread. Let me know if you are fine with the logic that I am proposing, and if so, I can move this function to the FWU driver.",
+      "parentUuid": "280c4540_11a55a1c",
+      "range": {
+        "startLine": 145,
+        "startChar": 1,
+        "endLine": 146,
+        "endChar": 23
+      },
+      "revId": "959d1a51aabb2217047b807b3c5a3e3a6bb53331",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "60300b2b_61af4205",
         "filename": "include/drivers/fwu/fwu.h",
         "patchSetId": 2
