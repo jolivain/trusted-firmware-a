@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53061c78_00c88376",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-01T10:50:42Z",
+      "side": 1,
+      "message": "I\u0027m a bit uncertain about this. Just because the bank is considered valid doesn\u0027t necessarily guarantee its acceptance. If we switch in this direction, there\u0027s no assurance that it will still function as expected. I think the intended course is to revert back to the \u0027valid, accepted\u0027 bank instead right?\n\nAs per specification-\n\n```\nprevious_active_index: integer indicating which firmware bank was active prior to the last successful update\nto the Firmware Store\n```",
+      "range": {
+        "startLine": 662,
+        "startChar": 15,
+        "endLine": 662,
+        "endChar": 36
+      },
+      "revId": "9fe39b200cd8710a460c30b91b4ae8145dba74fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e5aff199_0b88a522",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 2
