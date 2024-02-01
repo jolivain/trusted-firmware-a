@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "215bc5a1_780604aa",
+        "filename": "include/drivers/arm/css/scmi.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-01T14:01:48Z",
+      "side": 1,
+      "message": "Just wondering if this structure is internal to TF-A project only or it may need changes in other projects (or may be Spec?)",
+      "range": {
+        "startLine": 126,
+        "startChar": 1,
+        "endLine": 127,
+        "endChar": 16
+      },
+      "revId": "ed6defd148a9db4b3c6a1186b43e394fab858b91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
