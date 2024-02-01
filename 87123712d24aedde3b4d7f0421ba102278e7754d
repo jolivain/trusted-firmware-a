@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67ba11db_83411850",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-01T12:53:21Z",
+      "side": 1,
+      "message": "except when the SPMD is used along with Hafnium/SPMC at S-EL2\n\nMay you reference this change for the record?\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/16047",
+      "range": {
+        "startLine": 12,
+        "startChar": 49,
+        "endLine": 12,
+        "endChar": 67
+      },
+      "revId": "87123712d24aedde3b4d7f0421ba102278e7754d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "257e14bd_ac45580f",
+        "filename": "bl31/ehf.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-01T12:53:21Z",
+      "side": 1,
+      "message": "Needs update?",
+      "range": {
+        "startLine": 482,
+        "startChar": 41,
+        "endLine": 483,
+        "endChar": 12
+      },
+      "revId": "87123712d24aedde3b4d7f0421ba102278e7754d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3074feb7_89c3c8fb",
+        "filename": "include/bl31/interrupt_mgmt.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-01T12:53:21Z",
+      "side": 1,
+      "message": "Needs update?",
+      "range": {
+        "startLine": 113,
+        "startChar": 37,
+        "endLine": 113,
+        "endChar": 74
+      },
+      "revId": "87123712d24aedde3b4d7f0421ba102278e7754d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
