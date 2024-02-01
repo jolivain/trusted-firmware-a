@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "323857d6_632df5ca",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-01T11:12:46Z",
+      "side": 1,
+      "message": "\u003e I\u0027m a bit uncertain about this. Just because the bank is considered valid doesn\u0027t necessarily guarantee its acceptance. If we switch in this direction, there\u0027s no assurance that it will still function as expected. I think the intended course is to revert back to the \u0027valid, accepted\u0027 bank instead right?\n\nYes, I do understand your point. The reason I kept this logic is to allow the platform to boot in absence of any other alternative Accepted bank. What I think can be done is to first check for any Accepted banks(maybe start with previous_active_bank), and if none are found, then try to boot the platform with a Valid bank.\n\nIdeally, this scenario should not play out. It is just ensuring that the platform is allowed to boot from a Valid bank(this is assuming that all other checks pass, like rollback protection etc).\n \n\u003e \n\u003e As per specification-\n\u003e \n\u003e ```\n\u003e previous_active_index: integer indicating which firmware bank was active prior to the last successful update\n\u003e to the Firmware Store\n\u003e ```\n\nTrue. But a platform may have more than 2 banks, and in such a scenario, it may want to try and boot from any alternate bank. But I do agree that we can first try to boot from an Accepted bank, and then try a boot from a Valid bank in case of no other alternative. What do you think?",
+      "parentUuid": "53061c78_00c88376",
+      "range": {
+        "startLine": 662,
+        "startChar": 15,
+        "endLine": 662,
+        "endChar": 36
+      },
+      "revId": "9fe39b200cd8710a460c30b91b4ae8145dba74fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e5aff199_0b88a522",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 2
