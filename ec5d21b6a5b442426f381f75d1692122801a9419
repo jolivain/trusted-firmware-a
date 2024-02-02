@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07321dd1_77c5f4c5",
+        "filename": "plat/ti/k3/common/drivers/ti_sci/ti_sci.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2024-02-02T13:41:31Z",
+      "side": 1,
+      "message": "???? 😜 I think you meant to state version information structure.",
+      "revId": "ec5d21b6a5b442426f381f75d1692122801a9419",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "506405b4_4369449e",
+        "filename": "plat/ti/k3/common/drivers/ti_sci/ti_sci.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000486
+      },
+      "writtenOn": "2024-02-02T13:41:31Z",
+      "side": 1,
+      "message": "briefly document a bit of rational here as to why we are maintaining a separate structure, though it looks like ti_sci_msg_resp_version instead of letting a future code reviewer scratch their head.",
+      "revId": "ec5d21b6a5b442426f381f75d1692122801a9419",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
