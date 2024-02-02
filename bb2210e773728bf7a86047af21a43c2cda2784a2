@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42991013_ab9a1a01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-02-02T17:26:46Z",
+      "side": 1,
+      "message": "nit: Currently this bit is initialized in the context\nmanagement code where each world copy of the SCR_EL3 register has this bit set to 1, but for the time duration between the RESET and the first exit to a lower EL this bit is zero.",
+      "range": {
+        "startLine": 11,
+        "startChar": 24,
+        "endLine": 14,
+        "endChar": 28
+      },
+      "revId": "bb2210e773728bf7a86047af21a43c2cda2784a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c795c2f_2ba40c48",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-02-02T17:26:46Z",
+      "side": 1,
+      "message": "For details on Neoverse V2 errata 3099206, refer the SDEN document given below.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 49
+      },
+      "revId": "bb2210e773728bf7a86047af21a43c2cda2784a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7481ffa9_db37af35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-02-02T17:26:46Z",
+      "side": 1,
+      "message": "Overall LGTM except some minor comments",
+      "revId": "bb2210e773728bf7a86047af21a43c2cda2784a2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
