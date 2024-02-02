@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2021-2023, Arm Limited. All rights reserved.
+# Copyright (c) 2021-2024, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -67,9 +67,7 @@ ifeq (${HW_ASSISTED_COHERENCY}, 0)
 				lib/cpus/aarch64/cortex_a73.S
 else
 # AArch64-only cores
-	FPGA_CPU_LIBS	+=	lib/cpus/aarch64/cortex_a510.S			\
-				lib/cpus/aarch64/cortex_a520.S			\
-				lib/cpus/aarch64/cortex_a715.S			\
+	FPGA_CPU_LIBS	+=	lib/cpus/aarch64/cortex_a520.S			\
 				lib/cpus/aarch64/cortex_a720.S			\
 				lib/cpus/aarch64/cortex_x3.S 			\
 				lib/cpus/aarch64/cortex_x4.S			\
