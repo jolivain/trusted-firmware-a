@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61e7d3d7_63cafbf5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-02-02T16:58:46Z",
+      "side": 1,
+      "message": "I have a better solution: at the moment we reserve four Aff0 \"threads\" per (Aff1) core, even though we only rarely even have dual threaded cores. So limiting this to two would mean no restriction, in practice, but should halve the size of the topology map reservation. This should move those problems off our back for a while. I will post a patch ASAP.",
+      "revId": "7ad96a6d9de20b08a49c2297e705fd0900471452",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
