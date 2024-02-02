@@ -118,6 +118,30 @@
       },
       "revId": "3b0831936e53bd26e54b19752254ff1aaa5c8244",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46b46629_74e75186",
+        "filename": "lib/extensions/spe/spe.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-02-02T17:31:41Z",
+      "side": 1,
+      "message": "Perhaps I\u0027m missing something here but isn\u0027t this context only intended to be saved/restored on the powerdown path. From my reading, and yours I think, this makes no guarantees about core state being preserved. The PSCI spec is pretty clear on this point:\n___\n\nPower-down: In this state the core is powered off. Software on the device needs to **save all core state**, so that it can be preserved over the powerdown. Changing from\npowerdown to running operation must include:\n\n* A reset of the core, after the power has been restored.\n* Restoring the saved core state.\n___",
+      "parentUuid": "85a24f49_3fb31628",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 69
+      },
+      "revId": "3b0831936e53bd26e54b19752254ff1aaa5c8244",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
