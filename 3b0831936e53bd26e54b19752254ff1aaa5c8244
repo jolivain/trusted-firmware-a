@@ -142,6 +142,30 @@
       },
       "revId": "3b0831936e53bd26e54b19752254ff1aaa5c8244",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0567883b_d4ce795e",
+        "filename": "lib/extensions/spe/spe.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-02-02T20:09:14Z",
+      "side": 1,
+      "message": "I think that saving context for powerdown would require permanent storage, but correct me if I\u0027m wrong. With Jayanth\u0027s approach, the context is saved upon suspend or powerdown, but the data is lost on powerdown.",
+      "parentUuid": "46b46629_74e75186",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 137,
+        "endChar": 69
+      },
+      "revId": "3b0831936e53bd26e54b19752254ff1aaa5c8244",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
