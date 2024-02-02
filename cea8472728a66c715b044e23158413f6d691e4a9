@@ -47,6 +47,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02427c0b_31372cf9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-02-02T18:50:34Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f5137646_9b9d9997",
+      "range": {
+        "startLine": 9,
+        "startChar": 56,
+        "endLine": 9,
+        "endChar": 63
+      },
+      "revId": "cea8472728a66c715b044e23158413f6d691e4a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9ab5d26_31b9de68",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-02-02T18:50:34Z",
+      "side": 1,
+      "message": "I will rephrase this statement.\n\nTo clarify - RD-Fremont platforms have a TBU (that is just a GPC) sitting between the trusted subsystems (SCP/RSS) and interconnect and another sitting between GIC and interconnect. At boot time the trusted subsystems are accessing various memory systems (SRAMs) or the AP regions. So the transactions can\u0027t be blocked altogether.",
+      "parentUuid": "117119f3_8d3c264f",
+      "range": {
+        "startLine": 9,
+        "startChar": 32,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "cea8472728a66c715b044e23158413f6d691e4a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfd6cb37_18f72e85",
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f8bed52_11fbe0b5",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-02-02T18:50:34Z",
+      "side": 1,
+      "message": "Yes, this is required for RD-Fremont platforms as mentioned in the earlier comment. The GPC can be configured but the GBPA abort configuration isn\u0027t needed for this SMMUv3 instance sitting between the trusted subsystems and interconnect (as opposed to the SMMUv3 present in IO blocks). The GBPA abort is only cleared in the non-secure edk2 firmware for the SMMUv3 in IO blocks.\n\nSo as you suggested splitting the smmuv3_init() into two functions sounds reasonable. I will do that and re-submit.",
+      "parentUuid": "cfd6cb37_18f72e85",
+      "range": {
+        "startLine": 79,
+        "startChar": 1,
+        "endLine": 83,
+        "endChar": 2
+      },
+      "revId": "cea8472728a66c715b044e23158413f6d691e4a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a7a4058_a526a1fc",
         "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
         "patchSetId": 2
@@ -83,6 +155,30 @@
       "writtenOn": "2024-02-02T17:49:47Z",
       "side": 1,
       "message": "Use braces even for single line statements (another MISRA rule!).",
+      "range": {
+        "startLine": 78,
+        "startChar": 42,
+        "endLine": 78,
+        "endChar": 43
+      },
+      "revId": "cea8472728a66c715b044e23158413f6d691e4a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fa60d99_ca8b9ba3",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-02-02T18:50:34Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9a7a4058_a526a1fc",
       "range": {
         "startLine": 78,
         "startChar": 42,
