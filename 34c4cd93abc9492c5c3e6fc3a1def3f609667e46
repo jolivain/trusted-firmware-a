@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2593f4dd_16aceeb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-02T12:43:04Z",
+      "side": 1,
+      "message": "There is an issue with this patch which need further thinking\n\nThe failure is for the systems which has Realm world present but no S-EL2 (CTX_INCLUDE_EL2_REGS) is enabled without hafnium/spm, In this case restore_el2_context() is called from EL3 without EEL2 bit set and causes panic.",
+      "revId": "34c4cd93abc9492c5c3e6fc3a1def3f609667e46",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
