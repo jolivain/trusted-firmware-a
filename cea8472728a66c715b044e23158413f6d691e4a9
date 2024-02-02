@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5137646_9b9d9997",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-02T17:49:47Z",
+      "side": 1,
+      "message": "Checks",
+      "range": {
+        "startLine": 9,
+        "startChar": 56,
+        "endLine": 9,
+        "endChar": 63
+      },
+      "revId": "cea8472728a66c715b044e23158413f6d691e4a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "117119f3_8d3c264f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-02T17:49:47Z",
+      "side": 1,
+      "message": "Why \u0027only\u0027?",
+      "range": {
+        "startLine": 9,
+        "startChar": 32,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "cea8472728a66c715b044e23158413f6d691e4a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfd6cb37_18f72e85",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-02T17:49:47Z",
+      "side": 1,
+      "message": "I have mixed feelings. This seems to be required because of a specific platform requirement, and thus affects common code.\n\nWhy just skipping this part and not the following init operations?\nInvalidating SMMU TLBs might affect on going transactions if there are.\n\nWhy not just renaming smmuv3_security_init to smmuv3_abort_transactions and call smmuv3_abort_transactions + smmuv3_init from the FVP port?\nThe platform for which this change is required would only call smmuv3_init but not smmuv3_abort_transactions.",
+      "range": {
+        "startLine": 79,
+        "startChar": 1,
+        "endLine": 83,
+        "endChar": 2
+      },
+      "revId": "cea8472728a66c715b044e23158413f6d691e4a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a7a4058_a526a1fc",
+        "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-02T17:49:47Z",
+      "side": 1,
+      "message": "Use braces even for single line statements (another MISRA rule!).",
+      "range": {
+        "startLine": 78,
+        "startChar": 42,
+        "endLine": 78,
+        "endChar": 43
+      },
+      "revId": "cea8472728a66c715b044e23158413f6d691e4a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
