@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020-2023, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,8 +10,8 @@
 #include <plat/common/platform.h>
 #include <services/el3_spmc_ffa_memory.h>
 #include <rdn2_ras.h>
-#include <sgi_soc_platform_def_v2.h>
-#include <sgi_plat.h>
+#include <nrd_soc_platform_def_v2.h>
+#include <nrd_plat.h>
 
 #if defined(IMAGE_BL31)
 #if (CSS_SGI_PLATFORM_VARIANT == 2)

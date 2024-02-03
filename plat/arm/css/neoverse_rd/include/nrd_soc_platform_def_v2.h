@@ -1,14 +1,14 @@
 /*
- * Copyright (c) 2020-2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef SGI_SOC_PLATFORM_DEF_V2_H
-#define SGI_SOC_PLATFORM_DEF_V2_H
+#ifndef NRD_SOC_PLATFORM_DEF_V2_H
+#define NRD_SOC_PLATFORM_DEF_V2_H
 
-#include <sgi_base_platform_def.h>
-#include <sgi_soc_css_def_v2.h>
+#include <nrd_base_platform_def.h>
+#include <nrd_soc_css_def_v2.h>
 
 /* Map the System registers to access from S-EL0 */
 #define CSS_SYSTEMREG_DEVICE_BASE	(0x0C010000)
@@ -28,4 +28,4 @@
 						(MT_DEVICE | MT_RW |	    \
 						 MT_SECURE | MT_USER))
 
-#endif /* SGI_SOC_PLATFORM_DEF_V2_H */
+#endif /* NRD_SOC_PLATFORM_DEF_V2_H */
