@@ -13,10 +13,10 @@
 #include <drivers/arm/ccn.h>
 #include <drivers/arm/css/sds.h>
 #include <lib/utils_def.h>
+#include <nrd_base_platform_def.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 #include <drivers/arm/sbsa.h>
-#include <sgi_base_platform_def.h>
 
 #if SPM_MM
 #include <services/spm_mm_partition.h>

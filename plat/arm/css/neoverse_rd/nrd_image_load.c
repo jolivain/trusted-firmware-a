@@ -10,12 +10,12 @@
 #include <common/debug.h>
 #include <common/desc_image_load.h>
 #include <drivers/arm/css/sds.h>
+#include <nrd_base_platform_def.h>
+#include <nrd_variant.h>
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 
 #include <platform_def.h>
-#include <sgi_base_platform_def.h>
-#include <sgi_variant.h>
 
 /*
  * Information about the isolated CPUs obtained from SDS.

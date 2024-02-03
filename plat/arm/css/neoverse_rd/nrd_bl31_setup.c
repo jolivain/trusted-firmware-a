@@ -13,14 +13,13 @@
 #include <drivers/arm/css/css_mhu_doorbell.h>
 #include <drivers/arm/css/scmi.h>
 #include <drivers/generic_delay_timer.h>
+#include <nrd_ras.h>
+#include <nrd_variant.h>
 #include <plat/arm/common/plat_arm.h>
 
 #include <plat/common/platform.h>
 
 #include <plat/arm/css/common/css_pm.h>
-
-#include <sgi_ras.h>
-#include <sgi_variant.h>
 
 sgi_platform_info_t sgi_plat_info;
 
