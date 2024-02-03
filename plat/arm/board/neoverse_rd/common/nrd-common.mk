@@ -16,9 +16,9 @@ EL3_EXCEPTION_HANDLING		:=	0
 
 HANDLE_EA_EL3_FIRST_NS		:=	0
 
-CSS_SGI_CHIP_COUNT		:=	1
+NRD_CHIP_COUNT		:=	1
 
-CSS_SGI_PLATFORM_VARIANT	:=	0
+NRD_PLATFORM_VARIANT	:=	0
 
 # Do not enable SVE
 ENABLE_SVE_FOR_NS		:=	0
@@ -60,9 +60,9 @@ endif
 
 $(eval $(call add_define,SGI_PLAT))
 
-$(eval $(call add_define,CSS_SGI_CHIP_COUNT))
+$(eval $(call add_define,NRD_CHIP_COUNT))
 
-$(eval $(call add_define,CSS_SGI_PLATFORM_VARIANT))
+$(eval $(call add_define,NRD_PLATFORM_VARIANT))
 
 override CSS_LOAD_SCP_IMAGES	:=	0
 override NEED_BL2U		:=	no
