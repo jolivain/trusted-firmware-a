@@ -3,6 +3,92 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cccda025_734fce6c",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-05T15:09:58Z",
+      "side": 1,
+      "message": "Assuming `DICE_HASH_SIZE` and `DPE_DIGEST_SIZE` are both constant values fixed at compile time, this should be a compile-time assert (see `CASSERT()` macro) rather than a runtime one.\n\nAlso, could `DICE_HASH_SIZE` be replaced with `sizeof(dice_inputs-\u003eauthority_hash)`? I think this would be more self-explanatory with regards to the `memcpy()` call this relates to.",
+      "revId": "d74bdf75b600378da557d3ba1d97664728df1f8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5196921_6638e5e7",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-05T15:09:58Z",
+      "side": 1,
+      "message": "needed",
+      "range": {
+        "startLine": 50,
+        "startChar": 36,
+        "endLine": 50,
+        "endChar": 40
+      },
+      "revId": "d74bdf75b600378da557d3ba1d97664728df1f8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78d19695_bde45788",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-05T15:09:58Z",
+      "side": 1,
+      "message": "Would there be value in adding the following 2 checks?\n1. (metadata-\u003esw_type_size \u003e\u003d 1)\n2. (metadata-\u003esw_type[metadata-\u003esw_type_size - 1] \u003d\u003d 0)\n?",
+      "range": {
+        "startLine": 51,
+        "startChar": 37,
+        "endLine": 51,
+        "endChar": 63
+      },
+      "revId": "d74bdf75b600378da557d3ba1d97664728df1f8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ae9f755_8af1a52f",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-05T15:09:58Z",
+      "side": 1,
+      "message": "(minor) Could we not just initialize `current_context_handle` to `initial_context_handle` at line 72 to achieve the same result? Or do we first need to go through some of the checks performed by lines 81-99 before we set `current_context_handle` to anything else than 0?\n\nAlso, the comment (*\"Only at the first call\"*) assumes that `dpe_init()` will never set `initial_context_handle` to 0 ; should this be checked upfront if line 103?",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 2
+      },
+      "revId": "d74bdf75b600378da557d3ba1d97664728df1f8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "98c95f99_14d724f9",
         "filename": "drivers/measured_boot/rss/dice_prot_env.c",
         "patchSetId": 7
