@@ -19,6 +19,11 @@
 #include <lib/xlat_tables/xlat_tables_defs.h>
 #include <plat/common/platform.h>
 
+/*******************************************************************************
+ * Pointer to functions exported by the platform to try loading other images
+ ******************************************************************************/
+const struct plat_try_images_ops *plat_try_img_ops;
+
 #if TRUSTED_BOARD_BOOT
 # ifdef DYN_DISABLE_AUTH
 static int disable_auth;
@@ -199,6 +204,16 @@ static int load_auth_image_internal(unsigned int image_id,
 	return load_image(image_id, image_data);
 }
 
+static int select_next_instance(unsigned int image_id)
+{
+	if ((plat_try_img_ops != NULL) &&
+	    (plat_try_img_ops->next_instance != NULL)) {
+		return plat_try_img_ops->next_instance(image_id);
+	}
+
+	return 0;
+}
+
 /*******************************************************************************
  * Generic function to load and authenticate an image. The image is actually
  * loaded by calling the 'load_image()' function. Therefore, it returns the
@@ -210,18 +225,9 @@ int load_auth_image(unsigned int image_id, image_info_t *image_data)
 {
 	int err;
 
-/*
- * All firmware banks should be part of the same non-volatile storage as per
- * PSA FWU specification, hence don't check for any alternate boot source
- * when PSA FWU is enabled.
- */
-#if PSA_FWU_SUPPORT
-	err = load_auth_image_internal(image_id, image_data);
-#else
 	do {
 		err = load_auth_image_internal(image_id, image_data);
-	} while (err != 0);
-#endif /* PSA_FWU_SUPPORT */
+	} while ((err != 0) && (select_next_instance(image_id) != 0));
 
 	if (err == 0) {
 		/*

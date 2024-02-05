@@ -1607,6 +1607,10 @@ This function executes with the MMU and data caches enabled. It is responsible
 for performing any remaining platform-specific setup that can occur after the
 MMU and data cache have been enabled.
 
+If support for multiple boot sources is required, it initializes the boot
+sequence used by plat_try_images_ops->next_instance(unsigned int image_id),
+see plat_setup_try_img_ops().
+
 In Arm standard platforms, this function initializes the storage abstraction
 layer used to load the next bootloader image.
 
@@ -1877,7 +1881,27 @@ Function : bl2_plat_preload_setup [optional]
 
 This optional function performs any BL2 platform initialization
 required before image loading, that is not done later in
-bl2_platform_setup().
+bl2_platform_setup(). Specifically, if support for multiple
+boot sources is required, it initializes the boot sequence used by
+plat_try_images_ops->next_instance(unsigned int image_id), see
+plat_setup_try_img_ops().
+
+Function : plat_setup_try_img_ops [optional]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    Argument : const struct plat_try_images_ops **ops
+    Return   : int
+
+This optional function passes some platform handlers to try loading other
+images.
+
+plat_try_images_ops.next_instance(unsigned int image_id)
+............................................................
+
+This optional function will try a backup partition defined for a given image
+ID. This is required for MTD devices like NAND.
 
 Boot Loader Stage 2 (BL2) at EL3
 --------------------------------
