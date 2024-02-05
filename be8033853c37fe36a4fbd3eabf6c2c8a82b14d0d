@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a612524_31bf9d47",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-05T09:12:54Z",
+      "side": 1,
+      "message": "I emailed Scott Branden and got an answer from him. He said that he\u0027s fine with us removing `plat_try_next_boot_source()`, as Broadcom platforms don\u0027t use it (and don\u0027t plan to use it in the future, I presume).\n\nThus, I suggest we create 2 patches:\n1. Remove the `plat_try_next_boot_source()` interface.\n2. Introduce `plat_try_images_ops` struct with just the `backup_partitions` function pointer (which we might want to rename).\n\nPatch 2 would be a combination of the present patch and the next one in the series.\n\nHow does that sound?",
+      "parentUuid": "875096c0_4ebea747",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 7
+      },
+      "revId": "be8033853c37fe36a4fbd3eabf6c2c8a82b14d0d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "89dc3995_70f05450",
