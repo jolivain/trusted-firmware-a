@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b665f4fa_5685f188",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-05T13:08:51Z",
+      "side": 1,
+      "message": "Could we provide more details on this? For instance, we could explore the option of trying the images from the same boot source or a different source. However, it\u0027s important to note and include a disclaimer stating that booting images from different media is not permissible, in case of PSA FWU support.",
+      "range": {
+        "startLine": 1897,
+        "startChar": 0,
+        "endLine": 1898,
+        "endChar": 7
+      },
+      "revId": "06f6918a7f180d4eec65b1e565b720c7b979f50a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
