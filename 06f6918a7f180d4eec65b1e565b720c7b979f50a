@@ -46,6 +46,30 @@
       },
       "revId": "06f6918a7f180d4eec65b1e565b720c7b979f50a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1bb944d_d3a039e6",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 1898,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-02-05T13:50:21Z",
+      "side": 1,
+      "message": "Would that be OK?:\n\nFunction : plat_setup_try_img_ops [optional]\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n::\n\n    Argument : const struct plat_try_images_ops **ops\n    Return   : int\n\nThis optional function passes some platform handlers to try loading other\nimages through the plat_try_images_ops struct. The platform handlers in this\nops structure are described below.\n\nplat_try_images_ops.next_instance(unsigned int image_id)\n............................................................\n\nThis optional function try to load images from alternative places.\nIn case PSA FWU is not used, it can be any instance or media. If PSA FWU is\nused, it is mandatory that the backup image is on the same media.\nThis is required for MTD devices like NAND.",
+      "parentUuid": "33dff5d8_62b25932",
+      "range": {
+        "startLine": 1897,
+        "startChar": 0,
+        "endLine": 1898,
+        "endChar": 7
+      },
+      "revId": "06f6918a7f180d4eec65b1e565b720c7b979f50a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
