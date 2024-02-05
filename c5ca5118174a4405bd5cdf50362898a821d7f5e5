@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "301236be_e88ea14a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-05T10:13:49Z",
+      "side": 1,
+      "message": "The first paragraph explains **what** this patch is doing. Could you please also explain **why** we are doing this?",
+      "revId": "c5ca5118174a4405bd5cdf50362898a821d7f5e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cdb68da_3f3f6a3f",
+        "filename": "plat/arm/board/tc/include/platform_def.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-05T10:13:49Z",
+      "side": 1,
+      "message": "(minor) Could this be replaced with `PLAT_ARM_RUN_UART_BASE`?",
+      "range": {
+        "startLine": 334,
+        "startChar": 38,
+        "endLine": 334,
+        "endChar": 48
+      },
+      "revId": "c5ca5118174a4405bd5cdf50362898a821d7f5e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
