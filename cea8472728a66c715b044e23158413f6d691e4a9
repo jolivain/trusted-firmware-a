@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "43f9f1f9_907f8bc0",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-05T00:19:10Z",
+      "side": 1,
+      "message": "I tend to agree with Olivier. Is there no way to make this platform specific ? appears dangerous to have such options. Platform specific code can use early code before smmuv3 init or just after, to disable security.",
+      "parentUuid": "3f8bed52_11fbe0b5",
+      "range": {
+        "startLine": 79,
+        "startChar": 1,
+        "endLine": 83,
+        "endChar": 2
+      },
+      "revId": "cea8472728a66c715b044e23158413f6d691e4a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a7a4058_a526a1fc",
         "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
         "patchSetId": 2
