@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "edf4a87f_a000ceef",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-05T14:11:21Z",
+      "side": 1,
+      "message": "It applies to both",
+      "parentUuid": "c02cb709_d449711d",
+      "range": {
+        "startLine": 773,
+        "startChar": 0,
+        "endLine": 773,
+        "endChar": 27
+      },
+      "revId": "debfc0d75a6003e5b16809b63e1c0350324e2793",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa652b6a_50ffb8ac",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-01-23T01:30:13Z",
       "side": 1,
       "message": "nit: 0x3 to be consistent with the rest.",
+      "range": {
+        "startLine": 780,
+        "startChar": 35,
+        "endLine": 780,
+        "endChar": 36
+      },
+      "revId": "debfc0d75a6003e5b16809b63e1c0350324e2793",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bd9f19f_7f831287",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-05T14:11:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa652b6a_50ffb8ac",
       "range": {
         "startLine": 780,
         "startChar": 35,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb82567a_3ab8f275",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 976,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-05T14:11:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47e947b5_60bf74c3",
+      "range": {
+        "startLine": 976,
+        "startChar": 30,
+        "endLine": 976,
+        "endChar": 32
+      },
+      "revId": "debfc0d75a6003e5b16809b63e1c0350324e2793",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fcdcc11_cee7d140",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-01-23T01:30:13Z",
       "side": 1,
       "message": "Shouldn\u0027t you also include ID_PFR2_EL1.SSBS in this predicate?",
+      "range": {
+        "startLine": 107,
+        "startChar": 1,
+        "endLine": 108,
+        "endChar": 49
+      },
+      "revId": "debfc0d75a6003e5b16809b63e1c0350324e2793",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a208500c_dda78d1a",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-05T14:11:21Z",
+      "side": 1,
+      "message": "We are only considering Aarch64 mode here",
+      "parentUuid": "1fcdcc11_cee7d140",
       "range": {
         "startLine": 107,
         "startChar": 1,
