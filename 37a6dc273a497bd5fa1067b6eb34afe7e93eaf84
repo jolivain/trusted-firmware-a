@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bbd3c05_6a88ec5b",
+        "filename": "lib/psa/dice_protection_environment.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-05T14:39:12Z",
+      "side": 1,
+      "message": "No need to check the `out.len` output for these 2 calls to `QCBORDecode_GetByteStringInMapN()`? Just checking...",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 12
+      },
+      "revId": "37a6dc273a497bd5fa1067b6eb34afe7e93eaf84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
