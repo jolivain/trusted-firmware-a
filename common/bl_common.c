@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -210,18 +210,7 @@ int load_auth_image(unsigned int image_id, image_info_t *image_data)
 {
 	int err;
 
-/*
- * All firmware banks should be part of the same non-volatile storage as per
- * PSA FWU specification, hence don't check for any alternate boot source
- * when PSA FWU is enabled.
- */
-#if PSA_FWU_SUPPORT
 	err = load_auth_image_internal(image_id, image_data);
-#else
-	do {
-		err = load_auth_image_internal(image_id, image_data);
-	} while ((err != 0) && (plat_try_next_boot_source() != 0));
-#endif /* PSA_FWU_SUPPORT */
 
 	if (err == 0) {
 		/*
