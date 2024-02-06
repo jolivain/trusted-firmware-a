@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34bc592f_0a19a043",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-02-06T00:04:31Z",
+      "side": 1,
+      "message": "Is there some reason why these two functions couldn\u0027t be combined to enable greater efficiency?  They appear to be always paired up in the code...",
+      "range": {
+        "startLine": 1389,
+        "startChar": 0,
+        "endLine": 1421,
+        "endChar": 0
+      },
+      "revId": "1e03d3425644610cf0be1f4d6f1d9c45655d83ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
