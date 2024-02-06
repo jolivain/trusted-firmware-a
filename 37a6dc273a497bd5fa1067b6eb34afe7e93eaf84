@@ -22,6 +22,30 @@
       },
       "revId": "37a6dc273a497bd5fa1067b6eb34afe7e93eaf84",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "131f6844_ff96a98c",
+        "filename": "lib/psa/dice_protection_environment.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-02-06T10:59:57Z",
+      "side": 1,
+      "message": "`out.len` is checked in lines 209 and 217 because the content of the buffer pointed by `out.buf` is copied to a fixed size location in lines 212 and 220.\n\nHere only the address and size of the buffer are returned. Copy is done by the caller. It happens in 343 and the check is there in 337.",
+      "parentUuid": "9bbd3c05_6a88ec5b",
+      "range": {
+        "startLine": 222,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 12
+      },
+      "revId": "37a6dc273a497bd5fa1067b6eb34afe7e93eaf84",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
