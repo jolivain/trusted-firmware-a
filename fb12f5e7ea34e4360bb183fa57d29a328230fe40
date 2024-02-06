@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa7136aa_426785d4",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-06T17:29:28Z",
+      "side": 1,
+      "message": "Correcting typo, we are allowing now-onwards only **FWU metadata version 2**\nAdditionally, it would be beneficial to include a WARN message for each failure. This is because, with each failure returning \u0027-1\u0027, it can be challenging to pinpoint the exact location of the issue directly.",
+      "parentUuid": "38157775_10a0614b",
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58a597f6_a76ecf4b",
         "filename": "drivers/fwu/fwu.c",
         "patchSetId": 2
@@ -214,6 +232,30 @@
       "writtenOn": "2024-02-06T10:30:58Z",
       "side": 1,
       "message": "It think should be if (metadata.desc_offset !\u003d 20U) { return -1; }\nThere is no other valid offset value for this version of the metadata structure.",
+      "range": {
+        "startLine": 77,
+        "startChar": 1,
+        "endLine": 77,
+        "endChar": 33
+      },
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b25b8d4_03613920",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-06T17:29:28Z",
+      "side": 1,
+      "message": "Agree, this is as per FWU metadata version 2. This stricter check is even better.",
+      "parentUuid": "f4fddec6_fadc55c1",
       "range": {
         "startLine": 77,
         "startChar": 1,
