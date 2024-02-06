@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -121,6 +121,8 @@ SECTIONS {
     __DATA_RAM_START__ = __DATA_START__;
     __DATA_RAM_END__ = __DATA_END__;
 
+    __RW_START__ = .;
+
     STACK_SECTION >RAM
     BSS_SECTION >RAM
     XLAT_TABLE_SECTION >RAM
@@ -147,6 +149,8 @@ SECTIONS {
         __COHERENT_RAM_END__ = .;
     } >RAM
 #endif /* USE_COHERENT_MEM */
+
+    __RW_END__ = .;
 
     __BL1_RAM_START__ = ADDR(.data);
     __BL1_RAM_END__ = .;
