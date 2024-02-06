@@ -216,25 +216,25 @@ defined(IMAGE_BL2) && MEASURED_BOOT
 #define FVP_BL2_ROMLIB_OPTIMIZATION UL(0)
 #endif
 
+#if ARM_BL31_IN_DRAM
+/* When ARM_BL31_IN_DRAM is set, BL2 can use almost all of Trusted SRAM. */
+#define PLAT_ARM_MAX_BL2_SIZE (UL(0x1F000) - FVP_BL2_ROMLIB_OPTIMIZATION)
+#else
 /*
- * Set the maximum size of BL2 to be close to half of the Trusted SRAM.
- * Maximum size of BL2 increases as Trusted SRAM size increases.
+ * Set the maximum size of BL2 to be close to a third of Trusted SRAM (half with
+ * CRYPTO_SUPPORT). Maximum size of BL2 increases as Trusted SRAM size
+ * increases.
  */
-#if CRYPTO_SUPPORT
-#if (TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_RSA_AND_ECDSA) || COT_DESC_IN_DTB
+#if CRYPTO_SUPPORT && (TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_RSA_AND_ECDSA) || \
+	COT_DESC_IN_DTB
 # define PLAT_ARM_MAX_BL2_SIZE	((PLAT_ARM_TRUSTED_SRAM_SIZE / 2) - \
 				 (2 * PAGE_SIZE) - \
 				 FVP_BL2_ROMLIB_OPTIMIZATION)
 #else
-# define PLAT_ARM_MAX_BL2_SIZE	((PLAT_ARM_TRUSTED_SRAM_SIZE / 2) - \
-				 (3 * PAGE_SIZE) - \
-				 FVP_BL2_ROMLIB_OPTIMIZATION)
+#define PLAT_ARM_MAX_BL2_SIZE                                   \
+	(((PLAT_ARM_TRUSTED_SRAM_SIZE / 3) & ~PAGE_SIZE_MASK) - \
+	 FVP_BL2_ROMLIB_OPTIMIZATION)
 #endif
-#elif ARM_BL31_IN_DRAM
-/* When ARM_BL31_IN_DRAM is set, BL2 can use almost all of Trusted SRAM. */
-# define PLAT_ARM_MAX_BL2_SIZE	(UL(0x1F000) - FVP_BL2_ROMLIB_OPTIMIZATION)
-#else
-# define PLAT_ARM_MAX_BL2_SIZE	(UL(0x13000) - FVP_BL2_ROMLIB_OPTIMIZATION)
 #endif
 
 #if RESET_TO_BL31
