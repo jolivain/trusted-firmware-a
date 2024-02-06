@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ad30a18_4c1b2e02",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-02-06T11:00:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "cccda025_734fce6c",
+      "revId": "d74bdf75b600378da557d3ba1d97664728df1f8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5196921_6638e5e7",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-02-05T15:09:58Z",
       "side": 1,
       "message": "needed",
+      "range": {
+        "startLine": 50,
+        "startChar": 36,
+        "endLine": 50,
+        "endChar": 40
+      },
+      "revId": "d74bdf75b600378da557d3ba1d97664728df1f8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f0a8ada_e0e395bf",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-02-06T11:00:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a5196921_6638e5e7",
       "range": {
         "startLine": 50,
         "startChar": 36,
@@ -66,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3fc00930_1ebd02d7",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-02-06T11:00:11Z",
+      "side": 1,
+      "message": "I think they are not needed:\n - metadata-sw_type is initialized to 0 if not set explicitly in tc_dpe_blx.c.\n - dpe_init set metadata-\u003esw_type_size at least to 1.",
+      "parentUuid": "78d19695_bde45788",
+      "range": {
+        "startLine": 51,
+        "startChar": 37,
+        "endLine": 51,
+        "endChar": 63
+      },
+      "revId": "d74bdf75b600378da557d3ba1d97664728df1f8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4ae9f755_8af1a52f",
         "filename": "drivers/measured_boot/rss/dice_prot_env.c",
         "patchSetId": 7
@@ -89,6 +155,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23e537fd_f7d75cfd",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-02-06T11:00:11Z",
+      "side": 1,
+      "message": "`initial_context_handle ` is not const, its value is queried at runtime, so it cannot be used as an initializer.",
+      "parentUuid": "4ae9f755_8af1a52f",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 2
+      },
+      "revId": "d74bdf75b600378da557d3ba1d97664728df1f8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "98c95f99_14d724f9",
         "filename": "drivers/measured_boot/rss/dice_prot_env.c",
         "patchSetId": 7
@@ -100,6 +190,30 @@
       "writtenOn": "2024-02-02T20:47:53Z",
       "side": 1,
       "message": "hash_calc_done \u003d\u003d false",
+      "range": {
+        "startLine": 159,
+        "startChar": 8,
+        "endLine": 159,
+        "endChar": 22
+      },
+      "revId": "d74bdf75b600378da557d3ba1d97664728df1f8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ed7e8d4_ab50dfd1",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-02-06T11:00:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "98c95f99_14d724f9",
       "range": {
         "startLine": 159,
         "startChar": 8,
