@@ -68,6 +68,24 @@
       "parentUuid": "fb6f55ad_a5280fe3",
       "revId": "dfb94196fb58abce6ebdee1a39c043590d719e2a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0258eb74_ea55adb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-02-06T23:37:33Z",
+      "side": 1,
+      "message": "It\u0027s a behavioral change in _TF-A_ not in RSS. The thing that I\u0027m talking about is that this patch does not require a behavior change from RSS, so those binaries may be left alone. OTOH, it\u0027s likely that other changes in this stack will require updates to the RSS binaries, so this is a moot point.",
+      "parentUuid": "fe8b5aeb_3bc6ce1e",
+      "revId": "dfb94196fb58abce6ebdee1a39c043590d719e2a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
