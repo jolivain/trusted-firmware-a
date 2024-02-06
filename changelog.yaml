@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2021-2023, Arm Limited. All rights reserved.
+# Copyright (c) 2021-2024, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -797,6 +797,9 @@ subsections:
 
         deprecated:
           - lib/psa
+
+      - title: DICE Protection Environment
+        scope: dice
 
       - title: Context Management
         scope: context-mgmt
