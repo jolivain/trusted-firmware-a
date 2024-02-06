@@ -20,6 +20,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f4bf4071_0bb240f6",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-06T10:29:47Z",
+      "side": 1,
+      "message": "Would be better to explicitly use the valid IDs (IMHO):\n\n    switch (mdata-\u003ebank_state[i]) {\n    case FWU_VALID_BANK_STATE:\n    case FWU_ACCEPTED_BANK_STATE:    \n        return i;\n    default:\n        break;\n    }",
+      "range": {
+        "startLine": 628,
+        "startChar": 0,
+        "endLine": 628,
+        "endChar": 55
+      },
+      "revId": "9fe39b200cd8710a460c30b91b4ae8145dba74fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "388e60f3_97ad334a",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-06T10:29:47Z",
+      "side": 1,
+      "message": "As this is not expected, I think a error trace message is welcome.\n\nFollowing the discussion thread right below, it would be better to start attempting to use the previous_active_index, and fallback to the first valid bank if none of the active and previous-active bank relate to invalid bank states.",
+      "range": {
+        "startLine": 654,
+        "startChar": 0,
+        "endLine": 654,
+        "endChar": 35
+      },
+      "revId": "9fe39b200cd8710a460c30b91b4ae8145dba74fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "53061c78_00c88376",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 2
@@ -79,6 +125,30 @@
       "side": 1,
       "message": "Ack, agree!",
       "parentUuid": "323857d6_632df5ca",
+      "range": {
+        "startLine": 662,
+        "startChar": 15,
+        "endLine": 662,
+        "endChar": 36
+      },
+      "revId": "9fe39b200cd8710a460c30b91b4ae8145dba74fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1829480_45d260a1",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-06T10:29:47Z",
+      "side": 1,
+      "message": "I also think your description (Sughosh) makes sense, assuming you start by first using the previous_active_index if it relates to a valid bank state.",
+      "parentUuid": "61c8f6b2_eb816f5f",
       "range": {
         "startLine": 662,
         "startChar": 15,
