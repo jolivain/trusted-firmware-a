@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -237,6 +237,7 @@ BL1_SOURCES		+=	drivers/arm/smmu/smmu_v3.c			\
 				plat/arm/board/fvp/fvp_bl1_setup.c		\
 				plat/arm/board/fvp/fvp_err.c			\
 				plat/arm/board/fvp/fvp_io_storage.c		\
+				plat/arm/board/fvp/fvp_topology.c		\
 				${FVP_CPU_LIBS}					\
 				${FVP_INTERCONNECT_SOURCES}
 
