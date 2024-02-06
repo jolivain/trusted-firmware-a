@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "af679ee4_541e8e5e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-06T14:46:25Z",
+      "side": 1,
+      "message": "nitpick: fix 50 chars max. for commit title",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 84
+      },
+      "revId": "4159a53e0c8f79810b939c6456781053d41919c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c8fb1a8_db9894b9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-06T14:46:25Z",
+      "side": 1,
+      "message": "nitpick: fix 72 chars max. for commit message body",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "4159a53e0c8f79810b939c6456781053d41919c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cfa1c083_92e4fd01",
@@ -49,6 +95,92 @@
       "side": 1,
       "message": "No, I dont plan on looking at these series unless that discussion with AM62x takes place. I have been sending reminders every other week and I still see no traction.",
       "parentUuid": "1e48cd05_71caba42",
+      "revId": "4159a53e0c8f79810b939c6456781053d41919c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88caf823_c6aca890",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-06T14:46:25Z",
+      "side": 1,
+      "message": "See static check failures\n\nplat/ti/k3/common/k3_bl31_setup.c:148: ERROR: spaces required around that \u0027+\u003d\u0027 (ctx:VxW)\n+\t\tfor (unsigned long i \u003d 0; i \u003c (k3_bl31_rw_end - k3_bl31_rw_start); i+\u003d (sizeof(uint32_t)))\n\n\nBuild failures may be related to other changes, please consider rebasing to tip of master.",
+      "revId": "4159a53e0c8f79810b939c6456781053d41919c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "633ef2c7_0c522ac4",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-06T14:46:25Z",
+      "side": 1,
+      "message": "nitpick: limit to 100c per line",
+      "range": {
+        "startLine": 148,
+        "startChar": 1,
+        "endLine": 148,
+        "endChar": 92
+      },
+      "revId": "4159a53e0c8f79810b939c6456781053d41919c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1928db35_480b7555",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-06T14:46:25Z",
+      "side": 1,
+      "message": "would it be possible to arrange by using macros rather than directly deferencing pointers?",
+      "range": {
+        "startLine": 149,
+        "startChar": 3,
+        "endLine": 149,
+        "endChar": 84
+      },
+      "revId": "4159a53e0c8f79810b939c6456781053d41919c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b09db7fe_6aedf6ed",
+        "filename": "plat/ti/k3/common/k3_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-06T14:46:25Z",
+      "side": 1,
+      "message": "can this be defined as a C function call rather than an asm inlined branch to another function?",
+      "range": {
+        "startLine": 151,
+        "startChar": 2,
+        "endLine": 151,
+        "endChar": 41
+      },
       "revId": "4159a53e0c8f79810b939c6456781053d41919c9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
