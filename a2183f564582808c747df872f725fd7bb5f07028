@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6efb91f_0a6e88c1",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-02-06T11:22:40Z",
+      "side": 1,
+      "message": "Sorry, I need to correct my previous understanding. Although Realm world does not handle Physical Interrupt from GIC, Realm world uses Virtual interrupts for Realm VMs. This means that some of the control bits in these registers still need to be programmed for Realm world.\n\nSo, Initially for RME , we used to enable S-EL2 regardless of 3 world or 4 world setup. This means that this flow works will work without any NS bit programming.\n\nSo we have 2 solutions for this :\n\n1. Enable EEL2 for both SPMD_AT_EL2 and ENABLE_RME cases.\n2. Detect Realm world here and toggle scr_el3.ns and scr_el3.nse to correspond to the correct world when programming the context.",
+      "revId": "a2183f564582808c747df872f725fd7bb5f07028",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
