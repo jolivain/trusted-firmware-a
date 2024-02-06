@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c5c4074_b70fcb76",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-02-06T16:58:18Z",
+      "side": 1,
+      "message": "helper utility",
+      "range": {
+        "startLine": 7,
+        "startChar": 54,
+        "endLine": 7,
+        "endChar": 57
+      },
+      "revId": "1e03d3425644610cf0be1f4d6f1d9c45655d83ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "34bc592f_0a19a043",
         "filename": "drivers/arm/gic/v3/gicv3_main.c",
         "patchSetId": 2
@@ -14,6 +37,30 @@
       "writtenOn": "2024-02-06T00:04:31Z",
       "side": 1,
       "message": "Is there some reason why these two functions couldn\u0027t be combined to enable greater efficiency?  They appear to be always paired up in the code...",
+      "range": {
+        "startLine": 1389,
+        "startChar": 0,
+        "endLine": 1421,
+        "endChar": 0
+      },
+      "revId": "1e03d3425644610cf0be1f4d6f1d9c45655d83ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "350008d6_b64763b1",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1421,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-02-06T16:58:18Z",
+      "side": 1,
+      "message": "Even when is_valid_interrupt is true, the function is_sgi_or_ppi can return true or false. I am wondering what optimization is possible here.",
+      "parentUuid": "34bc592f_0a19a043",
       "range": {
         "startLine": 1389,
         "startChar": 0,
