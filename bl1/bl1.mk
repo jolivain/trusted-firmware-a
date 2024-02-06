@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -11,7 +11,8 @@ BL1_SOURCES		+=	bl1/${ARCH}/bl1_arch_setup.c		\
 				bl1/bl1_main.c				\
 				lib/cpus/${ARCH}/cpu_helpers.S		\
 				lib/cpus/errata_report.c		\
-				lib/el3_runtime/${ARCH}/context_mgmt.c	\
+				lib/locks/exclusive/${ARCH}/spinlock.S	\
+				plat/common/${ARCH}/platform_up_stack.S \
 				plat/common/plat_bl1_common.c		\
 				plat/common/${ARCH}/platform_up_stack.S \
 				${MBEDTLS_SOURCES}
