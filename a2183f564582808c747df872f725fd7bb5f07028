@@ -52,6 +52,24 @@
       "parentUuid": "9f39ee71_415d322b",
       "revId": "a2183f564582808c747df872f725fd7bb5f07028",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78ecbafc_3f9f2a05",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-07T16:04:19Z",
+      "side": 1,
+      "message": "BY \"Secure world must exist, then S-EL2 must be enabled\" you mean there is a possibility that Secure world does not exist in PE but if it exists then S-El2 must be present? \n\n\u003e Also the assumption that S-EL2 is enabled in CPU for RME but not have any secure \u003e world software is also not problematic AFAICS (3 world configuration).\nEEL2 should be zero in this case, no ?",
+      "parentUuid": "f35b837a_40bed037",
+      "revId": "a2183f564582808c747df872f725fd7bb5f07028",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
