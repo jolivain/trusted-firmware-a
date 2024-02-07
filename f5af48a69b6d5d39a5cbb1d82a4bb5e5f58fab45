@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fb16373_5dcf23a5",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 458,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-07T19:34:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7bec8b59_78a1c4da",
+      "range": {
+        "startLine": 458,
+        "startChar": 5,
+        "endLine": 458,
+        "endChar": 22
+      },
+      "revId": "f5af48a69b6d5d39a5cbb1d82a4bb5e5f58fab45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d97aeda7_6132f99e",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-07T19:23:46Z",
       "side": 1,
       "message": "use IS_SGI_PPI() here",
+      "range": {
+        "startLine": 956,
+        "startChar": 5,
+        "endLine": 956,
+        "endChar": 22
+      },
+      "revId": "f5af48a69b6d5d39a5cbb1d82a4bb5e5f58fab45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bae47da6_bf4af7f8",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 956,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-07T19:34:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d97aeda7_6132f99e",
       "range": {
         "startLine": 956,
         "startChar": 5,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "676d8c0d_adeca323",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-07T19:34:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9f5d31a9_2307dd9e",
+      "range": {
+        "startLine": 990,
+        "startChar": 5,
+        "endLine": 990,
+        "endChar": 22
+      },
+      "revId": "f5af48a69b6d5d39a5cbb1d82a4bb5e5f58fab45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "166a73bd_791ae269",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-02-07T19:23:46Z",
       "side": 1,
       "message": "use IS_SGI_PPI() here",
+      "range": {
+        "startLine": 1023,
+        "startChar": 5,
+        "endLine": 1023,
+        "endChar": 22
+      },
+      "revId": "f5af48a69b6d5d39a5cbb1d82a4bb5e5f58fab45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98857837_e91b2abb",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-07T19:34:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "166a73bd_791ae269",
       "range": {
         "startLine": 1023,
         "startChar": 5,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "068f7fac_e2ae9258",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1062,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-07T19:34:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6242b7cf_ec5ff234",
+      "range": {
+        "startLine": 1062,
+        "startChar": 5,
+        "endLine": 1062,
+        "endChar": 22
+      },
+      "revId": "f5af48a69b6d5d39a5cbb1d82a4bb5e5f58fab45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d371b3e8_d38c2b2d",
@@ -129,6 +249,30 @@
       "writtenOn": "2024-02-07T19:23:46Z",
       "side": 1,
       "message": "use IS_SGI_PPI() here",
+      "range": {
+        "startLine": 1112,
+        "startChar": 5,
+        "endLine": 1112,
+        "endChar": 22
+      },
+      "revId": "f5af48a69b6d5d39a5cbb1d82a4bb5e5f58fab45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "620fec20_ed506d57",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-07T19:34:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d371b3e8_d38c2b2d",
       "range": {
         "startLine": 1112,
         "startChar": 5,
@@ -162,6 +306,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "804c2a5c_20812152",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1255,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-07T19:34:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b0becf09_9690d365",
+      "range": {
+        "startLine": 1255,
+        "startChar": 5,
+        "endLine": 1255,
+        "endChar": 22
+      },
+      "revId": "f5af48a69b6d5d39a5cbb1d82a4bb5e5f58fab45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c9bf4ca_868a8a50",
@@ -185,6 +353,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6828633_89200b5d",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1293,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-07T19:34:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2c9bf4ca_868a8a50",
+      "range": {
+        "startLine": 1293,
+        "startChar": 5,
+        "endLine": 1293,
+        "endChar": 22
+      },
+      "revId": "f5af48a69b6d5d39a5cbb1d82a4bb5e5f58fab45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d803fd6_9805acbe",
@@ -198,6 +390,30 @@
       "writtenOn": "2024-02-07T19:23:46Z",
       "side": 1,
       "message": "Can we just use IS_SGI_PPI() instead of is_sgi_or_ppi() since it seems redundant.",
+      "range": {
+        "startLine": 1418,
+        "startChar": 0,
+        "endLine": 1428,
+        "endChar": 14
+      },
+      "revId": "f5af48a69b6d5d39a5cbb1d82a4bb5e5f58fab45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "931088d1_08dd5f8c",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 1428,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-07T19:34:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2d803fd6_9805acbe",
       "range": {
         "startLine": 1418,
         "startChar": 0,
