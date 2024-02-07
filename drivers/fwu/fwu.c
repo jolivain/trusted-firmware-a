@@ -185,6 +185,52 @@ exit:
 }
 
 /*******************************************************************************
+ * Check for an alternate bank for the platform to boot off. This function will
+ * mostly be called whenever the count of the number of times a platform boots
+ * in the Trial State exceeds a pre-set limit.
+ * The function first checks if the platform can boot from the previously active
+ * bank. If not, it tries to boot from any other bank in the accepted state.
+ * And finally, if both the checks fail, as a last resort, it tries to boot
+ * from a valid bank.
+ *
+ * Returns the index of a bank to boot, else an invalid index value
+ ******************************************************************************/
+uint32_t fwu_get_alternate_boot_bank(void)
+{
+	uint32_t i;
+
+	/* First check if the previously active bank can be used */
+	if (metadata.bank_state[metadata.previous_active_index] ==
+	    FWU_BANK_STATE_ACCEPTED) {
+		return metadata.previous_active_index;
+	}
+
+	/* Now check for any other bank in the accepted state */
+	for (i = 0; i < NR_OF_FW_BANKS; i++) {
+		if (i == metadata.active_index) {
+			continue;
+		}
+
+		if (metadata.bank_state[i] == FWU_BANK_STATE_ACCEPTED) {
+			return i;
+		}
+	}
+
+	/* Finally, try booting from a valid bank if present */
+	for (i = 0; i < NR_OF_FW_BANKS; i++) {
+		if (i == metadata.active_index) {
+			continue;
+		}
+
+		if (metadata.bank_state[i] == FWU_BANK_STATE_VALID) {
+			return i;
+		}
+	}
+
+	return INVALID_BOOT_IDX;
+}
+
+/*******************************************************************************
  * The platform can be in one of Valid, Invalid or Accepted states.
  *
  * Invalid - One or more images in the bank are corrupted, or partially
