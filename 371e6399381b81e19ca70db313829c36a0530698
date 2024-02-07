@@ -22,6 +22,30 @@
       },
       "revId": "371e6399381b81e19ca70db313829c36a0530698",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc89573c_207693ed",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1431,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-07T17:33:20Z",
+      "side": 1,
+      "message": "Hi Manish, \nSince is_valid_interrupt ensures that the interrupt ID matches spi/ppi/sgi and panics if it won\u0027t match the above interrupt ID\u0027s, we only need to ensure that the function is_sgi_or_ppi returns true for sgi or ppi as the function name suggests, else it returns false. No need to explicitly check for spi right? Please correct me if i\u0027m wrong?",
+      "parentUuid": "7b526158_23b37164",
+      "range": {
+        "startLine": 1427,
+        "startChar": 0,
+        "endLine": 1431,
+        "endChar": 2
+      },
+      "revId": "371e6399381b81e19ca70db313829c36a0530698",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
