@@ -51,6 +51,24 @@
       "parentUuid": "ac85ed55_ea75aa1c",
       "revId": "d6e9827f477bcb58cf0f31a7fd102ca03c855be1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ebbb80_47448d36",
+        "filename": "plat/arm/board/tc/tc_bl2_dpe.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000814
+      },
+      "writtenOn": "2024-02-07T15:24:18Z",
+      "side": 1,
+      "message": "It can be worked out from the macros used in plat/arm/board/tc/fdts/tc_tb_fw_config.dts but for the trusty setup we are waiting for this patch which is under review: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26037/3/plat/arm/board/tc/fdts/tc_tb_fw_config.dts Not sure how this should be coordinated.",
+      "parentUuid": "174e4558_a73d1d5c",
+      "revId": "d6e9827f477bcb58cf0f31a7fd102ca03c855be1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
