@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b526158_23b37164",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1431,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-07T15:28:11Z",
+      "side": 1,
+      "message": "Remove this. \n\nCheck for all the calls of is_sgi_or_ppi() and replace the return code handling accordingly",
+      "range": {
+        "startLine": 1427,
+        "startChar": 0,
+        "endLine": 1431,
+        "endChar": 2
+      },
+      "revId": "371e6399381b81e19ca70db313829c36a0530698",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
