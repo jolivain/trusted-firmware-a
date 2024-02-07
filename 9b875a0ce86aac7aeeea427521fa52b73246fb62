@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37650785_af8c03ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2024-02-07T21:01:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df97b33c_6b26e792",
+      "range": {
+        "startLine": 7,
+        "startChar": 9,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "9b875a0ce86aac7aeeea427521fa52b73246fb62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "693fefea_82e316c9",
@@ -191,6 +215,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3325bb9_561cdce0",
+        "filename": "drivers/arm/css/sds/sds.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2024-02-07T21:01:08Z",
+      "side": 1,
+      "message": "Hi Sandrine,\nI\u0027ve updated the SDS code with the a plat_sds_get_regions() platform function.",
+      "parentUuid": "218fbe81_0709df46",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 2
+      },
+      "revId": "9b875a0ce86aac7aeeea427521fa52b73246fb62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02db4a6e_b4736080",
         "filename": "drivers/arm/css/sds/sds.c",
         "patchSetId": 3
@@ -202,6 +250,30 @@
       "writtenOn": "2023-12-13T08:35:29Z",
       "side": 1,
       "message": "This is the only place where I\u0027ve spotted such an assertion but I feel it\u0027s needed in all other public functions exported by this driver: `sds_struct_exists()`, `sds_struct_read()` and `sds_struct_write()`. Could you please add it there as well?\n\nBTW, there is the question of how do we check the validity of this id... Using an assertion or an \u0027if\u0027 test? Assertions are fine if the region id is always coming from platform code, which I think is the case right now. Can you please confirm?",
+      "range": {
+        "startLine": 256,
+        "startChar": 1,
+        "endLine": 256,
+        "endChar": 36
+      },
+      "revId": "9b875a0ce86aac7aeeea427521fa52b73246fb62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7372580_e2922c09",
+        "filename": "drivers/arm/css/sds/sds.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2024-02-07T21:01:08Z",
+      "side": 1,
+      "message": "I\u0027ve added the asserts. \n\nYes, the region ID macros are defined by platform and the SDS driver calls are from platform code (such as during platform setup).",
+      "parentUuid": "02db4a6e_b4736080",
       "range": {
         "startLine": 256,
         "startChar": 1,
@@ -225,6 +297,30 @@
       "writtenOn": "2023-12-13T08:35:29Z",
       "side": 1,
       "message": "These macros look misplaced to me. I think we should let platforms define them instead.",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 31
+      },
+      "revId": "9b875a0ce86aac7aeeea427521fa52b73246fb62",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70ee7f24_5df4d30c",
+        "filename": "include/drivers/arm/css/sds.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2024-02-07T21:01:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83a995df_28c29221",
       "range": {
         "startLine": 82,
         "startChar": 0,
