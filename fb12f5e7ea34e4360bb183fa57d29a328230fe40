@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f769cda1_3ee6683a",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-07T08:59:35Z",
+      "side": 1,
+      "message": "Also, I feel it is better to return standard error (``-EINVAL``?) instead of -1. What do you say?",
+      "parentUuid": "aa7136aa_426785d4",
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58a597f6_a76ecf4b",
         "filename": "drivers/fwu/fwu.c",
         "patchSetId": 2
