@@ -64,6 +64,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bc1a379_d400fd30",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-07T12:15:10Z",
+      "side": 1,
+      "message": "Acknowledged. But also note that based on my discussion with Manish, I am planning to add this as an API in the common fwu.c driver file. A platform which wants to implement it\u0027s own policy can define a separate function.",
+      "parentUuid": "388e60f3_97ad334a",
+      "range": {
+        "startLine": 654,
+        "startChar": 0,
+        "endLine": 654,
+        "endChar": 35
+      },
+      "revId": "9fe39b200cd8710a460c30b91b4ae8145dba74fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53061c78_00c88376",
@@ -149,6 +173,30 @@
       "side": 1,
       "message": "I also think your description (Sughosh) makes sense, assuming you start by first using the previous_active_index if it relates to a valid bank state.",
       "parentUuid": "61c8f6b2_eb816f5f",
+      "range": {
+        "startLine": 662,
+        "startChar": 15,
+        "endLine": 662,
+        "endChar": 36
+      },
+      "revId": "9fe39b200cd8710a460c30b91b4ae8145dba74fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "900c9cb5_624afbed",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 662,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-07T12:15:10Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b1829480_45d260a1",
       "range": {
         "startLine": 662,
         "startChar": 15,
