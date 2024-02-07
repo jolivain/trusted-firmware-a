@@ -67,6 +67,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "290bf439_80b67f4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2024-02-07T21:44:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37935f05_e75eed0a",
+      "revId": "8053f108a824a2015c457151f61bf75142d07ab5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4b6bc90c_d31d2d0b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -185,6 +203,24 @@
       "writtenOn": "2023-12-13T08:45:28Z",
       "side": 1,
       "message": "The code looks good to me, just need a better commit message.",
+      "revId": "8053f108a824a2015c457151f61bf75142d07ab5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b0465f4_2af50895",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2024-02-07T21:44:39Z",
+      "side": 1,
+      "message": "I think the solution is to keep the stack as it is now (separated by platform),\nfinish the review and verify the stack with the CI. Once everything is done the stack should be squashed and complete the review.",
+      "parentUuid": "a4784610_028ebf76",
       "revId": "8053f108a824a2015c457151f61bf75142d07ab5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
