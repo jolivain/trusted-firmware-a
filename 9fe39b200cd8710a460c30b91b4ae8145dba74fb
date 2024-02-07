@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "487b9a87_127b5cc6",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-07T14:10:05Z",
+      "side": 1,
+      "message": "\u003e Would be better to explicitly use the valid IDs (IMHO):\n\u003e \n\u003e     switch (mdata-\u003ebank_state[i]) {\n\u003e     case FWU_VALID_BANK_STATE:\n\u003e     case FWU_ACCEPTED_BANK_STATE:    \n\u003e         return i;\n\u003e     default:\n\u003e         break;\n\u003e     }\n\nhi Etienne,\nI would prefer having two for loops. The first loop checks for the presence of any Accepted bank. If that fails, we then check for the presence of a Valid bank. So the idea is that we first try to boot the platform in an accepted state. The attempt to boot from a valid bank should be a fail-safe(better than platform not booting).\n\nExplaining it here just for the sake of record.",
+      "parentUuid": "f4bf4071_0bb240f6",
+      "range": {
+        "startLine": 628,
+        "startChar": 0,
+        "endLine": 628,
+        "endChar": 55
+      },
+      "revId": "9fe39b200cd8710a460c30b91b4ae8145dba74fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "388e60f3_97ad334a",
         "filename": "plat/st/common/bl2_io_storage.c",
         "patchSetId": 2
