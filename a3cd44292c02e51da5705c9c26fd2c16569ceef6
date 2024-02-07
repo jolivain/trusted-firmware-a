@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22fe8e2c_2325a7f0",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-07T15:25:31Z",
+      "side": 0,
+      "message": "In 2.8 there was a hack to set EEL2 bit if RME is present (Even when SPM at EL2 is not present). For the time being i would recommend to do following check\n\n#if (IMAGE_BL31 \u0026\u0026 defined(SPD_spmd) \u0026\u0026 SPMD_SPM_AT_SEL2) || ENABLE_RME",
+      "revId": "a3cd44292c02e51da5705c9c26fd2c16569ceef6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
