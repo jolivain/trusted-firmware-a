@@ -34,6 +34,24 @@
       "parentUuid": "d4a1510e_3b735324",
       "revId": "08333bb2c402c74d3459466d1f87357b01c626e1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ddf5a44_cfff5fa7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-02-07T19:10:29Z",
+      "side": 1,
+      "message": "Generated code looks optimal, as instead of loading and storing in pairs, which we did in assembly previously, we now, load and store individually (lrd/str in c code) and I hope that should be ok, as we access them with their offsets.",
+      "parentUuid": "61981235_fe4fe943",
+      "revId": "08333bb2c402c74d3459466d1f87357b01c626e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
