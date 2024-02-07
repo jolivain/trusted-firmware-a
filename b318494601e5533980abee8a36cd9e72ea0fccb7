@@ -218,6 +218,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "34d95ca1_176b6334",
+        "filename": "plat/intel/soc/common/drivers/sdmmc/sdmmc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-07T09:56:25Z",
+      "side": 1,
+      "message": "Hi,\n\n\u003e so it copies 4 4-bytes-aligned for entire of resp_data[4].\n\nBut there is no loop to repeat the copy operation! A single `memcpy_s()` call will only copy 4 bytes (computed as `sizeof(resp_data) / MBOX_WORD_BYTE`). Unless you repeat this operation 3 more times, only 4 bytes will ever be copied...",
+      "parentUuid": "05f2b8bf_02aceaeb",
+      "range": {
+        "startLine": 522,
+        "startChar": 20,
+        "endLine": 522,
+        "endChar": 37
+      },
+      "revId": "b318494601e5533980abee8a36cd9e72ea0fccb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0311a136_99a66f05",
         "filename": "plat/intel/soc/common/sip/socfpga_sip_fcs.c",
         "patchSetId": 1
