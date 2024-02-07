@@ -16,6 +16,24 @@
       "message": "Could you add a change in plat/st/stm32mp1/platform.mk to enforce PSA_FWU_METADATA_IMAGE_DESC is enabled when PSA_FWU_SUPPORT is enabled?\n\n     ifeq (${PSA_FWU_SUPPORT},1)\n    +# Platform expects banks/images description in the metadata\n    +PSA_FWU_METADATA_IMAGE_DESC        :\u003d      1\n     # Number of banks of updatable firmware\n     NR_OF_FW_BANKS                     :\u003d\t2\n     NR_OF_IMAGES_IN_FW_BANK            :\u003d\t1",
       "revId": "f275715f9b7abf1d3e97fa09b1eac017681a90f3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa4cd5d4_774a3778",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-07T12:12:04Z",
+      "side": 1,
+      "message": "Okay, I can add this. Although this change is superfluous. The default value of PSA_FWU_METADATA_IMAGE_DESC is defined as 1. Do you want me to add it explicitly?",
+      "parentUuid": "a5f3b179_ab9250c3",
+      "revId": "f275715f9b7abf1d3e97fa09b1eac017681a90f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
