@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "870b5942_250fffa6",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-07T12:09:52Z",
+      "side": 1,
+      "message": "\u003e Also, I feel it is better to return standard error (``-EINVAL``?) instead of -1. What do you say?\n\nOkay. Although I was just being consistent with the style used in the file, where -1 is being returned for an error condition, instead of any relevant error code.",
+      "parentUuid": "f769cda1_3ee6683a",
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58a597f6_a76ecf4b",
         "filename": "drivers/fwu/fwu.c",
         "patchSetId": 2
@@ -274,6 +292,30 @@
       "side": 1,
       "message": "Agree, this is as per FWU metadata version 2. This stricter check is even better.",
       "parentUuid": "f4fddec6_fadc55c1",
+      "range": {
+        "startLine": 77,
+        "startChar": 1,
+        "endLine": 77,
+        "endChar": 33
+      },
+      "revId": "fb12f5e7ea34e4360bb183fa57d29a328230fe40",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad9bb8e1_f5252d0e",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-07T12:09:52Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4b25b8d4_03613920",
       "range": {
         "startLine": 77,
         "startChar": 1,
