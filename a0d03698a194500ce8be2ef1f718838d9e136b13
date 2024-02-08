@@ -34,6 +34,24 @@
       "parentUuid": "ce3dca5a_7e3636af",
       "revId": "a0d03698a194500ce8be2ef1f718838d9e136b13",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "165ec63e_492e278c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-02-08T14:01:53Z",
+      "side": 1,
+      "message": "Looking at include/arch/aarch64/asm_macros.S I wonder how it worked in past at all. \n\nBoth \u0027speculation_barrier\u0027 and \u0027exception_barrier\u0027 macros use \u0027sb_barrier_insn\u0027 if ENABLE_FEAT_SB is set. The only check is at compilation phase.",
+      "parentUuid": "359a2d73_b5f0d356",
+      "revId": "a0d03698a194500ce8be2ef1f718838d9e136b13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
