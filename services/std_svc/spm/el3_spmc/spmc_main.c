@@ -1275,6 +1275,14 @@ static uint64_t ffa_features_handler(uint32_t smc_fid,
 	case FFA_RXTX_UNMAP:
 	case FFA_MEM_FRAG_TX:
 	case FFA_MSG_RUN:
+	case FFA_NOTIFICATION_BITMAP_CREATE:
+	case FFA_NOTIFICATION_BITMAP_DESTROY:
+	case FFA_NOTIFICATION_BIND:
+	case FFA_NOTIFICATION_UNBIND:
+	case FFA_NOTIFICATION_SET:
+	case FFA_NOTIFICATION_GET:
+	case FFA_NOTIFICATION_INFO_GET_SMC32:
+	case FFA_NOTIFICATION_INFO_GET_SMC64:
 
 		/*
 		 * We are relying on the fact that the other registers
