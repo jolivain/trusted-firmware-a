@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1656e4d_3af98e11",
+        "filename": "common/bl_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-08T15:36:46Z",
+      "side": 1,
+      "message": "I think we\u0027d want to get rid of this loop into this patch. Otherwise, aren\u0027t we going to end up in an infinite loop if `load_auth_image_internal()` returns an error? Off the top of my head, I don\u0027t think `load_auth_image_internal()` takes any corrective measure to recover from a failure so it will do exactly the same thing if called a second time?",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 20
+      },
+      "revId": "b3be9e331dbf59d7be8e13d8a9465189d2960fc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
