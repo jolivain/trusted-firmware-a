@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86d9d547_fe4a02e6",
+        "filename": "plat/arm/board/juno/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-02-08T15:39:42Z",
+      "side": 1,
+      "message": "Could you rearrange this condition so that it\u0027s not inverted?",
+      "range": {
+        "startLine": 253,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 37
+      },
+      "revId": "7d9913acc21a428bec1562ced56cd08b519828aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
