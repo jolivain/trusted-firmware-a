@@ -69,6 +69,24 @@
       "parentUuid": "174e4558_a73d1d5c",
       "revId": "d6e9827f477bcb58cf0f31a7fd102ca03c855be1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "599d753f_1e256a80",
+        "filename": "plat/arm/board/tc/tc_bl2_dpe.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-02-08T11:30:14Z",
+      "side": 1,
+      "message": "I tested only with the Trusty build config, where only 1 SP is loaded. Is it acceptable to merge as is? Later the solution team can tweak it to support multiple build configs.\n\nThe point is that when the last SP is loaded then create_certificate must be true, otherwise false. For this, we need a way at build time or runtime to figure out how many SP is loaded and which one is the last.",
+      "parentUuid": "26ebbb80_47448d36",
+      "revId": "d6e9827f477bcb58cf0f31a7fd102ca03c855be1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
