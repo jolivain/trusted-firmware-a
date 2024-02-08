@@ -27,6 +27,7 @@
 #include <services/spmc_svc.h>
 #include <services/spmd_svc.h>
 #include "spmc.h"
+#include "spmc_heap.h"
 #include "spmc_shared_mem.h"
 
 #include <platform_def.h>
@@ -2315,6 +2316,10 @@ int32_t spmc_setup(void)
 
 	/* Register init function for deferred init.  */
 	bl31_register_bl32_init(&sp_init);
+	if (spmc_heap_init()) {
+		ERROR("Could not initialize the heap!\n");
+		panic();
+	}
 
 	INFO("Secure Partition setup done.\n");
 
