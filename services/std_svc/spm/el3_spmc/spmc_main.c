@@ -633,7 +633,7 @@ static uint64_t msg_wait_handler(uint32_t smc_fid,
 
 	/* Forward the response to the Normal world. */
 	return spmc_smc_return(smc_fid, secure_origin, x1, x2, x3, x4,
-			       handle, cookie, flags, FFA_NWD_ID);
+			       handle, cookie, flags, FFA_HYP_ID);
 }
 
 static uint64_t ffa_error_handler(uint32_t smc_fid,

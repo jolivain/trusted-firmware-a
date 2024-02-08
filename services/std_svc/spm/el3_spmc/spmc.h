@@ -26,7 +26,7 @@
 #define FFA_SWD_ID_MASK		0x8000
 
 /* ID 0 is reserved for the normal world entity, (Hypervisor or OS Kernel). */
-#define FFA_NWD_ID		U(0)
+#define FFA_HYP_ID		U(0)
 /* First ID is reserved for the SPMC */
 #define FFA_SPMC_ID		U(FFA_SWD_ID_BASE)
 /* SP IDs are allocated after the SPMC ID */
@@ -34,10 +34,15 @@
 /* Align with Hafnium implementation */
 #define INV_SP_ID		0x7FFF
 
+#define FFA_IS_VM_ID(id) (id != FFA_HYP_ID && (id & FFA_NWD_ID_LIMIT) == id)
+#define FFA_IS_SP_ID(id) (id != FFA_SPMC_ID && (id & FFA_SWD_ID_BASE))
+#define FFA_IS_FW_ID(id) (id == FFA_SPMC_ID || id == FFA_HYP_ID)
+
 /* FF-A Related helper macros. */
 #define FFA_ID_MASK			U(0xFFFF)
 #define FFA_PARTITION_ID_SHIFT		U(16)
 #define FFA_FEATURES_BIT31_MASK		U(0x1u << 31)
+#define FFA_FEATURE_ID_MASK U(0xFF)
 #define FFA_FEATURES_RET_REQ_NS_BIT	U(0x1 << 1)
 
 #define FFA_RUN_EP_ID(ep_vcpu_ids) \
