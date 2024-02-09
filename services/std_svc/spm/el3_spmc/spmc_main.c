@@ -2195,6 +2195,11 @@ static int32_t sp_init(void)
 
 	INFO("Secure Partition (0x%x) init start.\n", sp->sp_id);
 
+	rc = spmc_ffa_notifications_init(sp);
+	if (rc != 0) {
+		ERROR("SP (0x%x) failed to init FF-A notifications (%lu).\n",
+			    sp->sp_id, rc);
+	}
 	rc = spmc_sp_synchronous_entry(ec);
 	if (rc != 0) {
 		/* Indicate SP init was not successful. */
@@ -2275,6 +2280,9 @@ int32_t spmc_setup(void)
 		return ret;
 	}
 	memset(spmc_shmem_obj_state.data, 0, spmc_shmem_obj_state.data_size);
+
+	/* Initialize the FF-A Notifications module. */
+	spmc_ffa_notifications_init_per_pe();
 
 	/* Setup logical SPs. */
 	ret = logical_sp_init();
