@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bd57138_7d0549ff",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-09T13:49:30Z",
+      "side": 1,
+      "message": "In AArch64 mode general-purpose registers, most of the System registers and vector registers are not banked. This means that Monitor code, responsible for world switches must also save and restore these registers for different security states.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 33
+      },
+      "revId": "2d0ce7fb5c55ac50bff59a0ac2ffc36457a19ac2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43090985_7f70fe72",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-09T13:49:30Z",
+      "side": 1,
+      "message": "One more paragraph about how EL3 code saves and restores various types of registers \ne.g. \n- GP registers saved restored using : restore_gp_pmcr_pauth_regs and save_gp_pmcr_pauth_regs\n- Vector regs (e.g. Floating Point regs) fpregs_context_save \u0026 restore simlary for SVE and SME you can explain.\n- Finally the system registers and then you can explain about this",
+      "revId": "2d0ce7fb5c55ac50bff59a0ac2ffc36457a19ac2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3049df34_ba4a3229",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-09T13:49:30Z",
+      "side": 1,
+      "message": "First explain what CPU context is",
+      "revId": "2d0ce7fb5c55ac50bff59a0ac2ffc36457a19ac2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
