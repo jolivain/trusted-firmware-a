@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79594255_a3fb9303",
+        "filename": "plat/arm/css/sgi/sgi_plat.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-09T09:59:21Z",
+      "side": 1,
+      "message": "At first, I thought you forgot to set the `.size` field as well. Then I figured out `sds_init()` dynamically discovers the size of the SDS region by reading its header...\n\nTo avoid confusion, I wonder whether we should introduce a macro to define an SDS region descriptor. Something like:\n\n```\nstatic sds_region_desc_t sgi_sds_regions[] \u003d {\n\tDEFINE_SDS_REGION(PLAT_ARM_SDS_MEM_BASE),\n};\n```\n\nOr is that pointless? What do you think?",
+      "range": {
+        "startLine": 180,
+        "startChar": 1,
+        "endLine": 180,
+        "endChar": 35
+      },
+      "revId": "602fbb0b108d6a9998ca7a40b218948a6bb4b79c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04da9a50_b6f6b9f1",
+        "filename": "plat/arm/css/sgi/sgi_plat.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-09T09:59:21Z",
+      "side": 1,
+      "message": "(minor) We have the `ARRAY_SIZE()` available for that. This expression can be rewritten as:\n```\nARRAY_SIZE(sgi_sds_regions)\n```",
+      "range": {
+        "startLine": 185,
+        "startChar": 17,
+        "endLine": 185,
+        "endChar": 71
+      },
+      "revId": "602fbb0b108d6a9998ca7a40b218948a6bb4b79c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
