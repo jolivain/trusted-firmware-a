@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5683d4d6_1de47dfc",
+        "filename": "docs/design/trusted-board-boot.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-09T09:10:38Z",
+      "side": 1,
+      "message": "Not related to your changes, but can\u0027t we rename this to \u0027trusted boot fw certificate\u0027 to align with the spec and code.\nAlso, this certificate contains more hashes now than only containing the hash of the BL2.",
+      "range": {
+        "startLine": 119,
+        "startChar": 4,
+        "endLine": 119,
+        "endChar": 28
+      },
+      "revId": "4ec45c3781ed2384faf642d0611b970c29f8134b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
