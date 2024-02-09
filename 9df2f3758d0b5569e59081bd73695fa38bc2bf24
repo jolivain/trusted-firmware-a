@@ -33,6 +33,24 @@
       "message": "I dont see the x1 being set the to the right context before calling this function. Since x1 is caller saved, it could have been trashed by the previous function invocation of handle_sysreg_trap ?",
       "revId": "9df2f3758d0b5569e59081bd73695fa38bc2bf24",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da7d7939_6eefcf1c",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 29
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-02-09T12:20:09Z",
+      "side": 1,
+      "message": "Ignore this as x0 is the argument to this function as esr_el3 is directly pulled from the context.",
+      "parentUuid": "264635ea_3024bd19",
+      "revId": "9df2f3758d0b5569e59081bd73695fa38bc2bf24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
