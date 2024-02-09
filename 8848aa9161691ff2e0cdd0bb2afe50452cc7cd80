@@ -34,6 +34,24 @@
       "parentUuid": "1e2d2629_79e6d412",
       "revId": "8848aa9161691ff2e0cdd0bb2afe50452cc7cd80",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c509b209_440b2988",
+        "filename": "plat/arm/board/fvp/fvp_bl2_measured_boot.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-09T15:05:20Z",
+      "side": 1,
+      "message": "Manish forgot to provide the link to patch [1] ;) Here it is:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26425\n\nI think Manish is asking you to rebase your patch on top of his [1], as they conflict with each other.",
+      "parentUuid": "b67bab87_992eb891",
+      "revId": "8848aa9161691ff2e0cdd0bb2afe50452cc7cd80",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
