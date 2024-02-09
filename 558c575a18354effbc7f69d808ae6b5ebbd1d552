@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fe02a3c_4a228f2d",
+        "filename": "include/drivers/arm/css/sds.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-09T09:59:38Z",
+      "side": 1,
+      "message": "I feel we should explain that the `.base` field is expected to be populated by the platform code, while the size of the region will be dynamically discovered  and written into the `.size` field by the generic code.\n\nI also think we should provide a macro for platform code to define SDS regions in the right manner, see my other comment in the next patch [here](https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/24610/8/plat/arm/css/sgi/sgi_plat.c#180).",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 3
+      },
+      "revId": "558c575a18354effbc7f69d808ae6b5ebbd1d552",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
