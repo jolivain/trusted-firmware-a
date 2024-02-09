@@ -46,6 +46,30 @@
       },
       "revId": "3b6fb60efb4c405ae0be17db80faaff880059178",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b7d9a05_2d3c01f6",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-09T14:35:19Z",
+      "side": 1,
+      "message": "\u003e I believe these APIs also presume that MEASURED_BOOT and DPE are mutually exclusive.\n\nI think you\u0027re right, but only because `MEASURED_BOOT` here seems to mean \"measured boot support with event-log/RSS backend\", as opposed to `DICE_PROTECTION_ENVIRONMENT` which means \"measured boot support with DPE backend\". At least, that\u0027s my understanding of the patches right now, and that seems to be enforced by Tamas\u0027 explanations about DPE being just another flavour/backend for measured boot in TF-A.\n\nThat being said, I don\u0027t think the above is right from a design perspective. I think `MEASURED_BOOT` should just refer to the generic measured boot support in TF-A, and that needs to be complemented by one or several backends. Hence `MEASURED_BOOT` should be a prerequisite of `DICE_PROTECTION_ENVIRONMENT` IMO.\n\nActually, this discussion goes back to Tamas\u0027 proposal to introduce a new `MEASURED_BOOT_FLAVOUR` build option, see [here](https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/24645/3..8/plat/arm/board/tc/tc_common_dpe.c#b21). I still think we can avoid it, assuming each platform knows which measured boot backend they want to use. Which is true on all upstream platforms right now but not true anymore on TC platform with this patch stack. Therefore, my suggestion was to handle this difference in TC platform makefile for now, until we see more platforms having that requirement, at which point we can revisit and make that more generic through a `MEASURED_BOOT_FLAVOUR` kind of mechanism.\n\n\u003e I have doubt about placing these function declarations in the header specific to measured boot backends. These APIs are not inherently backend-specific (involving measurement and extension, etc.), but rather pertain more to platform-specific functionalities.\n\nI think you\u0027ve got a point but I would say these functions are **both** backend specific AND platform specific.\n* The backend dictates **what data** needs to be passed across firmware images: event log (TPM), DICE context handle or nothing (RSS).\n* The platform dictates **how** this data gets passed: in the case of Arm platforms, it\u0027s through device tree files, but there could be other transport mechanisms used by other platforms.\n\nI am not sure where that leaves us... Perhaps we need different interfaces to retrieve the data on one hand and to pass it around on the other hand. The former would be a measured boot backend interface, while the latter would be a platform interface. Then the generic measured boot code would combine the 2 to effectively implement what\u0027s `arm_set_nt_fw_info()` responsibilities today.",
+      "parentUuid": "90d59029_6107d17a",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 40
+      },
+      "revId": "3b6fb60efb4c405ae0be17db80faaff880059178",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
