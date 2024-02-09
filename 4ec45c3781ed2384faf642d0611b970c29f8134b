@@ -46,6 +46,30 @@
       },
       "revId": "4ec45c3781ed2384faf642d0611b970c29f8134b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f83d80f_a181e61e",
+        "filename": "docs/design/trusted-board-boot.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000043
+      },
+      "writtenOn": "2024-02-09T12:54:08Z",
+      "side": 1,
+      "message": "Done in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26480\n\nUnfortunately this makes the text inconsistent with the [TBBR CoT diagram](https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26321/3/docs/resources/diagrams/cot-tbbr.jpg) introduced in this patch... Ideally I should redo the diagram with updated names as well but I doubt I\u0027ll have time for that today...",
+      "parentUuid": "116257eb_ea86c8f8",
+      "range": {
+        "startLine": 119,
+        "startChar": 4,
+        "endLine": 119,
+        "endChar": 28
+      },
+      "revId": "4ec45c3781ed2384faf642d0611b970c29f8134b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
