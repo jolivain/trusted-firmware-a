@@ -1231,7 +1231,24 @@ static uint64_t ffa_features_handler(uint32_t smc_fid,
 
 	/* Check if a Feature ID was requested. */
 	if ((function_id & FFA_FEATURES_BIT31_MASK) == 0U) {
-		/* We currently don't support any additional features. */
+		uint32_t feat_id = function_id & FFA_FEATURE_ID_MASK;
+
+		if (!secure_origin) {
+			switch (feat_id) {
+			case FFA_FEAT_NOTIFICATION_PENDING_INT:
+				SMC_RET3(handle, FFA_SUCCESS_SMC32, 0, 5);
+				break;
+			case FFA_FEAT_SCHED_RECEIVER_INT:
+				return spmc_ffa_features_schedule_receiver_int(handle);
+			case FFA_FEAT_MANAGED_EXIT_INT:
+				SMC_RET3(handle, FFA_SUCCESS_SMC32, 0, 4);
+				break;
+
+			default:
+				break;
+			}
+		}
+
 		return spmc_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
 	}
 
