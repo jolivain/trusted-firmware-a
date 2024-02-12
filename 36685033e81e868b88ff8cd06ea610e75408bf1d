@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d45ff9ff_de2c22fa",
+        "filename": "docs/components/platform-interrupt-controller-API.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-02-12T19:58:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08ad1c1c_ca82b8d5",
+      "revId": "36685033e81e868b88ff8cd06ea610e75408bf1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87f92e22_83f977aa",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-02-12T18:03:12Z",
       "side": 1,
       "message": "original PMR repeated?",
+      "range": {
+        "startLine": 1326,
+        "startChar": 36,
+        "endLine": 1327,
+        "endChar": 16
+      },
+      "revId": "36685033e81e868b88ff8cd06ea610e75408bf1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f71edcc3_74673dd9",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1327,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-02-12T19:58:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87f92e22_83f977aa",
       "range": {
         "startLine": 1326,
         "startChar": 36,
