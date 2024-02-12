@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5199cef1_e14183c6",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1342,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T11:14:58Z",
+      "side": 1,
+      "message": "prefer \u0027enabled\u0027 over \u0027selected\u0027?\n\nMaybe:\n\n    - ``PSA_FWU_METADATA_FW_STORE_DESC``: Boolean configuration. Enable when the FWU\n      metadata contains updatable images description. The default value is 1.",
+      "range": {
+        "startLine": 1342,
+        "startChar": 44,
+        "endLine": 1342,
+        "endChar": 52
+      },
+      "revId": "38d8cdd2cee53d2418a675170e8668143f1b91d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb6c7b5b_caed7ef3",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1349,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T11:14:58Z",
+      "side": 1,
+      "message": "I would remove this last sentence. It\u0027s already explained right above IMO.",
+      "range": {
+        "startLine": 1347,
+        "startChar": 47,
+        "endLine": 1349,
+        "endChar": 49
+      },
+      "revId": "38d8cdd2cee53d2418a675170e8668143f1b91d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
