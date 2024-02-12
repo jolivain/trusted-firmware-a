@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d125789_590d8820",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T11:33:16Z",
+      "side": 1,
+      "message": "s/off/on/?  or maybe s/off/with/?",
+      "range": {
+        "startLine": 188,
+        "startChar": 56,
+        "endLine": 188,
+        "endChar": 59
+      },
+      "revId": "2eff2c7aa86058b5d85c97512a89a2a9269db886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69bd8389_06184df9",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T11:33:16Z",
+      "side": 1,
+      "message": "s/to boot from any other/to find another/",
+      "range": {
+        "startLine": 192,
+        "startChar": 26,
+        "endLine": 192,
+        "endChar": 38
+      },
+      "revId": "2eff2c7aa86058b5d85c97512a89a2a9269db886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa0e9186_43ca4e08",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T11:33:16Z",
+      "side": 1,
+      "message": "s/to boot from/to find/",
+      "range": {
+        "startLine": 193,
+        "startChar": 68,
+        "endLine": 194,
+        "endChar": 7
+      },
+      "revId": "2eff2c7aa86058b5d85c97512a89a2a9269db886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ec3b303_fdeb5794",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T11:33:16Z",
+      "side": 1,
+      "message": "skip also metadata.previous_active_index",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 35
+      },
+      "revId": "2eff2c7aa86058b5d85c97512a89a2a9269db886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
