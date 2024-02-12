@@ -273,6 +273,24 @@
       "parentUuid": "ff1f8655_ae4e9783",
       "revId": "959d1a51aabb2217047b807b3c5a3e3a6bb53331",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90aa1329_94adf548",
+        "filename": "include/drivers/fwu/fwu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-12T13:56:26Z",
+      "side": 1,
+      "message": "okay, let\u0027s keep these as macros then. You have point that these are not sequential values.",
+      "parentUuid": "57595d15_f5ce376e",
+      "revId": "959d1a51aabb2217047b807b3c5a3e3a6bb53331",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
