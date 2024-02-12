@@ -156,6 +156,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0706e128_c0672e80",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-02-12T09:47:01Z",
+      "side": 1,
+      "message": "I added a check on the upper limit. But this param is optional so size\u003d0 is an allowed option, so no check on the minimal limit.",
+      "parentUuid": "10b1842f_feccf802",
+      "range": {
+        "startLine": 51,
+        "startChar": 37,
+        "endLine": 51,
+        "endChar": 63
+      },
+      "revId": "d74bdf75b600378da557d3ba1d97664728df1f8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4ae9f755_8af1a52f",
         "filename": "drivers/measured_boot/rss/dice_prot_env.c",
         "patchSetId": 7
