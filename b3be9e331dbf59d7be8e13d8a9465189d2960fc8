@@ -22,6 +22,30 @@
       },
       "revId": "b3be9e331dbf59d7be8e13d8a9465189d2960fc8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df5c969b_b09f4c1c",
+        "filename": "common/bl_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-02-12T15:58:52Z",
+      "side": 1,
+      "message": "Yes, you\u0027re right. This loop was introduced when adding plat_try_next_boot_source(). I should then remove it here. I\u0027ll add some similar loop in next patch.",
+      "parentUuid": "a1656e4d_3af98e11",
+      "range": {
+        "startLine": 221,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 20
+      },
+      "revId": "b3be9e331dbf59d7be8e13d8a9465189d2960fc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
