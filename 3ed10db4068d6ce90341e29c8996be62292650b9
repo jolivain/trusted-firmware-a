@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7df21d0d_a094cef7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T13:11:14Z",
+      "side": 1,
+      "message": "can remove this line, already 2 described 2 lines below.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 44
+      },
+      "revId": "3ed10db4068d6ce90341e29c8996be62292650b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7706442a_2ce0f429",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T13:11:14Z",
+      "side": 1,
+      "message": "The commit message should also state that metadata version 1 structure is no more supported.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 29
+      },
+      "revId": "3ed10db4068d6ce90341e29c8996be62292650b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d23d7ddf_a144af84",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T13:11:14Z",
+      "side": 1,
+      "message": "I think it would be nice to explicitly state this is a byte size:\n\n     \t/* Byte size of the entire metadata */\n\nThis comment also applies to fwu_fw_store_descriptor::img_entry_size (line 63) and fwu_fw_store_descriptor::bank_info_entry_size (line 65).",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 34
+      },
+      "revId": "3ed10db4068d6ce90341e29c8996be62292650b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1003c0af_80ed89a6",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T13:11:14Z",
+      "side": 1,
+      "message": "prefer plain name \u0027descriptor_offset\u0027 to match the spec.",
+      "range": {
+        "startLine": 98,
+        "startChar": 10,
+        "endLine": 98,
+        "endChar": 21
+      },
+      "revId": "3ed10db4068d6ce90341e29c8996be62292650b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e060c3c_8f474a8f",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T13:11:14Z",
+      "side": 1,
+      "message": "s/fw_desc/fw_store_desc/",
+      "range": {
+        "startLine": 111,
+        "startChar": 32,
+        "endLine": 111,
+        "endChar": 39
+      },
+      "revId": "3ed10db4068d6ce90341e29c8996be62292650b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
