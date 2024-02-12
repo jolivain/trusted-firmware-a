@@ -71,6 +71,29 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2404e23f_056c0743",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-12T09:31:51Z",
+      "side": 1,
+      "message": "We actually don\u0027t test 3 worlds with FEAT_RME implemented / FEAT_SEL2 not implemented (or \u0027no secure world\u0027). The CI has test cases for either traditional 2 worlds TZ, or 4 worlds (with Secure EL2 enabled or disabled). It may be good to clarify here.",
+      "range": {
+        "startLine": 16,
+        "startChar": 3,
+        "endLine": 16,
+        "endChar": 16
+      },
+      "revId": "4c099c5221400117fbdd9049f35ecc6f4766a15f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d16800e8_dc8d50a5",
