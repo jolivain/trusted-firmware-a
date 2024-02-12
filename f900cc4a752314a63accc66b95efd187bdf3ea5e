@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "736ca98b_62164d63",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T13:35:43Z",
+      "side": 1,
+      "message": "the logic is not obvious. We need to check the variable initialization value to understand, and the concept of bank_state is meaning less when PSA_FWU_SUPPORT is disabled. I would rather have clear alternate cases:\n\n\t\t} else if (*cert_nv_ctr \u003e plat_nv_ctr) {\n\t#if PSA_FWU_SUPPORT \u0026\u0026 IMAGE_BL2\n\t\t\tif (fwu_get_active_bank_state() \u003d\u003d FWU_BANK_STATE_ACCEPTED) {\n\t\t\t\t*need_nv_ctr_upgrade \u003d true;\n\t\t\t} else {\n\t\t\t\t*need_nv_ctr_upgrade \u003d false;\n\t\t\t}\n\t#else /* PSA_FWU_SUPPORT \u0026\u0026 IMAGE_BL2 */\n\t\t\t*need_nv_ctr_upgrade \u003d false;\n\t#endif /* PSA_FWU_SUPPORT \u0026\u0026 IMAGE_BL2 */\n\t\t}",
+      "range": {
+        "startLine": 390,
+        "startChar": 1,
+        "endLine": 398,
+        "endChar": 2
+      },
+      "revId": "f900cc4a752314a63accc66b95efd187bdf3ea5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
