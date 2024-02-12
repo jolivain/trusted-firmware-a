@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d07e08bd_0161f5c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-02-12T23:09:20Z",
+      "side": 1,
+      "message": "This looks to use unsynchronised flags to guard some of the functions. I\u0027m expecting that since we\u0027re doing DDRC suspend/resume, we\u0027ll be using only a single core in a mode that prevents memory reordering. if that\u0027s not true, locking and/or semaphores should be used instead.",
+      "revId": "b66b843c699917ff078ae1c1932cd96d8bfa23ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
