@@ -91,6 +91,53 @@
       },
       "revId": "2eff2c7aa86058b5d85c97512a89a2a9269db886",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "704d2368_7f312d17",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T12:58:26Z",
+      "side": 1,
+      "message": "My bad: if previous active index was not selected from line 205, it will neither be here. Discard my comment. Sorry for the noise.",
+      "parentUuid": "1ec3b303_fdeb5794",
+      "range": {
+        "startLine": 210,
+        "startChar": 0,
+        "endLine": 210,
+        "endChar": 35
+      },
+      "revId": "2eff2c7aa86058b5d85c97512a89a2a9269db886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aef16991_6fd546df",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T12:58:26Z",
+      "side": 1,
+      "message": "would it make sense to first try the previous active index bank if it\u0027s in valid state, before falling back to another valid bank?",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 56
+      },
+      "revId": "2eff2c7aa86058b5d85c97512a89a2a9269db886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
