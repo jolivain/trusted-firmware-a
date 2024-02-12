@@ -71,6 +71,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92baaf8d_096fb25a",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 29
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-12T17:01:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1629e949_10108c36",
+      "revId": "9df2f3758d0b5569e59081bd73695fa38bc2bf24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44d46847_f931a48c",
@@ -84,6 +102,30 @@
       "writtenOn": "2024-02-09T14:09:51Z",
       "side": 1,
       "message": "This sentence is not clear as to the value being refered. Is it TGE ? or EEL2 ?",
+      "range": {
+        "startLine": 47,
+        "startChar": 14,
+        "endLine": 47,
+        "endChar": 22
+      },
+      "revId": "9df2f3758d0b5569e59081bd73695fa38bc2bf24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86769888_4328ba2d",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-12T17:01:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44d46847_f931a48c",
       "range": {
         "startLine": 47,
         "startChar": 14,
@@ -117,6 +159,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb01c5fc_76126d34",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-12T17:01:52Z",
+      "side": 1,
+      "message": "We are looking at lower ELs here and that too EL1 and EL2, wanted to make it explicit. \n0b0000\tEL0t.\n0b0100\tEL1t. |\n0b0101\tEL1h. | Interested in only these 4\n0b1000\tEL2t. |\n0b1001\tEL2h. | \n0b1100\tEL3t.\n0b1101\tEL3h",
+      "parentUuid": "877240f2_4192f9e3",
+      "range": {
+        "startLine": 72,
+        "startChar": 14,
+        "endLine": 72,
+        "endChar": 30
+      },
+      "revId": "9df2f3758d0b5569e59081bd73695fa38bc2bf24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df8a90ce_2ebe6d80",
@@ -130,6 +196,30 @@
       "writtenOn": "2024-02-09T14:09:51Z",
       "side": 1,
       "message": "This variant should not be used as it is conditionally enabled based on TF-A enablement.\n\nUse the is_feat_pan_present() variant (if not already defined, define one for this purpose.",
+      "range": {
+        "startLine": 151,
+        "startChar": 5,
+        "endLine": 151,
+        "endChar": 26
+      },
+      "revId": "9df2f3758d0b5569e59081bd73695fa38bc2bf24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5321deb2_b56193d1",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-12T17:01:52Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "df8a90ce_2ebe6d80",
       "range": {
         "startLine": 151,
         "startChar": 5,
@@ -163,6 +253,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f4446c3_7be5ac82",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-12T17:01:52Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3e8a9eb3_676475ed",
+      "range": {
+        "startLine": 168,
+        "startChar": 5,
+        "endLine": 168,
+        "endChar": 28
+      },
+      "revId": "9df2f3758d0b5569e59081bd73695fa38bc2bf24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8973f599_3f23688c",
@@ -176,6 +290,30 @@
       "writtenOn": "2024-02-09T14:09:51Z",
       "side": 1,
       "message": "This is not the variant as this will depend on TF-A support compiled in (which is the fix this patch is trying to do!). \n\nDefine a is_feat_gcs_present() variant which does not depend on FEAT_ flag.",
+      "range": {
+        "startLine": 189,
+        "startChar": 5,
+        "endLine": 189,
+        "endChar": 26
+      },
+      "revId": "9df2f3758d0b5569e59081bd73695fa38bc2bf24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bf538d8_faa7cdd5",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-12T17:01:52Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8973f599_3f23688c",
       "range": {
         "startLine": 189,
         "startChar": 5,
