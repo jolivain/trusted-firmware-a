@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7954c4ee_408a8177",
+        "filename": "plat/arm/board/juno/juno_common.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-02-12T13:03:32Z",
+      "side": 1,
+      "message": "static const? Or is this modified at runtime?",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 6
+      },
+      "revId": "f163f00130d00c23bea00dc8e9037a3bf6778474",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
