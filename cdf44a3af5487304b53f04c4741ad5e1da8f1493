@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6c27d18_68e126a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-12T17:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9b9d0f3_ebf81dcd",
+      "revId": "cdf44a3af5487304b53f04c4741ad5e1da8f1493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "659bf449_1509fa59",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-25T12:28:49Z",
       "side": 1,
       "message": "nit: could add the sys encoding as reference as comment.",
+      "revId": "cdf44a3af5487304b53f04c4741ad5e1da8f1493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cb061a7_87302f83",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-12T17:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "659bf449_1509fa59",
       "revId": "cdf44a3af5487304b53f04c4741ad5e1da8f1493",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -191,6 +227,54 @@
       "side": 1,
       "message": "I intend to change the statement into \n\n    if (is_feat_mte2_supported()) {\n\nThis seems to imply that when willing to enable MTE2 following options must be used:\nENABLE_FEAT_MTE\u003d1 ENABLE_FEAT_MTE2\u003d1\n\nI\u0027m curious about what happens with combinations like\nENABLE_FEAT_MTE2\u003d1  (only and ENABLE_FEAT_MTE defaults to 0)\nor ENABLE_FEAT_MTE\u003d0 ENABLE_FEAT_MTE2\u003d1\n\nIMO, this should be considered illegal.",
       "parentUuid": "ef39a586_f64fbfad",
+      "range": {
+        "startLine": 1099,
+        "startChar": 5,
+        "endLine": 1099,
+        "endChar": 28
+      },
+      "revId": "cdf44a3af5487304b53f04c4741ad5e1da8f1493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12cd9766_b876964e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-12T17:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ce16a50_a09b73d8",
+      "range": {
+        "startLine": 1099,
+        "startChar": 5,
+        "endLine": 1099,
+        "endChar": 28
+      },
+      "revId": "cdf44a3af5487304b53f04c4741ad5e1da8f1493",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "885f068f_661cf47c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1099,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-12T17:27:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de0f3875_aeef809f",
       "range": {
         "startLine": 1099,
         "startChar": 5,
