@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "098c17a7_6e89435b",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T13:44:36Z",
+      "side": 1,
+      "message": "This should check that other unexpected value are not treated as VALID or ACCEPTED state:\n\n\tif ((data-\u003ebank_state[boot_idx] !\u003d FWU_BANK_STATE_ACCEPTED) \u0026\u0026\n\t    (data-\u003ebank_state[boot_idx] !\u003d FWU_BANK_STATE_VALID)) {",
+      "range": {
+        "startLine": 634,
+        "startChar": 0,
+        "endLine": 634,
+        "endChar": 61
+      },
+      "revId": "e62018ab601ddea6b5b96517fd68a3a4fc93ae66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef7e06c7_e64b6d4d",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-12T13:44:36Z",
+      "side": 1,
+      "message": "\u0027goto\u0027 instruction not needed.",
+      "range": {
+        "startLine": 638,
+        "startChar": 0,
+        "endLine": 638,
+        "endChar": 12
+      },
+      "revId": "e62018ab601ddea6b5b96517fd68a3a4fc93ae66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
