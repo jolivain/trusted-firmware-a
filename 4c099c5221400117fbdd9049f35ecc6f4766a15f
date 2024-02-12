@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "56bc5abb_4b700ffc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-12T09:11:25Z",
+      "side": 1,
+      "message": "See this doc https://developer.arm.com/documentation/ddi0615/latest\n\nDespite the doc stating \u0027RETIRED\u0027 there are the interesting mentions:\n\nSection 3.3 \"A PE that implements FEAT_RME, but not FEAT_SEL2, has three Security states:\n• Non-secure.\n• Realm.\n• Root.\"\n\n\"Armv9-A does not permit a PE to implement FEAT_RME and Secure state without also supporting FEAT_SEL2.\"",
+      "parentUuid": "a6a112b9_43c5fecb",
+      "range": {
+        "startLine": 15,
+        "startChar": 54,
+        "endLine": 15,
+        "endChar": 72
+      },
+      "revId": "4c099c5221400117fbdd9049f35ecc6f4766a15f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d16800e8_dc8d50a5",
