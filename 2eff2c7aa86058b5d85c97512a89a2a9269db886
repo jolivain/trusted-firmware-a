@@ -138,6 +138,53 @@
       },
       "revId": "2eff2c7aa86058b5d85c97512a89a2a9269db886",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f8afdf2_38be7c68",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-12T13:14:23Z",
+      "side": 1,
+      "message": "Is it accurate to assume that the previous-active index is always valid and accepted, or could there be scenarios where the previous-active index is valid but not accepted? I might be overlooking something.\n\nI think we only need to find the valid bank when (active index \u003d\u003d previous active index) right?",
+      "parentUuid": "aef16991_6fd546df",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 56
+      },
+      "revId": "2eff2c7aa86058b5d85c97512a89a2a9269db886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b6f8b0b_ca841ba7",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-12T13:14:23Z",
+      "side": 1,
+      "message": "0U instead?",
+      "range": {
+        "startLine": 220,
+        "startChar": 10,
+        "endLine": 220,
+        "endChar": 11
+      },
+      "revId": "2eff2c7aa86058b5d85c97512a89a2a9269db886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
