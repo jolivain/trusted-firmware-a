@@ -22,6 +22,30 @@
       },
       "revId": "771a07156f27f597aef5ca4cf0ae4c3f5a180f37",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8b4a7d5_2a94ea09",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-02-13T19:13:10Z",
+      "side": 0,
+      "message": "I felt like this would add unnecessary complexity since load_entry_gpt() needs to be called for every entry anyway and parse_gpt_entry() will just exit if the entry is not valid. But have gone ahead and updated with what would be necessary to add. Do you think this is better or do you think I should I keep in the single loop?",
+      "parentUuid": "0f6190a2_452d1294",
+      "range": {
+        "startLine": 257,
+        "startChar": 0,
+        "endLine": 259,
+        "endChar": 3
+      },
+      "revId": "771a07156f27f597aef5ca4cf0ae4c3f5a180f37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }

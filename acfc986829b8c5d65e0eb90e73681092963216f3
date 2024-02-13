@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0ca7fa1_0b4d0f07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-02-13T19:13:10Z",
+      "side": 1,
+      "message": "Yes this makes sense, Done!",
+      "parentUuid": "5e607d40_a5c746c6",
+      "revId": "acfc986829b8c5d65e0eb90e73681092963216f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21afbb96_cba3cd3b",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-02-12T09:32:51Z",
       "side": 1,
       "message": "Why we need two variables can\u0027t we simply do as below:\n\n``\ncalc_crc \u003d tf_crc32(calc_crc, (uint8_t *)\u0026entry, sizeof(gpt_entry_t));\n``",
+      "range": {
+        "startLine": 259,
+        "startChar": 2,
+        "endLine": 259,
+        "endChar": 17
+      },
+      "revId": "acfc986829b8c5d65e0eb90e73681092963216f3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa7630ba_0905ec46",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-02-13T19:13:10Z",
+      "side": 1,
+      "message": "Oh we don\u0027t! Fixed",
+      "parentUuid": "21afbb96_cba3cd3b",
       "range": {
         "startLine": 259,
         "startChar": 2,
