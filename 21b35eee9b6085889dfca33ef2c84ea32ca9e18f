@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d768e89_a4f66d00",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2024-02-13T13:43:35Z",
+      "side": 1,
+      "message": "plat_sds_get_regions() definition was missing from sgi_plat_v2.c which is used by rdn2 (it was only defined sgi_plat.c which is used by the rest of the sgi based platforms)",
+      "revId": "21b35eee9b6085889dfca33ef2c84ea32ca9e18f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
