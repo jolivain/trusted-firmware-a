@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5de199a1_f2b702c1",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-13T07:17:39Z",
+      "side": 1,
+      "message": "\u003e s/off/on/?  or maybe s/off/with/?\n\nIf we are being so particular, I\u0027d say s/off/from/",
+      "parentUuid": "8d125789_590d8820",
+      "range": {
+        "startLine": 188,
+        "startChar": 56,
+        "endLine": 188,
+        "endChar": 59
+      },
+      "revId": "2eff2c7aa86058b5d85c97512a89a2a9269db886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69bd8389_06184df9",
         "filename": "drivers/fwu/fwu.c",
         "patchSetId": 1
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2fd8e5a2_d5febb47",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-13T07:17:39Z",
+      "side": 1,
+      "message": "\u003e s/to boot from any other/to find another/\n\nOkay",
+      "parentUuid": "69bd8389_06184df9",
+      "range": {
+        "startLine": 192,
+        "startChar": 26,
+        "endLine": 192,
+        "endChar": 38
+      },
+      "revId": "2eff2c7aa86058b5d85c97512a89a2a9269db886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aa0e9186_43ca4e08",
         "filename": "drivers/fwu/fwu.c",
         "patchSetId": 1
@@ -60,6 +108,30 @@
       "writtenOn": "2024-02-12T11:33:16Z",
       "side": 1,
       "message": "s/to boot from/to find/",
+      "range": {
+        "startLine": 193,
+        "startChar": 68,
+        "endLine": 194,
+        "endChar": 7
+      },
+      "revId": "2eff2c7aa86058b5d85c97512a89a2a9269db886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55897f97_4327d29c",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-13T07:17:39Z",
+      "side": 1,
+      "message": "\u003e s/to boot from/to find/\n\nOkay",
+      "parentUuid": "aa0e9186_43ca4e08",
       "range": {
         "startLine": 193,
         "startChar": 68,
@@ -154,6 +226,30 @@
       "side": 1,
       "message": "Is it accurate to assume that the previous-active index is always valid and accepted, or could there be scenarios where the previous-active index is valid but not accepted? I might be overlooking something.\n\nI think we only need to find the valid bank when (active index \u003d\u003d previous active index) right?",
       "parentUuid": "aef16991_6fd546df",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 56
+      },
+      "revId": "2eff2c7aa86058b5d85c97512a89a2a9269db886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4742e590_6417d0b2",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-13T07:17:39Z",
+      "side": 1,
+      "message": "\u003e Is it accurate to assume that the previous-active index is always valid and accepted, or could there be scenarios where the previous-active index is valid but not accepted? I might be overlooking something.\n\u003e \n\u003e I think we only need to find the valid bank when (active index \u003d\u003d previous active index) right?\n\nThere can indeed be scenarios where the previous active bank is valid but not accepted. On a successful update in the Trial State, the platform will boot from the active bank for a fixed number of iterations. If the updated images are not accepted(for whatever reason), and the Trial Boot counter expires, the Update Agent will switch the active bank to some other value. In this case, the previous active bank will be valid, but not active.\n\n@Etienne, I think the current logic is correct. In that we would first want to boot from an Accepted bank, if avaialable. If no other bank is in the accepted state, maybe we can first check if the previous active bank is valid, and give that a higher priority. That said, any valid bank is just that, a valid bank. But if you prefer, I can add a check for the previous active bank first.",
+      "parentUuid": "8f8afdf2_38be7c68",
       "range": {
         "startLine": 219,
         "startChar": 0,
