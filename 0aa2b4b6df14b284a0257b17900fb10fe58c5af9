@@ -104,6 +104,24 @@
       "message": "Any update on this patch?",
       "revId": "0aa2b4b6df14b284a0257b17900fb10fe58c5af9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d052865_b7adc4b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-13T15:30:47Z",
+      "side": 1,
+      "message": "Hi Manish, this change requires an update to CI binaries but until now we\u0027ve not been allocating time for it. I\u0027ll close the loop with Joa/Madhu on a way forward. Thanks.",
+      "parentUuid": "39985c7d_d3582ce7",
+      "revId": "0aa2b4b6df14b284a0257b17900fb10fe58c5af9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
