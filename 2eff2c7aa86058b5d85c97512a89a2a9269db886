@@ -262,6 +262,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9f073b07_5c68eaa1",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-13T09:07:13Z",
+      "side": 1,
+      "message": "\u003e There can indeed be scenarios where the previous active bank is valid but not accepted. On a successful update in the Trial State, the platform will boot from the active bank for a fixed number of iterations. If the updated images are not accepted(for whatever reason), and the Trial Boot counter expires, the Update Agent will switch the active bank to some other value. In this case, the previous active bank will be valid, but not active.\n\nAs per the specification``previous_active_bank`` is the  \n```\n1. integer indicating which firmware bank was active prior to the last successful update to the Firmware Store.\n2. identified by previous_active_index can be used as a fallback to boot the platform when an updated bank fails to properly boot.\n```\n\nI assume that before the last successful update, the bank was valid and accepted. It seems like the platform should be responsible for assigning a legitimate value in the previous_active_bank to signify a proper fallback mechanism, IMO. Checking the bank\u0027s acceptance again seems unnecessary if it has already been accepted. While it\u0027s not explicitly stated in the specification, this is just my 2 cents.\n\nIn case of no prior (valid and accepted) bank present then it makes sense to find the valid bank and check for its acceptance.",
+      "parentUuid": "4742e590_6417d0b2",
+      "range": {
+        "startLine": 219,
+        "startChar": 0,
+        "endLine": 219,
+        "endChar": 56
+      },
+      "revId": "2eff2c7aa86058b5d85c97512a89a2a9269db886",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b6f8b0b_ca841ba7",
         "filename": "drivers/fwu/fwu.c",
         "patchSetId": 1
