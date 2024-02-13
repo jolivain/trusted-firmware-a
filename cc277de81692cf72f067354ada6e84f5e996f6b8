@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "879ef6cd_57c5620c",
+        "filename": "lib/romlib/Makefile",
+        "patchSetId": 22
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-02-13T15:01:28Z",
+      "side": 1,
+      "message": "nit: not sure but maybe for future should a make helper or a toolchain helper provide all of these?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 36
+      },
+      "revId": "cc277de81692cf72f067354ada6e84f5e996f6b8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d244917c_234aa69b",
         "filename": "make_helpers/toolchain.mk",
         "patchSetId": 22
@@ -19,6 +42,29 @@
         "startChar": 65,
         "endLine": 161,
         "endChar": 64
+      },
+      "revId": "cc277de81692cf72f067354ada6e84f5e996f6b8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b5c96b0_f3004a5e",
+        "filename": "make_helpers/unix.mk",
+        "patchSetId": 22
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-02-13T15:01:28Z",
+      "side": 1,
+      "message": "nit: thanks for this, maybe we should also use this instead of \u0027/dev/null\u0027 across all makefiles? could a cleanup later?",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 20
       },
       "revId": "cc277de81692cf72f067354ada6e84f5e996f6b8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
