@@ -16,6 +16,23 @@
       "message": "After the fix Patchset5\n\nissue in\n\u0027CPU suspend to powerdown at level 1 in OSI mode\u0027\n\u0027CPU suspend to powerdown at level 2 in OSI mode\u0027\n\n\u0027PSCI CPU Suspend in OSI mode\u0027\n\nFor\nfvp-tftf-fip.tftf-cortexa57x4a53x4-debug\nfvp-tftf-fip.tftf-aemv8a-debug",
       "revId": "0b5efa31f3d06fa6722a2dbebc7e026995fcbe55",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40d95b64_6c66864e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-02-13T17:54:10Z",
+      "side": 1,
+      "message": "Hi @Patrick,\n\nI assumed, that with your fix ( mask the last in Level nibble in StateID) patch, the CI failures will be taken care. Am I missing anything here ? \nKindly let us know.\nThanks!",
+      "revId": "0b5efa31f3d06fa6722a2dbebc7e026995fcbe55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
