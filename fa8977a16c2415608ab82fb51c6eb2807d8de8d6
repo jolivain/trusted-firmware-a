@@ -16,6 +16,24 @@
       "message": "Provide a way to prevent multiple header inclusions\n\n    #ifndef RSS_COMMS_PROTOCOL_COMMON\n    #define RSS_COMMS_PROTOCOL_COMMON\n\n    ...\n\n    #endif /* RSS_COMMS_PROTOCOL_COMMON */",
       "revId": "fa8977a16c2415608ab82fb51c6eb2807d8de8d6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a1cf7f7_e487819b",
+        "filename": "drivers/arm/rss/rss_comms_protocol_common.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-13T15:03:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "090f828f_faafe36a",
+      "revId": "fa8977a16c2415608ab82fb51c6eb2807d8de8d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
