@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "db048143_0439ec3b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-13T06:53:32Z",
+      "side": 1,
+      "message": "\u003e s/symbol/configuration switch/\n\nOkay",
+      "parentUuid": "c468da10_85418066",
+      "range": {
+        "startLine": 11,
+        "startChar": 17,
+        "endLine": 11,
+        "endChar": 23
+      },
+      "revId": "0a9188abce58e3b18face6bd0bcfc724f6d21fd4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c6b56762_9311845d",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-12T13:21:38Z",
       "side": 1,
       "message": "... when PSA FWU is enabled\n    \n(for consistency?)",
+      "range": {
+        "startLine": 354,
+        "startChar": 0,
+        "endLine": 354,
+        "endChar": 53
+      },
+      "revId": "0a9188abce58e3b18face6bd0bcfc724f6d21fd4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cca591f_6650de6f",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-13T06:53:32Z",
+      "side": 1,
+      "message": "\u003e ... when PSA FWU is enabled\n\u003e     \n\u003e (for consistency?)\n\nOkay",
+      "parentUuid": "c6b56762_9311845d",
       "range": {
         "startLine": 354,
         "startChar": 0,
