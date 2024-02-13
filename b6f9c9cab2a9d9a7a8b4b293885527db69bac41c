@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5003bdcb_1c47c14a",
+        "filename": "plat/arm/board/fvp/fvp_cpu_errata.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-13T23:49:56Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "93de2e98_cc3bbe28",
+      "range": {
+        "startLine": 2,
+        "startChar": 20,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "b6f9c9cab2a9d9a7a8b4b293885527db69bac41c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8184ad8e_cd4135aa",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-02-13T22:59:41Z",
       "side": 1,
       "message": "static function?",
+      "range": {
+        "startLine": 120,
+        "startChar": 8,
+        "endLine": 120,
+        "endChar": 35
+      },
+      "revId": "b6f9c9cab2a9d9a7a8b4b293885527db69bac41c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43371e99_be49d07b",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-13T23:49:56Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8184ad8e_cd4135aa",
       "range": {
         "startLine": 120,
         "startChar": 8,
