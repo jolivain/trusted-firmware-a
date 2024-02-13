@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c9730ea_296a0b1b",
+        "filename": "bl32/sp_min/sp_min.mk",
+        "patchSetId": 21
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-02-13T14:56:04Z",
+      "side": 1,
+      "message": "nit: nothing to do with this patch since this is repeating maybe we should\nconsider moving it a top level makefile or include wrapper?",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 5
+      },
+      "revId": "8620bd0b93b8ed913f2157d6946facd5bd75f6b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
