@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edd069b2_1d68edc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000040
+      },
+      "writtenOn": "2024-02-13T13:45:14Z",
+      "side": 1,
+      "message": "CI failures on the rdn2 platform\n(plat_sds_get_regions() definition was missing from sgi_plat_v2.c which is used by rdn2 (it was only defined sgi_plat.c which is used by the rest of the sgi based platforms))\nnew patch set uploaded the fix this: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/24610/10",
+      "revId": "6f503e0eea23a2663ed5cbfe9b925e1e0d65c236",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
