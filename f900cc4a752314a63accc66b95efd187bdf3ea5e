@@ -46,6 +46,30 @@
       },
       "revId": "f900cc4a752314a63accc66b95efd187bdf3ea5e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03149eb8_843a5d9a",
+        "filename": "drivers/auth/auth_mod.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 398,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-13T07:08:51Z",
+      "side": 1,
+      "message": "\u003e +1, agree with logic. Just a correction ``*need_nv_ctr_upgrade`` should be ``true`` in else case right?\n\nYes, I think you are correct. The #else part of the logic needs to set the value of need_nv_ctr_upgrade to true, which is the current logic in upstream tf-a.\n\nI will update my logic based on the suggestion from Etienne.\n\n\u003e \n\u003e ```\n\u003e #else /* PSA_FWU_SUPPORT \u0026\u0026 IMAGE_BL2 */\n\u003e         *need_nv_ctr_upgrade \u003d true;\n\u003e #endif /* PSA_FWU_SUPPORT \u0026\u0026 IMAGE_BL2 */\n\u003e ```",
+      "parentUuid": "3f9fcce9_d1545f5c",
+      "range": {
+        "startLine": 390,
+        "startChar": 1,
+        "endLine": 398,
+        "endChar": 2
+      },
+      "revId": "f900cc4a752314a63accc66b95efd187bdf3ea5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
