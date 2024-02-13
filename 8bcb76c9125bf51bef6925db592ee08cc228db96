@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49d0e684_efd96087",
+        "filename": "include/lib/cpus/aarch32/cpu_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-02-13T15:12:31Z",
+      "side": 1,
+      "message": "nit: 2024?",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "8bcb76c9125bf51bef6925db592ee08cc228db96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7db58841_e49152e0",
+        "filename": "include/lib/cpus/aarch32/cpu_macros.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-02-13T15:12:31Z",
+      "side": 1,
+      "message": "Just trying to understand is `REPORT_ERRATA` unconditionally set to true if we use DEBUG\u003d1 ?",
+      "range": {
+        "startLine": 220,
+        "startChar": 1,
+        "endLine": 220,
+        "endChar": 2
+      },
+      "revId": "8bcb76c9125bf51bef6925db592ee08cc228db96",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
