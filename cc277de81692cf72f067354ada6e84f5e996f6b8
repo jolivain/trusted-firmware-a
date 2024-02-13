@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13b75729_48bafa41",
+        "filename": "lib/romlib/Makefile",
+        "patchSetId": 22
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-02-13T15:05:48Z",
+      "side": 1,
+      "message": "This is actually already done in the next patch here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/25333/21/lib/romlib/Makefile",
+      "parentUuid": "879ef6cd_57c5620c",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 36
+      },
+      "revId": "cc277de81692cf72f067354ada6e84f5e996f6b8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d244917c_234aa69b",
@@ -60,6 +84,30 @@
       "writtenOn": "2024-02-13T15:01:28Z",
       "side": 1,
       "message": "nit: thanks for this, maybe we should also use this instead of \u0027/dev/null\u0027 across all makefiles? could a cleanup later?",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 20
+      },
+      "revId": "cc277de81692cf72f067354ada6e84f5e996f6b8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9fb8164_8a2bc082",
+        "filename": "make_helpers/unix.mk",
+        "patchSetId": 22
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-02-13T15:05:48Z",
+      "side": 1,
+      "message": "For sure - I\u0027ll create a ticket for this.",
+      "parentUuid": "2b5c96b0_f3004a5e",
       "range": {
         "startLine": 60,
         "startChar": 4,
