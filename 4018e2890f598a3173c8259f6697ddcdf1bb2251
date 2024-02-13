@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6884b0ec_047f75b8",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-13T22:32:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4c080390_04d65e4b",
+      "range": {
+        "startLine": 128,
+        "startChar": 1,
+        "endLine": 128,
+        "endChar": 32
+      },
+      "revId": "4018e2890f598a3173c8259f6697ddcdf1bb2251",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "668a76c4_4cf3ae56",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-13T15:10:41Z",
       "side": 1,
       "message": "nit: not sure can be move to a static func altogether to avoid tabbing around,\nentire logic of find part num from cpu list",
+      "range": {
+        "startLine": 142,
+        "startChar": 3,
+        "endLine": 142,
+        "endChar": 39
+      },
+      "revId": "4018e2890f598a3173c8259f6697ddcdf1bb2251",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8014ec94_a55fc52e",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-13T22:32:28Z",
+      "side": 1,
+      "message": "Acknowledged, can you please check now if the implementation is ok?",
+      "parentUuid": "668a76c4_4cf3ae56",
       "range": {
         "startLine": 142,
         "startChar": 3,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53c47964_70a3921a",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-13T22:32:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7a000cd0_0510a647",
+      "range": {
+        "startLine": 149,
+        "startChar": 8,
+        "endLine": 149,
+        "endChar": 9
+      },
+      "revId": "4018e2890f598a3173c8259f6697ddcdf1bb2251",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e94eac0b_5045f8d8",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-02-13T15:10:41Z",
       "side": 1,
       "message": "isn\u0027t it should be while() {",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 2
+      },
+      "revId": "4018e2890f598a3173c8259f6697ddcdf1bb2251",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1bd9dec_1bfc2ad7",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-13T22:32:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e94eac0b_5045f8d8",
       "range": {
         "startLine": 166,
         "startChar": 0,
