@@ -52,6 +52,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "358caf82_2ac79570",
+        "filename": "plat/rockchip/rk3568/drivers/pmu/pmu.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-02-14T16:22:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c81998c5_e832184d",
+      "revId": "c7f594eed22c391ab4d6a42d85f400d479b2d919",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5cf027d_653146c8",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-01-18T15:29:42Z",
       "side": 1,
       "message": "shall this function be moved to the Cortex A55 assembly file, where cortex_a55_core_pwr_dwn already lives?",
+      "revId": "c7f594eed22c391ab4d6a42d85f400d479b2d919",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2476e9a0_d5a7344b",
+        "filename": "plat/rockchip/rk3568/drivers/pmu/pmu.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-02-14T16:22:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5cf027d_653146c8",
       "revId": "c7f594eed22c391ab4d6a42d85f400d479b2d919",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -86,6 +122,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec347974_21c9dfe1",
+        "filename": "plat/rockchip/rk3568/drivers/pmu/pmu.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-02-14T16:22:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cc59a14_2db4eda0",
+      "revId": "c7f594eed22c391ab4d6a42d85f400d479b2d919",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df3fd1cd_1ba52236",
@@ -99,6 +153,24 @@
       "writtenOn": "2024-01-18T15:29:42Z",
       "side": 1,
       "message": "Can we please have consistent usage of lower case letters in hex constants? Some more below.",
+      "revId": "c7f594eed22c391ab4d6a42d85f400d479b2d919",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3576c8f5_99fe5364",
+        "filename": "plat/rockchip/rk3568/rk3568_def.h",
+        "patchSetId": 17
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-02-14T16:22:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df3fd1cd_1ba52236",
       "revId": "c7f594eed22c391ab4d6a42d85f400d479b2d919",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
