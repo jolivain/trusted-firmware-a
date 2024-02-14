@@ -207,6 +207,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "411b9c5e_cb53d3c2",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-14T14:11:15Z",
+      "side": 1,
+      "message": "Agree, i was more interested in pointing out the significance of lsb to find thread vs handler mode.",
+      "parentUuid": "24444484_3b616f01",
+      "range": {
+        "startLine": 72,
+        "startChar": 14,
+        "endLine": 72,
+        "endChar": 30
+      },
+      "revId": "9df2f3758d0b5569e59081bd73695fa38bc2bf24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df8a90ce_2ebe6d80",
@@ -268,6 +292,30 @@
       "side": 1,
       "message": "Seems we have different naming conventions for certain feature helpers. Is there a plan to align the names ?",
       "parentUuid": "5321deb2_b56193d1",
+      "range": {
+        "startLine": 151,
+        "startChar": 5,
+        "endLine": 151,
+        "endChar": 26
+      },
+      "revId": "9df2f3758d0b5569e59081bd73695fa38bc2bf24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "133bd2c8_81b83e03",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 29
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-14T14:11:15Z",
+      "side": 1,
+      "message": "Yes, i also has same thoughts. \nThe current CREAT_FUNCTION does two things, feature supported and read ID register. I think we should have one more intermediate function which returns the presence as well.",
+      "parentUuid": "36de967a_a39253db",
       "range": {
         "startLine": 151,
         "startChar": 5,
