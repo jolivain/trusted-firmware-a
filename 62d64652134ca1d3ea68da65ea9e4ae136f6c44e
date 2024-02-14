@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71866882_9343ce2c",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-14T15:21:36Z",
+      "side": 1,
+      "message": "Curious to know the reason behind the ``DC CIPAPA, X0`` instruction? (same for the below)",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 31
+      },
+      "revId": "62d64652134ca1d3ea68da65ea9e4ae136f6c44e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
