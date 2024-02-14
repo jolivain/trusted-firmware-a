@@ -21,6 +21,8 @@ CORSTONE1000_FW_NVCTR_VAL	:=	255
 TFW_NVCTR_VAL		:=	${CORSTONE1000_FW_NVCTR_VAL}
 NTFW_NVCTR_VAL		:=	${CORSTONE1000_FW_NVCTR_VAL}
 
+CORSTONE1000_WITHOUT_BL32       :=      0
+
 override NEED_BL1	:=	no
 
 override NEED_BL2	:=	yes
@@ -28,7 +30,11 @@ FIP_BL2_ARGS := tb-fw
 
 override NEED_BL2U	:=	no
 override NEED_BL31	:=	yes
+ifeq (${CORSTONE1000_WITHOUT_BL32},1)
+NEED_BL32		:=	no
+else
 NEED_BL32		:=	yes
+endif
 override NEED_BL33	:=	yes
 
 # Include GICv2 driver files
@@ -80,6 +86,10 @@ $(eval $(call add_define,TARGET_PLATFORM_$(call uppercase,${TARGET_PLATFORM})))
 
 # Adding CORSTONE1000_FW_NVCTR_VAL as a GCC define (-D option)
 $(eval $(call add_define,CORSTONE1000_FW_NVCTR_VAL))
+
+# Add CORSTONE1000_WITHOUT_BL32 as a GCC define (-D option)
+$(eval $(call assert_boolean,CORSTONE1000_WITHOUT_BL32))
+$(eval $(call add_define,CORSTONE1000_WITHOUT_BL32))
 
 include plat/arm/common/arm_common.mk
 include plat/arm/board/common/board_common.mk
