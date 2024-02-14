@@ -88,6 +88,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7efa96b_1a7977c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2024-02-14T14:06:56Z",
+      "side": 1,
+      "message": "If you mean patches, that were posted by Manish here earlier, they will not help with this. But they will fix LTO build for other platforms.\n\nhttps://review.trustedfirmware.org/q/topic:%22fix-lto-build-all%22",
+      "parentUuid": "abbad8c5_5982039e",
+      "revId": "01e93fd523453627304bf44de2280e54dcda1da4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "71745dc7_0124b900",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 5
