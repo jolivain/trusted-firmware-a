@@ -16,6 +16,24 @@
       "message": "Hi Lauren, when reading this patch I was thinking it may not work on STM32MP1. To read the GPT header, we only allocate a 512 byte buffer, and parse the info we need, sequentially IIRC. And that may be why the L2 test failed on stm32mp1-sp_min.bl2 config, with this message:\nERROR:   Invalid GPT Partition Array Entry CRC: Expected 0x7b180e99but got 0x2c9ca225. (see https://ci-builds.trustedfirmware.org/static-files/_nufyVOcihwpbEhVDcKsUSc7B7GG4tRKP7lsq05Zi48xNzA3ODk3NjgyMjkyOjk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvMzIzNTE3My9hcnRpZmFjdA\u003d\u003d/lava.log)\n\nCould you postpone a bit the merge of this series until I find out how this should be handled on STM32MP1?",
       "revId": "71650051f3b47205e2d420a27689cd8694c18006",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31954004_a10ab976",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-14T08:28:34Z",
+      "side": 1,
+      "message": "I will let Lauren to provide more detailing on this.\nAs far as I see the FVP GPT test configs are passing with this change:\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/63331/\n\nLet\u0027s investigate more on this, meanwhile I\u0027m removing my vote on this.",
+      "parentUuid": "a2cdda06_1d08eabd",
+      "revId": "71650051f3b47205e2d420a27689cd8694c18006",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
