@@ -228,6 +228,53 @@
       },
       "revId": "4c099c5221400117fbdd9049f35ecc6f4766a15f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a19e70e_fdbb6dc8",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1143,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-02-15T19:34:07Z",
+      "side": 1,
+      "message": "Okay. thanks for clarification. I was under assumption that there are no interrupts in the realm world as the GIC spec only talks about G1S, G1NS and G0S interrups.",
+      "parentUuid": "6b0e7f51_f17746a7",
+      "range": {
+        "startLine": 1143,
+        "startChar": 9,
+        "endLine": 1143,
+        "endChar": 56
+      },
+      "revId": "4c099c5221400117fbdd9049f35ecc6f4766a15f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63c78aef_890a43c6",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-02-15T19:34:07Z",
+      "side": 1,
+      "message": "shouldn\u0027t we also take SCR_NSE_BIT into consideration depending on whether the incoming world is normal or realm?",
+      "range": {
+        "startLine": 1154,
+        "startChar": 15,
+        "endLine": 1154,
+        "endChar": 35
+      },
+      "revId": "4c099c5221400117fbdd9049f35ecc6f4766a15f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
