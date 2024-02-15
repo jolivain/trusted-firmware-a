@@ -105,6 +105,11 @@ endif
 override CTX_INCLUDE_AARCH32_REGS	:= 0
 override ENABLE_FEAT_AMU		:= 1
 
+ENABLE_FEAT_CSV2_2			:= 1
+FAULT_INJECTION_SUPPORT			:= 1
+ENABLE_SVE_FOR_NS			:= 1
+CTX_INCLUDE_FPREGS			:= 0
+
 # Enable the flag since RD-N2 has a system level cache
 NEOVERSE_Nx_EXTERNAL_LLC		:=	1
 
