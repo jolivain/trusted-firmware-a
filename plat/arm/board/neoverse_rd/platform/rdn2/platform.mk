@@ -108,6 +108,11 @@ override ENABLE_FEAT_AMU		:= 2
 override ENABLE_FEAT_MTE2       	:= 2
 override SPMD_SPM_AT_SEL2		:= 0
 
+ENABLE_FEAT_CSV2_2			:= 1
+FAULT_INJECTION_SUPPORT			:= 1
+ENABLE_SVE_FOR_NS			:= 1
+CTX_INCLUDE_FPREGS			:= 0
+
 # Enable the flag since RD-N2 has a system level cache
 NEOVERSE_Nx_EXTERNAL_LLC		:=	1
 
