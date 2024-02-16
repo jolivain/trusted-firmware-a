@@ -316,10 +316,12 @@ int spmc_ffa_notification_bind(uint32_t smc_fid,
 	if (!bind_set || get_endpoint(&endpoint, recv_id) == NOT_FOUND) {
 		SMC_RET3(handle, FFA_ERROR, 0, FFA_ERROR_INVALID_PARAMETER);
 	}
-	ffa_notifs_sender_bits_t bits = {sender_id, INVALID_VCPU_ID, false, bind_set, NULL};
+	ffa_notifs_sender_bits_t bind_bits = {sender_id, INVALID_VCPU_ID, false, bind_set, NULL};
+	ffa_notifs_sender_bits_t pend_bits = {sender_id, INVALID_VCPU_ID, false, 0, NULL};
 	//spin_lock();
-	switch (add_or_update_bitset(&endpoint->bindings, &bits)) {
+	switch (add_or_update_bitset(&endpoint->bindings, &bind_bits)) {
 	case NO_ERROR:
+		add_or_update_bitset(&endpoint->pendings, &pend_bits);
 		SMC_RET1(handle, FFA_SUCCESS_SMC32);
 	case ALREADY_BOUND:
 		SMC_RET3(handle, FFA_ERROR, 0, FFA_ERROR_DENIED);
@@ -355,6 +357,10 @@ int spmc_ffa_notification_unbind(uint32_t smc_fid,
 
 	if (pending_bits & unbind_set) {
 		SMC_RET3(handle, FFA_ERROR, 0, FFA_ERROR_DENIED);
+	}
+	if (endpoint->pendings) {
+		spmc_free(endpoint->pendings);
+		endpoint->pendings = NULL;
 	}
 
 	ffa_notifs_sender_bits_t bits = {sender_id, INVALID_VCPU_ID, false, unbind_set, NULL};
