@@ -184,7 +184,7 @@ int spmc_ffa_notifications_init_per_pe(void)
 	 * Configure Schedule Receiver SGI as Group-1 Non-Secure.
 	 * This enables the Normal World to configure the interrupt further.
 	 */
-	gicv3_set_interrupt_type(FFA_SCHEDULE_RECEIVER_SGI_ID,
+	gicv3_set_interrupt_group(FFA_SCHEDULE_RECEIVER_SGI_ID,
 				 this_pe, INTR_GROUP1NS);
 
 	return 0;
