@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f5a6fdcd_07d16184",
+        "filename": "plat/imx/imx8ulp/dram.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2024-02-19T07:13:53Z",
+      "side": 1,
+      "message": "thx, will refine it.",
+      "parentUuid": "9078cbf3_647c0a0a",
+      "revId": "3ec4fca83c880489c37c3d021ab8d687864f3aac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b3876c0_20188d55",
         "filename": "plat/imx/imx8ulp/dram.c",
         "patchSetId": 7
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-12T23:16:16Z",
       "side": 1,
       "message": "This seems important, where is the return of failure?",
+      "revId": "3ec4fca83c880489c37c3d021ab8d687864f3aac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e24f19a_f84e3769",
+        "filename": "plat/imx/imx8ulp/dram.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2024-02-19T07:13:53Z",
+      "side": 1,
+      "message": "yes, should have an error return, will fix it.",
+      "parentUuid": "2b3876c0_20188d55",
       "revId": "3ec4fca83c880489c37c3d021ab8d687864f3aac",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "08e365fe_b2f35ce0",
+        "filename": "plat/imx/imx8ulp/dram.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 590,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2024-02-19T07:13:53Z",
+      "side": 1,
+      "message": "thx, will refine it.",
+      "parentUuid": "d78c5b7e_2007b126",
+      "revId": "3ec4fca83c880489c37c3d021ab8d687864f3aac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "be4ec7f4_b18c88cc",
         "filename": "plat/imx/imx8ulp/dram.c",
         "patchSetId": 7
@@ -71,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0da88b1a_46970e28",
+        "filename": "plat/imx/imx8ulp/dram.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2024-02-19T07:13:53Z",
+      "side": 1,
+      "message": "thx, will refine it.",
+      "parentUuid": "be4ec7f4_b18c88cc",
+      "revId": "3ec4fca83c880489c37c3d021ab8d687864f3aac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3a21dc44_d3f4c19b",
         "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
         "patchSetId": 7
@@ -82,6 +154,24 @@
       "writtenOn": "2024-02-12T23:16:16Z",
       "side": 1,
       "message": "This feels like something is missing in a header file.",
+      "revId": "3ec4fca83c880489c37c3d021ab8d687864f3aac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6b7d476_0ab4b103",
+        "filename": "plat/imx/imx8ulp/imx8ulp_bl31_setup.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000110
+      },
+      "writtenOn": "2024-02-19T07:13:53Z",
+      "side": 1,
+      "message": "yes, more better to add it in the header file, will fix it.",
+      "parentUuid": "3a21dc44_d3f4c19b",
       "revId": "3ec4fca83c880489c37c3d021ab8d687864f3aac",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
