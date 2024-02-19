@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fe4d23f_87c33887",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-19T15:37:18Z",
+      "side": 1,
+      "message": "+1 with a suggestion",
+      "revId": "47631c0d3c1f89dd2c85e7346bbae32a9dda3df7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6708d8aa_84a931fb",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-19T15:37:18Z",
+      "side": 1,
+      "message": "s/else an invalid index value/else returns invalid index INVALID_BOOT_IDX./",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 196,
+        "endChar": 67
+      },
+      "revId": "47631c0d3c1f89dd2c85e7346bbae32a9dda3df7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
