@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5132a9bb_e581f46e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2024-02-19T03:21:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40dd6f14_582a991f",
+      "revId": "bc6529183de499c8ebc394a7ede17ce21baa29c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8939b5a4_ccd04fac",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 18
@@ -69,6 +87,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dd6547a_9f4062a2",
+        "filename": "lib/cpus/aarch64/dsu_helpers.S",
+        "patchSetId": 18
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2024-02-19T03:21:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c936c16f_eca8a648",
+      "revId": "bc6529183de499c8ebc394a7ede17ce21baa29c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3c59b82_db440ed2",
@@ -86,6 +122,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3901afaf_cb44064a",
+        "filename": "plat/rockchip/common/bl31_plat_setup.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2024-02-19T03:21:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3c59b82_db440ed2",
+      "revId": "bc6529183de499c8ebc394a7ede17ce21baa29c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a78aee0_ab7bd9d8",
@@ -99,6 +153,24 @@
       "writtenOn": "2024-02-14T16:22:22Z",
       "side": 1,
       "message": "Same here, just provide the longer version. SoCs with h/w coherency just use the same prototype, but provide two 0s as arguments for the last two parameters.\nAnd please use the opportunity to name the other four parameters, see the function definition.",
+      "revId": "bc6529183de499c8ebc394a7ede17ce21baa29c5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a37a6115_92a9459a",
+        "filename": "plat/rockchip/common/include/plat_private.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2024-02-19T03:21:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a78aee0_ab7bd9d8",
       "revId": "bc6529183de499c8ebc394a7ede17ce21baa29c5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
