@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bd0aeb15_f95f32e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-19T15:18:49Z",
+      "side": 1,
+      "message": "Sentence is duplicated:\n\n        - (...)\n        - Image description structures now optional\n        - (...)\n        - The image description in the structure is now optional\n\nField \u0027fw_store_desc\u0027 is optional but once it\u0027s there, the images description field (array img_entry[] in fw_store_desc) is required.",
+      "parentUuid": "0d9c4298_48c91343",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 44
+      },
+      "revId": "3ed10db4068d6ce90341e29c8996be62292650b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7706442a_2ce0f429",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
