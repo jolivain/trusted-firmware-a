@@ -114,6 +114,351 @@
       },
       "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d99060e_c4af6991",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 31
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T09:51:54Z",
+      "side": 1,
+      "message": "nitpick: keep the comment?\n\n    /* negative return value: undefined exception injection */",
+      "range": {
+        "startLine": 485,
+        "startChar": 1,
+        "endLine": 485,
+        "endChar": 8
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f629571_1f3de0ca",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 31
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T09:51:54Z",
+      "side": 1,
+      "message": "Could it jump to el3_exit straight here?\n(and remove the label line 504)",
+      "range": {
+        "startLine": 486,
+        "startChar": 6,
+        "endLine": 486,
+        "endChar": 8
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "995166ce_48da9493",
+        "filename": "bl31/aarch64/runtime_exceptions.S",
+        "patchSetId": 31
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T09:51:54Z",
+      "side": 1,
+      "message": "el3_exit?",
+      "range": {
+        "startLine": 492,
+        "startChar": 3,
+        "endLine": 492,
+        "endChar": 5
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb9994c5_23d71c35",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T09:51:54Z",
+      "side": 1,
+      "message": "nitpick: 2022-2024 ?",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "389288c1_73f2d88c",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T09:51:54Z",
+      "side": 1,
+      "message": "EL1 is skipped only if VHE feature is implemented and both **HCR_EL2.E2H\u003d1** and HCR_EL2.TGE\u003d1",
+      "range": {
+        "startLine": 39,
+        "startChar": 9,
+        "endLine": 39,
+        "endChar": 42
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b805935_6cbff810",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T09:51:54Z",
+      "side": 1,
+      "message": "!\u003d 0",
+      "range": {
+        "startLine": 39,
+        "startChar": 45,
+        "endLine": 39,
+        "endChar": 68
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51d78f09_57965929",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T09:51:54Z",
+      "side": 1,
+      "message": "nitpick: remove parentheses",
+      "range": {
+        "startLine": 58,
+        "startChar": 33,
+        "endLine": 58,
+        "endChar": 34
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f69cd611_ec8044bb",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T09:51:54Z",
+      "side": 1,
+      "message": "I think you could omit passing vbar and infer it directly from target_el in this function.",
+      "range": {
+        "startLine": 65,
+        "startChar": 55,
+        "endLine": 65,
+        "endChar": 73
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8127f6ca_4438217d",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T09:51:54Z",
+      "side": 1,
+      "message": "suggest using macros e.g.\n\n    if ((spsr_el3 \u0026 (MODE_SP_MASK \u003c\u003c MODE_SP_SHIFT)) \u003d\u003d MODE_SP_ELX)",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 23
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2a8f63a_068a6e89",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T09:51:54Z",
+      "side": 1,
+      "message": "use a macro",
+      "range": {
+        "startLine": 77,
+        "startChar": 20,
+        "endLine": 77,
+        "endChar": 25
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1797d56_0218f629",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T09:51:54Z",
+      "side": 1,
+      "message": "use a macro",
+      "range": {
+        "startLine": 83,
+        "startChar": 19,
+        "endLine": 83,
+        "endChar": 24
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec580df6_063d0e3e",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T09:51:54Z",
+      "side": 1,
+      "message": "nitpick: spsr_el3",
+      "range": {
+        "startLine": 100,
+        "startChar": 45,
+        "endLine": 100,
+        "endChar": 53
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49add72e_54752d3a",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T09:51:54Z",
+      "side": 1,
+      "message": "can be \u0027\u003d\u0027",
+      "range": {
+        "startLine": 108,
+        "startChar": 11,
+        "endLine": 108,
+        "endChar": 13
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1252db7_31ffecf6",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T09:51:54Z",
+      "side": 1,
+      "message": "Is this required? \nSPSR_M_EL2H value already has the M bit?",
+      "range": {
+        "startLine": 108,
+        "startChar": 14,
+        "endLine": 108,
+        "endChar": 46
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb01e095_c935af9e",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T09:51:54Z",
+      "side": 1,
+      "message": "nitpick: call it spsr_el3?",
+      "range": {
+        "startLine": 207,
+        "startChar": 14,
+        "endLine": 207,
+        "endChar": 22
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
