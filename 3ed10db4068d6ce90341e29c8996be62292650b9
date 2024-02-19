@@ -166,6 +166,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "040eeb84_b3b87f06",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-19T15:21:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "898a13f3_109cc616",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 34
+      },
+      "revId": "3ed10db4068d6ce90341e29c8996be62292650b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1003c0af_80ed89a6",
@@ -213,6 +237,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bacd630_9f8a0869",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-19T15:21:08Z",
+      "side": 1,
+      "message": "ok :)",
+      "parentUuid": "6131b1a4_04db1cef",
+      "range": {
+        "startLine": 98,
+        "startChar": 10,
+        "endLine": 98,
+        "endChar": 21
+      },
+      "revId": "3ed10db4068d6ce90341e29c8996be62292650b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e060c3c_8f474a8f",
@@ -250,6 +298,30 @@
       "side": 1,
       "message": "\u003e s/fw_desc/fw_store_desc/\n\nSame as above. This(naming style) is a pretty subjective thing IMO. This is indicating that the structure instance is describing stuff about firmware. And I prefer shorter names.",
       "parentUuid": "1e060c3c_8f474a8f",
+      "range": {
+        "startLine": 111,
+        "startChar": 32,
+        "endLine": 111,
+        "endChar": 39
+      },
+      "revId": "3ed10db4068d6ce90341e29c8996be62292650b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bfb93e4_80cd0808",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-19T15:21:08Z",
+      "side": 1,
+      "message": "ok",
+      "parentUuid": "58f309ac_c55156c3",
       "range": {
         "startLine": 111,
         "startChar": 32,
