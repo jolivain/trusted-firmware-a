@@ -275,6 +275,30 @@
       },
       "revId": "4c099c5221400117fbdd9049f35ecc6f4766a15f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab4b55b4_853beba8",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1154,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-19T11:12:41Z",
+      "side": 1,
+      "message": "Actually this workaround is(was) only needed when we are going into Realm world for the first time. After that SCR_EL3.NS bit will always be 1. Also, NSE bit won\u0027t make any difference.",
+      "parentUuid": "63c78aef_890a43c6",
+      "range": {
+        "startLine": 1154,
+        "startChar": 15,
+        "endLine": 1154,
+        "endChar": 35
+      },
+      "revId": "4c099c5221400117fbdd9049f35ecc6f4766a15f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
