@@ -46,6 +46,30 @@
       },
       "revId": "62d64652134ca1d3ea68da65ea9e4ae136f6c44e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8473b4f1_59458237",
+        "filename": "lib/aarch64/cache_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-19T11:31:33Z",
+      "side": 1,
+      "message": "I believe the reason why it had been initially implemented like this (https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/lib/aarch64/cache_helpers.S#n104) is because the compiler that is recommended in TF-A docs does not support this DC* data cache instruction variant (added by FEAT_RME feature).\nOn another angle, it may require ARCH_ARM_MAJOR/MINOR and -march compiler option to actually reflect a machine that supports FEAT_RME (e.g. \u003e Armv9.2) which we don\u0027t necessarily specify in all test configs that actually compile this lib.",
+      "parentUuid": "ec9c0279_757dae02",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 31
+      },
+      "revId": "62d64652134ca1d3ea68da65ea9e4ae136f6c44e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
