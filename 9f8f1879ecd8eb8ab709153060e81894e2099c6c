@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfce928e_8911cf03",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_bl2_mem_params_desc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-19T11:37:11Z",
+      "side": 1,
+      "message": "Can you explore if you could use BL32_BASE similar to what we do for other Arm platforms. https://github.com/ARM-software/arm-trusted-firmware/blob/master/plat/arm/common/aarch64/arm_bl2_mem_params_desc.c#L78\n\nOn a side note, just wondering why corstone1000 has its own file while most of the Arm platforms do use common file.",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 33
+      },
+      "revId": "9f8f1879ecd8eb8ab709153060e81894e2099c6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
