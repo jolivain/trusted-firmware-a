@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9684ff0a_d6c34805",
+        "filename": "plat/arm/board/tc/tc_bl2_dpe.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-19T17:33:04Z",
+      "side": 1,
+      "message": "nit: better to use the block comment instead. Alternatively, just put TODO action (without proving any commented code).",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 21
+      },
+      "revId": "9fd8d760716d3ccac610d263116dc190baa0b1d5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
