@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54f85768_bd536a8a",
+        "filename": "drivers/measured_boot/rss/dice_prot_env.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-19T17:28:39Z",
+      "side": 1,
+      "message": "nit: It is good to move CASSERT checks at the top of the file rather than hiding it under the function.",
+      "range": {
+        "startLine": 43,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 51
+      },
+      "revId": "0baa2893e607da8ae739ed837b94676c60b080e6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
