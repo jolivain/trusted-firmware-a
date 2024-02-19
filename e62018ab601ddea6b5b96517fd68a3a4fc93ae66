@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d39ab21_d2c27bcb",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-19T15:58:16Z",
+      "side": 1,
+      "message": "Previous gerrit changes shows that TF-A cannot assume the update agent loads valid values in the metadata (see fwu_metadata_sanity_check()). Here, it\u0027s the same scope. We can\u0027t assume the update agent is fully consistent.",
+      "parentUuid": "813f8f35_af1a0f74",
+      "range": {
+        "startLine": 634,
+        "startChar": 0,
+        "endLine": 634,
+        "endChar": 61
+      },
+      "revId": "e62018ab601ddea6b5b96517fd68a3a4fc93ae66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef7e06c7_e64b6d4d",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "\u003e \u0027goto\u0027 instruction not needed.\n\nYes, this is a remnant from an earlier logic which I changed as part of earlier reviews.",
       "parentUuid": "ef7e06c7_e64b6d4d",
+      "range": {
+        "startLine": 638,
+        "startChar": 0,
+        "endLine": 638,
+        "endChar": 12
+      },
+      "revId": "e62018ab601ddea6b5b96517fd68a3a4fc93ae66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13d54847_1876dbfa",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 638,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-19T15:58:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd0b748f_600146f9",
       "range": {
         "startLine": 638,
         "startChar": 0,
