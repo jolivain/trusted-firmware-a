@@ -22,6 +22,30 @@
       },
       "revId": "9f8f1879ecd8eb8ab709153060e81894e2099c6c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cba30e98_6f25716b",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_bl2_mem_params_desc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000708
+      },
+      "writtenOn": "2024-02-19T12:33:55Z",
+      "side": 1,
+      "message": "I don\u0027t think anybody remembers the reason 😊. We don\u0027t generate any dt info about HW_CONFIG, SOC_FW_CONFIG or NT_FW_CONFIG. Also we do not generate any BL32-related info to fill BL32_EXTRA2_IMAGE_ID. The platform does not need any of this to boot the SW stack. And probably, due to memory limitation\n(both Secure RAM and Flash) in the platform, a cut-down/optimized version of bl2_mem_params_des is preferred back in the day.",
+      "parentUuid": "bfce928e_8911cf03",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 33
+      },
+      "revId": "9f8f1879ecd8eb8ab709153060e81894e2099c6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
