@@ -46,6 +46,30 @@
       },
       "revId": "9f8f1879ecd8eb8ab709153060e81894e2099c6c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc8f6033_e486c49c",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_bl2_mem_params_desc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001137
+      },
+      "writtenOn": "2024-02-19T14:17:20Z",
+      "side": 1,
+      "message": "And the BL32_BASE is already defined in the platform_def.h for the corstone1000 platform. So, this would not allow us to make decisions based on this define.",
+      "parentUuid": "cba30e98_6f25716b",
+      "range": {
+        "startLine": 37,
+        "startChar": 8,
+        "endLine": 37,
+        "endChar": 33
+      },
+      "revId": "9f8f1879ecd8eb8ab709153060e81894e2099c6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
