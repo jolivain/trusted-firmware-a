@@ -22,6 +22,30 @@
       },
       "revId": "11be365707f063b8a3c095b39cf266ca4b2969c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d60166b0_fff7c822",
+        "filename": "plat/imx/imx93/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001019
+      },
+      "writtenOn": "2024-02-20T10:03:00Z",
+      "side": 1,
+      "message": "Sorry for the delay, I haven\u0027t seen this comment earlier.\n\nLooking again this is not necessary at all and I\u0027ll remove it.\n\nI was testing on an earlier TF-A version previously where the arguments passed from BL2 were ignored without RESET_TO_BL31 being cleared. This is no longer the case since 3e14df6f6330 (\"fix(bl31): avoid clearing of argument registers in RESET_TO_BL31 case\")",
+      "parentUuid": "ce390947_0395717f",
+      "range": {
+        "startLine": 39,
+        "startChar": 14,
+        "endLine": 39,
+        "endChar": 15
+      },
+      "revId": "11be365707f063b8a3c095b39cf266ca4b2969c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
