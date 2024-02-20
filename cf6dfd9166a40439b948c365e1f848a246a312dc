@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "870caf43_33e3177d",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 626,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-20T08:53:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8434009b_f05eca5f",
+      "range": {
+        "startLine": 626,
+        "startChar": 0,
+        "endLine": 626,
+        "endChar": 32
+      },
+      "revId": "cf6dfd9166a40439b948c365e1f848a246a312dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3ce3f46_c8b03db4",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f44d36ef_d3b2c12b",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-20T08:53:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3ce3f46_c8b03db4",
+      "range": {
+        "startLine": 633,
+        "startChar": 0,
+        "endLine": 633,
+        "endChar": 56
+      },
+      "revId": "cf6dfd9166a40439b948c365e1f848a246a312dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e2d83de_aa5c9004",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-02-20T08:18:22Z",
       "side": 1,
       "message": "I think something is missing here.\nWhat is the state of the rial boot count in this case. I think it should be forced to 0.",
+      "range": {
+        "startLine": 636,
+        "startChar": 0,
+        "endLine": 636,
+        "endChar": 44
+      },
+      "revId": "cf6dfd9166a40439b948c365e1f848a246a312dc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b0ed898_08eca529",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-20T08:53:44Z",
+      "side": 1,
+      "message": "\u003e I think something is missing here.\n\u003e What is the state of the rial boot count in this case. I think it should be forced to 0.\n\nYes, such a function can be added. That would take care of resetting the trial boot count in this kind of a scenario.",
+      "parentUuid": "7e2d83de_aa5c9004",
       "range": {
         "startLine": 636,
         "startChar": 0,
