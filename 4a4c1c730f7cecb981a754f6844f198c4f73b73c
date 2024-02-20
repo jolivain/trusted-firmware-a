@@ -223,6 +223,30 @@
       },
       "revId": "4a4c1c730f7cecb981a754f6844f198c4f73b73c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac8b6238_6d755746",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-20T09:34:37Z",
+      "side": 1,
+      "message": "\u003e In my opinion, the minus one should not be added, otherwise the last partition will be skipped.\n\n\nYes, indeed, this is the situation. The CRC of the **first** invalid partition entry is currently being calculated twice, which appears to be an error. To elaborate:\n\nAt line 262, we terminate the loop upon encountering the first invalid entry; however, the CRC for that invalid entry is computed beforehand at line 258.\nSubsequently, at line 279, the CRC of the first invalid entry is calculated once again, alongside the CRC calculations for the remaining invalid entries.\n\nTo illustrate with ``list.entry_count \u003d 128``, if an invalid entry is detected at partition entry 2, its CRC is first computed in the initial step, and then redundantly recalculated in the subsequent step, alongside the CRCs for the remaining entries (entries 3, 4..126 etc.) skipping entry 127. The cumulative CRC calculation encompasses all partition entries, as demonstrated below:\n\n```\nCRC \u003d CRC of partition entries (0, 1, 2, 2, 3, 4...126)\n```\n\nTo rectify this issue and to consider all partition entries, I propose relocating the CRC calculation from line 258 to 264, positioned after parsing the entries. Additionally, I recommend adjusting the loop condition at line 271 as you suggested:\n```\nfor (; i \u003c header.list_num; i++) {\n```\n\nI believe we are aligned now 😊.",
+      "parentUuid": "2431c397_2e59f192",
+      "range": {
+        "startLine": 285,
+        "startChar": 5,
+        "endLine": 285,
+        "endChar": 6
+      },
+      "revId": "4a4c1c730f7cecb981a754f6844f198c4f73b73c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
