@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cf52711d_2aa3ea0c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-02-20T23:34:30Z",
+      "side": 1,
+      "message": "I think I understand this now, but you might want to re-word this. It\u0027s bit confusing.",
+      "parentUuid": "ca1abf6f_58b830f0",
+      "range": {
+        "startLine": 14,
+        "startChar": 34,
+        "endLine": 14,
+        "endChar": 51
+      },
+      "revId": "834f24626fbae6d6780b2fb745174f331f78f4d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6dc90353_b223a0d9",
         "filename": "docs/components/platform-interrupt-controller-API.rst",
         "patchSetId": 3
@@ -88,6 +112,29 @@
         "startChar": 0,
         "endLine": 303,
         "endChar": 38
+      },
+      "revId": "834f24626fbae6d6780b2fb745174f331f78f4d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bab7ac7_5c9d31ca",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1334,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-02-20T23:34:30Z",
+      "side": 1,
+      "message": "Since we are using the CLEAR path, there is a need for DSB. For the earlier part we implemented the DSB was outside. See below:\n\n\t/*\n\t * dsb() already issued previously after clearing the CPU group\n\t * enabled, apply below workaround to toggle the \"DPG*\"\n\t * bits of GICR_CTLR register for unblocking event.\n\t */\n\tgicv3_apply_errata_wa_2384374(gicr_base);\n\t\n\tIn this case you might want to invoke the dsb() before this call to make sure you use the part 2 of the workaround as specified.",
+      "range": {
+        "startLine": 1334,
+        "startChar": 1,
+        "endLine": 1334,
+        "endChar": 61
       },
       "revId": "834f24626fbae6d6780b2fb745174f331f78f4d0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
