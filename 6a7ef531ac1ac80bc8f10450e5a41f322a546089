@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c69d8ca0_2d9266a8",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-20T08:29:40Z",
+      "side": 1,
+      "message": "Despite my previous C-R +1, i see that fip_guid is useless here. Simply:\n\n\t\t\tconst struct efi_guid fip_guid \u003d STM32MP_FIP_GUID;\n\n\t\t\tpartition_init(GPT_IMAGE_ID);\n\t\t\tentry \u003d get_partition_entry_by_type(\u0026fip_guid);",
+      "range": {
+        "startLine": 496,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 38
+      },
+      "revId": "6a7ef531ac1ac80bc8f10450e5a41f322a546089",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb37f8bb_b493aeaa",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-20T08:29:40Z",
+      "side": 1,
+      "message": "can remove __maybe_unused",
+      "revId": "6a7ef531ac1ac80bc8f10450e5a41f322a546089",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39f43103_784564b7",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-02-20T08:29:40Z",
+      "side": 1,
+      "message": "nitpicking: img_type_guid is not needed, the above instruciton fits in a single line:\n\n\t\t\timage_spec \u003d stm32_get_image_spec(\u0026img_entry[i].img_type_guid);",
+      "range": {
+        "startLine": 685,
+        "startChar": 0,
+        "endLine": 685,
+        "endChar": 51
+      },
+      "revId": "6a7ef531ac1ac80bc8f10450e5a41f322a546089",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
