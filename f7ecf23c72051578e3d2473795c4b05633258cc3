@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9caf33ab_22a48d9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-20T12:34:30Z",
+      "side": 1,
+      "message": "I didn\u0027t see the default value of \u0027DICE_PROTECTION_ENVIRONMENT\u0027 option and also its documentation is missing in docs/getting_started/build-options.rst. Can you please add? thanks!",
+      "revId": "f7ecf23c72051578e3d2473795c4b05633258cc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7ff6ae3_1d06d6fd",
+        "filename": "Makefile",
+        "patchSetId": 11
+      },
+      "lineNbr": 1223,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-20T12:34:30Z",
+      "side": 1,
+      "message": "Assert DICE_PROTECTION_ENVIRONMENT option as a boolean.",
+      "revId": "f7ecf23c72051578e3d2473795c4b05633258cc3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
