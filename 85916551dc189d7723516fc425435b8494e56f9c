@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f2ee6ef_90a8b89a",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-02-20T22:05:51Z",
+      "side": 1,
+      "message": "Its better to rename this macro as it\u0027s not indicating what it meant in the past. Its more like platform specific integration features, triggering a CPU errata with \"non-Arm interconnect\" being one of them. Something like MAX_PLAT_CPU_ERRATA_ENTRIES?",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 28
+      },
+      "revId": "85916551dc189d7723516fc425435b8494e56f9c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
