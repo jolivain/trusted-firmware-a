@@ -16,6 +16,24 @@
       "message": "You should directly declare it at line 626. That will avoid the __maybe_unused. And make some static analysis tools happier (cppcheck asks to reduce the scope of variables)",
       "revId": "23bb32f326772a14e26348707424d03c1ee71447",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "980695ca_a58b3e85",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-20T08:10:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5acc23c_69249a15",
+      "revId": "23bb32f326772a14e26348707424d03c1ee71447",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
