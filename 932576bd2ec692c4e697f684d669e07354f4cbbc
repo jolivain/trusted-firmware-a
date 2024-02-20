@@ -254,6 +254,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e330ad59_ad2fa61e",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-02-20T12:36:29Z",
+      "side": 1,
+      "message": "Scratch that. E2H and TGE are independent. E2H modifies the EL2 translation regime. TGE modifies exception handling behaviors. Resolving.",
+      "parentUuid": "389288c1_73f2d88c",
+      "range": {
+        "startLine": 39,
+        "startChar": 9,
+        "endLine": 39,
+        "endChar": 42
+      },
+      "revId": "932576bd2ec692c4e697f684d669e07354f4cbbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51d78f09_57965929",
