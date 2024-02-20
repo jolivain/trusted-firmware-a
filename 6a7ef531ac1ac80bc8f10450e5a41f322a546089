@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3158c2a5_15412adc",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-20T09:33:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c69d8ca0_2d9266a8",
+      "range": {
+        "startLine": 496,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 38
+      },
+      "revId": "6a7ef531ac1ac80bc8f10450e5a41f322a546089",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bb37f8bb_b493aeaa",
@@ -41,6 +65,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d23e3f50_6406be44",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 671,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-20T09:33:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb37f8bb_b493aeaa",
+      "revId": "6a7ef531ac1ac80bc8f10450e5a41f322a546089",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39f43103_784564b7",
@@ -54,6 +96,30 @@
       "writtenOn": "2024-02-20T08:29:40Z",
       "side": 1,
       "message": "nitpicking: img_type_guid is not needed, the above instruciton fits in a single line:\n\n\t\t\timage_spec \u003d stm32_get_image_spec(\u0026img_entry[i].img_type_guid);",
+      "range": {
+        "startLine": 685,
+        "startChar": 0,
+        "endLine": 685,
+        "endChar": 51
+      },
+      "revId": "6a7ef531ac1ac80bc8f10450e5a41f322a546089",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9e513a1_dc3d4abd",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-20T09:33:53Z",
+      "side": 1,
+      "message": "\u003e nitpicking: img_type_guid is not needed, the above instruciton fits in a single line:\n\u003e \n\u003e \t\t\timage_spec \u003d stm32_get_image_spec(\u0026img_entry[i].img_type_guid);\n\nI need to use a void * to pass this value. Without which I get a -Werror\u003daddress-of-packed-member error. And if I cast this to a void *, we exceed the 80 columns limit, and need to take this to the next line. So, keeping the variable.",
+      "parentUuid": "39f43103_784564b7",
       "range": {
         "startLine": 685,
         "startChar": 0,
