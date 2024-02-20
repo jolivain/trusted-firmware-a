@@ -34,6 +34,24 @@
       "parentUuid": "f7983681_e6f33599",
       "revId": "ed17d2ecc6862127455f792bc409d14423b3c7fd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b34e0db_49fda251",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000814
+      },
+      "writtenOn": "2024-02-20T12:16:09Z",
+      "side": 1,
+      "message": "We will likely not do this for TC2 (as it is close to EOL) but look to use the TRNG hardware for later versions (probably TC3 or TC4).",
+      "parentUuid": "bb8a3e08_5b3865a9",
+      "revId": "ed17d2ecc6862127455f792bc409d14423b3c7fd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
