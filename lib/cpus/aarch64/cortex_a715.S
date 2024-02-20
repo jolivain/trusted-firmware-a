@@ -26,6 +26,16 @@
 	wa_cve_2022_23960_bhb_vector_table CORTEX_A715_BHB_LOOP_COUNT, cortex_a715
 #endif /* WORKAROUND_CVE_2022_23960 */
 
+/* Errata applies only when Static profiling extension is enabled. */
+workaround_reset_start cortex_a715, ERRATUM(2413290), ERRATA_A715_2413290 & ENABLE_SPE_FOR_NS
+	/* Apply the workaround by setting CPUACTLR_EL1[58:57] = 0b11. */
+	sysreg_bit_set CORTEX_A715_CPUACTLR_EL1, BIT(57)
+	sysreg_bit_set CORTEX_A715_CPUACTLR_EL1, BIT(58)
+workaround_reset_end cortex_a715, ERRATUM(2413290)
+
+check_erratum_range cortex_a715, ERRATUM(2413290), CPU_REV(1,0), CPU_REV(1, 0)
+
+
 workaround_runtime_start cortex_a715, ERRATUM(2561034), ERRATA_A715_2561034
 	sysreg_bit_set	CORTEX_A715_CPUACTLR2_EL1, BIT(26)
 workaround_runtime_end cortex_a715, ERRATUM(2561034), NO_ISB
