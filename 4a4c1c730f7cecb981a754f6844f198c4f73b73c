@@ -61,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e904c5ca_496745e7",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-02-20T22:14:26Z",
+      "side": 1,
+      "message": "This loop is added for entries that were not loaded due to the break in the first for loop in line 262. Added comment to explain when this if is required.",
+      "parentUuid": "3bc38932_59698f74",
+      "range": {
+        "startLine": 270,
+        "startChar": 1,
+        "endLine": 270,
+        "endChar": 29
+      },
+      "revId": "4a4c1c730f7cecb981a754f6844f198c4f73b73c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df04d2ec_82c02bca",
         "filename": "drivers/partition/partition.c",
         "patchSetId": 3
@@ -263,6 +287,30 @@
       "side": 1,
       "message": "I agree with your suggestions, it\u0027s all good for me!",
       "parentUuid": "ac8b6238_6d755746",
+      "range": {
+        "startLine": 285,
+        "startChar": 5,
+        "endLine": 285,
+        "endChar": 6
+      },
+      "revId": "4a4c1c730f7cecb981a754f6844f198c4f73b73c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c71ba59_88e89f8b",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-02-20T22:14:26Z",
+      "side": 1,
+      "message": "Fixed spacing in original comment.\n\nI have moved to the use of header.list_num instead of list.entry_count since that is overwritten in ST, that makes sense to me, thanks for finding that issue Maxime!\n\nAs far as the error with the value of \"i\", while I agree the \"i\" value can be used twice potentially starting in line 271, the entry itself is loaded properly since the io_read from the load_gpt_entry was incremented in file position already. I added an incrementation of \"i\" before entering the second loop to be able to use the max value of i as less than header.list_num again, explained in a comment why this was done. \n\nSo I could either keep the calculation of CRC in 2 separate loops as is, where the first one is used as it is currently for parsing the valid entries and the second loop, if used, is needed to load and calculate the CRC of the remaining entries in the partition entry table. Or we could move it all into the loop and not break out if the parsed entry isn\u0027t valid, more like the first patch I posted. I would need to keep the update of list.entry_count \u003d i to only the parsed, valid entries though. Thoughts?",
+      "parentUuid": "964d9ef9_c1ee8a9e",
       "range": {
         "startLine": 285,
         "startChar": 5,
