@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa9dcca7_7edd9469",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-02-21T20:26:53Z",
+      "side": 1,
+      "message": "The memory footprint with various scenarios:\n\nFor an 8 core system.\n\n---------------------------------------------------------------------\n\n\u003eWithout CTX_INCLUDE_EL2\n\nMemory usage for Secure:\nPer-world context: 24B\nTOTAL: 4632B\nMemory usage for Non-Secure:\nPer-world context: 24B\nTOTAL: 4632B\n\nTotal context memory allocated: 9264B\n\n---------------------------------------------------------------------\n\n\u003eWith CTX_INCLUDE_EL2 (All features enabled)\n\nMemory usage for Secure:\nEl2 reg (440B) per core\nPer-world context: 24B\nTOTAL: 9112B\n\nMemory usage for Non-Secure:\nEl2 reg (440B) per core\nPer-world context: 24B\nTOTAL: 9112B\n\nTotal context memory allocated: 18224B\n\n---------------------------------------------------------------------\n\n\n\n\n\u003eWith CTX_INCLUDE_EL2 (optional/feature-specific flags disabled)\n\nMemory usage for Secure:\nEl2 reg (280B) per core\nPer-world context: 24B\nTOTAL: 7832B\n\nMemory usage for Non-Secure:\nEl2 reg (280B) per core\nPer-world context: 24B\nTOTAL: 7832B\n\nTotal context memory allocated: 15664B\n\n---------------------------------------------------------------------\n\nA good amount of memory being saved, with this refactor. Wherein we moved from (440B) of EL2 memory per core to 280B per core, which when scaled up with number of cores showing good reduction in memory consumption.",
+      "parentUuid": "0b396fd2_b54744da",
+      "revId": "e1ce248b00a121e8248e4cc44abb1276ba8db0de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b754209d_09e1dcf9",
