@@ -204,6 +204,30 @@
       },
       "revId": "536dfca66f24828867d7037e29f4bdafb05e855c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35bb3e8b_e350425a",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1335,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-02-21T20:58:42Z",
+      "side": 1,
+      "message": "I believe reasoning there is different?\n\n[...]\n\n\t/*\n\t * dsb() already issued previously after clearing the CPU group\n\t * enabled, apply below workaround to toggle the \"DPG*\"\n\t * bits of GICR_CTLR register for unblocking event.\n\t */\n\tgicv3_apply_errata_wa_2384374(gicr_base);\n\n[...]\n\nthere was an already dsb so they are not applying just before the errata and saying it should be ok.",
+      "parentUuid": "d9fd069d_55da6778",
+      "range": {
+        "startLine": 1335,
+        "startChar": 1,
+        "endLine": 1335,
+        "endChar": 7
+      },
+      "revId": "536dfca66f24828867d7037e29f4bdafb05e855c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
