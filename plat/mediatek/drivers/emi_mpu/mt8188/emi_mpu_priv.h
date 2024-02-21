@@ -7,7 +7,7 @@
 #ifndef EMI_MPU_PRIV_H
 #define EMI_MPU_PRIV_H
 
-#define ENABLE_EMI_MPU_SW_LOCK		(1)
+#define ENABLE_EMI_MPU_SW_LOCK		(0)
 
 #define EMI_MPU_CTRL			(EMI_MPU_BASE + 0x000)
 #define EMI_MPU_DBG			(EMI_MPU_BASE + 0x004)
@@ -47,4 +47,11 @@
 #define APUSYS_SEC_BUF_PA		(0x55000000)
 #define APUSYS_SEC_BUF_SZ		(0x100000)
 
+#define BL31_REGION_ID			(0)
+#define BL32_REGION_ID			(1)
+#define SCP_CORE0_REGION_ID		(2)
+#define SCP_CORE1_REGION_ID		(3)
+#define DSP_PROTECT_REGION_ID		(4)
+#define SVP_DRAM_REGION_ID		(5)
+#define ALL_DEFAULT_REGION_ID		(31)
 #endif
