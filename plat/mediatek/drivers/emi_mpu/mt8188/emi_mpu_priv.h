@@ -7,7 +7,7 @@
 #ifndef EMI_MPU_PRIV_H
 #define EMI_MPU_PRIV_H
 
-#define ENABLE_EMI_MPU_SW_LOCK		(1)
+#define ENABLE_EMI_MPU_SW_LOCK		(0)
 
 #define EMI_MPU_CTRL			(EMI_MPU_BASE + 0x000)
 #define EMI_MPU_DBG			(EMI_MPU_BASE + 0x004)
