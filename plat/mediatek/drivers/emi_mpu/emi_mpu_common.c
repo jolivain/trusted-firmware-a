@@ -73,6 +73,36 @@ static int _emi_mpu_set_protection(unsigned int start, unsigned int end,
 	return 0;
 }
 
+static int _emi_mpu_clear_protection(unsigned int region)
+{
+	unsigned int dgroup;
+
+	if (region >= EMI_MPU_REGION_NUM) {
+		WARN("invalid region\n");
+		return -1;
+	}
+
+#if ENABLE_EMI_MPU_SW_LOCK
+	if (region_lock_state[region] == 1) {
+		WARN("invalid region\n");
+		return -1;
+	}
+#endif
+	if (mmio_read_32(EMI_MPU_APC(region, 0)) & 0x80000000) {
+		WARN("invalid region\n");
+		return -1;
+	}
+
+	for (dgroup = 0; dgroup < EMI_MPU_DGROUP_NUM; dgroup++)
+		mmio_write_32(EMI_MPU_APC(region, dgroup), 0x0);
+
+	mmio_write_32(EMI_MPU_SA(region), 0x0);
+	mmio_write_32(EMI_MPU_EA(region), 0x0);
+
+	return 0;
+}
+
+
 static void dump_emi_mpu_regions(void)
 {
 	int region, i;
@@ -112,6 +142,11 @@ int emi_mpu_set_protection(struct emi_region_info_t *region_info)
 	}
 
 	return 0;
+}
+
+int emi_mpu_clear_protection(unsigned int region)
+{
+	return _emi_mpu_clear_protection(region);
 }
 
 u_register_t mtk_emi_mpu_sip_handler(u_register_t x1, u_register_t x2,
