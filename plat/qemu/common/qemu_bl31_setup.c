@@ -208,7 +208,4 @@ void bl31_plat_runtime_setup(void)
 		memcpy((void *)FW_NS_HANDOFF_BASE, bl31_tl, bl31_tl->max_size);
 	}
 #endif
-
-	console_flush();
-	console_switch_state(CONSOLE_FLAG_RUNTIME);
 }
