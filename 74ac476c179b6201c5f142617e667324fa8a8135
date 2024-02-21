@@ -16,6 +16,24 @@
       "message": "```\ninclude/lib/psa/rss_crypto_defs.h:47: ERROR: code indent should use tabs where possible\n+                                *   multipart operation$\n\ninclude/lib/psa/rss_crypto_defs.h:48: ERROR: code indent should use tabs where possible\n+                                */$\n```\n@haojian.zhuang@linaro.org the above CI failures seem unrelated to this change, please advise.",
       "revId": "74ac476c179b6201c5f142617e667324fa8a8135",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e26fe32a_a77bb3bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-02-21T15:37:30Z",
+      "side": 1,
+      "message": "Yes, these are unrelated failures.",
+      "parentUuid": "e8120ec3_954b519a",
+      "revId": "74ac476c179b6201c5f142617e667324fa8a8135",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
