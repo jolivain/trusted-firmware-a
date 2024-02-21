@@ -247,6 +247,30 @@
       },
       "revId": "e1ce248b00a121e8248e4cc44abb1276ba8db0de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fd35eb6_ce7e4f4c",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-02-21T13:13:03Z",
+      "side": 1,
+      "message": "I have no preference to either. I just remember (but not where) an in stance where a function macro like\n```\n#define something(a)\n\nsomething(b);\n```\nexpanding to an empty string would produce a line like\n```\n;\n```\nwhich triggers warnings",
+      "parentUuid": "5f00c4b4_436a2906",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 46
+      },
+      "revId": "e1ce248b00a121e8248e4cc44abb1276ba8db0de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
