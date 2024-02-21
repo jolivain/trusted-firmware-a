@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b49f4c63_2527f4ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-02-21T15:27:29Z",
+      "side": 1,
+      "message": "I\u0027ve run TC CI as well and it passes: https://gitlab.oss.arm.com/engineering/tc/build-scripts/-/merge_requests/261/commits\n\nThe allow CI +2 failed for minor stuff (a capital letter because of an acronym and co-developed complaints) but I think they should be okay to override?",
+      "revId": "eee6345329d12362f73fe71e5347863913db34cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
