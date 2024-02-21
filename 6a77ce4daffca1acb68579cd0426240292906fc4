@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81dd75ea_7e189651",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-02-21T13:32:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2ddd9af_3186a746",
+      "range": {
+        "startLine": 7,
+        "startChar": 26,
+        "endLine": 7,
+        "endChar": 37
+      },
+      "revId": "6a77ce4daffca1acb68579cd0426240292906fc4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9c2443b_b8ae1b63",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-20T21:44:51Z",
       "side": 1,
       "message": "Same as above",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 11
+      },
+      "revId": "6a77ce4daffca1acb68579cd0426240292906fc4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b3f3313_329c8395",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-02-21T13:32:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9c2443b_b8ae1b63",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d859348a_f78d25f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-02-21T13:32:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76fada4d_9540373e",
+      "range": {
+        "startLine": 13,
+        "startChar": 6,
+        "endLine": 13,
+        "endChar": 75
+      },
+      "revId": "6a77ce4daffca1acb68579cd0426240292906fc4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1516e69c_fe8a6f3a",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-02-20T21:44:51Z",
       "side": 1,
       "message": "How is this part of the patch?",
+      "range": {
+        "startLine": 1361,
+        "startChar": 0,
+        "endLine": 1361,
+        "endChar": 38
+      },
+      "revId": "6a77ce4daffca1acb68579cd0426240292906fc4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f244d567_b9da813e",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1361,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-02-21T13:32:51Z",
+      "side": 1,
+      "message": "First part of the patching sequence sets this bit: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26600/2/lib/cpus/aarch64/cortex_a715.S#b28",
+      "parentUuid": "1516e69c_fe8a6f3a",
       "range": {
         "startLine": 1361,
         "startChar": 0,
