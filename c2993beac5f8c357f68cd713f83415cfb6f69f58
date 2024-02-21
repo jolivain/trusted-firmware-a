@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f1fa976_32f304b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001205
+      },
+      "writtenOn": "2024-02-21T11:04:33Z",
+      "side": 1,
+      "message": "Hi Lauren,\n\nI tested your code on the stm32mp15 platform, but it did not boot. I have made some suggestions to allow your code to work with MP1. These modifications correspond to what we discussed with Manish",
+      "revId": "c2993beac5f8c357f68cd713f83415cfb6f69f58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5eaba10_9c7f75ad",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1001205
+      },
+      "writtenOn": "2024-02-21T11:04:33Z",
+      "side": 1,
+      "message": "Hi Lauren\n\nThis should remain \"list.entry_count\" otherwise TF-A will load more gpt entry that stm32mp1 needs to boot.",
+      "range": {
+        "startLine": 247,
+        "startChar": 17,
+        "endLine": 247,
+        "endChar": 33
+      },
+      "revId": "c2993beac5f8c357f68cd713f83415cfb6f69f58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b128f46_96b1779f",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1001205
+      },
+      "writtenOn": "2024-02-21T11:04:33Z",
+      "side": 1,
+      "message": "this calculation must be done after the \"parse_gpt_entry\" line 261",
+      "range": {
+        "startLine": 255,
+        "startChar": 2,
+        "endLine": 259,
+        "endChar": 72
+      },
+      "revId": "c2993beac5f8c357f68cd713f83415cfb6f69f58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78d0c871_27717b80",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1001205
+      },
+      "writtenOn": "2024-02-21T11:04:33Z",
+      "side": 1,
+      "message": "I understand why you need to add the for statement on line 289. However, this specific if statement is unnecessary because the for statement already checks if i is different from header.listnum. Therefore, the for statement already covers this check.",
+      "range": {
+        "startLine": 283,
+        "startChar": 1,
+        "endLine": 283,
+        "endChar": 28
+      },
+      "revId": "c2993beac5f8c357f68cd713f83415cfb6f69f58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e68880a0_bd14fba8",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1001205
+      },
+      "writtenOn": "2024-02-21T11:04:33Z",
+      "side": 1,
+      "message": "If you put the crc calculation after \"parse_gpt_entry\" (see my comment above) you don\u0027t need to increment i here",
+      "range": {
+        "startLine": 288,
+        "startChar": 2,
+        "endLine": 288,
+        "endChar": 6
+      },
+      "revId": "c2993beac5f8c357f68cd713f83415cfb6f69f58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
