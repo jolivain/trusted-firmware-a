@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4fb1448_82d5dce6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-02-21T22:01:19Z",
+      "side": 1,
+      "message": "Hi Maxime, Let me know if the responses to comments make sense and if you are able to boot now. \n\nThe other approach would be to keep the loop as is, with the CRC between the load and parse and break at the end, and before the second for loop add something like below to increment the \"i\" before the second for loop.\n\nif (i !\u003d header.list_num) {\n    i++;\n}\n\nThis way may be more intuitive and allow only the small addition of the CRC calculation in the middle of the first for loop.",
+      "revId": "c2993beac5f8c357f68cd713f83415cfb6f69f58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5eaba10_9c7f75ad",
@@ -31,6 +48,30 @@
       "writtenOn": "2024-02-21T11:04:33Z",
       "side": 1,
       "message": "Hi Lauren\n\nThis should remain \"list.entry_count\" otherwise TF-A will load more gpt entry that stm32mp1 needs to boot.",
+      "range": {
+        "startLine": 247,
+        "startChar": 17,
+        "endLine": 247,
+        "endChar": 33
+      },
+      "revId": "c2993beac5f8c357f68cd713f83415cfb6f69f58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b32f8e7_cc651c07",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-02-21T22:01:19Z",
+      "side": 1,
+      "message": "Ohh I see, I thought you were referring to both loops, this makes sense and have reverted this",
+      "parentUuid": "a5eaba10_9c7f75ad",
       "range": {
         "startLine": 247,
         "startChar": 17,
@@ -66,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a8c5520c_27286a9b",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-02-21T22:01:19Z",
+      "side": 1,
+      "message": "It is ok to move this after the parse as long as the potential break is removed, which I\u0027ve done here by moving to the start of the loop. Reason being the load_gpt_entry() updates the image handler to point to the next entry, so the CRC should be calculated for the entry loaded before moving to the next load_gpt_entry().",
+      "parentUuid": "8b128f46_96b1779f",
+      "range": {
+        "startLine": 255,
+        "startChar": 2,
+        "endLine": 259,
+        "endChar": 72
+      },
+      "revId": "c2993beac5f8c357f68cd713f83415cfb6f69f58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78d0c871_27717b80",
         "filename": "drivers/partition/partition.c",
         "patchSetId": 5
@@ -89,6 +154,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "395b9d55_439be10f",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-02-21T22:01:19Z",
+      "side": 1,
+      "message": "Ok yes I get that this if statement is not needed alone with the loop, it is only needed for the \"i\" incremented before the loop. I have removed by having the \"i\" increment in the first for loop, by breaking in the beginning after incrementing to the next entry.",
+      "parentUuid": "78d0c871_27717b80",
+      "range": {
+        "startLine": 283,
+        "startChar": 1,
+        "endLine": 283,
+        "endChar": 28
+      },
+      "revId": "c2993beac5f8c357f68cd713f83415cfb6f69f58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e68880a0_bd14fba8",
         "filename": "drivers/partition/partition.c",
         "patchSetId": 5
@@ -100,6 +189,30 @@
       "writtenOn": "2024-02-21T11:04:33Z",
       "side": 1,
       "message": "If you put the crc calculation after \"parse_gpt_entry\" (see my comment above) you don\u0027t need to increment i here",
+      "range": {
+        "startLine": 288,
+        "startChar": 2,
+        "endLine": 288,
+        "endChar": 6
+      },
+      "revId": "c2993beac5f8c357f68cd713f83415cfb6f69f58",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa35c5dc_38a6e3f3",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-02-21T22:01:19Z",
+      "side": 1,
+      "message": "There\u0027s the added detail where the image_handle has already been incremented to the next entry, so the \"i\" does need to be incremented either in the first loop or after.",
+      "parentUuid": "e68880a0_bd14fba8",
       "range": {
         "startLine": 288,
         "startChar": 2,
