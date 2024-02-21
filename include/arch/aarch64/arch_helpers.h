@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -685,24 +685,23 @@ static inline uint64_t el_implemented(unsigned int el)
 }
 
 /*
- * TLBIPAALLOS instruction
+ * TLBI PAALLOS instruction
  * (TLB Inivalidate GPT Information by PA,
  * All Entries, Outer Shareable)
  */
 static inline void tlbipaallos(void)
 {
-	__asm__("SYS #6,c8,c1,#4");
+	__asm__("tlbi paallos");
 }
 
-/*
- * Invalidate TLBs of GPT entries by Physical address, last level.
- *
- * @pa: the starting address for the range
- *      of invalidation
- * @size: size of the range of invalidation
+/* TLBI RPALOS instruction
+ * (TLB Range Invalidate GPT Information by PA,
+ * Last level, Outer Shareable)
  */
-void gpt_tlbi_by_pa_ll(uint64_t pa, size_t size);
-
+static inline void tlbirpallos(uint64_t arg)
+{
+	__asm__("tlbi rpalos, %0" : : "r" (arg));
+}
 
 /* Previously defined accessor functions with incomplete register names  */
 
