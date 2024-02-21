@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "966247f5_a60ed2ac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-21T22:15:10Z",
+      "side": 1,
+      "message": "Acknowledged, since this is a bug in current code, adding a patch on top of this patch to address this issue.\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26716/1",
+      "parentUuid": "1d117e43_e04a71b6",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 30
+      },
+      "revId": "60c68e4a06cfb4069012bfb31ec1bbbe4a930e02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e3faea44_2c5873d5",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 8
@@ -64,6 +88,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fa5202e_be3f21f6",
+        "filename": "plat/arm/board/fvp/fvp_cpu_errata.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-21T22:15:10Z",
+      "side": 1,
+      "message": "Acknowledged, addressing this bug in a new patch.",
+      "parentUuid": "05fda5b6_060bd158",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 21
+      },
+      "revId": "60c68e4a06cfb4069012bfb31ec1bbbe4a930e02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7fab380b_86bca265",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-02-20T22:38:39Z",
       "side": 1,
       "message": "As mentioned in the other patch, change the name of the macro",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 28
+      },
+      "revId": "60c68e4a06cfb4069012bfb31ec1bbbe4a930e02",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffb44386_84e6e2ef",
+        "filename": "services/std_svc/errata_abi/cpu_errata_info.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-21T22:15:10Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7fab380b_86bca265",
       "range": {
         "startLine": 25,
         "startChar": 8,
