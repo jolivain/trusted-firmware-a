@@ -118,7 +118,7 @@
  * section can be placed independently of the main .data section.
  */
 #define DATA_SECTION					\
-	.data . : ALIGN(DATA_ALIGN) {			\
+	.data : ALIGN(DATA_ALIGN) {			\
 		__DATA_START__ = .;			\
 		*(SORT_BY_ALIGNMENT(.data*))		\
 		__DATA_END__ = .;			\
