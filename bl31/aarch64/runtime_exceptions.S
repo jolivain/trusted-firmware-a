@@ -450,7 +450,8 @@ sync_handler64:
 	 *
 	 * handler = (base + off) + (index << log2(size))
 	 */
-	adr	x11, (__RT_SVC_DESCS_START__ + RT_SVC_DESC_HANDLE)
+	adrp	x11, (__RT_SVC_DESCS_START__ + RT_SVC_DESC_HANDLE)
+	add	x11, x11, :lo12:(__RT_SVC_DESCS_START__ + RT_SVC_DESC_HANDLE)
 	lsl	w10, w15, #RT_SVC_SIZE_LOG2
 	ldr	x15, [x11, w10, uxtw]
 

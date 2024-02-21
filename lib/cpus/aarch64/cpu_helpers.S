@@ -165,13 +165,15 @@ func get_cpu_ops_ptr
 	and	w2, w2, w3
 
 	/* Get the cpu_ops end location */
-	adr	x5, (__CPU_OPS_END__ + CPU_MIDR)
+	adrp	x5, (__CPU_OPS_END__ + CPU_MIDR)
+	add	x5, x5, :lo12:(__CPU_OPS_END__ + CPU_MIDR)
 
 	/* Initialize the return parameter */
 	mov	x0, #0
 1:
 	/* Get the cpu_ops start location */
-	adr	x4, (__CPU_OPS_START__ + CPU_MIDR)
+	adrp	x4, (__CPU_OPS_START__ + CPU_MIDR)
+	add	x4, x4, :lo12:(__CPU_OPS_START__ + CPU_MIDR)
 
 2:
 	/* Check if we have reached end of list */
