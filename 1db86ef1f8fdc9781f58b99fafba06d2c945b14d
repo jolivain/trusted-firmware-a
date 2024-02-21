@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2e18c67_28b4f013",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2024-02-21T11:06:03Z",
+      "side": 1,
+      "message": "this is not correct, RD-V1-MC atleast has range up to 608. Can this be rewritten?",
+      "range": {
+        "startLine": 10,
+        "startChar": 9,
+        "endLine": 11,
+        "endChar": 19
+      },
+      "revId": "1db86ef1f8fdc9781f58b99fafba06d2c945b14d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dcfcd8f_c06a478c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2024-02-21T11:06:03Z",
+      "side": 1,
+      "message": "can this be rewritten to:\n\nWith commit \u0027a02a45dfe\u0027, gic600 driver is updated to get the max SPI id from the GIC-600 [1] and probe for the corresponding GIC instance for each SPI id. Since RD-V1-MC and RD-N1-Edge Dual-Chip supports wider range, increase SPI range for the chip 0 to the max SPI range supported.\n\n[1]: https://github.com/ARM-software/arm-trusted-firmware/commit/a02a45dfef4b02fa363a5f843ba6a0aac52d181f#diff-6ac51142e83a63d767371f548184c142cc93a990c8b7c39abfa2fbb401fac642L146",
+      "range": {
+        "startLine": 11,
+        "startChar": 20,
+        "endLine": 12,
+        "endChar": 66
+      },
+      "revId": "1db86ef1f8fdc9781f58b99fafba06d2c945b14d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "10e310b9_b96ab026",
         "filename": "plat/arm/board/rdn1edge/rdn1edge_plat.c",
         "patchSetId": 2
