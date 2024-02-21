@@ -223,6 +223,30 @@
       },
       "revId": "e1ce248b00a121e8248e4cc44abb1276ba8db0de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f00c4b4_436a2906",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-02-21T12:43:31Z",
+      "side": 1,
+      "message": "write_macro could either be replaced with an empty string or an empty do{}while(false) loop.\nUltimately it will result in an empty line in code when the corresponding build flag is disabled.\nI dont see any major issues here with either.\nHave seen few instances, wherein macro expands to empty string in our codebase.\nI have introduced a no_ctx macro has an alternative. Please take a look and share your thoughts.",
+      "parentUuid": "9cd9247b_7a1feac8",
+      "range": {
+        "startLine": 480,
+        "startChar": 0,
+        "endLine": 481,
+        "endChar": 46
+      },
+      "revId": "e1ce248b00a121e8248e4cc44abb1276ba8db0de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
