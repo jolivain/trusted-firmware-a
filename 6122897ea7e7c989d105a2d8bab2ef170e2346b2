@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "378093dc_0ae9ab9f",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-21T16:48:40Z",
+      "side": 1,
+      "message": "Save should be called at powerdown while restore should be called at power UP ?",
+      "range": {
+        "startLine": 175,
+        "startChar": 2,
+        "endLine": 175,
+        "endChar": 41
+      },
+      "revId": "6122897ea7e7c989d105a2d8bab2ef170e2346b2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
