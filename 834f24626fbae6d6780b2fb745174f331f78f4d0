@@ -119,6 +119,53 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af5cf456_8ea4581d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-02-21T19:32:13Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1ad6d4f1_c03b108e",
+      "range": {
+        "startLine": 14,
+        "startChar": 34,
+        "endLine": 14,
+        "endChar": 51
+      },
+      "revId": "834f24626fbae6d6780b2fb745174f331f78f4d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2753396d_1f6bd1e4",
+        "filename": "bl31/ehf.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-02-21T19:32:13Z",
+      "side": 1,
+      "message": "nit:2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "834f24626fbae6d6780b2fb745174f331f78f4d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6dc90353_b223a0d9",
@@ -215,6 +262,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d3c56d98_be8c880f",
+        "filename": "docs/components/platform-interrupt-controller-API.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-02-21T19:32:13Z",
+      "side": 1,
+      "message": "nit:2024",
+      "range": {
+        "startLine": 328,
+        "startChar": 20,
+        "endLine": 328,
+        "endChar": 24
+      },
+      "revId": "834f24626fbae6d6780b2fb745174f331f78f4d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0bab7ac7_5c9d31ca",
         "filename": "drivers/arm/gic/v3/gicv3_main.c",
         "patchSetId": 3
@@ -255,6 +325,75 @@
         "startChar": 1,
         "endLine": 1334,
         "endChar": 61
+      },
+      "revId": "834f24626fbae6d6780b2fb745174f331f78f4d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e68dccbb_a874822b",
+        "filename": "include/drivers/arm/gicv3.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-02-21T19:32:13Z",
+      "side": 1,
+      "message": "nit:2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "834f24626fbae6d6780b2fb745174f331f78f4d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1b12f09_818740c5",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-02-21T19:32:13Z",
+      "side": 1,
+      "message": "nit:2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "834f24626fbae6d6780b2fb745174f331f78f4d0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e55a282_52566eaa",
+        "filename": "plat/common/plat_gicv3.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-02-21T19:32:13Z",
+      "side": 1,
+      "message": "nit:2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
       },
       "revId": "834f24626fbae6d6780b2fb745174f331f78f4d0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
