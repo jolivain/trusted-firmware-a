@@ -62,6 +62,30 @@
       },
       "revId": "8ef132bec60d5cf39a3eacf58f078d6f45bdf295",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d368f87_681e4439",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-02-22T22:52:19Z",
+      "side": 1,
+      "message": "Good catch. I would guess so. Or we have a makefile means of disabling this errata flag if the feature is not supported? \n\nAlso, if the second part of the workaround doesn\u0027t depend on the FEAT_MTE2 flag(ERETA, ERETB part of the workaround, using patch sequence), it might need some re-structuring of the",
+      "parentUuid": "b68da70d_b6f04de7",
+      "range": {
+        "startLine": 30,
+        "startChar": 16,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "8ef132bec60d5cf39a3eacf58f078d6f45bdf295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
