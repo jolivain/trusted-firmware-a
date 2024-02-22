@@ -16,6 +16,52 @@
       "message": "Looks like a typo. Change the topic name, as its not related to firmware handoff.",
       "revId": "8ef132bec60d5cf39a3eacf58f078d6f45bdf295",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a99012eb_3cd317ef",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-22T22:17:23Z",
+      "side": 1,
+      "message": "nit: add description of the new flags in this file docs/design/cpu-specific-build-macros.rst.",
+      "range": {
+        "startLine": 29,
+        "startChar": 54,
+        "endLine": 29,
+        "endChar": 73
+      },
+      "revId": "8ef132bec60d5cf39a3eacf58f078d6f45bdf295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b68da70d_b6f04de7",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-02-22T22:17:23Z",
+      "side": 1,
+      "message": "Doubt: As per the ARM architecture reference manual, this register GCR_EL1 is present only when FEAT_MTE2 is implemented else access to this register is undefined. So, do we need to add that check (ENABLE_FEAT_MTE2) as a part of this errata implementation?",
+      "range": {
+        "startLine": 30,
+        "startChar": 16,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "8ef132bec60d5cf39a3eacf58f078d6f45bdf295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
