@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9acddf0_1774745a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001205
+      },
+      "writtenOn": "2024-02-22T09:09:43Z",
+      "side": 1,
+      "message": "Hi Lauren,\n\nThe code is suitable for me, except for the two warnings. After correcting them, the MP1 platform is able to boot 🎉.",
+      "revId": "34fcb01a14be5875d317da4f656dc78d493a055f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef2203ca_83704da9",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1001205
+      },
+      "writtenOn": "2024-02-22T09:09:43Z",
+      "side": 1,
+      "message": "\"list.entry_count\" is an int and \"i\" an uint you should cast \"list.entry_count\" here otherwise you will have a warning and the build will fail",
+      "range": {
+        "startLine": 247,
+        "startChar": 17,
+        "endLine": 247,
+        "endChar": 32
+      },
+      "revId": "34fcb01a14be5875d317da4f656dc78d493a055f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a83a197a_11e5361b",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1001205
+      },
+      "writtenOn": "2024-02-22T09:09:43Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 276,
+        "startChar": 5,
+        "endLine": 276,
+        "endChar": 26
+      },
+      "revId": "34fcb01a14be5875d317da4f656dc78d493a055f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
