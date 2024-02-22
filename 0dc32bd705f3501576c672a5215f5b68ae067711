@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3dc25bf_8598d3a8",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2024-02-22T20:42:08Z",
+      "side": 1,
+      "message": "Will using the FFA_IS_FW_ID macro to determine the bitmap cause issues when we don\u0027t have a hypervisor? \nI.e. OS kernel will have ID 0 and if it tries to send a notification to an SP would this result in the notification being routed to the framework notification?",
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3e3a4c2_83a671bc",
         "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
         "patchSetId": 1
