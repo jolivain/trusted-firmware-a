@@ -8,6 +8,7 @@
 
 #include <common/debug.h>
 #include <common/runtime_svc.h>
+#include <lib/debugfs.h>
 #include <services/ven_el3_svc.h>
 #include <tools_share/uuid.h>
 
@@ -18,6 +19,12 @@ DEFINE_SVC_UUID2(ven_el3_svc_uid,
 
 static int ven_el3_svc_setup(void)
 {
+#if USE_DEBUGFS
+	if (debugfs_smc_setup() != 0) {
+		return 1;
+	}
+#endif /* USE_DEBUGFS */
+
 	return 0;
 }
 
@@ -34,6 +41,13 @@ static uintptr_t ven_el3_svc_handler(unsigned int smc_fid,
 			u_register_t flags)
 {
 	int call_count = 0;
+
+#if USE_DEBUGFS
+	if (is_debugfs_fid(smc_fid)) {
+		return debugfs_smc_handler(smc_fid, x1, x2, x3, x4, cookie,
+			handle, flags);
+	}
+#endif /* USE_DEBUGFS */
 
 	switch (smc_fid)
 	{
