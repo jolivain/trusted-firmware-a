@@ -134,6 +134,30 @@
       },
       "revId": "8ef132bec60d5cf39a3eacf58f078d6f45bdf295",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "648b7fae_0a4d50f3",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-02-23T17:12:29Z",
+      "side": 1,
+      "message": "@Bipin, I think your message was truncated. From my reading the patch sequence is entirely seperate. I\u0027ve added code to test the presence of FEAT_MTE2 before applying the chicken bit to GCR_EL1.",
+      "parentUuid": "959d9dcd_758ece6d",
+      "range": {
+        "startLine": 30,
+        "startChar": 16,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "8ef132bec60d5cf39a3eacf58f078d6f45bdf295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
