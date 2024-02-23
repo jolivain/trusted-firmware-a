@@ -245,7 +245,7 @@ guess-tool-gnu-ar = $(shell $(1) --version 2>&1 | grep -o "GNU ar")
 guess-tool-dtc = $(shell $(1) --version 2>&1 | grep -o "Version: DTC")
 
 guess-tool = $(firstword $(foreach candidate,$(1), \
-        $(if $(call guess-tool-$(candidate),$(2)),$(candidate))))
+        $(if $(call guess-tool-$(candidate),$(2)),"$(candidate)")))
 
 #
 # Locate and identify tools belonging to each toolchain.
@@ -323,9 +323,9 @@ define canonicalize-toolchain-tool-path
         $(eval toolchain := $(1))
         $(eval tool-class := $(2))
 
-        $(toolchain)-$(tool-class) := $$(strip $$(or \
+        $(toolchain)-$(tool-class) := "$$(strip $$(or \
                 $$(call which,$$($(toolchain)-$(tool-class))), \
-                $$($(toolchain)-$(tool-class))))
+                $$($(toolchain)-$(tool-class))))"
 endef
 
 define locate-toolchain
