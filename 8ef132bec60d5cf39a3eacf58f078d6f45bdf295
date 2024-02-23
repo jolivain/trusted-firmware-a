@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c12d8e53_4080ddd0",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-02-23T15:21:28Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a99012eb_3cd317ef",
+      "range": {
+        "startLine": 29,
+        "startChar": 54,
+        "endLine": 29,
+        "endChar": 73
+      },
+      "revId": "8ef132bec60d5cf39a3eacf58f078d6f45bdf295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b68da70d_b6f04de7",
@@ -78,6 +102,30 @@
       "side": 1,
       "message": "Good catch. I would guess so. Or we have a makefile means of disabling this errata flag if the feature is not supported? \n\nAlso, if the second part of the workaround doesn\u0027t depend on the FEAT_MTE2 flag(ERETA, ERETB part of the workaround, using patch sequence), it might need some re-structuring of the",
       "parentUuid": "b68da70d_b6f04de7",
+      "range": {
+        "startLine": 30,
+        "startChar": 16,
+        "endLine": 30,
+        "endChar": 23
+      },
+      "revId": "8ef132bec60d5cf39a3eacf58f078d6f45bdf295",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "959d9dcd_758ece6d",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-02-23T15:21:28Z",
+      "side": 1,
+      "message": "Ah - good point! Just to clarify, while the TRM indicates that the core \"supports\" FEAT_MTE2, it\u0027s presence in a specific chip depends on the chip’s design and the choices made by the manufacturer?",
+      "parentUuid": "9d368f87_681e4439",
       "range": {
         "startLine": 30,
         "startChar": 16,
