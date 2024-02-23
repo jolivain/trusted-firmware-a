@@ -323,9 +323,9 @@ define canonicalize-toolchain-tool-path
         $(eval toolchain := $(1))
         $(eval tool-class := $(2))
 
-        $(toolchain)-$(tool-class) := $$(strip $$(or \
+        $(toolchain)-$(tool-class) := "$$(strip $$(or \
                 $$(call which,$$($(toolchain)-$(tool-class))), \
-                $$($(toolchain)-$(tool-class))))
+                $$($(toolchain)-$(tool-class))))"
 endef
 
 define locate-toolchain
