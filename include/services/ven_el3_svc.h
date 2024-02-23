@@ -1,0 +1,19 @@
+/*
+ * Copyright (c) 2024, Arm Limited. All rights reserved.
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+
+#ifndef VEN_EL3_SVC_H
+#define VEN_EL3_SVC_H
+
+/* VEN_EL3_SMC_32		0x87000000U */
+/* VEN_EL3_SMC_64		0xC7000000U */
+
+#define VEN_EL3_SVC_UID		0x8700ff01
+#define VEN_EL3_SVC_VERSION	0x8700ff03
+
+#define VEN_EL3_SVC_VERSION_MAJOR	0
+#define VEN_EL3_SVC_VERSION_MINOR	1
+
+#endif /* VEN_EL3_SVC_H */
