@@ -20,6 +20,13 @@ Source definitions for Vendor Specific EL3 Monitor Service Calls are located in
 the ``ven_el3_svc.h`` header file.
 
 
+Performance Measurement Framework (PMF)
+---------------------------------------
+
+The :ref:`Performance Measurement Framework <firmware_design_pmf>`
+allows callers to retrieve timestamps captured at various paths in TF-A
+execution.
+
 DebugFS interface
 -----------------
 
