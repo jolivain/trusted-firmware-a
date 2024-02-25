@@ -16,6 +16,24 @@
       "message": "Is the change still showing checkpatch issues?\n\n\ninclude/lib/psa/rss_crypto_defs.h:47: ERROR: code indent should use tabs where possible\n+                                *   multipart operation$\n\ninclude/lib/psa/rss_crypto_defs.h:48: ERROR: code indent should use tabs where possible\n+                                */$\n\ninclude/lib/psa/rss_crypto_defs.h:55: ERROR: code indent should use tabs where possible\n+                                *   API dispatcher to the service backend$\n\ninclude/lib/psa/rss_crypto_defs.h:56: ERROR: code indent should use tabs where possible\n+                                *   See rss_crypto_func_sid for detail$\n\ninclude/lib/psa/rss_crypto_defs.h:57: ERROR: code indent should use tabs where possible\n+                                */$\n\ninclude/lib/psa/rss_crypto_defs.h:60: ERROR: code indent should use tabs where possible\n+        size_t capacity;       /*!\u003c Key derivation capacity */$\n\n\ninclude/lib/psa/rss_crypto_defs.h:61: ERROR: code indent should use tabs where possible\n+        uint64_t value;        /*!\u003c Key derivation integer for update*/$",
       "revId": "bc0ff02cbb046388eff1a95efd0043757d6ac317",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e467f99_f2903f1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-25T20:47:51Z",
+      "side": 1,
+      "message": "The triggering of Allow-CI+1 occurred before the master sync-up with integration, leading to these errors. These errors are attributed to the patch [1] rather than the changes in this patch. Actually changes in this patch are aiming towards resolving these errors. I will initiate Allow-CI+1 once more to assess whether any errors are emitted as a result of this patch.\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26263/9",
+      "parentUuid": "c92b5bdf_77886670",
+      "revId": "bc0ff02cbb046388eff1a95efd0043757d6ac317",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
