@@ -70,6 +70,30 @@
       },
       "revId": "004b9aaf84a539c53e96418c6da3e8992d2edea0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "699a3eea_68b21ca5",
+        "filename": "plat/arm/board/tc/fdts/tc_tb_fw_config.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-02-26T14:38:13Z",
+      "side": 1,
+      "message": "I think the use of ARM_BL2_LIST_DTS would work and could help further decouple any changes to TF-A from a TC system deployment.\nThat said, Boyan has said that this would require some level of refactoring in their build system.\nI think this is ok to progress as is. It is still ok from the SPM perspective.\nResolving the comment to help progress patch stack (given Olivier\u0027s absence), in case there is the need this can still be taken after as refinement.",
+      "parentUuid": "e58accf6_485e4d0e",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 4
+      },
+      "revId": "004b9aaf84a539c53e96418c6da3e8992d2edea0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
