@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "238dafb3_afa504ec",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-26T10:30:21Z",
+      "side": 1,
+      "message": "Good to know that this latest version is working both on FVP and ST platform. I have little suggestion still to improve the readability and to avoid code from line no. 276-281. This ``for`` loop calculates CRC of valid entries as well as CRC of **first** invalid entry, though it is correct but sounds little inappropriate IMHO.\n\nLet\u0027s run this ``for`` loop to calculate CRC of only valid entries and detection of first invalid entry should break this ``for`` loop. I\u0027ve something below in mind-\n\n```\n\tfor (i \u003d 0U; i \u003c (unsigned int)list.entry_count; i++) {\n                 /* load GPT entry */\n                 /* parse the entry */\n                 /* \n                  * On failure of parsing(i.e. invalid entry), adjust \n                  * the file pointer using IO_SEEK_SET as below:\n                  * io_seek(image_handle, IO_SEEK_SET, (gpt_entry_offset + (i * \n                  *         sizeof(gpt_entry_t)))).\n                  * This will adjust the file pointer to point to the first\n                  * invalid entry and \n                  * then break the loop.\n                  */ \n                  /* On success, calculate the CRC of the valid entry */          \n \t}\n```\n\nThen ``for`` loop implemented at line no. 289 will calculate the CRC of rest (invalid) entries.\n\nI didn\u0027t run this code but I feel properly managing CRC of only valid entries at one place and rest (invalid entries) at another place really helps in increasing the readability of the code. Let me know what do you think?",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 250,
+        "endChar": 3
+      },
+      "revId": "6e9a576411dc5a6443158eabfa46d08eb3748adf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
