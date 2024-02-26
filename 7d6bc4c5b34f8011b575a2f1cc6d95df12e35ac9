@@ -52,6 +52,24 @@
       "parentUuid": "8039949a_14faf121",
       "revId": "7d6bc4c5b34f8011b575a2f1cc6d95df12e35ac9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "068e8ee2_851a595f",
+        "filename": "plat/arm/board/tc/fdts/tc_fw_config.dts",
+        "patchSetId": 7
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-02-26T15:48:38Z",
+      "side": 1,
+      "message": "apologies, I\u0027ve typoed it, it should be 32K in both the commit message and the diagram. AFAIK we\u0027re not reserving 64K anywhere but there is room to grow if somehow we need it to",
+      "parentUuid": "3b2116f4_fee88ad0",
+      "revId": "7d6bc4c5b34f8011b575a2f1cc6d95df12e35ac9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
