@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8414b81_45a3e54a",
+        "filename": "make_helpers/toolchain.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-02-26T14:40:37Z",
+      "side": 1,
+      "message": "This is not quite equivalent. For me, this yields:\n\n    $ realpath $(aarch64-none-elf-gcc --print-prog-name ar)\n    /opt/arm-gnu-toolchain-aarch64-none-elf/aarch64-none-elf/bin/ar\n\nHowever, it needs to yield:\n\n    $ realpath $(which aarch64-none-elf-gcc-ar)\n    /opt/arm-gnu-toolchain-aarch64-none-elf/bin/aarch64-none-elf-gcc-ar\n    \nThe distinction between `ar` and `gcc-ar` is (or at least used to be) quite important, because `ar` could not support LTO without an additional flag specifying the path to the GCC linker plugin.\n\nWhat we could perhaps do is:\n\n    guess-gnu-gcc-ar \u003d $(call which,$(patsubst %$(notdir $(1)),%$(subst gcc,gcc-ar,$(notdir $(1))),$(1)))\n    \nThis way it will evaluate to nothing if the file does not exist, and then later on it will be replaced with the default (e.g aarch64-none-elf-gcc-ar). It\u0027s a bit of a hack, but I can\u0027t imagine a sane setup that it would break on.",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 2
+      },
+      "revId": "67ab03a51cb4234266682429e67f53948e80ae33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
