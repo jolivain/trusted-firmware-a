@@ -199,6 +199,9 @@ ENABLE_FEAT_RAS && FFH_SUPPORT
  * GIC/EHF config
  ******************************************************************************/
 
+/* GIC related constants */
+#define PLAT_ARM_GICD_BASE		NRD_CSS_GIC_BASE
+
 #define PLAT_ARM_G1S_IRQ_PROPS(grp)	CSS_G1S_IRQ_PROPS(grp)
 #define PLAT_ARM_G0_IRQ_PROPS(grp)	ARM_G0_IRQ_PROPS(grp)
 
@@ -207,6 +210,39 @@ ENABLE_FEAT_RAS && FFH_SUPPORT
 #else
 #define PLAT_SP_PRI			(0x10)
 #endif
+
+/* Interrupt priority level for shutdown/reboot */
+#define PLAT_REBOOT_PRI		GIC_HIGHEST_SEC_PRIORITY
+#define PLAT_EHF_DESC		EHF_PRI_DESC(PLAT_PRI_BITS, PLAT_REBOOT_PRI)
+
+/*******************************************************************************
+ * Secure world config
+ ******************************************************************************/
+
+#define SECURE_PARTITION_COUNT          1
+#define NS_PARTITION_COUNT              1
+#define MAX_EL3_LP_DESCS_COUNT		1
+
+/*******************************************************************************
+ * MHU config
+ ******************************************************************************/
+
+#define PLAT_CSS_MHU_BASE		NRD_CSS_AP_SCP_S_MHU_BASE
+#define PLAT_MHUV2_BASE			PLAT_CSS_MHU_BASE
+
+/*******************************************************************************
+ * Power config
+ ******************************************************************************/
+
+#define CSS_SYSTEM_PWR_DMN_LVL		ARM_PWR_LVL2
+#define PLAT_MAX_PWR_LVL		ARM_PWR_LVL1
+
+/*******************************************************************************
+ * TZ config
+ ******************************************************************************/
+
+#define PLAT_ARM_TZC_BASE		NRD_ROS_MEMCNTRL_BASE + UL(0x00720000)
+#define PLAT_ARM_TZC_FILTERS		TZC_400_REGION_ATTR_FILTER_BIT(0)
 
 /*******************************************************************************
  * SDS config
@@ -235,8 +271,9 @@ ENABLE_FEAT_RAS && FFH_SUPPORT
 #define V2M_SYS_LED_EL_MASK		U(0x03)
 #define V2M_SYS_LED_EC_MASK		U(0x1f)
 
-#define V2M_SYSREGS_BASE		UL(0x0C010000)
+#define PLAT_ARM_MEM_PROTEC_VA_FRAME	UL(0xC0000000)
 
+#define V2M_SYSREGS_BASE		UL(0x0C010000)
 #define V2M_FLASH0_BASE			UL(0x08000000)
 #define V2M_FLASH0_SIZE			UL(0x04000000)
 #define V2M_FLASH_BLOCK_SIZE		UL(0x00040000)	/* 256 KB */
