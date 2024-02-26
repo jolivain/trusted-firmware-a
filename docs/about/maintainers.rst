@@ -524,6 +524,8 @@ Arm Reference Design platform ports
 :|G|: `thomas-arm`_
 :|M|: Vijayenthiran Subramaniam <vijayenthiran.subramaniam@arm.com>
 :|G|: `vijayenthiran-arm`_
+:|M|: Rohit Mathew <Rohit.Mathew@arm.com>
+:|G|: `rohit-arm`_
 :|F|: plat/arm/board/neoverse_rd/common
 :|F|: plat/arm/board/neoverse_rd/platform/rdn1edge/
 :|F|: plat/arm/board/neoverse_rd/platform/rdn2/
@@ -1047,3 +1049,4 @@ Conventional Changelog Extensions
 .. _xueliang-zhong-arm: https://github.com/xueliang-zhong-arm
 .. _raymo200915: https://github.com/raymo200915
 .. _harrisonmutai-arm: https://github.com/harrisonmutai-arm
+.. _rohit-arm: https://github.com/rohit-arm
