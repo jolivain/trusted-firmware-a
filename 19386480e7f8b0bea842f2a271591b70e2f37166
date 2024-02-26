@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc827b68_0b22aa15",
+        "filename": "plat/imx/imx8ulp/dram.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-02-26T16:00:39Z",
+      "side": 1,
+      "message": "Please create macros(i.e. defines)",
+      "range": {
+        "startLine": 237,
+        "startChar": 3,
+        "endLine": 237,
+        "endChar": 28
+      },
+      "revId": "19386480e7f8b0bea842f2a271591b70e2f37166",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c66899ab_72245f32",
+        "filename": "plat/imx/imx8ulp/include/platform_def.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-02-26T16:00:39Z",
+      "side": 1,
+      "message": "Please align to previous definitions using tabs",
+      "range": {
+        "startLine": 55,
+        "startChar": 20,
+        "endLine": 55,
+        "endChar": 32
+      },
+      "revId": "19386480e7f8b0bea842f2a271591b70e2f37166",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
