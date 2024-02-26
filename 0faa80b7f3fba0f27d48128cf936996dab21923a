@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "311dd332_78aea405",
+        "filename": "include/arch/aarch32/arch.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-26T10:36:14Z",
+      "side": 1,
+      "message": "Since the patch originally became public in 2023, i am keeping it that way.",
+      "parentUuid": "cc71506a_067c5a4d",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "0faa80b7f3fba0f27d48128cf936996dab21923a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c2fc368_9003cf8e",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-23T20:55:14Z",
       "side": 1,
       "message": "2024",
+      "range": {
+        "startLine": 3,
+        "startChar": 31,
+        "endLine": 3,
+        "endChar": 35
+      },
+      "revId": "0faa80b7f3fba0f27d48128cf936996dab21923a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d1fc317_a4c0371e",
+        "filename": "include/arch/aarch32/arch_helpers.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-26T10:36:14Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "5c2fc368_9003cf8e",
       "range": {
         "startLine": 3,
         "startChar": 31,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d67a25b_15b60bf3",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-26T10:36:14Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "945ab29a_cd543afc",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "0faa80b7f3fba0f27d48128cf936996dab21923a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5445c41_749c5d16",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-02-23T20:55:14Z",
       "side": 1,
       "message": "2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "0faa80b7f3fba0f27d48128cf936996dab21923a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30f4ce84_638c07ce",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-26T10:36:14Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "c5445c41_749c5d16",
       "range": {
         "startLine": 2,
         "startChar": 22,
