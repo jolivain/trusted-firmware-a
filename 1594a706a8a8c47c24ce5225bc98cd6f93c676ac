@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c81ece14_a9d463ca",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1328,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-26T16:17:10Z",
+      "side": 1,
+      "message": "I\u0027m not entirely certain about the rationale behind the creation of this function. It seems a bit misleading since it encompasses everything that the \u0027gicv3_set_pmr\u0027 function does, along with the errata workaround. Is there a reason why we can\u0027t simply use the \u0027gicv3_set_pmr\u0027 function itself, incorporating a compile-time condition to apply the errata workaround? Perhaps I\u0027m missing something here?",
+      "range": {
+        "startLine": 1328,
+        "startChar": 0,
+        "endLine": 1328,
+        "endChar": 47
+      },
+      "revId": "1594a706a8a8c47c24ce5225bc98cd6f93c676ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
