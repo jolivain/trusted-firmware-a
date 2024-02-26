@@ -16,6 +16,24 @@
       "message": "I\u0027m wondering if this might have a broader, harder-to-debug impact on other parts of the build system. What happens if, for example, we ran:\n\n    $(if $(call which,clang),X,Y)\n\nIf `clang` is not on the path, on Linux that would resolve to X, but on Windows that would always resolve to Y, because the result of the call to `which` would be `\"\"`.\n\nI think maybe we instead need to wrap the programs we call in quotes at the call site.",
       "revId": "7a7e78f7bb85054e3026f2d52c2b29ebd917cc1c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aba814ec_cbe8ea7e",
+        "filename": "make_helpers/windows.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-02-26T10:43:37Z",
+      "side": 1,
+      "message": "Sorry, swap X and Y.",
+      "parentUuid": "3e169b19_ba7b7f41",
+      "revId": "7a7e78f7bb85054e3026f2d52c2b29ebd917cc1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
