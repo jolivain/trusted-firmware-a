@@ -41,16 +41,6 @@
 /* DRAM2 */
 #define NRD_CSS_DRAM2_SIZE		ULL(0x180000000) /* 6GB */
 
-#define PLAT_CSS_MHU_BASE		UL(0x2A920000)
-#define PLAT_MHUV2_BASE			PLAT_CSS_MHU_BASE
-
-#define CSS_SYSTEM_PWR_DMN_LVL		ARM_PWR_LVL2
-#define PLAT_MAX_PWR_LVL		ARM_PWR_LVL1
-
-/* TZC Related Constants */
-#define PLAT_ARM_TZC_BASE		UL(0x10720000)
-#define PLAT_ARM_TZC_FILTERS		TZC_400_REGION_ATTR_FILTER_BIT(0)
-
 #define TZC400_OFFSET			UL(0x1000000)
 
 #if (NRD_PLATFORM_VARIANT == 1)
@@ -102,44 +92,12 @@
 #define PLAT_VIRT_ADDR_SPACE_SIZE	(1ULL << 32)
 #endif
 
-/* GIC related constants */
-#define PLAT_ARM_GICD_BASE		UL(0x30000000)
-#define PLAT_ARM_GICC_BASE		UL(0x2C000000)
-
-/* Virtual address used by dynamic mem_protect for chunk_base */
-#define PLAT_ARM_MEM_PROTEC_VA_FRAME	UL(0xC0000000)
-
 #if (NRD_PLATFORM_VARIANT == 1)
-#define PLAT_ARM_GICR_BASE		UL(0x30100000)
+#define PLAT_ARM_GICR_BASE		NRD_CSS_GIC_BASE + UL(0x00100000)
 #elif (NRD_PLATFORM_VARIANT == 3)
-#define PLAT_ARM_GICR_BASE		UL(0x30300000)
+#define PLAT_ARM_GICR_BASE		NRD_CSS_GIC_BASE + UL(0x00300000)
 #else
-#define PLAT_ARM_GICR_BASE		UL(0x301C0000)
+#define PLAT_ARM_GICR_BASE		NRD_CSS_GIC_BASE + UL(0x001C0000)
 #endif
-
-/* Interrupt priority level for shutdown/reboot */
-#define PLAT_REBOOT_PRI		GIC_HIGHEST_SEC_PRIORITY
-#define PLAT_EHF_DESC		EHF_PRI_DESC(PLAT_PRI_BITS, PLAT_REBOOT_PRI)
-
-/*
- * Number of Secure Partitions supported.
- * SPMC at EL3, uses this count to configure the maximum number of supported
- * secure partitions.
- */
-#define SECURE_PARTITION_COUNT          1
-
-/*
- * Number of NWd Partitions supported.
- * SPMC at EL3, uses this count to configure the maximum number of supported
- * nwld partitions.
- */
-#define NS_PARTITION_COUNT              1
-
-/*
- * Number of Logical Partitions supported.
- * SPMC at EL3, uses this count to configure the maximum number of supported
- * logical partitions.
- */
-#define MAX_EL3_LP_DESCS_COUNT		1
 
 #endif /* PLATFORM_DEF_H */
