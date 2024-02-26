@@ -571,6 +571,30 @@
       },
       "revId": "4f51c0ba5eb245b518ca060e1c2fa9a8a9aa9f86",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a381a16_579fb815",
+        "filename": "include/plat/arm/common/fconf_arm_sp_getter.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-26T11:24:09Z",
+      "side": 1,
+      "message": "Looks like this has been handled via platform-specific way and providing default value ``U(0xb0000)`` so resolving this comment.",
+      "parentUuid": "dd6f5fdf_93ba3432",
+      "range": {
+        "startLine": 17,
+        "startChar": 25,
+        "endLine": 17,
+        "endChar": 37
+      },
+      "revId": "4f51c0ba5eb245b518ca060e1c2fa9a8a9aa9f86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
