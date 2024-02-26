@@ -34,6 +34,24 @@
       "parentUuid": "b49f4c63_2527f4ad",
       "revId": "eee6345329d12362f73fe71e5347863913db34cf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc59a33c_373565c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-26T14:08:34Z",
+      "side": 1,
+      "message": "Can you run other(below) TC2 tests, these are not part of L2:\n1. spm-l3-boot-tests/tc-default,fvp-tc2-spm,fvp-tc-spm:fvp-tc.spm.tftf-tc2-debug\n2. tf-l3-boot-tests-misc/fvp-tbb-tc2-mb:fvp-linux.tc-fip.tc-tc.signer-tc2-debug\n3. tf-l3-boot-tests-css/fvp-tc2-tbb:fvp-linux.tc-fip.tc-tc2-debug",
+      "parentUuid": "3e409d29_d33b5d27",
+      "revId": "eee6345329d12362f73fe71e5347863913db34cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
