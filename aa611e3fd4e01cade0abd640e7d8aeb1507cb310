@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a257deec_ec5af270",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-02-27T16:28:55Z",
+      "side": 1,
+      "message": "LGTM.\nMinor comments with function names. Although we dont have a standard pattern, would be nice to keep it aligned with other existing ones in this patch.",
+      "revId": "aa611e3fd4e01cade0abd640e7d8aeb1507cb310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35f1bffe_47792393",
+        "filename": "include/arch/aarch32/arch_features.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-02-27T16:28:55Z",
+      "side": 1,
+      "message": "can we name it similar to others you have introduced ?\nis_feat_uao_present()?",
+      "revId": "aa611e3fd4e01cade0abd640e7d8aeb1507cb310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cb7a38a_29dee90e",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-02-27T16:28:55Z",
+      "side": 1,
+      "message": "nit: Ignore if it\u0027s not required.\nis_feat_uao_present()? would look good and be aligned with the majority of other functions here",
+      "range": {
+        "startLine": 59,
+        "startChar": 19,
+        "endLine": 59,
+        "endChar": 41
+      },
+      "revId": "aa611e3fd4e01cade0abd640e7d8aeb1507cb310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
