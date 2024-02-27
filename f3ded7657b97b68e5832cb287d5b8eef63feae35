@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "efdedf23_4df8ecd5",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-02-27T15:26:07Z",
+      "side": 1,
+      "message": "If we don\u0027t guard the save/restore_dsu_pmu_state() functions called in css_pm , then other platforms that use css_pm but don\u0027t have the dsu.c included in their source will result in a build error. \n\nThis change might break other platforms and not sure if we are okay with enforcing all other platforms to include dsu.c at this moment.",
+      "parentUuid": "b962fb7a_6c160dab",
+      "revId": "f3ded7657b97b68e5832cb287d5b8eef63feae35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06d38787_cd6a94c5",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-02-22T15:50:57Z",
       "side": 1,
       "message": "i\u0027m definitely not sure about this, but isn\u0027t this a better fit for drivers/arm/css?",
+      "revId": "f3ded7657b97b68e5832cb287d5b8eef63feae35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "285998ed_d87106ab",
+        "filename": "drivers/arm/dsu/dsu.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-02-27T15:26:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06d38787_cd6a94c5",
       "revId": "f3ded7657b97b68e5832cb287d5b8eef63feae35",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e376f768_ae59d9f0",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 633,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-02-27T15:26:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84968ada_7f876572",
+      "revId": "f3ded7657b97b68e5832cb287d5b8eef63feae35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e094792c_9508d7dc",
@@ -69,6 +123,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc72d109_135534ee",
+        "filename": "include/drivers/arm/dsu.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-02-27T15:26:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e094792c_9508d7dc",
+      "revId": "f3ded7657b97b68e5832cb287d5b8eef63feae35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a99db4d9_b1c47855",
@@ -82,6 +154,30 @@
       "writtenOn": "2024-02-22T15:50:57Z",
       "side": 1,
       "message": "You should convert this from\n`RESTORE_PMU_REG(clusterpmovsset, cluster_pmu_state-\u003eclusterpmovsset);`\nto\n`RESTORE_PMU_REG(cluster_pmu_state, clusterpmovsset);`\n\nThis is closer to the way we do it in context.h. You could even have it all lowercase and name them read/write to keep with that pattern.",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 2
+      },
+      "revId": "f3ded7657b97b68e5832cb287d5b8eef63feae35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d07a2d8_25c05533",
+        "filename": "include/drivers/arm/dsu.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-02-27T15:26:07Z",
+      "side": 1,
+      "message": "members of cluster_pmu_state structure has to accessed in different ways and a generic way doesn\u0027t seem possible",
+      "parentUuid": "a99db4d9_b1c47855",
       "range": {
         "startLine": 15,
         "startChar": 0,
