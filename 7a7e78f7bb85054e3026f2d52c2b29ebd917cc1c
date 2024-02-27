@@ -34,6 +34,24 @@
       "parentUuid": "3e169b19_ba7b7f41",
       "revId": "7a7e78f7bb85054e3026f2d52c2b29ebd917cc1c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12a01804_6eb3e8d0",
+        "filename": "make_helpers/windows.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-02-27T09:51:43Z",
+      "side": 1,
+      "message": "I have some concerns about wrapping the program in the quotes at the call site. Mainly that we would be setting a hard to follow convention i.e. how would a developer know when the quotes are needed to call a program? I think the cleaner, more transparent solution might be to wrap the return value of `canonicalize-toolchain-tool-path` in quotes. This means anyone dealing with toolchains has a predictable way of handling them.",
+      "parentUuid": "aba814ec_cbe8ea7e",
+      "revId": "7a7e78f7bb85054e3026f2d52c2b29ebd917cc1c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
