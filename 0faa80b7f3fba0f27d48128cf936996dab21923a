@@ -65,6 +65,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1969904_4b25dc9b",
+        "filename": "include/arch/aarch32/arch_features.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-02-27T14:41:55Z",
+      "side": 1,
+      "message": "Had an offline discussion.\nFor future reference: \n\nWe have two cases here: \nCase 1)\nWhen a feature needs enablement from EL3 ( USE -\u003e is_feat_xxx_supported( ) api), to read the ID register, and then set the bits necessary for feature enablement. Also the feature flag plays the part here. We use is_feat_xxx_supported( ) api in scenarios, wherein user has to explicitly set the build flag for feature enablement in EL3. ( Eg: ENABLE_FEAT_SME, ENABLE_FEAT_PAN etc.)\n\n\nCase 2)\nWhen we need to use is_feat_xxx_present( ).\nThis API need to be used in scenarios, wherein we are not dependent on feature flags, nor enabling any feature, rather more interested in independently reading ID_registers to verify the presence on feature. Eg: ( Undef injection ) \n\nNOTE: Even through is_feat_xxx_supported( ) \u0026 is_feat_xxx_present( ), ultimately read the ID_register, there is subtle difference in the way they are suppose to be used.\n\nWhen we are in the path of feature enablement iN el3, here we use is_feat_xxx_supported( ),\nin other cases, is_feat_xxx_present( ) is needed.",
+      "parentUuid": "466389f1_35acab0b",
+      "revId": "0faa80b7f3fba0f27d48128cf936996dab21923a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c2fc368_9003cf8e",
