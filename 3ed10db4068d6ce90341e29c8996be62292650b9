@@ -146,6 +146,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a5dd99b_16d5a464",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000661
+      },
+      "writtenOn": "2024-02-27T09:11:36Z",
+      "side": 1,
+      "message": "\u003e IIUC this commit message -\n\u003e \n\u003e ```\n\u003e  - Image description structures now optional\n\u003e  - The image description in the structure is now optional\n\u003e ```\n\u003e \n\u003e First point refers to ``fw_store_desc`` and second one to ``img_entry[]`` but both can\u0027t be optional at the same time right? or I understood the commit message wrongly.\n\nSo as Etienne pointed out, the second statement is a repeat. I will remove it.",
+      "parentUuid": "3b85bbde_12be0896",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 44
+      },
+      "revId": "3ed10db4068d6ce90341e29c8996be62292650b9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7706442a_2ce0f429",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
