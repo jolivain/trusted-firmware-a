@@ -22,6 +22,30 @@
       },
       "revId": "67ab03a51cb4234266682429e67f53948e80ae33",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e7f45af_c70d5a4d",
+        "filename": "make_helpers/toolchain.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-02-27T15:53:05Z",
+      "side": 1,
+      "message": "In the meantime you can work around this by providing `AR` explicitly:\n\n    make AR\u003daarch64-none-elf-gcc-ar",
+      "parentUuid": "e8414b81_45a3e54a",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 2
+      },
+      "revId": "67ab03a51cb4234266682429e67f53948e80ae33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
