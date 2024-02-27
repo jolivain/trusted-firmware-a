@@ -22,6 +22,30 @@
       },
       "revId": "6e9a576411dc5a6443158eabfa46d08eb3748adf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aaeaa68_fdce1b92",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-02-27T15:47:04Z",
+      "side": 1,
+      "message": "Yes this looks so much better, thanks for the suggestion! I have updated to calculate valid/invalid separately now.",
+      "parentUuid": "238dafb3_afa504ec",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 250,
+        "endChar": 3
+      },
+      "revId": "6e9a576411dc5a6443158eabfa46d08eb3748adf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
