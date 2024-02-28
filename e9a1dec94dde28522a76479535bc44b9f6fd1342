@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb5743be_4bff61b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-02-28T17:09:47Z",
+      "side": 1,
+      "message": "I think this is the wrong SDEN link",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 58
+      },
+      "revId": "e9a1dec94dde28522a76479535bc44b9f6fd1342",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "848fe96c_82674f83",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-02-28T17:09:47Z",
+      "side": 1,
+      "message": "From SDEN \"On r0p0, there is no workaround.\" so should this be a range with comment explaining that?\n\nAlso probably good to note in commit message that there is no workaround for r0p0",
+      "range": {
+        "startLine": 33,
+        "startChar": 48,
+        "endLine": 33,
+        "endChar": 61
+      },
+      "revId": "e9a1dec94dde28522a76479535bc44b9f6fd1342",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
