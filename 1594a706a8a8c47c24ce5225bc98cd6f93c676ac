@@ -22,6 +22,30 @@
       },
       "revId": "1594a706a8a8c47c24ce5225bc98cd6f93c676ac",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06b8e35f_9482b3ff",
+        "filename": "drivers/arm/gic/v3/gicv3_main.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1328,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-02-28T15:16:58Z",
+      "side": 1,
+      "message": "As per our discussion, I have renamed the gicv3_clear_pmr to a more generic name to avoid confusion. Please let me know if this works",
+      "parentUuid": "c81ece14_a9d463ca",
+      "range": {
+        "startLine": 1328,
+        "startChar": 0,
+        "endLine": 1328,
+        "endChar": 47
+      },
+      "revId": "1594a706a8a8c47c24ce5225bc98cd6f93c676ac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
