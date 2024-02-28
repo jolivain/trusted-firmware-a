@@ -70,6 +70,30 @@
       },
       "revId": "67ab03a51cb4234266682429e67f53948e80ae33",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a28f5f24_38df6caf",
+        "filename": "make_helpers/toolchain.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-02-28T11:53:07Z",
+      "side": 1,
+      "message": "Thanks Andrey, fine with me. The ar/gcc-ar incompatibility is mostly with older versions of GCC, but I\u0027m not sure how far back you have to go before it starts breaking. We do have some CI configurations that still build with GCC 6 (albeit probably not with LTO).",
+      "parentUuid": "b4502414_b1266341",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 2
+      },
+      "revId": "67ab03a51cb4234266682429e67f53948e80ae33",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
