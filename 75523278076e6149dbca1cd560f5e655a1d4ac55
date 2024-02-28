@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c26d5d7_8e9b3863",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-02-28T09:18:04Z",
+      "side": 1,
+      "message": "Just wanted to inform you that I\u0027ve made updates to the script [1], which now generates sample FWU metadata version 2. Additionally, I\u0027ve tested this script along with this patch-stack on the FVP platform, and it appears to be functioning correctly [2].\n\n[1]: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/26662\n[2]: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/64608/",
+      "revId": "75523278076e6149dbca1cd560f5e655a1d4ac55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
