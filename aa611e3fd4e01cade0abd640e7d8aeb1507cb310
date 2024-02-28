@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b644ea7_94efca9f",
+        "filename": "include/arch/aarch32/arch_features.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-28T10:06:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35f1bffe_47792393",
+      "revId": "aa611e3fd4e01cade0abd640e7d8aeb1507cb310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5cb7a38a_29dee90e",
@@ -48,6 +66,30 @@
       "writtenOn": "2024-02-27T16:28:55Z",
       "side": 1,
       "message": "nit: Ignore if it\u0027s not required.\nis_feat_uao_present()? would look good and be aligned with the majority of other functions here",
+      "range": {
+        "startLine": 59,
+        "startChar": 19,
+        "endLine": 59,
+        "endChar": 41
+      },
+      "revId": "aa611e3fd4e01cade0abd640e7d8aeb1507cb310",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2d23426_1894a15b",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 19
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-02-28T10:06:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5cb7a38a_29dee90e",
       "range": {
         "startLine": 59,
         "startChar": 19,
