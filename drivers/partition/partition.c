@@ -190,7 +190,7 @@ static int load_mbr_entry(uintptr_t image_handle, mbr_entry_t *mbr_entry,
 static int load_mbr_entries(uintptr_t image_handle)
 {
 	mbr_entry_t mbr_entry;
-	int i;
+	unsigned int i;
 
 	list.entry_count = MBR_PRIMARY_ENTRY_NUMBER;
 
@@ -244,7 +244,7 @@ static int load_partition_gpt(uintptr_t image_handle, gpt_header_t header)
 		return result;
 	}
 
-	for (i = 0; i < (unsigned int)list.entry_count; i++) {
+	for (i = 0; i < list.entry_count; i++) {
 		result = load_gpt_entry(image_handle, &entry);
 		if (result != 0) {
 			VERBOSE("Failed to load gpt entry data(%u) error is (%i)\n",
@@ -441,7 +441,7 @@ out:
  */
 const partition_entry_t *get_partition_entry(const char *name)
 {
-	int i;
+	unsigned int i;
 
 	for (i = 0; i < list.entry_count; i++) {
 		if (strcmp(name, list.list[i].name) == 0) {
@@ -457,7 +457,7 @@ const partition_entry_t *get_partition_entry(const char *name)
 const partition_entry_t *get_partition_entry_by_type(
 	const struct efi_guid *type_guid)
 {
-	int i;
+	unsigned int i;
 
 	for (i = 0; i < list.entry_count; i++) {
 		if (guidcmp(type_guid, &list.list[i].type_guid) == 0) {
@@ -474,7 +474,7 @@ const partition_entry_t *get_partition_entry_by_type(
 const partition_entry_t *get_partition_entry_by_guid(
 	const struct efi_guid *part_guid)
 {
-	int i;
+	unsigned int i;
 
 	for (i = 0; i < list.entry_count; i++) {
 		if (guidcmp(part_guid, &list.list[i].part_guid) == 0) {
