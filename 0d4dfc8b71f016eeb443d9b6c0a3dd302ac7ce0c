@@ -39,6 +39,24 @@
       "message": "What would happen if SPMC sent a direct message to SPMD for whatever reason? Isn\u0027t it better to retain the current helpers which would simply return an error status? I think that is a robust approach.",
       "revId": "0d4dfc8b71f016eeb443d9b6c0a3dd302ac7ce0c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "415edb57_c9d069e0",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1124,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2024-02-29T22:25:07Z",
+      "side": 1,
+      "message": "Truthfully, I didn\u0027t notice the helper just returned an error.\n\nI see now the existing code uses SMC_RET8 to return FFA_SUCCESS with `ret` \u003d\u003d -EINVAL error code\n\nMaybe instead we should return FFA_ERROR with a not supported error code?",
+      "parentUuid": "9f4b645b_b13a87f0",
+      "revId": "0d4dfc8b71f016eeb443d9b6c0a3dd302ac7ce0c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
