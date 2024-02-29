@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c86bd81_dd2128ea",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-29T22:19:27Z",
+      "side": 1,
+      "message": "disagree. that\u0027s why we have conventional commits for chore, refactor, feature etc. The patch is flagged as extra large, so this can help reduce review difficulty.",
+      "parentUuid": "e629b847_b5e1a3db",
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d16250f_a0a2a48e",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 7
@@ -108,6 +126,30 @@
       "side": 1,
       "message": "\"gpt_\" removed from all static functions names, \u0026 kept for functions with external linkage.",
       "parentUuid": "8d16250f_a0a2a48e",
+      "range": {
+        "startLine": 913,
+        "startChar": 17,
+        "endLine": 913,
+        "endChar": 31
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12049073_7cee176f",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-29T22:19:27Z",
+      "side": 1,
+      "message": "this is a good candidate to move to separate patches. just because it is large, doesn\u0027t mean you pack in all the changes you can. That\u0027s why we have conventional commits with different scopes so it can help reviewers as well.",
+      "parentUuid": "117df64b_419e4445",
       "range": {
         "startLine": 913,
         "startChar": 17,
@@ -167,6 +209,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17452834_df931b41",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1365,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-29T22:19:27Z",
+      "side": 1,
+      "message": "new patches have been added. can you provide new line numbers?\nThe comment does not read well since it isn\u0027t clear to me (another reader, which is the purpose of a comment).",
+      "parentUuid": "a6efdf6e_0e1f99b4",
+      "range": {
+        "startLine": 1358,
+        "startChar": 1,
+        "endLine": 1365,
+        "endChar": 55
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "533db048_00d0cc4d",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 7
@@ -202,6 +268,30 @@
       "side": 1,
       "message": "NO.",
       "parentUuid": "533db048_00d0cc4d",
+      "range": {
+        "startLine": 1420,
+        "startChar": 16,
+        "endLine": 1420,
+        "endChar": 28
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d780715_2635989c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-29T22:19:27Z",
+      "side": 1,
+      "message": "can you explain more why it cannot change? what happens if there are delegates and undelegates at lower granularity as time goes on? won\u0027t the first L1 block descriptor location change?",
+      "parentUuid": "1512ac45_191bde20",
       "range": {
         "startLine": 1420,
         "startChar": 16,
@@ -261,6 +351,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d963c3bf_9fb10d30",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-29T22:19:27Z",
+      "side": 1,
+      "message": "yes it is a problem in the original code as well. can be a separate patch to fix this.",
+      "parentUuid": "58b2b301_e549e063",
+      "range": {
+        "startLine": 1655,
+        "startChar": 2,
+        "endLine": 1655,
+        "endChar": 8
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "056836a6_cc93ffd0",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 7
@@ -290,6 +404,24 @@
       "side": 1,
       "message": "line #1453. Lock is acquired only after all checks have been performed, There is no point to acquire it before \u0026 then release in case of an error.",
       "parentUuid": "056836a6_cc93ffd0",
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcb27229_058abaf2",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1661,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-29T22:19:27Z",
+      "side": 1,
+      "message": "yes, this is a readability issue. Other folks who write the code may not do it. There needs to be discipline in how we code lock acquire and releases and randomly acquiring it in some function and releasing it makes no sense. in that case, you can also release the lock in the function itself on error, for example.",
+      "parentUuid": "0064bad7_0a61832c",
       "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
