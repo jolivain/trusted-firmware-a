@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00633afc_58c8c22c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-29T23:01:10Z",
+      "side": 1,
+      "message": "are you doing 128 bits for efficiency? If yes, have you looked at assembly code to see this is actually more efficient?\nIt is simpler to read if you just use uint64_t. looking at some compiled code, it still generates 2 64 bit stores. Not sure if you use some compile option that makes it faster.\nsame for below.",
+      "range": {
+        "startLine": 232,
+        "startChar": 2,
+        "endLine": 232,
+        "endChar": 47
+      },
+      "revId": "19fc77cb4c60a63f33dab3136bdcaa0b31a4bede",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "486aa41b_b43221a9",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-29T23:01:10Z",
+      "side": 1,
+      "message": "the only difference between this and fill_granules_2mb is the parameter that is sent in. can we merge the function and have the caller pass in the right value? or use a single function with flag and generate config or granule descriptor internally? otherwise this is repeated code with no apparent benefit.",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 240,
+        "endChar": 1
+      },
+      "revId": "19fc77cb4c60a63f33dab3136bdcaa0b31a4bede",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
