@@ -39,6 +39,30 @@
       },
       "revId": "aaebd4131a6e03558dc6352b89a8871a4393d328",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d48d466_6d6436c3",
+        "filename": "plat/common/aarch64/plat_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1001235
+      },
+      "writtenOn": "2024-02-29T14:06:50Z",
+      "side": 1,
+      "message": "This has now been moved into a separate patch https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26894/1",
+      "parentUuid": "98dd5cb4_59fcb422",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 1
+      },
+      "revId": "aaebd4131a6e03558dc6352b89a8871a4393d328",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
