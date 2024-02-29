@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e629b847_b5e1a3db",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-02-29T09:13:01Z",
+      "side": 1,
+      "message": "There is no point in a separate clean up patch, because of the major change in functionality.",
+      "parentUuid": "553ea8c7_b4bcffaa",
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d16250f_a0a2a48e",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 7
