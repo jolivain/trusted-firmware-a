@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "42745ff0_da8fd10b",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-02-29T09:11:01Z",
+      "side": 1,
+      "message": "Line #221",
+      "parentUuid": "9788d98b_7cf0b7df",
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "553ea8c7_b4bcffaa",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 7
@@ -60,6 +78,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "117df64b_419e4445",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-02-29T09:11:01Z",
+      "side": 1,
+      "message": "\"gpt_\" removed from all static functions names, \u0026 kept for functions with external linkage.",
+      "parentUuid": "8d16250f_a0a2a48e",
+      "range": {
+        "startLine": 913,
+        "startChar": 17,
+        "endLine": 913,
+        "endChar": 31
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d5c2a78f_6b263ddc",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 7
@@ -71,6 +113,30 @@
       "writtenOn": "2024-02-29T01:06:19Z",
       "side": 1,
       "message": "not clear why you are calculating these values. would be good to have some more detailed comments. example, not clear why you want log2 for number of l1 entries in 512mb, but number of entries for 2mb.",
+      "range": {
+        "startLine": 1358,
+        "startChar": 1,
+        "endLine": 1365,
+        "endChar": 55
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6efdf6e_0e1f99b4",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1365,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-02-29T09:11:01Z",
+      "side": 1,
+      "message": "It\u0027s clear from usage of these variables:\nline #1364: explains what gpt_l1_cnt_2mb is used for.\nline #1442: gpt_512mb_bit is used to calculate index of 512MB block.",
+      "parentUuid": "d5c2a78f_6b263ddc",
       "range": {
         "startLine": 1358,
         "startChar": 1,
@@ -106,6 +172,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1512ac45_191bde20",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-02-29T09:11:01Z",
+      "side": 1,
+      "message": "NO.",
+      "parentUuid": "533db048_00d0cc4d",
+      "range": {
+        "startLine": 1420,
+        "startChar": 16,
+        "endLine": 1420,
+        "endChar": 28
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aaecde7f_6627667e",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 7
@@ -129,6 +219,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "58b2b301_e549e063",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-02-29T09:11:01Z",
+      "side": 1,
+      "message": "what\u0027s about\n\t/* Delegate request can only come from REALM or SECURE */\n\tassert(src_sec_state \u003d\u003d SMC_FROM_REALM ||\n\t       src_sec_state \u003d\u003d SMC_FROM_SECURE);\nin the original code?",
+      "parentUuid": "aaecde7f_6627667e",
+      "range": {
+        "startLine": 1655,
+        "startChar": 2,
+        "endLine": 1655,
+        "endChar": 8
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "056836a6_cc93ffd0",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 7
@@ -140,6 +254,24 @@
       "writtenOn": "2024-02-29T01:06:19Z",
       "side": 1,
       "message": "not clear that get_gpu_params acquires the lokc. Can we not acquire it before calling get_gpi_params? otherwise bit_unlock looks like you missed the lock.",
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0064bad7_0a61832c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1661,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-02-29T09:11:01Z",
+      "side": 1,
+      "message": "line #1453. Lock is acquired only after all checks have been performed, There is no point to acquire it before \u0026 then release in case of an error.",
+      "parentUuid": "056836a6_cc93ffd0",
       "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
