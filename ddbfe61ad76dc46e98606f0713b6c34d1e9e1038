@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f11cd33e_823b9bcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000581
+      },
+      "writtenOn": "2024-02-29T16:13:24Z",
+      "side": 1,
+      "message": "CI failure caused by c files not covered by coverity.\nCreated patch for tf-a-ci-scripts: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/26913 to resolve this issue.\n\nAs the makefiles for the files here are added in a later patch (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26850/1) it is possible even with the ci patch that the coverage will fail until the makefile patch.",
+      "revId": "ddbfe61ad76dc46e98606f0713b6c34d1e9e1038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
