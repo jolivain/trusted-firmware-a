@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9788d98b_7cf0b7df",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-29T01:06:19Z",
+      "side": 1,
+      "message": "why DSB here but not in other places above?",
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "553ea8c7_b4bcffaa",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 740,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-29T01:06:19Z",
+      "side": 1,
+      "message": "These clean up changes can be a separate patch. this just adds to review complexity since you have to squint to make sure there is no functional change.",
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d16250f_a0a2a48e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-29T01:06:19Z",
+      "side": 1,
+      "message": "what does removing the gpt_ buy us?",
+      "range": {
+        "startLine": 913,
+        "startChar": 17,
+        "endLine": 913,
+        "endChar": 31
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5c2a78f_6b263ddc",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1365,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-29T01:06:19Z",
+      "side": 1,
+      "message": "not clear why you are calculating these values. would be good to have some more detailed comments. example, not clear why you want log2 for number of l1 entries in 512mb, but number of entries for 2mb.",
+      "range": {
+        "startLine": 1358,
+        "startChar": 1,
+        "endLine": 1365,
+        "endChar": 55
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "533db048_00d0cc4d",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-29T01:06:19Z",
+      "side": 1,
+      "message": "can this not change from run_time init and as we change",
+      "range": {
+        "startLine": 1420,
+        "startChar": 16,
+        "endLine": 1420,
+        "endChar": 28
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaecde7f_6627667e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-29T01:06:19Z",
+      "side": 1,
+      "message": "assert is insufficient. it gets compiled out in production builds, and NS can simply send the SMC and we would assume it is secure. This needs to be an if check.",
+      "range": {
+        "startLine": 1655,
+        "startChar": 2,
+        "endLine": 1655,
+        "endChar": 8
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "056836a6_cc93ffd0",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1661,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-02-29T01:06:19Z",
+      "side": 1,
+      "message": "not clear that get_gpu_params acquires the lokc. Can we not acquire it before calling get_gpi_params? otherwise bit_unlock looks like you missed the lock.",
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
