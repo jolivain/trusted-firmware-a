@@ -16,6 +16,24 @@
       "message": "With the changes made in patchset 18, what is the need of DATASTORE_BASE",
       "revId": "ec0121387ba31916d12993f7ec024587948e310d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5986a02e_c4d2ab2e",
+        "filename": "plat/arm/board/fvp/fvp_el3_spmc.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000798
+      },
+      "writtenOn": "2024-02-29T10:18:17Z",
+      "side": 1,
+      "message": "need to use DATASTORE_BASE",
+      "parentUuid": "130df859_2ee5839c",
+      "revId": "ec0121387ba31916d12993f7ec024587948e310d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
