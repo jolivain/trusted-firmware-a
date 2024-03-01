@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d525be8_92ab9a97",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-01T16:30:47Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "bb5743be_4bff61b4",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 58
+      },
+      "revId": "e9a1dec94dde28522a76479535bc44b9f6fd1342",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "848fe96c_82674f83",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-28T17:09:47Z",
       "side": 1,
       "message": "From SDEN \"On r0p0, there is no workaround.\" so should this be a range with comment explaining that?\n\nAlso probably good to note in commit message that there is no workaround for r0p0",
+      "range": {
+        "startLine": 33,
+        "startChar": 48,
+        "endLine": 33,
+        "endChar": 61
+      },
+      "revId": "e9a1dec94dde28522a76479535bc44b9f6fd1342",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cc4984d_953febc7",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-01T16:30:47Z",
+      "side": 1,
+      "message": "Good catch. Updated the commit msg, cpu macros and cpu makefile too.",
+      "parentUuid": "848fe96c_82674f83",
       "range": {
         "startLine": 33,
         "startChar": 48,
