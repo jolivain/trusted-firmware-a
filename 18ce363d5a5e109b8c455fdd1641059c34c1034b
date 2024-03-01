@@ -56,6 +56,30 @@
       },
       "revId": "18ce363d5a5e109b8c455fdd1641059c34c1034b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "873aba3e_1cbb9435",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2319,
+      "author": {
+        "id": 1001224
+      },
+      "writtenOn": "2024-03-01T22:03:05Z",
+      "side": 1,
+      "message": "We\u0027ve been talking about reducing the notification bits memory usage. As part of these talks, I pushed this prototype patch stack to show how we could allocate notification state dynamically, during binding. I added you to a doc with more context (although I\u0027m not sure if the notification email went through).\n\nThank you for your review. I will preserve and address your comments regardless of which approach we will choose.",
+      "parentUuid": "46499dc8_c6ab625a",
+      "range": {
+        "startLine": 2319,
+        "startChar": 5,
+        "endLine": 2319,
+        "endChar": 19
+      },
+      "revId": "18ce363d5a5e109b8c455fdd1641059c34c1034b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
