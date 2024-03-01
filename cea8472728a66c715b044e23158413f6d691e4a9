@@ -95,6 +95,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa52cba3_b7056571",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-03-01T11:55:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9ab5d26_31b9de68",
+      "range": {
+        "startLine": 9,
+        "startChar": 32,
+        "endLine": 9,
+        "endChar": 36
+      },
+      "revId": "cea8472728a66c715b044e23158413f6d691e4a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cfd6cb37_18f72e85",
@@ -156,6 +180,30 @@
       "side": 1,
       "message": "I tend to agree with Olivier. Is there no way to make this platform specific ? appears dangerous to have such options. Platform specific code can use early code before smmuv3 init or just after, to disable security.",
       "parentUuid": "3f8bed52_11fbe0b5",
+      "range": {
+        "startLine": 79,
+        "startChar": 1,
+        "endLine": 83,
+        "endChar": 2
+      },
+      "revId": "cea8472728a66c715b044e23158413f6d691e4a9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6e58bcd_e9761abe",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-03-01T11:55:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43f9f1f9_907f8bc0",
       "range": {
         "startLine": 79,
         "startChar": 1,
