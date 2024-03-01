@@ -20,6 +20,138 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6eb0fe3d_99e09226",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "declaration at the top of the scope in which these are used.",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 32,
+        "endChar": 22
+      },
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0b020cc_6f52303c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "MISRA states single line statement should be between curly brackets.",
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11fc0626_8ba5b51e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "define helper function that does the search bit?\n\nDefine struct iteratator type for this list that contains a ptr to current, and a pointer to previous?\nThis iterator to be defined within the helper function?",
+      "range": {
+        "startLine": 65,
+        "startChar": 1,
+        "endLine": 70,
+        "endChar": 19
+      },
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a46b66c9_aa1cb0fb",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "Curly brackets are required by the MISRA standard.\nAnd all other instances.",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 1
+      },
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94381363_c2615124",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "Break and ident line.\nAnd all other functions as well.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 116
+      },
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e16ea5bb_3ae70485",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "declarations shall be at the top of the scope as per TF-A coding guidelines.",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 104,
+        "endChar": 25
+      },
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a3dc25bf_8598d3a8",
         "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
         "patchSetId": 1
@@ -49,6 +181,23 @@
       "side": 1,
       "message": "Sounds like it would. Let me add it to the ID section of the notifications doc and tag you.",
       "parentUuid": "a3dc25bf_8598d3a8",
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dcfba23_e49c909b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "nitpick: align all arguments to the function.\nAnd all other instances of the same case in this file.",
       "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -90,6 +239,121 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23256fd9_bed1b30f",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "Is there a 1-to-1 mapping from the spmc_ffa_status_t and the error code?\nIf so, would it help to have a global function that would translate one type from the other?\n\nAlso, could the status be replaced entirely by the error code?",
+      "range": {
+        "startLine": 206,
+        "startChar": 1,
+        "endLine": 218,
+        "endChar": 2
+      },
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c36c869_7c4f6337",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "split arguments in multiple lines, and align.",
+      "range": {
+        "startLine": 221,
+        "startChar": 45,
+        "endLine": 221,
+        "endChar": 66
+      },
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ab94a7e_73db392b",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "comments should be in lines:\n/* */\n\nCheck TF-A\u0027s coding guidelines:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 32
+      },
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d3d2cb6_559620cb",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "top of the scope.",
+      "range": {
+        "startLine": 233,
+        "startChar": 28,
+        "endLine": 233,
+        "endChar": 37
+      },
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "774b0047_471b4fd6",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "should you add an error log ?",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 292,
+        "endChar": 57
+      },
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "818e3f46_d830c054",
         "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
         "patchSetId": 1
@@ -119,6 +383,75 @@
       "side": 1,
       "message": "Yes, I think we\u0027re discussing either 1) making support optional, or 2) allowing specifying the number of per-vCPU bits, including `0`.",
       "parentUuid": "818e3f46_d830c054",
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27e1fc3a_6e9ad3f5",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 15
+      },
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30d5c7b1_46a009ca",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "Check https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-guidelines.html\n\nFor doc comments style.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 2
+      },
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52d6d046_1e799d47",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "ffa_notifications_state?",
+      "range": {
+        "startLine": 21,
+        "startChar": 15,
+        "endLine": 21,
+        "endChar": 37
+      },
       "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -189,6 +522,75 @@
       "side": 1,
       "message": "I decided to duplicate this to reuse the same struct, and to avoid walking the list the look up the bound notification info.",
       "parentUuid": "b3d7c224_ef204504",
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3caacef_54ed0b00",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "I think the use of unions is highly discouraged in the MISRA standard.",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 5
+      },
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18829594_63bc8fe9",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 64,
+        "startChar": 8,
+        "endLine": 64,
+        "endChar": 13
+      },
+      "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9359b84_8bcceb75",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_notifications.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:48:30Z",
+      "side": 1,
+      "message": "Could the error codes defined in the ffa_svc.h be used directly?",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 20
+      },
       "revId": "0dc32bd705f3501576c672a5215f5b68ae067711",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
