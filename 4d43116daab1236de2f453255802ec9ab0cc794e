@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64eabfe9_f4d9053f",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-01T17:38:01Z",
+      "side": 1,
+      "message": "because tlbi_2mb(), tlbi_32mb() \u0026 tlbi_512mb() don\u0027t depend on GPCCR_EL3.PGS value, but tlbi_page() does.",
+      "parentUuid": "9cc0eceb_90f03fa7",
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "553ea8c7_b4bcffaa",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 7
@@ -310,6 +328,30 @@
       "side": 1,
       "message": "can you explain more why it cannot change? what happens if there are delegates and undelegates at lower granularity as time goes on? won\u0027t the first L1 block descriptor location change?",
       "parentUuid": "1512ac45_191bde20",
+      "range": {
+        "startLine": 1420,
+        "startChar": 16,
+        "endLine": 1420,
+        "endChar": 28
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58b17aa4_dfb22310",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-01T17:38:01Z",
+      "side": 1,
+      "message": "1. Existing API supports only single 4KB page delegation/undelegation.\n2. With block (multiple pages delegation/undelegation) API added, it is still won\u0027t be possible to reprogram GPCCR_EL3.L0GPTSZ \u0026 GPCCR_EL3.PGS in runtime, as it would have required to re-initialise GPT L0 \u0026 all L1 tables, which would break existing mappings.",
+      "parentUuid": "1d780715_2635989c",
       "range": {
         "startLine": 1420,
         "startChar": 16,

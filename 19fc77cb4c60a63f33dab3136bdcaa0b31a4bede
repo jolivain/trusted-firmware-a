@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a0b4758_8168b0d3",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-01T17:38:01Z",
+      "side": 1,
+      "message": "1. using 128-bit writes reduces number of loops required by 2 times:\n2. @400a78c:\n000000000400a76c \u003cfill_cont_2mb\u003e:\n{\n\tuint128_t *l2 \u003d (uint128_t *)l1;\n\n\tVERBOSE(\"GPT: %s(%p 0x%\"PRIx64\")\\n\", __func__, l1, l1_cont_desc);\n\n\tfor (unsigned int i \u003d 0U; i \u003c (gpt_l1_cnt_2mb / 2U); i++) {\n 400a76c:\td00000c2 \tadrp\tx2, 4024000 \u003camu_ctxs_+0x680\u003e\n\t\t*l2++ \u003d l1_cont_desc | ((uint128_t)l1_cont_desc \u003c\u003c 64);\n 400a770:\taa0103e3 \tmov\tx3, x1\n\tfor (unsigned int i \u003d 0U; i \u003c (gpt_l1_cnt_2mb / 2U); i++) {\n 400a774:\tb9495442 \tldr\tw2, [x2, #2388]\n 400a778:\t53017c42 \tlsr\tw2, w2, #1\n 400a77c:\t8b021002 \tadd\tx2, x0, x2, lsl #4\n 400a780:\teb02001f \tcmp\tx0, x2\n 400a784:\t54000041 \tb.ne\t400a78c \u003cfill_cont_2mb+0x20\u003e  // b.any\n\t}\n\n\treturn (uint64_t *)l2;\n}\n 400a788:\td65f03c0 \tret\n\t\t*l2++ \u003d l1_cont_desc | ((uint128_t)l1_cont_desc \u003c\u003c 64);\n 400a78c:\ta8810c01 \tstp\tx1, x3, [x0], #16\n\tfor (unsigned int i \u003d 0U; i \u003c (gpt_l1_cnt_2mb / 2U); i++) {\n 400a790:\t17fffffc \tb\t400a780 \u003cfill_cont_2mb+0x14\u003e",
+      "parentUuid": "00633afc_58c8c22c",
+      "range": {
+        "startLine": 232,
+        "startChar": 2,
+        "endLine": 232,
+        "endChar": 47
+      },
+      "revId": "19fc77cb4c60a63f33dab3136bdcaa0b31a4bede",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "486aa41b_b43221a9",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 11
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-29T23:01:10Z",
       "side": 1,
       "message": "the only difference between this and fill_granules_2mb is the parameter that is sent in. can we merge the function and have the caller pass in the right value? or use a single function with flag and generate config or granule descriptor internally? otherwise this is repeated code with no apparent benefit.",
+      "range": {
+        "startLine": 239,
+        "startChar": 0,
+        "endLine": 240,
+        "endChar": 1
+      },
+      "revId": "19fc77cb4c60a63f33dab3136bdcaa0b31a4bede",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6cfb588_2a758231",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-01T17:38:01Z",
+      "side": 1,
+      "message": "although for fill_granules_2mb() compiler generates branch to fill_cont_2mb():\n\treturn fill_granules_2mb(\u0026gpi_info-\u003egpt_l1_addr[idx], l1_desc);\n 4012598:\t0a030000 \tand\tw0, w0, w3\n 401259c:\tf9400423 \tldr\tx3, [x1, #8]\n 40125a0:\taa0203e1 \tmov\tx1, x2\n 40125a4:\t8b000c60 \tadd\tx0, x3, x0, lsl #3\n 40125a8:\t17ffe071 \tb\t400a76c \u003cfill_cont_2mb\u003e\n\nthis is a good suggestion.",
+      "parentUuid": "486aa41b_b43221a9",
       "range": {
         "startLine": 239,
         "startChar": 0,
