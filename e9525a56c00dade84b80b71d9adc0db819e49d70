@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69da4a13_ab982171",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2285,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-03-01T14:53:40Z",
+      "side": 1,
+      "message": "nitpick: using wording from spec to make it clearer. per_vCPU?",
+      "range": {
+        "startLine": 2285,
+        "startChar": 29,
+        "endLine": 2285,
+        "endChar": 35
+      },
+      "revId": "e9525a56c00dade84b80b71d9adc0db819e49d70",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
