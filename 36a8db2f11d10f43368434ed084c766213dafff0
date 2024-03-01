@@ -16,6 +16,46 @@
       "message": "@Etienne, can you please give your CoR+1 on this patch. Thanks.",
       "revId": "36a8db2f11d10f43368434ed084c766213dafff0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfe93e1e_a6f103c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-03-01T07:40:32Z",
+      "side": 1,
+      "message": "I\u0027m OK with this patchset 6 despite my comment that is only an question (just in case there is some MISRA like requirements that expect NR_OF_MAX_FW_BANKS being explicit unsigned).",
+      "revId": "36a8db2f11d10f43368434ed084c766213dafff0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c62607b0_f78c95fe",
+        "filename": "include/drivers/fwu/fwu_metadata.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-03-01T07:40:32Z",
+      "side": 1,
+      "message": "don\u0027t need `4U` here?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 28
+      },
+      "revId": "36a8db2f11d10f43368434ed084c766213dafff0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
