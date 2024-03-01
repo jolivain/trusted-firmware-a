@@ -16,6 +16,23 @@
       "message": "@Etienne, can you please give your CoR+1 on this patch. Thanks.",
       "revId": "9e1dbd451899b3d45c3409f69c0d6904b37e9bec",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "686edf76_bf1770de",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-03-01T08:51:32Z",
+      "side": 1,
+      "message": "`assert(is_metadata_initialized);`?",
+      "revId": "9e1dbd451899b3d45c3409f69c0d6904b37e9bec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
