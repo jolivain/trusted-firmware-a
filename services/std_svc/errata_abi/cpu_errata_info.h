@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2023-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -30,6 +30,7 @@
 #include <cortex_x1.h>
 #include <cortex_x2.h>
 #include <cortex_x3.h>
+#include <cortex_x4.h>
 #include <neoverse_n1.h>
 #include <neoverse_n2.h>
 #include <neoverse_v1.h>
