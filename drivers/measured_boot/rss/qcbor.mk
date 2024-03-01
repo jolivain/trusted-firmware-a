@@ -7,7 +7,7 @@
 # TF-A was tested with v1.2 version of QCBOR
 
 ifeq (${QCBOR_DIR},)
-	$(error Error: QCBOR_DIR not set)
+    $(error Error: QCBOR_DIR not set)
 endif
 
 QCBOR_SOURCES	+=	${QCBOR_DIR}/src/qcbor_encode.c \
