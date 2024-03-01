@@ -269,6 +269,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0cc1bd10_03afd890",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1365,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-01T18:14:03Z",
+      "side": 1,
+      "message": "patchset #12:\nline #1355:\n\t/* Number of L1 entries in 2MB */\n\tgpt_l1_cnt_2mb \u003d GPT_L1_ENTRY_COUNT_2MB(gpt_config.p);\n\t\nline #1364:\n\t/* log2(Number of L1 entries in 512MB) */\n\tgpt_512mb_bit \u003d gpt_s_lookup[gpt_config.pgs];\n\ngpt_512mb_bit is used as number of \u003e\u003e shifts to avoid division in calculation of 512MB block number on line #1422:\n\t/* 512MB block index */\n\tn_512 \u003d gpi_info-\u003eidx \u003e\u003e gpt_512mb_bit;",
+      "parentUuid": "17452834_df931b41",
+      "range": {
+        "startLine": 1358,
+        "startChar": 1,
+        "endLine": 1365,
+        "endChar": 55
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "533db048_00d0cc4d",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 7
