@@ -16,6 +16,29 @@
       "message": "@Etienne, can you please give your CoR+1 on this patch. Thanks.",
       "revId": "b7438f2f8ae9dfa5ba13315b7048b27ed80d82fb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f82063c9_2542e185",
+        "filename": "drivers/fwu/fwu.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000269
+      },
+      "writtenOn": "2024-03-01T08:49:46Z",
+      "side": 1,
+      "message": "nitpicking, for consistency:\n\n\t\tWARN(\"Descriptor Offset(0x%x) in the FWU Metadata not equal to 0x%x\\n\",\n\t\t     metadata.desc_offset, FWU_FW_STORE_DESC_OFFSET);\n\nBy the way, I think TF-A does not support `#` specifier for `0x` prefixing printed numerical values. If i\u0027m right, line 107 needs to be updated too. Maybe some other trace message formatting in this patch series.",
+      "range": {
+        "startLine": 101,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 72
+      },
+      "revId": "b7438f2f8ae9dfa5ba13315b7048b27ed80d82fb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
