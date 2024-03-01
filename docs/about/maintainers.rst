@@ -811,6 +811,8 @@ Synquacer platform port
 ^^^^^^^^^^^^^^^^^^^^^^^
 :|M|: Sumit Garg <sumit.garg@linaro.org>
 :|G|: `b49020`_
+:|M|: Masahisa Kojima <kojima.masahisa@socionext.com>
+:|G|: `masahisak`_
 :|F|: docs/plat/synquacer.rst
 :|F|: plat/socionext/synquacer/
 
