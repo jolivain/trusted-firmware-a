@@ -16,6 +16,69 @@
       "message": "CI failure caused by c files not covered by coverity.\nCreated patch for tf-a-ci-scripts: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/26913 to resolve this issue.\n\nAs the makefiles for the files here are added in a later patch (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26850/1) it is possible even with the ci patch that the coverage will fail until the makefile patch.",
       "revId": "ddbfe61ad76dc46e98606f0713b6c34d1e9e1038",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b45fbccb_220e6812",
+        "filename": "drivers/arm/mhu/mhu_v3_x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-03-04T16:55:34Z",
+      "side": 1,
+      "message": "nitpick: U(0x2)",
+      "range": {
+        "startLine": 14,
+        "startChar": 25,
+        "endLine": 14,
+        "endChar": 31
+      },
+      "revId": "ddbfe61ad76dc46e98606f0713b6c34d1e9e1038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddaee75a_58edc327",
+        "filename": "drivers/arm/mhu/mhu_v3_x.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-03-04T16:55:34Z",
+      "side": 1,
+      "message": "nitpick: Can it be removed?",
+      "range": {
+        "startLine": 34,
+        "startChar": 3,
+        "endLine": 34,
+        "endChar": 4
+      },
+      "revId": "ddbfe61ad76dc46e98606f0713b6c34d1e9e1038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fea43dfa_1cf3f96c",
+        "filename": "drivers/arm/mhu/mhu_v3_x_private.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-03-04T16:55:34Z",
+      "side": 1,
+      "message": "nitpick:\nPlease move all macro definitions to the top of the file.",
+      "revId": "ddbfe61ad76dc46e98606f0713b6c34d1e9e1038",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
