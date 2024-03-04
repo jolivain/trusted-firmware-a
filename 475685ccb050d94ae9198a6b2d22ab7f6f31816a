@@ -16,6 +16,23 @@
       "message": "Windows build: https://ci.trustedfirmware.org/job/tf-a-windows-builder/DEBUG\u003d0,label\u003dtf-a-windows/99.",
       "revId": "475685ccb050d94ae9198a6b2d22ab7f6f31816a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02806c81_35704105",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-03-04T14:10:00Z",
+      "side": 1,
+      "message": "We have decided to instead adjust our prerequisites to require a UNIX-like environment on Windows (e.g. MSYS2 or Cygwin).",
+      "revId": "475685ccb050d94ae9198a6b2d22ab7f6f31816a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
