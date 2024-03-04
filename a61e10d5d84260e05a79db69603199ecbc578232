@@ -33,6 +33,24 @@
       "message": "last nit: shouldn\u0027t the write macros expand to something or other? Does expanding to nothing really not produce a warning? Shouldn\u0027t we get ahead of that warning even if we don\u0027t have it enabled?",
       "revId": "a61e10d5d84260e05a79db69603199ecbc578232",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "928edf9d_db980a41",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 481,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-03-04T17:40:11Z",
+      "side": 1,
+      "message": "I dont see any warnings with any of the CI builds. Tested it locally too. \nWe had the same discussion earlier and I had posted an alternative version for write_macros.\n(https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26416/4/include/lib/el3_runtime/aarch64/context.h)\nDidn\u0027t receive any comments from other reviewers. Hence reverted back.\n\nHave similar coding style here (macro not expanding):\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/common/debug.h#n67\nSo I presume, not an issue.\n\nLet me know your thoughts. If required will modify accordingly.",
+      "parentUuid": "2eac036e_ec825a9a",
+      "revId": "a61e10d5d84260e05a79db69603199ecbc578232",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
