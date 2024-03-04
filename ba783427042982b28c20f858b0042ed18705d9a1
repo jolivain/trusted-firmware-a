@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5896345a_c1d88ac9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-03-04T15:17:37Z",
+      "side": 1,
+      "message": "This was implemented as part of a requirement from a customer where the DSU PMU registers needed to be saved/restored when clusters get turned off/on. TC platform was chosen to test this DSU driver as it uses CSS.",
+      "parentUuid": "b7071ede_1df77ff0",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "ba783427042982b28c20f858b0042ed18705d9a1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a08f8897_4be58c4b",
         "filename": "plat/arm/css/common/css_pm.c",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-22T15:51:01Z",
       "side": 1,
       "message": "all of this seems generic to me, can\u0027t it be absorbed into the driver and just call it from here? If there was another platform that needed this, I\u0027d imagine they\u0027d use the same code for this",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 1
+      },
+      "revId": "ba783427042982b28c20f858b0042ed18705d9a1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6731fa71_38be626f",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-03-04T15:17:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a08f8897_4be58c4b",
       "range": {
         "startLine": 84,
         "startChar": 0,
