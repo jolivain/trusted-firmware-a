@@ -16,6 +16,24 @@
       "message": "Hi Chris, Manish!\nthis is my first submission to TF-A and using all the associated infrastructure...  I\u0027m not sure if the patch I\u0027m proposing is the \"best\" solution for the issue at hand but it seems to work in the handful scenarios I tested. I ran into this issue a few times in the past because by default I always build with \u0027ccache\u0027 so I thought it\u0027s time to see if the behavior can be improved.\n\nThanks for any comments/feedback.\nAndreas",
       "revId": "237887981b892b3f4a529d2881e5caeaa3620443",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44cc0ebf_a494ffa7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001242
+      },
+      "writtenOn": "2024-03-04T06:12:00Z",
+      "side": 1,
+      "message": "Oh well, I just saw Gerrit flagged a fix that is currently under review that is addressing the same issue, and probably in a better way: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26780\n\nMight be best if I just abandon this submission here.",
+      "parentUuid": "c0034ae0_03ef6ded",
+      "revId": "237887981b892b3f4a529d2881e5caeaa3620443",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
