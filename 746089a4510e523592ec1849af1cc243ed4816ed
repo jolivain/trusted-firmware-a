@@ -16,6 +16,23 @@
       "message": "I think this patch can be abandoned. The problem has been solved by https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/21511",
       "revId": "746089a4510e523592ec1849af1cc243ed4816ed",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e62b0726_94d7e03f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-03-04T17:37:15Z",
+      "side": 1,
+      "message": "Leaving -1 to make sure the patch doesnt get accidentally merged",
+      "revId": "746089a4510e523592ec1849af1cc243ed4816ed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
