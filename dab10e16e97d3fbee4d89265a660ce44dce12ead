@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a250fbab_2d3f1a87",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-03-05T15:17:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d83cdca9_26f662d6",
+      "revId": "dab10e16e97d3fbee4d89265a660ce44dce12ead",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dff9ddd5_ed8f815c",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "I\u0027ve added them and pushed a new commit https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26990 that adds them to the CSU_HP_REG as well.",
       "parentUuid": "dff9ddd5_ed8f815c",
+      "range": {
+        "startLine": 34,
+        "startChar": 39,
+        "endLine": 34,
+        "endChar": 53
+      },
+      "revId": "dab10e16e97d3fbee4d89265a660ce44dce12ead",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "549de3a2_4abf675f",
+        "filename": "plat/imx/imx8m/include/imx8m_csu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-03-05T15:17:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19c6e197_e0fee719",
       "range": {
         "startLine": 34,
         "startChar": 39,
