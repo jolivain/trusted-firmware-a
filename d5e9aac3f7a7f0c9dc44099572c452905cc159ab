@@ -22,6 +22,30 @@
       },
       "revId": "d5e9aac3f7a7f0c9dc44099572c452905cc159ab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83583740_9ce4508c",
+        "filename": "plat/arm/board/tc/fdts/tc_fw_config.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001243
+      },
+      "writtenOn": "2024-03-05T17:28:49Z",
+      "side": 1,
+      "message": "I think you just need to wrap it in parentheses...\n\u003c0x0 (PLAT_HW_CONFIG_DTB_BASE + PLAT_HW_CONFIG_DTB_SIZE)\u003e;",
+      "parentUuid": "f52c407b_eaae389b",
+      "range": {
+        "startLine": 34,
+        "startChar": 23,
+        "endLine": 34,
+        "endChar": 72
+      },
+      "revId": "d5e9aac3f7a7f0c9dc44099572c452905cc159ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
