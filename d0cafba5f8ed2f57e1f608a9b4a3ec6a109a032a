@@ -33,6 +33,24 @@
       "message": "I opened some of the random fails. All of them show the following signature for failure. \n\"Waiting for \u0027Booting BL2\u0027, \u0027Fail.*load.*BL2|BL2.*Fail.*load\u0027\". This signature is something posted in Discord by Paul.",
       "revId": "d0cafba5f8ed2f57e1f608a9b4a3ec6a109a032a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed38c19c_588685cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-05T23:11:28Z",
+      "side": 1,
+      "message": "The specific signature seems different here, hence not to confuse with the failure reported by Paul.\n\n2024-03-05T17:45:48 ERROR: Unknown current sync exception pc\u003d0x60016f4, esr\u003d0x62313076, ec\u003d0x18\n2024-03-05T17:45:48 Panic: EL2 exception\n2024-03-05T17:45:48 Matched a failure: \u0027Panic:\u0027",
+      "parentUuid": "d946044b_e43fb1c9",
+      "revId": "d0cafba5f8ed2f57e1f608a9b4a3ec6a109a032a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
