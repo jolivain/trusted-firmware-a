@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c07ed865_eb4df212",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-03-05T10:16:31Z",
+      "side": 1,
+      "message": "Thanks for the changes, just one small thing left, I\u0027d say.",
+      "revId": "a213e843cc0e8c51bbd6e9415998705015f79a7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2957f928_f352ee91",
+        "filename": "lib/cpus/aarch64/cortex_a55.S",
+        "patchSetId": 20
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-03-05T10:16:31Z",
+      "side": 1,
+      "message": "That wfi is still never reached.\nOn a closer look, this DBGPRCR register is architectural, and the ARM ARM says that the reset value is IMPLEMENTATION DEFINED, so we should *always* clear it. So can you just move that one line setting the register right into the beginning of cortex_a55_core_pwr_dwn? So get rid of this extra function at all, just copy the comment into the comment above.",
+      "revId": "a213e843cc0e8c51bbd6e9415998705015f79a7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
