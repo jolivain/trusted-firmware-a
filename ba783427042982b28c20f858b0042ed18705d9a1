@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "90172fee_d091a964",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-03-05T09:43:16Z",
+      "side": 1,
+      "message": "sure, I understand it\u0027s a requirement, but what\u0027s the use case? *Why* does that customer need to save/restore these registers on power on/off? It would be nice to have this in the commit log so people looking at this aren\u0027t confused",
+      "parentUuid": "5896345a_c1d88ac9",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "ba783427042982b28c20f858b0042ed18705d9a1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a08f8897_4be58c4b",
         "filename": "plat/arm/css/common/css_pm.c",
         "patchSetId": 5
