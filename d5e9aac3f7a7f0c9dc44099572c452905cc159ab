@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f52c407b_eaae389b",
+        "filename": "plat/arm/board/tc/fdts/tc_fw_config.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-03-05T17:24:01Z",
+      "side": 1,
+      "message": "Looks like DT compile does not like this, giving error as below-\n```\n16:31:33 Error: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/tc/debug/fdts/tc_fw_config.pre.dts:21.37-38 syntax error\n16:31:33 FATAL ERROR: Unable to parse input tree\n```\n\nCan you introduce instead new macro for specifying the NT_CONFIG DT base?",
+      "range": {
+        "startLine": 34,
+        "startChar": 23,
+        "endLine": 34,
+        "endChar": 72
+      },
+      "revId": "d5e9aac3f7a7f0c9dc44099572c452905cc159ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
