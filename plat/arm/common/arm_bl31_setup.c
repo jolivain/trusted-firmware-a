@@ -328,9 +328,6 @@ void arm_bl31_platform_setup(void)
  ******************************************************************************/
 void arm_bl31_plat_runtime_setup(void)
 {
-	/* Initialize the runtime console */
-	arm_console_runtime_init();
-
 #if RECLAIM_INIT_CODE
 	arm_free_init_memory();
 #endif
@@ -339,6 +336,8 @@ void arm_bl31_plat_runtime_setup(void)
 	arm_xlat_make_tables_readonly();
 #endif
 
+	/* Initialize the runtime console */
+	arm_console_runtime_init();
 	console_flush();
 	console_switch_state(CONSOLE_FLAG_RUNTIME);
 }
