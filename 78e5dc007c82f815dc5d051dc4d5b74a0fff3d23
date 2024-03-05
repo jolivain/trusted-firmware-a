@@ -74,6 +74,30 @@
       },
       "revId": "78e5dc007c82f815dc5d051dc4d5b74a0fff3d23",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8636650_219d8020",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 53
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-03-05T17:57:23Z",
+      "side": 1,
+      "message": "Hi Craig, we\u0027re trying to decouple as much as we can from architectural versions and migrate over to the feature detection framework, as the arch version tells us increasingly little about the feature set of the system. In theory, outside of organisation and for passing flags to other tools, there is not much use for the architecture version within TF-A itself, and conditional compile-time flags should be conditional on more concrete information.",
+      "parentUuid": "f8871e33_0d96eafe",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 10
+      },
+      "revId": "78e5dc007c82f815dc5d051dc4d5b74a0fff3d23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
