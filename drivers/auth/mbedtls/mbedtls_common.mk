@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2023, Arm Limited. All rights reserved.
+# Copyright (c) 2015-2024, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -20,15 +20,14 @@ MBEDTLS_MINOR=$(shell grep -hP "define MBEDTLS_VERSION_MINOR" ${MBEDTLS_DIR}/inc
 $(info MBEDTLS_VERSION_MAJOR is [${MBEDTLS_MAJOR}] MBEDTLS_VERSION_MINOR is [${MBEDTLS_MINOR}])
 
 # Specify mbed TLS configuration file
-ifeq (${MBEDTLS_MAJOR}, 2)
-        $(info Deprecation Notice: Please migrate to Mbedtls version 3.x (refer to TF-A documentation for the exact version number))
-	MBEDTLS_CONFIG_FILE             ?=	"<drivers/auth/mbedtls/mbedtls_config-2.h>"
-else ifeq (${MBEDTLS_MAJOR}, 3)
+ifeq (${MBEDTLS_MAJOR}, 3)
 	ifeq (${PSA_CRYPTO},1)
 		MBEDTLS_CONFIG_FILE     ?=      "<drivers/auth/mbedtls/psa_mbedtls_config.h>"
 	else
 		MBEDTLS_CONFIG_FILE	?=	"<drivers/auth/mbedtls/mbedtls_config-3.h>"
 	endif
+else
+	$(error Error: TF-A only supports MbedTLS versions > 3.x)
 endif
 
 $(eval $(call add_define,MBEDTLS_CONFIG_FILE))
@@ -63,11 +62,7 @@ LIBMBEDTLS_SRCS		+= $(addprefix ${MBEDTLS_DIR}/library/,		\
 					x509_crt.c 			\
 					)
 
-ifeq (${MBEDTLS_MAJOR}, 2)
-	LIBMBEDTLS_SRCS +=  $(addprefix ${MBEDTLS_DIR}/library/,	\
-						rsa_internal.c		\
-						)
-else ifeq (${MBEDTLS_MAJOR}, 3)
+ifeq (${MBEDTLS_MAJOR}, 3)
 	LIBMBEDTLS_SRCS +=  $(addprefix ${MBEDTLS_DIR}/library/,	\
 						bignum_core.c		\
 						rsa_alt_helpers.c	\
