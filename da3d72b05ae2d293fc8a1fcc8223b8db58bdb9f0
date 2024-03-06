@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d4481b0_4b310d98",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 13
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-06T18:43:38Z",
+      "side": 1,
+      "message": "Probably another rebase issue. \n\nThis needs to be removed altogether. This ID assigned to A715 was a defect. And it has to be X3 instead.(https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26716.  Check line 805 in this file, the move of this erratum to Cortex-X3 has made it to master branch. So, this whole block needs to be squashed. In the docs/design/cpu-specific-build-macros.rst, this is rebased correctly.",
+      "range": {
+        "startLine": 925,
+        "startChar": 0,
+        "endLine": 929,
+        "endChar": 0
+      },
+      "revId": "da3d72b05ae2d293fc8a1fcc8223b8db58bdb9f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "073afd45_20729446",
+        "filename": "services/std_svc/errata_abi/errata_abi_main.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-06T18:43:38Z",
+      "side": 1,
+      "message": "I think the rebase went wrong. \n\nI hope you rebased with master. This full block needs to be removed. Struct only hold any system/platform specific errata from now. (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26449)\n\nIt\u0027s no longer needed to be updated with all the other individual errata IDs.",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 30
+      },
+      "revId": "da3d72b05ae2d293fc8a1fcc8223b8db58bdb9f0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
