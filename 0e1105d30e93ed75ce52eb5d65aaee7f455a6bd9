@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b77be344_2b41f28b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-06T09:58:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e05a4b8_523f914c",
+      "range": {
+        "startLine": 7,
+        "startChar": 47,
+        "endLine": 7,
+        "endChar": 50
+      },
+      "revId": "0e1105d30e93ed75ce52eb5d65aaee7f455a6bd9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ec768e1_50047f99",
@@ -70,6 +94,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1e00eb4_902d986f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-06T09:58:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5b94a0e_2390caec",
+      "range": {
+        "startLine": 15,
+        "startChar": 53,
+        "endLine": 15,
+        "endChar": 56
+      },
+      "revId": "0e1105d30e93ed75ce52eb5d65aaee7f455a6bd9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "885044ab_2c861a9e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-06T09:58:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ec768e1_50047f99",
+      "range": {
+        "startLine": 15,
+        "startChar": 7,
+        "endLine": 15,
+        "endChar": 15
+      },
+      "revId": "0e1105d30e93ed75ce52eb5d65aaee7f455a6bd9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8214514d_60bc650d",
@@ -93,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "695a61ab_e3d88f67",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-06T09:58:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8214514d_60bc650d",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 4
+      },
+      "revId": "0e1105d30e93ed75ce52eb5d65aaee7f455a6bd9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8322662c_0dff5af1",
@@ -106,6 +202,30 @@
       "writtenOn": "2024-03-04T11:19:18Z",
       "side": 1,
       "message": "Is this size agreed by all Arm platforms? if not then better put this size inside the FVP platform defines file [1]?\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/plat/arm/board/fvp/include/platform_def.h",
+      "range": {
+        "startLine": 531,
+        "startChar": 0,
+        "endLine": 531,
+        "endChar": 37
+      },
+      "revId": "0e1105d30e93ed75ce52eb5d65aaee7f455a6bd9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e2227bb_a1aad7a7",
+        "filename": "include/plat/arm/common/arm_def.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-06T09:58:06Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8322662c_0dff5af1",
       "range": {
         "startLine": 531,
         "startChar": 0,
