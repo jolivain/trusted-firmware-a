@@ -77,6 +77,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c1bd2ef8_99ac02cc",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T11:38:36Z",
+      "side": 1,
+      "message": "add function comments",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "044584b0_e10c6439",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 12
@@ -88,6 +105,30 @@
       "writtenOn": "2024-03-06T10:46:25Z",
       "side": 1,
       "message": "nit: fill_cont_ prefix for uniformity.",
+      "range": {
+        "startLine": 62,
+        "startChar": 17,
+        "endLine": 62,
+        "endChar": 25
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd4ab6ad_d6c67498",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T11:38:36Z",
+      "side": 1,
+      "message": "I see why you chose a different name for this as you can either fill using cont desc or regular GPI.\n\nSuggest to mentioned this in comments for this function.",
+      "parentUuid": "044584b0_e10c6439",
       "range": {
         "startLine": 62,
         "startChar": 17,
@@ -209,6 +250,23 @@
         "endLine": 177,
         "endChar": 33
       },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1df5439c_93f9f51a",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T11:38:36Z",
+      "side": 1,
+      "message": "add comment:\n\nGet index corresponding to this address to do deeper than 32 MB shatter.",
       "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -534,6 +592,29 @@
         "startChar": 2,
         "endLine": 1654,
         "endChar": 7
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b03415b5_62ef4567",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1709,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T11:38:36Z",
+      "side": 1,
+      "message": "I did not understand this check and how it would match.",
+      "range": {
+        "startLine": 1709,
+        "startChar": 1,
+        "endLine": 1709,
+        "endChar": 39
       },
       "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
