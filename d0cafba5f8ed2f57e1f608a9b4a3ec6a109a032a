@@ -51,6 +51,23 @@
       "parentUuid": "d946044b_e43fb1c9",
       "revId": "d0cafba5f8ed2f57e1f608a9b4a3ec6a109a032a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7819d93f_44bf1f4e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-06T20:58:35Z",
+      "side": 1,
+      "message": "This will need additional patches to be picked into lts-v2.8 and resolved for conflicts and pass CI, related to context management from mainline b/w TF-A v2.8 and v2.10.",
+      "revId": "d0cafba5f8ed2f57e1f608a9b4a3ec6a109a032a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
