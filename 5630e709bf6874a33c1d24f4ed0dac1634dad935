@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8f3729ce_9d2a772e",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T12:17:33Z",
+      "side": 1,
+      "message": "This code was tested \u0026 compiled in CI with gcc version 12.3.1 20230626 (Arm GNU Toolchain 12.3.Rel1 (Build arm-12.35)) which is mentioned in TF-A docs.",
+      "parentUuid": "87fcef15_627af748",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "232bfe7c_de0822fa",
         "filename": "include/arch/aarch64/arch_helpers.h",
         "patchSetId": 12
@@ -71,6 +89,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3757a555_f5c1cfbf",
+        "filename": "include/lib/spinlock.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T12:17:33Z",
+      "side": 1,
+      "message": "No required. Both spinlock_t \u0026 bitlock_t consist of 1 element, \u0026 there is no place where to put padding to.",
+      "parentUuid": "12dec84c_7a947a60",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf67e788_b0e59a28",
         "filename": "include/lib/spinlock.h",
         "patchSetId": 12
@@ -82,6 +118,30 @@
       "writtenOn": "2024-03-06T10:46:25Z",
       "side": 1,
       "message": "not used , can be removed.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 26
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5471e8e_89ef4555",
+        "filename": "include/lib/spinlock.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T12:17:33Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "bf67e788_b0e59a28",
       "range": {
         "startLine": 32,
         "startChar": 0,
