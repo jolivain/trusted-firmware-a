@@ -43,6 +43,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d562b4e_4b492ccb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-03-06T09:40:48Z",
+      "side": 1,
+      "message": "Hi Yann,\nWe provided deprecated notice for mbedTLS v2.x [1] as a part of v2.10 release [1] so will it make sense to update the mentioned document now to provide the deletion release i.e. v3.0?\nI didn\u0027t get why we need to remove this deprecation line. Am I missing something?\n\n[1]:https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/drivers/auth/mbedtls/mbedtls_common.mk#n24",
+      "parentUuid": "8ee3677d_a5d10802",
+      "revId": "6df76a1414ed16409fcb0fc7a6054c2c5e0f966d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a0e17d36_d56773ae",
         "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
         "patchSetId": 1
