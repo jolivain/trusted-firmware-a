@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee7b6b23_d76f85fe",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 44
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-06T00:11:29Z",
+      "side": 1,
+      "message": "@Chris\nThis is a bit misleading. Some cores support AArch32 in EL0-EL3 and some support AArch32 only in EL0. What\u0027s the basis of this A32 group?\n\nBut if it\u0027s meant to include CPUs supporting AArch32 only in EL0, then A76(AE), A77, Neoverse N1, N2, V1, Cortex X1, A710, A510 etc. (probably others too) are missing from this list?",
+      "parentUuid": "5d01ec18_0cb1af36",
+      "revId": "b404a5d4dfc3c8ca256645936bef074812b4c8cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6546e500_fd20cb41",
         "filename": "lib/cpus/cpus.mk",
         "patchSetId": 44
@@ -48,6 +66,24 @@
       "writtenOn": "2023-11-24T10:48:32Z",
       "side": 1,
       "message": "Neoverse N1/N2 can be done without DSU (qemu does it that way).\n\nSome erratas check is DSU present, some do not (even if should).",
+      "revId": "b404a5d4dfc3c8ca256645936bef074812b4c8cf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6e6a295_1cc8cf70",
+        "filename": "lib/cpus/cpus.mk",
+        "patchSetId": 44
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-06T00:11:29Z",
+      "side": 1,
+      "message": "@Marcin Can you give an example of this?",
+      "parentUuid": "6546e500_fd20cb41",
       "revId": "b404a5d4dfc3c8ca256645936bef074812b4c8cf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
