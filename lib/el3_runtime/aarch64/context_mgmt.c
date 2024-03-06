@@ -985,26 +985,27 @@ void cm_prepare_el3_exit(uint32_t security_state)
 				write_hfgrtr_el2(HFGRTR_EL2_INIT_VAL);
 				write_hfgwtr_el2(HFGWTR_EL2_INIT_VAL);
 			}
-		}
-
-
-		if ((scr_el3 & SCR_HCE_BIT) != 0U) {
-			/* Use SCTLR_EL1.EE value to initialise sctlr_el2 */
-			sctlr_elx = read_ctx_reg(get_el1_sysregs_ctx(ctx),
-							   CTX_SCTLR_EL1);
-			sctlr_elx &= SCTLR_EE_BIT;
-			sctlr_elx |= SCTLR_EL2_RES1;
+			if ((scr_el3 & SCR_HCE_BIT) != 0U) {
+				/* Use SCTLR_EL1.EE value to initialise sctlr_el2 */
+				sctlr_elx = read_ctx_reg(get_el1_sysregs_ctx(ctx),
+						CTX_SCTLR_EL1);
+				sctlr_elx &= SCTLR_EE_BIT;
+				sctlr_elx |= SCTLR_EL2_RES1;
 #if ERRATA_A75_764081
-			/*
-			 * If workaround of errata 764081 for Cortex-A75 is used
-			 * then set SCTLR_EL2.IESB to enable Implicit Error
-			 * Synchronization Barrier.
-			 */
-			sctlr_elx |= SCTLR_IESB_BIT;
+				/*
+				 * If workaround of errata 764081 for Cortex-A75 is used
+				 * then set SCTLR_EL2.IESB to enable Implicit Error
+				 * Synchronization Barrier.
+				 */
+				sctlr_elx |= SCTLR_IESB_BIT;
 #endif
-			write_sctlr_el2(sctlr_elx);
-		} else if (el2_implemented != EL_IMPL_NONE) {
-			init_nonsecure_el2_unused(ctx);
+				write_sctlr_el2(sctlr_elx);
+			} else {
+				/*
+				 * When EL2 is implemented but unused
+				 */
+				init_nonsecure_el2_unused(ctx);
+			}
 		}
 	}
 
