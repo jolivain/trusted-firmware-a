@@ -50,6 +50,23 @@
       "message": "Rebase to master after master catch up.",
       "revId": "b5b62389c9bdf60eb5923fa7ec0c9fa8a9ec2629",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f93a5cd_75c2175e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-06T00:03:03Z",
+      "side": 1,
+      "message": "https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26946/comment/3f433955_0624aaaa/\n\nYou might want to add the X4 core to plat/arm/board/fvp/fvp_cpu_errata.mk if applicable to the fvp list as mentioned in the patch above.",
+      "revId": "b5b62389c9bdf60eb5923fa7ec0c9fa8a9ec2629",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
