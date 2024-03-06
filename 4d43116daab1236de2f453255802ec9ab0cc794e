@@ -553,6 +553,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e51ce42_345938ca",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "09282193_ae079b9b",
+      "range": {
+        "startLine": 1655,
+        "startChar": 2,
+        "endLine": 1655,
+        "endChar": 8
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "056836a6_cc93ffd0",
@@ -638,6 +662,24 @@
       "side": 1,
       "message": "I have given the same comment as Raghu. It is better to lock and unlock the same function. Suggest to lock here i.e outside get_gpi_params.",
       "parentUuid": "a55581a7_9ba72567",
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc626404_160f3dbb",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1661,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "get_gpi_params() retrieves all gpt_l1_* information from the base address \u0026 calculates bitlock address \u0026 its mask before calling\nbit_lock(gpi_info-\u003ebitlock, gpi_info-\u003emask);\nIn case of bit_lock() moving outside get_gpi_params() all these calculations need to be duplicated in gpt_delegate_pas() \u0026 gpt_undelegate_pas().",
+      "parentUuid": "e5408c40_35b5ec4a",
       "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }

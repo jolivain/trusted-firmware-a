@@ -70,6 +70,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75fa088b_aad86ec3",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "232bfe7c_de0822fa",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12dec84c_7a947a60",
@@ -169,6 +187,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "914c4462_659cce1e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1bd2ef8_99ac02cc",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "044584b0_e10c6439",
@@ -216,6 +252,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5928cb59_d1d8ad13",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "bd4ab6ad_d6c67498",
+      "range": {
+        "startLine": 62,
+        "startChar": 17,
+        "endLine": 62,
+        "endChar": 25
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85f6776f_19cd00c2",
@@ -229,6 +289,30 @@
       "writtenOn": "2024-03-06T10:46:25Z",
       "side": 1,
       "message": "\"...and are not needed at runtime.\"",
+      "range": {
+        "startLine": 159,
+        "startChar": 67,
+        "endLine": 159,
+        "endChar": 69
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "736e1377_a66fcdf5",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Actually these variables aren\u0027t getting compiled for BL2.",
+      "parentUuid": "85f6776f_19cd00c2",
       "range": {
         "startLine": 159,
         "startChar": 67,
@@ -264,6 +348,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7440647e_944c1b81",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "In that case we\u0027ll have uint64_t *gpt_l1_first[].",
+      "parentUuid": "23e9dfb2_e41e5077",
+      "range": {
+        "startLine": 165,
+        "startChar": 17,
+        "endLine": 165,
+        "endChar": 29
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "610de1c7_19e03e01",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 12
@@ -275,6 +383,30 @@
       "writtenOn": "2024-03-06T10:46:25Z",
       "side": 1,
       "message": "These are used only in get_gpi_params. can be defined as static inside that function and initialized there. Not sure if we can do any trick to get the initialization done only once.",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 76
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1da720fc_c4bee6d0",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "This gives compilation error:\ninitializer element is not constant\n 1411 |         static unsigned int gpt_l1_size_bit \u003d __builtin_ctzl(GPT_L1_TABLE_SIZE(gpt_config.p));",
+      "parentUuid": "610de1c7_19e03e01",
       "range": {
         "startLine": 166,
         "startChar": 0,
@@ -310,6 +442,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fba81b79_397c387e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "See above.",
+      "parentUuid": "ae367f31_9edbbf1c",
+      "range": {
+        "startLine": 168,
+        "startChar": 18,
+        "endLine": 168,
+        "endChar": 31
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "469e334e_8c10302a",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 12
@@ -321,6 +477,30 @@
       "writtenOn": "2024-03-06T10:46:25Z",
       "side": 1,
       "message": "same comment as previous.",
+      "range": {
+        "startLine": 177,
+        "startChar": 20,
+        "endLine": 177,
+        "endChar": 33
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3116187d_6bf223f7",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "As above.",
+      "parentUuid": "469e334e_8c10302a",
       "range": {
         "startLine": 177,
         "startChar": 20,
@@ -350,6 +530,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9f8d11a7_5842091b",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "This comment should be for\nidx \u003d GPT_L1_INDEX(ALIGN_512MB(base));",
+      "parentUuid": "1df5439c_93f9f51a",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cdc92b57_20967e73",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 12
@@ -361,6 +559,24 @@
       "writtenOn": "2024-03-06T10:46:25Z",
       "side": 1,
       "message": "Need documentation of function.",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d59a4e2_94709d22",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdc92b57_20967e73",
       "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -378,6 +594,24 @@
       "writtenOn": "2024-03-06T10:46:25Z",
       "side": 1,
       "message": "This function also need documentation.",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46e2690c_df131d45",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1059717d_a720d5ba",
       "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -416,6 +650,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b7b1c6a_a8b4543d",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "dda2d2ab_c0885311",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b576a4fd_cc2007a9",
@@ -439,6 +691,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51151ccd_9ccf5e82",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b576a4fd_cc2007a9",
+      "range": {
+        "startLine": 1209,
+        "startChar": 14,
+        "endLine": 1209,
+        "endChar": 35
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd106b81_6c85b208",
@@ -452,6 +728,30 @@
       "writtenOn": "2024-03-06T10:46:25Z",
       "side": 1,
       "message": "nit: add a justification on why this is runtime computation\n\n.... This number can be different on page size of the granules.\"",
+      "range": {
+        "startLine": 1229,
+        "startChar": 32,
+        "endLine": 1229,
+        "endChar": 34
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "920fca72_5d953b90",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "cd106b81_6c85b208",
       "range": {
         "startLine": 1229,
         "startChar": 32,
@@ -487,6 +787,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7b78ee7_c52a536e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Not possible:\n\t/* Size of bit locks in bytes */\n\tlocks_size \u003d (l1_gpt_cnt \u003c\u003c (GPT_L0GPTSZ + 1U)) / 8U;\n\n\u0027l1_gpt_cnt\u0027 is set in this function on line #1209 (patchset 12):\nl1_gpt_cnt \u003d validate_pas_mappings(pas_regions, pas_count);",
+      "parentUuid": "7797e9fb_1ef4e00e",
+      "range": {
+        "startLine": 1238,
+        "startChar": 0,
+        "endLine": 1253,
+        "endChar": 2
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7958c563_0b84455e",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 12
@@ -498,6 +822,30 @@
       "writtenOn": "2024-03-06T10:46:25Z",
       "side": 1,
       "message": "\"Bit_locks\"",
+      "range": {
+        "startLine": 1261,
+        "startChar": 9,
+        "endLine": 1261,
+        "endChar": 17
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c556cdbf_cb376f7e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Changed to Bitlocks",
+      "parentUuid": "7958c563_0b84455e",
       "range": {
         "startLine": 1261,
         "startChar": 9,
@@ -533,6 +881,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "065cf881_9d86bcce",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "See reply for previous comment.",
+      "parentUuid": "2efd4336_9cb43642",
+      "range": {
+        "startLine": 1288,
+        "startChar": 0,
+        "endLine": 1289,
+        "endChar": 55
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea2738e1_ca40ab0d",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 12
@@ -544,6 +916,30 @@
       "writtenOn": "2024-03-06T10:46:25Z",
       "side": 1,
       "message": "this variable is not used ?",
+      "range": {
+        "startLine": 1343,
+        "startChar": 0,
+        "endLine": 1343,
+        "endChar": 51
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11272ec5_5f44046c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1343,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "#1349:\nif (GPT_L0_TYPE(l0_desc[l0_idx]) \u003d\u003d GPT_L0_TYPE_TBL_DESC) {",
+      "parentUuid": "ea2738e1_ca40ab0d",
       "range": {
         "startLine": 1343,
         "startChar": 0,
@@ -579,6 +975,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f9dc95f9_fa299578",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "See my previous reply. We\u0027ll use gpt_l1_first[].",
+      "parentUuid": "80a59e53_48729378",
+      "range": {
+        "startLine": 1350,
+        "startChar": 3,
+        "endLine": 1350,
+        "endChar": 16
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e156bce6_079bd1ba",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 12
@@ -590,6 +1010,24 @@
       "writtenOn": "2024-03-06T10:46:25Z",
       "side": 1,
       "message": "I have given comment about making these globals as local static aand initializing within that function.",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e950ed37_0ad06698",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "See my reply.",
+      "parentUuid": "e156bce6_079bd1ba",
       "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -611,6 +1049,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8442f33c_174f3f75",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1378,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e73cf83d_20a4b8c9",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd4cff09_c1b8f247",
@@ -624,6 +1080,24 @@
       "writtenOn": "2024-03-06T10:46:25Z",
       "side": 1,
       "message": "this lock being acquired from within a get_info() which is strange. The lock operations should be done within the same function scope if possible.",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8144511_f1a308f1",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1434,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "See my previous reply/",
+      "parentUuid": "dd4cff09_c1b8f247",
       "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -651,6 +1125,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aebc4d26_a50f4d39",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f56cf4d0_bea5a4d9",
+      "range": {
+        "startLine": 1643,
+        "startChar": 2,
+        "endLine": 1643,
+        "endChar": 7
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d58845d0_d2a89a40",
@@ -664,6 +1162,30 @@
       "writtenOn": "2024-03-06T10:46:25Z",
       "side": 1,
       "message": "same comment as above.",
+      "range": {
+        "startLine": 1654,
+        "startChar": 2,
+        "endLine": 1654,
+        "endChar": 7
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dca5479_a3e2b193",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1654,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d58845d0_d2a89a40",
       "range": {
         "startLine": 1654,
         "startChar": 2,
@@ -699,6 +1221,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "912a2167_6b7de723",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1709,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "In case of Realm \"l1_desc \u003d GPT_L1_REALM_DESC\" (line #1664 in this patchset 12) which is complete Realm descriptor 0xBBBBBBBBBBBBBBBB.\nAfter call to write_gpt() gpi_info.gpt_l1_desc can be either \u003d\u003d l1_desc \u003d\u003d GPT_L1_REALM_DESC, or not.\nIf case of true comparison fuse_block() is called which will check if all other L1 entries in 2MB block are the same as l1_desc and further fusing up to 512MB can happen.",
+      "parentUuid": "b03415b5_62ef4567",
+      "range": {
+        "startLine": 1709,
+        "startChar": 1,
+        "endLine": 1709,
+        "endChar": 39
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a10d241_bf835618",
         "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
         "patchSetId": 12
@@ -710,6 +1256,30 @@
       "writtenOn": "2024-03-06T10:46:25Z",
       "side": 1,
       "message": "See related comment on this.",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 35,
+        "endChar": 19
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b4a2813_7903c330",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1a10d241_bf835618",
       "range": {
         "startLine": 35,
         "startChar": 7,
@@ -745,6 +1315,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2957ca79_22d53707",
+        "filename": "plat/arm/board/fvp/include/fvp_pas_def.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "This is to check that single Contiguous ROOT region can be created.",
+      "parentUuid": "953649b9_6272d45c",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 74
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6a239721_1e14e14d",
         "filename": "plat/arm/board/fvp/include/fvp_pas_def.h",
         "patchSetId": 12
@@ -756,6 +1350,30 @@
       "writtenOn": "2024-03-06T10:46:25Z",
       "side": 1,
       "message": "I think the library should do the merge of contigous mappings rather than have the user merge 2 mappings. This can be done later as a enhancement to the lib.",
+      "range": {
+        "startLine": 111,
+        "startChar": 3,
+        "endLine": 111,
+        "endChar": 25
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5a5bf9e_9f33bcb3",
+        "filename": "plat/arm/board/fvp/include/fvp_pas_def.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-06T18:46:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6a239721_1e14e14d",
       "range": {
         "startLine": 111,
         "startChar": 3,
