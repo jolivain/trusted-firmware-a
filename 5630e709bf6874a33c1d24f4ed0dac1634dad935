@@ -1,0 +1,611 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87fcef15_627af748",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "This may break for earlier compilers. If the TF-A recommended compiler supports this, then it should be OK.",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "232bfe7c_de0822fa",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "nit: not correct multi line comment format.",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12dec84c_7a947a60",
+        "filename": "include/lib/spinlock.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "should the structure have the `packed` attribute to avoid padding ?",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf67e788_b0e59a28",
+        "filename": "include/lib/spinlock.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "not used , can be removed.",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 26
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "044584b0_e10c6439",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "nit: fill_cont_ prefix for uniformity.",
+      "range": {
+        "startLine": 62,
+        "startChar": 17,
+        "endLine": 62,
+        "endChar": 25
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f6776f_19cd00c2",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "\"...and are not needed at runtime.\"",
+      "range": {
+        "startLine": 159,
+        "startChar": 67,
+        "endLine": 159,
+        "endChar": 69
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23e9dfb2_e41e5077",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "this logic to calculate L1 table index will not work if we have discontigous allocation of L1 tables across different DDR banks.",
+      "range": {
+        "startLine": 165,
+        "startChar": 17,
+        "endLine": 165,
+        "endChar": 29
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "610de1c7_19e03e01",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "These are used only in get_gpi_params. can be defined as static inside that function and initialized there. Not sure if we can do any trick to get the initialization done only once.",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 76
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae367f31_9edbbf1c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "same comment as previous.",
+      "range": {
+        "startLine": 168,
+        "startChar": 18,
+        "endLine": 168,
+        "endChar": 31
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "469e334e_8c10302a",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "same comment as previous.",
+      "range": {
+        "startLine": 177,
+        "startChar": 20,
+        "endLine": 177,
+        "endChar": 33
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdc92b57_20967e73",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 771,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "Need documentation of function.",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1059717d_a720d5ba",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 806,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "This function also need documentation.",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bd7da1e_e37de763",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 862,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "Need some comments on the overall algorithm being used.",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dda2d2ab_c0885311",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "Just to note that this algorithm is what we will use if we had a FUSE hint mechanism during runtime.",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b576a4fd_cc2007a9",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1209,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "If the PAS mapping are sorted before checking and if the subsequent invocation to this API can have a constraint that it should specify regions higher than previous regions , then the checks in this function can be simplified a lot.\n\nThis is a TODO for future.",
+      "range": {
+        "startLine": 1209,
+        "startChar": 14,
+        "endLine": 1209,
+        "endChar": 35
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd106b81_6c85b208",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1229,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "nit: add a justification on why this is runtime computation\n\n.... This number can be different on page size of the granules.\"",
+      "range": {
+        "startLine": 1229,
+        "startChar": 32,
+        "endLine": 1229,
+        "endChar": 34
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7797e9fb_1ef4e00e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "can move to L0 validation. Modify the function description to say that l0_mem_size should also cater for allocation of bit locks",
+      "range": {
+        "startLine": 1238,
+        "startChar": 0,
+        "endLine": 1253,
+        "endChar": 2
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7958c563_0b84455e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1261,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "\"Bit_locks\"",
+      "range": {
+        "startLine": 1261,
+        "startChar": 9,
+        "endLine": 1261,
+        "endChar": 17
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2efd4336_9cb43642",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "move to L0 init.",
+      "range": {
+        "startLine": 1288,
+        "startChar": 0,
+        "endLine": 1289,
+        "endChar": 55
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea2738e1_ca40ab0d",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1343,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "this variable is not used ?",
+      "range": {
+        "startLine": 1343,
+        "startChar": 0,
+        "endLine": 1343,
+        "endChar": 51
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80a59e53_48729378",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "Give the reason why this variable is needed alongside the global definition.\n\n[EDIT]: this will not work for L1 tables distributed across DDR banks.",
+      "range": {
+        "startLine": 1350,
+        "startChar": 3,
+        "endLine": 1350,
+        "endChar": 16
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e156bce6_079bd1ba",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1369,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "I have given comment about making these globals as local static aand initializing within that function.",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e73cf83d_20a4b8c9",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1378,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "could print bit_lock address here also",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd4cff09_c1b8f247",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1434,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "this lock being acquired from within a get_info() which is strange. The lock operations should be done within the same function scope if possible.",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f56cf4d0_bea5a4d9",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1643,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "VERBOSE is better. These are not EL3 runtime fatal errors.",
+      "range": {
+        "startLine": 1643,
+        "startChar": 2,
+        "endLine": 1643,
+        "endChar": 7
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d58845d0_d2a89a40",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1654,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "same comment as above.",
+      "range": {
+        "startLine": 1654,
+        "startChar": 2,
+        "endLine": 1654,
+        "endChar": 7
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a10d241_bf835618",
+        "filename": "plat/arm/board/fvp/fvp_bl2_setup.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "See related comment on this.",
+      "range": {
+        "startLine": 35,
+        "startChar": 7,
+        "endLine": 35,
+        "endChar": 19
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "953649b9_6272d45c",
+        "filename": "plat/arm/board/fvp/include/fvp_pas_def.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "I didn\u0027t understand why this is needed.",
+      "range": {
+        "startLine": 102,
+        "startChar": 0,
+        "endLine": 102,
+        "endChar": 74
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a239721_1e14e14d",
+        "filename": "plat/arm/board/fvp/include/fvp_pas_def.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "I think the library should do the merge of contigous mappings rather than have the user merge 2 mappings. This can be done later as a enhancement to the lib.",
+      "range": {
+        "startLine": 111,
+        "startChar": 3,
+        "endLine": 111,
+        "endChar": 25
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

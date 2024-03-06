@@ -388,6 +388,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8e4d337e_c02d19bb",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "This l1 index is used to find the lock offset. As I mentioned previously, it is possible for the L1 to be located in a different DDR bank and may not be allocated contiguously. \n\nHence the offset for bit lock should be based on L0GPTSZ.",
+      "parentUuid": "58b17aa4_dfb22310",
+      "range": {
+        "startLine": 1420,
+        "startChar": 16,
+        "endLine": 1420,
+        "endChar": 28
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aaecde7f_6627667e",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 7
@@ -483,6 +507,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "09282193_ae079b9b",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1655,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "Although today there is no way to invoke this as RMMD and SPMD plat handler are the only users of this and they encode the argument correctly. But as a good measure to make this library more robust, I agree with Raghu to check `src_sec_state` at runtime. I have given a comment on this on the base patch.",
+      "parentUuid": "c2db4577_ddf03f4f",
+      "range": {
+        "startLine": 1655,
+        "startChar": 2,
+        "endLine": 1655,
+        "endChar": 8
+      },
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "056836a6_cc93ffd0",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 7
@@ -548,6 +596,24 @@
       "side": 1,
       "message": "Who are \"Other folks who write the code\"?\nThe lock is the whole 512MB block \u0026 should be kept for a little time as possible.",
       "parentUuid": "bcb27229_058abaf2",
+      "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5408c40_35b5ec4a",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 1661,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-06T10:46:25Z",
+      "side": 1,
+      "message": "I have given the same comment as Raghu. It is better to lock and unlock the same function. Suggest to lock here i.e outside get_gpi_params.",
+      "parentUuid": "a55581a7_9ba72567",
       "revId": "4d43116daab1236de2f453255802ec9ab0cc794e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
