@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3416270_51bd09b7",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 17
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-06T16:43:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea2f2741_8832e16b",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "65573326f4138df06a409742b4e363db6441b4e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e9be02b_1113a5ad",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-04T12:29:40Z",
       "side": 1,
       "message": "Just curious to know do we need this information when ``TRANSFER_LIST`` support is enabled.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 4
+      },
+      "revId": "65573326f4138df06a409742b4e363db6441b4e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cf74a70_ec00fd9e",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 17
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-06T16:43:37Z",
+      "side": 1,
+      "message": "No we won\u0027t, we need this for now for BL1 and BL2 to load FW_CONFIG and TB_FW_CONFIG. The config is removed from th sources in the later patches.",
+      "parentUuid": "8e9be02b_1113a5ad",
       "range": {
         "startLine": 22,
         "startChar": 0,
@@ -106,6 +154,30 @@
       "writtenOn": "2024-02-29T18:19:10Z",
       "side": 1,
       "message": "2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "65573326f4138df06a409742b4e363db6441b4e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27d83a98_b2ef0dfe",
+        "filename": "plat/arm/common/arm_image_load.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-06T16:43:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1aa13793_a12cb986",
       "range": {
         "startLine": 2,
         "startChar": 22,
