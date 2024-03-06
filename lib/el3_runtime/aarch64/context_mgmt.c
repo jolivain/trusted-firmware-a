@@ -958,6 +958,10 @@ void cm_prepare_el3_exit(uint32_t security_state)
 		scr_el3 = read_ctx_reg(get_el3state_ctx(ctx),
 						 CTX_SCR_EL3);
 
+		/*
+		 * Condition to ensure, EL2 is implemented, and its usage is
+		 * not mandatory.
+		 */
 		if (((scr_el3 & SCR_HCE_BIT) != 0U)
 			|| (el2_implemented != EL_IMPL_NONE)) {
 			/*
@@ -987,8 +991,8 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			}
 		}
 
-
-		if ((scr_el3 & SCR_HCE_BIT) != 0U) {
+		/* Condition to ensure EL2 is implemented and being used */
+		if ((el2_implemented != EL_IMPL_NONE) && ((scr_el3 & SCR_HCE_BIT) != 0U)) {
 			/* Use SCTLR_EL1.EE value to initialise sctlr_el2 */
 			sctlr_elx = read_ctx_reg(get_el1_sysregs_ctx(ctx),
 							   CTX_SCTLR_EL1);
@@ -1003,8 +1007,15 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			sctlr_elx |= SCTLR_IESB_BIT;
 #endif
 			write_sctlr_el2(sctlr_elx);
-		} else if (el2_implemented != EL_IMPL_NONE) {
+
+		} else if ((el2_implemented != EL_IMPL_NONE) &&
+				((scr_el3 & SCR_HCE_BIT) == 0U)) {
+			/*
+			 * EL2 implemented but unused.
+			 */
 			init_nonsecure_el2_unused(ctx);
+		} else {
+			/* Do nothing */
 		}
 	}
 
