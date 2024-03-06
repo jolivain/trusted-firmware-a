@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96771384_ef7188cf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-03-06T17:07:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5e08bf8_e19e399d",
+      "range": {
+        "startLine": 7,
+        "startChar": 19,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "6df76a1414ed16409fcb0fc7a6054c2c5e0f966d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8ee3677d_a5d10802",
@@ -95,6 +119,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46f9b3f8_23c0da22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-03-06T17:07:32Z",
+      "side": 1,
+      "message": "Added removal of the deprecation line!",
+      "parentUuid": "5afbc332_1fd46429",
+      "revId": "6df76a1414ed16409fcb0fc7a6054c2c5e0f966d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0e17d36_d56773ae",
@@ -108,6 +150,24 @@
       "writtenOn": "2024-03-06T09:17:23Z",
       "side": 1,
       "message": "I wonder if there should be an else part here with an error message stating that TF-A only supports versions \u003e 3.x. The superior sign will ease the job if one day an MbedTLS 4.x is released.\nSame for plat/st/common/common.mk file",
+      "revId": "6df76a1414ed16409fcb0fc7a6054c2c5e0f966d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eb6b5ac_906a3e54",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-03-06T17:07:32Z",
+      "side": 1,
+      "message": "Yes great idea, done!",
+      "parentUuid": "a0e17d36_d56773ae",
       "revId": "6df76a1414ed16409fcb0fc7a6054c2c5e0f966d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
