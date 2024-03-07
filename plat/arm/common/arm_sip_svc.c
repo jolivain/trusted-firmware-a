@@ -9,7 +9,6 @@
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <drivers/arm/ethosn.h>
-#include <lib/pmf/pmf.h>
 #include <plat/arm/common/arm_sip_svc.h>
 #include <plat/arm/common/plat_arm.h>
 #include <tools_share/uuid.h>
@@ -21,10 +20,6 @@ DEFINE_SVC_UUID2(arm_sip_svc_uid,
 
 static int arm_sip_setup(void)
 {
-	if (pmf_setup() != 0) {
-		return 1;
-	}
-
 #if ETHOSN_NPU_DRIVER
 
 	if (ethosn_smc_setup() != 0) {
@@ -49,19 +44,6 @@ static uintptr_t arm_sip_handler(unsigned int smc_fid,
 			u_register_t flags)
 {
 	int call_count = 0;
-
-#if ENABLE_PMF
-
-	/*
-	 * Dispatch PMF calls to PMF SMC handler and return its return
-	 * value
-	 */
-	if (is_pmf_fid(smc_fid)) {
-		return pmf_smc_handler(smc_fid, x1, x2, x3, x4, cookie,
-				handle, flags);
-	}
-
-#endif /* ENABLE_PMF */
 
 #if ETHOSN_NPU_DRIVER
 
@@ -93,9 +75,6 @@ static uintptr_t arm_sip_handler(unsigned int smc_fid,
 		}
 
 	case ARM_SIP_SVC_CALL_COUNT:
-		/* PMF calls */
-		call_count += PMF_NUM_SMC_CALLS;
-
 #if ETHOSN_NPU_DRIVER
 		/* ETHOSN calls */
 		call_count += ETHOSN_NUM_SMC_CALLS;
