@@ -208,6 +208,7 @@ else
 					lib/cpus/aarch64/neoverse_n1.S		\
 					lib/cpus/aarch64/neoverse_n2.S		\
 					lib/cpus/aarch64/neoverse_v1.S		\
+					lib/cpus/aarch64/neoverse_v3.S		\
 					lib/cpus/aarch64/neoverse_e1.S		\
 					lib/cpus/aarch64/cortex_x2.S		\
 					lib/cpus/aarch64/cortex_gelas.S		\
