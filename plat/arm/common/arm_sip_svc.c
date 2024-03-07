@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -9,7 +9,6 @@
 #include <common/debug.h>
 #include <common/runtime_svc.h>
 #include <drivers/arm/ethosn.h>
-#include <lib/debugfs.h>
 #include <lib/pmf/pmf.h>
 #include <plat/arm/common/arm_sip_svc.h>
 #include <plat/arm/common/plat_arm.h>
@@ -25,14 +24,6 @@ static int arm_sip_setup(void)
 	if (pmf_setup() != 0) {
 		return 1;
 	}
-
-#if USE_DEBUGFS
-
-	if (debugfs_smc_setup() != 0) {
-		return 1;
-	}
-
-#endif /* USE_DEBUGFS */
 
 #if ETHOSN_NPU_DRIVER
 
@@ -71,15 +62,6 @@ static uintptr_t arm_sip_handler(unsigned int smc_fid,
 	}
 
 #endif /* ENABLE_PMF */
-
-#if USE_DEBUGFS
-
-	if (is_debugfs_fid(smc_fid)) {
-		return debugfs_smc_handler(smc_fid, x1, x2, x3, x4, cookie,
-					   handle, flags);
-	}
-
-#endif /* USE_DEBUGFS */
 
 #if ETHOSN_NPU_DRIVER
 
