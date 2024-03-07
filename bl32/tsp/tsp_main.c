@@ -238,14 +238,6 @@ smc_args_t *tsp_smc_handler(uint64_t func,
 	service_arg0 = (uint64_t)service_args;
 	service_arg1 = (uint64_t)(service_args >> 64U);
 
-	/*
-	 * Write a dummy value to an MTE register, to simulate usage in the
-	 * secure world
-	 */
-	if (is_feat_mte_supported()) {
-		write_gcr_el1(0x99);
-	}
-
 	/* Determine the function to perform based on the function ID */
 	switch (TSP_BARE_FID(func)) {
 	case TSP_ADD:
