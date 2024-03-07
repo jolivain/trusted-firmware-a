@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -198,6 +198,7 @@ void sp_min_main(void)
 	sp_min_plat_runtime_setup();
 
 	console_flush();
+	console_switch_state(CONSOLE_FLAG_RUNTIME);
 }
 
 /******************************************************************************
