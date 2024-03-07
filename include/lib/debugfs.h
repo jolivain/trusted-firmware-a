@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019, Arm Limited. All rights reserved.
+ * Copyright (c) 2019-2024, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -62,7 +62,7 @@ int debugfs_smc_setup(void);
 #define DEBUGFS_VERSION		(0x000000001U)
 
 /* Function ID for accessing the debugfs interface */
-#define DEBUGFS_FID_VALUE	(0x30U)
+#define DEBUGFS_FID_VALUE	(0x10U)
 
 #define is_debugfs_fid(_fid)	\
 	(((_fid) & FUNCID_NUM_MASK) == DEBUGFS_FID_VALUE)
