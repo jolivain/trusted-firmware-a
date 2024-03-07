@@ -2768,8 +2768,7 @@ Armv8.5-A
    option set to 1. This option defaults to 0.
 
 -  Memory Tagging Extension feature is unconditionally enabled for both worlds.
-   To enable MTE at EL0 use ``ENABLE_FEAT_MTE`` is required and to enable MTE at
-   ELX ``ENABLE_FEAT_MTE2`` is required.
+   However to use MTE2 at ELX ``ENABLE_FEAT_MTE2`` is required.
 
 Armv7-A
 ~~~~~~~
