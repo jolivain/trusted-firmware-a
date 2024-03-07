@@ -16,9 +16,6 @@
 /*					U(0x8200ff02) is reserved */
 #define ARM_SIP_SVC_VERSION		U(0x8200ff03)
 
-/* PMF_SMC_GET_TIMESTAMP_32		0x82000010 */
-/* PMF_SMC_GET_TIMESTAMP_64		0xC2000010 */
-
 /* Function ID for requesting state switch of lower EL */
 #define ARM_SIP_SVC_EXE_STATE_SWITCH	U(0x82000020)
 
