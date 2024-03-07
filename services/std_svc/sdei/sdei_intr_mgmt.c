@@ -294,8 +294,8 @@ static void sdei_set_elr_spsr(sdei_entry_t *se, sdei_dispatch_context_t *disp_ct
 		sdei_spsr |= ssbs_bit;
 	}
 
-	/* If MTE is implemented in the client el set the TCO bit */
-	if (is_feat_mte_supported()) {
+	/* If MTE2 is implemented in the client el set the TCO bit */
+	if (is_feat_mte2_supported()) {
 		sdei_spsr |= SPSR_TCO_BIT_AARCH64;
 	}
 
