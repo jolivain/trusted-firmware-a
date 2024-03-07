@@ -22,9 +22,6 @@
 /* Function ID for requesting state switch of lower EL */
 #define ARM_SIP_SVC_EXE_STATE_SWITCH	U(0x82000020)
 
-/* DEBUGFS_SMC_32			0x82000030U */
-/* DEBUGFS_SMC_64			0xC2000030U */
-
 /*
  * Arm(R) Ethos(TM)-N NPU SiP SMC function IDs
  * 0xC2000050-0xC200005F
