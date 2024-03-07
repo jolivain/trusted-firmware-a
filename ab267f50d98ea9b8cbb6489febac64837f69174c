@@ -33,6 +33,29 @@
       "message": "No real/consistent failures. Manually providing Verified +1.",
       "revId": "ab267f50d98ea9b8cbb6489febac64837f69174c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb2c519e_75dc992c",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-03-07T15:54:21Z",
+      "side": 1,
+      "message": "SCR_HCE_BIT can\u0027t be 1 if el2 is not implemented.\n\nPseudo code can be \nif (el2_implemented)\n { \n    **Set hcx and fgt registers **\n    if HCE_BIT \u003d 1 \u003d\u003d\u003e EL2 implemented and used\n        ** set sctlr_el2 regs **\n    else HCE_BIT \u003d 0 \u003d\u003d\u003e EL2 implemented but unused \n        **init_nosecure_el2_unused() **\n }",
+      "range": {
+        "startLine": 965,
+        "startChar": 0,
+        "endLine": 966,
+        "endChar": 42
+      },
+      "revId": "ab267f50d98ea9b8cbb6489febac64837f69174c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
