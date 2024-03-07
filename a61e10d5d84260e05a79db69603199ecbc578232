@@ -20,6 +20,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dffc1996_cae0113d",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-07T11:12:48Z",
+      "side": 1,
+      "message": "minor: It would be good to keep this in a separate header and include it in this one, (like el2_context.h).",
+      "revId": "a61e10d5d84260e05a79db69603199ecbc578232",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4e98465_baa255f7",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-07T11:12:48Z",
+      "side": 1,
+      "message": "I still think this can be written in a better way. Finally I found some time to try some experiment.\n\n#define read_el2_ctx(x, y)   (((x) \u003e 0)? y: 0)\n\n#define read_el2_ctx_fgt(ctx, reg) read_el2_ctx(ENABLE_FEAT_FGT,(((ctx)-\u003efgt).reg))\n\n....\n\nSimilarly something can be done for write as well perhaps.",
+      "revId": "a61e10d5d84260e05a79db69603199ecbc578232",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2eac036e_ec825a9a",
         "filename": "include/lib/el3_runtime/aarch64/context.h",
         "patchSetId": 10
