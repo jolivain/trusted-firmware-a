@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f4df132_3dc27c66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-07T22:35:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "276b90ec_479d81ca",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 54
+      },
+      "revId": "30dabac8240728d7729e49da8722bf98063fdeef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69c1c9fd_65055dee",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-02-29T23:09:35Z",
       "side": 1,
       "message": "smccc",
+      "range": {
+        "startLine": 14,
+        "startChar": 18,
+        "endLine": 14,
+        "endChar": 22
+      },
+      "revId": "30dabac8240728d7729e49da8722bf98063fdeef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25a66f95_b0947831",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-07T22:35:10Z",
+      "side": 1,
+      "message": "This line has to be removed as we not updating minor version in this patch",
+      "parentUuid": "69c1c9fd_65055dee",
       "range": {
         "startLine": 14,
         "startChar": 18,
@@ -77,6 +125,30 @@
       "writtenOn": "2024-02-29T23:09:35Z",
       "side": 1,
       "message": "Standard Secure Service calls",
+      "range": {
+        "startLine": 52,
+        "startChar": 23,
+        "endLine": 52,
+        "endChar": 45
+      },
+      "revId": "30dabac8240728d7729e49da8722bf98063fdeef",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b8e9829_8bda3b35",
+        "filename": "docs/getting_started/rt-svc-writers-guide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-07T22:35:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bb332b3d_cd041bbb",
       "range": {
         "startLine": 52,
         "startChar": 23,
