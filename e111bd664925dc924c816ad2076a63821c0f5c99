@@ -46,6 +46,30 @@
       },
       "revId": "e111bd664925dc924c816ad2076a63821c0f5c99",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a13fc091_3dd1c468",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-07T22:40:42Z",
+      "side": 0,
+      "message": "call count is not supported in vendor-specific el3 as per SMCCC Documentation 1.5 reference:\nhttps://developer.arm.com/documentation/den0028/latest \n\nwill add this to cmt-msg",
+      "parentUuid": "3eed92f4_051ff8d0",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 34
+      },
+      "revId": "e111bd664925dc924c816ad2076a63821c0f5c99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
