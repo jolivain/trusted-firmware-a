@@ -1104,6 +1104,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a04e7737_cf04437d",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1434,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-07T11:24:16Z",
+      "side": 1,
+      "message": "The code of get_gpi_params() which should run with bitlock acquired now moved to get_gpi_info(). bit_lock() is now called from gpt_delegate_pas() \u0026 gpt_undelegate_pas().",
+      "parentUuid": "d8144511_f1a308f1",
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f56cf4d0_bea5a4d9",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 12
