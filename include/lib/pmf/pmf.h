@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2020, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -38,8 +38,8 @@
 /*
  * Defines for PMF SMC function ids.
  */
-#define PMF_SMC_GET_TIMESTAMP_32	U(0x82000010)
-#define PMF_SMC_GET_TIMESTAMP_64	U(0xC2000010)
+#define PMF_SMC_GET_TIMESTAMP_32	U(0x87000020)
+#define PMF_SMC_GET_TIMESTAMP_64	U(0xC7000020)
 #define PMF_NUM_SMC_CALLS		2
 
 /*
