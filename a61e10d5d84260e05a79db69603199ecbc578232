@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "20de257a_4a7902aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-07T12:00:04Z",
+      "side": 1,
+      "message": "Just minor header reorg comment pending",
+      "revId": "a61e10d5d84260e05a79db69603199ecbc578232",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dffc1996_cae0113d",
         "filename": "include/lib/el3_runtime/aarch64/context.h",
         "patchSetId": 10
@@ -66,6 +83,24 @@
       "side": 1,
       "message": "Actually all the arguments have to be passed to the read_el2_ctx and this one should construct the deference.",
       "parentUuid": "d4e98465_baa255f7",
+      "revId": "a61e10d5d84260e05a79db69603199ecbc578232",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ab6bfd7_153db46e",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-07T12:00:04Z",
+      "side": 1,
+      "message": "Ignore this comment, the structure fields missing due to conditional compilation will not allow the compiler to proceed.\n\nWe can solve this in a hacky way by introducing a union of all the possible fields (and allocate 1 64 bit word). But it is not worth the trouble here.",
+      "parentUuid": "9524f74a_3138d299",
       "revId": "a61e10d5d84260e05a79db69603199ecbc578232",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
