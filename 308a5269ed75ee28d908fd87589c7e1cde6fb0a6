@@ -62,6 +62,57 @@
       },
       "revId": "308a5269ed75ee28d908fd87589c7e1cde6fb0a6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c6531af_90b743a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-03-08T09:30:10Z",
+      "side": 1,
+      "message": "When I think about it, besides the simplification of the first condition, I don\u0027t see the point of this patch. If documentation is the goal, then you need to explore *why* these things are there in the first place, not what they do which is easy enough to read.",
+      "revId": "308a5269ed75ee28d908fd87589c7e1cde6fb0a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4206a18c_1ffaabfc",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 961,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-03-08T09:30:10Z",
+      "side": 1,
+      "message": "I don\u0027t find this comment helpful at all. The condition is very simple and easy to understand.",
+      "revId": "308a5269ed75ee28d908fd87589c7e1cde6fb0a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06f1b0df_907e53b6",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-03-08T09:30:10Z",
+      "side": 1,
+      "message": "Same comment about the comment, but also I think you can un-nest this condition from the above. AFAIK `(scr_el3 \u0026 SCR_HCE_BIT) !\u003d 0U` implies that EL2 is implemented. Benefit is reduced diff",
+      "revId": "308a5269ed75ee28d908fd87589c7e1cde6fb0a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
