@@ -565,16 +565,15 @@ endif
 # object file path, and prebuilt object file path.
 $(eval OBJS += $(MODULE_OBJS))
 
-$(ELF): $(OBJS) $(DEFAULT_LINKER_SCRIPT) $(LINKER_SCRIPTS) | $(1)_dirs libraries $(BL_LIBS)
+$(BUILD_DIR)/build_message.o: common/build_message.c | $(1)_dirs
+	$$(ECHO) "  CC      $$@"
+	$$(Q)$$($$(ARCH)-cc) $$(TF_CFLAGS) $$(CFLAGS) -c $$< -o $$@ \
+		-DBUILD_MESSAGE_TIMESTAMP='$(BUILD_MESSAGE_TIMESTAMP)' \
+		-DBUILD_MESSAGE_VERSION_STRING='"$(VERSION_STRING)"' \
+		-DBUILD_MESSAGE_VERSION='"$(VERSION)"'
+
+$(ELF): $(BUILD_DIR)/build_message.o $(OBJS) $(DEFAULT_LINKER_SCRIPT) $(LINKER_SCRIPTS) | $(1)_dirs libraries $(BL_LIBS)
 	$$(ECHO) "  LD      $$@"
-ifdef MAKE_BUILD_STRINGS
-	$(call MAKE_BUILD_STRINGS,$(BUILD_DIR)/build_message.o)
-else
-	@echo 'const char build_message[] = "Built : "$(BUILD_MESSAGE_TIMESTAMP); \
-	       const char version_string[] = "${VERSION_STRING}"; \
-	       const char version[] = "${VERSION}";' | \
-		$($(ARCH)-cc) $$(TF_CFLAGS) $$(CFLAGS) -xc -c - -o $(BUILD_DIR)/build_message.o
-endif
 ifeq ($($(ARCH)-ld-id),arm-link)
 	$$(Q)$($(ARCH)-ld) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) --entry=${1}_entrypoint \
 		--predefine="-D__LINKER__=$(__LINKER__)" \
