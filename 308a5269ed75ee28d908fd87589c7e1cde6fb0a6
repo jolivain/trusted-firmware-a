@@ -147,6 +147,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da9d22c9_cc1ca46b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-03-08T15:55:06Z",
+      "side": 1,
+      "message": "The patch\u0027s requirement was to resolve the MISRA warning due to the else if { } only condition (line no:1006)\nSo, while covering that bit, improvised the existing conditions as well. It didn\u0027t aimed at documentation.",
+      "parentUuid": "5c6531af_90b743a6",
+      "revId": "308a5269ed75ee28d908fd87589c7e1cde6fb0a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4206a18c_1ffaabfc",
