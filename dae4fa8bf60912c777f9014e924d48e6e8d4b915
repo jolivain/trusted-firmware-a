@@ -16,6 +16,46 @@
       "message": "Static files: https://ci-builds.trustedfirmware.org/static-files/9v5e5bNqtTbJo5yZrVypSBnNKYLndZikzEZRSL-9TgYxNzA5ODg5NDY3NTk2Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvMzM1NzQxNS9hcnRpZmFjdA\u003d\u003d/artefacts/release/build/html/design/firmware-design.html.",
       "revId": "dae4fa8bf60912c777f9014e924d48e6e8d4b915",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29f927fc_767aeb46",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-03-08T10:35:37Z",
+      "side": 1,
+      "message": "There code is conditionally built for aarch32/aarch64 with differing fields.\nIs the aarch32 version of the structure voluntarily omitted?",
+      "revId": "dae4fa8bf60912c777f9014e924d48e6e8d4b915",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "546295e4_918afe23",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-03-08T10:35:37Z",
+      "side": 1,
+      "message": "Should this be removed provided the text line 682 mentions usage of attr field?",
+      "range": {
+        "startLine": 679,
+        "startChar": 41,
+        "endLine": 679,
+        "endChar": 58
+      },
+      "revId": "dae4fa8bf60912c777f9014e924d48e6e8d4b915",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
