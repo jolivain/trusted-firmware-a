@@ -179,6 +179,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "91688308_2cd3274a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-08T16:54:16Z",
+      "side": 1,
+      "message": "Hi Madhu,\n\nThere was already `OEN_VEN_HYP_START` which used `VEN` nomenclature thus following the same.\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/lib/smccc.h?h\u003dintegration#n96\n\nit may need a overall renaming across SMCCC. Is it ok to retain as is for now?",
+      "parentUuid": "69797a8b_6254243f",
+      "revId": "fa4d10d61ac474047bcd54d176ee6348120ad1a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dac27284_7292c728",
         "filename": "docs/components/ven-el3-service.rst",
         "patchSetId": 1
