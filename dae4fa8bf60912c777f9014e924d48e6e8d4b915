@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f3c26922_9136eeaa",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 658,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-08T11:55:26Z",
+      "side": 1,
+      "message": "Indeed, it was an oversight, seems I may have clobbered the two together in error in the process. Fixed now - thanks!",
+      "parentUuid": "29f927fc_767aeb46",
+      "revId": "dae4fa8bf60912c777f9014e924d48e6e8d4b915",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "546295e4_918afe23",
         "filename": "docs/design/firmware-design.rst",
         "patchSetId": 2
@@ -48,6 +66,30 @@
       "writtenOn": "2024-03-08T10:35:37Z",
       "side": 1,
       "message": "Should this be removed provided the text line 682 mentions usage of attr field?",
+      "range": {
+        "startLine": 679,
+        "startChar": 41,
+        "endLine": 679,
+        "endChar": 58
+      },
+      "revId": "dae4fa8bf60912c777f9014e924d48e6e8d4b915",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0356ebe_a6613e19",
+        "filename": "docs/design/firmware-design.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 679,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-08T11:55:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "546295e4_918afe23",
       "range": {
         "startLine": 679,
         "startChar": 41,
