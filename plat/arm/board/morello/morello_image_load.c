@@ -5,6 +5,7 @@
  */
 
 #include <arch_helpers.h>
+#include <common/build_message.h>
 #include <common/debug.h>
 #include <common/desc_image_load.h>
 #include <drivers/arm/css/sds.h>

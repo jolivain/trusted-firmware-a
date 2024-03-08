@@ -9,9 +9,10 @@
 #include <stdint.h>
 #include <services/std_svc.h>
 #include <string.h>
-#include <platform_def.h>
+#include <common/build_message.h>
 #include <common/debug.h>
 #include <common/runtime_svc.h>
+#include <platform_def.h>
 #include <imx_sip_svc.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/mmio.h>

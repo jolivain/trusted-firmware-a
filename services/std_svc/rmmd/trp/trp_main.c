@@ -1,9 +1,10 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+#include <common/build_message.h>
 #include <common/debug.h>
 #include <plat/common/platform.h>
 #include <services/rmm_core_manifest.h>
