@@ -372,7 +372,17 @@ endif
 ################################################################################
 include lib/compiler-rt/compiler-rt.mk
 
+# Allow overriding the timestamp, for example for reproducible builds, or to
+# synchronize timestamps across multiple projects.
+# This must be set to a C string (including quotes where applicable).
+BUILD_MESSAGE_TIMESTAMP ?= __TIME__", "__DATE__
+
+DEFINES += -DBUILD_MESSAGE_TIMESTAMP='$(BUILD_MESSAGE_TIMESTAMP)'
+DEFINES += -DBUILD_MESSAGE_VERSION_STRING='"$(VERSION_STRING)"'
+DEFINES += -DBUILD_MESSAGE_VERSION='"$(VERSION)"'
+
 BL_COMMON_SOURCES	+=	common/bl_common.c			\
+				common/build_message.c			\
 				common/tf_log.c				\
 				common/${ARCH}/debug.S			\
 				drivers/console/multi_console.c		\
