@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5e52908_b3649ada",
+        "filename": "plat/rpi/common/include/rpi_shared.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-08T10:24:01Z",
+      "side": 1,
+      "message": "nit: 2024",
+      "revId": "2d1f82161e530d6499918eb2a39110672bcb4afa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43415409_c0bad50f",
+        "filename": "plat/rpi/common/rpi4_bl31_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-08T10:24:01Z",
+      "side": 1,
+      "message": "nit: 2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 22,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "2d1f82161e530d6499918eb2a39110672bcb4afa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20cf54ef_2bdfd08f",
+        "filename": "plat/rpi/rpi4/rpi4_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-08T10:24:01Z",
+      "side": 1,
+      "message": "nit: 2016-2024\n\nAs the functions have been relocated from another file, it’s advisable to retain the original copyright year. However, considering that this is a new file, aligning it with our current copyright policies by using the year 2024 is also appropriate.",
+      "revId": "2d1f82161e530d6499918eb2a39110672bcb4afa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
