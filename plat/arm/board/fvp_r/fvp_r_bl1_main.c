@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -12,6 +12,7 @@
 #include <arch_helpers.h>
 #include <bl1/bl1.h>
 #include <common/bl_common.h>
+#include <common/build_message.h>
 #include <common/debug.h>
 #include <drivers/auth/auth_mod.h>
 #include <drivers/console.h>
@@ -265,4 +266,3 @@ void print_debug_loop_message(void)
 	NOTICE("BL1: Please connect the debugger to continue\n");
 }
 #endif
-
