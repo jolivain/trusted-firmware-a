@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40263399_819fca64",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-08T12:20:03Z",
+      "side": 1,
+      "message": "Do you have a complementary patch to add these files to CI build so it\u0027s covered? If not, see this patch for reference on how to do so: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/11311.",
+      "revId": "b93f25eeea8da5dbfde5a1c8ae789cade3fa67be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6f0d7e4_dab9fd6b",
+        "filename": "plat/rpi/rpi5/include/rpi_hw.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-08T12:20:03Z",
+      "side": 1,
+      "message": "nit: 2024\n\nSince this file is new contribution it should have the year of the contribution, see the contribution guidelines for more details: https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#copyright-license-guidance.",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "b93f25eeea8da5dbfde5a1c8ae789cade3fa67be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eca6afa6_0a8a1896",
+        "filename": "plat/rpi/rpi5/platform.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-08T12:20:03Z",
+      "side": 1,
+      "message": "nit: 2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 16,
+        "endLine": 2,
+        "endChar": 25
+      },
+      "revId": "b93f25eeea8da5dbfde5a1c8ae789cade3fa67be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e103a1ca_7d406af8",
+        "filename": "plat/rpi/rpi5/rpi5_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-08T12:20:03Z",
+      "side": 1,
+      "message": "nit: 2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "b93f25eeea8da5dbfde5a1c8ae789cade3fa67be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
