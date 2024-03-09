@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a07d5982_37820b25",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-09T06:18:05Z",
+      "side": 1,
+      "message": "do we really need this at the end of the GPT? can we just not take another pointer to it and check the size? Any advantage to having it at the end of L0 GPT?",
+      "range": {
+        "startLine": 1290,
+        "startChar": 4,
+        "endLine": 1290,
+        "endChar": 14
+      },
+      "revId": "9f10ce4125002d2b3cd5d8a5058768d0a0967c48",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

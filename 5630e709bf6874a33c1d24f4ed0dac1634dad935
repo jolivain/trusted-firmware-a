@@ -999,6 +999,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39deff05_23f18737",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-09T06:18:05Z",
+      "side": 1,
+      "message": "are assuming that all L1 tables will be contiguous in physical address space? What happens if there are some 1GB blocks in L0, and some L1 tables for different address ranges?\nIs that what you mean by gpt_l1_first[]?",
+      "parentUuid": "f9dc95f9_fa299578",
+      "range": {
+        "startLine": 1350,
+        "startChar": 3,
+        "endLine": 1350,
+        "endChar": 16
+      },
+      "revId": "5630e709bf6874a33c1d24f4ed0dac1634dad935",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e156bce6_079bd1ba",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 12
