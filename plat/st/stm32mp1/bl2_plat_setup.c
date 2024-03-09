@@ -259,6 +259,10 @@ void bl2_el3_plat_arch_setup(void)
 	/* Disable MCKPROT */
 	mmio_clrbits_32(rcc_base + RCC_TZCR, RCC_TZCR_MCKPROT);
 #endif
+#if STM32MP_RCC_NS
+	/* Enable peripheral access from NS */
+	mmio_write_32(rcc_base + RCC_SECCFGR, 0);
+#endif
 
 	/*
 	 * Set minimum reset pulse duration to 31ms for discrete power
