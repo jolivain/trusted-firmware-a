@@ -12,12 +12,14 @@
 
 #include <lib/utils_def.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
+#include <plat/arm/board/common/v2m_def.h>
 #include <plat/arm/common/arm_def.h>
 #include <plat/arm/common/arm_spm_def.h>
 #include <plat/arm/css/common/css_def.h>
 #include <plat/common/common_def.h>
 #include <nrd_css_fw_def1.h>
 #include <nrd_ros_fw_def1.h>
+#include <nrd_soc_css_def.h>
 
 /*******************************************************************************
  * Core count
