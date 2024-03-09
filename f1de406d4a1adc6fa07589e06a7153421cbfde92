@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cf64082_4cc2076b",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-09T01:48:16Z",
+      "side": 1,
+      "message": "can you make this fill_cont_2mb to be consistent with fill_cont_32/512mb?",
+      "range": {
+        "startLine": 230,
+        "startChar": 17,
+        "endLine": 230,
+        "endChar": 25
+      },
+      "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0377cc2a_4a7d73d7",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-09T01:48:16Z",
+      "side": 1,
+      "message": "is it worth asserting GPT_L1_INDEX(base) \u003d\u003d GPT_L1_INDEX(ALIGN_2MB(base))?\nDocuments that base has to be 2MB aligned for proper operation.",
+      "range": {
+        "startLine": 245,
+        "startChar": 33,
+        "endLine": 245,
+        "endChar": 37
+      },
+      "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1faef559_8d45f5ad",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-09T01:48:16Z",
+      "side": 1,
+      "message": "worth asserting that contig encoding is not set and is a contig descriptor?",
+      "range": {
+        "startLine": 260,
+        "startChar": 46,
+        "endLine": 260,
+        "endChar": 53
+      },
+      "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "486534d9_a583a9fd",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-09T01:48:16Z",
+      "side": 1,
+      "message": "can we not call fuse_2mb 16 times instead? realize there is a potential for more loo[ping but with branch prediction, I don\u0027t know if it will be significant improvement as opposed to readability for security critical code. \nalso realize this may run on wimpy cores without great branch prediction..\n\nIf we truly want to optimize for loops, it might better to make it a macro that simply unrolls the loop, that is still better for readability since the code has a pattern that can be followed. otherwise this looks like repeated code (which it is) and takes a while to understand why it is repeated.",
+      "range": {
+        "startLine": 271,
+        "startChar": 10,
+        "endLine": 271,
+        "endChar": 17
+      },
+      "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bb78cbd_9ccc85c0",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-09T01:48:16Z",
+      "side": 1,
+      "message": "assert base and ALIGN_32MB are equal?",
+      "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "204165f3_d6f6806e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-09T01:48:16Z",
+      "side": 1,
+      "message": "can you make this consistent with line 352? either change 352 to use fill_cont_32mb with a ternary operator like here, or make this an if else.\nor is the logic broken if we do that due to some nuance which is not coming through?",
+      "range": {
+        "startLine": 305,
+        "startChar": 7,
+        "endLine": 305,
+        "endChar": 15
+      },
+      "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
