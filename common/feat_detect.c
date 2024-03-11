@@ -87,7 +87,7 @@ static void read_feat_rme(void)
 {
 #if (ENABLE_RME == FEAT_STATE_ALWAYS)
 	feat_detect_panic((get_armv9_2_feat_rme_support() !=
-			ID_AA64PFR0_FEAT_RME_NOT_SUPPORTED), "RME");
+			RME_NOT_IMPLEMENTED), "RME");
 #endif
 }
 
