@@ -16,6 +16,24 @@
       "message": "Now that details of deleted platforms are removed from this table, is there use in the maintaining the column \"Deleted version\"?",
       "revId": "67ccdd9f945ba4940929d233c60af6acf83c99a3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7d9a8ae_132dece9",
+        "filename": "docs/plat/index.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-03-11T13:42:28Z",
+      "side": 1,
+      "message": "We have decided the following strategy-\nwhen a platform is marked as deprecated, we plan to include a \u0027deleted version\u0027 column to indicate when the platform is scheduled for removal and that\u0027s why this column is still important (as you can see from the table few platforms are deprecated but their removal is still TBD).\nand once the platform is deleted, we will remove all details associated with that platform from the table. What do you think?",
+      "parentUuid": "cfe32695_53fca25c",
+      "revId": "67ccdd9f945ba4940929d233c60af6acf83c99a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
