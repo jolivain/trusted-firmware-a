@@ -54,7 +54,7 @@ static int32_t smccc_arch_features(u_register_t arg1)
 		 * If architectural SSBS is available on this PE, no firmware
 		 * mitigation via SMCCC_ARCH_WORKAROUND_2 is required.
 		 */
-		if (ssbs != SSBS_UNAVAILABLE)
+		if (ssbs != SSBS_NOT_IMPLEMENTED)
 			return 1;
 
 		/*
