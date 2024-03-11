@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46cab859_dc4ffe04",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-11T22:28:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7341d15e_6d586e48",
+      "range": {
+        "startLine": 230,
+        "startChar": 17,
+        "endLine": 230,
+        "endChar": 25
+      },
+      "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0377cc2a_4a7d73d7",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "fuse_2mb() is called from fuse_block(), which is called as:\nfuse_block(ALIGN_2MB(base)...) line #1773\nfuse_block(ALIGN_2MB(base)...) line #1902, so there is no sense in such assertion.",
       "parentUuid": "0377cc2a_4a7d73d7",
+      "range": {
+        "startLine": 245,
+        "startChar": 33,
+        "endLine": 245,
+        "endChar": 37
+      },
+      "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96d06d8a_f24cfcd5",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-11T22:28:41Z",
+      "side": 1,
+      "message": "as it stands today, those are your two calls. as usual, in the future if somebody is modifying the code, the assert here would document that the function expects that the base be aligned to 2MB.\nhttps://tf-rmm.readthedocs.io/en/latest/process/coding-standard.html#use-of-asserts-and-panic\n\nAsserts are a great way to document your assumptions or caller expectations in static functions.",
+      "parentUuid": "dc2057d7_4ffcd09b",
       "range": {
         "startLine": 245,
         "startChar": 33,
@@ -144,6 +192,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c80dd8cf_9bb84e4d",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-11T22:28:41Z",
+      "side": 1,
+      "message": "as usual, the assertion documents the assumption made by the function. It is simply good defensive programming. GPT is critical to security, and bugs creeping in here, especially given how complex the code is, is worth being defensive.",
+      "parentUuid": "677913e6_217658cc",
+      "range": {
+        "startLine": 260,
+        "startChar": 46,
+        "endLine": 260,
+        "endChar": 53
+      },
+      "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "486534d9_a583a9fd",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 13
@@ -191,6 +263,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "30fa1ccf_928c1b04",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-11T22:28:41Z",
+      "side": 1,
+      "message": "obviously. I\u0027m asking if you can make use of fuse_2mb here, instead of repeating the 128 bit write. The code is repetitive.",
+      "parentUuid": "320df128_b0abbcb1",
+      "range": {
+        "startLine": 271,
+        "startChar": 10,
+        "endLine": 271,
+        "endChar": 17
+      },
+      "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4bb78cbd_9ccc85c0",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 13
@@ -220,6 +316,24 @@
       "side": 1,
       "message": "Line #1593:\n\tbase \u003d ALIGN_32MB(base);\n\n#if (GPT_MAX_BLOCK \u003d\u003d 32)\n\tfuse_32mb(base, gpi_info, l1_cont_desc);\n...",
       "parentUuid": "4bb78cbd_9ccc85c0",
+      "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28fd067f_133fa6e7",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-11T22:28:41Z",
+      "side": 1,
+      "message": "same as above. you are looking at the call sites. The assumption needs to be documented in the function being called.",
+      "parentUuid": "1d692654_c4924d98",
       "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
