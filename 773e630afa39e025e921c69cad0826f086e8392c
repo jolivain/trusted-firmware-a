@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32c0b5c5_573045ad",
+        "filename": "plat/hisilicon/hikey/hikey_bl31_setup.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-03-11T17:42:32Z",
+      "side": 0,
+      "message": "Rather than deleting the function, I think you could just let it be empty and do nothing. this aligns with the behaviour of the platform port before your patches were merged.",
+      "revId": "773e630afa39e025e921c69cad0826f086e8392c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
