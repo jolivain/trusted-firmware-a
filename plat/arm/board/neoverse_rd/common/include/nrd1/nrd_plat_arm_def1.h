@@ -73,26 +73,26 @@
 
 #if defined(IMAGE_BL1)
 # if TRUSTED_BOARD_BOOT
-#  define PLATFORM_STACK_SIZE		(0x1000)
+#  define PLATFORM_STACK_SIZE		U(0x1000)
 # else
-#  define PLATFORM_STACK_SIZE		(0x440)
+#  define PLATFORM_STACK_SIZE		U(0x440)
 # endif
 #elif defined(IMAGE_BL2)
 # if TRUSTED_BOARD_BOOT
-#  define PLATFORM_STACK_SIZE		(0x1000)
+#  define PLATFORM_STACK_SIZE		U(0x1000)
 # else
-#  define PLATFORM_STACK_SIZE		(0x400)
+#  define PLATFORM_STACK_SIZE		U(0x400)
 # endif
 #elif defined(IMAGE_BL2U)
-# define PLATFORM_STACK_SIZE		(0x400)
+# define PLATFORM_STACK_SIZE		U(0x400)
 #elif defined(IMAGE_BL31)
 # if SPM_MM
-#  define PLATFORM_STACK_SIZE		(0x500)
+#  define PLATFORM_STACK_SIZE		U(0x500)
 # else
-#  define PLATFORM_STACK_SIZE		(0x400)
+#  define PLATFORM_STACK_SIZE		U(0x400)
 # endif
 #elif defined(IMAGE_BL32)
-# define PLATFORM_STACK_SIZE		(0x440)
+# define PLATFORM_STACK_SIZE		U(0x440)
 #endif
 
 #if (SPM_MM || (SPMC_AT_EL3 && SPMC_AT_EL3_SEL0_SP))
@@ -108,14 +108,16 @@
  * BL sizes
  ******************************************************************************/
 
-#define PLAT_ARM_MAX_BL1_RW_SIZE	(64 * 1024)	/* 64 KB */
+
 #if USE_ROMLIB
-#define PLAT_ARM_MAX_ROMLIB_RW_SIZE	(0x1000)
-#define PLAT_ARM_MAX_ROMLIB_RO_SIZE	(0xe000)
+#define PLAT_ARM_MAX_ROMLIB_RW_SIZE	U(0x1000)
+#define PLAT_ARM_MAX_ROMLIB_RO_SIZE	U(0xe000)
 #else
-#define PLAT_ARM_MAX_ROMLIB_RW_SIZE	(0)
-#define PLAT_ARM_MAX_ROMLIB_RO_SIZE	(0)
+#define PLAT_ARM_MAX_ROMLIB_RW_SIZE	U(0)
+#define PLAT_ARM_MAX_ROMLIB_RO_SIZE	U(0)
 #endif
+
+#define PLAT_ARM_MAX_BL1_RW_SIZE	NRD_CSS_BL1_RW_SIZE
 
 /*
  * PLAT_ARM_MAX_BL2_SIZE is calculated using the current BL2 debug size plus a
@@ -124,13 +126,8 @@
  * peripheral access which lies in >4TB address space.
  *
  */
-#if TRUSTED_BOARD_BOOT
-# define PLAT_ARM_MAX_BL2_SIZE		(0x28000 + ((NRD_CHIP_COUNT - 1) * \
-							0x2000))
-#else
-# define PLAT_ARM_MAX_BL2_SIZE		(0x14000 + ((NRD_CHIP_COUNT - 1) * \
-							0x2000))
-#endif
+#define PLAT_ARM_MAX_BL2_SIZE		(NRD_CSS_BL2_SIZE +		\
+						((NRD_CHIP_COUNT - 1) * 0x2000))
 
 #define PLAT_ARM_MAX_BL31_SIZE		(NRD_CSS_BL31_SIZE +		\
 						PLAT_ARM_MAX_BL2_SIZE +	\
@@ -140,16 +137,16 @@
  * ROM, SRAM and DRAM config
  ******************************************************************************/
 
-#define PLAT_ARM_TRUSTED_SRAM_SIZE	(0x00080000)	/* 512 KB */
+#define PLAT_ARM_TRUSTED_SRAM_SIZE	NRD_CSS_TRUSTED_SRAM_SIZE
 
-#define PLAT_ARM_TRUSTED_ROM_BASE	(0x0)
-#define PLAT_ARM_TRUSTED_ROM_SIZE	(0x00080000)	/* 512KB */
+#define PLAT_ARM_TRUSTED_ROM_BASE	NRD_CSS_TRUSTED_ROM_BASE
+#define PLAT_ARM_TRUSTED_ROM_SIZE	NRD_CSS_TRUSTED_ROM_SIZE
 
-#define PLAT_ARM_NSRAM_BASE		(0x06000000)
-#define PLAT_ARM_NSRAM_SIZE		(0x00080000)	/* 512KB */
+#define PLAT_ARM_NSRAM_BASE		NRD_CSS_NONTRUSTED_SRAM_BASE
+#define PLAT_ARM_NSRAM_SIZE		NRD_CSS_NONTRUSTED_SRAM_SIZE
 
-#define PLAT_ARM_DRAM2_BASE		ULL(0x8080000000)
-#define PLAT_ARM_DRAM2_SIZE		ULL(0x180000000)
+#define PLAT_ARM_DRAM2_BASE		NRD_CSS_DRAM2_BASE
+#define PLAT_ARM_DRAM2_SIZE		NRD_CSS_DRAM2_SIZE
 
 /*******************************************************************************
  * Console config
@@ -188,8 +185,8 @@
 #define PLAT_ARM_MEM_PROT_ADDR		(V2M_FLASH0_BASE + \
 					 V2M_FLASH0_SIZE - V2M_FLASH_BLOCK_SIZE)
 /* IO storage framework */
-#define MAX_IO_DEVICES			(3)
-#define MAX_IO_HANDLES			(4)
+#define MAX_IO_DEVICES			U(3)
+#define MAX_IO_HANDLES			U(4)
 
 /*******************************************************************************
  * SCMI config
@@ -213,16 +210,16 @@
 
 #define PLAT_ARM_G1S_IRQ_PROPS(grp)	CSS_G1S_IRQ_PROPS(grp)
 #define PLAT_ARM_G0_IRQ_PROPS(grp)	ARM_G0_IRQ_PROPS(grp)
-#define PLAT_SP_PRI			(0x10)
+#define PLAT_SP_PRI			U(0x10)
 
 /*******************************************************************************
  * Platform type getter macro
  ******************************************************************************/
 
 /* Platform ID related accessors */
-#define BOARD_CSS_PLAT_ID_REG_ID_MASK		0x0f
-#define BOARD_CSS_PLAT_ID_REG_ID_SHIFT		0x0
-#define BOARD_CSS_PLAT_TYPE_EMULATOR		0x02
+#define BOARD_CSS_PLAT_ID_REG_ID_MASK		U(0x0f)
+#define BOARD_CSS_PLAT_ID_REG_ID_SHIFT		U(0x0)
+#define BOARD_CSS_PLAT_TYPE_EMULATOR		U(0x02)
 
 #ifndef __ASSEMBLER__
 #define BOARD_CSS_GET_PLAT_TYPE(addr)					\
@@ -231,6 +228,7 @@
 #endif /* __ASSEMBLER__ */
 
 /* Platform ID address */
-#define BOARD_CSS_PLAT_ID_REG_ADDR		UL(0x7ffe00e0)
+#define BOARD_CSS_PLAT_ID_REG_ADDR		NRD_ROS_PLATFORM_BASE +	\
+						UL(0x00fe00e0)
 
 #endif /* NRD_PLAT_ARM_DEF1_H */
