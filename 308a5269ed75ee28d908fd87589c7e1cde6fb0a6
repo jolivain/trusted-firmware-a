@@ -233,6 +233,24 @@
       "parentUuid": "06f1b0df_907e53b6",
       "revId": "308a5269ed75ee28d908fd87589c7e1cde6fb0a6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0d1bb0d_ee98e493",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1000883
+      },
+      "writtenOn": "2024-03-11T09:27:22Z",
+      "side": 1,
+      "message": "what about that second point? You could have a single line diff that fixes the MISRA issue but doesn\u0027t redo the whole condition",
+      "parentUuid": "333af447_4585df29",
+      "revId": "308a5269ed75ee28d908fd87589c7e1cde6fb0a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
