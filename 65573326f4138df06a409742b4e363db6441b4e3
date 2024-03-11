@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b3c93f50_932cc8d3",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 17
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-03-11T17:39:51Z",
+      "side": 1,
+      "message": "Yes, but this is ``hw_config`` node so I believe when ``TRANSFER_LIST`` is supported, BL2 does not need HW_CONFIG load-addresses and size from this device tree. BL2 supposed to use carved-out area for the transfer list instead right?",
+      "parentUuid": "1cf74a70_ec00fd9e",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 4
+      },
+      "revId": "65573326f4138df06a409742b4e363db6441b4e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8631d661_00c4c53d",
         "filename": "plat/arm/board/fvp/fvp_bl31_setup.c",
         "patchSetId": 17
