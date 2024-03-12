@@ -287,6 +287,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aef67870_2a266804",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-12T12:55:55Z",
+      "side": 1,
+      "message": "It would make more sense to implement a new fill_nmb(uint64_t *l1, uint64_t l1_desc, unsigned int cnt) \u0026 call it from fill_2mb(), fill_cont_32mb() \u0026 fill_cont_512mb().",
+      "parentUuid": "30fa1ccf_928c1b04",
+      "range": {
+        "startLine": 271,
+        "startChar": 10,
+        "endLine": 271,
+        "endChar": 17
+      },
+      "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4bb78cbd_9ccc85c0",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 13
