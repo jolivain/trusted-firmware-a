@@ -1,0 +1,262 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d20b0c91_c9fee552",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-12T17:11:49Z",
+      "side": 1,
+      "message": "The introductory bit is a little unclear. For the high level details could we lean on the public documentation a little more? I think this document does a good job of describing some of what you\u0027re talking about: https://developer.arm.com/documentation/102418/0101/TrustZone-in-the-processor/Switching-between-Security-states.",
+      "revId": "33d9b107986f942e169fda3f8fa0935ff7a3ca01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b46b1be_ada56337",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-12T17:11:49Z",
+      "side": 1,
+      "message": "nit: empty line after section title",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 2
+      },
+      "revId": "33d9b107986f942e169fda3f8fa0935ff7a3ca01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abf0387d_7959fecb",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-12T17:11:49Z",
+      "side": 1,
+      "message": "The phrasing in this is a bit weird, henceforth implies that this wasn\u0027t the case prior to your change, is that true?",
+      "range": {
+        "startLine": 12,
+        "startChar": 1,
+        "endLine": 12,
+        "endChar": 74
+      },
+      "revId": "33d9b107986f942e169fda3f8fa0935ff7a3ca01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bc2f82f_f7348ca2",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-12T17:11:49Z",
+      "side": 1,
+      "message": "nit: omit superflous comma",
+      "range": {
+        "startLine": 13,
+        "startChar": 16,
+        "endLine": 13,
+        "endChar": 17
+      },
+      "revId": "33d9b107986f942e169fda3f8fa0935ff7a3ca01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0422ab0_60f168b0",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-12T17:11:49Z",
+      "side": 1,
+      "message": "nit: is this meant to be separete sentence, reads a bit awkwardly.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 2
+      },
+      "revId": "33d9b107986f942e169fda3f8fa0935ff7a3ca01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11858d8c_299c7402",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-12T17:11:49Z",
+      "side": 1,
+      "message": "nit: comma before and after",
+      "range": {
+        "startLine": 16,
+        "startChar": 27,
+        "endLine": 16,
+        "endChar": 65
+      },
+      "revId": "33d9b107986f942e169fda3f8fa0935ff7a3ca01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3257fade_b7700388",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-12T17:11:49Z",
+      "side": 1,
+      "message": "nit: add space after worlds",
+      "range": {
+        "startLine": 18,
+        "startChar": 17,
+        "endLine": 18,
+        "endChar": 18
+      },
+      "revId": "33d9b107986f942e169fda3f8fa0935ff7a3ca01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e78bc440_f980fd2b",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-12T17:11:49Z",
+      "side": 1,
+      "message": "nit: lower case",
+      "revId": "33d9b107986f942e169fda3f8fa0935ff7a3ca01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b2f5290_928ceca6",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-12T17:11:49Z",
+      "side": 1,
+      "message": "typo: metadata",
+      "range": {
+        "startLine": 22,
+        "startChar": 20,
+        "endLine": 22,
+        "endChar": 29
+      },
+      "revId": "33d9b107986f942e169fda3f8fa0935ff7a3ca01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "443385c7_a03872e0",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-12T17:11:49Z",
+      "side": 1,
+      "message": "typo: in any world",
+      "range": {
+        "startLine": 24,
+        "startChar": 74,
+        "endLine": 24,
+        "endChar": 80
+      },
+      "revId": "33d9b107986f942e169fda3f8fa0935ff7a3ca01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f38ce216_d663f4f0",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-12T17:11:49Z",
+      "side": 1,
+      "message": "i.e. Normal, Secure, Realm",
+      "range": {
+        "startLine": 25,
+        "startChar": 7,
+        "endLine": 25,
+        "endChar": 13
+      },
+      "revId": "33d9b107986f942e169fda3f8fa0935ff7a3ca01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3ab9c10_f9fd3656",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-03-12T17:11:49Z",
+      "side": 1,
+      "message": "typo: The",
+      "revId": "33d9b107986f942e169fda3f8fa0935ff7a3ca01",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
