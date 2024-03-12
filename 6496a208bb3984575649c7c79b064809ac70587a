@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7c7726d_8b189913",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2024-03-12T21:32:50Z",
+      "side": 1,
+      "message": "Hello Chris,\n\nI tried building recent TF-A with PTXdist and it resulted in make hanging, because the PTXdist recipe sets AS. I imagine other build systems like Yocto would also run in to this same issue.\n\nI fixed the first issue of the hang, but still run into issues, because of the assumption that AS must be a compiler. I think this assumption is not justified. What do you think?",
+      "revId": "6496a208bb3984575649c7c79b064809ac70587a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
