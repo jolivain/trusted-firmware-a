@@ -131,7 +131,7 @@ tools-cc := arm-clang llvm-clang gnu-gcc # C compilers
 tools-cpp := arm-clang llvm-clang gnu-gcc # C preprocessors
 
 # Assembly-related tools
-tools-as := arm-clang llvm-clang gnu-gcc # Assemblers
+tools-as := arm-clang llvm-as gnu-as # Assemblers
 
 # Linking and object-handling tools
 tools-ld := arm-clang arm-link llvm-clang llvm-lld gnu-gcc gnu-ld # Linkers
@@ -233,6 +233,7 @@ guess-tool-llvm-lld = $(shell $(1) --help 2>&1 | grep -o "OVERVIEW: lld")
 guess-tool-llvm-objcopy = $(shell $(1) --help 2>&1 | grep -o "llvm-objcopy tool")
 guess-tool-llvm-objdump = $(shell $(1) --help 2>&1 | grep -o "llvm object file dumper")
 guess-tool-llvm-ar = $(shell $(1) --help 2>&1 | grep -o "LLVM Archiver")
+guess-tool-llvm-as = $(shell $(1) --version 2>&1 | grep -o "LLVM version")
 
 # GNU Compiler Collection & GNU Binary Utilities
 guess-tool-gnu-gcc = $(shell $(1) -v 2>&1 | grep -o "gcc version")
@@ -240,6 +241,7 @@ guess-tool-gnu-ld = $(shell $(1) -v 2>&1 | grep -o "GNU ld")
 guess-tool-gnu-objcopy = $(shell $(1) --version 2>&1 | grep -o "GNU objcopy")
 guess-tool-gnu-objdump = $(shell $(1) --version 2>&1 | grep -o "GNU objdump")
 guess-tool-gnu-ar = $(shell $(1) --version 2>&1 | grep -o "GNU ar")
+guess-tool-gnu-as = $(shell $(1) --version 2>&1 | grep -o "GNU assembler")
 
 # Other tools
 guess-tool-dtc = $(shell $(1) --version 2>&1 | grep -o "Version: DTC")
