@@ -309,6 +309,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e544110f_039f2244",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-12T17:03:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aef67870_2a266804",
+      "range": {
+        "startLine": 271,
+        "startChar": 10,
+        "endLine": 271,
+        "endChar": 17
+      },
+      "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4bb78cbd_9ccc85c0",
@@ -358,6 +382,24 @@
       "side": 1,
       "message": "same as above. you are looking at the call sites. The assumption needs to be documented in the function being called.",
       "parentUuid": "1d692654_c4924d98",
+      "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "267d9e50_fd9be43a",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-12T17:03:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28fd067f_133fa6e7",
       "revId": "f1de406d4a1adc6fa07589e06a7153421cbfde92",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
