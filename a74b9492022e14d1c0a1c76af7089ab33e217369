@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b3b0ccb_054dd24e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2024-03-12T18:19:50Z",
+      "side": 1,
+      "message": "@Yann, Multiple projects I am aware of continue to use SP_min for cases where OP-TEE is not required. Does ST still test SP_min? The docs call OP-TEE optional, so I was surprised to stumble upon this breakage.",
+      "revId": "a74b9492022e14d1c0a1c76af7089ab33e217369",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
