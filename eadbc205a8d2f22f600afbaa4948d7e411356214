@@ -63,6 +63,30 @@
       },
       "revId": "eadbc205a8d2f22f600afbaa4948d7e411356214",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eceab7cf_78e91be9",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-03-12T11:34:22Z",
+      "side": 1,
+      "message": "You\u0027re right! However, yet not sure regarding the necessity of managing different configurations for the upcoming major release of mbedTLS. It\u0027s possible that the current configuration will suffice.\n\nIt would be good to see a more refined approach for addressing this matter in the subsequent major release of mbedTLS. \n\nFor now, I think below check will avoid any developer to use mbedtls \u003c 3.x\n\n```\nifneq (${MBEDTLS_MAJOR}, 3)\n  $(error Error: TF-A only supports MbedTLS versions \u003e 3.x)\nendif\n```",
+      "parentUuid": "6d71f20f_06c8f46f",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 26
+      },
+      "revId": "eadbc205a8d2f22f600afbaa4948d7e411356214",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
