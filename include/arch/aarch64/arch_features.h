@@ -100,12 +100,6 @@ static inline bool is_armv8_5_bti_present(void)
 		ID_AA64PFR1_EL1_BT_MASK) == BTI_IMPLEMENTED;
 }
 
-static inline unsigned int get_armv8_5_mte_support(void)
-{
-	return ((read_id_aa64pfr1_el1() >> ID_AA64PFR1_EL1_MTE_SHIFT) &
-		ID_AA64PFR1_EL1_MTE_MASK);
-}
-
 static inline bool is_feat_ssbs_present(void)
 {
 	return ((read_id_aa64pfr1_el1() >> ID_AA64PFR1_EL1_SSBS_SHIFT) &
@@ -146,8 +140,6 @@ CREATE_FEATURE_FUNCS(feat_twed, id_aa64mmfr1_el1, ID_AA64MMFR1_EL1_TWED_SHIFT,
 		     ENABLE_FEAT_TWED)
 CREATE_FEATURE_FUNCS(feat_fgt, id_aa64mmfr0_el1, ID_AA64MMFR0_EL1_FGT_SHIFT,
 		     ENABLE_FEAT_FGT)
-CREATE_FEATURE_FUNCS(feat_mte_perm, id_aa64pfr2_el1,
-		     ID_AA64PFR2_EL1_MTEPERM_SHIFT, ENABLE_FEAT_MTE_PERM)
 CREATE_FEATURE_FUNCS(feat_ecv, id_aa64mmfr0_el1, ID_AA64MMFR0_EL1_ECV_SHIFT,
 		     ENABLE_FEAT_ECV)
 CREATE_FEATURE_FUNCS_VER(feat_ecv_v2, read_feat_ecv_id_field,
