@@ -16,6 +16,24 @@
       "message": "The CAAM (which is TrustZone aware) shouldn\u0027t be tagged as a non secure bus master, this will lead to bus aborts in combination with OP-TEE and secured memory regions using the TZASC380. I\u0027ll update the patch.",
       "revId": "75cfb8654ebe90685e2bddc305800646eee1bb00",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a8b5c1e_29527d07",
+        "filename": "plat/imx/imx8m/imx8mm/imx8mm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1001241
+      },
+      "writtenOn": "2024-03-12T16:39:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53cd03e0_2cd5cc37",
+      "revId": "75cfb8654ebe90685e2bddc305800646eee1bb00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
