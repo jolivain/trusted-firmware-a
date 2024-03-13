@@ -34,6 +34,17 @@ static unsigned int read_ ## name ## _id_field(void)			\
 }									\
 CREATE_FEATURE_FUNCS_VER(name, read_ ## name ## _id_field, 1U, guard)
 
+#define CREATE_FEATURE_PRESENT(name, idreg, shift, mask, idvalue)	\
+static inline bool is_ ## name ## _present(void)			\
+{									\
+	if (idvalue == 0U) {						\
+		return ((((read_ ## idreg()) >> shift) & mask) 		\
+			!= idvalue) ? true : false; 			\
+	}								\
+	return ((((read_ ## idreg()) >> shift) & mask)			\
+			== idvalue) ? true : false; 			\
+}
+
 static inline bool is_armv7_gentimer_present(void)
 {
 	/* The Generic Timer is always present in an ARMv8-A implementation */
@@ -42,35 +53,22 @@ static inline bool is_armv7_gentimer_present(void)
 
 CREATE_FEATURE_FUNCS(feat_pan, id_aa64mmfr1_el1, ID_AA64MMFR1_EL1_PAN_SHIFT,
 		     ENABLE_FEAT_PAN)
-static inline bool is_feat_pan_present(void)
-{
-	return read_feat_pan_id_field() != 0U;
-}
+
+CREATE_FEATURE_PRESENT(feat_pan, id_aa64mmfr1_el1, ID_AA64MMFR1_EL1_PAN_SHIFT,
+			ID_AA64MMFR1_EL1_PAN_MASK, 0U)
 
 CREATE_FEATURE_FUNCS(feat_vhe, id_aa64mmfr1_el1, ID_AA64MMFR1_EL1_VHE_SHIFT,
 		     ENABLE_FEAT_VHE)
 
-static inline bool is_armv8_2_ttcnp_present(void)
-{
-	return ((read_id_aa64mmfr2_el1() >> ID_AA64MMFR2_EL1_CNP_SHIFT) &
-		ID_AA64MMFR2_EL1_CNP_MASK) != 0U;
-}
+CREATE_FEATURE_PRESENT(feat_ttcnp, id_aa64mmfr2_el1, ID_AA64MMFR2_EL1_CNP_SHIFT,
+			ID_AA64MMFR2_EL1_CNP_MASK, 0U)
 
-static inline bool is_feat_uao_present(void)
-{
-	return ((read_id_aa64mmfr2_el1() >> ID_AA64MMFR2_EL1_UAO_SHIFT) &
-		ID_AA64MMFR2_EL1_UAO_MASK) != 0U;
-}
+CREATE_FEATURE_PRESENT(feat_uao, id_aa64mmfr2_el1, ID_AA64MMFR2_EL1_UAO_SHIFT,
+			ID_AA64MMFR2_EL1_UAO_MASK, 0U)
 
-static inline bool is_feat_pacqarma3_present(void)
-{
-	uint64_t mask_id_aa64isar2 =
-			(ID_AA64ISAR2_GPA3_MASK << ID_AA64ISAR2_GPA3_SHIFT) |
-			(ID_AA64ISAR2_APA3_MASK << ID_AA64ISAR2_APA3_SHIFT);
-
-	/* If any of the fields is not zero, QARMA3 algorithm is present */
-	return (read_id_aa64isar2_el1() & mask_id_aa64isar2) != 0U;
-}
+/* If any of the fields is not zero, QARMA3 algorithm is present */
+CREATE_FEATURE_PRESENT(feat_pacqarma3, id_aa64isar2_el1, ID_AA64ISAR2_GPA3_SHIFT,
+			(ID_AA64ISAR2_GPA3_MASK | ID_AA64ISAR2_APA3_MASK), 0U)
 
 static inline bool is_armv8_3_pauth_present(void)
 {
@@ -88,47 +86,26 @@ static inline bool is_armv8_3_pauth_present(void)
 		is_feat_pacqarma3_present());
 }
 
-static inline bool is_armv8_4_ttst_present(void)
-{
-	return ((read_id_aa64mmfr2_el1() >> ID_AA64MMFR2_EL1_ST_SHIFT) &
-		ID_AA64MMFR2_EL1_ST_MASK) == 1U;
-}
+CREATE_FEATURE_PRESENT(feat_ttst, id_aa64mmfr2_el1, ID_AA64MMFR2_EL1_ST_SHIFT,
+			ID_AA64MMFR2_EL1_ST_MASK, 1U)
 
-static inline bool is_armv8_5_bti_present(void)
-{
-	return ((read_id_aa64pfr1_el1() >> ID_AA64PFR1_EL1_BT_SHIFT) &
-		ID_AA64PFR1_EL1_BT_MASK) == BTI_IMPLEMENTED;
-}
+CREATE_FEATURE_PRESENT(feat_bti, id_aa64pfr1_el1, ID_AA64PFR1_EL1_BT_SHIFT,
+			ID_AA64PFR1_EL1_BT_MASK, BTI_IMPLEMENTED)
 
-static inline bool is_feat_ssbs_present(void)
-{
-	return ((read_id_aa64pfr1_el1() >> ID_AA64PFR1_EL1_SSBS_SHIFT) &
-		ID_AA64PFR1_EL1_SSBS_MASK) != SSBS_NOT_IMPLEMENTED;
-}
+CREATE_FEATURE_PRESENT(feat_ssbs, id_aa64pfr1_el1, ID_AA64PFR1_EL1_SSBS_SHIFT,
+			ID_AA64PFR1_EL1_SSBS_MASK, SSBS_NOT_IMPLEMENTED)
 
-static inline bool is_feat_nmi_present(void)
-{
-	return ((read_id_aa64pfr1_el1() >> ID_AA64PFR1_EL1_NMI_SHIFT) &
-		ID_AA64PFR1_EL1_NMI_MASK) == NMI_IMPLEMENTED;
-}
+CREATE_FEATURE_PRESENT(feat_nmi, id_aa64pfr1_el1, ID_AA64PFR1_EL1_NMI_SHIFT,
+			ID_AA64PFR1_EL1_NMI_MASK, NMI_IMPLEMENTED)
 
-static inline bool is_feat_gcs_present(void)
-{
-	return ((read_id_aa64pfr1_el1() >> ID_AA64PFR1_EL1_GCS_SHIFT) &
-		ID_AA64PFR1_EL1_GCS_MASK) == GCS_IMPLEMENTED;
-}
+CREATE_FEATURE_PRESENT(feat_gcs, id_aa64pfr1_el1, ID_AA64PFR1_EL1_GCS_SHIFT,
+			ID_AA64PFR1_EL1_GCS_MASK, GCS_IMPLEMENTED)
 
-static inline bool is_feat_ebep_present(void)
-{
-	return ((read_id_aa64dfr1_el1() >> ID_AA64DFR1_EBEP_SHIFT) &
-		ID_AA64DFR1_EBEP_MASK) == EBEP_IMPLEMENTED;
-}
+CREATE_FEATURE_PRESENT(feat_ebep, id_aa64pfr1_el1, ID_AA64DFR1_EBEP_SHIFT,
+			ID_AA64DFR1_EBEP_MASK, EBEP_IMPLEMENTED)
 
-static inline bool is_feat_sebep_present(void)
-{
-	return ((read_id_aa64dfr0_el1() >> ID_AA64DFR0_SEBEP_SHIFT) &
-		ID_AA64DFR0_SEBEP_MASK) == SEBEP_IMPLEMENTED;
-}
+CREATE_FEATURE_PRESENT(feat_sebep, id_aa64dfr0_el1, ID_AA64DFR0_SEBEP_SHIFT,
+			ID_AA64DFR0_SEBEP_MASK, SEBEP_IMPLEMENTED)
 
 CREATE_FEATURE_FUNCS(feat_mte, id_aa64pfr1_el1, ID_AA64PFR1_EL1_MTE_SHIFT,
 		     ENABLE_FEAT_MTE)
@@ -202,23 +179,20 @@ CREATE_FEATURE_FUNCS_VER(feat_mpam, read_feat_mpam_version, 1U,
 CREATE_FEATURE_FUNCS(feat_hcx, id_aa64mmfr1_el1, ID_AA64MMFR1_EL1_HCX_SHIFT,
 		     ENABLE_FEAT_HCX)
 
-static inline bool is_feat_rng_trap_present(void)
+CREATE_FEATURE_PRESENT(feat_rng_trap, id_aa64pfr1_el1, ID_AA64PFR1_EL1_RNDR_TRAP_SHIFT,
+
+			ID_AA64PFR1_EL1_RNDR_TRAP_MASK, RNG_TRAP_IMPLEMENTED)
+
+/*
+ * Return the RME version, zero if not supported.  This function can be
+ * used as both an integer value for the RME version or compared to zero
+ * to detect RME presence.
+ */
+static inline unsigned int read_feat_rme_support_field(void)
 {
-	return (((read_id_aa64pfr1_el1() >> ID_AA64PFR1_EL1_RNDR_TRAP_SHIFT) &
-			ID_AA64PFR1_EL1_RNDR_TRAP_MASK)
-			== RNG_TRAP_IMPLEMENTED);
+	return ISOLATE_FIELD(read_id_aa64pfr0_el1(), ID_AA64PFR0_FEAT_RME_SHIFT);
 }
 
-static inline unsigned int get_armv9_2_feat_rme_support(void)
-{
-	/*
-	 * Return the RME version, zero if not supported.  This function can be
-	 * used as both an integer value for the RME version or compared to zero
-	 * to detect RME presence.
-	 */
-	return (unsigned int)(read_id_aa64pfr0_el1() >>
-		ID_AA64PFR0_FEAT_RME_SHIFT) & ID_AA64PFR0_FEAT_RME_MASK;
-}
 
 /*********************************************************************************
  * Function to identify the presence of FEAT_SB (Speculation Barrier Instruction)

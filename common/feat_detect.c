@@ -76,7 +76,7 @@ static void read_feat_pauth(void)
 static void read_feat_bti(void)
 {
 #if (ENABLE_BTI == FEAT_STATE_ALWAYS)
-	feat_detect_panic(is_armv8_5_bti_present(), "BTI");
+	feat_detect_panic(is_feat_bti_present(), "BTI");
 #endif
 }
 
@@ -86,7 +86,7 @@ static void read_feat_bti(void)
 static void read_feat_rme(void)
 {
 #if (ENABLE_RME == FEAT_STATE_ALWAYS)
-	feat_detect_panic((get_armv9_2_feat_rme_support() !=
+	feat_detect_panic((read_feat_rme_id_field() !=
 			RME_NOT_IMPLEMENTED), "RME");
 #endif
 }

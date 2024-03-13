@@ -135,7 +135,7 @@ uintptr_t xlat_get_min_virt_addr_space_size(void)
 {
 	uintptr_t ret;
 
-	if (is_armv8_4_ttst_present())
+	if (is_feat_ttst_present())
 		ret = MIN_VIRT_ADDR_SPACE_SIZE_TTST;
 	else
 		ret = MIN_VIRT_ADDR_SPACE_SIZE;
@@ -312,7 +312,7 @@ void setup_mmu_cfg(uint64_t *params, unsigned int flags,
 	/* Set TTBR bits as well */
 	ttbr0 = (uint64_t) base_table;
 
-	if (is_armv8_2_ttcnp_present()) {
+	if (is_feat_ttcnp_present()) {
 		/* Enable CnP bit so as to share page tables with all PEs. */
 		ttbr0 |= TTBR_CNP_BIT;
 	}
