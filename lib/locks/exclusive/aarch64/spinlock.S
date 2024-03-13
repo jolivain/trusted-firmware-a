@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2019, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,8 @@
 
 	.globl	spin_lock
 	.globl	spin_unlock
+	.globl	bit_lock
+	.globl	bit_unlock
 
 #if USE_SPINLOCK_CAS
 #if !ARM_ARCH_AT_LEAST(8, 1)
@@ -73,3 +75,35 @@ func spin_unlock
 	stlr	wzr, [x0]
 	ret
 endfunc spin_unlock
+
+/*
+ * Acquire bitlock using load-/store-exclusive instruction pair.
+ *
+ * void bit_lock(bitlock_t *lock, uint8_t mask);
+ */
+func bit_lock
+	sevl
+1:	wfe
+2:	ldaxrb	w2, [x0]
+	tst	w2, w1
+	b.ne	1b
+	orr	w2, w2, w1
+	stxrb	w3, w2, [x0]
+	cbnz	w3, 2b
+	ret
+endfunc bit_lock
+
+/*
+ * Release bitlock previously acquired by bit_lock.
+ *
+ * void bit_unlock(bitlock_t *lock, uint8_t mask);
+ */
+func bit_unlock
+	sevl
+1:	wfe
+	ldaxrb	w2, [x0]
+	bic	w2, w2, w1
+	stlxrb	w3, w2, [x0]
+	cbnz	w3, 1b
+	ret
+endfunc bit_unlock
