@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e753c1a_19247803",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-03-13T15:26:50Z",
+      "side": 1,
+      "message": "Ah yes, removed check and condensed LIBMBEDTLS_SRCS",
+      "parentUuid": "e43ca835_35824fe1",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 26
+      },
+      "revId": "317cc35137cceaba368c99929d0b824e15adcd16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19babad3_b89b3e55",
