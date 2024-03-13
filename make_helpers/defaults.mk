@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2016-2023, Arm Limited. All rights reserved.
+# Copyright (c) 2016-2024, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -138,6 +138,9 @@ FW_ENC_STATUS			:= 0
 
 # For Chain of Trust
 GENERATE_COT			:= 0
+
+# Maximum size of GPT contiguous block
+GPT_MAX_BLOCK			:= 2
 
 # Hint platform interrupt control layer that Group 0 interrupts are for EL3. By
 # default, they are for Secure EL1.
