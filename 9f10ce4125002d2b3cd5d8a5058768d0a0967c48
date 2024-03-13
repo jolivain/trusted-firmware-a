@@ -46,6 +46,30 @@
       },
       "revId": "9f10ce4125002d2b3cd5d8a5058768d0a0967c48",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd7fbe4a_28978440",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-13T03:45:22Z",
+      "side": 1,
+      "message": "right, gpt library can provide a \"get memory required for bit locks api\", and have the caller allocate it.\nSince you detect at runtime and we don\u0027t really have dynamic memory allocation, the FW already knows the \"max\" size bit locks can take. I\u0027m just saying it may be clearer to have a separate area and not right after the GPT.",
+      "parentUuid": "d380cfa2_c6712b74",
+      "range": {
+        "startLine": 1290,
+        "startChar": 4,
+        "endLine": 1290,
+        "endChar": 14
+      },
+      "revId": "9f10ce4125002d2b3cd5d8a5058768d0a0967c48",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
