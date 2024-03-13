@@ -33,6 +33,42 @@
       "message": "Is this breakage related to my patch or does it affect other patchsets too?",
       "revId": "a74b9492022e14d1c0a1c76af7089ab33e217369",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81476033_e48209c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-03-13T11:07:32Z",
+      "side": 1,
+      "message": "Hi Ahmad,\nI think it is my fault, I have not advertised about that in TF-A mailing list, and updated all the docs. Since our latest delivery, ST has decided to remove SP_MIN support, the default BL32 being OP-TEE [1].\n \nI had updated the generic boot sequence [2], but not the STM32MP1 build instructions [3] and the fact that OP-TEE was optional. This is no more the case for ST deliveries, and so we do no more test it internally.\nThe only remaining test with SP_MIN is the one on the ST board in the test farm [4],see stm32mp1-default at the end of the table, with lava logs [5]. But due to firmware loading time constraints, we only load a FIP, and stop in U-Boot. That\u0027s why we didn\u0027t see the issue.\n\nDo you have more info about the projects still using SP_MIN?\n\nSeveral actions on my side:\n* update STM32MP1 build instruction doc [3]\n* check if we can have a minimal boot till kernel console in the test farm, and add an OP-TEE config there\n\n[1]:https://wiki.st.com/stm32mpu/wiki/STM32_MPU_OpenSTLinux_release_note_-_v5.0.0#TF-A\n[2]:https://trustedfirmware-a.readthedocs.io/en/latest/plat/st/stm32mpus.html#boot-sequence\n[3]:https://trustedfirmware-a.readthedocs.io/en/latest/plat/st/stm32mp1.html#build-instructions\n[4]:https://ci.trustedfirmware.org/job/tf-a-ci-gateway/66199/\n[5]:https://tf.validation.linaro.org/scheduler/job/2366454",
+      "parentUuid": "8b3b0ccb_054dd24e",
+      "revId": "a74b9492022e14d1c0a1c76af7089ab33e217369",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d19498e_dbe30205",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-03-13T11:07:32Z",
+      "side": 1,
+      "message": "It is not related to your patch. It seems the Juno boards are under maintenance, causing the failures. It is under investigation.",
+      "parentUuid": "08d84fc9_adb20984",
+      "revId": "a74b9492022e14d1c0a1c76af7089ab33e217369",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
