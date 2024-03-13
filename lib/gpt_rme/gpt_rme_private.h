@@ -9,6 +9,7 @@
 
 #include <arch.h>
 #include <lib/gpt_rme/gpt_rme.h>
+#include <lib/spinlock.h>
 #include <lib/utils_def.h>
 
 /******************************************************************************/
@@ -19,7 +20,7 @@
 #define GPT_L0_TYPE_MASK		UL(0xF)
 #define GPT_L0_TYPE_SHIFT		U(0)
 
-/* For now, we don't support contiguous descriptors, only table and block */
+/* GPT level 0 table and block descriptors */
 #define GPT_L0_TYPE_TBL_DESC		UL(3)
 #define GPT_L0_TYPE_BLK_DESC		UL(1)
 
@@ -28,6 +29,20 @@
 
 #define GPT_L0_BLK_DESC_GPI_MASK	UL(0xF)
 #define GPT_L0_BLK_DESC_GPI_SHIFT	U(4)
+
+/* GPT level 1 Contiguous descriptor */
+#define GPT_L1_TYPE_CONT_DESC_MASK	UL(0xF)
+#define GPT_L1_TYPE_CONT_DESC		UL(1)
+
+/* GPT level 1 Contiguous descriptor definitions */
+#define GPT_L1_CONT_DESC_2MB		U(1)
+#define GPT_L1_CONT_DESC_32MB		U(2)
+#define GPT_L1_CONT_DESC_512MB		U(3)
+
+#define GPT_L1_CONT_DESC_GPI_SHIFT	U(4)
+#define GPT_L1_CONT_DESC_GPI_MASK	UL(0xF)
+#define GPT_L1_CONT_DESC_CONTIG_SHIFT	U(8)
+#define GPT_L1_CONT_DESC_CONTIG_MASK	UL(3)
 
 /* GPT level 1 descriptor bit definitions */
 #define GPT_L1_GRAN_DESC_GPI_MASK	UL(0xF)
@@ -52,6 +67,11 @@
 					 ((uint64_t)(_gpi) << 4*13) | \
 					 ((uint64_t)(_gpi) << 4*14) | \
 					 ((uint64_t)(_gpi) << 4*15))
+
+#define GPT_L1_ANY_DESC		GPT_BUILD_L1_DESC(GPT_GPI_ANY)
+#define GPT_L1_NS_DESC		GPT_BUILD_L1_DESC(GPT_GPI_NS)
+#define GPT_L1_REALM_DESC	GPT_BUILD_L1_DESC(GPT_GPI_REALM)
+#define GPT_L1_SECURE_DESC	GPT_BUILD_L1_DESC(GPT_GPI_SECURE)
 
 /******************************************************************************/
 /* GPT platform configuration                                                 */
@@ -106,6 +126,11 @@ typedef enum {
 	PGS_64KB_P =	16U
 } gpt_p_val_e;
 
+
+#define LOCK_SIZE	sizeof(((bitlock_t *)0)->lock)
+#define LOCK_TYPE	typeof(((bitlock_t *)0)->lock)
+#define LOCK_BITS	(LOCK_SIZE * 8U)
+
 /*
  * Internal structure to retrieve the values from get_gpi_info();
  */
@@ -115,6 +140,8 @@ typedef struct gpi_info {
 	unsigned int idx;
 	unsigned int gpi_shift;
 	unsigned int gpi;
+	bitlock_t *bitlock;
+	LOCK_TYPE mask;
 } gpi_info_t;
 
 /* Max valid value for PGS */
@@ -122,6 +149,35 @@ typedef struct gpi_info {
 
 /* Max valid value for PPS */
 #define GPT_PPS_MAX			(6U)
+
+/*
+ * TLBI RPALOS command SIZE, bits [47:44] field:
+ *
+ * SIZE	  Meaning
+ * 0b0000 4KB
+ * 0b0001 16KB
+ * 0b0010 64KB
+ * 0b0011 2MB
+ * 0b0100 32MB
+ * 0b0101 512MB
+ * 0b0110 1GB
+ * 0b0111 16GB
+ * 0b1000 64GB
+ * 0b1001 512GB
+ */
+#define TLBI_SZ_4K	0UL
+#define TLBI_SZ_16K	1UL
+#define TLBI_SZ_64K	2UL
+#define TLBI_SZ_2M	3UL
+#define TLBI_SZ_32M	4UL
+#define TLBI_SZ_512M	5UL
+#define TLBI_SZ_1G	6UL
+#define TLBI_SZ_16G	7UL
+#define TLBI_SZ_64G	8UL
+#define TLBI_SZ_512G	9UL
+
+#define TLBI_ARG(_addr, _size)	\
+		(((_addr) >> FOUR_KB_SHIFT) | (TLBI_##_size << 44))
 
 /******************************************************************************/
 /* L0 address attribute macros                                                */
@@ -198,6 +254,9 @@ typedef struct gpi_info {
 /* Total number of entries in each L1 table */
 #define GPT_L1_ENTRY_COUNT(_p)		((GPT_L1_IDX_MASK(_p)) + 1U)
 
+/* Number of L1 entries in 2MB block */
+#define GPT_L1_ENTRY_COUNT_2MB(_p)	(GPT_L1_ENTRY_COUNT(_p) >> 9)
+
 /* Total size in bytes of each L1 table */
 #define GPT_L1_TABLE_SIZE(_p)		((GPT_L1_ENTRY_COUNT(_p)) << 3U)
 
@@ -211,6 +270,9 @@ typedef struct gpi_info {
 /* Granule actual size in bytes */
 #define GPT_PGS_ACTUAL_SIZE(_p)	(1UL << (_p))
 
+/* Number of granules in 2MB block */
+#define GPT_PGS_COUNT_2MB(_p)	(1UL << (21 - (_p)))
+
 /* L0 GPT region size in bytes */
 #define GPT_L0GPTSZ_ACTUAL_SIZE	(1UL << GPT_S_VAL)
 
@@ -221,7 +283,8 @@ typedef struct gpi_info {
  * This definition is used to determine if a physical address lies on an L0
  * region boundary.
  */
-#define GPT_IS_L0_ALIGNED(_pa)	(((_pa) & (GPT_L0_REGION_SIZE - U(1))) == U(0))
+#define GPT_IS_L0_ALIGNED(_pa)	\
+	(((_pa) & (GPT_L0_REGION_SIZE - UL(1))) == UL(0))
 
 /* Get the type field from an L0 descriptor */
 #define GPT_L0_TYPE(_desc)	(((_desc) >> GPT_L0_TYPE_SHIFT) & \
@@ -246,16 +309,48 @@ typedef struct gpi_info {
 				(GPT_L0_TBL_DESC_L1ADDR_MASK << \
 				GPT_L0_TBL_DESC_L1ADDR_SHIFT))))
 
+/* Create L1 Contiguous descriptor */
+#define GPT_L1_CONT_DESC(_desc, _contig) \
+				(GPT_L1_TYPE_CONT_DESC | \
+				(((_desc) & GPT_L1_CONT_DESC_GPI_MASK) << \
+				GPT_L1_CONT_DESC_GPI_SHIFT) | \
+				(((_contig) & GPT_L1_CONT_DESC_CONTIG_MASK) << \
+				GPT_L1_CONT_DESC_CONTIG_SHIFT))
+
+/* Get the GPI from L1 Contiguous descriptor */
+#define GPT_L1_CONT_GPI(_desc)		\
+	(((_desc) >> GPT_L1_CONT_DESC_GPI_SHIFT) & GPT_L1_CONT_DESC_GPI_MASK)
+
+/* Get the Contig from L1 Contiguous descriptor */
+#define GPT_L1_CONT_CONTIG(_desc)	\
+	(((_desc) >> GPT_L1_CONT_DESC_CONTIG_SHIFT) & \
+					GPT_L1_CONT_DESC_CONTIG_MASK)
+
 /* Get the index into the L1 table from a physical address */
-#define GPT_L1_IDX(_p, _pa)	(((_pa) >> GPT_L1_IDX_SHIFT(_p)) & \
-				GPT_L1_IDX_MASK(_p))
+#define GPT_L1_IDX(_p, _pa)		\
+	(((_pa) >> GPT_L1_IDX_SHIFT(_p)) & GPT_L1_IDX_MASK(_p))
 
 /* Get the index of the GPI within an L1 table entry from a physical address */
-#define GPT_L1_GPI_IDX(_p, _pa)	(((_pa) >> GPT_L1_GPI_IDX_SHIFT(_p)) & \
-				GPT_L1_GPI_IDX_MASK)
+#define GPT_L1_GPI_IDX(_p, _pa)		\
+	(((_pa) >> GPT_L1_GPI_IDX_SHIFT(_p)) & GPT_L1_GPI_IDX_MASK)
 
 /* Determine if an address is granule-aligned */
-#define GPT_IS_L1_ALIGNED(_p, _pa) (((_pa) & (GPT_PGS_ACTUAL_SIZE(_p) - U(1))) \
-				   == U(0))
+#define GPT_IS_L1_ALIGNED(_p, _pa)	\
+	(((_pa) & (GPT_PGS_ACTUAL_SIZE(_p) - U(1))) == U(0))
+
+/* Get aligned addresses */
+#define ALIGN_2MB(_addr)	((_addr) & ~(SZ_2M - 1UL))
+#define ALIGN_32MB(_addr)	((_addr) & ~(SZ_32M - 1UL))
+#define ALIGN_512MB(_addr)	((_addr) & ~(SZ_512M - 1UL))
+
+/* Determine if region is contiguous */
+#define GPT_REGION_IS_CONT(_len, _addr, _size)	\
+	(((_len) >= (_size)) && (((_addr) & ((_size) - UL(1))) == UL(0)))
+
+/* Get 32MB block number in 512MB block: 0-15 */
+#define GET_32MB_NUM(_addr)	((_addr >> 25) & 0xF)
+
+/* Get 2MB block number in 32MB block: 0-15 */
+#define GET_2MB_NUM(_addr)	((_addr >> 21) & 0xF)
 
 #endif /* GPT_RME_PRIVATE_H */
