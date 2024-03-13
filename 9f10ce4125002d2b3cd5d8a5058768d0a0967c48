@@ -70,6 +70,30 @@
       },
       "revId": "9f10ce4125002d2b3cd5d8a5058768d0a0967c48",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c0cff23_183f75b6",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 1290,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-13T11:40:25Z",
+      "side": 1,
+      "message": "Not clear where such \"a separate area\" might reside. FVP GPT library uses 2 regions of SRAM:\n- 4KB reserved for L0 table with only 512 bytes used;\n- code/data region in which statically allocated data cannot be defined.\nArray of bitlock can be statically defined for maximum supported memory region covered by L0, but this information is passed by BL2 in arm_gpt_info.pps (\u003dGPCCR_PPS_64GB) as a configuration option during initial GPT L0 setup.\nIf the original GPT library logic is changed from reading configuration data from BL2 to use platform specific data macros directly (GPCCR_PPS_64GB, GPCCR_PGS_4K, etc.), it would simplify the code significantly and allow to get rid of variables set during runtime initialisation (gpt_l1_cnt_2mb, gpt_l1_size_bit, gpt_512mb_bit, etc.)",
+      "parentUuid": "dd7fbe4a_28978440",
+      "range": {
+        "startLine": 1290,
+        "startChar": 4,
+        "endLine": 1290,
+        "endChar": 14
+      },
+      "revId": "9f10ce4125002d2b3cd5d8a5058768d0a0967c48",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
