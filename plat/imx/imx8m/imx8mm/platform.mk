@@ -52,7 +52,6 @@ BL31_SOURCES		+=	plat/imx/common/imx8_helpers.S			\
 				drivers/delay_timer/delay_timer.c		\
 				drivers/delay_timer/generic_delay_timer.c	\
 				${XLAT_TABLES_LIB_SRCS}				\
-				${IMX_DRAM_SOURCES}				\
 				${IMX_GIC_SOURCES}
 
 ifeq (${NEED_BL2},yes)
@@ -152,6 +151,14 @@ A53_DISABLE_NON_TEMPORAL_HINT := 0
 ERRATA_A53_835769	:=	1
 ERRATA_A53_843419	:=	1
 ERRATA_A53_855873	:=	1
+
+IMX_DRAM_RETENTION	?=	1
+$(eval $(call assert_boolean,IMX_DRAM_RETENTION))
+$(eval $(call add_define,IMX_DRAM_RETENTION))
+
+ifeq (${IMX_DRAM_RETENTION},1)
+BL31_SOURCES		+=	${IMX_DRAM_SOURCES}
+endif
 
 BL32_BASE		?=	0xbe000000
 $(eval $(call add_define,BL32_BASE))
