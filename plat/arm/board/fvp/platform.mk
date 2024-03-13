@@ -26,7 +26,11 @@ FVP_DT_PREFIX		:= fvp-base-gicv3-psci
 
 # Size (in kilobytes) of the Trusted SRAM region to  utilize when building for
 # the FVP platform. This option defaults to 256.
+ifeq (${ENABLE_RME},1)
+FVP_TRUSTED_SRAM_SIZE	:= 384
+else
 FVP_TRUSTED_SRAM_SIZE	:= 256
+endif
 
 # Macro to enable helpers for running SPM tests. Disabled by default.
 PLAT_TEST_SPM	:= 0

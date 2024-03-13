@@ -616,6 +616,11 @@ Common build options
    EL1 for handling. The default value of this option is ``0``, which means the
    Group 0 interrupts are assumed to be handled by Secure EL1.
 
+-  ``RME_GPT_MAX_BLOCK``: Numeric value in MB to define maximum size of
+   supported contiguous blocks in GPT Library. This parameter can take the
+   values 0, 2, 32 and 512. Setting this value to 0 disables use of Contigious
+   descriptors. Default value is 2.
+
 -  ``HANDLE_EA_EL3_FIRST_NS``: When set to ``1``, External Aborts and SError
    Interrupts, resulting from errors in NS world, will be always trapped in
    EL3 i.e. in BL31 at runtime. When set to ``0`` (default), these exceptions
