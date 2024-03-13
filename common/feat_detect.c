@@ -47,7 +47,7 @@ static inline void feature_panic(char *feat_name)
  ******************************************************************************/
 static inline void __attribute((__always_inline__))
 check_feature(int state, unsigned long field, const char *feat_name,
-	      unsigned int min, unsigned int max)
+		unsigned int min, unsigned int max)
 {
 	if (state == FEAT_STATE_ALWAYS && field < min) {
 		ERROR("FEAT_%s not supported by the PE\n", feat_name);
@@ -55,7 +55,7 @@ check_feature(int state, unsigned long field, const char *feat_name,
 	}
 	if (state >= FEAT_STATE_ALWAYS && field > max) {
 		ERROR("FEAT_%s is version %ld, but is only known up to version %d\n",
-		      feat_name, field, max);
+			feat_name, field, max);
 		tainted = true;
 	}
 }
@@ -76,7 +76,7 @@ static void read_feat_pauth(void)
 static void read_feat_bti(void)
 {
 #if (ENABLE_BTI == FEAT_STATE_ALWAYS)
-	feat_detect_panic(is_armv8_5_bti_present(), "BTI");
+	feat_detect_panic(is_feat_bti_present(), "BTI");
 #endif
 }
 
@@ -86,8 +86,7 @@ static void read_feat_bti(void)
 static void read_feat_rme(void)
 {
 #if (ENABLE_RME == FEAT_STATE_ALWAYS)
-	feat_detect_panic((get_armv9_2_feat_rme_support() !=
-			RME_NOT_IMPLEMENTED), "RME");
+	feat_detect_panic(is_feat_rme_present(), "RME");
 #endif
 }
 
@@ -140,8 +139,7 @@ void detect_arch_features(void)
 	 * revisions so that we catch them as they come along
 	 */
 	check_feature(FEAT_STATE_ALWAYS, read_feat_pmuv3_id_field(),
-		      "PMUv3", 1, ID_AA64DFR0_PMUVER_PMUV3P7);
-
+			"PMUv3", 1, ID_AA64DFR0_PMUVER_PMUV3P7);
 	/* v8.1 features */
 	check_feature(ENABLE_FEAT_PAN, read_feat_pan_id_field(), "PAN",
 			PAN_IMPLEMENTED, PAN3_IMPLEMENTED);
