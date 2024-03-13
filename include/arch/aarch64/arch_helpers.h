@@ -704,13 +704,23 @@ static inline uint64_t el_implemented(unsigned int el)
 }
 
 /*
- * TLBIPAALLOS instruction
+ * TLBI PAALLOS instruction
  * (TLB Inivalidate GPT Information by PA,
  * All Entries, Outer Shareable)
  */
 static inline void tlbipaallos(void)
 {
-	__asm__("SYS #6,c8,c1,#4");
+	__asm__("tlbi paallos");
+}
+
+/*
+ * TLBI RPALOS instruction
+ * (TLB Range Invalidate GPT Information by PA,
+ * Last level, Outer Shareable)
+ */
+static inline void tlbirpallos(uint64_t arg)
+{
+	__asm__("tlbi rpalos, %0" : : "r" (arg));
 }
 
 /*
