@@ -116,7 +116,7 @@ u_register_t create_spsr(u_register_t old_spsr, unsigned int target_el)
 
 	/* If FEAT_BTI is present, clear BTYPE bits */
 	new_spsr |= old_spsr & (SPSR_BTYPE_MASK_AARCH64 << SPSR_BTYPE_SHIFT_AARCH64);
-	if (is_armv8_5_bti_present()) {
+	if (is_feat_bti_present()) {
 		new_spsr &= ~(SPSR_BTYPE_MASK_AARCH64 << SPSR_BTYPE_SHIFT_AARCH64);
 	}
 
