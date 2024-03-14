@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c00f45f_23f60576",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-14T21:20:40Z",
+      "side": 1,
+      "message": "Setting V+1 based on https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/1865/\nthe static check failure new file added, this file will be built default and no new build is needed for coverity scan.\n\nIt was tested with same topic name.",
+      "revId": "f6e2f503897fe387f11902fe3526b275b622d8df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
