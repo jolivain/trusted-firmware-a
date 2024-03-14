@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdeb2485_1d2b994f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-14T22:38:10Z",
+      "side": 1,
+      "message": "nit: add a space in between",
+      "range": {
+        "startLine": 11,
+        "startChar": 15,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "9a8b25f884f39a4394eb615a8b80553e039b37bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67e8fdb2_d988b04a",
+        "filename": "lib/cpus/aarch64/cortex_a720.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-14T22:38:10Z",
+      "side": 1,
+      "message": "\"enabled\" or \"present\"? If you meant \"enabled\", maybe you want to check ENABLE_SPE_FOR_NS flag too.",
+      "range": {
+        "startLine": 30,
+        "startChar": 55,
+        "endLine": 30,
+        "endChar": 66
+      },
+      "revId": "9a8b25f884f39a4394eb615a8b80553e039b37bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
