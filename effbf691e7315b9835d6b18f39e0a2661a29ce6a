@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ffb2a81_2dab629c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-03-15T08:55:24Z",
+      "side": 1,
+      "message": "If I recall FEAT_MTE has been used to enable EL0 usage.\nIs this change a breaking change in that downstream platforms may use FEAT_MTE just for userspace?",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 8
+      },
+      "revId": "effbf691e7315b9835d6b18f39e0a2661a29ce6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17de4e2c_c28a5e09",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-03-15T08:55:24Z",
+      "side": 1,
+      "message": "Should it be both ENABLE_FEAT_MTE\u003d1 ENABLE_FEAT_MTE2\u003d1 ? Or only the latter suffices?",
+      "range": {
+        "startLine": 218,
+        "startChar": 4,
+        "endLine": 218,
+        "endChar": 22
+      },
+      "revId": "effbf691e7315b9835d6b18f39e0a2661a29ce6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "282b71c9_237b396b",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-03-15T08:55:24Z",
+      "side": 1,
+      "message": "FEAT_MTE2",
+      "range": {
+        "startLine": 317,
+        "startChar": 9,
+        "endLine": 317,
+        "endChar": 34
+      },
+      "revId": "effbf691e7315b9835d6b18f39e0a2661a29ce6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

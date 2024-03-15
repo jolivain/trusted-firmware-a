@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "069d0d67_c68a3d18",
+        "filename": "bl32/tsp/tsp_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-03-15T08:55:24Z",
+      "side": 0,
+      "message": "I wonder why this had to be removed?\n\nIf I recall this was added to ensure it is possible enable FEAT_MTE2 in context of the EL3 SPMC + S-EL1 TOS.",
+      "range": {
+        "startLine": 241,
+        "startChar": 1,
+        "endLine": 247,
+        "endChar": 2
+      },
+      "revId": "79e898b2831d166c10fffcd875cb3fdd9e4399ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
