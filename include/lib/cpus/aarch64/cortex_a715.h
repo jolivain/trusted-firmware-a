@@ -23,9 +23,21 @@
 #define CORTEX_A715_CPUACTLR2_EL1				S3_0_C15_C1_1
 
 /*******************************************************************************
+ * CPU Auxiliary Control register 3 specific definitions.
+ ******************************************************************************/
+#define CORTEX_A715_CPUACTLR3_EL1				S3_0_C15_C1_2
+
+/*******************************************************************************
  * CPU Extended Control register specific definitions
  ******************************************************************************/
 #define CORTEX_A715_CPUECTLR_EL1				S3_0_C15_C1_4
+#define CORTEX_A715_CPUECTLR_EL1_ECC_MASK			U(1 << 23)
+
+/*******************************************************************************
+ * CPU Extended Control register 2 specific definitions
+ ******************************************************************************/
+#define CORTEX_A715_CPUECTLR2_EL1				S3_0_C15_C1_5
+#define CORTEX_A715_CPUECTLR2_EL1_STREAM_MODE_MASK		U(1 << 7)
 
 #define CORTEX_A715_CPUPSELR_EL3				S3_6_C15_C8_0
 #define CORTEX_A715_CPUPCR_EL3					S3_6_C15_C8_1
@@ -37,5 +49,11 @@
  ******************************************************************************/
 #define CORTEX_A715_CPUPWRCTLR_EL1				S3_0_C15_C2_7
 #define CORTEX_A715_CPUPWRCTLR_EL1_CORE_PWRDN_BIT		U(1)
+
+/*******************************************************************************
+ * CPU Configuration register specific definitions
+ ******************************************************************************/
+#define CORTEX_A715_CPUCFR_EL1					S3_0_C15_C0_0
+#define CORTEX_A715_CPUCFR_EL1_CACHE_PROTECT_BIT		U(0)
 
 #endif /* CORTEX_A715_H */
