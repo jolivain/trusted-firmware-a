@@ -46,6 +46,30 @@
       },
       "revId": "5101ae26236000ae3ad0ae73b38e12dd6999c3ed",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35f31abe_90eef378",
+        "filename": "include/bl1/bl1.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-03-15T10:56:39Z",
+      "side": 1,
+      "message": "You\u0027re correct in noting that this function is utilized to modify platform-specific data. If it\u0027s intended to be implemented as a platform function, there should be accompanying actions from the platform. Alternatively, if it\u0027s a generic function then we need to understand its implications for the platform. I believe this API falls under the latter scenario.\n\nAlso, it\u0027s good to update the porting guide to outline the required platform actions for this API or its implications for the platform if it\u0027s generic.\n\nConsidering this, I suggest relocating the definition of this function to ``plat/common/plat_bl1_common.c`` and updating the porting-guide documentation accordingly.",
+      "parentUuid": "a678c64a_e8518b5a",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 36
+      },
+      "revId": "5101ae26236000ae3ad0ae73b38e12dd6999c3ed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
