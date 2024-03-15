@@ -91,6 +91,22 @@ workaround_reset_end cortex_a715, ERRATUM(2561034)
 
 check_erratum_range cortex_a715, ERRATUM(2561034), CPU_REV(1, 0), CPU_REV(1, 0)
 
+workaround_reset_start cortex_a715, ERRATUM(2804830), ERRATA_A715_2804830
+	mrs x1, CORTEX_A715_CPUCFR_EL1
+	ubfx x0, x1, CORTEX_A715_CPUCFR_EL1_CACHE_PROTECT_BIT, #1
+	cbz x0, 1f
+
+	/* for configurations using core cache protection = true */
+	sysreg_bit_set CORTEX_A715_CPUACTLR3_EL1, BIT(2)
+	sysreg_bit_set CORTEX_A715_CPUECTLR_EL1, CORTEX_A715_CPUECTLR_EL1_ECC_MASK
+
+	/* for configurations using core cache protection = false */
+1:
+	sysreg_bit_set CORTEX_A715_CPUECTLR2_EL1, CORTEX_A715_CPUECTLR2_EL1_STREAM_MODE_MASK
+workaround_reset_end cortex_a715, ERRATUM(2804830)
+
+check_erratum_ls cortex_a715, ERRATUM(2804830), CPU_REV(1, 2)
+
 workaround_reset_start cortex_a715, CVE(2022, 23960), WORKAROUND_CVE_2022_23960
 #if IMAGE_BL31
 	/*
