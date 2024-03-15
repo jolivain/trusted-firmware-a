@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9bb1c7dc_2a81be8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-15T17:06:04Z",
+      "side": 1,
+      "message": "I have added a deprecation notice in here:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27122/9/make_helpers/arch_features.mk#313\n\nIn last cleanup attempt we moved from \u0027CTX_INCLUDE_MTE_REGS\u0027 to use \u0027ENABLE_FEAT_MTE\u0027, Now we are depcrating both to use \u0027ENABLE_FEAT_MTE2\u0027\n\nMay be I should extend build warning to use FEAT_MTE2 when either one them used?",
+      "parentUuid": "f1a62ce8_28e982db",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 8
+      },
+      "revId": "effbf691e7315b9835d6b18f39e0a2661a29ce6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "17de4e2c_c28a5e09",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 8
