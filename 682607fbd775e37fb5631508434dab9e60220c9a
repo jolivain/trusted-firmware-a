@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7866b51_044669ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001164
+      },
+      "writtenOn": "2024-03-16T00:52:37Z",
+      "side": 1,
+      "message": "It refers this check: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27013/3/plat/rpi/common/rpi_pci_svc.c#63\n\nThere\u0027s only the root port (device 0, function 0) on bus 0. Scanning beyond function 0 will cause a lock-up when an endpoint is connected, for unknown reasons.\n\nMost PCI enumeration code doesn\u0027t actually attempt to scan beyond that since this is a PCI-to-PCI bridge and the MF bit is not set, but one can manually access the config space and trigger this issue.",
+      "parentUuid": "41c22784_8452d527",
+      "range": {
+        "startLine": 15,
+        "startChar": 11,
+        "endLine": 15,
+        "endChar": 28
+      },
+      "revId": "682607fbd775e37fb5631508434dab9e60220c9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "dd9930d1_612bf21e",
@@ -72,6 +96,30 @@
       "writtenOn": "2024-03-15T22:46:32Z",
       "side": 1,
       "message": "How do we test this when set to 1?",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 15
+      },
+      "revId": "682607fbd775e37fb5631508434dab9e60220c9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d914e51c_9ec7a248",
+        "filename": "plat/rpi/rpi5/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1001164
+      },
+      "writtenOn": "2024-03-16T00:52:37Z",
+      "side": 1,
+      "message": "You can grab the latest EDK2 build artifact from here: https://github.com/worproject/rpi5-uefi, boot an OS supporting this SMC spec (FreeBSD, NetBSD or ESXi), then check the device hierarchy.",
+      "parentUuid": "466f8f78_e1c9a5df",
       "range": {
         "startLine": 90,
         "startChar": 0,
