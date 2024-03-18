@@ -16,6 +16,92 @@
       "message": "Unrelated failures",
       "revId": "87b54e42dd741f2ca1db54b39cfb9b383513b607",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "862fc59d_b8d929f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-03-18T13:45:47Z",
+      "side": 1,
+      "message": "Hi Maxime/Yaan\n\nPlease build and test this patch for ST platform also. Thanks!",
+      "revId": "87b54e42dd741f2ca1db54b39cfb9b383513b607",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a6861c3_7f04cb30",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-03-18T13:45:47Z",
+      "side": 1,
+      "message": "0U instead?",
+      "range": {
+        "startLine": 247,
+        "startChar": 10,
+        "endLine": 247,
+        "endChar": 11
+      },
+      "revId": "87b54e42dd741f2ca1db54b39cfb9b383513b607",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f88bcec_097ad5b3",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-03-18T13:45:47Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 462,
+        "startChar": 10,
+        "endLine": 462,
+        "endChar": 11
+      },
+      "revId": "87b54e42dd741f2ca1db54b39cfb9b383513b607",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87c1d3b2_950d27b7",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-03-18T13:45:47Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 479,
+        "startChar": 10,
+        "endLine": 479,
+        "endChar": 11
+      },
+      "revId": "87b54e42dd741f2ca1db54b39cfb9b383513b607",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
