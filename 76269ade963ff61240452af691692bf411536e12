@@ -22,6 +22,30 @@
       },
       "revId": "76269ade963ff61240452af691692bf411536e12",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47984a88_7d4822ee",
+        "filename": "lib/locks/exclusive/aarch64/spinlock.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-18T13:00:10Z",
+      "side": 1,
+      "message": "Why don\u0027t we need Load-Acquire to ensure the required ordering as in bit_lock()?\nDo you mean by \"store release\" \"stlrb\" instruction? Shouldn\u0027t load/store exclusively come in pairs?",
+      "parentUuid": "e061aa68_c8614058",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 107,
+        "endChar": 12
+      },
+      "revId": "76269ade963ff61240452af691692bf411536e12",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
