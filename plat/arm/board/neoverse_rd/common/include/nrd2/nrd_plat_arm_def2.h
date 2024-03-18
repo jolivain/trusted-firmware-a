@@ -16,6 +16,7 @@
 #include <plat/arm/common/arm_def.h>
 #include <plat/arm/common/arm_spm_def.h>
 #include <plat/arm/css/common/css_def.h>
+#include <nrd_soc_css_def_v2.h>
 
 /*******************************************************************************
  * Core count
