@@ -30,6 +30,7 @@ static int platform_version_minor;
 #define SIP_SVC_GET_GIC_ITS SIP_FUNCTION_ID(101)
 #define SIP_SVC_GET_CPU_COUNT SIP_FUNCTION_ID(200)
 #define SIP_SVC_GET_CPU_NODE SIP_FUNCTION_ID(201)
+#define SIP_SVC_GET_CPU_TOPOLOGY SIP_FUNCTION_ID(202)
 #define SIP_SVC_GET_MEMORY_NODE_COUNT SIP_FUNCTION_ID(300)
 #define SIP_SVC_GET_MEMORY_NODE SIP_FUNCTION_ID(301)
 
@@ -46,10 +47,24 @@ typedef struct{
 	uint64_t addr_size;
 } memory_data;
 
+/*
+ * sockets: the number of sockets on sbsa-ref platform.
+ * clusters: the number of clusters in one socket.
+ * cores: the number of cores in one cluster.
+ * threads: the number of threads in one core.
+ */
+typedef struct{
+	uint32_t sockets;
+	uint32_t clusters;
+	uint32_t cores;
+	uint32_t threads;
+} cpu_topology;
+
 static struct {
 	uint32_t num_cpus;
 	uint32_t num_memnodes;
 	cpu_data cpu[PLATFORM_CORE_COUNT];
+	cpu_topology cpu_topo;
 	memory_data memory[PLAT_MAX_MEM_NODES];
 } dynamic_platform_info;
 
@@ -76,6 +91,7 @@ void read_cpuinfo_from_dt(void *dtb)
 	int node;
 	int prev;
 	int cpu = 0;
+	int socket_node, cluster_node, core_node, thread_node;
 	uint32_t nodeid = 0;
 	uintptr_t mpidr;
 
@@ -135,6 +151,89 @@ void read_cpuinfo_from_dt(void *dtb)
 
 	dynamic_platform_info.num_cpus = cpu;
 	INFO("Found %d cpus\n", dynamic_platform_info.num_cpus);
+
+	/* QEMU gives us this DeviceTree node:
+	 *
+	 *	cpu-map {
+	 *
+	 *		socket0 {
+	 *
+	 *			cluster0 {
+	 *
+	 *				core0 {
+	 *					cpu = <0x8003>;
+	 *				};
+	 *
+	 *				core1 {
+	 *					cpu = <0x8002>;
+	 *				};
+	 *			};
+	 *
+	 *			cluster1 {
+	 *
+	 *				core0 {
+	 *					cpu = <0x8001>;
+	 *				};
+	 *
+	 *				core1 {
+	 *					cpu = <0x8000>;
+	 *				};
+	 *			};
+	 *		};
+	 *	};
+	 */
+
+	prev = fdt_path_offset(dtb, "/cpus/cpu-map/");
+
+	/*
+	 * Iterate through /cpus/cpu-map to count the number of sockets.
+	 */
+	fdt_for_each_subnode(socket_node, dtb, prev) {
+
+		/*
+		 * Iterate through /cpus/cpu-map/socket0 to count the number of clusters.
+		 */
+		fdt_for_each_subnode(cluster_node, dtb, socket_node) {
+			if (dynamic_platform_info.cpu_topo.sockets > 0) {
+				break;
+			}
+
+			/*
+			 * Iterate through /cpus/cpu-map/socket0/cluster0 to count
+			 * the number of cores.
+			 */
+			fdt_for_each_subnode(core_node, dtb, cluster_node) {
+				if (dynamic_platform_info.cpu_topo.clusters > 0) {
+					break;
+				}
+
+				/*
+				 * Iterate through /cpus/cpu-map/socket0/cluster0/core0
+				 * to count the number of threads if cores node have
+				 * child nodes.
+				 */
+				if (fdt_first_subnode(dtb, core_node) > 0 && dynamic_platform_info.cpu_topo.cores == 0) {
+					fdt_for_each_subnode(thread_node, dtb, core_node) {
+						dynamic_platform_info.cpu_topo.threads++;
+					}
+				} else {
+					INFO("There are no threads in this cpu-map\n");
+				}
+
+				dynamic_platform_info.cpu_topo.cores++;
+			}
+
+			dynamic_platform_info.cpu_topo.clusters++;
+		}
+
+		dynamic_platform_info.cpu_topo.sockets++;
+	}
+
+	INFO("cpu topology:sockets: %d, clusters: %d, cores: %d, thread: %d\n",
+	 dynamic_platform_info.cpu_topo.sockets,
+	 dynamic_platform_info.cpu_topo.clusters,
+	 dynamic_platform_info.cpu_topo.cores,
+	 dynamic_platform_info.cpu_topo.threads);
 }
 
 void read_meminfo_from_dt(void *dtb)
@@ -352,6 +451,17 @@ uintptr_t sbsa_sip_smc_handler(uint32_t smc_fid,
 				dynamic_platform_info.cpu[index].mpidr);
 		} else {
 			SMC_RET1(handle, SMC_ARCH_CALL_INVAL_PARAM);
+		}
+
+	case SIP_SVC_GET_CPU_TOPOLOGY:
+		if (dynamic_platform_info.cpu_topo.sockets > 0 && dynamic_platform_info.cpu_topo.clusters > 0 && dynamic_platform_info.cpu_topo.cores > 0) {
+			SMC_RET5(handle, NULL,
+			dynamic_platform_info.cpu_topo.sockets,
+			dynamic_platform_info.cpu_topo.clusters,
+			dynamic_platform_info.cpu_topo.cores,
+			dynamic_platform_info.cpu_topo.threads);
+		} else {
+			SMC_RET1(handle, SMC_UNK);
 		}
 
 	case SIP_SVC_GET_MEMORY_NODE_COUNT:
