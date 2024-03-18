@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "620aa086_9f9ee058",
+        "filename": "plat/nuvoton/npcm845x/npcm845x_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1001006
+      },
+      "writtenOn": "2024-03-18T07:03:34Z",
+      "side": 1,
+      "message": "Nuvoton npxm845 doesn’t include BL2. BL31 execution is initiated by a non-related FW component which doesn’t clear the CPU registers before calling BL31. As a result, the flow of BL31 is corrupted. Initializing the argv input to 0 overcomes this issue.",
+      "parentUuid": "ce1c56a5_358a116a",
+      "revId": "4945c92b94bbd3837b731ff35ec8509a906add3a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ace6e2f_80391224",
@@ -48,6 +66,30 @@
       "writtenOn": "2024-03-07T15:19:12Z",
       "side": 1,
       "message": "where is this macro defined?",
+      "range": {
+        "startLine": 331,
+        "startChar": 2,
+        "endLine": 331,
+        "endChar": 25
+      },
+      "revId": "4945c92b94bbd3837b731ff35ec8509a906add3a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9165ac09_25ee4a69",
+        "filename": "plat/nuvoton/npcm845x/npcm845x_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1001006
+      },
+      "writtenOn": "2024-03-18T07:03:34Z",
+      "side": 1,
+      "message": "You are right, removed",
+      "parentUuid": "6ace6e2f_80391224",
       "range": {
         "startLine": 331,
         "startChar": 2,
@@ -81,6 +123,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f8ab2b1_15f2ed54",
+        "filename": "plat/nuvoton/npcm845x/npcm845x_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1001006
+      },
+      "writtenOn": "2024-03-18T07:03:34Z",
+      "side": 1,
+      "message": "You are right, removed",
+      "parentUuid": "f7226232_2ef342fa",
+      "range": {
+        "startLine": 335,
+        "startChar": 0,
+        "endLine": 336,
+        "endChar": 30
+      },
+      "revId": "4945c92b94bbd3837b731ff35ec8509a906add3a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e2938c5_e9dd5fb6",
@@ -94,6 +160,24 @@
       "writtenOn": "2024-03-07T15:19:12Z",
       "side": 1,
       "message": "can this be removed",
+      "revId": "4945c92b94bbd3837b731ff35ec8509a906add3a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d08bc597_f7783fc9",
+        "filename": "plat/nuvoton/npcm845x/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001006
+      },
+      "writtenOn": "2024-03-18T07:03:34Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "9e2938c5_e9dd5fb6",
       "revId": "4945c92b94bbd3837b731ff35ec8509a906add3a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
