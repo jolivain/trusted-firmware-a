@@ -10,6 +10,10 @@
 #ifndef NRD_CSS_FW_DEF2_H
 #define NRD_CSS_FW_DEF2_H
 
+#ifndef __ASSEMBLER__
+#include <lib/mmio.h>
+#endif /* __ASSEMBLER__ */
+
 #include <nrd_css_def2.h>
 
 /*******************************************************************************
