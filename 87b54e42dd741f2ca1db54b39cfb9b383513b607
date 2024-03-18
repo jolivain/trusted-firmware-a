@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3fed3e3_14d4301a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-03-18T16:24:54Z",
+      "side": 1,
+      "message": "Hi Manish, there is already a test in T-A test farm for STM32MP1, that can be seen in \u0027Run basic boot tests\u0027. If the stm32mp1-default config can compile and boot, which is the case here (at least it was OK with the previous version), then the patch is OK.",
+      "parentUuid": "862fc59d_b8d929f8",
+      "revId": "87b54e42dd741f2ca1db54b39cfb9b383513b607",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a6861c3_7f04cb30",
