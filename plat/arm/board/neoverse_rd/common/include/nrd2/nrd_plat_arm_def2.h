@@ -18,6 +18,7 @@
 #include <plat/arm/css/common/css_def.h>
 #include <nrd_css_fw_def2.h>
 #include <nrd_ros_fw_def2.h>
+#include <nrd_soc_css_def_v2.h>
 
 /*******************************************************************************
  * Core count
