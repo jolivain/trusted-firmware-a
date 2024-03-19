@@ -1,0 +1,199 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c32f7201_3c4d9f35",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-19T06:09:47Z",
+      "side": 1,
+      "message": "might be good to expand the comment to include a table of common values for different granule sizes and how it is calculated here.\nsame for gpt_l1_index_mask.\nthis would aid code readers.",
+      "range": {
+        "startLine": 145,
+        "startChar": 52,
+        "endLine": 145,
+        "endChar": 59
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eabac841_a2aa1540",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-19T06:09:47Z",
+      "side": 1,
+      "message": "can add asserts to catch programming errors or bugs that don\u0027t meet this. same for l1_desc and cnt to assert for their validity.",
+      "range": {
+        "startLine": 227,
+        "startChar": 10,
+        "endLine": 227,
+        "endChar": 17
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58e55436_31316d17",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-19T06:09:47Z",
+      "side": 1,
+      "message": "can this condition actually happen? in fill l1_table, we first fill contiguous discriptors for all possible contiguous block starting from highest to smallest. so when this function gets called it should be \u003c 2MB only no?\nif not, can you explain a sequence where we enter here with \u003e\u003d 2mb?",
+      "range": {
+        "startLine": 808,
+        "startChar": 5,
+        "endLine": 808,
+        "endChar": 11
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2bb7554_ace27038",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-19T06:09:47Z",
+      "side": 1,
+      "message": "I don\u0027t see the convenience in having this at the end of L0 table. it appears we just need a memory region of a particular size for bit locks. After we initialize L1 GPTs, we can have the caller initialize the bit locks as well in a separate region of memory and they can query the size required based on parameters (or perhaps be figured out at compile time).\nThat way bit lock init, flushing etc can be independent. there is some niceness to combining it with L1 init but it would be easier to read if they are separate.",
+      "range": {
+        "startLine": 1244,
+        "startChar": 4,
+        "endLine": 1244,
+        "endChar": 47
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa272273_56d9185a",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-19T06:09:47Z",
+      "side": 1,
+      "message": "readding sobys comment from previous review. no guarantee that all L1 pages are in \"contiguous\" memory. On multi-socket systems, we may allocate the L1 table in different regions, and on large memory systems (ex 1TB+ of memory ranges), it might not even be able to reserve so much contiguous memory for all L1 tables.",
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c93248fc_c794dd70",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-19T06:09:47Z",
+      "side": 1,
+      "message": "does the bit lock optimization have to be part of this patch? can contig support be first done under full spin lock like before, and then bit lock optimization patch added on top?",
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5644fa1a_31a043a5",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1690,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-19T06:09:47Z",
+      "side": 1,
+      "message": "it looks like get_gpi_params does not acquire the lock anymore. should this go away?",
+      "range": {
+        "startLine": 1690,
+        "startChar": 2,
+        "endLine": 1690,
+        "endChar": 12
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0930a6e_479d7c7e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1850,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-19T06:09:47Z",
+      "side": 1,
+      "message": "nit: this is awkward. you might as well have the #endif in line 1867 include line 1868.",
+      "range": {
+        "startLine": 1850,
+        "startChar": 1,
+        "endLine": 1850,
+        "endChar": 6
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4412741b_4652dd3b",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1866,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-19T06:09:47Z",
+      "side": 1,
+      "message": "don\u0027t we want to fuse regardless of whether we shattered or not ?",
+      "range": {
+        "startLine": 1863,
+        "startChar": 2,
+        "endLine": 1866,
+        "endChar": 3
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
