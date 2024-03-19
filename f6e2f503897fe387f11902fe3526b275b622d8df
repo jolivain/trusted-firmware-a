@@ -136,6 +136,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4651cd6_ce0f84de",
+        "filename": "include/services/ven_el3_svc.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-19T00:58:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a6c36e9_679bd7f2",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 33
+      },
+      "revId": "f6e2f503897fe387f11902fe3526b275b622d8df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d6baff9_9f27e181",
@@ -149,6 +173,30 @@
       "writtenOn": "2024-03-15T17:39:24Z",
       "side": 1,
       "message": "I gather those definitions are implementation specific?\n\nIs there a reason for the first version to be 0.1 rather than 1.0?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "f6e2f503897fe387f11902fe3526b275b622d8df",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d8043ec_eacd45e4",
+        "filename": "include/services/ven_el3_svc.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-19T00:58:10Z",
+      "side": 1,
+      "message": "Currently I don\u0027t see a thumb rule for version number for all SMCCC services\nfor example in here: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/tree/include/services/arm_arch_svc.h?id\u003db08ed18d9eea5a8d74d7bf3a13c233f56afad570#n18\n\nI see usage of 0.1 convention, so was not sure whats the right approach.",
+      "parentUuid": "7d6baff9_9f27e181",
       "range": {
         "startLine": 13,
         "startChar": 0,
