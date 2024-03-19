@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70d143a6_99f42b83",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-19T14:35:21Z",
+      "side": 1,
+      "message": "core_cache_protect",
+      "range": {
+        "startLine": 12,
+        "startChar": 17,
+        "endLine": 12,
+        "endChar": 38
+      },
+      "revId": "344a35b3a992dce6d5edaecfbf648461681a67a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08fb4420_5b6aa75e",
+        "filename": "docs/design/cpu-specific-build-macros.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-19T14:35:21Z",
+      "side": 1,
+      "message": "Remove",
+      "range": {
+        "startLine": 921,
+        "startChar": 33,
+        "endLine": 921,
+        "endChar": 54
+      },
+      "revId": "344a35b3a992dce6d5edaecfbf648461681a67a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49efa861_15b436f8",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-19T14:35:21Z",
+      "side": 1,
+      "message": "core_cache_protect \u003d TRUE\n  line with the functional config bit name in TRM",
+      "range": {
+        "startLine": 99,
+        "startChar": 28,
+        "endLine": 99,
+        "endChar": 50
+      },
+      "revId": "344a35b3a992dce6d5edaecfbf648461681a67a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9738a29_5beddc27",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-19T14:35:21Z",
+      "side": 1,
+      "message": "core_cache_protect \u003d FALSE",
+      "range": {
+        "startLine": 103,
+        "startChar": 29,
+        "endLine": 103,
+        "endChar": 58
+      },
+      "revId": "344a35b3a992dce6d5edaecfbf648461681a67a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc93cf22_88d48ec2",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-19T14:35:21Z",
+      "side": 1,
+      "message": "For register bits associated with any functionality, suggest to use macro names that hints the functionality or the actual name of the register bit.\n\nWhen using chicken bits, use of BIT(position) is ok",
+      "range": {
+        "startLine": 105,
+        "startChar": 42,
+        "endLine": 105,
+        "endChar": 48
+      },
+      "revId": "344a35b3a992dce6d5edaecfbf648461681a67a5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
