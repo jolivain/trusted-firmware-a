@@ -36,6 +36,13 @@ Vendor-specific EL3 monitor services are as follows:
 Source definitions for vendor-specific EL3 Monitor Service Calls are located in
 the ``ven_el3_svc.h`` header file.
 
++----------------------------+----------------------------+--------------------------------+
+| VEN_EL3_SVC_VERSION_MAJOR  | VEN_EL3_SVC_VERSION_MINOR  | Changes                        |
++============================+============================+================================+
+|                          1 |                          0 | Added Debugfs and PMF services.|
++----------------------------+----------------------------+--------------------------------+
+
+*Table 1: Showing different versions of Vendor-specific service and changes done with each version*
 
 Performance Measurement Framework (PMF)
 ---------------------------------------
