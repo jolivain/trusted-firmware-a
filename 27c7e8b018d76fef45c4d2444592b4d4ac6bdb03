@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "887f316d_c652d305",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-19T13:23:50Z",
+      "side": 1,
+      "message": "The code can be significantly simplified if the library is built as platform specific when L0GPTSZ, PGS \u0026 PPS are known at the build time, but not read from GPCCR_EL3 and used in calculation for setting these variables.\nI\u0027m going to implement a new patch for this functionality, can you share your view?",
+      "parentUuid": "c32f7201_3c4d9f35",
+      "range": {
+        "startLine": 145,
+        "startChar": 52,
+        "endLine": 145,
+        "endChar": 59
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "eabac841_a2aa1540",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 4
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-19T06:09:47Z",
       "side": 1,
       "message": "can add asserts to catch programming errors or bugs that don\u0027t meet this. same for l1_desc and cnt to assert for their validity.",
+      "range": {
+        "startLine": 227,
+        "startChar": 10,
+        "endLine": 227,
+        "endChar": 17
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8df6b033_285439ce",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-19T13:23:50Z",
+      "side": 1,
+      "message": "This is static function, so all parameters are set correctly be the caller.\nChecking l1 \u0026 cnt values will require implementing switch {} on 4 l1_desc possible values which is not worth for assertion.",
+      "parentUuid": "eabac841_a2aa1540",
       "range": {
         "startLine": 227,
         "startChar": 10,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "108ee8fd_251fcbb5",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 808,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-19T13:23:50Z",
+      "side": 1,
+      "message": "PAS can start with an address which is not 2MB aligned \u0026 has size \u003e 2MB.",
+      "parentUuid": "58e55436_31316d17",
+      "range": {
+        "startLine": 808,
+        "startChar": 5,
+        "endLine": 808,
+        "endChar": 11
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e2bb7554_ace27038",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 4
@@ -83,6 +155,30 @@
       "writtenOn": "2024-03-19T06:09:47Z",
       "side": 1,
       "message": "I don\u0027t see the convenience in having this at the end of L0 table. it appears we just need a memory region of a particular size for bit locks. After we initialize L1 GPTs, we can have the caller initialize the bit locks as well in a separate region of memory and they can query the size required based on parameters (or perhaps be figured out at compile time).\nThat way bit lock init, flushing etc can be independent. there is some niceness to combining it with L1 init but it would be easier to read if they are separate.",
+      "range": {
+        "startLine": 1244,
+        "startChar": 4,
+        "endLine": 1244,
+        "endChar": 47
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3544c600_d9c218ca",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-19T13:23:50Z",
+      "side": 1,
+      "message": "\"After we initialize L1 GPTs, we can have the caller initialize the bit locks as well in a separate region of memory\"\n- The caller BL2 cannot initialise BL31 locks, because BL2 \u0026 BL31 memory regions are different.",
+      "parentUuid": "e2bb7554_ace27038",
       "range": {
         "startLine": 1244,
         "startChar": 4,
@@ -112,6 +208,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5188db02_255b9043",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-19T13:23:50Z",
+      "side": 1,
+      "message": "https://trustedfirmware-a.readthedocs.io/en/latest/components/granule-protection-tables-design.html#level-0-and-level-1-tables\nThis is limitation of current API.",
+      "parentUuid": "fa272273_56d9185a",
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c93248fc_c794dd70",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 4
@@ -129,6 +243,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7094cc45_8b527fb6",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-19T13:23:50Z",
+      "side": 1,
+      "message": "The patch stack is already consists of 7 patches and because the locking logic has changed \u0026 array of bit_locks are added, it doesn\u0027t make much sense to introduce a new patch which will require changing locks allocation.",
+      "parentUuid": "c93248fc_c794dd70",
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5644fa1a_31a043a5",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 4
@@ -140,6 +272,30 @@
       "writtenOn": "2024-03-19T06:09:47Z",
       "side": 1,
       "message": "it looks like get_gpi_params does not acquire the lock anymore. should this go away?",
+      "range": {
+        "startLine": 1690,
+        "startChar": 2,
+        "endLine": 1690,
+        "endChar": 12
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "338702a2_e9d9f085",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1690,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-19T13:23:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5644fa1a_31a043a5",
       "range": {
         "startLine": 1690,
         "startChar": 2,
@@ -173,6 +329,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "477db217_dede7546",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1850,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-19T13:23:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0930a6e_479d7c7e",
+      "range": {
+        "startLine": 1850,
+        "startChar": 1,
+        "endLine": 1850,
+        "endChar": 6
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4412741b_4652dd3b",
@@ -186,6 +366,30 @@
       "writtenOn": "2024-03-19T06:09:47Z",
       "side": 1,
       "message": "don\u0027t we want to fuse regardless of whether we shattered or not ?",
+      "range": {
+        "startLine": 1863,
+        "startChar": 2,
+        "endLine": 1866,
+        "endChar": 3
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "805113e3_7953372f",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1866,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-03-19T13:23:50Z",
+      "side": 1,
+      "message": "What do you mean? This is un-delegation path, we can only fuse to NS and only when l1_desc \u003d 0x9999999999999999.",
+      "parentUuid": "4412741b_4652dd3b",
       "range": {
         "startLine": 1863,
         "startChar": 2,
