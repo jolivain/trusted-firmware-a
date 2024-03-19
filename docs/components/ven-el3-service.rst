@@ -32,10 +32,21 @@ Vendor-specific EL3 monitor services are as follows:
 +-----------------------------------+ Measurement Framework | | 1 - 15 are reserved for future expansion. |
 | 0xC7000020 - 0xC700002F (SMC64)   | (PMF)                 |                                             |
 +-----------------------------------+-----------------------+---------------------------------------------+
+| 0x87000030 - 0x8700FFFF (SMC32)   | Reserved              | | reserved for future expansion             |
++-----------------------------------+                       |                                             |
+| 0xC7000030 - 0xC700FFFF (SMC64)   |                       |                                             |
++-----------------------------------+-----------------------+---------------------------------------------+
 
 Source definitions for vendor-specific EL3 Monitor Service Calls are located in
 the ``ven_el3_svc.h`` header file.
 
++----------------------------+----------------------------+--------------------------------+
+| VEN_EL3_SVC_VERSION_MAJOR  | VEN_EL3_SVC_VERSION_MINOR  | Changes                        |
++============================+============================+================================+
+|                          1 |                          0 | Added Debugfs and PMF services.|
++----------------------------+----------------------------+--------------------------------+
+
+*Table 1: Showing different versions of Vendor-specific service and changes done with each version*
 
 Performance Measurement Framework (PMF)
 ---------------------------------------
