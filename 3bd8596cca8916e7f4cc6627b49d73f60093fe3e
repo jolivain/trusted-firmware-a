@@ -16,6 +16,24 @@
       "message": "Hi Marek,\nWe are discussing internally on how to support this use case, and I hope we\u0027ll have a solution soon. That said, this is not the role of BL2 to manage the platform security, this should be done by BL32 (OP-TEE for STM32MP13). BL2 should only deal with what is needed for its use if talking about security features.\n\nAfter seeing your patch, I\u0027ve sent a series to move the MCKPROT to BL32 (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27320). It was waiting for its OP-TEE counter part that is now merged.",
       "revId": "3bd8596cca8916e7f4cc6627b49d73f60093fe3e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14c89bd3_e6f5cf30",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000121
+      },
+      "writtenOn": "2024-03-19T21:01:18Z",
+      "side": 1,
+      "message": "\u003e Hi Marek,\n\u003e We are discussing internally on how to support this use case, and I hope we\u0027ll have a solution soon. That said, this is not the role of BL2 to manage the platform security, this should be done by BL32 (OP-TEE for STM32MP13). BL2 should only deal with what is needed for its use if talking about security features.\n\u003e \n\u003e After seeing your patch, I\u0027ve sent a series to move the MCKPROT to BL32 (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27320). It was waiting for its OP-TEE counter part that is now merged.\n\nDoesn\u0027t this now force everyone to install not just ATF, but also OpTee-OS, therefore pulling in more and more newly mandatory components into the boot chain?",
+      "parentUuid": "6e659ae5_b1b82222",
+      "revId": "3bd8596cca8916e7f4cc6627b49d73f60093fe3e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
