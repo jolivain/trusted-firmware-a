@@ -16,6 +16,24 @@
       "message": "Hi Marek,\nThanks for your patch. However I won\u0027t accept it. The issue you have is that you want to build BL2 with all the possible boot devices. This is not recommended (https://wiki.st.com/stm32mpu/wiki/How_to_configure_TF-A_BL2#Build_command_details), as we\u0027ll run out of space as SYSRAM is only 128kB for STM32MP13. And this patch does not care about the features that will be upstreamed, and the other build configuration like TRUSTED_BOARD_BOOT\u003d1 or ENCRYPT_BL32\u003d1. That\u0027s why we recommend to build one BL2 per boot device, to be able to reduce code and DT (through overlay fdts/stm32mp13-bl2.dtsi).\n\nI will update the doc for this recommendation, as the information should belong here, and not only in ST wiki.",
       "revId": "08ff62c4e1b4939317d3ebd5bd13a4a999663ff6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc24aa5b_dd5f2bf1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000121
+      },
+      "writtenOn": "2024-03-19T20:54:58Z",
+      "side": 1,
+      "message": "\u003e Hi Marek,\n\u003e Thanks for your patch. However I won\u0027t accept it. The issue you have is that you want to build BL2 with all the possible boot devices.\n\nI need to be able to boot from eMMC and QSPI NOR, as well as program the device, and I do not want multiple images.\n\n\u003e This is not recommended (https://wiki.st.com/stm32mpu/wiki/How_to_configure_TF-A_BL2#Build_command_details), as we\u0027ll run out of space as SYSRAM is only 128kB for STM32MP13. And this patch does not care about the features that will be upstreamed, and the other build configuration like TRUSTED_BOARD_BOOT\u003d1 or ENCRYPT_BL32\u003d1. That\u0027s why we recommend to build one BL2 per boot device, to be able to reduce code and DT (through overlay fdts/stm32mp13-bl2.dtsi).\n\nIf I build the stuff with only STM32MP_EMMC\u003d1 and drop STM32MP_SPI_NOR\u003d1 STM32MP_USB_PROGRAMMER\u003d1 , it still fails to build.\n\nstm32mp1.ld:25 cannot move location counter backwards (from 2ffe556e to 2ffe4000)\n\n\u003e I will update the doc for this recommendation, as the information should belong here, and not only in ST wiki.",
+      "parentUuid": "e948ce27_be2446fd",
+      "revId": "08ff62c4e1b4939317d3ebd5bd13a4a999663ff6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
