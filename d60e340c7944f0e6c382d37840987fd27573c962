@@ -16,6 +16,29 @@
       "message": "FYI: Images look a bit small with respect to font in gerrit window. But they aren\u0027t. Please open the image in a new tab and you could see the difference.\n\nThanks!",
       "revId": "d60e340c7944f0e6c382d37840987fd27573c962",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "135a07b4_561a6dc2",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-03-19T15:44:08Z",
+      "side": 1,
+      "message": "Can you add as introductory line \n\nArm TrustZone architecture facilitates Hardware-enforced isolation between software running in various security states. The switching between security state happens via Secure monitor code (BL31 in TF-A). The general-purpose registers, most of the system registers and vector registers are not banked per world. Hence, Secure monitor software is responsible for saving and restoring registers when switching security states.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 72
+      },
+      "revId": "d60e340c7944f0e6c382d37840987fd27573c962",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
