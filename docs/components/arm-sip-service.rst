@@ -20,6 +20,13 @@ The Arm SiP implementation offers the following services:
 Source definitions for Arm SiP service are located in the ``arm_sip_svc.h`` header
 file.
 
++----------------------------+----------------------------+---------------------------------------+
+| ARM_SIP_SVC_VERSION_MAJOR  | ARM_SIP_SVC_VERSION_MINOR  | Changes                               |
++============================+============================+=======================================+
+|                          0 |                          2 | Deprecating Debugfs and PMF services. |
++----------------------------+----------------------------+---------------------------------------+
+
+*Table 1: Showing different versions of arm-sip-service and changes done with each version*
 
 Execution State Switching service
 ---------------------------------
