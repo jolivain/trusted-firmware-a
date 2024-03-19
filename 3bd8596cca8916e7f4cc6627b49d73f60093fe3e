@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e659ae5_b1b82222",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-03-19T15:02:06Z",
+      "side": 1,
+      "message": "Hi Marek,\nWe are discussing internally on how to support this use case, and I hope we\u0027ll have a solution soon. That said, this is not the role of BL2 to manage the platform security, this should be done by BL32 (OP-TEE for STM32MP13). BL2 should only deal with what is needed for its use if talking about security features.\n\nAfter seeing your patch, I\u0027ve sent a series to move the MCKPROT to BL32 (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27320). It was waiting for its OP-TEE counter part that is now merged.",
+      "revId": "3bd8596cca8916e7f4cc6627b49d73f60093fe3e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
