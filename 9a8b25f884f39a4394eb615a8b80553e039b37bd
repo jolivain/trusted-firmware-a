@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1696db45_ff512a6b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-19T23:44:04Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "bdeb2485_1d2b994f",
+      "range": {
+        "startLine": 11,
+        "startChar": 15,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "9a8b25f884f39a4394eb615a8b80553e039b37bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67e8fdb2_d988b04a",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-03-14T22:38:10Z",
       "side": 1,
       "message": "\"enabled\" or \"present\"? If you meant \"enabled\", maybe you want to check ENABLE_SPE_FOR_NS flag too.",
+      "range": {
+        "startLine": 30,
+        "startChar": 55,
+        "endLine": 30,
+        "endChar": 66
+      },
+      "revId": "9a8b25f884f39a4394eb615a8b80553e039b37bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3963c4f7_1c3b9f78",
+        "filename": "lib/cpus/aarch64/cortex_a720.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-19T23:44:04Z",
+      "side": 1,
+      "message": "Good point. It\u0027s both \"implemented(present) and enabled\". I have modified the applicability of the workaround.",
+      "parentUuid": "67e8fdb2_d988b04a",
       "range": {
         "startLine": 30,
         "startChar": 55,
