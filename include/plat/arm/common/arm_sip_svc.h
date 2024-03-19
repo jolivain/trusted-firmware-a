@@ -27,7 +27,7 @@
 
 /* ARM SiP Service Calls version numbers */
 #define ARM_SIP_SVC_VERSION_MAJOR		U(0x0)
-#define ARM_SIP_SVC_VERSION_MINOR		U(0x2)
+#define ARM_SIP_SVC_VERSION_MINOR		U(0x3)
 
 /*
  * Arm SiP SMC calls that are primarily used for testing purposes.
