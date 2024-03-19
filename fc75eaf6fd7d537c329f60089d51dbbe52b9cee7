@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2130b70f_0a19e62a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-19T00:42:03Z",
+      "side": 1,
+      "message": "Based on https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/1881/\nthe commitlint failure can be ignored its due to presence of a https link in the same topic patch: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26891\n\n\nNo major changes since patchset 12 to 13 expect minor cmt-msg and doc change so retaining previous CI+2",
+      "revId": "fc75eaf6fd7d537c329f60089d51dbbe52b9cee7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
