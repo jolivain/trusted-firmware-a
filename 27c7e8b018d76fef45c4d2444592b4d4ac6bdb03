@@ -261,6 +261,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "addc100e_d2327b6c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1244,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-20T11:26:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3544c600_d9c218ca",
+      "range": {
+        "startLine": 1244,
+        "startChar": 4,
+        "endLine": 1244,
+        "endChar": 47
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa272273_56d9185a",
@@ -296,6 +320,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0726a4c9_73dbe88f",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-20T11:26:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5188db02_255b9043",
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c93248fc_c794dd70",
@@ -327,6 +369,24 @@
       "side": 1,
       "message": "The patch stack is already consists of 7 patches and because the locking logic has changed \u0026 array of bit_locks are added, it doesn\u0027t make much sense to introduce a new patch which will require changing locks allocation.",
       "parentUuid": "c93248fc_c794dd70",
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a8bf888_06b4dfa5",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1368,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-20T11:26:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7094cc45_8b527fb6",
       "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
