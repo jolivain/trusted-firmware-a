@@ -251,6 +251,24 @@
       "parentUuid": "333af447_4585df29",
       "revId": "308a5269ed75ee28d908fd87589c7e1cde6fb0a6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "338e8264_d08d7db5",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-03-20T10:14:27Z",
+      "side": 1,
+      "message": "Excuse for delayed reply here.\nWe needed this as part of this patch. \nManish P raised a comment regarding the confusing (if conditons)in one of the previous version of patch(4) and after discussing offline, we agreed to keep it this way.",
+      "parentUuid": "a0d1bb0d_ee98e493",
+      "revId": "308a5269ed75ee28d908fd87589c7e1cde6fb0a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
