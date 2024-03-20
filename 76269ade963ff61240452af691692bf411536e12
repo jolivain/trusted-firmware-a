@@ -94,6 +94,30 @@
       },
       "revId": "76269ade963ff61240452af691692bf411536e12",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce84a637_adfd3ed0",
+        "filename": "lib/locks/exclusive/aarch64/spinlock.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-20T10:29:08Z",
+      "side": 1,
+      "message": "good point.\n\nI think semantically what we need is:\nlocking: load-acquire exclusive byte, set bit, store exclusive byte.\nunlocking: load exclusive byte, clear bit, store-release exclusive byte.\n\nI think semantically you only need atomic bit set and clear, and acquire and release semantics at the start and end of the critical section respectively.\n\nLet me know what you think.",
+      "parentUuid": "44fe7167_a8dd3a5d",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 107,
+        "endChar": 12
+      },
+      "revId": "76269ade963ff61240452af691692bf411536e12",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
