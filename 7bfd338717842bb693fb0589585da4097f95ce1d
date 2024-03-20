@@ -46,6 +46,30 @@
       },
       "revId": "7bfd338717842bb693fb0589585da4097f95ce1d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "700841c5_cb6fc7dd",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-20T21:12:31Z",
+      "side": 1,
+      "message": "IIUC, we need to ensure we have correct errata list available but applied only when we have `ENABLE_SPE_FOR_NS` enabled?\n\nthere are 2 parts to problem for example somebody enables `ERRATA_A715_2413290` and probes if this errata is there in errata_list, I would expect it be present.\n\nnext what the errata does the errata can be made available from available errata list, but errata itself will only apply on ENABLE_SPE_FOR_NS is enabled?\n\nI would treat this inline with something like errata for a feature, for example one needs to apply errata when feat_x is present, so errata will be available but only applied when feat_x is present/enabled.",
+      "parentUuid": "d43a55b6_256d0d05",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "7bfd338717842bb693fb0589585da4097f95ce1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
