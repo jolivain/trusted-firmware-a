@@ -27,11 +27,6 @@
 #define RDN1EDGE_DMC620_BASE0		UL(0x4e000000)
 #define RDN1EDGE_DMC620_BASE1		UL(0x4e100000)
 
-/* System power domain level */
-#define CSS_SYSTEM_PWR_DMN_LVL		ARM_PWR_LVL2
-
-#define PLAT_MAX_PWR_LVL		ARM_PWR_LVL1
-
 /* Virtual address used by dynamic mem_protect for chunk_base */
 #define PLAT_ARM_MEM_PROTEC_VA_FRAME	UL(0xc0000000)
 
