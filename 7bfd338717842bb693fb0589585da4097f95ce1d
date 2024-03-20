@@ -70,6 +70,30 @@
       },
       "revId": "7bfd338717842bb693fb0589585da4097f95ce1d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16d9c089_508683fb",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-03-20T23:07:27Z",
+      "side": 1,
+      "message": "Acknowledged, makes sense now. Thanks Govind!",
+      "parentUuid": "700841c5_cb6fc7dd",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "7bfd338717842bb693fb0589585da4097f95ce1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
