@@ -70,6 +70,30 @@
       },
       "revId": "76269ade963ff61240452af691692bf411536e12",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44fe7167_a8dd3a5d",
+        "filename": "lib/locks/exclusive/aarch64/spinlock.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-20T09:48:55Z",
+      "side": 1,
+      "message": "There is difference to bit lock from regular spin lock. For regular spin lock , once it is \"locked\", then there is a single owner holding the lock and only the owner can \"unlock\" it. Hence a normal str instruction will suffice for unlock.\n\nIn bit lock, we are overlaying 8 locks on a single byte. So even when a bit is locked, this byte is not owned by a single owner. It is potentially shared with 7 other owners who are racing to \"lock\" the other bits of the byte. Hence the unlock now need to perform a exclusive load-acquire store-release semantics to ensure that when the bit is unlocked, it does not inadvertently overwrite values set by other owners.\n\nSemantically a bit lock and unlock has the following behavior:\n  * locking: acquire a byte lock to set a bit.\n  * unlocking : acquire a byte lock to clear a bit.",
+      "parentUuid": "11cedf3f_ba134e80",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 107,
+        "endChar": 12
+      },
+      "revId": "76269ade963ff61240452af691692bf411536e12",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
