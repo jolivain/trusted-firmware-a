@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dde19bf_64e15a6e",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-20T20:48:54Z",
+      "side": 1,
+      "message": "Isn\u0027t \n```\n#if ENABLE_SPE_FOR_NS \n```\nmean the same? any non-zero value would evaluate it to true zero means false ?\n\nIs comparison !\u003d0 needed?\n\nShould we compile out entire errata and make it available only if ENABLE_SPE_FOR_NS is available? why not take that decision inside the implementation of errata like:\n\n[...]\nworkaround_reset_start cortex_a715, ERRATUM(2413290), ERRATA_A715_2413290\n#if ENABLE_SPE_FOR_NS\n\tmrs x1, id_aa64dfr0_el1\n\tubfx x0, x1, ID_AA64DFR0_PMS_SHIFT, #4\n\tcbz x0, 1f\n\tsysreg_bit_set CORTEX_A715_CPUACTLR_EL1, BIT(57)\n\tsysreg_bit_set CORTEX_A715_CPUACTLR_EL1, BIT(58)\n1:\n#endif\nworkaround_reset_end cortex_a715, ERRATUM(2413290)\n\ncheck_erratum_range cortex_a715, ERRATUM(2413290), CPU_REV(1,0), CPU_REV(1, 0)\n\n[...]\n\nThis means would still probe for list of errata\u0027s being available? but compiled out application of errata?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "7bfd338717842bb693fb0589585da4097f95ce1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
