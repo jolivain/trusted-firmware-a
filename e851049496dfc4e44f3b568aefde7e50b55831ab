@@ -16,6 +16,23 @@
       "message": "LGTM",
       "revId": "e851049496dfc4e44f3b568aefde7e50b55831ab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "900f6c6e_34993061",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-03-21T10:09:21Z",
+      "side": 1,
+      "message": "This will be true for ENABLE_SPE_FOR_NS \u003d 2, in that case even if SPE is not present this errata will be applied",
+      "revId": "e851049496dfc4e44f3b568aefde7e50b55831ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
