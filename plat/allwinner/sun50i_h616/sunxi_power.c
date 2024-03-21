@@ -24,6 +24,7 @@
 #define AXP305_I2C_ADDR	0x36
 #define AXP305_HW_ADDR	0x745
 #define AXP305_RT_ADDR	0x3a
+#define AXP313_I2C_ADDR	0x36
 
 static uint8_t i2c_addr;
 static uint8_t rsb_rt_addr;
@@ -31,6 +32,7 @@ static uint8_t rsb_rt_addr;
 static enum pmic_type {
 	UNKNOWN,
 	AXP305,
+	AXP313,
 } pmic;
 
 int axp_read(uint8_t reg)
@@ -141,6 +143,14 @@ int sunxi_pmic_setup(uint16_t socid, const void *fdt)
 	}
 
 	if (pmic == UNKNOWN) {
+		node = fdt_node_offset_by_compatible(fdt, 0, "x-powers,axp313a");
+		if (node >= 0) {
+			i2c_addr = AXP313_I2C_ADDR;
+			pmic = AXP313;
+		}
+	}
+
+	if (pmic == UNKNOWN) {
 		INFO("PMIC: No known PMIC in DT, skipping setup.\n");
 		return 0;
 	}
@@ -157,6 +167,16 @@ int sunxi_pmic_setup(uint16_t socid, const void *fdt)
 		if (pmic == AXP305) {
 			INFO("PMIC: found AXP305, setting up regulators\n");
 			axp_setup_regulators(fdt);
+		} else {
+			pmic = UNKNOWN;
+		}
+		break;
+	case 0x48:				/* AXP1530 */
+	case 0x4b:				/* AXP313A */
+	case 0x4c:				/* AXP313B */
+		if (pmic == AXP313) {
+			INFO("PMIC: found AXP313\n");
+			/* no regulators to set up */
 		} else {
 			pmic = UNKNOWN;
 		}
@@ -191,6 +211,9 @@ void sunxi_power_down(void)
 	switch (pmic) {
 	case AXP305:
 		axp_setbits(0x32, BIT(7));
+		break;
+	case AXP313:
+		axp_setbits(0x1a, BIT(7));
 		break;
 	default:
 		break;
