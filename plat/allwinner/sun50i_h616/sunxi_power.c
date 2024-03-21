@@ -25,6 +25,9 @@
 #define AXP305_HW_ADDR	0x745
 #define AXP305_RT_ADDR	0x3a
 #define AXP313_I2C_ADDR	0x36
+#define AXP717_I2C_ADDR	0x34
+#define AXP717_HW_ADDR	0x3a3
+#define AXP717_RT_ADDR	0x2d
 
 static uint8_t i2c_addr;
 static uint8_t rsb_rt_addr;
@@ -33,6 +36,7 @@ static enum pmic_type {
 	UNKNOWN,
 	AXP305,
 	AXP313,
+	AXP717,
 } pmic;
 
 int axp_read(uint8_t reg)
@@ -118,6 +122,9 @@ static int pmic_bus_init(uint16_t socid)
 	case AXP305:
 		rsb_hw_addr = AXP305_HW_ADDR;
 		break;
+	case AXP717:
+		rsb_hw_addr = AXP717_HW_ADDR;
+		break;
 	default:
 		rsb_hw_addr = 0;
 		break;
@@ -156,6 +163,14 @@ int sunxi_pmic_setup(uint16_t socid, const void *fdt)
 	}
 
 	if (pmic == UNKNOWN) {
+		node = fdt_node_offset_by_compatible(fdt, 0, "x-powers,axp717");
+		if (node >= 0) {
+			rsb_rt_addr = AXP717_RT_ADDR;
+			pmic = AXP717;
+		}
+	}
+
+	if (pmic == UNKNOWN) {
 		INFO("PMIC: No known PMIC in DT, skipping setup.\n");
 		return 0;
 	}
@@ -183,6 +198,14 @@ int sunxi_pmic_setup(uint16_t socid, const void *fdt)
 		if (pmic == AXP313) {
 			INFO("PMIC: found AXP313\n");
 			/* no regulators to set up */
+		} else {
+			pmic = UNKNOWN;
+		}
+		break;
+	case 0xcf:		/* version reg not implemented on AXP717 */
+		if (pmic == AXP717) {
+			INFO("PMIC: found AXP717\n");
+			/* no regulators to set up, U-Boot takes care of this */
 		} else {
 			pmic = UNKNOWN;
 		}
@@ -222,6 +245,9 @@ void sunxi_power_down(void)
 		break;
 	case AXP313:
 		axp_setbits(0x1a, BIT(7));
+		break;
+	case AXP717:
+		axp_setbits(0x27, BIT(0));
 		break;
 	default:
 		break;
