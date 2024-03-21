@@ -33,6 +33,24 @@
       "message": "This will be true for ENABLE_SPE_FOR_NS \u003d 2, in that case even if SPE is not present this errata will be applied",
       "revId": "e851049496dfc4e44f3b568aefde7e50b55831ab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "365b6046_f9a41f57",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-21T11:50:19Z",
+      "side": 1,
+      "message": "Not really the macro adds a extra layer of optimization, below line 67-68 we are checking the id register, eventually so value of \u00272\u0027 with feat not available usecase the errata will not apply.",
+      "parentUuid": "900f6c6e_34993061",
+      "revId": "e851049496dfc4e44f3b568aefde7e50b55831ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
