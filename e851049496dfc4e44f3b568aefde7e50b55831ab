@@ -69,6 +69,24 @@
       "parentUuid": "365b6046_f9a41f57",
       "revId": "e851049496dfc4e44f3b568aefde7e50b55831ab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09a65b03_e97d0c08",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-21T23:11:03Z",
+      "side": 1,
+      "message": "Errata applies only when SPE is enabled.\n\nThe enabled part is covered by ENABLE_SPE_FOR_NS. ENABLE_SPE_FOR_NS has legal values of 0,1,2.\n\n0 SPE Disabled. We don\u0027t know it is present (implemented in hardware) or not. \n1 SPE enabled. We don\u0027t know it is present or not. So, need the below check to make sure hardware implements it before applying the erratum workaround. \n2 enable if present. Both enabled and implemented/present. \n\nTo factor ENABLE_SPE_FOR_NS \u003d\u003d 1, we need the check in assembly to make sure the feature is supported in hardware. \n\nRight now, we don\u0027t have a SPE DISABLED and NOT present (Assume a theoretical value 3). If we introduce a 4th value in future which is logical but may not be practical, this erratum will still be applied based on the positive value. \n\nHence, I prefer ENABLE_SPE_FOR_NS !\u003d0(as we don\u0027t have a legal negative value for this define) than checking for a positive value for ENABLE_SPE_FOR_NS\nusing \"#if ENABLE_SPE_FOR_NS\".",
+      "parentUuid": "f9eab988_733f4664",
+      "revId": "e851049496dfc4e44f3b568aefde7e50b55831ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
