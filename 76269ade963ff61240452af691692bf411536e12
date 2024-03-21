@@ -214,6 +214,30 @@
       },
       "revId": "76269ade963ff61240452af691692bf411536e12",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "945e54a0_40e49b29",
+        "filename": "lib/locks/exclusive/aarch64/spinlock.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-21T16:29:05Z",
+      "side": 1,
+      "message": "Ah, indeed. I see your point. We need to unlock with store release semantics.\nAlexei is on holiday now, so he will be able to rework this after he is back in April. So the below sequence should be good for unlock ?\n\nsevl\n1: wfe\nldxrb w2, [x0]\nbic w2,w2,w1\nstlxrb w3, w2, [x0] \ncbnz w3, 1b\nret",
+      "parentUuid": "261b8357_3d25b07c",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 107,
+        "endChar": 12
+      },
+      "revId": "76269ade963ff61240452af691692bf411536e12",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
