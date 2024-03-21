@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b5fd674_464d7fa4",
+        "filename": "plat/xilinx/common/pm_service/pm_svc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000811
+      },
+      "writtenOn": "2024-03-21T05:07:23Z",
+      "side": 1,
+      "message": "1. s/12/12U\n2. Can we reuse #define ARM_IRQ_SEC_SGI_4       12U from plat/xilinx/common/include/plat_common.h ?",
+      "revId": "4cecbeb3e3ed969442151f91738870669304b681",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
