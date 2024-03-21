@@ -12,6 +12,7 @@
 #include <common/debug.h>
 #include <drivers/allwinner/axp.h>
 #include <drivers/allwinner/sunxi_rsb.h>
+#include <drivers/mentor/mi2cv.h>
 #include <lib/mmio.h>
 #include <libfdt.h>
 
@@ -24,6 +25,7 @@
 #define AXP305_HW_ADDR	0x745
 #define AXP305_RT_ADDR	0x3a
 
+static uint8_t i2c_addr;
 static uint8_t rsb_rt_addr;
 
 static enum pmic_type {
@@ -33,12 +35,38 @@ static enum pmic_type {
 
 int axp_read(uint8_t reg)
 {
-	return rsb_read(rsb_rt_addr, reg);
+	uint8_t val;
+	int ret;
+
+	if (rsb_rt_addr != 0) {
+		return rsb_read(rsb_rt_addr, reg);
+	}
+
+	ret = i2c_write(i2c_addr, 0, 0, &reg, 1);
+	if (ret == 0) {
+		ret = i2c_read(i2c_addr, 0, 0, &val, 1);
+	}
+	if (ret) {
+		ERROR("PMIC: Cannot read PMIC register %02x\n", reg);
+		return ret;
+	}
+
+	return val;
 }
 
 int axp_write(uint8_t reg, uint8_t val)
 {
-	return rsb_write(rsb_rt_addr, reg, val);
+	int ret;
+
+	if (rsb_rt_addr != 0) {
+		return rsb_write(rsb_rt_addr, reg, val);
+	}
+
+	ret = i2c_write(i2c_addr, reg, 1, &val, 1);
+	if (ret)
+		ERROR("PMIC: Cannot write PMIC register %02x\n", reg);
+
+	return ret;
 }
 
 static int rsb_init(int rsb_hw_addr)
@@ -72,7 +100,7 @@ static int pmic_bus_init(uint16_t socid)
 	int ret;
 	uint16_t rsb_hw_addr;
 
-	ret = sunxi_init_platform_r_twi(socid, true);
+	ret = sunxi_init_platform_r_twi(socid, !!rsb_rt_addr);
 	if (ret) {
 		INFO("Could not init platform bus: %d\n", ret);
 		pmic = UNKNOWN;
@@ -94,6 +122,9 @@ static int pmic_bus_init(uint16_t socid)
 			pmic = UNKNOWN;
 			return ret;
 		}
+	} else {
+		/* initialise mi2cv driver */
+		i2c_init((void *)SUNXI_R_I2C_BASE);
 	}
 
 	return 0;
