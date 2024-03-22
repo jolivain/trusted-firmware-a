@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a464927b_a490a17c",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-22T16:06:21Z",
+      "side": 0,
+      "message": "we tend to use only \u0027ID_AA64ISAR2_GPA3_SHIFT\u0027 not not \u0027ID_AA64ISAR2_APA3_SHIFT\u0027 in new change set.",
+      "range": {
+        "startLine": 69,
+        "startChar": 30,
+        "endLine": 69,
+        "endChar": 53
+      },
+      "revId": "3beea00f16c5fc7934ce4ae2460bdf20b7f4250a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
