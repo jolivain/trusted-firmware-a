@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b4a56fb_6364e29e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-03-22T12:20:23Z",
+      "side": 1,
+      "message": "So I have no hardware to test this, but it looks good to me, and builds, with both DEBUG\u003d0 and DEBUG\u003d1. Also I compared the new files to their respective rpi4 counterparts, and that looks reasonable. I compared the MMIO base addresses of the peripherals against the DT found in the RPiOS github: they match, except I cannot find anything in the DT for RPI4_LOCAL_CONTROL_BASE_ADDRESS, but I assume that\u0027s fine.",
+      "revId": "f834b64f889c1c4e03e590d44a6a52e3ac79cf42",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
