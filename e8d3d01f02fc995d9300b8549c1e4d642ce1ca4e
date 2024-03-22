@@ -34,6 +34,29 @@
       "parentUuid": "d8418f6a_a8b5f6c3",
       "revId": "e8d3d01f02fc995d9300b8549c1e4d642ce1ca4e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd4d212e_5a99efa4",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-22T16:10:42Z",
+      "side": 1,
+      "message": "Not sure if this would work, then may be we could do same for pauth as well we could use shift as 0 and use the entire shifted value as mask:\n\nexample:\n\n```\nCREATE_FEATURE_PRESENT(feat_pacqarma3, id_aa64isar2_el1, 0U,\n                       (ID_AA64ISAR2_GPA3_MASK \u003c\u003c ID_AA64ISAR2_GPA3_SHIFT) | \n                       (ID_AA64ISAR2_APA3_MASK \u003c\u003c ID_AA64ISAR2_APA3_SHIFT), \n                       0U)\n\n```",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 22
+      },
+      "revId": "e8d3d01f02fc995d9300b8549c1e4d642ce1ca4e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
