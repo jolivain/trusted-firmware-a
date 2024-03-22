@@ -33,6 +33,24 @@
       "message": "It should be mte2_present()\n\nYou need to introduce MTE2 presence macro https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27388/1/include/arch/aarch64/arch_features.h#37",
       "revId": "7262ccbd52c475dc62456d668bf7dfe499c5cb53",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93e9f5a5_fff0e1eb",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-22T17:22:42Z",
+      "side": 1,
+      "message": "Hi Manish,\n\nSorry I was not aware of that series, yes agree that makes sense, But are you happy for a small followup patch on top that series rather than rebasing this entire topic on that series for a online change?",
+      "parentUuid": "e357f2e3_652a7403",
+      "revId": "7262ccbd52c475dc62456d668bf7dfe499c5cb53",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
