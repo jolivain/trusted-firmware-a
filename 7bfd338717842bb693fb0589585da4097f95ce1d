@@ -94,6 +94,30 @@
       },
       "revId": "7bfd338717842bb693fb0589585da4097f95ce1d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ceb72737_1c1bf8b4",
+        "filename": "lib/cpus/aarch64/cortex_a715.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-03-22T00:27:37Z",
+      "side": 1,
+      "message": "Last piece of the comment should be when \"feat_x is present and enabled.\" \n\nPresent indicating hardware is implemented for the feature(feat_x) and is detectable through feature detection. Further this feat_x needs to be enabled for the mitigation to apply. I agree the presence of the mitigation should be available in the errata list, whether it\u0027s applied based on the other conditions can be conditional to the flags or checking the register. We should make sure to avoid additional memory foot print(additional register check instructions) OR performance impact(additional execution time) of potentially unapplied code based on the conditions.",
+      "parentUuid": "700841c5_cb6fc7dd",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 26
+      },
+      "revId": "7bfd338717842bb693fb0589585da4097f95ce1d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
