@@ -20,6 +20,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12d5f1d0_41767664",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-03-25T10:52:26Z",
+      "side": 1,
+      "message": "align please",
+      "revId": "ef3aa1e5f4fa163ea528c6f3f7242bc240dff5c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d86a4e71_caf354d4",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-03-25T10:52:26Z",
+      "side": 1,
+      "message": "\"There is no thread information in this cpu-map\"\n\nor\n\n\"There are no threads in this cpu-map\"?",
+      "revId": "ef3aa1e5f4fa163ea528c6f3f7242bc240dff5c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bc8b244_e3d3c45a",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-03-25T10:52:26Z",
+      "side": 1,
+      "message": "\"cpu topology:sockets is 2, clusters is 2, cores is 1, thread is 4\"\n\nMaybe this:\n\n\"cpu topology: sockets: 2, clusters: 2, cores: 1, threads: 4\"\n\nThis way there is no problem with plural forms (\"is/are\").",
+      "revId": "ef3aa1e5f4fa163ea528c6f3f7242bc240dff5c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2844b7ed_a16112e4",
         "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
         "patchSetId": 1
