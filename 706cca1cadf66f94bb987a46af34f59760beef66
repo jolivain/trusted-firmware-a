@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cb129df_93a10266",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-03-25T17:09:28Z",
+      "side": 1,
+      "message": "Kindly add a bit more details to the commit message.\nYou can refer this: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20621",
+      "revId": "706cca1cadf66f94bb987a46af34f59760beef66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb40231f_435672be",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-03-25T17:09:28Z",
+      "side": 1,
+      "message": "@Sona, \nread_feat_id_field() and is_feat_xxx_present() both APIs are kind of duplicated code and after offline discussion, Manish P suggested to have is_feat_xxx_present() apis and remove read_feat_xxx_id_field() api.\n\nAs this patch is WIP, kindly consider these changes in your next version.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 1
+      },
+      "revId": "706cca1cadf66f94bb987a46af34f59760beef66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7d4f689_6769da08",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-03-25T17:09:28Z",
+      "side": 1,
+      "message": "CI failure due to this api.\nIts read",
+      "revId": "706cca1cadf66f94bb987a46af34f59760beef66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
