@@ -18,6 +18,23 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb5e8b14_b8c45635",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-03-25T11:22:46Z",
+      "side": 1,
+      "message": "Do you plan to add SMC call to check socket/cluster/core/thread of cpu core?\n\nWe have \u0027phandle\u0027 in cpu@ID node which maps into /cpu-map/ entry:\n\n\n\t\tcpu@8 {\n\t\t\tphandle \u003d \u003c0x8007\u003e;\n\t\t\treg \u003d \u003c0x00 0x100\u003e;\n\t\t};\n\t\t\n\t\tcpu-map {\n\t\t[..]\n\t\t\tsocket1 {\n\n\t\t\t\tcluster0 {\n\n\t\t\t\t\tcore0 {\n\t\t\t\t\t\tcpu \u003d \u003c0x8007\u003e;\n\t\t\t\t\t};",
+      "revId": "ef3aa1e5f4fa163ea528c6f3f7242bc240dff5c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12d5f1d0_41767664",
