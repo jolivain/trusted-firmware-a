@@ -9,6 +9,14 @@
 
 #include <plat/arm/common/plat_arm.h>
 
+
+#define FVP_RMM_CONSOLE_BASE		UL(0x1c0c0000)
+#define FVP_RMM_CONSOLE_BAUD		UL(115200)
+#define FVP_RMM_CONSOLE_CLK_IN_HZ	UL(14745600)
+#define FVP_RMM_CONSOLE_NAME		"pl011"
+
+#define FVP_RMM_CONSOLE_COUNT		UL(1)
+
 /*******************************************************************************
  * Function and variable prototypes
  ******************************************************************************/
