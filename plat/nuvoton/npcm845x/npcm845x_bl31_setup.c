@@ -42,31 +42,28 @@ static entry_point_info_t bl33_image_ep_info;
 /* CASSERT(BL31_BASE >= ARM_FW_CONFIG_LIMIT, assert_bl31_base_overflows); */
 #endif /* !RESET_TO_BL31 */
 
-#define MAP_BL31_TOTAL		MAP_REGION_FLAT( \
-					BL31_START, \
-					BL31_END - BL31_START, \
-					MT_MEMORY | MT_RW | EL3_PAS)
+#define MAP_BL31_TOTAL                                                         \
+	MAP_REGION_FLAT(BL31_START, BL31_END - BL31_START,                     \
+			MT_MEMORY | MT_RW | EL3_PAS)
 
 #if RECLAIM_INIT_CODE
 IMPORT_SYM(unsigned long, __INIT_CODE_START__, BL_INIT_CODE_BASE);
 IMPORT_SYM(unsigned long, __INIT_CODE_END__, BL_CODE_END_UNALIGNED);
 
-#define	BL_INIT_CODE_END	((BL_CODE_END_UNALIGNED + PAGE_SIZE - 1) & \
-					~(PAGE_SIZE - 1))
+#define BL_INIT_CODE_END                                                       \
+	((BL_CODE_END_UNALIGNED + PAGE_SIZE - 1) & ~(PAGE_SIZE - 1))
 
-#define MAP_BL_INIT_CODE	MAP_REGION_FLAT( \
-					BL_INIT_CODE_BASE, \
-					BL_INIT_CODE_END - \
-					BL_INIT_CODE_BASE, \
-					MT_CODE | MT_SECURE)
+#define MAP_BL_INIT_CODE                                                       \
+	MAP_REGION_FLAT(BL_INIT_CODE_BASE,                                     \
+			BL_INIT_CODE_END - BL_INIT_CODE_BASE,                  \
+			MT_CODE | MT_SECURE)
 #endif /* RECLAIM_INIT_CODE */
 
 #if SEPARATE_NOBITS_REGION
-#define MAP_BL31_NOBITS		MAP_REGION_FLAT( \
-					BL31_NOBITS_BASE, \
-					BL31_NOBITS_LIMIT - \
-					BL31_NOBITS_BASE, \
-					MT_MEMORY | MT_RW | EL3_PAS)
+#define MAP_BL31_NOBITS                                                        \
+	MAP_REGION_FLAT(BL31_NOBITS_BASE,                                      \
+			BL31_NOBITS_LIMIT - BL31_NOBITS_BASE,                  \
+			MT_MEMORY | MT_RW | EL3_PAS)
 #endif /* SEPARATE_NOBITS_REGION */
 
 /******************************************************************************
@@ -80,9 +77,9 @@ struct entry_point_info *bl31_plat_get_next_image_ep_info(uint32_t type)
 	entry_point_info_t *next_image_info;
 
 	assert(sec_state_is_valid(type));
-	next_image_info = (type == NON_SECURE)
-			? &bl33_image_ep_info : &bl32_image_ep_info;
-/*
+	next_image_info = (type == NON_SECURE) ? &bl33_image_ep_info :
+						 &bl32_image_ep_info;
+	/*
  * None of the images on the ARM development platforms can have 0x0
  * as the entrypoint
  */
@@ -99,14 +96,13 @@ int board_uart_init(void)
 	static console_t console;
 
 #ifdef CONFIG_TARGET_ARBEL_PALLADIUM
-	UART_Init(UART0_DEV, UART_MUX_MODE1,
-				UART_BAUDRATE_115200);
+	UART_Init(UART0_DEV, UART_MUX_MODE1, UART_BAUDRATE_115200);
 	UART_BASE_ADDR = npcm845x_get_base_uart(UART0_DEV);
 #else
 	UART_BASE_ADDR = npcm845x_get_base_uart(UART0_DEV);
 #endif /* CONFIG_TARGET_ARBEL_PALLADIUM */
 
-/*
+	/*
  * Register UART w/o initialization -
  * A clock rate of zero means to skip the initialisation.
  */
@@ -117,7 +113,10 @@ int board_uart_init(void)
 
 unsigned int plat_get_syscnt_freq2(void)
 {
-	return (unsigned int)COUNTER_FREQUENCY;
+	/*
+	 * Do not overwrite the value set by BootBlock
+	 */
+	return (unsigned int)read_cntfrq_el0();
 }
 
 /******************************************************************************
@@ -129,7 +128,7 @@ unsigned int plat_get_syscnt_freq2(void)
  * so  we are guaranteed to pick up good data.
  *****************************************************************************/
 void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
-		u_register_t arg2, u_register_t arg3)
+				u_register_t arg2, u_register_t arg3)
 {
 	arg0 = arg1 = arg2 = arg3 = 0;
 #if RESET_TO_BL31
@@ -145,10 +144,10 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	}
 #endif /* RESET_TO_BL31 */
 
-/* Initialize Delay timer */
-	 generic_delay_timer_init();
+	/* Initialize Delay timer */
+	generic_delay_timer_init();
 
-/* Do Specific Board/Chip initializations */
+	/* Do Specific Board/Chip initializations */
 	board_uart_init();
 
 #if RESET_TO_BL31
@@ -158,55 +157,49 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 
 #ifdef BL32_BASE
 	/* Populate entry point information for BL32 */
-	SET_PARAM_HEAD(&bl32_image_ep_info,
-					PARAM_EP,
-					VERSION_1,
-					0);
+	SET_PARAM_HEAD(&bl32_image_ep_info, PARAM_EP, VERSION_1, 0);
 	SET_SECURITY_STATE(bl32_image_ep_info.h.attr, SECURE);
 	bl32_image_ep_info.pc = BL32_BASE;
 	bl32_image_ep_info.spsr = arm_get_spsr_for_bl32_entry();
 
 #if defined(SPD_spmd)
-/*
+	/*
  * SPM (hafnium in secure world) expects SPM Core manifest base address
  * in x0, which in !RESET_TO_BL31 case loaded after base of non shared
  * SRAM(after 4KB offset of SRAM). But in RESET_TO_BL31 case all non
  * shared SRAM is allocated to BL31, so to avoid overwriting of manifest
  * keep it in the last page.
  */
-	bl32_image_ep_info.args.arg0 = ARM_TRUSTED_SRAM_BASE +
-					PLAT_ARM_TRUSTED_SRAM_SIZE - PAGE_SIZE;
+	bl32_image_ep_info.args.arg0 =
+		ARM_TRUSTED_SRAM_BASE + PLAT_ARM_TRUSTED_SRAM_SIZE - PAGE_SIZE;
 #endif /* SPD_spmd */
 #endif /* BL32_BASE */
 
-/* Populate entry point information for BL33 */
-		SET_PARAM_HEAD(&bl33_image_ep_info,
-					PARAM_EP,
-					VERSION_1,
-					0);
+	/* Populate entry point information for BL33 */
+	SET_PARAM_HEAD(&bl33_image_ep_info, PARAM_EP, VERSION_1, 0);
 
-/*
+	/*
  * Tell BL31 where the non-trusted software image
  * is located and the entry state information
  */
-		bl33_image_ep_info.pc = plat_get_ns_image_entrypoint();
-		/* Generic ARM code will switch to EL2, revert to EL1 */
-		bl33_image_ep_info.spsr = arm_get_spsr_for_bl33_entry();
-		bl33_image_ep_info.spsr &= ~0x8;
-		bl33_image_ep_info.spsr |= 0x4;
+	bl33_image_ep_info.pc = plat_get_ns_image_entrypoint();
+	/* Generic ARM code will switch to EL2, revert to EL1 */
+	bl33_image_ep_info.spsr = arm_get_spsr_for_bl33_entry();
+	bl33_image_ep_info.spsr &= ~0x8;
+	bl33_image_ep_info.spsr |= 0x4;
 
-		SET_SECURITY_STATE(bl33_image_ep_info.h.attr, (uint32_t)NON_SECURE);
+	SET_SECURITY_STATE(bl33_image_ep_info.h.attr, (uint32_t)NON_SECURE);
 
 #if defined(SPD_spmd) && !(ARM_LINUX_KERNEL_AS_BL33)
-/*
+	/*
  * Hafnium in normal world expects its manifest address in x0,
  * which is loaded at base of DRAM.
  */
-		bl33_image_ep_info.args.arg0 = (u_register_t)ARM_DRAM1_BASE;
+	bl33_image_ep_info.args.arg0 = (u_register_t)ARM_DRAM1_BASE;
 #endif /* SPD_spmd && !ARM_LINUX_KERNEL_AS_BL33 */
 
 #if ARM_LINUX_KERNEL_AS_BL33
-/*
+	/*
  * According to the file ``Documentation/arm64/booting.txt`` of the
  * Linux kernel tree, Linux expects the physical address of the device
  * tree blob (DTB) in x0, while x1-x3 are reserved for future use and
@@ -219,15 +212,15 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 #endif /* ARM_LINUX_KERNEL_AS_BL33 */
 
 #else /* RESET_TO_BL31 */
-/*
+	/*
  * In debug builds, we pass a special value in 'plat_params_from_bl2'
  * to verify platform parameters from BL2 to BL31.
  * In release builds, it's not used.
  */
 	assert(((unsigned long long)plat_params_from_bl2) ==
-			ARM_BL31_PLAT_PARAM_VAL);
+	       ARM_BL31_PLAT_PARAM_VAL);
 
-/*
+	/*
  * Check params passed from BL2 should not be NULL,
  */
 	bl_params_t *params_from_bl2 = (bl_params_t *)from_bl2;
@@ -238,7 +231,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 
 	bl_params_node_t *bl_params = params_from_bl2->head;
 
-/*
+	/*
  * Copy BL33 and BL32 (if present), entry point information.
  * They are stored in Secure RAM, in BL2's address space.
  */
@@ -265,7 +258,7 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
  ******************************************************************************/
 void bl31_platform_setup(void)
 {
-/* Initialize the GIC driver, cpu and distributor interfaces */
+	/* Initialize the GIC driver, cpu and distributor interfaces */
 	plat_gic_driver_init();
 	plat_gic_init();
 
@@ -274,18 +267,18 @@ void bl31_platform_setup(void)
 	arm_nor_psci_do_dyn_mem_protect();
 #endif /* PLAT_ARM_MEM_PROT_ADDR */
 #else
-/*
+	/*
  * In this soluction, we also do the security initialzation
  * even when BL31 is not in the reset vector
  */
 	npcm845x_security_setup();
 #endif /* RESET_TO_BL31 */
 
-/* Enable and initialize the System level generic timer */
+	/* Enable and initialize the System level generic timer */
 	mmio_write_32(ARM_SYS_CNTCTL_BASE + CNTCR_OFF,
-			CNTCR_FCREQ(0U) | CNTCR_EN);
+		      CNTCR_FCREQ(0U) | CNTCR_EN);
 
-/* Initialize power controller before setting up topology */
+	/* Initialize power controller before setting up topology */
 	plat_arm_pwrc_setup();
 
 #if RAS_EXTENSION
@@ -299,12 +292,12 @@ void bl31_platform_setup(void)
 
 void arm_console_runtime_init(void)
 {
-/* Added in order to ignore the original weak function */
+	/* Added in order to ignore the original weak function */
 }
 
 void plat_arm_program_trusted_mailbox(uintptr_t address)
 {
-/*
+	/*
  * now we don't use ARM mailbox,
  * so that function added to ignore the weak one
  */
@@ -317,7 +310,7 @@ void __init bl31_plat_arch_setup(void)
 
 void __init plat_arm_pwrc_setup(void)
 {
-/* NPCM850 is always powered so no need for power control */
+	/* NPCM850 is always powered so no need for power control */
 }
 
 void __init npcm845x_bl31_plat_arch_setup(void)
@@ -334,13 +327,12 @@ void __init npcm845x_bl31_plat_arch_setup(void)
 		ARM_MAP_SHARED_RAM,
 #ifdef SECONDARY_BRINGUP
 		ARM_MAP_NS_DRAM1_NO_USED,
-	#ifdef BL32_BASE
+#ifdef BL32_BASE
 		ARM_MAP_BL32_CORE_MEM_NO_USED
-	#endif /* BL32_BASE */
+#endif /* BL32_BASE */
 #endif /* SECONDARY_BRINGUP */
-		{0}
+		{ 0 }
 	};
 	setup_page_tables(bl_regions, plat_arm_get_mmap());
 	enable_mmu_el3(0U);
-	NOTICE("Done enabling MMU\n");
 }
