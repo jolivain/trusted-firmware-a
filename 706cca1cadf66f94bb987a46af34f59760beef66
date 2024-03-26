@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8570d27e_4d7bc32b",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-03-26T23:54:35Z",
+      "side": 1,
+      "message": "Acknowledged\nHi @Jayanth, \nAs I worked through replacing the is_feat_xx_present fn with the read_feat_xx_id_field function I realized it would be difficult to combine the two API\u0027s since features like feat_sme and feat_sme2 have two different idvalues that are being used for the comparison as a part of the CREATE_FEATURE_FUNCS_VER (is_feat_xx_supported()) macro. Removing read_feat_name_id_field and replacing it with is_feat_name_present() would not allow us to use different idvalues for comparison. \n\nFor e.g.\nCREATE_FEATURE_FUNCS(feat_sme, id_aa64pfr1_el1, ID_AA64PFR1_EL1_SME_SHIFT,                         \n                     ENABLE_SME_FOR_NS)                                                            \nCREATE_FEATURE_FUNCS_VER(feat_sme2, read_feat_sme_id_field,                                        \n                         SME2_IMPLEMENTED (this value is 2), ENABLE_SME2_FOR_NS)\nand adding the is_feat_xx_present as the second argument would not give us the option to check against the value 2 since the is_feat_xx_present macros returns a bool and the is_feat_xx_supported() will have to be modified just to check the returned boolean from the is_feat_xx_present function.",
+      "parentUuid": "bb40231f_435672be",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 1
+      },
+      "revId": "706cca1cadf66f94bb987a46af34f59760beef66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7d4f689_6769da08",
@@ -54,6 +78,24 @@
       "writtenOn": "2024-03-25T17:09:28Z",
       "side": 1,
       "message": "CI failure due to this api.\nIts read",
+      "revId": "706cca1cadf66f94bb987a46af34f59760beef66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da327f5b_69ac02bf",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-03-26T23:54:35Z",
+      "side": 1,
+      "message": "Acknowledged, had overlooked renaming this function in this file.",
+      "parentUuid": "e7d4f689_6769da08",
       "revId": "706cca1cadf66f94bb987a46af34f59760beef66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
