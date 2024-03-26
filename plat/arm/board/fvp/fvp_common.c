@@ -5,6 +5,7 @@
  */
 
 #include <assert.h>
+#include <string.h>
 
 #include <common/debug.h>
 #include <drivers/arm/cci.h>
@@ -554,6 +555,7 @@ int plat_rmmd_load_manifest(struct rmm_manifest *manifest)
 {
 	uint64_t checksum, num_banks;
 	struct ns_dram_bank *bank_ptr;
+	struct console_info *console_ptr;
 
 	assert(manifest != NULL);
 
@@ -565,39 +567,62 @@ int plat_rmmd_load_manifest(struct rmm_manifest *manifest)
 	manifest->padding = 0U; /* RES0 */
 	manifest->plat_data = (uintptr_t)NULL;
 	manifest->plat_dram.num_banks = num_banks;
+	manifest->plat_console.num_consoles = 1;
 
 	/*
-	 * Array ns_dram_banks[] follows ns_dram_info structure:
+	 * Boot Manifest structure illustration, with two dram banks and
+	 * a single console.
 	 *
-	 * +-----------------------------------+
-	 * |  offset  |   field   |  comment   |
-	 * +----------+-----------+------------+
-	 * |    0     |  version  | 0x00000002 |
-	 * +----------+-----------+------------+
-	 * |    4     |  padding  | 0x00000000 |
-	 * +----------+-----------+------------+
-	 * |    8     | plat_data |    NULL    |
-	 * +----------+-----------+------------+
-	 * |    16    | num_banks |            |
-	 * +----------+-----------+            |
-	 * |    24    |   banks   | plat_dram  |
-	 * +----------+-----------+            |
-	 * |    32    | checksum  |            |
-	 * +----------+-----------+------------+
-	 * |    40    |  base 0   |            |
-	 * +----------+-----------+   bank[0]  |
-	 * |    48    |  size 0   |            |
-	 * +----------+-----------+------------+
-	 * |    56    |  base 1   |            |
-	 * +----------+-----------+   bank[1]  |
-	 * |    64    |  size 1   |            |
-	 * +----------+-----------+------------+
+	 * +----------------------------------------+
+	 * | offset |     field      |    comment   |
+	 * +--------+----------------+--------------+
+	 * |   0    |    version     |  0x00000003  |
+	 * +--------+----------------+--------------+
+	 * |   4    |    padding     |  0x00000000  |
+	 * +--------+----------------+--------------+
+	 * |   8    |   plat_data    |     NULL     |
+	 * +--------+----------------+--------------+
+	 * |   16   |   num_banks    |              |
+	 * +--------+----------------+              |
+	 * |   24   |     banks      |   plat_dram  |
+	 * +--------+----------------+              |
+	 * |   32   |    checksum    |              |
+	 * +--------+----------------+--------------+
+	 * |   40   |  num_consoles  |              |
+	 * +--------+----------------+              |
+	 * |   48   |    consoles    | plat_console |
+	 * +--------+----------------+              |
+	 * |   56   |    checksum    |              |
+	 * +--------+----------------+--------------+
+	 * |   64   |     base 0     |              |
+	 * +--------+----------------+    bank[0]   |
+	 * |   72   |     size 0     |              |
+	 * +--------+----------------+--------------+
+	 * |   80   |     base 1     |              |
+	 * +--------+----------------+    bank[1]   |
+	 * |   88   |     size 1     |              |
+	 * +--------+----------------+--------------+
+	 * |   96   |     base       |              |
+	 * +--------+----------------+              |
+	 * |   104  |   map_pages    |              |
+	 * +--------+----------------+              |
+	 * |   112  |     name       |              |
+	 * +--------+----------------+  consoles[0] |
+	 * |   120  |   clk_in_hz    |              |
+	 * +--------+----------------+              |
+	 * |   128  |   baud_rate    |              |
+	 * +--------+----------------+              |
+	 * |   136  |     flags      |              |
+	 * +--------+----------------+--------------+
 	 */
+
 	bank_ptr = (struct ns_dram_bank *)
-			((uintptr_t)&manifest->plat_dram.checksum +
-			sizeof(manifest->plat_dram.checksum));
+			(((uintptr_t)manifest) + sizeof(*manifest));
+	console_ptr = (struct console_info *)
+			((uintptr_t)bank_ptr + (num_banks * sizeof(*bank_ptr)));
 
 	manifest->plat_dram.banks = bank_ptr;
+	manifest->plat_console.consoles = console_ptr;
 
 	/* Calculate checksum of plat_dram structure */
 	checksum = num_banks + (uint64_t)bank_ptr;
@@ -616,6 +641,22 @@ int plat_rmmd_load_manifest(struct rmm_manifest *manifest)
 
 	/* Checksum must be 0 */
 	manifest->plat_dram.checksum = ~checksum + 1UL;
+
+	/* Calculate the checksum of the plat_consoles structure */
+	checksum = num_consoles + (uint64_t)console_ptr;
+
+	console_ptr[0].base = 0x1c0c0000;
+	console_ptr[0].map_pages = 1;
+	console_ptr[0].clk_in_hz = 14745600;
+	strlcpy(console_ptr[0].name, "pl011", 6);
+	console_ptr[0].baud_rate = 115200;
+
+	/* Update checksum */
+	checksum += console_ptr[0].base + console_ptr[0].map_pages +
+		console_ptr[0].clk_in_hz + console_ptr[0].baud_rate;
+
+	/* Checksum must be 0 */
+	manifest->plat_console.checksum = ~checksum + 1UL;
 
 	return 0;
 }
