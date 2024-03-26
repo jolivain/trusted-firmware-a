@@ -117,7 +117,10 @@ int board_uart_init(void)
 
 unsigned int plat_get_syscnt_freq2(void)
 {
-	return (unsigned int)COUNTER_FREQUENCY;
+	/*
+	 * to not overwrite the value set by BootBlock
+	 */
+	return (unsigned int)read_cntfrq_el0();
 }
 
 /******************************************************************************
@@ -341,6 +344,5 @@ void __init npcm845x_bl31_plat_arch_setup(void)
 		{0}
 	};
 	setup_page_tables(bl_regions, plat_arm_get_mmap());
-	enable_mmu_el3(0U);
-	NOTICE("Done enabling MMU\n");
+	enable_mmu_el3(0U);	
 }
