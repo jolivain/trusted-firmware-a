@@ -51,6 +51,24 @@
       "parentUuid": "e357f2e3_652a7403",
       "revId": "7262ccbd52c475dc62456d668bf7dfe499c5cb53",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9984a5d_19aff368",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-03-26T15:14:30Z",
+      "side": 1,
+      "message": "I have restored the original code for now, we can use api that\u0027s WIP when its available.",
+      "parentUuid": "93e9f5a5_fff0e1eb",
+      "revId": "7262ccbd52c475dc62456d668bf7dfe499c5cb53",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
