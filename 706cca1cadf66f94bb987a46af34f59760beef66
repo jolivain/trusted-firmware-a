@@ -89,6 +89,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85fec5f6_3055aa88",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-03-27T15:12:07Z",
+      "side": 1,
+      "message": "```\nCREATE_FEATURE_FUNCS(feat_sme, id_aa64pfr1_el1, ID_AA64PFR1_EL1_SME_SHIFT,\n\t\t     1, ENABLE_SME_FOR_NS)\n\t\t    \t     \nCREATE_FEATURE_FUNCS(feat_sme2, id_aa64pfr1_el1, ID_AA64PFR1_EL1_SME_SHIFT,\n\t\t     2, ENABLE_SME2_FOR_NS)\n\t\t     \n```",
+      "parentUuid": "27cd7a97_5ec3143d",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 1
+      },
+      "revId": "706cca1cadf66f94bb987a46af34f59760beef66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7d4f689_6769da08",
