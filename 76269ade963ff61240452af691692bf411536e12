@@ -310,6 +310,30 @@
       },
       "revId": "76269ade963ff61240452af691692bf411536e12",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fb9e22f_b9b49106",
+        "filename": "lib/locks/exclusive/aarch64/spinlock.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-03-27T11:48:33Z",
+      "side": 1,
+      "message": "since this is so much fun - CCA requires v9, which requires v8.1, which requires FEAT_LSE. with FEAT_LSE, we are guaranteed to have LDSETALB (atomic bit set acquire-release) and LDCLRALB (atomic bit set acquire-release) which we can use instead of the load acquire exclusive and store exclusive release.\nthat might save us a couple instructions.\nFeel free to ignore.\n\nSo something like this:\nacquire_lock:                           \n        mov     w8, #1                      \n        lsl     w8, w8, w1\n        sevl\n1:                               \n        wfe\n        ldsetalb        w8, w9, [x0]\n        tst     w8, w9\n        b.ne    1b\n        ret\n        \nrelease_lock:                        \n        mov     w8, #1                          \n        lsl     w8, w8, w1\n        ldclralb        w8, w8, [x0]\n        ret",
+      "parentUuid": "a04ca3a5_c1b6db4d",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 107,
+        "endChar": 12
+      },
+      "revId": "76269ade963ff61240452af691692bf411536e12",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
