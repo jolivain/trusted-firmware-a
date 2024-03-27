@@ -65,6 +65,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27cd7a97_5ec3143d",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-03-27T15:10:37Z",
+      "side": 1,
+      "message": "```\n#define CREATE_FEATURE_FUNCS_VER(name, read_func, guard)\t\t\t\\\nstatic inline bool is_ ## name ## _supported(void)\t\t\t\\\n{\t\t\t\t\t\t\t\t\t\\\n\tif ((guard) \u003d\u003d FEAT_STATE_DISABLED) {\t\t\t\t\\\n\t\treturn false;\t\t\t\t\t\t\\\n\t}\t\t\t\t\t\t\t\t\\\n\tif ((guard) \u003d\u003d FEAT_STATE_ALWAYS) {\t\t\t\t\\\n\t\treturn true;\t\t\t\t\t\t\\\n\t}\t\t\t\t\t\t\t\t\\\n\treturn read_func();\t\t\t\t\t\t\\\n}\n\n#define CREATE_FEATURE_FUNCS(name, idreg, idfield, idvalue, guard)\t\t\\\nstatic unsigned bool is_ ## name ## _ present(void)\t\t\t\t\\\n{\t\t\t\t\t\t\t\t\t\t\\\n\treturn ( (ISOLATE_FIELD(read_ ## idreg(), idfield)) \u003e\u003d (idvalue);\t\\\n}\t\t\t\t\t\t\t\t\t\t\\\nCREATE_FEATURE_FUNCS_VER(name, is_ ## name ## _ present, guard)\n```",
+      "parentUuid": "8570d27e_4d7bc32b",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 1
+      },
+      "revId": "706cca1cadf66f94bb987a46af34f59760beef66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7d4f689_6769da08",
