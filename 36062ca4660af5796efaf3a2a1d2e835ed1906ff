@@ -16,6 +16,788 @@
       "message": "Rendered Version:\n\nhttps://ci-builds.trustedfirmware.org/static-files/XxedfDjswBmuO9gtwcnh20Ot7-EmNweRZh5LSYt7cX0xNzEwNzg2MjA3NDgyOjk6YW5vbnltb3VzOmpvYi90Zi1hLWJ1aWxkZXIvMzQwNjE5OC9hcnRpZmFjdA\u003d\u003d/artefacts/release/build/html/components/context-management-library.html",
       "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fea7928f_e291659d",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: add space before (",
+      "range": {
+        "startLine": 17,
+        "startChar": 20,
+        "endLine": 17,
+        "endChar": 21
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1552c69_b1188002",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: add space before\nrephrase: \"(i.e.: at EL1/EL2)\"",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 26
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1db0ded_cbdba1eb",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "rephrase: \"If these system registers are not saved for each security state\"",
+      "range": {
+        "startLine": 31,
+        "startChar": 45,
+        "endLine": 31,
+        "endChar": 51
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1301703e_04060ecf",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: EL2/EL1-specific",
+      "range": {
+        "startLine": 33,
+        "startChar": 49,
+        "endLine": 33,
+        "endChar": 56
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f1c5d4c_5bb47de1",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: maybe \"trap vector\"",
+      "range": {
+        "startLine": 33,
+        "startChar": 58,
+        "endLine": 33,
+        "endChar": 64
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f20da56_e10794a0",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "This sounds more like an example than in general. Especially now that we have Realm and Root too (though I know they are going to be added on a further release). Maybe you can say something more generic like \"(...) when the same core switches from one security state to another (e.g.: from non-secure to secure), the features enabled for the former will be accessible from the latter as well.\"",
+      "range": {
+        "startLine": 31,
+        "startChar": 53,
+        "endLine": 33,
+        "endChar": 20
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45c9d664_39ce8713",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "I would add data corruption too.",
+      "range": {
+        "startLine": 37,
+        "startChar": 48,
+        "endLine": 37,
+        "endChar": 49
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5114eb6f_bc6509a3",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: add -",
+      "range": {
+        "startLine": 39,
+        "startChar": 53,
+        "endLine": 39,
+        "endChar": 54
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "780784c4_8e3d2069",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "In line with what I said before, maybe something more generic would be better. Though in this case you can just say at the end that the same applies to Realm and Root when switching to or from them.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 66
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28961ba9_8ff53c05",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: add -",
+      "range": {
+        "startLine": 41,
+        "startChar": 55,
+        "endLine": 41,
+        "endChar": 56
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31c87d52_6828310b",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: add space before (",
+      "range": {
+        "startLine": 52,
+        "startChar": 58,
+        "endLine": 52,
+        "endChar": 59
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "325a2cd5_435584d5",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "After this, I would add \"in EL3 firmware\"",
+      "range": {
+        "startLine": 61,
+        "startChar": 70,
+        "endLine": 61,
+        "endChar": 86
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8b34ace_950f7883",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: \"for their\"",
+      "range": {
+        "startLine": 62,
+        "startChar": 12,
+        "endLine": 62,
+        "endChar": 15
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5129cef1_ba0a3bbd",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: add space before (",
+      "range": {
+        "startLine": 65,
+        "startChar": 38,
+        "endLine": 65,
+        "endChar": 39
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd917b10_dbea0143",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "for secure world (and Realm?).",
+      "range": {
+        "startLine": 71,
+        "startChar": 23,
+        "endLine": 71,
+        "endChar": 24
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fca0c433_312d6d60",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: remove",
+      "range": {
+        "startLine": 73,
+        "startChar": 61,
+        "endLine": 73,
+        "endChar": 62
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16489480_683d2417",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: a helper",
+      "range": {
+        "startLine": 78,
+        "startChar": 30,
+        "endLine": 78,
+        "endChar": 37
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7d2761c_7b476490",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "This should continue in the previous line.",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 80,
+        "endChar": 1
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "366a684b_2f3053bc",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "I would rephrase: the configuration associated to them.",
+      "range": {
+        "startLine": 81,
+        "startChar": 17,
+        "endLine": 81,
+        "endChar": 21
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52d10271_875bf230",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "rephrase: and the code related is skipped (...)",
+      "range": {
+        "startLine": 104,
+        "startChar": 11,
+        "endLine": 104,
+        "endChar": 15
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb1c60ea_f3c25763",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "Capitalize",
+      "range": {
+        "startLine": 104,
+        "startChar": 67,
+        "endLine": 104,
+        "endChar": 80
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6f9ebae_6314d37a",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "Rephrase: This state is the default (...)",
+      "range": {
+        "startLine": 104,
+        "startChar": 37,
+        "endLine": 104,
+        "endChar": 44
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f93ab6da_ade2dad2",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: ,",
+      "range": {
+        "startLine": 105,
+        "startChar": 14,
+        "endLine": 105,
+        "endChar": 15
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7bcebed_828b98ff",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "FVP",
+      "range": {
+        "startLine": 105,
+        "startChar": 62,
+        "endLine": 105,
+        "endChar": 65
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61563a7f_77e37533",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: CPU",
+      "range": {
+        "startLine": 151,
+        "startChar": 21,
+        "endLine": 151,
+        "endChar": 25
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0e53162_cc0fe888",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "CPU",
+      "range": {
+        "startLine": 159,
+        "startChar": 5,
+        "endLine": 159,
+        "endChar": 9
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31dcc79b_52651654",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: sets up",
+      "range": {
+        "startLine": 162,
+        "startChar": 56,
+        "endLine": 162,
+        "endChar": 62
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9bb7e8e_94e0c15a",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: ,",
+      "range": {
+        "startLine": 162,
+        "startChar": 24,
+        "endLine": 162,
+        "endChar": 25
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10d44a4f_95f36491",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "CPU",
+      "range": {
+        "startLine": 162,
+        "startChar": 21,
+        "endLine": 162,
+        "endChar": 25
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12fe6a9b_50e7bd70",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: remove",
+      "range": {
+        "startLine": 185,
+        "startChar": 61,
+        "endLine": 185,
+        "endChar": 62
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bac217f9_c85b2e2f",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: are",
+      "range": {
+        "startLine": 186,
+        "startChar": 64,
+        "endLine": 186,
+        "endChar": 67
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6aaf34c_9e4076cb",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: remove",
+      "range": {
+        "startLine": 219,
+        "startChar": 23,
+        "endLine": 219,
+        "endChar": 24
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cde0fd2b_5735ab1d",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "nit: add -",
+      "range": {
+        "startLine": 219,
+        "startChar": 50,
+        "endLine": 219,
+        "endChar": 51
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fd86daa_3c89d275",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-03-28T22:11:27Z",
+      "side": 1,
+      "message": "I think you meant \"unlike\"",
+      "range": {
+        "startLine": 226,
+        "startChar": 50,
+        "endLine": 226,
+        "endChar": 55
+      },
+      "revId": "36062ca4660af5796efaf3a2a1d2e835ed1906ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
