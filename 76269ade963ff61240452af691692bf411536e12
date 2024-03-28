@@ -334,6 +334,30 @@
       },
       "revId": "76269ade963ff61240452af691692bf411536e12",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63ef3389_eb7f372b",
+        "filename": "lib/locks/exclusive/aarch64/spinlock.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-03-28T09:53:52Z",
+      "side": 1,
+      "message": "Thanks Raghu for this pointer. Yes, indeed this could work and will be a good optimization. Since this does not have exclusive properties, we may have to couple it with regular exclusives to associate with send event for the wfe() (similar to the CASA lock). \n\nWe could guard it with #if ARM_ARCH_AT_LEAST(8, 1) to prevent older CPUs from compiling this code.",
+      "parentUuid": "0fb9e22f_b9b49106",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 107,
+        "endChar": 12
+      },
+      "revId": "76269ade963ff61240452af691692bf411536e12",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
