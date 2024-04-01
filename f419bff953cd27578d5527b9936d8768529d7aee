@@ -54,6 +54,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e25b227b_4bb4e7b6",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "can be dropped without loss of information since it has been repeated in previous paragraphs",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 26
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48e46999_a639cef1",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "nitpick: feel free to discard\nis represented as a",
+      "range": {
+        "startLine": 24,
+        "startChar": 21,
+        "endLine": 24,
+        "endChar": 25
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1c402b30_05c3b1b3",
         "filename": "docs/components/context-management-library.rst",
         "patchSetId": 10
@@ -70,6 +116,29 @@
         "startChar": 53,
         "endLine": 25,
         "endChar": 55
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36b443d5_59326eb7",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "nitpick: in previous instances, non-secure was used.",
+      "range": {
+        "startLine": 30,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 7
       },
       "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -100,6 +169,270 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ede6cbe3_908fb2a6",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "nitpick: I feel `fields` might be more appropriate.",
+      "range": {
+        "startLine": 34,
+        "startChar": 56,
+        "endLine": 34,
+        "endChar": 61
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05ac8f4a_1719c998",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "nitpick: For sake of consistency, it might be better to use the term `CPU` here",
+      "range": {
+        "startLine": 40,
+        "startChar": 7,
+        "endLine": 40,
+        "endChar": 12
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97e49bd5_1893344e",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "feels repetitive. can be dropped without loss of context",
+      "range": {
+        "startLine": 49,
+        "startChar": 8,
+        "endLine": 49,
+        "endChar": 51
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "455d6add_6cc04e35",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "CPU",
+      "range": {
+        "startLine": 53,
+        "startChar": 9,
+        "endLine": 53,
+        "endChar": 13
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69c84882_af098c28",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "APIs",
+      "range": {
+        "startLine": 63,
+        "startChar": 73,
+        "endLine": 63,
+        "endChar": 77
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2c2c907_4c7a955a",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "non-secure",
+      "range": {
+        "startLine": 80,
+        "startChar": 4,
+        "endLine": 80,
+        "endChar": 14
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b2f8563_3cf6781c",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "did you mean immediately",
+      "range": {
+        "startLine": 82,
+        "startChar": 33,
+        "endLine": 82,
+        "endChar": 43
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8473b08f_6cc22308",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "EL3",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 86,
+        "endChar": 4
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "345d771d_b4b6e697",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "detect",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 9
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "511c4cb7_f0b98826",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "I believe ENABLE_FEAT_RAS does not support 3 values. Is it an exception to this rule?",
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb6cd6db_169e9fd2",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "In case of AArch32 platforms, BL32 represents the EL3 runtime software hosting secure monitor. I feel this table might need to be updated to address it.",
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d9fa174_df39f66c",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "such as SPMD",
+      "range": {
+        "startLine": 269,
+        "startChar": 25,
+        "endLine": 269,
+        "endChar": 29
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b57d7c6a_ee45d042",
         "filename": "docs/components/context-management-library.rst",
         "patchSetId": 10
@@ -116,6 +449,29 @@
         "startChar": 39,
         "endLine": 305,
         "endChar": 40
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "affce72c_d60c48c0",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "what about the legacy scenario where SPM_MM manages the Secure Partitions and resides at EL3?\n\nhttps://trustedfirmware-a.readthedocs.io/en/latest/components/secure-partition-manager-mm.html",
+      "range": {
+        "startLine": 311,
+        "startChar": 26,
+        "endLine": 312,
+        "endChar": 35
       },
       "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -185,6 +541,29 @@
         "startChar": 0,
         "endLine": 321,
         "endChar": 13
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8186f88_40f14ee3",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "nitpick: powering",
+      "range": {
+        "startLine": 326,
+        "startChar": 64,
+        "endLine": 326,
+        "endChar": 72
       },
       "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
@@ -278,6 +657,46 @@
         "endLine": 353,
         "endChar": 80
       },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b33221d_794c6543",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "Please replace with EL3 runtime firmware",
+      "range": {
+        "startLine": 396,
+        "startChar": 12,
+        "endLine": 396,
+        "endChar": 16
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcb33b2a_e4ed60ed",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-01T16:42:22Z",
+      "side": 1,
+      "message": "Can you also briefly describe how special registers(such as PAuth and MTE ) are taken care during world switch?",
       "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
