@@ -34,6 +34,24 @@
       "parentUuid": "c7c7726d_8b189913",
       "revId": "6496a208bb3984575649c7c79b064809ac70587a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2adb77b8_1f109809",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2024-04-02T14:11:17Z",
+      "side": 1,
+      "message": "Fair enough, but shouldn\u0027t TF-A just ignore AS then, if it\u0027s not going to use it as build systems have come to expect (i.e. override the assembler used).",
+      "parentUuid": "a6bfc5a4_dd34b58c",
+      "revId": "6496a208bb3984575649c7c79b064809ac70587a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
