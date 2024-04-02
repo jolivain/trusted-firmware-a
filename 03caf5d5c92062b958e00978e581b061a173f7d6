@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f906c71_b4ca58b1",
+        "filename": "docs/components/ven-el3-service.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-02T05:22:42Z",
+      "side": 1,
+      "message": "Add the version calls in this table ..and mention that all other SMC IDs not mentioned in the table are reserved.",
+      "revId": "03caf5d5c92062b958e00978e581b061a173f7d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7bdb5bf_8cbe611d",
+        "filename": "docs/components/ven-el3-service.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-02T05:22:42Z",
+      "side": 1,
+      "message": "Also are there some guidelines on how this version number will be updated in future  ? \n\nNeed to differentiate between the case of new services being added vs existing services adding new Functions. \n\nWould be good to have plans around those before merging the patches.",
+      "revId": "03caf5d5c92062b958e00978e581b061a173f7d6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
