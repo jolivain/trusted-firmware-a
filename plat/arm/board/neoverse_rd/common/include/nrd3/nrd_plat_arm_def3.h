@@ -580,8 +580,12 @@
  *   - L1 GPT DRAM: Reserved for L1 GPT if RME is enabled
  *   - TF-A <-> RMM SHARED: Area shared for communication between TF-A and RMM
  *   - REALM DRAM: Reserved for Realm world if RME is enabled
+ *   - BL32: Carveout for BL32 image if BL32 is present
  *
  *                    DRAM layout
+ *               +------------------+
+ *               |                  |
+ *               |        BL32      |
  *               +------------------+
  *               |   REALM (RMM)    |
  *               |   (32MB - 4KB)   |
@@ -681,6 +685,25 @@
 
 #define NRD_CSS_CARVEOUT_RESERVED_END	(NRD_CSS_CARVEOUT_RESERVED_BASE +\
 					 NRD_CSS_CARVEOUT_RESERVED_SIZE - 1U)
+
+/*******************************************************************************
+ * BL32 specific defines for EL3 runtime in AArch64 mode
+ ******************************************************************************/
+
+# if defined(SPD_spmd)
+#  define BL32_BASE			PLAT_ARM_SPMC_BASE
+#  define BL32_LIMIT			(PLAT_ARM_SPMC_BASE +		\
+					 PLAT_ARM_SPMC_SIZE)
+# endif
+
+/*
+ * BL32 is mandatory in AArch32. In AArch64, undefine BL32_BASE if there is no
+ * SPD and no SPM-MM and no SPMC-AT-EL3, as they are the only ones that can be
+ * used as BL32.
+ */
+# if defined(SPD_none) && !SPM_MM && !SPMC_AT_EL3
+#  undef BL32_BASE
+# endif /* defined(SPD_none) && !SPM_MM || !SPMC_AT_EL3 */
 
 /*******************************************************************************
  * NS RAM specific defines specific defines.

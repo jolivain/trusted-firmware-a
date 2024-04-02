@@ -59,6 +59,9 @@ static pas_region_t pas_regions[] = {
 	NRD_PAS_SCP_MCP_RSE_SHARED_SRAM,
 	NRD_PAS_GIC,
 	NRD_PAS_NS_DRAM,
+#if defined(SPD_spmd)
+	NRD_PAS_BL32,
+#endif
 	NRD_PAS_RMM,
 	NRD_PAS_L1GPT,
 	NRD_PAS_CMN,
