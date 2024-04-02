@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0586662b_f0d935ee",
+        "filename": "include/services/rmm_core_manifest.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001136
+      },
+      "writtenOn": "2024-04-02T15:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc057bbc_7fe1a91d",
+      "range": {
+        "startLine": 19,
+        "startChar": 8,
+        "endLine": 19,
+        "endChar": 35
+      },
+      "revId": "bdef1b54c391906b0024fed74f6e14395f7b3569",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dfcc919b_cf0298d8",
@@ -71,6 +95,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "630332ee_04d3a2fd",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1001136
+      },
+      "writtenOn": "2024-04-02T15:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfcc919b_cf0298d8",
+      "range": {
+        "startLine": 631,
+        "startChar": 24,
+        "endLine": 631,
+        "endChar": 75
+      },
+      "revId": "bdef1b54c391906b0024fed74f6e14395f7b3569",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "684a00a7_856d2c11",
@@ -107,6 +155,24 @@
       "writtenOn": "2024-04-02T14:44:32Z",
       "side": 1,
       "message": "nit: keep this in the same .c file where these are used.",
+      "revId": "bdef1b54c391906b0024fed74f6e14395f7b3569",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e0dc205_a9dddac2",
+        "filename": "plat/arm/board/fvp/fvp_private.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001136
+      },
+      "writtenOn": "2024-04-02T15:07:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "931dcd90_7900bfed",
       "revId": "bdef1b54c391906b0024fed74f6e14395f7b3569",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
