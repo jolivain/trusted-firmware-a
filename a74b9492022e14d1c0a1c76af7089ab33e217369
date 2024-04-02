@@ -126,6 +126,41 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7b9ea3e4_b95d989b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2024-04-02T14:18:00Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e I think it is my fault, I have not advertised about that in TF-A mailing list, and updated all the docs. Since our latest delivery, ST has decided to remove SP_MIN support, the default BL32 being OP-TEE [1].\n\u003e \u003e \u003e  \n\u003e \u003e \u003e I had updated the generic boot sequence [2], but not the STM32MP1 build instructions [3] and the fact that OP-TEE was optional. This is no more the case for ST deliveries, and so we do no more test it internally.\n\u003e \u003e \u003e The only remaining test with SP_MIN is the one on the ST board in the test farm [4],see stm32mp1-default at the end of the table, with lava logs [5]. But due to firmware loading time constraints, we only load a FIP, and stop in U-Boot. That\u0027s why we didn\u0027t see the issue.\n\u003e \u003e \n\u003e \u003e Couldn\u0027t that test check that BL33 managed to write something to the console?\n\u003e \u003e This would have caught this breakage.\n\u003e \u003e \n\u003e Yes we need to add such a test, I\u0027ll check how this could be handled in the test farm. When talking about console, you mean Linux console?\n\u003e  \n\u003e \u003e \u003e Do you have more info about the projects still using SP_MIN?\n\u003e \u003e \n\u003e \u003e This breakage was noticed by a colleague in https://github.com/linux-automation/meta-lxatac/pull/102\n\u003e \u003e \n\u003e \u003e The LXA-TAC uses TF-A as BL2, SP_min as secure monitor and barebox as BL33. We have half a dozen other projects that also use this configuration and there are others in the wild. Using OP-TEE is possible, but it adds an unnecessary complexity into projects that don\u0027t require secure boot and are content with what\u0027s available in upstream TF-A.\n\u003e \u003e \n\u003e Thanks for the info\n\u003e \n\u003e \u003e \u003e Several actions on my side:\n\u003e \u003e \u003e * update STM32MP1 build instruction doc [3]\n\u003e \u003e \n\u003e \u003e We don\u0027t see utility in having to use OP-TEE. If the problem is maintenance, I am willing to fix SP_min regressions when they arise. It would be nice if the board in the test farm could check for BL33 output after SP_min though.\n\u003e \u003e \n\u003e If we manage to add the test in the farm, then this will be caught as soon as a patch is tested, and the creator of the patch will have to fix it.\n\u003e Thank you for your offer of help!\n\u003e \n\u003e \u003e \u003e * check if we can have a minimal boot till kernel console in the test farm, and add an OP-TEE config there\n\u003e \u003e \u003e \n\u003e \u003e \u003e [1]:https://wiki.st.com/stm32mpu/wiki/STM32_MPU_OpenSTLinux_release_note_-_v5.0.0#TF-A\n\u003e \u003e \u003e [2]:https://trustedfirmware-a.readthedocs.io/en/latest/plat/st/stm32mpus.html#boot-sequence\n\u003e \u003e \u003e [3]:https://trustedfirmware-a.readthedocs.io/en/latest/plat/st/stm32mp1.html#build-instructions\n\u003e \u003e \u003e [4]:https://ci.trustedfirmware.org/job/tf-a-ci-gateway/66199/\n\u003e \u003e \u003e [5]:https://tf.validation.linaro.org/scheduler/job/2366454",
+      "parentUuid": "1bce6d0b_f8a99d21",
+      "revId": "a74b9492022e14d1c0a1c76af7089ab33e217369",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b33a8337_408d1a9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2024-04-02T14:18:00Z",
+      "side": 1,
+      "message": "I have addressed the feedback and rebased. Please check again.",
+      "revId": "a74b9492022e14d1c0a1c76af7089ab33e217369",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ee419e8d_0bc36b8a",
         "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
         "patchSetId": 1
@@ -137,6 +172,24 @@
       "writtenOn": "2024-03-19T08:10:25Z",
       "side": 1,
       "message": "For MISRA (https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#misra-compliance), you need to have curly braces even for 1 line tests. And the 3 should be changed to 3U.",
+      "revId": "a74b9492022e14d1c0a1c76af7089ab33e217369",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4459e253_10a581de",
+        "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2024-04-02T14:18:00Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ee419e8d_0bc36b8a",
       "revId": "a74b9492022e14d1c0a1c76af7089ab33e217369",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
