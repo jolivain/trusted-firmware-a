@@ -579,8 +579,12 @@
  *   - L1 GPT DRAM: Reserved for L1 GPT if RME is enabled
  *   - TF-A <-> RMM SHARED: Area shared for communication between TF-A and RMM
  *   - REALM DRAM: Reserved for Realm world if RME is enabled
+ *   - Event Log: Area for Event Log if MEASURED_BOOT feature is enabled
  *
  *                    DRAM layout
+ *               +------------------+
+ *               |     Event Log    |
+ *               |      (4KB)       |
  *               +------------------+
  *               |   REALM (RMM)    |
  *               |   (32MB - 4KB)   |
@@ -666,6 +670,24 @@
 #define RMM_SHARED_BASE			(ARM_EL3_RMM_SHARED_BASE)
 #define RMM_SHARED_SIZE			(ARM_EL3_RMM_SHARED_SIZE)
 
+
+/*******************************************************************************
+ * Event log specific defines.
+ ******************************************************************************/
+
+# if (defined(SPD_tspd) || defined(SPD_opteed) || defined(SPD_spmd)) && \
+MEASURED_BOOT
+#define ARM_EVENT_LOG_DRAM1_SIZE	UL(0x00001000)	/* 4KB */
+
+#define ARM_EVENT_LOG_DRAM1_BASE	(ARM_REALM_BASE -		\
+					 ARM_EVENT_LOG_DRAM1_SIZE)
+#define ARM_EVENT_LOG_DRAM1_END		(ARM_EVENT_LOG_DRAM1_BASE +	\
+					 ARM_EVENT_LOG_DRAM1_SIZE -	\
+					 1U)
+#else
+#define ARM_EVENT_LOG_DRAM1_SIZE	UL(0)
+#endif /* (SPD_tspd || SPD_opteed || SPD_spmd) && MEASURED_BOOT */
+
 /*******************************************************************************
  * NRD_CSS_CARVEOUT_RESERVED region specific defines.
  ******************************************************************************/
@@ -676,7 +698,8 @@
 #define NRD_CSS_CARVEOUT_RESERVED_SIZE	(NRD_CSS_DRAM1_CARVEOUT_SIZE -	\
 					(ARM_EL3_RMM_SHARED_SIZE +	\
 					 ARM_REALM_SIZE +		\
-					 ARM_L1_GPT_SIZE))
+					 ARM_L1_GPT_SIZE +		\
+					 ARM_EVENT_LOG_DRAM1_SIZE))
 
 #define NRD_CSS_CARVEOUT_RESERVED_END	(NRD_CSS_CARVEOUT_RESERVED_BASE +\
 					 NRD_CSS_CARVEOUT_RESERVED_SIZE - 1U)
@@ -751,5 +774,14 @@
 			ARM_DRAM2_BASE,					\
 			ARM_DRAM2_SIZE,					\
 			MT_MEMORY | MT_RW | MT_NS)
+
+# if (defined(SPD_tspd) || defined(SPD_opteed) || defined(SPD_spmd)) && \
+MEASURED_BOOT
+#define ARM_MAP_EVENT_LOG_DRAM1						\
+		MAP_REGION_FLAT(					\
+			ARM_EVENT_LOG_DRAM1_BASE,			\
+			ARM_EVENT_LOG_DRAM1_SIZE,			\
+			MT_MEMORY | MT_RW | MT_SECURE)
+#endif
 
 #endif /* NRD_PLAT_ARM_DEF3_H */

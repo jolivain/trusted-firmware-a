@@ -61,6 +61,10 @@ static pas_region_t pas_regions[] = {
 	NRD_PAS_GIC,
 	NRD_PAS_MMIO_L,
 	NRD_PAS_NS_DRAM,
+#if (defined(SPD_tspd) || defined(SPD_opteed) || defined(SPD_spmd)) && \
+	defined(MEASURED_BOOT)
+	NRD_PAS_EVENT_LOG,
+#endif
 	NRD_PAS_RMM,
 	NRD_PAS_L1GPT,
 	NRD_PAS_CMN,

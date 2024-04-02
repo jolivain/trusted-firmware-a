@@ -181,6 +181,9 @@
  * 0x80000000       |2GB -   |L1 GPT |NS     |NS DRAM                  |
  * 0xFFFE2BFF       |117MB   |       |       |                         |
  * ---------------------------------------------------------------------
+ * 0x80000000       |4KB     |L1 GPT |SECURE |EVENT LOG                |
+ * 0x37FFFFFF       |        |       |       |                         |
+ * ---------------------------------------------------------------------
  * 0x80000000       |26MB    |L1 GPT |REALM  |RMM                      |
  * 0x37FFFFFF       |        |       |       |TF-A SHARED              |
  * ---------------------------------------------------------------------
@@ -525,6 +528,15 @@
 			NRD_MC_BASE(NRD_CSS_DRAM1_BASE, 3),		\
 			ARM_DRAM1_SIZE,					\
 			GPT_GPI_NS)
+
+#if (defined(SPD_tspd) || defined(SPD_opteed) || defined(SPD_spmd)) &&	\
+	defined(MEASURED_BOOT)
+#define NRD_PAS_EVENT_LOG						\
+		GPT_MAP_REGION_GRANULE(					\
+			ARM_EVENT_LOG_DRAM1_BASE,			\
+			ARM_EVENT_LOG_DRAM1_SIZE,			\
+			GPT_GPI_SECURE)
+#endif
 
 #define NRD_PAS_RMM							\
 		GPT_MAP_REGION_GRANULE(					\
