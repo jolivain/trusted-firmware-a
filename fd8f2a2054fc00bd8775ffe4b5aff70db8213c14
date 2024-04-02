@@ -194,6 +194,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bc6e0a8_91bcdf57",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2024-04-02T15:07:14Z",
+      "side": 1,
+      "message": "Not needed. As the console_info array is stored right after the dram_banks, all we need to know is the console_info address and the length of that array to calculate the last address used by the manifest",
+      "parentUuid": "fff3d6b7_2d68cf38",
+      "revId": "fd8f2a2054fc00bd8775ffe4b5aff70db8213c14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30a36439_cc02a675",

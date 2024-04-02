@@ -49,6 +49,53 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a77835e9_2c5104f8",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 631,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2024-04-02T15:07:14Z",
+      "side": 1,
+      "message": "I might have missed something but the rationales is:\n\nconsole_ptr is the last structure array stored in the shared area, so the calculation would give us the end address for the console_ptr array. That minus the manifest base address should be the total size used by the manifest and related structures",
+      "parentUuid": "dfcc919b_cf0298d8",
+      "range": {
+        "startLine": 631,
+        "startChar": 24,
+        "endLine": 631,
+        "endChar": 75
+      },
+      "revId": "bdef1b54c391906b0024fed74f6e14395f7b3569",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "684a00a7_856d2c11",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2024-04-02T15:07:14Z",
+      "side": 1,
+      "message": "For consistency, use\n\nmemset((void *)console_ptr, \u0027\\0\u0027 , sizeof(struct console_info) * num_consoles);",
+      "range": {
+        "startLine": 656,
+        "startChar": 35,
+        "endLine": 656,
+        "endChar": 64
+      },
+      "revId": "bdef1b54c391906b0024fed74f6e14395f7b3569",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "931dcd90_7900bfed",
         "filename": "plat/arm/board/fvp/fvp_private.h",
         "patchSetId": 7
