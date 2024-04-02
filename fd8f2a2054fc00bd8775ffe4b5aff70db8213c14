@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e8a599a8_bf34d06b",
+        "filename": "include/services/rmm_core_manifest.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2024-04-02T10:42:12Z",
+      "side": 1,
+      "message": "nit: fix this comment",
+      "range": {
+        "startLine": 87,
+        "startChar": 27,
+        "endLine": 87,
+        "endChar": 51
+      },
+      "revId": "fd8f2a2054fc00bd8775ffe4b5aff70db8213c14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c7e0102_52310b4d",
         "filename": "plat/arm/board/fvp/fvp_common.c",
         "patchSetId": 6
