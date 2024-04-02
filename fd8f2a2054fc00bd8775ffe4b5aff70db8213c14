@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "768e0696_c5e7db43",
+        "filename": "include/services/rmm_core_manifest.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1001136
+      },
+      "writtenOn": "2024-04-02T14:33:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a34f6b9a_ec1adff8",
+      "range": {
+        "startLine": 67,
+        "startChar": 11,
+        "endLine": 67,
+        "endChar": 12
+      },
+      "revId": "fd8f2a2054fc00bd8775ffe4b5aff70db8213c14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8a599a8_bf34d06b",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-04-02T10:42:12Z",
       "side": 1,
       "message": "nit: fix this comment",
+      "range": {
+        "startLine": 87,
+        "startChar": 27,
+        "endLine": 87,
+        "endChar": 51
+      },
+      "revId": "fd8f2a2054fc00bd8775ffe4b5aff70db8213c14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c16f060_4c3ed1b0",
+        "filename": "include/services/rmm_core_manifest.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1001136
+      },
+      "writtenOn": "2024-04-02T14:33:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8a599a8_bf34d06b",
       "range": {
         "startLine": 87,
         "startChar": 27,
@@ -87,6 +135,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee1cd040_358eaf81",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1001136
+      },
+      "writtenOn": "2024-04-02T14:33:18Z",
+      "side": 1,
+      "message": "Have put this in fvp_private.h.",
+      "parentUuid": "6c7e0102_52310b4d",
+      "range": {
+        "startLine": 567,
+        "startChar": 16,
+        "endLine": 567,
+        "endChar": 19
+      },
+      "revId": "fd8f2a2054fc00bd8775ffe4b5aff70db8213c14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0a9ef16_479b4b18",
@@ -100,6 +172,24 @@
       "writtenOn": "2024-04-02T10:17:46Z",
       "side": 1,
       "message": "I think we should enforce, via an assert, that the size of the manifest plus any ancillary structure is not larger than the size of the EL3-RMM shared buffer.\n\nBy reviewing the patch I think that check was missed in the original code.\n\nThe assert should be something like:\n\nassert((console_ptr + (sizeof(struct console_info) * plat_console.consoles) - manifest) \u003c\u003d ARM_EL3_RMM_SHARED_SIZE);",
+      "revId": "fd8f2a2054fc00bd8775ffe4b5aff70db8213c14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fff3d6b7_2d68cf38",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1001136
+      },
+      "writtenOn": "2024-04-02T14:33:18Z",
+      "side": 1,
+      "message": "do we not need to include the dram_bank in that assert?",
+      "parentUuid": "c0a9ef16_479b4b18",
       "revId": "fd8f2a2054fc00bd8775ffe4b5aff70db8213c14",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -127,6 +217,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79735ea6_36a5383c",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1001136
+      },
+      "writtenOn": "2024-04-02T14:33:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30a36439_cc02a675",
+      "range": {
+        "startLine": 654,
+        "startChar": 24,
+        "endLine": 654,
+        "endChar": 28
+      },
+      "revId": "fd8f2a2054fc00bd8775ffe4b5aff70db8213c14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f82c13a_863d9ead",
@@ -140,6 +254,30 @@
       "writtenOn": "2024-04-02T10:17:46Z",
       "side": 1,
       "message": "All these values should be either retrieved from configuration via fconf library or defined on the platform header",
+      "range": {
+        "startLine": 651,
+        "startChar": 1,
+        "endLine": 656,
+        "endChar": 1
+      },
+      "revId": "fd8f2a2054fc00bd8775ffe4b5aff70db8213c14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a41d76ba_739a1bc9",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1001136
+      },
+      "writtenOn": "2024-04-02T14:33:18Z",
+      "side": 1,
+      "message": "For now i\u0027ll put them in fvp_private.h, but yes ideally we\u0027d take them from the device tree.",
+      "parentUuid": "3f82c13a_863d9ead",
       "range": {
         "startLine": 651,
         "startChar": 1,
