@@ -16,6 +16,115 @@
       "message": "Ci triggered on child commit.",
       "revId": "fd8f2a2054fc00bd8775ffe4b5aff70db8213c14",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a34f6b9a_ec1adff8",
+        "filename": "include/services/rmm_core_manifest.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2024-04-02T10:17:46Z",
+      "side": 1,
+      "message": "How do you determine the maximum length of the name? Does this include the string termination character? Also try not to use a magic number. Define a macro in the appropriate header file instead.",
+      "range": {
+        "startLine": 67,
+        "startChar": 11,
+        "endLine": 67,
+        "endChar": 12
+      },
+      "revId": "fd8f2a2054fc00bd8775ffe4b5aff70db8213c14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c7e0102_52310b4d",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 567,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2024-04-02T10:17:46Z",
+      "side": 1,
+      "message": "I think this should be either a property loaded using the fconf library or a constant macro defined in the platform header files. We try to avoid magic numbers as much as possible.",
+      "range": {
+        "startLine": 567,
+        "startChar": 16,
+        "endLine": 567,
+        "endChar": 19
+      },
+      "revId": "fd8f2a2054fc00bd8775ffe4b5aff70db8213c14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a9ef16_479b4b18",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2024-04-02T10:17:46Z",
+      "side": 1,
+      "message": "I think we should enforce, via an assert, that the size of the manifest plus any ancillary structure is not larger than the size of the EL3-RMM shared buffer.\n\nBy reviewing the patch I think that check was missed in the original code.\n\nThe assert should be something like:\n\nassert((console_ptr + (sizeof(struct console_info) * plat_console.consoles) - manifest) \u003c\u003d ARM_EL3_RMM_SHARED_SIZE);",
+      "revId": "fd8f2a2054fc00bd8775ffe4b5aff70db8213c14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30a36439_cc02a675",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2024-04-02T10:17:46Z",
+      "side": 1,
+      "message": "This use of strlcpy() is unsafe. I\u0027d suggest something like:\n\nstrlcpy(console_ptr[0].name, name, MAX_NAME_SIZE-1U);\nconsole_ptr[0].name[MAX_NAME_SIZE-1U] \u003d \u0027\\0\u0027;\n\nso to enforce that if the name doesn\u0027t fit on the space assigned for it, it will be truncated and the string NULL terminated.\n\nAlso, if console_ptr is zeroed before populating it, the second line can be removed and only use strlcpy() limiting the copy to MAX_NAME_SIZE-1 characters.",
+      "range": {
+        "startLine": 654,
+        "startChar": 24,
+        "endLine": 654,
+        "endChar": 28
+      },
+      "revId": "fd8f2a2054fc00bd8775ffe4b5aff70db8213c14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f82c13a_863d9ead",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1000298
+      },
+      "writtenOn": "2024-04-02T10:17:46Z",
+      "side": 1,
+      "message": "All these values should be either retrieved from configuration via fconf library or defined on the platform header",
+      "range": {
+        "startLine": 651,
+        "startChar": 1,
+        "endLine": 656,
+        "endChar": 1
+      },
+      "revId": "fd8f2a2054fc00bd8775ffe4b5aff70db8213c14",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
