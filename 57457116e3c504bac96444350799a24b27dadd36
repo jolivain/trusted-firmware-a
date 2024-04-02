@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "347eb3cf_602dedeb",
+        "filename": "docs/components/ven-el3-service.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-02T20:15:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f48d1a3_2777e5af",
+      "range": {
+        "startLine": 15,
+        "startChar": 6,
+        "endLine": 15,
+        "endChar": 13
+      },
+      "revId": "57457116e3c504bac96444350799a24b27dadd36",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8660bef3_ca80df8d",
@@ -47,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4235b401_a535fed8",
+        "filename": "docs/components/ven-el3-service.rst",
+        "patchSetId": 13
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-02T20:15:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8660bef3_ca80df8d",
+      "range": {
+        "startLine": 25,
+        "startChar": 6,
+        "endLine": 25,
+        "endChar": 13
+      },
+      "revId": "57457116e3c504bac96444350799a24b27dadd36",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34fdd479_d94b8768",
@@ -60,6 +108,24 @@
       "writtenOn": "2024-04-02T19:24:37Z",
       "side": 1,
       "message": "I have a doubt here, in include/lib/debugfs.h should we change the DEBUG_FS_FID macro value?",
+      "revId": "57457116e3c504bac96444350799a24b27dadd36",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7d24f27_fcd9cc77",
+        "filename": "services/el3/ven_el3_svc.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-02T20:15:04Z",
+      "side": 1,
+      "message": "yes correct fixed now",
+      "parentUuid": "34fdd479_d94b8768",
       "revId": "57457116e3c504bac96444350799a24b27dadd36",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
