@@ -146,6 +146,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "80625e8f_e434d9df",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-04-03T10:57:49Z",
+      "side": 1,
+      "message": "would be executing in one of the security states.",
+      "range": {
+        "startLine": 29,
+        "startChar": 50,
+        "endLine": 30,
+        "endChar": 24
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49e20961_6eab7c9b",
         "filename": "docs/components/context-management-library.rst",
         "patchSetId": 10
@@ -284,6 +307,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad1a7f5e_fb94dda0",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-04-03T10:57:49Z",
+      "side": 1,
+      "message": "Try to add following lines in this paragraph\n\"EL3 Firmware is assumed to be running in secure world. With introduction to a new Realm world (Armv9.2) a system can have four distinct worlds (NS, Secure, Realm, Root). EL3 now runs at root instead of Secure for a 2 world system.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 69,
+        "endChar": 16
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e2c2c907_4c7a955a",
         "filename": "docs/components/context-management-library.rst",
         "patchSetId": 10
@@ -318,6 +364,30 @@
       "writtenOn": "2024-04-01T16:42:22Z",
       "side": 1,
       "message": "did you mean immediately",
+      "range": {
+        "startLine": 82,
+        "startChar": 33,
+        "endLine": 82,
+        "endChar": 43
+      },
+      "revId": "f419bff953cd27578d5527b9936d8768529d7aee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efbb5168_470c4273",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-04-03T10:57:49Z",
+      "side": 1,
+      "message": "swap point number #1 \u0026 #2, And the El1 context should be taken care by individual dispatcher components in EL3 (refer to #2)",
+      "parentUuid": "2b2f8563_3cf6781c",
       "range": {
         "startLine": 82,
         "startChar": 33,
