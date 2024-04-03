@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "644fe9d3_abc184a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-04-03T09:00:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3f57bcc_9924fbc3",
+      "revId": "ef3aa1e5f4fa163ea528c6f3f7242bc240dff5c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cb5e8b14_b8c45635",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2024-03-25T10:52:26Z",
       "side": 1,
       "message": "align please",
+      "revId": "ef3aa1e5f4fa163ea528c6f3f7242bc240dff5c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bb4735f_7638b172",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-04-03T09:00:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12d5f1d0_41767664",
       "revId": "ef3aa1e5f4fa163ea528c6f3f7242bc240dff5c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -82,6 +118,24 @@
       "writtenOn": "2024-03-25T10:52:26Z",
       "side": 1,
       "message": "\"cpu topology:sockets is 2, clusters is 2, cores is 1, thread is 4\"\n\nMaybe this:\n\n\"cpu topology: sockets: 2, clusters: 2, cores: 1, threads: 4\"\n\nThis way there is no problem with plural forms (\"is/are\").",
+      "revId": "ef3aa1e5f4fa163ea528c6f3f7242bc240dff5c0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77a286f3_562db3da",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-04-03T09:00:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bc8b244_e3d3c45a",
       "revId": "ef3aa1e5f4fa163ea528c6f3f7242bc240dff5c0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
