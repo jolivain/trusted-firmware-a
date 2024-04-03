@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "157e0aef_32fc53c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-03T16:52:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a6946c0_7ea69efc",
+      "revId": "2b9b75cf5ead999877f571fabc6d9407782c303d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6796845_786c8366",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-04-03T13:12:43Z",
       "side": 1,
       "message": "nit: Registers",
+      "range": {
+        "startLine": 1438,
+        "startChar": 44,
+        "endLine": 1438,
+        "endChar": 52
+      },
+      "revId": "2b9b75cf5ead999877f571fabc6d9407782c303d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbe80720_b0fa1ba8",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1438,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-03T16:52:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6796845_786c8366",
       "range": {
         "startLine": 1438,
         "startChar": 44,
@@ -64,6 +106,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d330ed5_6c091e5a",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1444,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-03T16:52:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "012856f2_660b8acf",
+      "range": {
+        "startLine": 1444,
+        "startChar": 30,
+        "endLine": 1444,
+        "endChar": 37
+      },
+      "revId": "2b9b75cf5ead999877f571fabc6d9407782c303d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb221907_ba9cbc6c",
@@ -83,6 +149,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "88a6e87c_bc534ede",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1520,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-03T16:52:31Z",
+      "side": 1,
+      "message": "Hi Jayanth,\n\nThanks a lot for the feedback. I myself had the same concern. In fact, I had implemented my initial versions of the patch the way you are suggesting.\n\nHowever, I ran into several issues including build errors. Since ENABLE_FEAT_RAS is a special case (as it does not accept a value of 2), I would like to take ENABLE_FEAT_S1POE as an example for our discussion.\n\nSince memory is one of the most important constraint for TF-A, I would like to keep the context entries under the build flags in context.h file.\n\nIn my analysis, I came to conclusion that both `#if` guard as well as `if(__supported())` condition is necessary. Consider the following styles:\n\nstyle_1:\n`#if ENABLE_FEAT_S1POE`\n\t`write_ctx_reg(ctx, CTX_POR_EL1, read_por_el1());`\n`#endif`\n\nstyle_2:\n`if (is_feat_s1poe_supported()) {`\n\t`write_ctx_reg(ctx, CTX_POR_EL1, read_por_el1());`\n`}`\n\nstyle_3:\n`#if ENABLE_FEAT_S1POE`\n`        if (is_feat_s1poe_supported()) {`\n\t\t`write_ctx_reg(ctx, CTX_POR_EL1, read_por_el1());`\n\t`}`\n`#endif`\n\nAs you already know, Style_1 cannot be used since platforms like FVP need to dynamically detect the presence of a specific feature before writing to them.\n\nStyle_2 is what everyone would like to work with. However, there is a limitation with compiler. Though the api checks for a values 0,1 and 2, the compiler actually does not optimize the instructions underneath it. What I mean is if ENABLE_FEAT_S1POE is 0, we expect the compiler to drop the statement write_ctx_reg(....) from final build. However, this does not happen leading to build errors.\n\nThe way EL2 registers were able to get around is by redefining the macro write_ctx_reg altogether in the patch you mentioned. i.e. #if guard is still used but just in a different file. I am aware you already know this but I just mentioned for the benefit of anyone else who might refer to this conversation.\n\nThat leaves us with style_3 which is functionally identical to the way EL2 registers are managed currently. This is why I felt that the additional overhead of using `#if` guards is justified.\n\nPlease let me know your thoughts. I am more than happy to make any improvements you suggest.",
+      "parentUuid": "fb221907_ba9cbc6c",
+      "revId": "2b9b75cf5ead999877f571fabc6d9407782c303d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12b9fced_9a5d629d",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 2
@@ -94,6 +178,24 @@
       "writtenOn": "2024-04-03T13:12:43Z",
       "side": 1,
       "message": "nit: remove this empty line",
+      "revId": "2b9b75cf5ead999877f571fabc6d9407782c303d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20ed9957_7bd10b8a",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1580,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-03T16:52:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12b9fced_9a5d629d",
       "revId": "2b9b75cf5ead999877f571fabc6d9407782c303d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
