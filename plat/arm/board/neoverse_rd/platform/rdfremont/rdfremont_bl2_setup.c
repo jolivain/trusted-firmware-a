@@ -70,6 +70,18 @@ static pas_region_t pas_regions[] = {
 	NRD_PAS_ECAM,
 	NRD_PAS_MMIO_H,
 	NRD_PAS_DRAM2_CHIP0,
+#if NRD_CHIP_COUNT > 1
+	NRD_PAS_DRAM1_CHIP1,
+	NRD_PAS_DRAM2_CHIP1,
+#endif
+#if NRD_CHIP_COUNT > 2
+	NRD_PAS_DRAM1_CHIP2,
+	NRD_PAS_DRAM2_CHIP2,
+#endif
+#if NRD_CHIP_COUNT > 3
+	NRD_PAS_DRAM1_CHIP3,
+	NRD_PAS_DRAM2_CHIP3
+#endif
 };
 
 static const arm_gpt_info_t arm_gpt_info = {
