@@ -185,6 +185,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4d4c1734_45dcc653",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1520,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-03T18:40:11Z",
+      "side": 1,
+      "message": "Agreed that we can take the improvement task in another iteration. I plan to add more registers to EL1 context.\n\nI will keep the comment open to serve as a reminder for the improvement task.",
+      "parentUuid": "39b9753b_933be8f3",
+      "revId": "2b9b75cf5ead999877f571fabc6d9407782c303d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12b9fced_9a5d629d",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 2
