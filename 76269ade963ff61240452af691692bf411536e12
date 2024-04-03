@@ -382,6 +382,30 @@
       },
       "revId": "76269ade963ff61240452af691692bf411536e12",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "644e6598_aaf7c6f8",
+        "filename": "lib/locks/exclusive/aarch64/spinlock.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-03T16:06:56Z",
+      "side": 1,
+      "message": "Although these LDSETALB \u0026 LDCLRALB instructions are atomic, they aren\u0027t exclusive.\nI pushed new patch with \u0027stlxrb\u0027 in bit_unlock.",
+      "parentUuid": "e4a605e5_9e66a513",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 107,
+        "endChar": 12
+      },
+      "revId": "76269ade963ff61240452af691692bf411536e12",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
