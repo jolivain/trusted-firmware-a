@@ -25,6 +25,7 @@ Common build options
 -  ``AMU_RESTRICT_COUNTERS``: Register reads to the group 1 counters will return
    zero at all but the highest implemented exception level.  Reads from the
    memory mapped view are unaffected by this control.
+   The default value is 1 for all platforms.
 
 -  ``ARCH`` : Choose the target build architecture for TF-A. It can take either
    ``aarch64`` or ``aarch32`` as values. By default, it is defined to
