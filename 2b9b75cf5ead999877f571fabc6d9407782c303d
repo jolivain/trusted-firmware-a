@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a6946c0_7ea69efc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-03T13:12:43Z",
+      "side": 1,
+      "message": "Overall LGTM.\nSome minor comments. \n\nAlso if its feasible, kindly add few details in the commit message. Regsiters under the influence of features, not a major concern.  The ones which aren\u0027t may be a little info on them would be helpful.",
+      "revId": "2b9b75cf5ead999877f571fabc6d9407782c303d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6796845_786c8366",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1438,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-03T13:12:43Z",
+      "side": 1,
+      "message": "nit: Registers",
+      "range": {
+        "startLine": 1438,
+        "startChar": 44,
+        "endLine": 1438,
+        "endChar": 52
+      },
+      "revId": "2b9b75cf5ead999877f571fabc6d9407782c303d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "012856f2_660b8acf",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1444,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-03T13:12:43Z",
+      "side": 1,
+      "message": "please add ``registers`` at the end here.",
+      "range": {
+        "startLine": 1444,
+        "startChar": 30,
+        "endLine": 1444,
+        "endChar": 37
+      },
+      "revId": "2b9b75cf5ead999877f571fabc6d9407782c303d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb221907_ba9cbc6c",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1520,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-03T13:12:43Z",
+      "side": 1,
+      "message": "I guess, you are adding #if check on top of if(feat_supported()) to get through the build failures as macros in context.h are conditionally guarded under the build flags. But the checks are redundant, as the if(___supported()) api does the same check but it covers STATE\u003d2 as well.\n\nFrom the memory perspective, its good that we add context entries under build flags in context.h file.\nBut with this there is an additional overhead to again use the build flags in the .c file as well.\n\nFYI :As part of EL2 refactor, we got rid of #ifs in .c file.\n( https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26416 )\n\nSince this is not a refactor patch, I am ok with either having just \n```\n#if ENABLE_FEAT_RAS\nwrite_ctx_reg(ctx, CTX_DISR_EL1, read_disr_el1());\n#endif \n```\nand have an explicit refactor patch for all EL1 registers. \nLet me know your thoughts. If you prefer to have both the checks #if and if() as part of this patch.\n\nThe other possible option is to include the context entries unconditionally in the context.h file, which would allow us to get rid of #if checks here.",
+      "revId": "2b9b75cf5ead999877f571fabc6d9407782c303d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12b9fced_9a5d629d",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1580,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-03T13:12:43Z",
+      "side": 1,
+      "message": "nit: remove this empty line",
+      "revId": "2b9b75cf5ead999877f571fabc6d9407782c303d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
