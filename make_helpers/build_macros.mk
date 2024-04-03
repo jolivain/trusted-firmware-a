@@ -341,10 +341,15 @@ define MAKE_C
 $(eval OBJ := $(1)/$(patsubst %.c,%.o,$(notdir $(2))))
 $(eval DEP := $(patsubst %.o,%.d,$(OBJ)))
 
-$(eval BL_DEFINES := IMAGE_$(call uppercase,$(3)) $($(call uppercase,$(3))_DEFINES) $(PLAT_BL_COMMON_DEFINES))
-$(eval BL_INCLUDE_DIRS := $($(call uppercase,$(3))_INCLUDE_DIRS) $(PLAT_BL_COMMON_INCLUDE_DIRS))
-$(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) $(addprefix -D,$(BL_DEFINES)) $(addprefix -I,$(BL_INCLUDE_DIRS)) $(PLAT_BL_COMMON_CPPFLAGS))
+$(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) $(PLAT_BL_COMMON_CPPFLAGS))
 $(eval BL_CFLAGS := $($(call uppercase,$(3))_CFLAGS) $(PLAT_BL_COMMON_CFLAGS))
+
+$(OBJ): private defines += IMAGE_$(call uppercase,$(3))
+$(OBJ): private defines += $($(call uppercase,$(3))_DEFINES)
+$(OBJ): private defines += $(PLAT_BL_COMMON_DEFINES)
+
+$(OBJ): private include-dirs += $($(call uppercase,$(3))_INCLUDE_DIRS)
+$(OBJ): private include-dirs += $(PLAT_BL_COMMON_INCLUDE_DIRS)
 
 $(OBJ): private flags += $$(LTO_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(BL_CPPFLAGS) $(BL_CFLAGS) $(MAKE_DEP) -c $$< -o $$@
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
@@ -365,10 +370,15 @@ define MAKE_S
 $(eval OBJ := $(1)/$(patsubst %.S,%.o,$(notdir $(2))))
 $(eval DEP := $(patsubst %.o,%.d,$(OBJ)))
 
-$(eval BL_DEFINES := IMAGE_$(call uppercase,$(3)) $($(call uppercase,$(3))_DEFINES) $(PLAT_BL_COMMON_DEFINES))
-$(eval BL_INCLUDE_DIRS := $($(call uppercase,$(3))_INCLUDE_DIRS) $(PLAT_BL_COMMON_INCLUDE_DIRS))
-$(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) $(addprefix -D,$(BL_DEFINES)) $(addprefix -I,$(BL_INCLUDE_DIRS)) $(PLAT_BL_COMMON_CPPFLAGS))
+$(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) $(PLAT_BL_COMMON_CPPFLAGS))
 $(eval BL_ASFLAGS := $($(call uppercase,$(3))_ASFLAGS) $(PLAT_BL_COMMON_ASFLAGS))
+
+$(OBJ): private defines += IMAGE_$(call uppercase,$(3))
+$(OBJ): private defines += $($(call uppercase,$(3))_DEFINES)
+$(OBJ): private defines += $(PLAT_BL_COMMON_DEFINES)
+
+$(OBJ): private include-dirs += $($(call uppercase,$(3))_INCLUDE_DIRS)
+$(OBJ): private include-dirs += $(PLAT_BL_COMMON_INCLUDE_DIRS)
 
 $(OBJ): private flags += -x assembler-with-cpp $$(TF_CFLAGS_$(ARCH)) $$(ASFLAGS) $(BL_CPPFLAGS) $(BL_ASFLAGS) $(MAKE_DEP) -c $$< -o $$@
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
@@ -388,11 +398,17 @@ define MAKE_LD
 
 $(eval DEP := $(1).d)
 
-$(eval BL_DEFINES := IMAGE_$(call uppercase,$(3)) $($(call uppercase,$(3))_DEFINES) $(PLAT_BL_COMMON_DEFINES))
-$(eval BL_INCLUDE_DIRS := $($(call uppercase,$(3))_INCLUDE_DIRS) $(PLAT_BL_COMMON_INCLUDE_DIRS))
-$(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) $(addprefix -D,$(BL_DEFINES)) $(addprefix -I,$(BL_INCLUDE_DIRS)) $(PLAT_BL_COMMON_CPPFLAGS))
+$(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) $(PLAT_BL_COMMON_CPPFLAGS))
 
-$(1): private flags += -E $$(CPPFLAGS) $(BL_CPPFLAGS) $(TF_CFLAGS_$(ARCH)) -P -x assembler-with-cpp -D__LINKER__ $(MAKE_DEP) -o $$@ $$<
+$(1): private defines += IMAGE_$(call uppercase,$(3))
+$(1): private defines += $($(call uppercase,$(3))_DEFINES)
+$(1): private defines += $(PLAT_BL_COMMON_DEFINES)
+$(1): private defines += __LINKER__
+
+$(1): private include-dirs += $($(call uppercase,$(3))_INCLUDE_DIRS)
+$(1): private include-dirs += $(PLAT_BL_COMMON_INCLUDE_DIRS)
+
+$(1): private flags += -E $$(CPPFLAGS) $(BL_CPPFLAGS) $(TF_CFLAGS_$(ARCH)) -P -x assembler-with-cpp $(MAKE_DEP) -o $$@ $$<
 $(1): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
 	$$(s)echo "  PP      $$<"
 	$$(q)$$($$(ARCH)-cpp) $$(call target-properties,flags,$$(ARCH),cpp,$(3))

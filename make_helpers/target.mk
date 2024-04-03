@@ -101,4 +101,20 @@ ifndef target-mk
         target-powerset += $(if $(4),$(4)-$(2)-$(3)-$(1))
         target-powerset += $(if $(4),$(4)-$($(2)-$(3)-id)-$(3)-$(1))
         target-powerset += $(if $(4),$(4)-$(2)-$($(2)-$(3)-id)-$(3)-$(1))
+
+        #
+        # Handle common implicit target properties:
+        #
+        #   - `defines`: preprocessor definitions
+        #   - `include-dirs`: preprocessor include directories
+        #
+        # These target properties are automatically added to the `flags` target
+        # property for all targets.
+        #
+
+        flags += $(shell printf '%s\0' $(call target-properties,defines,$(2),$(3),$(4)) $\
+                | xargs -0 -n1 | sed -E "s/'/'\\\\''/g; s/^(.+)$$/-D'\\1'/")
+
+        flags += $(shell printf '%s\0' $(call target-properties,include-dirs,$(2),$(3),$(4)) $\
+                | xargs -0 -n1 | sed -E "s/'/'\\\\''/g; s/^(.+)$$/-I'\\1'/")
 endif

@@ -312,4 +312,71 @@ ifndef toolchain-mk
 
         $(foreach toolchain,$(toolchains), \
                 $(eval $(call toolchain-configure,$(toolchain))))
+
+        #
+        # Tool-specific helpers.
+        #
+        # The functions defined here are intended to make processing of certain
+        # flags, predominantly preprocessor definitions and include directories,
+        # more convenient in the rest of the build system.
+        #
+        # These functions are:
+        #
+        #   - `toolchain-defines-<tool>`
+        #   - `toolchain-include-dirs-<tool>`
+        #
+        # As the names suggest, these two functions collect the preprocessor
+        # definitions and the include directories for a given target and return
+        # the flags necessary to pass them on to the tool active for that
+        # target.
+        #
+        # The `toolchain-defines-<tool>` function takes the following
+        # parameters:
+        #
+        #   - $(1): list of defines in `KEY[=VALUE]` format
+        #
+        # Similarly, the `toolchain-include-dirs-<tool>` functions
+        #
+        # To ensure that these tools can handle definitions and include
+        # directories which include spaces as well as other special characters,
+        # values for the `defines` and `include-dirs` tool variables are
+        # expanded according to the rules of the current shell.
+        #
+        # For example, the following preprocessor definition, which includes
+        # both escaped quotes and spaces, could be added to the flags for the
+        # target `bl1` with:
+        #
+        #     bl1-defines += XYZ="\"it's a test\""
+        #     # `-D'XYZ="it\''\'s a test"'` for most compilers
+        #
+
+        #
+        # Translate a list of preprocessor defines to tool-specific flags.
+        #
+        # Parameters:
+        #
+        #   - $(1): list of defines in `KEY[=VALUE]` format
+        #
+        # Preprocessor defines passed to this function are evaluated according
+        # to the rules of the current shell.
+        #
+
+        toolchain-defines-arm-clang = $(call toolchain-defines-gnu-gcc,$(1))
+        toolchain-defines-llvm-clang = $(call toolchain-defines-gnu-gcc,$(1))
+        toolchain-defines-gnu-gcc = $(shell printf '%s\0' $(1) | xargs -0 -n1 | sed -E "s/'/'\\\\''/g; s/^(.+)$$/-D'\\1'/")
+
+        #
+        # Translate a list of include directories to tool-specific flags.
+        #
+        # Parameters:
+        #
+        #   - $(1): list of include directories
+        #
+        # Include directories passed to this function are evaluated according to
+        # the rules of the current shell.
+        #
+
+        toolchain-include-dirs-arm-clang = $(call toolchain-include-dirs-gnu-gcc,$(1))
+        toolchain-include-dirs-llvm-clang = $(call toolchain-include-dirs-gnu-gcc,$(1))
+        toolchain-include-dirs-gnu-gcc = $(shell printf '%s\0' $(1) | xargs -0 -n1 | sed -E "s/'/'\\\\''/g; s/^(.+)$$/-I'\\1'/")
 endif
