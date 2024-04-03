@@ -66,6 +66,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "40fac7c4_80e0bc27",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-03T14:23:36Z",
+      "side": 1,
+      "message": "\"GPT library\" is used in:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/components/granule-protection-tables-design.html\nhttps://trustedfirmware-a.readthedocs.io/en/latest/components/realm-management-extension.html",
+      "parentUuid": "3426ddaa_53a619b1",
+      "range": {
+        "startLine": 620,
+        "startChar": 24,
+        "endLine": 620,
+        "endChar": 28
+      },
+      "revId": "c131863a1d19209c6d8cbeb5f676b04198f2fada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bfe11815_e57b4335",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 6
@@ -89,6 +113,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c7bcfb81_536b52e5",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-03T14:23:36Z",
+      "side": 1,
+      "message": "Why \"next\"? l2 is just cast of l1 to (uint128_t *).",
+      "parentUuid": "bfe11815_e57b4335",
+      "range": {
+        "startLine": 271,
+        "startChar": 12,
+        "endLine": 271,
+        "endChar": 15
+      },
+      "revId": "c131863a1d19209c6d8cbeb5f676b04198f2fada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b916f16_b4cc78d5",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 6
@@ -100,6 +148,30 @@
       "writtenOn": "2024-04-02T08:35:02Z",
       "side": 1,
       "message": "nit: this comment needs elaboration based on the new changes added",
+      "range": {
+        "startLine": 819,
+        "startChar": 47,
+        "endLine": 819,
+        "endChar": 63
+      },
+      "revId": "c131863a1d19209c6d8cbeb5f676b04198f2fada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d05395c_595a62ea",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-03T14:23:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b916f16_b4cc78d5",
       "range": {
         "startLine": 819,
         "startChar": 47,
@@ -135,6 +207,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "da9545b7_ab866103",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 853,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-03T14:23:36Z",
+      "side": 1,
+      "message": "Yes. In case when the remaining length \u003c 2MB, all data is written in this function, otherwise it would have been called again.",
+      "parentUuid": "dce91111_d25a4052",
+      "range": {
+        "startLine": 851,
+        "startChar": 2,
+        "endLine": 853,
+        "endChar": 3
+      },
+      "revId": "c131863a1d19209c6d8cbeb5f676b04198f2fada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7456a28f_5bb918f4",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 6
@@ -152,6 +248,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a686a7b_b5feec59",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1267,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-03T14:23:36Z",
+      "side": 1,
+      "message": "But l1_gpt_cnt will still be the number of L1 tables. In case of support for multiple fragmented L1 tables, we\u0027ll need to have a table with L1 tables addresses.",
+      "parentUuid": "7456a28f_5bb918f4",
+      "revId": "c131863a1d19209c6d8cbeb5f676b04198f2fada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4cf7d411_cf2d1e39",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 6
@@ -163,6 +277,30 @@
       "writtenOn": "2024-04-02T16:36:46Z",
       "side": 1,
       "message": "need to cater for fragmented L1 allocation. Instead of storing this in global variable, this needs to be fetched from within gpi_info.",
+      "range": {
+        "startLine": 1384,
+        "startChar": 3,
+        "endLine": 1384,
+        "endChar": 16
+      },
+      "revId": "c131863a1d19209c6d8cbeb5f676b04198f2fada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb5b6ede_5fbbe494",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1384,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-03T14:23:36Z",
+      "side": 1,
+      "message": "Existing design doesn\u0027t support fragmented L1 tables allocation. There is no API for BL2 to pass this information. It will require a table of L1 addresses.",
+      "parentUuid": "4cf7d411_cf2d1e39",
       "range": {
         "startLine": 1384,
         "startChar": 3,
@@ -198,6 +336,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f0d4267_684f9877",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1406,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-03T14:23:36Z",
+      "side": 1,
+      "message": "Previous name is gpt_512mb_bit. I can rename gpt_bit_locks to gpt_locks.",
+      "parentUuid": "2c30eae0_c721eddd",
+      "range": {
+        "startLine": 1406,
+        "startChar": 1,
+        "endLine": 1406,
+        "endChar": 15
+      },
+      "revId": "c131863a1d19209c6d8cbeb5f676b04198f2fada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2ef08d5b_90ca64d0",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 6
@@ -209,6 +371,30 @@
       "writtenOn": "2024-04-02T16:36:46Z",
       "side": 1,
       "message": "very similar names, need to differentiate. read_gpi() ?",
+      "range": {
+        "startLine": 1734,
+        "startChar": 1,
+        "endLine": 1734,
+        "endChar": 13
+      },
+      "revId": "c131863a1d19209c6d8cbeb5f676b04198f2fada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c51c3ebf_d7512a5c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1734,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-03T14:23:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2ef08d5b_90ca64d0",
       "range": {
         "startLine": 1734,
         "startChar": 1,

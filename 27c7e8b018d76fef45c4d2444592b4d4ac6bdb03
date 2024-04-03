@@ -554,6 +554,30 @@
       },
       "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "673e2a0e_55292c9f",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1866,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-03T14:23:36Z",
+      "side": 1,
+      "message": "We delegate/un-delegate in 4KB pages, so it is either shattering or fusing code path, because minimum contiguous block size is 2MB.",
+      "parentUuid": "8db93d48_b6137bcc",
+      "range": {
+        "startLine": 1863,
+        "startChar": 2,
+        "endLine": 1866,
+        "endChar": 3
+      },
+      "revId": "27c7e8b018d76fef45c4d2444592b4d4ac6bdb03",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
