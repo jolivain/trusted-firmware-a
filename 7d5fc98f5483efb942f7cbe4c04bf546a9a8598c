@@ -33,6 +33,24 @@
       "message": "Hi Alexei / All,\n\nJust FYI, even though we bump up to 9.2 current gcc-12.2 in CI supports only till 9.0 and march.mk utility from make_helpers will try to use close one to 9.2 and this may chose 9.0. If we really need to use 9.2 we need to bump up gcc to 13.2 which supports till 9.3\n\n--\nThanks,\nGovindraj.R",
       "revId": "7d5fc98f5483efb942f7cbe4c04bf546a9a8598c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6562ee74_04203339",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-03T13:58:32Z",
+      "side": 1,
+      "message": "Yes, GCC 12.3 doesn\u0027t support 9.1+",
+      "parentUuid": "f9ec5a44_17b3367d",
+      "revId": "7d5fc98f5483efb942f7cbe4c04bf546a9a8598c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
