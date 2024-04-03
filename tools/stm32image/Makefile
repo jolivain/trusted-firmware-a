@@ -8,6 +8,7 @@ MAKE_HELPERS_DIRECTORY := ../../make_helpers/
 include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
 include ${MAKE_HELPERS_DIRECTORY}common.mk
+include ${MAKE_HELPERS_DIRECTORY}target.mk
 include ${MAKE_HELPERS_DIRECTORY}toolchain.mk
 
 PROJECT := stm32image${BIN_EXT}
@@ -25,16 +26,18 @@ endif
 
 all: ${PROJECT}
 
-${PROJECT}: ${OBJECTS} Makefile
+$(PROJECT): private flags += $(OBJECTS) -o $@
+$(PROJECT): $(OBJECTS) Makefile
 	$(s)echo "  HOSTLD  $@"
-	$(q)$(host-cc) ${OBJECTS} -o $@
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,stm32image)
 	$(s)echo
 	$(s)echo "Built $@ successfully"
 	$(s)echo
 
+%.o: private flags += -c $(HOSTCCFLAGS) $< -o $@
 %.o: %.c Makefile
 	$(s)echo "  HOSTCC  $<"
-	$(q)$(host-cc) -c ${HOSTCCFLAGS} $< -o $@
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,stm32image)
 
 clean:
 	$(call SHELL_DELETE_ALL, ${PROJECT} ${OBJECTS})

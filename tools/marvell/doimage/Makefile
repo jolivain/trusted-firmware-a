@@ -5,6 +5,7 @@
 # https://spdx.org/licenses
 
 include ../../../make_helpers/common.mk
+include ../../../make_helpers/target.mk
 include ../../../make_helpers/toolchain.mk
 
 PROJECT = doimage
@@ -34,16 +35,18 @@ RM := rm -rf
 
 all: ${PROJECT}
 
-${PROJECT}: ${OBJECTS} Makefile
+$(PROJECT): private flags += $(OBJECTS) $(DOIMAGE_LD_FLAGS) -o $@
+$(PROJECT): ${OBJECTS} Makefile
 	$(s)echo "  HOSTLD  $@"
-	$(q)$(host-cc) ${OBJECTS} ${DOIMAGE_LD_FLAGS} -o $@
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,doimage)
 	$(s)echo
 	$(s)echo "Built $@ successfully"
 	$(s)echo
 
+%.o: private flags += -c $(HOSTCCFLAGS) $(INCLUDE_PATHS) $< -o $@
 %.o: %.c Makefile
 	$(s)echo "  HOSTCC  $<"
-	$(q)$(host-cc) -c ${HOSTCCFLAGS} ${INCLUDE_PATHS} $< -o $@
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,doimage)
 
 clean:
 	$(q)${RM} ${PROJECT}

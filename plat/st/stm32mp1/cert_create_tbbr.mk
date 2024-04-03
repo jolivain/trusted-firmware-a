@@ -10,8 +10,9 @@ $(eval $(call add_define,PDEF_CERTS))
 
 PLAT_INCLUDE	+= -I${PLAT_DIR}include
 
+src/stm32mp1_tbb_cert.o: private flags += -c ${HOSTCCFLAGS} ${INC_DIR} $< -o $@
 src/stm32mp1_tbb_cert.o: ${PLAT_DIR}stm32mp1_tbb_cert.c
-	$(q)$(host-cc) -c ${HOSTCCFLAGS} ${INC_DIR} $< -o $@
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,cert-create)
 
 PLAT_OBJECTS	= src/stm32mp1_tbb_cert.o
 

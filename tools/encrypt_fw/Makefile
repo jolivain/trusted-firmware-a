@@ -15,9 +15,11 @@ include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
 include ${MAKE_HELPERS_DIRECTORY}common.mk
 include ${MAKE_HELPERS_DIRECTORY}defaults.mk
+include ${MAKE_HELPERS_DIRECTORY}target.mk
 include ${MAKE_HELPERS_DIRECTORY}toolchain.mk
 
-OBJECTS := src/encrypt.o \
+OBJECTS := src/build_msg.o \
+           src/encrypt.o \
            src/cmd_opt.o \
            src/main.o
 
@@ -60,15 +62,15 @@ LIB := -lssl -lcrypto
 
 all: --openssl ${BINARY}
 
-${BINARY}: ${OBJECTS} Makefile
+$(BINARY): private flags += $(OBJECTS) $(LIB_DIR) $(LIB) -o $@
+$(BINARY): $(OBJECTS) Makefile
 	$(s)echo "  HOSTLD  $@"
-	$(q)echo 'const char build_msg[] = "Built : "__TIME__", "__DATE__;' | \
-                $(host-cc) -c ${HOSTCCFLAGS} -xc - -o src/build_msg.o
-	$(q)$(host-cc) src/build_msg.o ${OBJECTS} ${LIB_DIR} ${LIB} -o $@
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,encrypt-fw)
 
+%.o: private flags += -c ${HOSTCCFLAGS} ${INC_DIR} $< -o $@
 %.o: %.c
 	$(s)echo "  HOSTCC  $<"
-	$(q)$(host-cc) -c ${HOSTCCFLAGS} ${INC_DIR} $< -o $@
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,encrypt-fw)
 
 --openssl:
 ifeq ($(DEBUG),1)

@@ -15,6 +15,7 @@ include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
 include ${MAKE_HELPERS_DIRECTORY}common.mk
 include ${MAKE_HELPERS_DIRECTORY}defaults.mk
+include ${MAKE_HELPERS_DIRECTORY}target.mk
 include ${MAKE_HELPERS_DIRECTORY}toolchain.mk
 
 ifneq (${PLAT},none)
@@ -24,7 +25,8 @@ PLAT_CERT_CREATE_HELPER_MK := ${PLAT_DIR}/cert_create_tbbr.mk
 endif
 
 # Common source files.
-OBJECTS := src/cert.o \
+OBJECTS := src/build_msg.o \
+           src/cert.o \
            src/cmd_opt.o \
            src/ext.o \
            src/key.o \
@@ -80,16 +82,15 @@ LIB := -lssl -lcrypto
 
 all: --openssl ${BINARY}
 
+$(BINARY): private flags += $(OBJECTS) $(LIB_DIR) $(LIB) -o $@
 ${BINARY}: ${OBJECTS} Makefile
 	$(s)echo "  HOSTLD  $@"
-	$(q)echo 'const char build_msg[] = "Built : "__TIME__", "__DATE__; \
-                const char platform_msg[] = "${PLAT_MSG}";' | \
-                $(host-cc) -c ${HOSTCCFLAGS} -xc - -o src/build_msg.o
-	$(q)$(host-cc) src/build_msg.o ${OBJECTS} ${LIB_DIR} ${LIB} -o $@
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,cert-create)
 
+%.o: private flags += -c ${HOSTCCFLAGS} ${INC_DIR} -DPLAT_MSG=$(call escape-shell,"$(PLAT_MSG)") $< -o $@
 %.o: %.c
 	$(s)echo "  HOSTCC  $<"
-	$(q)$(host-cc) -c ${HOSTCCFLAGS} ${INC_DIR} $< -o $@
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,cert-create)
 
 --openssl:
 ifeq ($(DEBUG),1)
@@ -97,7 +98,7 @@ ifeq ($(DEBUG),1)
 endif
 
 clean:
-	$(call SHELL_DELETE_ALL, src/build_msg.o ${OBJECTS})
+	$(call SHELL_DELETE_ALL, ${OBJECTS})
 
 realclean: clean
 	$(call SHELL_DELETE,${BINARY})

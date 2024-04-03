@@ -133,8 +133,9 @@ else
         PLAT_LDFLAGS	+=	--strip-debug
 endif
 
+bl31.axf: private flags += -T ${BUILD_PLAT}/build_axf.ld -L ${BUILD_PLAT} $(TF_LDFLAGS) $(PLAT_LDFLAGS) -s -n -o ${BUILD_PLAT}/bl31.axf
 bl31.axf: bl31 dtbs ${BUILD_PLAT}/rom_trampoline.o ${BUILD_PLAT}/kernel_trampoline.o ${BUILD_PLAT}/build_axf.ld
 	$(s)echo "  LD      $@"
-	$(q)$($(ARCH)-ld) -T ${BUILD_PLAT}/build_axf.ld -L ${BUILD_PLAT} $(TF_LDFLAGS) $(PLAT_LDFLAGS) -s -n -o ${BUILD_PLAT}/bl31.axf
+	$(q)$($(ARCH)-ld) $(call target-properties,flags,$(ARCH),ld,bl31)
 
 all: bl31.axf

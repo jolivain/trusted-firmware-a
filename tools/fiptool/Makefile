@@ -9,6 +9,7 @@ include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
 include ${MAKE_HELPERS_DIRECTORY}common.mk
 include ${MAKE_HELPERS_DIRECTORY}defaults.mk
+include ${MAKE_HELPERS_DIRECTORY}target.mk
 include ${MAKE_HELPERS_DIRECTORY}toolchain.mk
 
 FIPTOOL ?= fiptool${BIN_EXT}
@@ -72,16 +73,18 @@ DEPS := $(patsubst %.o,%.d,$(OBJECTS))
 
 all: --openssl ${PROJECT}
 
-${PROJECT}: ${OBJECTS} Makefile
+$(PROJECT): private flags += $(OBJECTS) -o $@ $(LDOPTS)
+$(PROJECT): $(OBJECTS) Makefile
 	$(s)echo "  HOSTLD  $@"
-	$(q)$(host-cc) ${OBJECTS} -o $@ $(LDOPTS)
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,fiptool)
 	$(s)echo
 	$(s)echo "Built $@ successfully"
 	$(s)echo
 
+%.o: private flags += -c $(CPPFLAGS) $(HOSTCCFLAGS) $(INCLUDE_PATHS) -MD -MP $< -o $@
 %.o: %.c Makefile
 	$(s)echo "  HOSTCC  $<"
-	$(q)$(host-cc) -c ${CPPFLAGS} ${HOSTCCFLAGS} ${INCLUDE_PATHS} -MD -MP $< -o $@
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,fiptool)
 
 -include $(wildcard $(DEPS))
 

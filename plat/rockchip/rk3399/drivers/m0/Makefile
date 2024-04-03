@@ -5,6 +5,7 @@
 #
 
 include ../../../../../make_helpers/common.mk
+include ../../../../../make_helpers/target.mk
 include ../../../../../make_helpers/toolchain.mk
 
 # Cross Compile
@@ -62,17 +63,19 @@ define MAKE_C
 $(eval OBJ := $(1)/$(patsubst %.c,%.o,$(notdir $(2))))
 -include $$(wildcard $(patsubst %.o,%.d,$(OBJ)))
 
+$(OBJ): private flags += $$(COMMON_FLAGS) $$(CFLAGS) $$(INCLUDES) -MMD -MT $$@ -c $$< -o $$@
 $(OBJ) : $(2)
 	$$(s)echo "  CC      $$<"
-	$$(q)$(rk3399-m0-cc) $$(COMMON_FLAGS) $$(CFLAGS) $$(INCLUDES) -MMD -MT $$@ -c $$< -o $$@
+	$$(q)$$(rk3399-m0-cc) $$(call target-properties,flags,rk3399-m0,cc)
 endef
 
 define MAKE_S
 $(eval OBJ := $(1)/$(patsubst %.S,%.o,$(notdir $(2))))
 
+$(OBJ): private flags += -x assembler-with-cpp $$(COMMON_FLAGS) $$(ASFLAGS) -c $$< -o $$@
 $(OBJ) : $(2)
 	$$(s)echo "  AS      $$<"
-	$$(q)$(rk3399-m0-cc) -x assembler-with-cpp $$(COMMON_FLAGS) $$(ASFLAGS) -c $$< -o $$@
+	$$(q)$$(rk3399-m0-cc) $$(call target-properties,flags,rk3399-m0,cc)
 endef
 
 define MAKE_OBJS
@@ -92,21 +95,25 @@ all: $(BIN) $(BIN_PMU)
 
 .DEFAULT_GOAL := all
 
+$(LINKERFILE): private flags += $(COMMON_FLAGS) $(INCLUDES) -P -E -D__LINKER__ -MMD -MF $@.d -MT $@ -o $@ $<
 $(LINKERFILE): $(LINKERFILE_SRC)
-	$(rk3399-m0-cc) $(COMMON_FLAGS) $(INCLUDES) -P -E -D__LINKER__ -MMD -MF $@.d -MT $@ -o $@ $<
+	$(rk3399-m0-cc) $(call target-properties,flags,rk3399-m0,cc,rk3399-m0)
 -include $(wildcard $(LINKERFILE).d)
 
+$(ELF): private flags += -o $@ $(COMMON_FLAGS) $(LDFLAGS) -Wl,-Map=$(MAPFILE) -Wl,-T$(LINKERFILE) $(OBJS) $(OBJS_COMMON)
 $(ELF) : $(OBJS) $(OBJS_COMMON) $(LINKERFILE)
 	$(s)echo "  LD      $@"
-	$(q)$(rk3399-m0-cc) -o $@ $(COMMON_FLAGS) $(LDFLAGS) -Wl,-Map=$(MAPFILE) -Wl,-T$(LINKERFILE) $(OBJS) $(OBJS_COMMON)
+	$(q)$(rk3399-m0-cc) $(call target-properties,flags,rk3399-m0,cc,rk3399-m0)
 
+%.bin: private flags += -O binary $< $@
 %.bin : %.elf
 	$(s)echo "  BIN     $@"
-	$(q)$(rk3399-m0-oc) -O binary $< $@
+	$(q)$(rk3399-m0-oc) $(call target-properties,flags,rk3399-m0,oc)
 
+$(ELF_PMU): private flags += -o $@ $(COMMON_FLAGS) $(LDFLAGS) -Wl,-Map=$(MAPFILE_PMU) -Wl,-T$(LINKERFILE) $(OBJS_PMU) $(OBJS_COMMON)
 $(ELF_PMU) : $(OBJS_COMMON) $(OBJS_PMU) $(LINKERFILE)
 	$(s)echo "  LD      $@"
-	$(q)$(rk3399-m0-cc) -o $@ $(COMMON_FLAGS) $(LDFLAGS) -Wl,-Map=$(MAPFILE_PMU) -Wl,-T$(LINKERFILE) $(OBJS_PMU) $(OBJS_COMMON)
+	$(q)$(rk3399-m0-cc) $(call target-properties,flags,rk3399-m0,cc,rk3399-m0-pmu)
 
 $(eval $(call MAKE_OBJS,$(BUILD),$(SOURCES_COMMON),$(1)))
 $(eval $(call MAKE_OBJS,$(BUILD),$(SOURCES),$(1)))

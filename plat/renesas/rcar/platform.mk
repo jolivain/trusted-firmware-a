@@ -368,13 +368,15 @@ clean_srecord:
 	$(s)echo "clean bl2 and bl31 srecs"
 	rm -f ${SREC_PATH}/bl2.srec ${SREC_PATH}/bl31.srec
 
+$(SREC_PATH)/bl2.srec: private flags += -O srec --srec-forceS3 $(BL2_ELF_SRC)  $(SREC_PATH)/bl2.srec
 $(SREC_PATH)/bl2.srec: $(BL2_ELF_SRC)
 	$(s)echo "generating srec: $(SREC_PATH)/bl2.srec"
-	$(q)$($(ARCH)-oc) -O srec --srec-forceS3 $(BL2_ELF_SRC)  $(SREC_PATH)/bl2.srec
+	$(q)$($(ARCH)-oc) $(call target-properties,flags,$(ARCH),oc,bl2)
 
+$(SREC_PATH)/bl31.srec: private flags += -O srec --srec-forceS3 $(BL31_ELF_SRC) $(SREC_PATH)/bl31.srec
 $(SREC_PATH)/bl31.srec: $(BL31_ELF_SRC)
 	$(s)echo "generating srec: $(SREC_PATH)/bl31.srec"
-	$(q)$($(ARCH)-oc) -O srec --srec-forceS3 $(BL31_ELF_SRC) $(SREC_PATH)/bl31.srec
+	$(q)$($(ARCH)-oc) $(call target-properties,flags,$(ARCH),oc,bl31)
 
 .PHONY: rcar_srecord
 rcar_srecord: $(SREC_PATH)/bl2.srec $(SREC_PATH)/bl31.srec

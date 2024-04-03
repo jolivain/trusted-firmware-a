@@ -8,6 +8,7 @@ MAKE_HELPERS_DIRECTORY := ../../make_helpers/
 include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
 include ${MAKE_HELPERS_DIRECTORY}common.mk
+include ${MAKE_HELPERS_DIRECTORY}target.mk
 include ${MAKE_HELPERS_DIRECTORY}toolchain.mk
 
 SPTOOL  ?= sptool${BIN_EXT}
@@ -28,16 +29,18 @@ INCLUDE_PATHS := -I../../include/tools_share
 
 all: ${PROJECT}
 
-${PROJECT}: ${OBJECTS} Makefile
+$(PROJECT): private flags += $(OBJECTS) -o $@ $(LDLIBS)
+$(PROJECT): $(OBJECTS) Makefile
 	$(s)echo "  HOSTLD  $@"
-	$(q)$(host-cc) ${OBJECTS} -o $@ ${LDLIBS}
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,sptool)
 	$(s)echo
 	$(s)echo "Built $@ successfully"
 	$(s)echo
 
+%.o: private flags += -c $(CPPFLAGS) $(HOSTCCFLAGS) $(INCLUDE_PATHS) $< -o $@
 %.o: %.c Makefile
 	$(s)echo "  HOSTCC  $<"
-	$(q)$(host-cc) -c ${CPPFLAGS} ${HOSTCCFLAGS} ${INCLUDE_PATHS} $< -o $@
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,sptool)
 
 clean:
 	$(call SHELL_DELETE_ALL, ${PROJECT} ${OBJECTS})

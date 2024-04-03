@@ -16,8 +16,9 @@ PLAT_DEF_UUID		:= yes
 ifeq (${PLAT_DEF_UUID},yes)
 HOSTCCFLAGS += -DPLAT_DEF_FIP_UUID
 
+$(PLAT_DEF_UUID_FILE_NAME).o: private flags += -c $(CPPFLAGS) $(HOSTCCFLAGS) $(INCLUDE_PATHS) $< -o $@
 ${PLAT_DEF_UUID_FILE_NAME}.o: plat_fiptool/st/${PLAT_DEF_UUID_FILE_NAME}.c
-	$(host-cc) -c ${CPPFLAGS} ${HOSTCCFLAGS} ${INCLUDE_PATHS} $< -o $@
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,fiptool)
 
 PLAT_OBJECTS += ${PLAT_DEF_UUID_FILE_NAME}.o
 endif

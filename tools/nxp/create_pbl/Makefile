@@ -8,6 +8,7 @@ MAKE_HELPERS_DIRECTORY := ../../../make_helpers/
 include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
 include ${MAKE_HELPERS_DIRECTORY}common.mk
+include ${MAKE_HELPERS_DIRECTORY}target.mk
 include ${MAKE_HELPERS_DIRECTORY}toolchain.mk
 
 PROJECT_1 := create_pbl${BIN_EXT}
@@ -30,23 +31,26 @@ INCLUDE_PATHS :=
 
 all: create_pbl byte_swap
 
-${PROJECT_1}: ${OBJECTS_1} Makefile
+$(PROJECT_1): private flags += $(OBJECTS_1) -o $@ $(LDLIBS)
+$(PROJECT_1): $(OBJECTS_1) Makefile
 	$(s)echo "  LD      $@"
-	$(q)$(host-cc) ${OBJECTS_1} -o $@ ${LDLIBS}
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,create-pbl)
 	$(s)echo
 	$(s)echo "Built $@ successfully"
 	$(s)echo
 
-${PROJECT_2}: ${OBJECTS_2} Makefile
+$(PROJECT_2): private flags += $(OBJECTS_2) -o $@ $(LDLIBS)
+$(PROJECT_2): $(OBJECTS_2) Makefile
 	$(s)echo "  LD      $@"
-	$(q)$(host-cc) ${OBJECTS_2} -o $@ ${LDLIBS}
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,create-pbl)
 	$(s)echo
 	$(s)echo "Built $@ successfully"
 	$(s)echo
 
+%.o: private flags += -c $(CPPFLAGS) $(CFLAGS) $(INCLUDE_PATHS) $< -o $@
 %.o: %.c %.h Makefile
 	$(s)echo "  CC      $<"
-	$(q)$(host-cc) -c ${CPPFLAGS} ${CFLAGS} ${INCLUDE_PATHS} $< -o $@
+	$(q)$(host-cc) $(call target-properties,flags,host,cc,create-pbl)
 
 clean:
 	$(call SHELL_DELETE_ALL, ${PROJECT_1} ${OBJECTS_1})

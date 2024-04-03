@@ -305,9 +305,10 @@ $(eval OBJ := $(1)/$(patsubst %.c,%.o,$(notdir $(2))))
 $(eval DEP := $(patsubst %.o,%.d,$(OBJ)))
 $(eval LIB := $(call uppercase, $(notdir $(1))))
 
+$(OBJ): private flags += $$($(LIB)_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(MAKE_DEP) -c $$< -o $$@
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | lib$(3)_dirs
 	$$(s)echo "  CC      $$<"
-	$$(q)$($(ARCH)-cc) $$($(LIB)_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(MAKE_DEP) -c $$< -o $$@
+	$$(q)$$($$(ARCH)-cc) $$(call target-properties,flags,$$(ARCH),cc,$(3))
 
 -include $$(wildcard $(DEP))
 
@@ -321,9 +322,10 @@ define MAKE_S_LIB
 $(eval OBJ := $(1)/$(patsubst %.S,%.o,$(notdir $(2))))
 $(eval DEP := $(patsubst %.o,%.d,$(OBJ)))
 
+$(OBJ): private flags += -x assembler-with-cpp $$(TF_CFLAGS_$(ARCH)) $$(ASFLAGS) $(MAKE_DEP) -c $$< -o $$@
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | lib$(3)_dirs
 	$$(s)echo "  AS      $$<"
-	$$(q)$($(ARCH)-as) -x assembler-with-cpp $$(TF_CFLAGS_$(ARCH)) $$(ASFLAGS) $(MAKE_DEP) -c $$< -o $$@
+	$$(q)$$($$(ARCH)-as) $$(call target-properties,flags,$$(ARCH),as,$(3))
 
 -include $$(wildcard $(DEP))
 
@@ -344,9 +346,10 @@ $(eval BL_INCLUDE_DIRS := $($(call uppercase,$(3))_INCLUDE_DIRS) $(PLAT_BL_COMMO
 $(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) $(addprefix -D,$(BL_DEFINES)) $(addprefix -I,$(BL_INCLUDE_DIRS)) $(PLAT_BL_COMMON_CPPFLAGS))
 $(eval BL_CFLAGS := $($(call uppercase,$(3))_CFLAGS) $(PLAT_BL_COMMON_CFLAGS))
 
+$(OBJ): private flags += $$(LTO_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(BL_CPPFLAGS) $(BL_CFLAGS) $(MAKE_DEP) -c $$< -o $$@
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
 	$$(s)echo "  CC      $$<"
-	$$(q)$($(ARCH)-cc) $$(LTO_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(BL_CPPFLAGS) $(BL_CFLAGS) $(MAKE_DEP) -c $$< -o $$@
+	$$(q)$$($$(ARCH)-cc) $$(call target-properties,flags,$$(ARCH),cc,$(3))
 
 -include $$(wildcard $(DEP))
 
@@ -367,9 +370,10 @@ $(eval BL_INCLUDE_DIRS := $($(call uppercase,$(3))_INCLUDE_DIRS) $(PLAT_BL_COMMO
 $(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) $(addprefix -D,$(BL_DEFINES)) $(addprefix -I,$(BL_INCLUDE_DIRS)) $(PLAT_BL_COMMON_CPPFLAGS))
 $(eval BL_ASFLAGS := $($(call uppercase,$(3))_ASFLAGS) $(PLAT_BL_COMMON_ASFLAGS))
 
+$(OBJ): private flags += -x assembler-with-cpp $$(TF_CFLAGS_$(ARCH)) $$(ASFLAGS) $(BL_CPPFLAGS) $(BL_ASFLAGS) $(MAKE_DEP) -c $$< -o $$@
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
 	$$(s)echo "  AS      $$<"
-	$$(q)$($(ARCH)-as) -x assembler-with-cpp $$(TF_CFLAGS_$(ARCH)) $$(ASFLAGS) $(BL_CPPFLAGS) $(BL_ASFLAGS) $(MAKE_DEP) -c $$< -o $$@
+	$$(q)$$($$(ARCH)-as) $$(call target-properties,flags,$$(ARCH),as,$(3))
 
 -include $$(wildcard $(DEP))
 
@@ -388,9 +392,10 @@ $(eval BL_DEFINES := IMAGE_$(call uppercase,$(3)) $($(call uppercase,$(3))_DEFIN
 $(eval BL_INCLUDE_DIRS := $($(call uppercase,$(3))_INCLUDE_DIRS) $(PLAT_BL_COMMON_INCLUDE_DIRS))
 $(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) $(addprefix -D,$(BL_DEFINES)) $(addprefix -I,$(BL_INCLUDE_DIRS)) $(PLAT_BL_COMMON_CPPFLAGS))
 
+$(1): private flags += -E $$(CPPFLAGS) $(BL_CPPFLAGS) $(TF_CFLAGS_$(ARCH)) -P -x assembler-with-cpp -D__LINKER__ $(MAKE_DEP) -o $$@ $$<
 $(1): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
 	$$(s)echo "  PP      $$<"
-	$$(q)$($(ARCH)-cpp) -E $$(CPPFLAGS) $(BL_CPPFLAGS) $(TF_CFLAGS_$(ARCH)) -P -x assembler-with-cpp -D__LINKER__ $(MAKE_DEP) -o $$@ $$<
+	$$(q)$$($$(ARCH)-cpp) $$(call target-properties,flags,$$(ARCH),cpp,$(3))
 
 -include $$(wildcard $(DEP))
 
@@ -473,9 +478,10 @@ endif
 
 all: ${LIB_DIR}/lib$(1).a
 
-${LIB_DIR}/lib$(1).a: $(OBJS)
+$(LIB_DIR)/lib$(1).a: private flags += cr $$@ $$?
+$(LIB_DIR)/lib$(1).a: $(OBJS)
 	$$(s)echo "  AR      $$@"
-	$$(q)$($(ARCH)-ar) cr $$@ $$?
+	$$(q)$$($$(ARCH)-ar) $$(call target-properties,flags,$$(ARCH),ar,$(1))
 endef
 
 # Generate the path to one or more preprocessed linker scripts given the paths
@@ -483,9 +489,7 @@ endef
 #
 # Arguments:
 #   $(1) = path to one or more linker script sources
-define linker_script_path
-        $(patsubst %.S,$(BUILD_DIR)/%,$(1))
-endef
+linker_script_path = $(patsubst %.S,$(BUILD_DIR)/%,$(1))
 
 # MAKE_BL macro defines the targets and options to build each BL image.
 # Arguments:
@@ -547,36 +551,42 @@ endif
 # object file path, and prebuilt object file path.
 $(eval OBJS += $(MODULE_OBJS))
 
+$(ELF): private arm-link-flags += -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) --entry=${1}_entrypoint
+$(ELF): private arm-link-flags += --predefine=$(call escape-shell,-D__LINKER__=$(__LINKER__))
+$(ELF): private arm-link-flags += --predefine=$(call escape-shell,-DTF_CFLAGS=$(TF_CFLAGS))
+$(ELF): private arm-link-flags += --map --list="$(MAPFILE)" --scatter=${PLAT_DIR}/scat/${1}.scat
+$(ELF): private arm-link-flags += $(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS) $(OBJS)
+
+$(ELF): private llvm-lld-flags += -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) -Map=$(MAPFILE)
+$(ELF): private llvm-lld-flags += $(addprefix -T ,$(LINKER_SCRIPTS)) --script $(DEFAULT_LINKER_SCRIPT)
+$(ELF): private llvm-lld-flags += $(OBJS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
+
+$(ELF): private gnu-gcc-flags += -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) -Wl,-Map=$(MAPFILE)
+$(ELF): private gnu-gcc-flags += $(addprefix -Wl$(comma)--script$(comma),$(LINKER_SCRIPTS)) -Wl,--script,$(DEFAULT_LINKER_SCRIPT)
+$(ELF): private gnu-gcc-flags += $(OBJS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
+
+$(ELF): private gnu-ld-flags += -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) -Map=$(MAPFILE)
+$(ELF): private gnu-ld-flags += $(addprefix -T ,$(LINKER_SCRIPTS)) --script $(DEFAULT_LINKER_SCRIPT)
+$(ELF): private gnu-ld-flags += $(OBJS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
+
 $(ELF): $(OBJS) $(LDLIBS) $(DEFAULT_LINKER_SCRIPT) $(LINKER_SCRIPTS) | $(1)_dirs $(BL_LIBS)
 	$$(s)echo "  LD      $$@"
-ifeq ($($(ARCH)-ld-id),arm-link)
-	$$(q)$($(ARCH)-ld) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) --entry=${1}_entrypoint \
-		--predefine=$(call escape-shell,-D__LINKER__=$(__LINKER__)) \
-		--predefine=$(call escape-shell,-DTF_CFLAGS=$(TF_CFLAGS)) \
-		--map --list="$(MAPFILE)" --scatter=${PLAT_DIR}/scat/${1}.scat \
-		$(LIBWRAPPER) $(LDLIBS) $(BL_LIBS) $(OBJS)
-else ifeq ($($(ARCH)-ld-id),gnu-gcc)
-	$$(q)$($(ARCH)-ld) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) -Wl,-Map=$(MAPFILE) \
-		$(addprefix -Wl$(comma)--script$(comma),$(LINKER_SCRIPTS)) -Wl,--script,$(DEFAULT_LINKER_SCRIPT) \
-		$(OBJS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
-else
-	$$(q)$($(ARCH)-ld) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) -Map=$(MAPFILE) \
-		$(addprefix -T ,$(LINKER_SCRIPTS)) --script $(DEFAULT_LINKER_SCRIPT) \
-		$(OBJS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
-endif
+	$$(q)$$($$(ARCH)-ld) $$(call target-properties,flags,$$(ARCH),ld,$(1))
 ifeq ($(DISABLE_BIN_GENERATION),1)
 	$$(s)echo
 	$$(s)echo "Built $$@ successfully"
 	$$(s)echo
 endif
 
+$(DUMP): private flags += -dx $$< > $$@
 $(DUMP): $(ELF)
 	$$(s)echo "  OD      $$@"
-	$$(q)$($(ARCH)-od) -dx $$< > $$@
+	$$(q)$$($$(ARCH)-od) $$(call target-properties,flags,$$(ARCH),od,$(1))
 
+$(BIN): private flags += -O binary $$< $$@
 $(BIN): $(ELF)
 	$$(s)echo "  BIN     $$@"
-	$$(q)$($(ARCH)-oc) -O binary $$< $$@
+	$$(q)$$($$(ARCH)-oc) $$(call target-properties,flags,$$(ARCH),oc,$(1))
 	$$(s)echo
 	$$(s)echo "Built $$@ successfully"
 	$$(s)echo
@@ -635,15 +645,17 @@ $(eval DPRE := $(addprefix $(1)/,$(patsubst %.dts,%.pre.dts,$(notdir $(2)))))
 $(eval DTSDEP := $(patsubst %.dtb,%.o.d,$(DOBJ)))
 # Dependencies of the DT compilation on its pre-compiled DTS
 $(eval DTBDEP := $(patsubst %.dtb,%.d,$(DOBJ)))
+$(eval DTBS := $(addprefix $(1)/,$(call SOURCES_TO_DTBS,$(2))))
 
+$(DPRE): private flags += -E $$(TF_CFLAGS_$(ARCH)) $$(DTC_CPPFLAGS) -MT $(DTBS) -MMD -MF $(DTSDEP) -o $(DPRE) $$<
 $(DPRE): $(2) | fdt_dirs
 	$$(s)echo "  CPP     $$<"
-	$(eval DTBS       := $(addprefix $(1)/,$(call SOURCES_TO_DTBS,$(2))))
-	$$(q)$($(ARCH)-cpp) -E $$(TF_CFLAGS_$(ARCH)) $$(DTC_CPPFLAGS) -MT $(DTBS) -MMD -MF $(DTSDEP) -o $(DPRE) $$<
+	$$(q)$$($$(ARCH)-cpp) $$(call target-properties,flags,$$(ARCH),cpp)
 
+$(DOBJ): private flags += $$(DTC_FLAGS) -d $(DTBDEP) -o $$@ $$<
 $(DOBJ): $(DPRE) $(filter-out %.d,$(MAKEFILE_LIST)) | fdt_dirs
 	$$(s)echo "  DTC     $$<"
-	$$(q)$($(ARCH)-dtc) $$(DTC_FLAGS) -d $(DTBDEP) -o $$@ $$<
+	$$(q)$$($$(ARCH)-dtc) $$(call target-properties,flags,$$(ARCH),dtc)
 
 -include $$(wildcard $(DTBDEP))
 -include $$(wildcard $(DTSDEP))
