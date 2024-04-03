@@ -167,6 +167,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39b9753b_933be8f3",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1520,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-03T17:04:36Z",
+      "side": 1,
+      "message": "Yes, You are right. \n\nStyle 2  is the preferred one as far as concerned with context entries. I faced the same issues with EL2 registers and finally got rid of them by having an #else in .h file. The only reasoning here is to limit the use of #ifs in .c file. Other than this functionality wise patch is good. Also, memory is another crucial factor.\n\nIts better to have a proper c struct for EL1 registers as well, as we have for EL2.\n\nSince the aim of this patch is to add new registers, I am happy with style3, which will assist us in build.\n\nLater on, as a separate patch, we could address this part(converting to c struct).",
+      "parentUuid": "88a6e87c_bc534ede",
+      "revId": "2b9b75cf5ead999877f571fabc6d9407782c303d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12b9fced_9a5d629d",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 2
