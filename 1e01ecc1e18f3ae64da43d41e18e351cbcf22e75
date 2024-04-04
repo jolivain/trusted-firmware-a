@@ -16,6 +16,24 @@
       "message": "@Yann do we need this change in the lts-v2.8 branch too?",
       "revId": "1e01ecc1e18f3ae64da43d41e18e351cbcf22e75",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4784d41c_76f1b44b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-04T14:45:37Z",
+      "side": 1,
+      "message": "Hi Varun, the patch was already present in lts-v2.8. I just forgot to cherry-pick in the lts-v2.10 branch. I\u0027ve added the cherry-pick line (with cherry-pick -x)",
+      "parentUuid": "0e028334_708706ef",
+      "revId": "1e01ecc1e18f3ae64da43d41e18e351cbcf22e75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
