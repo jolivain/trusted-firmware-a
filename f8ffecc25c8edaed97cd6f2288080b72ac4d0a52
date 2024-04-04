@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84289f33_93326892",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-04-04T23:20:50Z",
+      "side": 1,
+      "message": "EL3 Firmware?",
+      "range": {
+        "startLine": 9,
+        "startChar": 27,
+        "endLine": 9,
+        "endChar": 35
+      },
+      "revId": "f8ffecc25c8edaed97cd6f2288080b72ac4d0a52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80ee565d_24e9f0e7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-04-04T23:20:50Z",
+      "side": 1,
+      "message": "read accesses to AMU counters",
+      "range": {
+        "startLine": 10,
+        "startChar": 44,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "f8ffecc25c8edaed97cd6f2288080b72ac4d0a52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d573a304_582a5800",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-04-04T23:20:50Z",
+      "side": 1,
+      "message": "Nit: remove extra space",
+      "range": {
+        "startLine": 26,
+        "startChar": 59,
+        "endLine": 26,
+        "endChar": 61
+      },
+      "revId": "f8ffecc25c8edaed97cd6f2288080b72ac4d0a52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c610d1cd_c01aa92a",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-04-04T23:20:50Z",
+      "side": 1,
+      "message": "Just curious, are we purposely not specific about highest EL3? Though highest level can depend on the platform config, this control/patch is applicable for EL3 alone, right?",
+      "range": {
+        "startLine": 25,
+        "startChar": 69,
+        "endLine": 26,
+        "endChar": 58
+      },
+      "revId": "f8ffecc25c8edaed97cd6f2288080b72ac4d0a52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb4281c0_432d224e",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-04-04T23:20:50Z",
+      "side": 1,
+      "message": "External memory-mapped debug accesses are unaffected by this control.",
+      "range": {
+        "startLine": 26,
+        "startChar": 61,
+        "endLine": 27,
+        "endChar": 53
+      },
+      "revId": "f8ffecc25c8edaed97cd6f2288080b72ac4d0a52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f985c119_7ea5752e",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-04-04T23:20:50Z",
+      "side": 1,
+      "message": "Is the zero-ing out the reads from lower ELs implemented in an earlier patch? Can you point to where it\u0027s implemented?",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 28
+      },
+      "revId": "f8ffecc25c8edaed97cd6f2288080b72ac4d0a52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
