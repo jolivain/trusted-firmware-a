@@ -32,6 +32,9 @@ BASE_COMMIT			:= origin/master
 # Execute BL2 at EL3
 RESET_TO_BL2			:= 0
 
+# Load fw_config and tb_fw_config devices tree at BL2
+BL2_ENABLE_DTB_LOAD		:= 0
+
 # Only use SP packages if SP layout JSON is defined
 BL2_ENABLE_SP_LOAD		:= 0
 
