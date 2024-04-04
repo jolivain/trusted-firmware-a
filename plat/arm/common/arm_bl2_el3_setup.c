@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2024, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -8,6 +8,10 @@
 
 #include <drivers/generic_delay_timer.h>
 #include <drivers/partition/partition.h>
+#if BL2_ENABLE_DTB_LOAD
+#include <lib/fconf/fconf.h>
+#include <lib/fconf/fconf_dyn_cfg_getter.h>
+#endif
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
@@ -93,6 +97,48 @@ void arm_bl2_el3_plat_arch_setup(void)
 #endif
 }
 
+#if BL2_ENABLE_DTB_LOAD
+static void arm_bl2_el3_load_dtb_config(void)
+{
+	int ret;
+	const struct dyn_cfg_dtb_info_t *fw_config_info;
+	uint32_t fw_config_max_size;
+
+	/* Set global DTB info for fixed fw_config information */
+	fw_config_max_size = ARM_FW_CONFIG_LIMIT - ARM_FW_CONFIG_BASE;
+	set_config_info(ARM_FW_CONFIG_BASE, ~0UL, fw_config_max_size, FW_CONFIG_ID);
+
+	/* Fill the device tree information struct with the info from the config dtb */
+	ret = fconf_load_config(FW_CONFIG_ID);
+	if (ret < 0) {
+		ERROR("Loading of FW_CONFIG failed %d\n", ret);
+		plat_error_handler(ret);
+	}
+
+	/*
+	 * FW_CONFIG loaded successfully. If FW_CONFIG device tree parsing
+	 * is successful then load TB_FW_CONFIG device tree.
+	 */
+	fw_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, FW_CONFIG_ID);
+	if (fw_config_info != NULL) {
+		ret = fconf_populate_dtb_registry(fw_config_info->config_addr);
+		if (ret < 0) {
+			ERROR("Parsing of FW_CONFIG failed %d\n", ret);
+			plat_error_handler(ret);
+		}
+		/* load TB_FW_CONFIG */
+		ret = fconf_load_config(TB_FW_CONFIG_ID);
+		if (ret < 0) {
+			ERROR("Loading of TB_FW_CONFIG failed %d\n", ret);
+			plat_error_handler(ret);
+		}
+	} else {
+		ERROR("Invalid FW_CONFIG address\n");
+		plat_error_handler(ret);
+	}
+}
+#endif
+
 void bl2_el3_plat_arch_setup(void)
 {
 	int __maybe_unused ret;
@@ -104,6 +150,10 @@ void bl2_el3_plat_arch_setup(void)
 		panic();
 	}
 #endif /* ARM_GPT_SUPPORT */
+
+#if BL2_ENABLE_DTB_LOAD
+	arm_bl2_el3_load_dtb_config();
+#endif /* BL2_ENABLE_DTB_LOAD */
 }
 
 void bl2_el3_plat_prepare_exit(void)
