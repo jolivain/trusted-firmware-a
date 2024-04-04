@@ -67,6 +67,11 @@ Common build options
    While it is explicitly set to 1 when RESET_TO_BL2 is set to 1 it can also be
    true in a 4-world system where RESET_TO_BL2 is 0.
 
+-  ``BL2_ENABLE_DTB_LOAD``: Boolean option to enable the loading of fw_config and
+   tb_fw_config device trees from the Firmware Image Package (FIP). When enabled,
+   BL2 will load the specified device trees from the FIP. This option is dependent
+   on RESET_TO_BL2.
+
 -  ``BL2_ENABLE_SP_LOAD``: Boolean option to enable loading SP packages from the
    FIP. Automatically enabled if ``SP_LAYOUT_FILE`` is provided.
 
