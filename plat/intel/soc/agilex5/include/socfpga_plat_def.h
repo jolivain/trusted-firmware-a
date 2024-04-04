@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2019, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2019-2023, Intel Corporation. All rights reserved.
+ * Copyright (c) 2024, Altera Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -10,6 +11,7 @@
 
 #include "agilex5_memory_controller.h"
 #include "agilex5_system_manager.h"
+
 #include <platform_def.h>
 
 /* Platform Setting */
