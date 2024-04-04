@@ -683,6 +683,19 @@ else
 	BL2_RUNS_AT_EL3	:=	0
 endif
 
+# This internal flag is a common option which is set to 1 for scenarios
+# to load DTB when RESET_TO_BL2.
+ifeq (${BL2_ENABLE_CONFIG_LOAD},1)
+	ifneq (${RESET_TO_BL2},1)
+                $(error RESET_TO_BL2 must be enabled when BL2_ENABLE_CONFIG_LOAD \
+		is enabled)
+	endif
+	ifeq (${FW_CONFIG},)
+                $(error FW_CONFIG must be specified when BL2_ENABLE_CONFIG_LOAD \
+		is enabled)
+	endif
+endif
+
 # This internal flag is set to 1 when Firmware First handling of External aborts
 # is required by lowe ELs. Currently only NS requires this support.
 ifeq ($(HANDLE_EA_EL3_FIRST_NS),1)
@@ -1182,6 +1195,7 @@ $(eval $(call assert_booleans,\
 	USE_TBBR_DEFS \
 	WARMBOOT_ENABLE_DCACHE_EARLY \
 	RESET_TO_BL2 \
+	BL2_ENABLE_CONFIG_LOAD \
 	BL2_IN_XIP_MEM \
 	BL2_INV_DCACHE \
 	USE_SPINLOCK_CAS \
@@ -1360,6 +1374,7 @@ $(eval $(call add_defines,\
 	WARMBOOT_ENABLE_DCACHE_EARLY \
 	RESET_TO_BL2 \
 	BL2_RUNS_AT_EL3	\
+	BL2_ENABLE_CONFIG_LOAD \
 	BL2_IN_XIP_MEM \
 	BL2_INV_DCACHE \
 	USE_SPINLOCK_CAS \
@@ -1489,7 +1504,7 @@ endif #(NEED_BL1)
 
 ifeq (${NEED_BL2},yes)
 
-ifeq (${RESET_TO_BL2}, 0)
+ifeq (${RESET_TO_BL2}, $(BL2_ENABLE_CONFIG_LOAD))
 FIP_BL2_ARGS := tb-fw
 endif
 

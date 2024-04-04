@@ -671,6 +671,7 @@ DEFINE_SIP_SP_PKG(8);
 static const auth_img_desc_t * const cot_desc[] = {
 	[TRUSTED_BOOT_FW_CERT_ID]		=	&trusted_boot_fw_cert,
 	[HW_CONFIG_ID]				=	&hw_config,
+	[FW_CONFIG_ID]				=	&fw_config,
 	[TRUSTED_KEY_CERT_ID]			=	&trusted_key_cert,
 	[SCP_FW_KEY_CERT_ID]			=	&scp_fw_key_cert,
 	[SCP_FW_CONTENT_CERT_ID]		=	&scp_fw_content_cert,

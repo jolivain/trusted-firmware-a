@@ -19,6 +19,10 @@
 #include <drivers/fwu/fwu.h>
 #include <lib/bootmarker_capture.h>
 #include <lib/extensions/pauth.h>
+#if BL2_ENABLE_CONFIG_LOAD
+#include <lib/fconf/fconf.h>
+#include <lib/fconf/fconf_dyn_cfg_getter.h>
+#endif
 #include <lib/pmf/pmf.h>
 #include <plat/common/platform.h>
 
@@ -86,6 +90,43 @@ void bl2_setup(u_register_t arg0, u_register_t arg1, u_register_t arg2,
 }
 #endif /* RESET_TO_BL2 */
 
+/*********************************************************************************
+ * FW CONFIG load function for BL2 when RESET_TO_BL2=1 && BL2_ENABLE_CONFIG_LOAD=1
+ *********************************************************************************/
+#if BL2_ENABLE_CONFIG_LOAD
+static void bl2_el3_config_load(void)
+{
+	int ret = -1;
+	const struct dyn_cfg_dtb_info_t *fw_config_info;
+
+	/* Set global DTB info for fixed fw_config information */
+	set_config_info(PLAT_FW_CONFIG_BASE, ~0UL, PLAT_FW_CONFIG_MAX_SIZE, FW_CONFIG_ID);
+
+	/* Fill the device tree information struct with the info from the config dtb */
+	ret = fconf_load_config(FW_CONFIG_ID);
+	if (ret < 0) {
+		ERROR("Loading of FW_CONFIG failed %d\n", ret);
+		plat_error_handler(ret);
+	}
+
+	/*
+	 * FW_CONFIG loaded successfully. Check the FW_CONFIG device tree parsing
+	 * is successful.
+	 */
+	fw_config_info = FCONF_GET_PROPERTY(dyn_cfg, dtb, FW_CONFIG_ID);
+	if (fw_config_info == NULL) {
+		ret = -1;
+		ERROR("Invalid FW_CONFIG address\n");
+		plat_error_handler(ret);
+	}
+	ret = fconf_populate_dtb_registry(fw_config_info->config_addr);
+	if (ret < 0) {
+		ERROR("Parsing of FW_CONFIG failed %d\n", ret);
+		plat_error_handler(ret);
+	}
+}
+#endif /* BL2_ENABLE_CONFIG_LOAD */
+
 /*******************************************************************************
  * The only thing to do in BL2 is to load further images and pass control to
  * next BL. The memory occupied by BL2 will be reclaimed by BL3x stages. BL2
@@ -105,14 +146,23 @@ void bl2_main(void)
 	/* Perform remaining generic architectural setup in S-EL1 */
 	bl2_arch_setup();
 
+	/* Initialize authentication module.
+	 *
+	 * Initialization of the authentication module should occur before
+	 * loading the FW_CONFIG to authenticate the complete CoT.
+	 */
+	auth_mod_init();
+
+#if BL2_ENABLE_CONFIG_LOAD
+	/* Load the FW_CONFIG images before the bootloader images*/
+	bl2_el3_config_load();
+#endif /* BL2_ENABLE_CONFIG_LOAD */
+
 #if PSA_FWU_SUPPORT
 	fwu_init();
 #endif /* PSA_FWU_SUPPORT */
 
 	crypto_mod_init();
-
-	/* Initialize authentication module */
-	auth_mod_init();
 
 	/* Initialize the Measured Boot backend */
 	bl2_plat_mboot_init();

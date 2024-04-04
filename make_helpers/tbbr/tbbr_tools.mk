@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -87,8 +87,8 @@ $(if ${NON_TRUSTED_WORLD_KEY},$(eval $(call CERT_ADD_CMD_OPT,${NON_TRUSTED_WORLD
 
 # Add the BL2 CoT (image cert)
 ifeq (${NEED_BL2},yes)
-ifeq (${RESET_TO_BL2}, 0)
 ifneq (${COT},cca)
+ifeq ($(RESET_TO_BL2), $(BL2_ENABLE_CONFIG_LOAD))
 $(eval $(call TOOL_ADD_PAYLOAD,${BUILD_PLAT}/tb_fw.crt,--tb-fw-cert))
 endif
 endif
