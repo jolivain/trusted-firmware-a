@@ -430,6 +430,30 @@
       },
       "revId": "76269ade963ff61240452af691692bf411536e12",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d3db4de_3985ed3b",
+        "filename": "lib/locks/exclusive/aarch64/spinlock.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-04-07T13:40:44Z",
+      "side": 1,
+      "message": "TLDR; I don\u0027t believe it is strictly required, but that would be the more conservative approach, and would recommend that at this stage.\nFor a given lock acquire, only acquire semantics is required, and for releasing a lock, only release semantics is required (hence the names).  That is sufficient when we are doing traditional locks where we use the full byte/word for a single spin lock, but here we are using a single bit within a byte. I can\u0027t see why it wouldn\u0027t work here as well, since multiple threads wait on the bit value, instead of the entire byte/word value, but there can be no harm, other than some performance impact due to stronger barriers. This lock is likely highly contended, but is also security critical, so I would start with conservative approach, have some more analysis done (perhaps on the mailing list) and then optimize.",
+      "parentUuid": "5dd38198_dca5f74e",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 107,
+        "endChar": 12
+      },
+      "revId": "76269ade963ff61240452af691692bf411536e12",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
