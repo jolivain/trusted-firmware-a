@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "39cfcf32_2f8cf991",
+        "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-08T15:03:06Z",
+      "side": 1,
+      "message": "Excuse should have highlighted the line.\n\n```\n#if !IMAGE_BL1\n\nvoid cm_init_context_by_index(unsigned int cpu_idx,\n\t\t\t      const entry_point_info_t *ep)\n{\n\tcpu_context_t *ctx;\n\tctx \u003d cm_get_context_by_index(cpu_idx, GET_SECURITY_STATE(ep-\u003eh.attr));\n\tcm_setup_context(ctx, ep);\n}\n\n#endif /* !IMAGE_BL1 */ \n```\nI pointed at the closing comment(line 173), as the condition we check is (!IMAGE_BL1.), so let the closing comment also be under the same condition.",
+      "parentUuid": "1d134b99_965834c4",
+      "revId": "6eac6dc9d2561379f3a107663cebc2842a7b2a56",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5fd3a07b_6899554b",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 3
