@@ -22,6 +22,30 @@
       },
       "revId": "eca4c6be856bc4a7038a306f775083c234b358b8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7a1661e_36231f27",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-04-08T12:24:59Z",
+      "side": 1,
+      "message": "note usage of weak functions is discouraged moving forward\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a/+/refs/heads/master/docs/process/coding-guidelines.rst#467",
+      "parentUuid": "bf9a10c1_5fc4ecf4",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 97,
+        "endChar": 6
+      },
+      "revId": "eca4c6be856bc4a7038a306f775083c234b358b8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
