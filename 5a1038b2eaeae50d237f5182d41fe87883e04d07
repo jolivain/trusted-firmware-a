@@ -33,6 +33,40 @@
       "message": "LGTM!",
       "revId": "5a1038b2eaeae50d237f5182d41fe87883e04d07",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "792b5c02_ef3607c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-08T07:47:44Z",
+      "side": 1,
+      "message": "Hi Chris,\n1 minor comment and a question: why is this new file not compiled like other ones? It could be a BL_COMMON_SOURCES, like common/bl_common.c.",
+      "revId": "5a1038b2eaeae50d237f5182d41fe87883e04d07",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56e95cf0_68dc1bfa",
+        "filename": "common/build_message.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-08T07:47:44Z",
+      "side": 1,
+      "message": "minor: checkpatch may complain about this double empty line (with --strict option)",
+      "revId": "5a1038b2eaeae50d237f5182d41fe87883e04d07",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
