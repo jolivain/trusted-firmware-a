@@ -295,10 +295,8 @@ guess-gnu-gcc-ar = $(call which,$(patsubst %$(notdir $(1)),%$(subst gcc,gcc-ar,$
 define locate-toolchain-tool-cc
         $(eval toolchain := $(1))
 
-        $(toolchain)-cc := $$(strip \
-                $$(or $$($(toolchain)-cc),$$($(toolchain)-cc-default)))
-        $(toolchain)-cc-id := $$(strip \
-                $$(call guess-tool,$$(tools-cc),$$($(toolchain)-cc)))
+        $(toolchain)-cc := $$(or $$($(toolchain)-cc),$$($(toolchain)-cc-default))
+        $(toolchain)-cc-id := $$(call guess-tool,$$(tools-cc),$$($(toolchain)-cc))
 endef
 
 define locate-toolchain-tool
@@ -306,26 +304,22 @@ define locate-toolchain-tool
         $(eval tool-class := $(2))
 
         ifndef $(toolchain)-$(tool-class)
-                $(toolchain)-$(tool-class) := $$(strip \
-                        $$(call guess-$$($(toolchain)-cc-id)-$(tool-class),$$($(toolchain)-cc)))
+                $(toolchain)-$(tool-class) := $$(call guess-$$($(toolchain)-cc-id)-$(tool-class),$$($(toolchain)-cc-path))
 
                 ifeq ($$($(toolchain)-$(tool-class)),)
-                        $(toolchain)-$(tool-class) := $$(strip \
-                                $$($(toolchain)-$(tool-class)-default))
+                        $(toolchain)-$(tool-class) := $$($(toolchain)-$(tool-class)-default)
                 endif
         endif
 
-        $(toolchain)-$(tool-class)-id := $$(strip \
-                $$(call guess-tool,$$(tools-$(tool-class)),$$($$(toolchain)-$(tool-class))))
+        $(toolchain)-$(tool-class)-id := $$(call guess-tool,$$(tools-$(tool-class)),$$($$(toolchain)-$(tool-class)))
 endef
 
 define canonicalize-toolchain-tool-path
         $(eval toolchain := $(1))
         $(eval tool-class := $(2))
 
-        $(toolchain)-$(tool-class) := $$(strip $$(or \
-                $$(call which,$$($(toolchain)-$(tool-class))), \
-                $$($(toolchain)-$(tool-class))))
+        $(toolchain)-$(tool-class)-path := $$(or $$(abspath $$(call which,$$($(toolchain)-$(tool-class)))),$$($(toolchain)-$(tool-class)))
+        $(toolchain)-$(tool-class) := "$$($(toolchain)-$(tool-class)-path)"
 endef
 
 define locate-toolchain
