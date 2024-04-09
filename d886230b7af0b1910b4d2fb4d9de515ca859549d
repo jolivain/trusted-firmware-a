@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6707237_8fb3b65c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-09T17:14:41Z",
+      "side": 1,
+      "message": "cert-create\nEven though the tool path is cert_create, the scope uses a dash. See commitlint check: https://ci.trustedfirmware.org/job/tf-a-commitlint/7561/console.\nThe list of scopes can be found in changelog.yaml file",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 15
+      },
+      "revId": "d886230b7af0b1910b4d2fb4d9de515ca859549d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
