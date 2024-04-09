@@ -88,6 +88,24 @@
       "parentUuid": "99491834_5666e5d5",
       "revId": "6496a208bb3984575649c7c79b064809ac70587a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca67688d_cebb233e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2024-04-09T10:00:28Z",
+      "side": 1,
+      "message": "I looked into this some more and found that I misunderstood the change: In v2.10, AS\u003d in the environment was ignored! It was only possible to override it as make argument and there, it was expected to be a compiler as well, it seems. With your change, AS\u003d in the environment is now actually used, which resulted in my breakage.\n\nSo, the TF-A choice of AS to be a compiler at least has history in the project. I still think the hang is unfortunate, but I have an idea for an alternative fix.",
+      "parentUuid": "98638151_faf86edb",
+      "revId": "6496a208bb3984575649c7c79b064809ac70587a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ],
   "submitRequirementResults": []
