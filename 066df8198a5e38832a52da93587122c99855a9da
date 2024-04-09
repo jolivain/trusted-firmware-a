@@ -50,6 +50,24 @@
       "message": "Can you please rebase the change? I believe this would filter out a number of CI failures and only focus on failures that may be introduced by the change if any. Thanks.",
       "revId": "066df8198a5e38832a52da93587122c99855a9da",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d28a7288_f71cf268",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000224
+      },
+      "writtenOn": "2024-04-09T01:50:27Z",
+      "side": 1,
+      "message": "Actually, we found another way to solve our problem, so this patch is no longer needed.\nlet me abandon it.\nthanks for your review.",
+      "parentUuid": "e90d15af_99492261",
+      "revId": "066df8198a5e38832a52da93587122c99855a9da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
