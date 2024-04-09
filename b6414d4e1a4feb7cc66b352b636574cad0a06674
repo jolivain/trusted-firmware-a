@@ -16,6 +16,24 @@
       "message": "Have we reached a conclusion as to whether this change is still required if ever migrating to other build env. e.g. MSYS2/WSL?",
       "revId": "b6414d4e1a4feb7cc66b352b636574cad0a06674",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2493eba1_05af0157",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-09T10:12:42Z",
+      "side": 1,
+      "message": "Hello Olivier,\n\nGiven the current handling of toolchains, we will likely need this patch. This is particularly important for those who store their tools in unconventional file paths, such as paths containing spaces. Without this patch, ‘make’ may misinterpret these paths as space-delimited lists. There is an open question about where the best place to patch this is.",
+      "parentUuid": "6ba05895_e8ceb5b9",
+      "revId": "b6414d4e1a4feb7cc66b352b636574cad0a06674",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
