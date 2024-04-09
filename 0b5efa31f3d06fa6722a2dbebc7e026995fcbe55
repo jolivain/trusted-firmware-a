@@ -33,6 +33,24 @@
       "message": "Hi @Patrick,\n\nI assumed, that with your fix ( mask the last in Level nibble in StateID) patch, the CI failures will be taken care. Am I missing anything here ? \nKindly let us know.\nThanks!",
       "revId": "0b5efa31f3d06fa6722a2dbebc7e026995fcbe55",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39977408_a5126e26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000690
+      },
+      "writtenOn": "2024-04-09T11:48:07Z",
+      "side": 1,
+      "message": "Yes I assume it should be solved.\nI don\u0027t found a way to check it locally.\n\nPatrick",
+      "parentUuid": "40d95b64_6c66864e",
+      "revId": "0b5efa31f3d06fa6722a2dbebc7e026995fcbe55",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
