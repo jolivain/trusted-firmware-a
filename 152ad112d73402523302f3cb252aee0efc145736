@@ -16,6 +16,24 @@
       "message": "Hi Mark,\nThere was another patch to correct this function here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/25321\nBut it was failing on one of the boards in the test farm, but I cannot remember what the issue was and the CI job has been removed. Maybe Jayanth has more info about this. I can rebase the other series to run a new CI.",
       "revId": "152ad112d73402523302f3cb252aee0efc145736",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2538bae_37072f69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-09T09:40:46Z",
+      "side": 1,
+      "message": "Hi Yann,\nYes you are right. We had this patch series from Patrick Delunay. [ https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/25321/6]\nThe bottom two patches in this series are looking good. But the top one is still failing and I had commented on the same in the gerrit board. We were waiting for the author response.\n\nBut the issue with the CI still exists. The following tests were failing:\n* tftf-l2-fvp/fvp-ext-pstate-ea-el3,fvp-default:fvp-tftf-fip.tftf-aemv8a-debug\n* tftf-l2-fvp/fvp-ext-pstate-ea-el3,fvp-default:fvp-tftf-fip.tftf-cortexa57x4a53x4-debug\n\n\nThis hasn\u0027t been resolved yet. Haven\u0027t seen any new patches in recent times and the last time, CI+2 was failure. I can re-trigger it again as older CI results are deleted, but yeah this was the status.\n\n\nIf you have further updates on this series, kindly let us know. Will ask the maintainers to take a look at it, and merge the bottom two patches.",
+      "parentUuid": "07195601_8955b802",
+      "revId": "152ad112d73402523302f3cb252aee0efc145736",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
