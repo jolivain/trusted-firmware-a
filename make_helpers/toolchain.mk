@@ -60,6 +60,8 @@ ifneq ($(filter aarch64,$(toolchains)),)
 endif
 
 include $(dir $(lastword $(MAKEFILE_LIST)))build_env.mk
+include $(dir $(lastword $(MAKEFILE_LIST)))utilities.mk
+
 include $(addprefix $(dir $(lastword $(MAKEFILE_LIST)))toolchains/, \
         $(addsuffix .mk,$(toolchains)))
 
@@ -271,23 +273,23 @@ guess-tool = $(firstword $(foreach candidate,$(1), \
 # variable.
 #
 
-guess-arm-clang-cpp = $(1) # Use the C compiler
-guess-arm-clang-as = $(1) # Use the C compiler
+guess-arm-clang-cpp = $(1)
+guess-arm-clang-as = $(1)
 guess-arm-clang-ld = # Fall back to `$(toolchain)-ld-default`
 guess-arm-clang-oc = # Fall back to `$(toolchain)-oc-default`
 guess-arm-clang-od = # Fall back to `$(toolchain)-od-default`
 guess-arm-clang-ar = # Fall back to `$(toolchain)-ar-default`
 
-guess-llvm-clang-cpp = $(1) # Use the C compiler
-guess-llvm-clang-as = $(1) # Use the C compiler
+guess-llvm-clang-cpp = $(1)
+guess-llvm-clang-as = $(1)
 guess-llvm-clang-ld = $(shell $(1) --print-prog-name ld.lld 2>$(nul))
 guess-llvm-clang-oc = $(shell $(1) --print-prog-name llvm-objcopy 2>$(nul))
 guess-llvm-clang-od = $(shell $(1) --print-prog-name llvm-objdump 2>$(nul))
 guess-llvm-clang-ar = $(shell $(1) --print-prog-name llvm-ar 2>$(nul))
 
-guess-gnu-gcc-cpp = $(1) # Use the C compiler
-guess-gnu-gcc-as = $(1) # Use the C compiler
-guess-gnu-gcc-ld = $(1) # Use the C compiler
+guess-gnu-gcc-cpp = $(1)
+guess-gnu-gcc-as = $(1)
+guess-gnu-gcc-ld = $(1)
 guess-gnu-gcc-oc = $(shell $(1) --print-prog-name objcopy 2>$(nul))
 guess-gnu-gcc-od = $(shell $(1) --print-prog-name objdump 2>$(nul))
 guess-gnu-gcc-ar = $(call which,$(patsubst %$(notdir $(1)),%$(subst gcc,gcc-ar,$(notdir $(1))),$(1)))
@@ -295,10 +297,8 @@ guess-gnu-gcc-ar = $(call which,$(patsubst %$(notdir $(1)),%$(subst gcc,gcc-ar,$
 define locate-toolchain-tool-cc
         $(eval toolchain := $(1))
 
-        $(toolchain)-cc := $$(strip \
-                $$(or $$($(toolchain)-cc),$$($(toolchain)-cc-default)))
-        $(toolchain)-cc-id := $$(strip \
-                $$(call guess-tool,$$(tools-cc),$$($(toolchain)-cc)))
+        $(toolchain)-cc := $$(or $$($(toolchain)-cc),$$($(toolchain)-cc-default))
+        $(toolchain)-cc-id := $$(call guess-tool,$$(tools-cc),$$($(toolchain)-cc))
 endef
 
 define locate-toolchain-tool
@@ -306,26 +306,24 @@ define locate-toolchain-tool
         $(eval tool-class := $(2))
 
         ifndef $(toolchain)-$(tool-class)
-                $(toolchain)-$(tool-class) := $$(strip \
-                        $$(call guess-$$($(toolchain)-cc-id)-$(tool-class),$$($(toolchain)-cc)))
+                $(toolchain)-$(tool-class) := $$(call guess-$$($(toolchain)-cc-id)-$(tool-class),$$($(toolchain)-cc-path))
 
                 ifeq ($$($(toolchain)-$(tool-class)),)
-                        $(toolchain)-$(tool-class) := $$(strip \
-                                $$($(toolchain)-$(tool-class)-default))
+                        $(toolchain)-$(tool-class) := $$($(toolchain)-$(tool-class)-default)
                 endif
         endif
 
-        $(toolchain)-$(tool-class)-id := $$(strip \
-                $$(call guess-tool,$$(tools-$(tool-class)),$$($$(toolchain)-$(tool-class))))
+        $(toolchain)-$(tool-class)-id := $$(call guess-tool,$$(tools-$(tool-class)),$$($$(toolchain)-$(tool-class)))
 endef
 
 define canonicalize-toolchain-tool-path
         $(eval toolchain := $(1))
         $(eval tool-class := $(2))
 
-        $(toolchain)-$(tool-class) := $$(strip $$(or \
-                $$(call which,$$($(toolchain)-$(tool-class))), \
-                $$($(toolchain)-$(tool-class))))
+        $(toolchain)-$(tool-class)-path := $$(call absolute-path,$$(call which,$$($(toolchain)-$(tool-class))))
+        $(toolchain)-$(tool-class)-path := $$(or $$($(toolchain)-$(tool-class)-path),$$($(toolchain)-$(tool-class)))
+
+        $(toolchain)-$(tool-class) := "$$($(toolchain)-$(tool-class)-path)"
 endef
 
 define locate-toolchain
