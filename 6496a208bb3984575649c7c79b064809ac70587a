@@ -70,6 +70,24 @@
       "parentUuid": "2adb77b8_1f109809",
       "revId": "6496a208bb3984575649c7c79b064809ac70587a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98638151_faf86edb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000337
+      },
+      "writtenOn": "2024-04-09T09:20:58Z",
+      "side": 1,
+      "message": "\u003e We only use AS it if it\u0027s been explicitly configured by the user (either via the environment or via the command line).\n\nYes and in v2.10 and before, it was possible to set AS to an assembler, which is what many other projects interpret AS to mean.\n\n\u003e It just happens that right now the set of supported assemblers matches the set of supported C compilers.\n\nIf the assembler \u003d\u003d compiler, then it would IMO be best to stop taking AS from the user environment at all. It provides no extra value (we already know the compiler) and the failure mode is ugly (build hangs indefinitely, because GNU as(1) keeps waiting for input on stdin).\n\n\u003e In any case there\u0027s no situation where we can accept as as the value for AS - it\u0027s the assembler for the host machine (e.g. x86_64-linux-gnu) and not the target machine (e.g. aarch64-none-elf). You would need to use aarch64-none-elf-as even if TF-A did support it.\n\nI wrote AS\u003das and AS\u003dllvm-as above for simplicity.\n\n\nFWIW, I changed PTXdist[1] to not set AS\u003d anymore to anticipate this change making it into a release, but I think it would be good to fix the TF-A to not hang when setting AS\u003d${CROSS_COMPLE}as.\n\n[1]: https://lore.ptxdist.org/ptxdist/20240409090816.2343063-1-a.fatoum@pengutronix.de/T/#u",
+      "parentUuid": "99491834_5666e5d5",
+      "revId": "6496a208bb3984575649c7c79b064809ac70587a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ],
   "submitRequirementResults": []
