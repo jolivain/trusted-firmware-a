@@ -36,12 +36,12 @@ MBEDTLS_SOURCES	+=		drivers/auth/mbedtls/mbedtls_common.c
 
 LIBMBEDTLS_SRCS		+= $(addprefix ${MBEDTLS_DIR}/library/,		\
 					aes.c 				\
+					aesce.c				\
 					asn1parse.c 			\
 					asn1write.c 			\
 					cipher.c 			\
 					cipher_wrap.c 			\
 					constant_time.c			\
-					hash_info.c			\
 					memory_buffer_alloc.c		\
 					oid.c 				\
 					platform.c 			\
@@ -51,10 +51,12 @@ LIBMBEDTLS_SRCS		+= $(addprefix ${MBEDTLS_DIR}/library/,		\
 					gcm.c 				\
 					md.c				\
 					pk.c 				\
+					pk_ecc.c 			\
 					pk_wrap.c 			\
 					pkparse.c 			\
 					pkwrite.c 			\
 					sha256.c            		\
+					sha3.c				\
 					sha512.c            		\
 					ecdsa.c				\
 					ecp_curves.c			\
@@ -75,12 +77,14 @@ LIBMBEDTLS_CFLAGS += -Wno-error=redundant-decls
 ifeq (${PSA_CRYPTO},1)
 LIBMBEDTLS_SRCS         += $(addprefix ${MBEDTLS_DIR}/library/,    	\
 					psa_crypto.c                   	\
+					psa_crypto_aead.c		\
 					psa_crypto_client.c            	\
-					psa_crypto_driver_wrappers.c   	\
+					psa_crypto_driver_wrappers_no_static.c\
 					psa_crypto_hash.c              	\
 					psa_crypto_rsa.c               	\
 					psa_crypto_ecp.c               	\
 					psa_crypto_slot_management.c   	\
+					psa_utils.c			\
 					)
 endif
 
