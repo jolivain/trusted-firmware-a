@@ -20,6 +20,11 @@
 #include <lib/xlat_tables/xlat_tables_defs.h>
 #include <plat/common/platform.h>
 
+/*******************************************************************************
+ * Pointer to functions exported by the platform to try loading other images
+ ******************************************************************************/
+static const struct plat_try_images_ops *plat_try_img_ops;
+
 #if TRUSTED_BOARD_BOOT
 # ifdef DYN_DISABLE_AUTH
 static int disable_auth;
@@ -200,6 +205,13 @@ static int load_auth_image_internal(unsigned int image_id,
 	return load_image(image_id, image_data);
 }
 
+int plat_setup_try_img_ops(const struct plat_try_images_ops *plat_try_ops)
+{
+	plat_try_img_ops = plat_try_ops;
+
+	return 0;
+}
+
 /*******************************************************************************
  * Generic function to load and authenticate an image. The image is actually
  * loaded by calling the 'load_image()' function. Therefore, it returns the
@@ -211,7 +223,18 @@ int load_auth_image(unsigned int image_id, image_info_t *image_data)
 {
 	int err;
 
-	err = load_auth_image_internal(image_id, image_data);
+	if ((plat_try_img_ops == NULL) || (plat_try_img_ops->next_instance == NULL)) {
+		err = load_auth_image_internal(image_id, image_data);
+	} else {
+		do {
+			err = load_auth_image_internal(image_id, image_data);
+			if (err != 0) {
+				if (plat_try_img_ops->next_instance(image_id) == 0) {
+					return err;
+				}
+			}
+		} while (err != 0);
+	}
 
 	if (err == 0) {
 		/*
