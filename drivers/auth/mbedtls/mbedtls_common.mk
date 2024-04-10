@@ -41,7 +41,6 @@ LIBMBEDTLS_SRCS		+= $(addprefix ${MBEDTLS_DIR}/library/,		\
 					cipher.c 			\
 					cipher_wrap.c 			\
 					constant_time.c			\
-					hash_info.c			\
 					memory_buffer_alloc.c		\
 					oid.c 				\
 					platform.c 			\

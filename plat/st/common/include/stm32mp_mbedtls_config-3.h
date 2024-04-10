@@ -37,6 +37,7 @@
 
 #define MBEDTLS_ERROR_C
 #define MBEDTLS_MD_C
+#define MBEDTLS_MD_CAN_SHA512
 
 #define MBEDTLS_MEMORY_BUFFER_ALLOC_C
 #define MBEDTLS_OID_C
@@ -51,6 +52,7 @@
 #define MBEDTLS_ECDSA_C
 #define MBEDTLS_ECP_C
 #define MBEDTLS_ECP_DP_SECP256R1_ENABLED
+#define MBEDTLS_PK_HAVE_ECC_KEYS
 #endif
 #if TF_MBEDTLS_USE_RSA
 #define MBEDTLS_RSA_C
@@ -75,6 +77,7 @@
 #define MBEDTLS_AES_C
 #define MBEDTLS_CIPHER_C
 #define MBEDTLS_GCM_C
+#define MBEDTLS_CCM_GCM_CAN_AES
 #endif
 
 /* MPI / BIGNUM options */
