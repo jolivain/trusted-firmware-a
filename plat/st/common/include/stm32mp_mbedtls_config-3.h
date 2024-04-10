@@ -102,6 +102,8 @@
 #ifndef __ASSEMBLER__
 /* System headers required to build mbed TLS with the current configuration */
 #include <stdlib.h>
+/* This ensures that dependencies of the requested features are in place */
+#include <mbedtls/config_adjust_legacy_crypto.h>
 #include <mbedtls/check_config.h>
 #endif
 
