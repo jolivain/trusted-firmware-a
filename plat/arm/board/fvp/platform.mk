@@ -445,6 +445,10 @@ ifneq (${RESET_TO_BL2}, 0)
     override BL1_SOURCES =
 endif
 
+ifeq (${DRTM_SUPPORT}, 1)
+TF_MBEDTLS_KEY_ALG	:=	rsa+ecdsa
+endif
+
 include plat/arm/board/common/board_common.mk
 include plat/arm/common/arm_common.mk
 
