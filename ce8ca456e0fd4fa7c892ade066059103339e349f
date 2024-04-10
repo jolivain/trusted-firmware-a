@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d361dc6e_6f7ddbdb",
+        "filename": "docs/components/ven-el3-service.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2024-04-10T09:47:10Z",
+      "side": 1,
+      "message": "off-topic nit: These are specifically TF-A\u0027s definitions for the vendor-specific EL3 monitor calls. Other vendor-specific definitions are possible.",
+      "revId": "ce8ca456e0fd4fa7c892ade066059103339e349f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b4e3552_dfc00b03",
+        "filename": "docs/components/ven-el3-service.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000096
+      },
+      "writtenOn": "2024-04-10T09:47:10Z",
+      "side": 1,
+      "message": "This policy is not like any standard I\u0027ve seen. Why not just use semantic versioning (https://semver.org/) - i.e. increase minor when adding services in a BC way; increase major when removing/changing services?",
+      "revId": "ce8ca456e0fd4fa7c892ade066059103339e349f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
