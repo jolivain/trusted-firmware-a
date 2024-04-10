@@ -32,10 +32,8 @@
 #define MBEDTLS_ASN1_PARSE_C
 #define MBEDTLS_ASN1_WRITE_C
 
-#define MBEDTLS_BASE64_C
 #define MBEDTLS_BIGNUM_C
 
-#define MBEDTLS_ERROR_C
 #define MBEDTLS_MD_C
 
 #define MBEDTLS_MEMORY_BUFFER_ALLOC_C
@@ -57,16 +55,12 @@
 #define MBEDTLS_X509_RSASSA_PSS_SUPPORT
 #endif
 
-/* The library does not currently support enabling SHA-256 without SHA-224. */
-#define MBEDTLS_SHA224_C
 #define MBEDTLS_SHA256_C
 
 #if (TF_MBEDTLS_HASH_ALG_ID != TF_MBEDTLS_SHA256)
 #define MBEDTLS_SHA384_C
 #define MBEDTLS_SHA512_C
 #endif
-
-#define MBEDTLS_VERSION_C
 
 #define MBEDTLS_X509_USE_C
 #define MBEDTLS_X509_CRT_PARSE_C
@@ -75,6 +69,7 @@
 #define MBEDTLS_AES_C
 #define MBEDTLS_CIPHER_C
 #define MBEDTLS_GCM_C
+#define MBEDTLS_CCM_GCM_CAN_AES
 #endif
 
 /* MPI / BIGNUM options */

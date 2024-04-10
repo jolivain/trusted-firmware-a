@@ -44,10 +44,8 @@
 #define MBEDTLS_ASN1_PARSE_C
 #define MBEDTLS_ASN1_WRITE_C
 
-#define MBEDTLS_BASE64_C
 #define MBEDTLS_BIGNUM_C
 
-#define MBEDTLS_ERROR_C
 #define MBEDTLS_MD_C
 
 #define MBEDTLS_MEMORY_BUFFER_ALLOC_C
@@ -73,8 +71,6 @@
 #define MBEDTLS_X509_RSASSA_PSS_SUPPORT
 #endif
 
-/* The library does not currently support enabling SHA-256 without SHA-224. */
-#define MBEDTLS_SHA224_C
 #define MBEDTLS_SHA256_C
 /*
  * If either Trusted Boot or Measured Boot require a stronger algorithm than
@@ -82,17 +78,13 @@
  * support when enabling SHA-512.
  */
 #if (TF_MBEDTLS_HASH_ALG_ID != TF_MBEDTLS_SHA256) /* TBB hash algo */
-#define MBEDTLS_SHA384_C
 #define	MBEDTLS_SHA512_C
 #else
    /* TBB uses SHA-256, what about measured boot? */
 #if defined(TF_MBEDTLS_MBOOT_USE_SHA512)
-#define MBEDTLS_SHA384_C
 #define MBEDTLS_SHA512_C
 #endif
 #endif
-
-#define MBEDTLS_VERSION_C
 
 #define MBEDTLS_X509_USE_C
 #define MBEDTLS_X509_CRT_PARSE_C
@@ -101,6 +93,7 @@
 #define MBEDTLS_AES_C
 #define MBEDTLS_CIPHER_C
 #define MBEDTLS_GCM_C
+#define MBEDTLS_CCM_GCM_CAN_AES
 #endif
 
 /* MPI / BIGNUM options */
