@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023, STMicroelectronics - All Rights Reserved
+ * Copyright (c) 2022-2024, STMicroelectronics - All Rights Reserved
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -46,6 +46,7 @@
 #define MBEDTLS_PK_WRITE_C
 
 #define MBEDTLS_PLATFORM_C
+#define MBEDTLS_PSA_ASSUME_EXCLUSIVE_BUFFERS
 
 #if TF_MBEDTLS_USE_ECDSA
 #define MBEDTLS_ECDSA_C
@@ -102,7 +103,6 @@
 #ifndef __ASSEMBLER__
 /* System headers required to build mbed TLS with the current configuration */
 #include <stdlib.h>
-#include <mbedtls/check_config.h>
 #endif
 
 /*
