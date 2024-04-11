@@ -16,6 +16,24 @@
       "message": "Hi Donald,\n\nThanks for this change! I\u0027m curious to know what the context for this is. From our prerequisites, the minimum supported version of OpenSSL is v1.1.1. \n\nhttps://trustedfirmware-a.readthedocs.io/en/latest/getting_started/prerequisites.html#software-and-libraries",
       "revId": "20c1ad37e9c079c74d6974cbb76cbd36e5fa4ff8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c826af16_029c0389",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001265
+      },
+      "writtenOn": "2024-04-11T15:06:20Z",
+      "side": 1,
+      "message": "From commit cf2dd17ddda2f44f5dedddcaf48300d16358597a, it says OpenSSL 1.x is supported though. FWIW, the OpenSSL APIs cert_create are using are compatible between 1.0.x and 1.1.x.",
+      "parentUuid": "fccea0a6_f43e052c",
+      "revId": "20c1ad37e9c079c74d6974cbb76cbd36e5fa4ff8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
