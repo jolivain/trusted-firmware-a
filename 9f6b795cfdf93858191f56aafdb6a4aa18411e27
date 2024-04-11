@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f06834e_39a9c481",
+        "filename": "lib/cpus/aarch64/cortex_x4.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-11T19:32:29Z",
+      "side": 1,
+      "message": "apply_erratum has this additional param in the macro definition -\u003e _get_rev\u003dGET_CPU_REV\n\nThis is used as a gating flag along with the chosen flag to check cpu_get_rev_var which then loads the value to x0.\n\n.macro apply_erratum _cpu:req, _cve:req, _id:req, _chosen:req, _get_rev\u003dGET_CPU_REV                        \n     \n     .if (\\_chosen \u0026 \\_get_rev)                                                                 \n                mov     x9, x30                                                                    \n                bl      cpu_get_rev_var                                                            \n                mov     x10, x0                                                                    \n     .elseif (\\_chosen)                                                                         \n                mov     x9, x30                                                                    \n                mov     x0, x10                                                                    \n     .endif                                                                                     \n                                                                                                             \n      .if \\_chosen                                                                               \n             bl      erratum_\\_cpu\\()_\\_id\\()_wa                                                \n             mov     x30, x9                                                                    \n      .endif                                                                                     \n.endm  \n \n Should we be including this flag as well in line 64",
+      "revId": "9f6b795cfdf93858191f56aafdb6a4aa18411e27",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eefb9cc9_06ec6bad",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-11T19:32:29Z",
+      "side": 1,
+      "message": "nit: two instances, can remove one.",
+      "range": {
+        "startLine": 826,
+        "startChar": 50,
+        "endLine": 826,
+        "endChar": 56
+      },
+      "revId": "9f6b795cfdf93858191f56aafdb6a4aa18411e27",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
