@@ -516,7 +516,9 @@ smc_unknown:
 	b	el3_exit
 
 smc_prohibited:
-	restore_ptw_el1_sys_regs
+	/* Branch to C function to restore EL1 system registers. */
+	mov 	x0, sp
+	bl	restore_ptw_el1_sys_regs
 	ldp	x28, x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X28]
 	ldr	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
 	mov	x0, #SMC_UNK
