@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2024, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -385,33 +385,9 @@
 	 * Also, save x29 which will be used in the called function.
 	 */
 	str	x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X29]
+	mov 	x0, sp
 	bl	save_and_update_ptw_el1_sys_regs
 	ldr	x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X29]
-#endif
-	.endm
-
-	.macro	restore_ptw_el1_sys_regs
-#if ERRATA_SPECULATIVE_AT
-	/* -----------------------------------------------------------
-	 * In case of ERRATA_SPECULATIVE_AT, must follow below order
-	 * to ensure that page table walk is not enabled until
-	 * restoration of all EL1 system registers. TCR_EL1 register
-	 * should be updated at the end which restores previous page
-	 * table walk setting of stage1 i.e.(TCR_EL1.EPDx) bits. ISB
-	 * ensures that CPU does below steps in order.
-	 *
-	 * 1. Ensure all other system registers are written before
-	 *    updating SCTLR_EL1 using ISB.
-	 * 2. Restore SCTLR_EL1 register.
-	 * 3. Ensure SCTLR_EL1 written successfully using ISB.
-	 * 4. Restore TCR_EL1 register.
-	 * -----------------------------------------------------------
-	 */
-	isb
-	ldp	x28, x29, [sp, #CTX_EL1_SYSREGS_OFFSET + CTX_SCTLR_EL1]
-	msr	sctlr_el1, x28
-	isb
-	msr	tcr_el1, x29
 #endif
 	.endm
 
