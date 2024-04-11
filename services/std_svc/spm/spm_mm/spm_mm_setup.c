@@ -122,7 +122,7 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 		      xlat_ctx->pa_max_address, xlat_ctx->va_max_address,
 		      EL1_EL0_REGIME);
 
-	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_MAIR_EL1,
+	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), mair_el1,
 		      mmu_cfg_params[MMU_CFG_MAIR]);
 
 	/* Store the initialised SCTLR_EL1 value in the cpu_context */
@@ -134,7 +134,7 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 		      mmu_cfg_params[MMU_CFG_TCR]);
 #endif /* ERRATA_SPECULATIVE_AT */
 
-	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_TTBR0_EL1,
+	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), ttbr0_el1,
 		      mmu_cfg_params[MMU_CFG_TTBR0]);
 
 	/* Setup SCTLR_EL1 */
@@ -145,7 +145,7 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 	sctlr_el1 = read_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_SCTLR_EL1);
 #endif /* ERRATA_SPECULATIVE_AT */
 
-	sctlr_el1 |=
+	sctlr_el1_val |=
 		/*SCTLR_EL1_RES1 |*/
 		/* Don't trap DC CVAU, DC CIVAC, DC CVAC, DC CVAP, or IC IVAU */
 		SCTLR_UCI_BIT							|
@@ -167,7 +167,7 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 		SCTLR_M_BIT
 	;
 
-	sctlr_el1 &= ~(
+	sctlr_el1_val &= ~(
 		/* Explicit data accesses at EL0 are little-endian. */
 		SCTLR_E0E_BIT							|
 		/*
@@ -193,10 +193,10 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 	 */
 
 	/* Shim Exception Vector Base Address */
-	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_VBAR_EL1,
+	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), vbar_el1,
 			SPM_SHIM_EXCEPTIONS_PTR);
 
-	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_CNTKCTL_EL1,
+	write_el1_ctx_arch_timer(get_el1_sysregs_ctx(ctx), cntkctl_el1,
 		      EL0PTEN_BIT | EL0VTEN_BIT | EL0PCTEN_BIT | EL0VCTEN_BIT);
 
 	/*
@@ -206,7 +206,7 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 	 * TTA: Enable access to trace registers.
 	 * ZEN (v8.2): Trap SVE instructions and access to SVE registers.
 	 */
-	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_CPACR_EL1,
+	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), cpacr_el1,
 			CPACR_EL1_FPEN(CPACR_EL1_FP_TRAP_NONE));
 
 	/*
