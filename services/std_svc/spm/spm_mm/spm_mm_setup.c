@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2024, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2021, NVIDIA Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -122,19 +122,19 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 		      xlat_ctx->pa_max_address, xlat_ctx->va_max_address,
 		      EL1_EL0_REGIME);
 
-	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_MAIR_EL1,
+	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), mair_el1,
 		      mmu_cfg_params[MMU_CFG_MAIR]);
 
-	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_TCR_EL1,
+	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), tcr_el1,
 		      mmu_cfg_params[MMU_CFG_TCR]);
 
-	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_TTBR0_EL1,
+	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), ttbr0_el1,
 		      mmu_cfg_params[MMU_CFG_TTBR0]);
 
 	/* Setup SCTLR_EL1 */
-	u_register_t sctlr_el1 = read_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_SCTLR_EL1);
+	u_register_t sctlr_el1_val = read_el1_ctx_common(get_el1_sysregs_ctx(ctx), sctlr_el1);
 
-	sctlr_el1 |=
+	sctlr_el1_val |=
 		/*SCTLR_EL1_RES1 |*/
 		/* Don't trap DC CVAU, DC CIVAC, DC CVAC, DC CVAP, or IC IVAU */
 		SCTLR_UCI_BIT							|
@@ -156,7 +156,7 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 		SCTLR_M_BIT
 	;
 
-	sctlr_el1 &= ~(
+	sctlr_el1_val &= ~(
 		/* Explicit data accesses at EL0 are little-endian. */
 		SCTLR_E0E_BIT							|
 		/*
@@ -168,7 +168,7 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 		SCTLR_UMA_BIT
 	);
 
-	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_SCTLR_EL1, sctlr_el1);
+	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), sctlr_el1, sctlr_el1_val);
 
 	/*
 	 * Setup other system registers
@@ -176,10 +176,10 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 	 */
 
 	/* Shim Exception Vector Base Address */
-	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_VBAR_EL1,
+	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), vbar_el1,
 			SPM_SHIM_EXCEPTIONS_PTR);
 
-	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_CNTKCTL_EL1,
+	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), cntkctl_el1,
 		      EL0PTEN_BIT | EL0VTEN_BIT | EL0PCTEN_BIT | EL0VCTEN_BIT);
 
 	/*
@@ -189,7 +189,7 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 	 * TTA: Enable access to trace registers.
 	 * ZEN (v8.2): Trap SVE instructions and access to SVE registers.
 	 */
-	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_CPACR_EL1,
+	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), cpacr_el1,
 			CPACR_EL1_FPEN(CPACR_EL1_FP_TRAP_NONE));
 
 	/*
