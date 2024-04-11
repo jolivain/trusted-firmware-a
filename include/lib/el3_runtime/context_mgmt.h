@@ -33,6 +33,8 @@ void cm_init_my_context(const struct entry_point_info *ep);
 void cm_setup_context(cpu_context_t *ctx, const struct entry_point_info *ep);
 void cm_prepare_el3_exit(uint32_t security_state);
 void cm_prepare_el3_exit_ns(void);
+void restore_ptw_el1_sys_regs(u_register_t arg0);
+void save_and_update_ptw_el1_sys_regs(u_register_t arg0);
 
 #if !IMAGE_BL1
 void cm_init_context_by_index(unsigned int cpu_idx,
