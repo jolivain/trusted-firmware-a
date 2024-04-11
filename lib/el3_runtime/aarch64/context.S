@@ -16,7 +16,6 @@
 #endif /* CTX_INCLUDE_FPREGS */
 	.global	prepare_el3_entry
 	.global	restore_gp_pmcr_pauth_regs
-	.global save_and_update_ptw_el1_sys_regs
 	.global	el3_exit
 
 /* ------------------------------------------------------------------
@@ -329,48 +328,6 @@ func restore_gp_pmcr_pauth_regs
 	ret
 endfunc restore_gp_pmcr_pauth_regs
 
-/*
- * In case of ERRATA_SPECULATIVE_AT, save SCTLR_EL1 and TCR_EL1
- * registers and update EL1 registers to disable stage1 and stage2
- * page table walk
- */
-func save_and_update_ptw_el1_sys_regs
-	/* ----------------------------------------------------------
-	 * Save only sctlr_el1 and tcr_el1 registers
-	 * ----------------------------------------------------------
-	 */
-	mrs	x29, sctlr_el1
-	str	x29, [sp, #(CTX_EL1_SYSREGS_OFFSET + CTX_SCTLR_EL1)]
-	mrs	x29, tcr_el1
-	str	x29, [sp, #(CTX_EL1_SYSREGS_OFFSET + CTX_TCR_EL1)]
-
-	/* ------------------------------------------------------------
-	 * Must follow below order in order to disable page table
-	 * walk for lower ELs (EL1 and EL0). First step ensures that
-	 * page table walk is disabled for stage1 and second step
-	 * ensures that page table walker should use TCR_EL1.EPDx
-	 * bits to perform address translation. ISB ensures that CPU
-	 * does these 2 steps in order.
-	 *
-	 * 1. Update TCR_EL1.EPDx bits to disable page table walk by
-	 *    stage1.
-	 * 2. Enable MMU bit to avoid identity mapping via stage2
-	 *    and force TCR_EL1.EPDx to be used by the page table
-	 *    walker.
-	 * ------------------------------------------------------------
-	 */
-	orr	x29, x29, #(TCR_EPD0_BIT)
-	orr	x29, x29, #(TCR_EPD1_BIT)
-	msr	tcr_el1, x29
-	isb
-	mrs	x29, sctlr_el1
-	orr	x29, x29, #SCTLR_M_BIT
-	msr	sctlr_el1, x29
-	isb
-
-	ret
-endfunc save_and_update_ptw_el1_sys_regs
-
 /* -----------------------------------------------------------------
 * The below macro returns the address of the per_world context for
 * the security state, retrieved through "get_security_state" macro.
@@ -464,7 +421,9 @@ sve_not_enabled:
 	msr	spsr_el3, x16
 	msr	elr_el3, x17
 
-	restore_ptw_el1_sys_regs
+	/* Branch to C function to restore EL1 system registers. */
+	mov 	x0, sp
+	bl	restore_ptw_el1_sys_regs
 
 	/* ----------------------------------------------------------
 	 * Restore general purpose (including x30), PMCR_EL0 and
