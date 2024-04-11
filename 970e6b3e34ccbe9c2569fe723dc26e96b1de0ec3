@@ -34,6 +34,24 @@
       "parentUuid": "63b6f75f_2a620ff2",
       "revId": "970e6b3e34ccbe9c2569fe723dc26e96b1de0ec3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58192984_030c6410",
+        "filename": "include/lib/el3_runtime/context_mgmt.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-04-11T11:19:35Z",
+      "side": 1,
+      "message": "I\u0027m going to revert this change - it fails for AArch32 builds and it\u0027ll be a whole other investigation to resolve that, which we can do later on.",
+      "parentUuid": "1e97a3fa_751a3bad",
+      "revId": "970e6b3e34ccbe9c2569fe723dc26e96b1de0ec3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
