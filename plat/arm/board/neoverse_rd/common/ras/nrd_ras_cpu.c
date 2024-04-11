@@ -62,21 +62,21 @@ static void populate_cpu_err_data(cpu_err_info *cpu_info,
 	cpu_info->SecurityState = security_state;
 
 	/* populate CPU EL1 context information. */
-	cpu_info->ErrCtxEl1Reg[0]  = read_ctx_reg(get_el1_sysregs_ctx(ctx),
-						  CTX_ELR_EL1);
-	cpu_info->ErrCtxEl1Reg[1]  = read_ctx_reg(get_el1_sysregs_ctx(ctx),
-						  CTX_ESR_EL1);
-	cpu_info->ErrCtxEl1Reg[2]  = read_ctx_reg(get_el1_sysregs_ctx(ctx),
-						  CTX_FAR_EL1);
+	cpu_info->ErrCtxEl1Reg[0]  = read_el1_ctx_common(get_el1_sysregs_ctx(ctx),
+						  elr_el1);
+	cpu_info->ErrCtxEl1Reg[1]  = read_el1_ctx_common(get_el1_sysregs_ctx(ctx),
+						  esr_el1);
+	cpu_info->ErrCtxEl1Reg[2]  = read_el1_ctx_common(get_el1_sysregs_ctx(ctx),
+						  far_el1);
 	cpu_info->ErrCtxEl1Reg[3]  = read_isr_el1();
-	cpu_info->ErrCtxEl1Reg[4]  = read_ctx_reg(get_el1_sysregs_ctx(ctx),
-						  CTX_MAIR_EL1);
+	cpu_info->ErrCtxEl1Reg[4]  = read_el1_ctx_common(get_el1_sysregs_ctx(ctx),
+						  mair_el1);
 	cpu_info->ErrCtxEl1Reg[5]  = read_midr_el1();
 	cpu_info->ErrCtxEl1Reg[6]  = read_mpidr_el1();
 #if (ERRATA_SPECULATIVE_AT)
 	cpu_info->ErrCtxEl1Reg[7]  = read_ctx_reg(get_errata_speculative_at_ctx(ctx),
 						  CTX_ERRATA_SPEC_AT_SCTLR_EL1);
-#else /* (ERRATA_SPECULATIVE_AT=0)*/
+#else
 	cpu_info->ErrCtxEl1Reg[7]  = read_ctx_reg(get_el1_sysregs_ctx(ctx),
 						  CTX_SCTLR_EL1);
 #endif /* ERRATA_SPECULATIVE_AT */
@@ -89,7 +89,7 @@ static void populate_cpu_err_data(cpu_err_info *cpu_info,
 #if (ERRATA_SPECULATIVE_AT)
 	cpu_info->ErrCtxEl1Reg[11]  = read_ctx_reg(get_errata_speculative_at_ctx(ctx),
 						   CTX_ERRATA_SPEC_AT_TCR_EL1);
-#else /* (ERRATA_SPECULATIVE_AT=0)*/
+#else
 	cpu_info->ErrCtxEl1Reg[11]  = read_ctx_reg(get_el1_sysregs_ctx(ctx),
 						   CTX_TCR_EL1);
 #endif /* ERRATA_SPECULATIVE_AT */
