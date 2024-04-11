@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "400efb4f_1b25d5b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-11T17:30:39Z",
+      "side": 1,
+      "message": "No real failures with the previous CI run:\nhttps://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/1973/\nEven though tests under static checks has passed (https://ci.trustedfirmware.org/job/tf-a-static-checks/8950/), the overall result is failure, not sure of the reasons behind this, but I believe this patch is not causing any issue here. \n\nManually providing verified +1",
+      "revId": "b8f82f73d78ac407a760767d7791ba7ac4bffd3a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
