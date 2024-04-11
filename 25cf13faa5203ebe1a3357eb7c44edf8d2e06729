@@ -16,6 +16,23 @@
       "message": "Windows build in staging area passes with this patch: https://ci.staging.trustedfirmware.org/job/harmutarm-tf-a-windows-builder-matrix/19/parameters/.",
       "revId": "25cf13faa5203ebe1a3357eb7c44edf8d2e06729",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a8827c2_aae903cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-04-11T11:15:41Z",
+      "side": 1,
+      "message": "CI failures are down to Juno maintenance issues, but passed eventually.",
+      "revId": "25cf13faa5203ebe1a3357eb7c44edf8d2e06729",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
