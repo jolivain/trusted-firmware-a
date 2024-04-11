@@ -454,6 +454,30 @@
       },
       "revId": "76269ade963ff61240452af691692bf411536e12",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3059a53b_37b6c6b9",
+        "filename": "lib/locks/exclusive/aarch64/spinlock.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-11T11:00:31Z",
+      "side": 1,
+      "message": "Proposed functions using atomic bit set/clear instructions:\n\n/*\n * Acquire bitlock using atomic bit set on byte.\n *\n * void bit_lock(bitlock_t *lock, uint8_t mask);\n */\nfunc bit_lock\n\tsevl\n1:\twfe\n\tldsetab\tw1, w2, [x0]\n\ttst\tw2, w1\n\tb.ne\t1b\n\tret\nendfunc bit_lock\n\n/*\n * Release bitlock previously acquired by bit_lock.\n *\n * void bit_unlock(bitlock_t *lock, uint8_t mask);\n */\nfunc bit_unlock\n\tstclrb\tw1, [x0]\n\tret\nendfunc bit_unlock",
+      "parentUuid": "1d3db4de_3985ed3b",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 107,
+        "endChar": 12
+      },
+      "revId": "76269ade963ff61240452af691692bf411536e12",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
