@@ -150,6 +150,30 @@
       },
       "revId": "e6f8fc7437f6b9483ea0463315809d7ff6d5c0ec",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b3fffed_6e2cef25",
+        "filename": "lib/el3_runtime/aarch32/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-11T09:36:47Z",
+      "side": 1,
+      "message": "Apologies if my comment wasn\u0027t clear, but there is an established convention for checking feature enablement (see lines 148 and 144), my suggestion was to make this check consistent with those. In any case, there\u0027s an ongoing refactoring effort that will clean this up so feel free to ignore this message. \n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27388",
+      "parentUuid": "b5a7baca_1c888f32",
+      "range": {
+        "startLine": 152,
+        "startChar": 5,
+        "endLine": 152,
+        "endChar": 37
+      },
+      "revId": "e6f8fc7437f6b9483ea0463315809d7ff6d5c0ec",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
