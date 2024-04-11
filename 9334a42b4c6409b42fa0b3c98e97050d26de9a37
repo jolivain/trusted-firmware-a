@@ -87,6 +87,30 @@
       },
       "revId": "9334a42b4c6409b42fa0b3c98e97050d26de9a37",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb5ba58e_ca14d4cd",
+        "filename": "plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+        "patchSetId": 19
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-11T11:20:59Z",
+      "side": 1,
+      "message": "\u003e This logic is in Arm platform code. This is the rationale behind the change\n\nThanks, got it.\n\nI have a minor concern regarding the hardware configuration size standardization across all platforms. It would be more beneficial to implement corresponding changes across all Arm platforms, such as TC, Morello, Juno, etc., to ensure synchronization. For instance, incorporating this macro ``PLAT_ARM_HW_CONFIG_SIZE`` into the TC fw_config file [1] and appropriately defining its value for the TC platform in the platform define header of TC [2] would be good.\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a/+/refs/heads/integration/plat/arm/board/tc/fdts/tc_fw_config.dts#24\n[2]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a/+/refs/heads/integration/plat/arm/board/tc/include/platform_def.h",
+      "parentUuid": "9fcda2ec_6850a987",
+      "range": {
+        "startLine": 24,
+        "startChar": 15,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "9334a42b4c6409b42fa0b3c98e97050d26de9a37",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
