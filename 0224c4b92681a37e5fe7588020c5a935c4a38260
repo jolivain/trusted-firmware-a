@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9633cc5_68af25df",
+        "filename": "plat/arm/board/fvp_r/fvp_r_bl1_setup.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-12T13:46:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bbff69a_f04817b2",
+      "range": {
+        "startLine": 238,
+        "startChar": 1,
+        "endLine": 238,
+        "endChar": 25
+      },
+      "revId": "0224c4b92681a37e5fe7588020c5a935c4a38260",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dad05cbd_88d5173f",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-04-12T12:16:11Z",
       "side": 1,
       "message": "Why we need to declare this as a weak function?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 37
+      },
+      "revId": "0224c4b92681a37e5fe7588020c5a935c4a38260",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e57c0ef_bdb8f7a9",
+        "filename": "plat/common/plat_bl1_common.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-12T13:46:06Z",
+      "side": 1,
+      "message": "I made it a weak symbol because I wasn\u0027t sure how else to ensure platforms had the ability to use their own implementation. Its not an existing use case so I\u0027ll remove this.",
+      "parentUuid": "dad05cbd_88d5173f",
       "range": {
         "startLine": 30,
         "startChar": 0,
