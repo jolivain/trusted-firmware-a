@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2230072d_90ecdfea",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 38
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-12T13:45:19Z",
+      "side": 1,
+      "message": "Apologies, but its not quite clear to me how arm_transfer_list_copy_tl is an improvement on the existing name? We aren\u0027t copying the entire TL, just the HW_CONFIG into the second TL.",
+      "parentUuid": "33a636bc_7c72e40a",
+      "revId": "da39c858644ad0a270ebfc15401c83fdebeefec2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "24b6e14d_86259926",
         "filename": "plat/arm/board/fvp/fvp_common.c",
         "patchSetId": 38
@@ -31,6 +49,30 @@
       "writtenOn": "2024-04-12T10:33:16Z",
       "side": 1,
       "message": "Where does it get utilized? I think it should be included in BL2 for NS_HANDOFF.",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 25
+      },
+      "revId": "da39c858644ad0a270ebfc15401c83fdebeefec2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77c6affc_626775b5",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 38
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-12T13:45:19Z",
+      "side": 1,
+      "message": "This is indeed used in BL2, I\u0027ve moved the code that its it to the memory map for BL2 into this patch.",
+      "parentUuid": "24b6e14d_86259926",
       "range": {
         "startLine": 84,
         "startChar": 8,
@@ -54,6 +96,30 @@
       "writtenOn": "2024-04-12T10:33:16Z",
       "side": 1,
       "message": "nit: align this",
+      "range": {
+        "startLine": 148,
+        "startChar": 28,
+        "endLine": 148,
+        "endChar": 29
+      },
+      "revId": "da39c858644ad0a270ebfc15401c83fdebeefec2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43191a19_4b20eb7d",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 38
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-12T13:45:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de9c2371_551c0778",
       "range": {
         "startLine": 148,
         "startChar": 28,
@@ -89,6 +155,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce70e1df_c594d37e",
+        "filename": "plat/arm/common/arm_transfer_list.c",
+        "patchSetId": 38
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-12T13:45:19Z",
+      "side": 1,
+      "message": "Eventually yes, but for now we only support the HW_CONFIG. My preference to incrementally add in parts as they\u0027re needed.",
+      "parentUuid": "e46c308d_c418f284",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 42
+      },
+      "revId": "da39c858644ad0a270ebfc15401c83fdebeefec2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f2d6f1d4_5ebd7703",
         "filename": "plat/arm/common/arm_transfer_list.c",
         "patchSetId": 38
@@ -100,6 +190,24 @@
       "writtenOn": "2024-04-12T10:33:16Z",
       "side": 1,
       "message": "can we assert ``next_param_node !\u003d NULL`` before going ahead with while loop below?",
+      "revId": "da39c858644ad0a270ebfc15401c83fdebeefec2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eed5d979_999a4a44",
+        "filename": "plat/arm/common/arm_transfer_list.c",
+        "patchSetId": 38
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-12T13:45:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2d6f1d4_5ebd7703",
       "revId": "da39c858644ad0a270ebfc15401c83fdebeefec2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -117,6 +225,24 @@
       "writtenOn": "2024-04-12T10:33:16Z",
       "side": 1,
       "message": "ditto",
+      "revId": "da39c858644ad0a270ebfc15401c83fdebeefec2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "463c94fe_7b099f81",
+        "filename": "plat/arm/common/arm_transfer_list.c",
+        "patchSetId": 38
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-12T13:45:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c578da7_37c6d273",
       "revId": "da39c858644ad0a270ebfc15401c83fdebeefec2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
