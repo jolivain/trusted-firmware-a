@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33a636bc_7c72e40a",
+        "filename": "include/plat/arm/common/plat_arm.h",
+        "patchSetId": 38
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-12T10:33:16Z",
+      "side": 1,
+      "message": "Could we rename this as \"arm_transfer_list_copy_tl\" instead of specifying it exclusively for HW_CONFIG?",
+      "revId": "da39c858644ad0a270ebfc15401c83fdebeefec2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24b6e14d_86259926",
+        "filename": "plat/arm/board/fvp/fvp_common.c",
+        "patchSetId": 38
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-12T10:33:16Z",
+      "side": 1,
+      "message": "Where does it get utilized? I think it should be included in BL2 for NS_HANDOFF.",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 25
+      },
+      "revId": "da39c858644ad0a270ebfc15401c83fdebeefec2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de9c2371_551c0778",
+        "filename": "plat/arm/board/fvp/include/platform_def.h",
+        "patchSetId": 38
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-12T10:33:16Z",
+      "side": 1,
+      "message": "nit: align this",
+      "range": {
+        "startLine": 148,
+        "startChar": 28,
+        "endLine": 148,
+        "endChar": 29
+      },
+      "revId": "da39c858644ad0a270ebfc15401c83fdebeefec2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e46c308d_c418f284",
+        "filename": "plat/arm/common/arm_transfer_list.c",
+        "patchSetId": 38
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-12T10:33:16Z",
+      "side": 1,
+      "message": "Do we need to change the loading address of other FW configs also like NT_FW_CONFIG, TOS_FW_CONFIG in the similar way?",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 42
+      },
+      "revId": "da39c858644ad0a270ebfc15401c83fdebeefec2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2d6f1d4_5ebd7703",
+        "filename": "plat/arm/common/arm_transfer_list.c",
+        "patchSetId": 38
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-12T10:33:16Z",
+      "side": 1,
+      "message": "can we assert ``next_param_node !\u003d NULL`` before going ahead with while loop below?",
+      "revId": "da39c858644ad0a270ebfc15401c83fdebeefec2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c578da7_37c6d273",
+        "filename": "plat/arm/common/arm_transfer_list.c",
+        "patchSetId": 38
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-12T10:33:16Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "da39c858644ad0a270ebfc15401c83fdebeefec2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
