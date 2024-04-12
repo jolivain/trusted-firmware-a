@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fc6d9035_6a62c5b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-12T08:22:56Z",
+      "side": 1,
+      "message": "\u003e The specs requires that the salt length to be 0 \u003c\u003d saltlen \u003c\u003d digestlen\n\nThis was my understanding too from the RFC.\n\n\u003e but as an industry practice it is matched to the digest length. The value of 0, while is acceptable, is bad because we are not adding any entropy at all (\u003d same as PKCS1.5).\n\n\u003e I think we should either follow industry practice and assume digestlen, or have a way to specify the salt length (OpenSSL supports this), but not assume a value of 32 bytes irrespective of RSA key lengths.\n\n\u003e Various cloud services\u0027s KMS offering have such restrictions in place [1] [2] [3], so if someone wants to integrate cert_create against these KMS for signing key/content certs, they will have problem with integration.\n\n\u003e Furthermore, JWS (https://datatracker.ietf.org/doc/html/rfc7518) defined these specific combinations as valid specs, other combinations are not supported:\n\n\u003e PS256: RSASSA-PSS using SHA-256 and MGF1 with SHA-256\nPS384: RSASSA-PSS using SHA-384 and MGF1 with SHA-384\nPS512: RSASSA-PSS using SHA-512 and MGF1 with SHA-512\n[1]: https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html, \"Supported signing algorithms for RSA key specs\"\n[2]: https://learn.microsoft.com/en-us/azure/key-vault/keys/about-keys-details#signverify-1\n[3]: https://cloud.google.com/kms/docs/algorithms#rsa_signing_algorithms, \"For Probabilistic Signature Scheme (PSS), the salt length used is equal to the length of the digest algorithm\"\n\n\nThanks for the detailed explanation! Adding these details concisely to the commit message would provide clarity on the rationale behind this change.",
+      "parentUuid": "a767ce68_192ee3dc",
+      "range": {
+        "startLine": 10,
+        "startChar": 12,
+        "endLine": 12,
+        "endChar": 17
+      },
+      "revId": "f4e5398185b4f90e474af98b7c92dca6ac2f567d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c37da99_b9f5b20d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
