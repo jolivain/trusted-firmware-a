@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e94b203c_bd1cb925",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-13T07:35:01Z",
+      "side": 1,
+      "message": "This may not work for GCC 10.",
+      "revId": "ac27e0119c0b316e0d418b0267b2c3cd7865b5e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8791361d_5c203621",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-13T07:35:01Z",
+      "side": 1,
+      "message": "This arg is special. I wonder whether we need to either move the helper macro to generic Arch helpers layer and then modify this function to take address and size as arguments which is more intuitive.",
+      "range": {
+        "startLine": 721,
+        "startChar": 40,
+        "endLine": 721,
+        "endChar": 43
+      },
+      "revId": "ac27e0119c0b316e0d418b0267b2c3cd7865b5e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8458c618_2959752a",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-13T07:35:01Z",
+      "side": 1,
+      "message": "this doesn\u0027t seem to be called or defined anywhere.",
+      "range": {
+        "startLine": 733,
+        "startChar": 5,
+        "endLine": 733,
+        "endChar": 22
+      },
+      "revId": "ac27e0119c0b316e0d418b0267b2c3cd7865b5e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
