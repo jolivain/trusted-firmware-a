@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c10402a9_f615e065",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-13T07:19:44Z",
+      "side": 1,
+      "message": "remove, although currently intended only for GPT lib, any component in TF-A can use.\n\nMention that these locks rely on FEAT_LSE and hence get build only for v8.1+",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 43
+      },
+      "revId": "695ff2c930decd94123c523becd01c0fa0abb5f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac80ada6_182455e4",
+        "filename": "lib/locks/exclusive/aarch64/spinlock.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-13T07:19:44Z",
+      "side": 1,
+      "message": "add similar comment as in casa lock explaining why the exclusives are used.\n\nAlso mentioned that we need FEAT_LSE and hence the conditional compilation check for \u003e v8.1",
+      "revId": "695ff2c930decd94123c523becd01c0fa0abb5f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80c28810_cc219554",
+        "filename": "lib/locks/exclusive/aarch64/spinlock.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-13T07:19:44Z",
+      "side": 1,
+      "message": "add comment : \n\"Store operation generates an event to all cores waiting in WFE\n when address is monitored by the global monitor.\"",
+      "revId": "695ff2c930decd94123c523becd01c0fa0abb5f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
