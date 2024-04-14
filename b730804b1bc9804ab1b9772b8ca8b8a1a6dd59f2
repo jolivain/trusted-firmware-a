@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58cdf78f_f46e60fa",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-14T23:07:10Z",
+      "side": 1,
+      "message": "Acknowledged, can you please check @Govind if the changes would work for MTE2?",
+      "parentUuid": "5a2a9081_63477819",
+      "range": {
+        "startLine": 96,
+        "startChar": 27,
+        "endLine": 96,
+        "endChar": 50
+      },
+      "revId": "b730804b1bc9804ab1b9772b8ca8b8a1a6dd59f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e454cee9_b0279c28",
@@ -64,6 +88,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc768144_c42c16ad",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-14T23:07:10Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e454cee9_b0279c28",
+      "range": {
+        "startLine": 103,
+        "startChar": 8,
+        "endLine": 103,
+        "endChar": 31
+      },
+      "revId": "b730804b1bc9804ab1b9772b8ca8b8a1a6dd59f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5695df34_d237c074",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-04-02T15:00:18Z",
       "side": 1,
       "message": "I would prefer rme_present rather suing bit fields to comparison.",
+      "range": {
+        "startLine": 205,
+        "startChar": 8,
+        "endLine": 205,
+        "endChar": 38
+      },
+      "revId": "b730804b1bc9804ab1b9772b8ca8b8a1a6dd59f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc611ae0_37924abb",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-14T23:07:10Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5695df34_d237c074",
       "range": {
         "startLine": 205,
         "startChar": 8,
