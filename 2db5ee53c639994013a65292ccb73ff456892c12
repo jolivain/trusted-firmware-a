@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "314d1534_be7f7434",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 24
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-04-15T12:05:06Z",
+      "side": 1,
+      "message": "HW_CONFIG is traditional device tree consumed by Linux kernel so please re-word like below  \n\"consumed by Linux kernel but for FVP platform TF-A runtime firmware(Bl31) also consumes it.\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 38,
+        "endLine": 10,
+        "endChar": 20
+      },
+      "revId": "2db5ee53c639994013a65292ccb73ff456892c12",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b1040240_57d69b83",
