@@ -22,9 +22,11 @@ DEFINE_SVC_UUID2(arm_sip_svc_uid,
 
 static int arm_sip_setup(void)
 {
+#if ENABLE_PMF
 	if (pmf_setup() != 0) {
 		return 1;
 	}
+#endif /* ENABLE_PMF */
 
 #if USE_DEBUGFS
 
@@ -65,7 +67,9 @@ static uintptr_t arm_sip_handler(unsigned int smc_fid,
 	 * Dispatch PMF calls to PMF SMC handler and return its return
 	 * value
 	 */
-	if (is_pmf_fid(smc_fid)) {
+	if (is_pmf_fid_deprecated(smc_fid)) {
+		NOTICE("PMF Interface usage from arm-sip range is deprecated \
+			migrate smc call to Vendor-specific el3 range\n");
 		return pmf_smc_handler(smc_fid, x1, x2, x3, x4, cookie,
 				handle, flags);
 	}
@@ -75,7 +79,7 @@ static uintptr_t arm_sip_handler(unsigned int smc_fid,
 #if USE_DEBUGFS
 	if (is_debugfs_fid_deprecated(smc_fid)) {
 		NOTICE("Debugfs Interface usage from arm-sip range is deprecated \
-			migrate smc call to Vendor-specific el3 range\n")
+			migrate smc call to Vendor-specific el3 range\n");
 		return debugfs_smc_handler(smc_fid, x1, x2, x3, x4, cookie,
 					   handle, flags);
 	}
@@ -112,9 +116,6 @@ static uintptr_t arm_sip_handler(unsigned int smc_fid,
 		}
 
 	case ARM_SIP_SVC_CALL_COUNT:
-		/* PMF calls */
-		call_count += PMF_NUM_SMC_CALLS;
-
 #if ETHOSN_NPU_DRIVER
 		/* ETHOSN calls */
 		call_count += ETHOSN_NUM_SMC_CALLS;
