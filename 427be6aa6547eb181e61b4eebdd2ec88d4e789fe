@@ -88,6 +88,24 @@
       "parentUuid": "e8031b38_943fca89",
       "revId": "427be6aa6547eb181e61b4eebdd2ec88d4e789fe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f8cbb0b_ba180f2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-04-15T11:49:18Z",
+      "side": 1,
+      "message": "\u003e I did try to change strlcpy to strscpy before posting the series. I could not find any references to the same within trusted firmware and therefore I kept the change. Do you know any other modules that make use of the files?\n\nYou\u0027re right this is a warning inherited by the linux checkpatch but TF-A doesn\u0027t seem to implement strscpy, so yes I guess we can ignore this.\n\n\n\u003e With regards to the include order - this was happening on the older series posted (A75 and N2) \n\nYes the top patch inherits failures from earlier patches (one reason to prefer shorter batches of patches!)\nWe\u0027ll need to have a closer look how to fix that.\n\n\u003e  how do we add new scope? rdfremont and neoverse_rd should be scopes that we would using going forward.\n\nI think you need a change similar to:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/23928\n\n\u003e Wrt to CI companion change, would it be okay if we work on this after getting this patchset merged.\n\nI don\u0027t think this should gate merging TF-A changes however please have them prepared in parallel or shortly after.",
+      "parentUuid": "7acfcf82_c9e6f036",
+      "revId": "427be6aa6547eb181e61b4eebdd2ec88d4e789fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
