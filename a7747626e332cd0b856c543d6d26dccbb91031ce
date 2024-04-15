@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bafc10c0_c84046bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-04-15T12:21:08Z",
+      "side": 1,
+      "message": "Which entity is consuming the event log?\nthe event log buffer is secure PAS hence requires some attestation entity in the secure world?",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "a7747626e332cd0b856c543d6d26dccbb91031ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5abd82bb_82b23037",
+        "filename": "plat/arm/board/neoverse_rd/common/include/nrd3/nrd_pas_def3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-04-15T12:21:08Z",
+      "side": 1,
+      "message": "Why is there this condition?\nIs event log consumed by secure world at all?",
+      "range": {
+        "startLine": 532,
+        "startChar": 4,
+        "endLine": 532,
+        "endChar": 67
+      },
+      "revId": "a7747626e332cd0b856c543d6d26dccbb91031ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
