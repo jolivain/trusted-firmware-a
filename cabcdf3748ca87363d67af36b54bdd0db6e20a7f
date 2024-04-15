@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6b19215_6d9f5751",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-15T18:05:27Z",
+      "side": 1,
+      "message": "I didn\u0027t notice mbedtls_common.mk being included when the mbedTLS source files are mentioned for compilation.",
+      "revId": "cabcdf3748ca87363d67af36b54bdd0db6e20a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "484e24bc_5892d635",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-15T18:05:27Z",
+      "side": 1,
+      "message": "This is not needed as common BL1 makefile includes these source files [1] (if platform builds with mbedTLS crypto).\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a/+/refs/heads/integration/bl1/bl1.mk#17",
+      "range": {
+        "startLine": 66,
+        "startChar": 3,
+        "endLine": 66,
+        "endChar": 21
+      },
+      "revId": "cabcdf3748ca87363d67af36b54bdd0db6e20a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18db2ffd_401844e8",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-15T18:05:27Z",
+      "side": 1,
+      "message": "This is not needed as common BL2 makefile includes these source files [1] (if platform builds with mbedTLS crypto).\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a/+/refs/heads/integration/bl2/bl2.mk#12",
+      "range": {
+        "startLine": 80,
+        "startChar": 15,
+        "endLine": 80,
+        "endChar": 34
+      },
+      "revId": "cabcdf3748ca87363d67af36b54bdd0db6e20a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
