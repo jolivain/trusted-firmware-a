@@ -22,6 +22,30 @@
       },
       "revId": "0f7e882404fb3c8d7f1e320b7f708fe869f92b86",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54f315ed_e515c7f4",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-04-15T16:16:38Z",
+      "side": 1,
+      "message": "I see problems with\n\n|ENABLE_SVE_FOR_SWD\t:\u003d 1\n\nwithout \u0027override\u0027. Rest of the feature flags where we check for support seem to be okay. I have just kept override with this SVE flag now. \n\nOne question though; Wouldn\u0027t it be a tad bit more safer to have \u0027override\u0027 if we don\u0027t want further changes to the variable from command line?\n\nBoth are fine for us though.",
+      "parentUuid": "90b88435_af6efa56",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 9
+      },
+      "revId": "0f7e882404fb3c8d7f1e320b7f708fe869f92b86",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
