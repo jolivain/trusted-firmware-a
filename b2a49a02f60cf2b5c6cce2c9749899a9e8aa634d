@@ -91,6 +91,46 @@
       },
       "revId": "b2a49a02f60cf2b5c6cce2c9749899a9e8aa634d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5db6da76_6b2bbf55",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-15T09:21:02Z",
+      "side": 1,
+      "message": "remove additional lines here.",
+      "revId": "b2a49a02f60cf2b5c6cce2c9749899a9e8aa634d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cc278e8_5fe07c0f",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-15T09:21:02Z",
+      "side": 1,
+      "message": "is_feat_rme_present()? typo ?",
+      "range": {
+        "startLine": 220,
+        "startChar": 16,
+        "endLine": 220,
+        "endChar": 32
+      },
+      "revId": "b2a49a02f60cf2b5c6cce2c9749899a9e8aa634d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
