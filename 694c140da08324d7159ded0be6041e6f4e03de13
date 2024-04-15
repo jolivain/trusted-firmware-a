@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a49438e_d703c92c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-04-15T15:56:08Z",
+      "side": 1,
+      "message": "See the static check failure\nplat/arm/board/fvp/fdts/fvp_spmc_optee_sp_manifest.dts:69: ERROR: code indent should use tabs where possible\n+        };$\n\nOther test failures look related to unstable Juno boards.",
+      "revId": "694c140da08324d7159ded0be6041e6f4e03de13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
