@@ -22,6 +22,29 @@
       },
       "revId": "18eb3093523e30df8067bb602a538fde8d23e804",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb5c1aaa_7db1f390",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-04-15T12:51:59Z",
+      "side": 1,
+      "message": "Do you really need to use \"override\", can you please try without that. Refer to fvp platform.mk file",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 8
+      },
+      "revId": "18eb3093523e30df8067bb602a538fde8d23e804",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
