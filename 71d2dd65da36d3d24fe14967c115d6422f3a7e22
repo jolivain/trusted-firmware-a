@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d396d414_fc9aa993",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-04-15T08:54:49Z",
+      "side": 1,
+      "message": "What does make it a \u0027GPC SMMU\u0027 rather than a regular SMMU?\nThe wording suggests that the SMMU is present only for the sake of doing GPC. Isn\u0027t there an intent for the SMMU to control the memory spaces for peripherals upstream to this SMMU?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 8
+      },
+      "revId": "71d2dd65da36d3d24fe14967c115d6422f3a7e22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ae085fb_f4f5f9b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-04-15T08:54:49Z",
+      "side": 1,
+      "message": "Just curious, which place in boot firmware is disabling GPC?",
+      "range": {
+        "startLine": 10,
+        "startChar": 63,
+        "endLine": 11,
+        "endChar": 47
+      },
+      "revId": "71d2dd65da36d3d24fe14967c115d6422f3a7e22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6cf1541_973e3871",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/rdfremont_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-04-15T08:54:49Z",
+      "side": 1,
+      "message": "It is worth noting this omits calling smmuv3_security_init (aborting on going transactions at least for NS and secure streams) per this change https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26218\nPerhaps it is good to add a comment as this deviates from the Base FVP implementation:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26218/4/plat/arm/board/fvp/fvp_bl31_setup.c#77",
+      "revId": "71d2dd65da36d3d24fe14967c115d6422f3a7e22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
