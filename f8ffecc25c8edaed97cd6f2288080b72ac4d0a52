@@ -71,6 +71,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e47dd67c_04a51795",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-04-15T20:38:45Z",
+      "side": 1,
+      "message": "In line wiwth https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27679/comment/c610d1cd_c01aa92a/ comment, if counters are restricted, they are available to the highest implemented exception level, so it may not necessarily be EL3.\n\nLet me know if you want this rephrased. I\u0027ll mark it as resolved for now.",
+      "parentUuid": "bd006a6d_94dd0524",
+      "range": {
+        "startLine": 9,
+        "startChar": 27,
+        "endLine": 9,
+        "endChar": 35
+      },
+      "revId": "f8ffecc25c8edaed97cd6f2288080b72ac4d0a52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80ee565d_24e9f0e7",
@@ -84,6 +108,30 @@
       "writtenOn": "2024-04-04T23:20:50Z",
       "side": 1,
       "message": "read accesses to AMU counters",
+      "range": {
+        "startLine": 10,
+        "startChar": 44,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "f8ffecc25c8edaed97cd6f2288080b72ac4d0a52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eb49e9d_b3b85ae0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-04-15T20:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80ee565d_24e9f0e7",
       "range": {
         "startLine": 10,
         "startChar": 44,
@@ -140,6 +188,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e970d61a_28ede611",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-04-15T20:38:45Z",
+      "side": 1,
+      "message": "This configuration is given by field AMCR_EL0.CG1RZ. The ARM-ARM does not specify that the highest exception level has to be EL3. In fact, it specifically uses the term \"highest implemented exception level\": \n\n\u003e If the current Exception level is the highest implemented Exception level,\n\u003e system register reads of AMEVCNTR1\u003cn\u003e_EL0 return the event count. Otherwise,\n\u003e reads of AMEVCNTR1\u003cn\u003e_EL0 return a zero value.\n  \nSo I guess it is OK as it is.",
+      "parentUuid": "c610d1cd_c01aa92a",
+      "range": {
+        "startLine": 25,
+        "startChar": 69,
+        "endLine": 26,
+        "endChar": 58
+      },
+      "revId": "f8ffecc25c8edaed97cd6f2288080b72ac4d0a52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "144374d9_88f2bb41",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-04-15T20:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d573a304_582a5800",
+      "range": {
+        "startLine": 26,
+        "startChar": 59,
+        "endLine": 26,
+        "endChar": 61
+      },
+      "revId": "f8ffecc25c8edaed97cd6f2288080b72ac4d0a52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb4281c0_432d224e",
@@ -163,6 +259,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6e2a364_71331de6",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-04-15T20:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb4281c0_432d224e",
+      "range": {
+        "startLine": 26,
+        "startChar": 61,
+        "endLine": 27,
+        "endChar": 53
+      },
+      "revId": "f8ffecc25c8edaed97cd6f2288080b72ac4d0a52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f985c119_7ea5752e",
@@ -176,6 +296,30 @@
       "writtenOn": "2024-04-04T23:20:50Z",
       "side": 1,
       "message": "Is the zero-ing out the reads from lower ELs implemented in an earlier patch? Can you point to where it\u0027s implemented?",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 28
+      },
+      "revId": "f8ffecc25c8edaed97cd6f2288080b72ac4d0a52",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e308124_50c70daf",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-04-15T20:38:45Z",
+      "side": 1,
+      "message": "This option was set to 0 before the current patch. This is the original patch: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/6053",
+      "parentUuid": "f985c119_7ea5752e",
       "range": {
         "startLine": 283,
         "startChar": 0,
