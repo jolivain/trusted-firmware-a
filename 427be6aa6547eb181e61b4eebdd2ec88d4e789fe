@@ -70,6 +70,24 @@
       "parentUuid": "8b8f18dc_c702a7f5",
       "revId": "427be6aa6547eb181e61b4eebdd2ec88d4e789fe",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7acfcf82_c9e6f036",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-04-15T09:53:35Z",
+      "side": 1,
+      "message": "Hi Olivier,\n\nI did try to change strlcpy to strscpy before posting the series. I could not find any references to the same within trusted firmware and therefore I kept the change. Do you know any other modules that make use of the files?\n\n\nWith regards to the include order - this was happening on the older series posted (A75 and N2) - please refer to CI here - https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27429/3\n\n\u003cnrd_soc_css_def.h\u003e and \u003cnrd_soc_platform_def.h\u003e are internal platform header files having the same prio as that of \u003cnrd_ros_fw_def1.h\u003e or any othe nrd_* headers. I\u0027m not quite sure why the error are getting triggered here. This is the reason I called it out as false positive. Could you please help me understand if these are genuine issues?\n\nWrt to lint issues - how do we add new scope? rdfremont and neoverse_rd should be scopes that we would using going forward. We\u0027ll fix the issues with respect to\n\n1. starting the subject with a verb\n2. making sure nothing starts in caps\n\nWrt to CI companion change, would it be okay if we work on this after getting this patchset merged. Let us know.",
+      "parentUuid": "e8031b38_943fca89",
+      "revId": "427be6aa6547eb181e61b4eebdd2ec88d4e789fe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
