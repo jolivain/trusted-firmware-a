@@ -22,6 +22,30 @@
       },
       "revId": "b923b5e5a853a78ba4a1f9457611f9d652207339",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce4cee25_601b1902",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/rdfremont_mhuv3.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-04-15T14:09:05Z",
+      "side": 1,
+      "message": "There is use-case for RD-Fremont with non-RME mode when any partners may want to keep ENABLE_RME\u003d0 even though the platform by design supports it. However the current software stack doesn\u0027t enable that support. I can remove this piece until we bring-in the non-RME support.",
+      "parentUuid": "4deeb6c4_853bc8c3",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 6
+      },
+      "revId": "b923b5e5a853a78ba4a1f9457611f9d652207339",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
