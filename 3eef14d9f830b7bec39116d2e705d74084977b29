@@ -16,6 +16,23 @@
       "message": "Top patches AllowCI+2.",
       "revId": "3eef14d9f830b7bec39116d2e705d74084977b29",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b637e53_120f196e",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 39
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-15T08:23:07Z",
+      "side": 1,
+      "message": "As per MISRA guidelines, it is imperative to include a default case in every switch statement.",
+      "revId": "3eef14d9f830b7bec39116d2e705d74084977b29",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
