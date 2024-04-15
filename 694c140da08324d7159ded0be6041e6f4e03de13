@@ -16,6 +16,24 @@
       "message": "See the static check failure\nplat/arm/board/fvp/fdts/fvp_spmc_optee_sp_manifest.dts:69: ERROR: code indent should use tabs where possible\n+        };$\n\nOther test failures look related to unstable Juno boards.",
       "revId": "694c140da08324d7159ded0be6041e6f4e03de13",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be4f7217_e3046e01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2024-04-15T16:25:43Z",
+      "side": 1,
+      "message": "static check failure is from this unrelated already merged patch: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27668?tab\u003dcomments\n\nshould i add fix into this patch anyways?",
+      "parentUuid": "3a49438e_d703c92c",
+      "revId": "694c140da08324d7159ded0be6041e6f4e03de13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
