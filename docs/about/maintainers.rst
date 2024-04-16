@@ -541,6 +541,16 @@ Arm Total Compute platform port
 :|G|: `rupsin01`_
 :|F|: plat/arm/board/tc
 
+Arm Automotive RD platform port
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+:|M|: Diego Sueiro <diego.sueiro@arm.com>
+:|G|: `diego-sueiro`_
+:|M|: Peter Hoyes <peter.hoyes@arm.com>
+:|G|: `hoyes`_
+:|M|: Divin Raj <divin.raj@arm.com>
+:|G|: `divin-raj`_
+:|F|: plat/arm/board/automotive_rd
+
 Aspeed platform port
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 :|M|: Chia-Wei Wang <chiawei_wang@aspeedtech.com>
