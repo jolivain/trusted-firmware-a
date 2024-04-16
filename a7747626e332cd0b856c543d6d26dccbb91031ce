@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "369cdff6_687c2714",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-04-16T12:38:19Z",
+      "side": 1,
+      "message": "This is added as a placeholder. At the moment, this patchset doesn\u0027t have any BL32 platform changes added. All secure related platform changes would be added later.\n\nWe don\u0027t have a secure attestation entity at the moment. This has been ported from arm_def.h anticipating such a use-case later.\n\nThinking again, it is probably is better to not have this at the moment. We\u0027ll add support if we have a use-case. Thanks.",
+      "parentUuid": "bafc10c0_c84046bf",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "a7747626e332cd0b856c543d6d26dccbb91031ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5abd82bb_82b23037",
@@ -61,6 +85,30 @@
       "writtenOn": "2024-04-15T12:21:08Z",
       "side": 1,
       "message": "Why is there this condition?\nIs event log consumed by secure world at all?",
+      "range": {
+        "startLine": 532,
+        "startChar": 4,
+        "endLine": 532,
+        "endChar": 67
+      },
+      "revId": "a7747626e332cd0b856c543d6d26dccbb91031ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fee181d2_2308c8c2",
+        "filename": "plat/arm/board/neoverse_rd/common/include/nrd3/nrd_pas_def3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-04-16T12:38:19Z",
+      "side": 1,
+      "message": "Ack, its not being consumed at the moment. I\u0027ll remove this patch from the series.",
+      "parentUuid": "5abd82bb_82b23037",
       "range": {
         "startLine": 532,
         "startChar": 4,
