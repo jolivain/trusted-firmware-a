@@ -39,12 +39,14 @@ static uintptr_t config_base __unused;
  * Check that BL2_BASE is above ARM_FW_CONFIG_LIMIT. This reserved page is
  * for `meminfo_t` data structure and fw_configs passed from BL1.
  */
+#if !RESET_TO_BL2
 #if TRANSFER_LIST
 CASSERT(BL2_BASE >= PLAT_ARM_EL3_FW_HANDOFF_BASE + PLAT_ARM_FW_HANDOFF_SIZE,
 	assert_bl2_base_overflows);
 #else
 CASSERT(BL2_BASE >= ARM_FW_CONFIG_LIMIT, assert_bl2_base_overflows);
 #endif /* TRANSFER_LIST */
+#endif /* !RESET_TO_BL2 */
 
 /* Weak definitions may be overridden in specific ARM standard platform */
 #pragma weak bl2_early_platform_setup2
