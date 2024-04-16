@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7fd2832c_4a71ce46",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-16T14:53:54Z",
+      "side": 1,
+      "message": "TF-A documentation references GCC 12.3.Rel1:\n\"TF-A has been tested with version 12.3.Rel1 (gcc 12.3) from the `Arm Developer website`\"",
+      "parentUuid": "e94b203c_bd1cb925",
+      "revId": "ac27e0119c0b316e0d418b0267b2c3cd7865b5e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8791361d_5c203621",
         "filename": "include/arch/aarch64/arch_helpers.h",
         "patchSetId": 11
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a887b57c_7800fe01",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-16T14:53:54Z",
+      "side": 1,
+      "message": "There are 10 possible sizes for arg, from 4KB to 512GB and only 6 (4KB-512MB) are used by GPT library.\nAre you suggesting to move TLBI_ARG macro \u0026 related definitions from gpt_rme_private.h to this arch_heleprs.c?",
+      "parentUuid": "8791361d_5c203621",
+      "range": {
+        "startLine": 721,
+        "startChar": 40,
+        "endLine": 721,
+        "endChar": 43
+      },
+      "revId": "ac27e0119c0b316e0d418b0267b2c3cd7865b5e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8458c618_2959752a",
         "filename": "include/arch/aarch64/arch_helpers.h",
         "patchSetId": 11
@@ -54,6 +96,30 @@
       "writtenOn": "2024-04-13T07:35:01Z",
       "side": 1,
       "message": "this doesn\u0027t seem to be called or defined anywhere.",
+      "range": {
+        "startLine": 733,
+        "startChar": 5,
+        "endLine": 733,
+        "endChar": 22
+      },
+      "revId": "ac27e0119c0b316e0d418b0267b2c3cd7865b5e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28cdf43f_2edcd5d5",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 733,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-16T14:53:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8458c618_2959752a",
       "range": {
         "startLine": 733,
         "startChar": 5,
