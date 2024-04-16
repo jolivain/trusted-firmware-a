@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe1338af_f9dbf88c",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-16T03:44:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f0fd8658_b1cc2024",
+      "range": {
+        "startLine": 121,
+        "startChar": 47,
+        "endLine": 121,
+        "endChar": 58
+      },
+      "revId": "b2a49a02f60cf2b5c6cce2c9749899a9e8aa634d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ceeb6be7_c05ea752",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-15T09:17:00Z",
       "side": 1,
       "message": "space after previous arguement.",
+      "range": {
+        "startLine": 122,
+        "startChar": 58,
+        "endLine": 122,
+        "endChar": 68
+      },
+      "revId": "b2a49a02f60cf2b5c6cce2c9749899a9e8aa634d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c31aa2c_ff55f774",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-16T03:44:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ceeb6be7_c05ea752",
       "range": {
         "startLine": 122,
         "startChar": 58,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75636978_35fe75ff",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-16T03:44:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7022930b_d4bc28da",
+      "range": {
+        "startLine": 151,
+        "startChar": 33,
+        "endLine": 151,
+        "endChar": 52
+      },
+      "revId": "b2a49a02f60cf2b5c6cce2c9749899a9e8aa634d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6a76d5a_1e66facf",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-04-15T09:17:00Z",
       "side": 1,
       "message": "CI failures seem to be related to this line.\nWIth the updated macro(ISOLATED_FILED), three arguements to be passed here.\nPlease take a look.",
+      "range": {
+        "startLine": 78,
+        "startChar": 7,
+        "endLine": 78,
+        "endChar": 62
+      },
+      "revId": "b2a49a02f60cf2b5c6cce2c9749899a9e8aa634d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e93158cf_06d97745",
+        "filename": "include/arch/aarch32/arch_features.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-16T03:44:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a6a76d5a_1e66facf",
       "range": {
         "startLine": 78,
         "startChar": 7,
@@ -116,6 +212,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76502ccd_cf10f4f9",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-16T03:44:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ac1d4c3f_ed9b538d",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 26
+      },
+      "revId": "b2a49a02f60cf2b5c6cce2c9749899a9e8aa634d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5db6da76_6b2bbf55",
@@ -133,6 +253,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4759535_e7c5e455",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-16T03:44:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5db6da76_6b2bbf55",
+      "revId": "b2a49a02f60cf2b5c6cce2c9749899a9e8aa634d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cc278e8_5fe07c0f",
@@ -146,6 +284,30 @@
       "writtenOn": "2024-04-15T09:21:02Z",
       "side": 1,
       "message": "is_feat_rme_present()? typo ?",
+      "range": {
+        "startLine": 220,
+        "startChar": 16,
+        "endLine": 220,
+        "endChar": 32
+      },
+      "revId": "b2a49a02f60cf2b5c6cce2c9749899a9e8aa634d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "facc6e13_33ed6da3",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-16T03:44:46Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7cc278e8_5fe07c0f",
       "range": {
         "startLine": 220,
         "startChar": 16,
