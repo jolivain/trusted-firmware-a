@@ -22,6 +22,30 @@
       },
       "revId": "d0be2256e1b2adfb00796ec3d3ca5e6fb8394376",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36b7808a_7cd815ab",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-04-16T12:54:24Z",
+      "side": 1,
+      "message": "DRTM_SUPPORT compiles some functions that called ecdsa functions, which breaks without ecdsa support. I used rsa+ecdsa, as other bits of tf-a require rsa functions. \n\nor at least so I thought. It turns out that it\u0027s not required, so I\u0027m deleting it.",
+      "parentUuid": "ae6eb1b7_2ad637b6",
+      "range": {
+        "startLine": 448,
+        "startChar": 0,
+        "endLine": 450,
+        "endChar": 5
+      },
+      "revId": "d0be2256e1b2adfb00796ec3d3ca5e6fb8394376",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
