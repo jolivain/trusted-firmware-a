@@ -16,6 +16,24 @@
       "message": "Hi Donald, I wonder how the OPENSSL_VERSION_NUMBER is supposed to be set. Setting the flag in the build command line does not seem handy when we can have the info by first checking \u0027openssl version\u0027 like what is done for OpenSSL \u003e\u003d 3.x (see make_helpers/build_macros.mk around line 300 and flag USING_OPENSSL3)",
       "revId": "c0c280dfda7322dcaebb5c6341c0880bdf524e13",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6554419c_e7ab925c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001265
+      },
+      "writtenOn": "2024-04-16T17:55:54Z",
+      "side": 1,
+      "message": "OPENSSL_VERSION_NUMBER comes from include/openssl/opensslv.h in OpenSSL headers - it\u0027s been at least that way since OpenSSL 0.9.x iirc...so it\u0027s very stable.\n\nI would argue it\u0027s a more backward/forward compatible way than what\u0027s currently done in build_macros.mk. It\u0027s documented in all revisions of OpenSSL.\n\nhttps://www.openssl.org/docs/manmaster/man3/OPENSSL_VERSION_NUMBER.html",
+      "parentUuid": "02cd8517_cb06b6b6",
+      "revId": "c0c280dfda7322dcaebb5c6341c0880bdf524e13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
