@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e1dcf188_f03ddd71",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-16T12:33:33Z",
+      "side": 1,
+      "message": "+1, According to the patch-stack, the EventLog driver isn\u0027t enable for this platform, so I\u0027m unsure about the relevance of carving out EventLog Memory.\n\nIf this platform isn\u0027t generating any Event Log entries, it appears unnecessary to carve out memory for it.",
+      "parentUuid": "bafc10c0_c84046bf",
+      "range": {
+        "startLine": 9,
+        "startChar": 9,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "a7747626e332cd0b856c543d6d26dccbb91031ce",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5abd82bb_82b23037",
         "filename": "plat/arm/board/neoverse_rd/common/include/nrd3/nrd_pas_def3.h",
         "patchSetId": 1
