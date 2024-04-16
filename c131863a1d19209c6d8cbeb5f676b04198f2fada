@@ -90,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e91ce7bd_fe461a3f",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-16T10:19:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40fac7c4_80e0bc27",
+      "range": {
+        "startLine": 620,
+        "startChar": 24,
+        "endLine": 620,
+        "endChar": 28
+      },
+      "revId": "c131863a1d19209c6d8cbeb5f676b04198f2fada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bfe11815_e57b4335",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 6
@@ -125,6 +149,30 @@
       "side": 1,
       "message": "Why \"next\"? l2 is just cast of l1 to (uint128_t *).",
       "parentUuid": "bfe11815_e57b4335",
+      "range": {
+        "startLine": 271,
+        "startChar": 12,
+        "endLine": 271,
+        "endChar": 15
+      },
+      "revId": "c131863a1d19209c6d8cbeb5f676b04198f2fada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47f52b24_a0cbf531",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-16T10:19:32Z",
+      "side": 1,
+      "message": "l2 is confusing due to possible association to level 2 in tables for xlat. \n\nSuggest l1_quad in that case.",
+      "parentUuid": "c7bcfb81_536b52e5",
       "range": {
         "startLine": 271,
         "startChar": 12,
@@ -266,6 +314,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b86d075_ee537dbb",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1267,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-16T10:19:32Z",
+      "side": 1,
+      "message": "The design was to not cache L1 table address but to follow the link from L0 to L1 table. Hence we dont need a separate table for L1 addresses if they are discontiguous.",
+      "parentUuid": "7a686a7b_b5feec59",
+      "revId": "c131863a1d19209c6d8cbeb5f676b04198f2fada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4cf7d411_cf2d1e39",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 6
@@ -313,6 +379,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2d844932_c89fe725",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1384,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-16T10:19:32Z",
+      "side": 1,
+      "message": "if we have L0 table address, then as long as we start walking from L0 table always, it doesn\u0027t matter if L1 tables are placed discontinuously.",
+      "parentUuid": "fb5b6ede_5fbbe494",
+      "range": {
+        "startLine": 1384,
+        "startChar": 3,
+        "endLine": 1384,
+        "endChar": 16
+      },
+      "revId": "c131863a1d19209c6d8cbeb5f676b04198f2fada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2c30eae0_c721eddd",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 6
@@ -348,6 +438,30 @@
       "side": 1,
       "message": "Previous name is gpt_512mb_bit. I can rename gpt_bit_locks to gpt_locks.",
       "parentUuid": "2c30eae0_c721eddd",
+      "range": {
+        "startLine": 1406,
+        "startChar": 1,
+        "endLine": 1406,
+        "endChar": 15
+      },
+      "revId": "c131863a1d19209c6d8cbeb5f676b04198f2fada",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c05bacb_681bd8be",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1406,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-16T10:19:32Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3f0d4267_684f9877",
       "range": {
         "startLine": 1406,
         "startChar": 1,
