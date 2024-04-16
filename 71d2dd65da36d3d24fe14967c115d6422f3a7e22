@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1170f55a_2de957e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-04-16T17:45:56Z",
+      "side": 1,
+      "message": "This SMMUv3 instance has TBUs sitting in front of blocks that are intended to be checked only for GPC. One TBU is sitting in the path of System control block (that comprises of RSE, SCP and MCP) and another sitting in front of GIC.\n\nSo this SMMUv3 instance is rather targeted for GPC only application.\n\nDoes all this information need to be put into the commit message?",
+      "parentUuid": "d396d414_fc9aa993",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 8
+      },
+      "revId": "71d2dd65da36d3d24fe14967c115d6422f3a7e22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ae085fb_f4f5f9b1",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -49,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb2252bb_c0ec158e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-04-16T17:45:56Z",
+      "side": 1,
+      "message": "GPC is currently being disabled in RSE firmware (GPC_EN is reset and ACCESS_EN is set) so that the transaction originating from RSE, SCP are not gated until the AP initializes the global GPT.\n\nGoing forward RSE can implement a trimmed down L0 GPT so that the boot firmware (RSE) need not disable GPC.",
+      "parentUuid": "8ae085fb_f4f5f9b1",
+      "range": {
+        "startLine": 10,
+        "startChar": 63,
+        "endLine": 11,
+        "endChar": 47
+      },
+      "revId": "71d2dd65da36d3d24fe14967c115d6422f3a7e22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e6cf1541_973e3871",
         "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/rdfremont_bl31_setup.c",
         "patchSetId": 1
@@ -60,6 +108,24 @@
       "writtenOn": "2024-04-15T08:54:49Z",
       "side": 1,
       "message": "It is worth noting this omits calling smmuv3_security_init (aborting on going transactions at least for NS and secure streams) per this change https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26218\nPerhaps it is good to add a comment as this deviates from the Base FVP implementation:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26218/4/plat/arm/board/fvp/fvp_bl31_setup.c#77",
+      "revId": "71d2dd65da36d3d24fe14967c115d6422f3a7e22",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c6261ec_3d4412c3",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/rdfremont_bl31_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-04-16T17:45:56Z",
+      "side": 1,
+      "message": "That\u0027s right. We are skipping the smmuv3_security_init() for this instance of SMMUv3. \n\nI will add a comment highlighting this.",
+      "parentUuid": "e6cf1541_973e3871",
       "revId": "71d2dd65da36d3d24fe14967c115d6422f3a7e22",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
