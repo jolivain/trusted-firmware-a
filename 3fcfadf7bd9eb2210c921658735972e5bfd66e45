@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f28c5a40_4c7ee77e",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 1730,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-16T16:13:56Z",
+      "side": 1,
+      "message": "Yes, this function is returning params which do not change inside the critical section. Would be useful to have a comment .\n\nSince the rework suggested is to base the bit lock on the address rather than L1 index, it may be possible to acquire bit lock without any gpi_info as we only need `base` for acquiring the lock. (It is generally good to calc info which does not need to be within critical section outside the lock).\n\nIn that case, the lock function can be acquire_bit_lock(base) which inturn will call bit_lock with correct args.",
+      "parentUuid": "19f72e11_42ec75cc",
+      "revId": "3fcfadf7bd9eb2210c921658735972e5bfd66e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "960c5298_dfe29b68",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 13
@@ -31,6 +49,30 @@
       "writtenOn": "2024-04-15T23:32:59Z",
       "side": 1,
       "message": "need to remove bit_unlock. Or is there a preceding bit_lock that I\u0027m not seeing?",
+      "range": {
+        "startLine": 1853,
+        "startChar": 0,
+        "endLine": 1853,
+        "endChar": 12
+      },
+      "revId": "3fcfadf7bd9eb2210c921658735972e5bfd66e45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c175ddac_5bab763c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 1853,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-16T16:13:56Z",
+      "side": 1,
+      "message": "yes, this seems to be an error.",
+      "parentUuid": "960c5298_dfe29b68",
       "range": {
         "startLine": 1853,
         "startChar": 0,
