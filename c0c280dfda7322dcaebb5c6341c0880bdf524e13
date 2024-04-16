@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02cd8517_cb06b6b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-16T17:27:42Z",
+      "side": 1,
+      "message": "Hi Donald, I wonder how the OPENSSL_VERSION_NUMBER is supposed to be set. Setting the flag in the build command line does not seem handy when we can have the info by first checking \u0027openssl version\u0027 like what is done for OpenSSL \u003e\u003d 3.x (see make_helpers/build_macros.mk around line 300 and flag USING_OPENSSL3)",
+      "revId": "c0c280dfda7322dcaebb5c6341c0880bdf524e13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
