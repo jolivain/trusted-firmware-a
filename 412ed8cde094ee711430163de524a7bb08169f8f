@@ -51,6 +51,24 @@
       "message": "Hi Jimmy,\nThanks for your patch! I\u0027ll ask a colleague to test it on STM32MP1, but he may take some time. I hope he can do that in the coming days. I\u0027ll keep you informed when that\u0027s done.\nI also have a minor comment for the commit message, to ease changelog generation for the next release.",
       "revId": "412ed8cde094ee711430163de524a7bb08169f8f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef4acaf0_90678d4c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-17T13:07:30Z",
+      "side": 1,
+      "message": "Tested OK on STM32MP157C-DK2 board!",
+      "parentUuid": "048cdfcc_3b2823bc",
+      "revId": "412ed8cde094ee711430163de524a7bb08169f8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
