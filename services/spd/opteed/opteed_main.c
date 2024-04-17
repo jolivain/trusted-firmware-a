@@ -87,6 +87,13 @@ static uint64_t opteed_sel1_interrupt_handler(uint32_t id,
 	uint32_t linear_id;
 	optee_context_t *optee_ctx;
 
+#if OPTEE_ALLOW_SMC_LOAD
+	if (optee_vector_table == NULL) {
+		/* OPTEE is not loaded yet, ignore this interrupt */
+		SMC_RET0(handle);
+	}
+#endif
+
 	/* Check the security state when the exception was generated */
 	assert(get_interrupt_src_ss(flags) == NON_SECURE);
 
@@ -123,8 +130,23 @@ static uint64_t opteed_sel1_interrupt_handler(uint32_t id,
 static int32_t opteed_setup(void)
 {
 #if OPTEE_ALLOW_SMC_LOAD
+	u_register_t flags;
+	uint64_t rc;
 	opteed_allow_load = true;
 	INFO("Delaying OP-TEE setup until we receive an SMC call to load it\n");
+	/*
+	 * Register an interrupt handler for S-EL1 interrupts when generated
+	 * during code executing in the non-secure state. We must do this now so
+	 * that the interrupt priorities are not changed after starting the
+	 * linux kernel.
+	 */
+	flags = 0;
+	set_interrupt_rm_flag(flags, NON_SECURE);
+	rc = register_interrupt_type_handler(INTR_TYPE_S_EL1,
+			opteed_sel1_interrupt_handler,
+			flags);
+	if (rc)
+		panic();
 	return 0;
 #else
 	entry_point_info_t *optee_ep_info;
@@ -575,7 +597,9 @@ static uintptr_t opteed_smc_handler(uint32_t smc_fid,
 	cpu_context_t *ns_cpu_context;
 	uint32_t linear_id = plat_my_core_pos();
 	optee_context_t *optee_ctx = &opteed_sp_context[linear_id];
+#if !OPTEE_ALLOW_SMC_LOAD
 	uint64_t rc;
+#endif
 
 	/*
 	 * Determine which security state this SMC originated from
@@ -709,6 +733,7 @@ static uintptr_t opteed_smc_handler(uint32_t smc_fid,
 			 */
 			psci_register_spd_pm_hook(&opteed_pm);
 
+#if !OPTEE_ALLOW_SMC_LOAD
 			/*
 			 * Register an interrupt handler for S-EL1 interrupts
 			 * when generated during code executing in the
@@ -721,6 +746,7 @@ static uintptr_t opteed_smc_handler(uint32_t smc_fid,
 						flags);
 			if (rc)
 				panic();
+#endif
 		}
 
 		/*
