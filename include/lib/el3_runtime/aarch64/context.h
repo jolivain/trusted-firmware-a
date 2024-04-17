@@ -191,10 +191,35 @@
 #define CTX_TCR2_REGS_END       CTX_S2POE_REGS_END
 #endif /* ENABLE_FEAT_TCR2 */
 
+#if ENABLE_TRF_FOR_NS
+#define CTX_TRFCR_EL1		(CTX_TCR2_REGS_END + U(0x0))
+#define CTX_TRFCR_REGS_END	(CTX_TCR2_REGS_END + U(0x10)) /* Align to the next 16 byte boundary */
+#else
+#define CTX_TRFCR_REGS_END	CTX_TCR2_REGS_END
+#endif /* ENABLE_TRG_FOR_NS */
+
+#if ENABLE_FEAT_CSV2_2
+#define CTX_SCXTNUM_EL0		(CTX_TRFCR_REGS_END + U(0x0))
+#define CTX_SCXTNUM_EL1		(CTX_TRFCR_REGS_END + U(0x8))
+#define CTX_SCXTNUM_REGS_END	(CTX_TRFCR_REGS_END + U(0x10))
+#else
+#define CTX_SCXTNUM_REGS_END	(CTX_TRFCR_REGS_END)
+#endif /* ENABLE_FEAT_CSV2_2 */
+
+#if ENABLE_FEAT_GCS
+#define CTX_GCSCR_EL1		(CTX_SCXTNUM_REGS_END + U(0x0))
+#define CTX_GCSCRE0_EL1		(CTX_SCXTNUM_REGS_END + U(0x8))
+#define CTX_GCSPR_EL1		(CTX_SCXTNUM_REGS_END + U(0x10))
+#define CTX_GCSPR_EL0		(CTX_SCXTNUM_REGS_END + U(0x18))
+#define CTX_GCS_REGS_END	(CTX_SCXTNUM_REGS_END + U(0x20))
+#else
+#define CTX_GCS_REGS_END	(CTX_SCXTNUM_REGS_END)
+#endif /* ENABLE_FEAT_GCS */
+
 /*
  * End of system registers.
  */
-#define CTX_EL1_SYSREGS_END	CTX_TCR2_REGS_END
+#define CTX_EL1_SYSREGS_END	CTX_GCS_REGS_END
 
 /*******************************************************************************
  * Constants that allow assembler code to access members of and the 'fp_regs'
