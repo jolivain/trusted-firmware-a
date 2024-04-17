@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec992d57_5f53eee9",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-17T10:59:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fd2832c_4a71ce46",
+      "revId": "ac27e0119c0b316e0d418b0267b2c3cd7865b5e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8791361d_5c203621",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "There are 10 possible sizes for arg, from 4KB to 512GB and only 6 (4KB-512MB) are used by GPT library.\nAre you suggesting to move TLBI_ARG macro \u0026 related definitions from gpt_rme_private.h to this arch_heleprs.c?",
       "parentUuid": "8791361d_5c203621",
+      "range": {
+        "startLine": 721,
+        "startChar": 40,
+        "endLine": 721,
+        "endChar": 43
+      },
+      "revId": "ac27e0119c0b316e0d418b0267b2c3cd7865b5e5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "883bd404_a046e27b",
+        "filename": "include/arch/aarch64/arch_helpers.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 721,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-17T10:59:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a887b57c_7800fe01",
       "range": {
         "startLine": 721,
         "startChar": 40,
