@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d804b3a_76c54f19",
+        "filename": "lib/cpus/aarch64/cortex_x4.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-04-18T18:40:31Z",
+      "side": 1,
+      "message": ".macro apply_erratum _cpu:req, _cve:req, _id:req, _chosen:req, _get_rev\u003dGET_CPU_REV\n\nThe default will make sure it enters the first condition. When we have back to back macro calls, we can add NO_GET_CPU_REV argument to avoid the revision read again, which will execute the code under \" .elseif (\\_chosen)  \" condition, which doesn\u0027t have the \"bl      cpu_get_rev_var \"\n\"\napply_erratum cortex_a710, ERRATUM(2008768), ERRATA_A710_2008768\napply_erratum cortex_a710, ERRATUM(2291219), ERRATA_A710_2291219, NO_GET_CPU_REV\n\"",
+      "parentUuid": "1f06834e_39a9c481",
+      "revId": "9f6b795cfdf93858191f56aafdb6a4aa18411e27",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eefb9cc9_06ec6bad",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-04-11T19:32:29Z",
       "side": 1,
       "message": "nit: two instances, can remove one.",
+      "range": {
+        "startLine": 826,
+        "startChar": 50,
+        "endLine": 826,
+        "endChar": 56
+      },
+      "revId": "9f6b795cfdf93858191f56aafdb6a4aa18411e27",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d21ea2c_294dc154",
+        "filename": "lib/cpus/cpu-ops.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 826,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-04-18T18:40:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "eefb9cc9_06ec6bad",
       "range": {
         "startLine": 826,
         "startChar": 50,
