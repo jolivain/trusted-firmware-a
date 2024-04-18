@@ -16,6 +16,24 @@
       "message": "These are changes in secure interrupt settings only if I understand it correctly. Is that visible to the Linux kernel?",
       "revId": "cc277374f0f666624415a6b333fd5f83c8ea4ec0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1a24b9a_455e39d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2024-04-18T17:51:19Z",
+      "side": 1,
+      "message": "According to this SCR_EL3.FIQ must not change while the kernel is executing:\n\nhttps://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/Documentation/arm64/booting.txt?id\u003dd98d0a990ca1446d3c0ca8f0b9ac127a66e40cdf",
+      "parentUuid": "132d49c2_6e7b22ab",
+      "revId": "cc277374f0f666624415a6b333fd5f83c8ea4ec0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
