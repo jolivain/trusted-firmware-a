@@ -77,6 +77,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4322ee0_0266fbee",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 33
+      },
+      "lineNbr": 713,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-18T13:43:40Z",
+      "side": 1,
+      "message": "Acknowledged.\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26213\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26396",
+      "parentUuid": "d7c069d4_856c1f4c",
+      "range": {
+        "startLine": 712,
+        "startChar": 0,
+        "endLine": 713,
+        "endChar": 37
+      },
+      "revId": "ac8213e98d999319ddd09d4762451b06fab44d78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2d2bc7a_e9878a41",
@@ -90,6 +114,30 @@
       "writtenOn": "2024-01-22T14:21:59Z",
       "side": 1,
       "message": "this should be a one time operation at reset and we dont expect this to be changed... This was the intention (not sure if TF-A has deviated from that) ?",
+      "range": {
+        "startLine": 739,
+        "startChar": 0,
+        "endLine": 741,
+        "endChar": 6
+      },
+      "revId": "ac8213e98d999319ddd09d4762451b06fab44d78",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3cfa982_2d62784b",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 33
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-18T13:43:40Z",
+      "side": 1,
+      "message": "https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26213\nIts covered here. Hence closing this comment.",
+      "parentUuid": "e2d2bc7a_e9878a41",
       "range": {
         "startLine": 739,
         "startChar": 0,
