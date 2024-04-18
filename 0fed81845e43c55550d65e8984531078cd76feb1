@@ -16,6 +16,24 @@
       "message": "Is EEL2 is set at reset , would this not reflect in all further scr_el3 programming as we are doing read-modify-write on top of existing value ? see line 286.",
       "revId": "0fed81845e43c55550d65e8984531078cd76feb1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ae6ce01_13cf01c8",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-04-18T18:46:17Z",
+      "side": 1,
+      "message": "Yes, you are right. In the master branch we do not read scr_el3 register but re-create it. In 2.8 its different. Removing from here is not a problem but it will be one more difference if we do cherry-pick patches in future.\nI am happy either way, removing from here or keeping it.",
+      "parentUuid": "8a7818c5_977ffe55",
+      "revId": "0fed81845e43c55550d65e8984531078cd76feb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
