@@ -16,6 +16,23 @@
       "message": "Bitlock patch is here: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27175",
       "revId": "e769f830d3116f49ed82769d9d731c4dca8f6188",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3f7c1ba_b64be794",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-04-18T10:35:20Z",
+      "side": 1,
+      "message": "Linux on sbsa-ref boots with this change applied. On all available cpu core types.",
+      "revId": "e769f830d3116f49ed82769d9d731c4dca8f6188",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
