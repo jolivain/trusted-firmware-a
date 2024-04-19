@@ -16,6 +16,29 @@
       "message": "Rendered documentation: https://ci-builds.trustedfirmware.org/static-files/XGS9YEImZaHUJvUndkAjKpX0dBHucTXN9Knec-FfLesxNzEzNTQyMDc5NTQwOjE3OmhhcnJpc29ubXV0YWktYXJtOmpvYi90Zi1hLWJ1aWxkZXIvMzU1ODMzMC9hcnRpZmFjdA\u003d\u003d/artefacts/release/build/html/components/fconf/tb_fw_bindings.html.",
       "revId": "51c8179f0ba00bd4e8cc4ea8dc8e7cae756f964b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8a4f933_6d00a346",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 8
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-19T15:58:44Z",
+      "side": 1,
+      "message": "I missed this one previously, but from what I\u0027ve seen this field is not always present. should it be [optional]?",
+      "range": {
+        "startLine": 141,
+        "startChar": 9,
+        "endLine": 141,
+        "endChar": 18
+      },
+      "revId": "51c8179f0ba00bd4e8cc4ea8dc8e7cae756f964b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
