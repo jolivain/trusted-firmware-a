@@ -249,6 +249,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8823a4f_bfd59f58",
+        "filename": "lib/gpt_rme/gpt_rme.mk",
+        "patchSetId": 24
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-19T11:42:51Z",
+      "side": 1,
+      "message": "Yes, it is passed for BL2 \u0026 BL31. Can we put it in main Makefile?",
+      "parentUuid": "69e3b5a7_e00f6820",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bd5758a9_84ff8071",
         "filename": "lib/gpt_rme/gpt_rme_private.h",
         "patchSetId": 24
@@ -272,6 +290,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3935c5aa_1798691e",
+        "filename": "lib/gpt_rme/gpt_rme_private.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-19T11:42:51Z",
+      "side": 1,
+      "message": "This definition in \\include\\lib\\utils_def.h\n\n#define round_boundary(value, boundary)\t\t\\\n\t((__typeof__(value))((boundary) - 1))\n\nis not MISRA C complian because SZ_2M is UL for aarch64.",
+      "parentUuid": "bd5758a9_84ff8071",
+      "range": {
+        "startLine": 313,
+        "startChar": 8,
+        "endLine": 313,
+        "endChar": 17
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4fe3f132_6f9b90a7",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 24
@@ -283,6 +325,30 @@
       "writtenOn": "2024-04-19T09:35:16Z",
       "side": 1,
       "message": "This would be a breaking change for all CIs which do not specify this option. We cannot merge this without notifying affected stakeholders. \n\nNeed to understand more details as in :\n\n1. Which BL image has increased in size and by how much ? \n2. Is there further optimization that need to be done to reduce the code size ?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 4
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85f9ff22_48ce2842",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 24
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-19T11:42:51Z",
+      "side": 1,
+      "message": "\"all CIs which do not specify this option\":\nIf ENABLE_RME \u003d\u003d 0, then these platforms aren\u0027t effected and will use original 256KB value. I can revert this change to see if CI fails.",
+      "parentUuid": "4fe3f132_6f9b90a7",
       "range": {
         "startLine": 29,
         "startChar": 0,
