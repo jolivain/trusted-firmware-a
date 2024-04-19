@@ -538,6 +538,69 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f894e9b5_4b3da277",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 1553,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T14:34:57Z",
+      "side": 1,
+      "message": "remove this, I think the caller code can do this.",
+      "range": {
+        "startLine": 1536,
+        "startChar": 0,
+        "endLine": 1553,
+        "endChar": 17
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90365682_bd0cc860",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 1624,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T14:34:57Z",
+      "side": 1,
+      "message": "this can be de-nested. Check that src is either realm or Secure first. \n\n\t/* Delegate request can only come from REALM or SECURE */\nif (!(src_sec_state \u003d\u003d SMC_FROM_REALM || src_sec_state \u003d\u003d SMC_FROM_SECURE))\n    return -EINVAL;\n\n---\n\nThe we can assume that src has been checked.",
+      "range": {
+        "startLine": 1621,
+        "startChar": 2,
+        "endLine": 1624,
+        "endChar": 3
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2652a1b7_3cbcd0b1",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 1671,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T14:34:57Z",
+      "side": 1,
+      "message": "```\n#if (RME_GPT_MAX_BLOCK !\u003d 0)\nif ((gpi_info.gpt_l1_desc \u0026 GPT_L1_TYPE_CONT_DESC_MASK) \u003d\u003d\n\t\t\t\t\tGPT_L1_TYPE_CONT_DESC) {\n    shatter() --\u003e which just shatters the does a tlbi with existing GPI\n}\n#endif\nflush_page_to_popa(base | nse);\nwrite_gpt()\ndsboshst()\ntlbi_page()\nflush_page_to_popa(base | nse);\n....\n```\n\nThis way the core sequence which changes the GPI remains the same and reflects the sequence mentioned in the RME supplement docume nt,",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69e3b5a7_e00f6820",
         "filename": "lib/gpt_rme/gpt_rme.mk",
         "patchSetId": 24
@@ -567,6 +630,24 @@
       "side": 1,
       "message": "Yes, it is passed for BL2 \u0026 BL31. Can we put it in main Makefile?",
       "parentUuid": "69e3b5a7_e00f6820",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a46e6b3d_61cf6de9",
+        "filename": "lib/gpt_rme/gpt_rme.mk",
+        "patchSetId": 24
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T14:34:57Z",
+      "side": 1,
+      "message": "The -D option is passed twice. This seems to be the problem.",
+      "parentUuid": "d8823a4f_bfd59f58",
       "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -620,6 +701,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ca1ce95e_370a77ae",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 24
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T14:34:57Z",
+      "side": 1,
+      "message": "nit: remove the tab.",
+      "range": {
+        "startLine": 143,
+        "startChar": 19,
+        "endLine": 143,
+        "endChar": 20
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4fe3f132_6f9b90a7",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 24
@@ -655,6 +759,30 @@
       "side": 1,
       "message": "\"all CIs which do not specify this option\":\nIf ENABLE_RME \u003d\u003d 0, then these platforms aren\u0027t effected and will use original 256KB value. I can revert this change to see if CI fails.",
       "parentUuid": "4fe3f132_6f9b90a7",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 4
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35bec637_fa869aa0",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 24
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T14:34:57Z",
+      "side": 1,
+      "message": "I was referring to the RME builds. If the regular default FVP config is not affected by the patch, lets not change this.",
+      "parentUuid": "85f9ff22_48ce2842",
       "range": {
         "startLine": 29,
         "startChar": 0,
