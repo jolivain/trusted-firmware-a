@@ -16,6 +16,29 @@
       "message": "Retaining V+1 from patch v2 since just added a new line",
       "revId": "f405c98b00b4dc26c0ba66246e92dc82e2f043a7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d195b034_2eac62b3",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 1348,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-19T08:05:12Z",
+      "side": 1,
+      "message": "I believe consolidating all deprecation information in one place could indeed enhance readability and streamline updates. \nCurrently, deprecation details are spread across various pages, including platform ports, build options, and the release process (mentions about interface and driver deprecation) \nBy centralizing this information within the release process page, it becomes more accessible for both updating and reference, allowing everyone to quickly grasp all deprecation notices at a glance. What do you think?",
+      "range": {
+        "startLine": 1346,
+        "startChar": 0,
+        "endLine": 1348,
+        "endChar": 32
+      },
+      "revId": "f405c98b00b4dc26c0ba66246e92dc82e2f043a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
