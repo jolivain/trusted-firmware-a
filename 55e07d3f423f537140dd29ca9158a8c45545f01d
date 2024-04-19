@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8cb78e2f_0976bfb5",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T14:58:25Z",
+      "side": 1,
+      "message": "In general, I think this is a good idea. Since the only other platform this concerns for now is ST, Yann, does this change make sense to you?",
+      "parentUuid": "04a08e18_b22e93cf",
+      "range": {
+        "startLine": 15,
+        "startChar": 25,
+        "endLine": 15,
+        "endChar": 34
+      },
+      "revId": "55e07d3f423f537140dd29ca9158a8c45545f01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "492b5aaa_0b270da7",
         "filename": "docs/components/fconf/tb_fw_bindings.rst",
         "patchSetId": 5
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-19T14:27:05Z",
       "side": 1,
       "message": "must be ``\u003cplat\u003e,io-fip-handle`` instead? We can standardize that way.",
+      "range": {
+        "startLine": 36,
+        "startChar": 27,
+        "endLine": 36,
+        "endChar": 44
+      },
+      "revId": "55e07d3f423f537140dd29ca9158a8c45545f01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "021e442c_d236a41c",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T14:58:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "492b5aaa_0b270da7",
       "range": {
         "startLine": 36,
         "startChar": 27,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "245f26de_5f6decdd",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T14:58:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "55609e5a_76d8d4e7",
+      "range": {
+        "startLine": 136,
+        "startChar": 25,
+        "endLine": 136,
+        "endChar": 31
+      },
+      "revId": "55e07d3f423f537140dd29ca9158a8c45545f01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8720bc5_eb32c64e",
@@ -83,6 +155,24 @@
       "writtenOn": "2024-04-19T14:27:05Z",
       "side": 1,
       "message": "Good to add, owner is either silicon provided or platform provided.",
+      "revId": "55e07d3f423f537140dd29ca9158a8c45545f01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0c9b4c4_6c05863d",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T14:58:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8720bc5_eb32c64e",
       "revId": "55e07d3f423f537140dd29ca9158a8c45545f01d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
