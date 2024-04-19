@@ -132,6 +132,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "faf33e68_846a8194",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-19T12:01:04Z",
+      "side": 1,
+      "message": "No, we use fdt_read_uint32 to read a single u32 value. I think it is not expected that the stack size is bigger than 4GB.",
+      "parentUuid": "d8eff346_924f6dfa",
+      "range": {
+        "startLine": 26,
+        "startChar": 17,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4425129e_9c9ee5d4",
         "filename": "docs/components/fconf/tb_fw_bindings.rst",
         "patchSetId": 1
@@ -184,6 +208,30 @@
       "side": 1,
       "message": "I\u0027m not keen on the layout of this section. I would prefer we didn\u0027t go into details of all possible parts. Should we do the same as we\u0027ve done for \"arm,sp\" below where we define the properties we expect a SP to have rather than every possible SP? On top of this, we could specify that the the compatible is a string of the form \"\u003cplat\u003e,io-fip-handle\" where \u003cplat\u003e is the specific platform compatible.",
       "parentUuid": "19ccc913_cc4ccf47",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c324a654_aeeae995",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-19T12:01:04Z",
+      "side": 1,
+      "message": "Keep it as it is, this will be simpler I think",
+      "parentUuid": "554ff2b5_8bf9c4b4",
       "range": {
         "startLine": 36,
         "startChar": 16,
