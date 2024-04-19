@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f95bb2d_519f55aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-19T16:10:03Z",
+      "side": 1,
+      "message": "nit: limit the characters in this line to keep the commit message aligned.\nIt looks a bit different with extra space on main window.",
+      "range": {
+        "startLine": 15,
+        "startChar": 60,
+        "endLine": 15,
+        "endChar": 73
+      },
+      "revId": "bff95f5e8f463d327d6a921d65867b5565cf49da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67302c46_2891a5d0",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-19T16:10:03Z",
+      "side": 1,
+      "message": "Its a good place to convert these apis as well similar to others in this file.\nAll are static and are explicitly used in this file alone. So changes wouldn\u0027t impact other files.\n\n\nSo convert them as well.\n\ni.e \n```\nstatic unsigned int read_feat_rme_id_field(void)\n{\n\treturn ISOLATE_FIELD( .....);\n}\n\nand at line 382, utilise it. \n\nIf no blockers, try and replicate for other three features in this file. \npauth, bti, rng_trap. \n```",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 1
+      },
+      "revId": "bff95f5e8f463d327d6a921d65867b5565cf49da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
