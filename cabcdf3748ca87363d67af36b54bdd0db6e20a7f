@@ -54,6 +54,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a3d1cfb_35dbff67",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-19T13:35:26Z",
+      "side": 1,
+      "message": "Looks like [nrd-common.mk] already includes ``arm_common.mk`` file so this should be fine.\n\n[nrd-common.mk]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27785/1/plat/arm/board/neoverse_rd/platform/rdfremont/platform.mk#44",
+      "parentUuid": "9e20cabb_2d9238ea",
+      "revId": "cabcdf3748ca87363d67af36b54bdd0db6e20a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "484e24bc_5892d635",
