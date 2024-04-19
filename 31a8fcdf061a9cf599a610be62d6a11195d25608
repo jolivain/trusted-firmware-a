@@ -65,6 +65,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab20a9e1_82eb4d0b",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-19T15:53:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae88e3a7_98da025a",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a17e78c_7d5f3d9c",
@@ -113,6 +131,30 @@
       "writtenOn": "2024-04-19T11:14:44Z",
       "side": 1,
       "message": "we could increment this pointer and then avoid having to keep the idx counter thus saving memory.",
+      "range": {
+        "startLine": 176,
+        "startChar": 27,
+        "endLine": 176,
+        "endChar": 28
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7e521fc_eee8ebd8",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-19T15:53:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00f012bf_f45da153",
       "range": {
         "startLine": 176,
         "startChar": 27,
@@ -648,6 +690,24 @@
       "side": 1,
       "message": "The -D option is passed twice. This seems to be the problem.",
       "parentUuid": "d8823a4f_bfd59f58",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c874fbc_e340be4f",
+        "filename": "lib/gpt_rme/gpt_rme.mk",
+        "patchSetId": 24
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-19T15:53:40Z",
+      "side": 1,
+      "message": "Removed\n$(eval $(call add_define,RME_GPT_MAX_BLOCK))\n\u0026 added RME_GPT_MAX_BLOCK in Makefile\u0027s list for\n$(eval $(call add_defines,\\\nit\u0027s passed only once now.",
+      "parentUuid": "a46e6b3d_61cf6de9",
       "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
