@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04a08e18_b22e93cf",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-19T14:27:05Z",
+      "side": 1,
+      "message": "Does this really need to be ``arm,tb_fw``? This compatible property consumption lies inside the ``arm`` platform layer? I think it should be ``\u003cplat\u003e,tb_fw`` instead.\nLooks like it is getting used by ST platform but not really get consumed in that platform right?",
+      "range": {
+        "startLine": 15,
+        "startChar": 25,
+        "endLine": 15,
+        "endChar": 34
+      },
+      "revId": "55e07d3f423f537140dd29ca9158a8c45545f01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "492b5aaa_0b270da7",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-19T14:27:05Z",
+      "side": 1,
+      "message": "must be ``\u003cplat\u003e,io-fip-handle`` instead? We can standardize that way.",
+      "range": {
+        "startLine": 36,
+        "startChar": 27,
+        "endLine": 36,
+        "endChar": 44
+      },
+      "revId": "55e07d3f423f537140dd29ca9158a8c45545f01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55609e5a_76d8d4e7",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-19T14:27:05Z",
+      "side": 1,
+      "message": "Can we mention ``\u003cplat\u003e,sp`` instead?",
+      "range": {
+        "startLine": 136,
+        "startChar": 25,
+        "endLine": 136,
+        "endChar": 31
+      },
+      "revId": "55e07d3f423f537140dd29ca9158a8c45545f01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8720bc5_eb32c64e",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-19T14:27:05Z",
+      "side": 1,
+      "message": "Good to add, owner is either silicon provided or platform provided.",
+      "revId": "55e07d3f423f537140dd29ca9158a8c45545f01d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
