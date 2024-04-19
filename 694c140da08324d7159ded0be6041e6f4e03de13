@@ -52,6 +52,29 @@
       "parentUuid": "be4f7217_e3046e01",
       "revId": "694c140da08324d7159ded0be6041e6f4e03de13",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2281ad8f_3e3328aa",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-04-19T16:14:48Z",
+      "side": 1,
+      "message": "Actually I gather we could remove this case entirely and hence also spmd_is_spmc_message function at lines 790-798 altogether?",
+      "range": {
+        "startLine": 1135,
+        "startChar": 2,
+        "endLine": 1135,
+        "endChar": 50
+      },
+      "revId": "694c140da08324d7159ded0be6041e6f4e03de13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
