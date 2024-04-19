@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "edb62a67_81f60f06",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-19T12:05:35Z",
+      "side": 1,
+      "message": "SZ_2M, SZ_32 \u0026 SZ_512M are UL for aarch64 which match size_t.",
+      "parentUuid": "818f0438_39888d53",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 12
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae88e3a7_98da025a",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 24
@@ -54,6 +78,24 @@
       "writtenOn": "2024-04-19T11:14:44Z",
       "side": 1,
       "message": "Need to see the size reduction achieved if the lib can statically assume 4K page size.",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c46b404d_478d48f2",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-19T12:05:35Z",
+      "side": 1,
+      "message": "This will be the next optimisation patch stack, when GPT library will use platform specific defines. It will also allow to have statically defined \u0026 allocated array of bit locks \u0026 not use memory page reserved for L0 GPT.",
+      "parentUuid": "3a17e78c_7d5f3d9c",
       "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -150,6 +192,54 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cfab137_7861b319",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-19T12:05:35Z",
+      "side": 1,
+      "message": "gpt_bitlock_base?",
+      "parentUuid": "111c20dc_b636aa41",
+      "range": {
+        "startLine": 180,
+        "startChar": 18,
+        "endLine": 180,
+        "endChar": 27
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdf17e65_a17f7c55",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-19T12:05:35Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8dae5e9b_8e3b671d",
+      "range": {
+        "startLine": 180,
+        "startChar": 33,
+        "endLine": 180,
+        "endChar": 51
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37d95b8f_5e62e018",
@@ -163,6 +253,30 @@
       "writtenOn": "2024-04-19T11:14:44Z",
       "side": 1,
       "message": "memset ?\n\nI know the TF-A memset() implementation is not performant. But in future, I expect memset may use FEAT_MOPS extension and in that case, we would get the performance boot automatically.",
+      "range": {
+        "startLine": 207,
+        "startChar": 1,
+        "endLine": 209,
+        "endChar": 2
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9b445ac_3b6afaa0",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-19T12:05:35Z",
+      "side": 1,
+      "message": "Won\u0027t work. memset() uses \u0027int val\u0027, here we write uint64_t values.",
+      "parentUuid": "37d95b8f_5e62e018",
       "range": {
         "startLine": 207,
         "startChar": 1,
@@ -192,6 +306,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b620af6b_456adbd0",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-19T12:05:35Z",
+      "side": 1,
+      "message": "Should GPT library perform this sorting of PAS_REGION array? Won\u0027t this result in more code? Also finding regions with the same PAS will require checking all previous regions \u0026 changing already written descriptors.",
+      "parentUuid": "6a5c1b9f_d83858cb",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c87260a1_17f810ff",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 24
@@ -203,6 +335,30 @@
       "writtenOn": "2024-04-19T11:19:30Z",
       "side": 1,
       "message": "needs to be done in gpt_init_l0_tables()",
+      "range": {
+        "startLine": 1206,
+        "startChar": 0,
+        "endLine": 1227,
+        "endChar": 2
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2058c60c_b79a2fa2",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-19T12:05:35Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c87260a1_17f810ff",
       "range": {
         "startLine": 1206,
         "startChar": 0,
