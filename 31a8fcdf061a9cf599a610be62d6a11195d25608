@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fe3f132_6f9b90a7",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 24
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T09:35:16Z",
+      "side": 1,
+      "message": "This would be a breaking change for all CIs which do not specify this option. We cannot merge this without notifying affected stakeholders. \n\nNeed to understand more details as in :\n\n1. Which BL image has increased in size and by how much ? \n2. Is there further optimization that need to be done to reduce the code size ?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 4
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
