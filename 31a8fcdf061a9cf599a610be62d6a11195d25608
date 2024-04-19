@@ -324,6 +324,121 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6927ecfe_fe16ee80",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 686,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T13:31:27Z",
+      "side": 1,
+      "message": "... GPI entries from `first` to specified `length` in a single L1 ..",
+      "range": {
+        "startLine": 686,
+        "startChar": 30,
+        "endLine": 686,
+        "endChar": 43
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ab93be1_e955ed40",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 751,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T13:31:27Z",
+      "side": 1,
+      "message": "... GPI entries from first to specified length in a single L1 ..\n\nI have given a comment to remove the `last` argument.",
+      "range": {
+        "startLine": 751,
+        "startChar": 28,
+        "endLine": 751,
+        "endChar": 47
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b513050_49d8c7c6",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T13:31:27Z",
+      "side": 1,
+      "message": "this argument can be avoided I think. It is redundant with length.",
+      "range": {
+        "startLine": 773,
+        "startChar": 17,
+        "endLine": 773,
+        "endChar": 21
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "768a2b7a_aef2bd7f",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 823,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T13:31:27Z",
+      "side": 1,
+      "message": "\"an entire L1 table\"",
+      "range": {
+        "startLine": 823,
+        "startChar": 26,
+        "endLine": 823,
+        "endChar": 33
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24ccbaac_c209bf88",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T13:31:27Z",
+      "side": 1,
+      "message": "although this looks like a macro , I suspect this is code heavy as this is operating on a variable and not resolved at compile time. \n\nAlso what if the regions are not 64KB aligned ? What if we need to have a different attribute in between a descriptor ?",
+      "range": {
+        "startLine": 957,
+        "startChar": 7,
+        "endLine": 957,
+        "endChar": 24
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c87260a1_17f810ff",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 24
@@ -371,6 +486,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d0e272c0_9812751f",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T13:31:27Z",
+      "side": 1,
+      "message": "move to L0 init",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "64541abc_d10deeef",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 24
@@ -382,6 +514,24 @@
       "writtenOn": "2024-04-19T11:19:30Z",
       "side": 1,
       "message": "This print needs to be part of gpt_init_l0_tables",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e15edf64_2dfe6767",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T13:31:27Z",
+      "side": 1,
+      "message": "ignore.",
+      "parentUuid": "64541abc_d10deeef",
       "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
