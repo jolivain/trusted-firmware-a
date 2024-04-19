@@ -3,6 +3,195 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "818f0438_39888d53",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T11:14:44Z",
+      "side": 1,
+      "message": "can we use smaller types to reduce memory footprint ?",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 12
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae88e3a7_98da025a",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T11:14:44Z",
+      "side": 1,
+      "message": "Need a comment that the entries need to be sorted in descending order of contiguous sizes.",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a17e78c_7d5f3d9c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T11:14:44Z",
+      "side": 1,
+      "message": "Need to see the size reduction achieved if the lib can statically assume 4K page size.",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00f012bf_f45da153",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T11:14:44Z",
+      "side": 1,
+      "message": "we could increment this pointer and then avoid having to keep the idx counter thus saving memory.",
+      "range": {
+        "startLine": 176,
+        "startChar": 27,
+        "endLine": 176,
+        "endChar": 28
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2e0e4a4_a1caa9e6",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T11:14:44Z",
+      "side": 1,
+      "message": "not needed if we do validation of L0 size within the L0 function init.",
+      "range": {
+        "startLine": 177,
+        "startChar": 14,
+        "endLine": 177,
+        "endChar": 29
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dae5e9b_8e3b671d",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T11:14:44Z",
+      "side": 1,
+      "message": "\"Bit lock base for each 512 MB block of PPS\"",
+      "range": {
+        "startLine": 180,
+        "startChar": 33,
+        "endLine": 180,
+        "endChar": 51
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "111c20dc_b636aa41",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T11:14:44Z",
+      "side": 1,
+      "message": "nit: perhaps bitlock_base ?",
+      "range": {
+        "startLine": 180,
+        "startChar": 18,
+        "endLine": 180,
+        "endChar": 27
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37d95b8f_5e62e018",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T11:14:44Z",
+      "side": 1,
+      "message": "memset ?\n\nI know the TF-A memset() implementation is not performant. But in future, I expect memset may use FEAT_MOPS extension and in that case, we would get the performance boot automatically.",
+      "range": {
+        "startLine": 207,
+        "startChar": 1,
+        "endLine": 209,
+        "endChar": 2
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a5c1b9f_d83858cb",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T11:14:44Z",
+      "side": 1,
+      "message": "Some of the below validation seemingly are a bit over-engineered IMO. We rely on the platform to the right thing and these checks are basic sanity checks.\n\nWe just need to ensure that there is no overlap in the incoming PAS regions. This can be easily done by sorting the PAS_REGION array and ensuring that each region starts after the previous region has started. \n\nAlso, if adjacent regions are having the same PAS attr, then they can be combined.\n\nAll of the pas_region validation can be restricted to Debug builds.\n\nThis will bring down the size of the lib hopefully.",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69e3b5a7_e00f6820",
         "filename": "lib/gpt_rme/gpt_rme.mk",
         "patchSetId": 24
