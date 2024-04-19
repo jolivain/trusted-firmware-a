@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cef5d2a0_35636e0e",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T11:00:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "148f89bc_b2032d1c",
+      "range": {
+        "startLine": 2,
+        "startChar": 44,
+        "endLine": 2,
+        "endChar": 59
+      },
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7781f67_b347bbdb",
@@ -41,6 +65,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec87c142_ad4052f0",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T11:00:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7781f67_b347bbdb",
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a5ecb9c_899d8983",
@@ -54,6 +96,30 @@
       "writtenOn": "2024-04-19T08:56:27Z",
       "side": 1,
       "message": "heap size is an u32 value",
+      "range": {
+        "startLine": 26,
+        "startChar": 17,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8eff346_924f6dfa",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T11:00:29Z",
+      "side": 1,
+      "message": "Isn\u0027t this specific to the architecture? The field is typically declared with type size_t, including on ST platforms. Having said that, fdt_write_inplace_cells treats them as u32.",
+      "parentUuid": "4a5ecb9c_899d8983",
       "range": {
         "startLine": 26,
         "startChar": 17,
@@ -106,6 +172,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "554ff2b5_8bf9c4b4",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T11:00:29Z",
+      "side": 1,
+      "message": "I\u0027m not keen on the layout of this section. I would prefer we didn\u0027t go into details of all possible parts. Should we do the same as we\u0027ve done for \"arm,sp\" below where we define the properties we expect a SP to have rather than every possible SP? On top of this, we could specify that the the compatible is a string of the form \"\u003cplat\u003e,io-fip-handle\" where \u003cplat\u003e is the specific platform compatible.",
+      "parentUuid": "19ccc913_cc4ccf47",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3529f2a8_edf90f49",
         "filename": "docs/components/fconf/tb_fw_bindings.rst",
         "patchSetId": 1
@@ -117,6 +207,30 @@
       "writtenOn": "2024-04-19T08:56:27Z",
       "side": 1,
       "message": "it looks like it is a \u003cstring\u003e, and then the chapter may not be aligned",
+      "range": {
+        "startLine": 137,
+        "startChar": 18,
+        "endLine": 137,
+        "endChar": 21
+      },
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc9cc0cf_ef53b814",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T11:00:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3529f2a8_edf90f49",
       "range": {
         "startLine": 137,
         "startChar": 18,
@@ -144,6 +258,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b1cfc45_78d92d89",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T11:00:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f84553e6_67b975f6",
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05f4b325_a47850f5",
@@ -157,6 +289,30 @@
       "writtenOn": "2024-04-19T08:56:27Z",
       "side": 1,
       "message": "it is an u32 in the code and DTs, but we could wonder if this should be changed there\n\nFor all those 3 properties, I\u0027ve checked plat/arm/board/fvp/fdts/fvp_tb_fw_config.dts, but maybe there are changes on-going?",
+      "range": {
+        "startLine": 147,
+        "startChar": 18,
+        "endLine": 147,
+        "endChar": 21
+      },
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cad3a103_6eeca7c9",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T11:00:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05f4b325_a47850f5",
       "range": {
         "startLine": 147,
         "startChar": 18,
