@@ -100,6 +100,161 @@ static void read_feat_rng_trap(void)
 #endif
 }
 
+static unsigned int read_feat_sb_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64isar1_el1(), ID_AA64ISAR1_SB_SHIFT,
+			ID_AA64ISAR1_SB_MASK);
+}
+
+static unsigned int read_feat_csv2_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64pfr0_el1(), ID_AA64PFR0_CSV2_SHIFT,
+			ID_AA64PFR0_CSV2_MASK);
+}
+
+static unsigned int read_feat_pmuv3_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64dfr0_el1(), ID_AA64DFR0_PMUVER_SHIFT,
+		       ID_AA64DFR0_PMUVER_MASK);
+}
+
+static unsigned int read_feat_vhe_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64mmfr1_el1(), ID_AA64MMFR1_EL1_VHE_SHIFT,
+			ID_AA64MMFR1_EL1_VHE_MASK);
+}
+
+static unsigned int read_feat_sve_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64pfr0_el1(), ID_AA64PFR0_SVE_SHIFT,
+			ID_AA64PFR0_SVE_MASK);
+}
+
+static unsigned int read_feat_ras_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64pfr0_el1(), ID_AA64PFR0_RAS_SHIFT,
+			ID_AA64PFR0_RAS_MASK);
+}
+
+static unsigned int read_feat_dit_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64pfr0_el1(), ID_AA64PFR0_DIT_SHIFT,
+		     ID_AA64PFR0_DIT_MASK);
+}
+
+static unsigned int  read_feat_amu_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64pfr0_el1(), ID_AA64PFR0_AMU_SHIFT,
+		     ID_AA64PFR0_AMU_MASK);
+}
+
+static unsigned int read_feat_mpam_version(void)
+{
+	return (unsigned int)((((read_id_aa64pfr0_el1() >>
+		ID_AA64PFR0_MPAM_SHIFT) & ID_AA64PFR0_MPAM_MASK) << 4) |
+			((read_id_aa64pfr1_el1() >>
+		ID_AA64PFR1_MPAM_FRAC_SHIFT) & ID_AA64PFR1_MPAM_FRAC_MASK));
+}
+
+static unsigned int read_feat_nv_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64mmfr2_el1(), ID_AA64MMFR2_EL1_NV_SHIFT,
+			ID_AA64MMFR2_EL1_NV_MASK);
+}
+
+static unsigned int read_feat_sel2_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64pfr0_el1(), ID_AA64PFR0_SEL2_SHIFT,
+			ID_AA64PFR0_SEL2_MASK);
+}
+
+static unsigned int read_feat_trf_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64dfr0_el1(), ID_AA64DFR0_TRACEFILT_SHIFT,
+			ID_AA64DFR0_TRACEFILT_MASK);
+}
+static unsigned int get_armv8_5_mte_support(void)
+{
+	return ISOLATE_FIELD(read_id_aa64pfr1_el1(), ID_AA64PFR1_EL1_MTE_SHIFT,
+			ID_AA64PFR1_EL1_MTE_MASK);
+}
+static unsigned int read_feat_rng_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64isar0_el1(), ID_AA64ISAR0_RNDR_SHIFT,
+			ID_AA64ISAR0_RNDR_MASK);
+}
+static unsigned int read_feat_fgt_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64mmfr0_el1(), ID_AA64MMFR0_EL1_FGT_SHIFT,
+			ID_AA64MMFR0_EL1_FGT_MASK);
+}
+static unsigned int read_feat_ecv_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64mmfr0_el1(), ID_AA64MMFR0_EL1_ECV_SHIFT,
+			ID_AA64MMFR0_EL1_ECV_MASK);
+}
+static unsigned int read_feat_twed_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64mmfr1_el1(), ID_AA64MMFR1_EL1_TWED_SHIFT,
+			ID_AA64MMFR1_EL1_TWED_MASK);
+}
+
+static unsigned int read_feat_mtpmu_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64dfr0_el1(), ID_AA64DFR0_MTPMU_SHIFT,
+			ID_AA64DFR0_MTPMU_MASK);
+}
+static unsigned int read_feat_hcx_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64mmfr1_el1(), ID_AA64MMFR1_EL1_HCX_SHIFT,
+			ID_AA64MMFR1_EL1_HCX_MASK);
+}
+static unsigned int read_feat_tcr2_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64mmfr3_el1(), ID_AA64MMFR3_EL1_TCRX_SHIFT,
+			ID_AA64MMFR3_EL1_TCRX_MASK);
+}
+static unsigned int read_feat_s2pie_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64mmfr3_el1(), ID_AA64MMFR3_EL1_S2PIE_SHIFT,
+			ID_AA64MMFR3_EL1_S2PIE_MASK);
+}
+static unsigned int read_feat_s1pie_id_field(void)
+{
+	return ISOLATE_FIELD(id_aa64mmfr3_el1(), ID_AA64MMFR3_EL1_S1PIE_SHIFT,
+			ID_AA64MMFR3_EL1_S1PIE_MASK);
+}
+static unsigned int read_feat_s2poe_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64mmfr3_el1(), ID_AA64MMFR3_EL1_S2POE_SHIFT,
+			ID_AA64MMFR3_EL1_S2POE_MASK);
+}
+static unsigned int read_feat_s1poe_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64mmfr3_el1(), ID_AA64MMFR3_EL1_S1POE_SHIFT,
+			ID_AA64MMFR3_EL1_S1POE_MASK);
+}
+static unsigned int read_feat_brbe_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64dfr0_el1(), ID_AA64DFR0_BRBE_SHIFT,
+			ID_AA64DFR0_BRBE_MASK);
+}
+static unsigned int read_feat_trbe_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64dfr0_el1(), ID_AA64DFR0_TRACEBUFFER_SHIFT,
+			ID_AA64DFR0_TRACEBUFFER_MASK)
+}
+static unsigned int read_feat_sme_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64pfr1_el1(), ID_AA64PFR1_EL1_SME_SHIFT,
+			ID_AA64PFR1_EL1_SME_MASK);
+}
+static unsigned int read_feat_gcs_id_field(void)
+{
+	return ISOLATE_FIELD(read_id_aa64pfr1_el1(), ID_AA64PFR1_EL1_GCS_SHIFT,
+		     ID_AA64PFR1_EL1_GCS_MASK);
+}
+
 /***********************************************************************************
  * TF-A supports many Arm architectural features starting from arch version
  * (8.0 till 8.7+). These features are mostly enabled through build flags. This
