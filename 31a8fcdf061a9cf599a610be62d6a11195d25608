@@ -192,6 +192,46 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c87260a1_17f810ff",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 1227,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T11:19:30Z",
+      "side": 1,
+      "message": "needs to be done in gpt_init_l0_tables()",
+      "range": {
+        "startLine": 1206,
+        "startChar": 0,
+        "endLine": 1227,
+        "endChar": 2
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64541abc_d10deeef",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 1330,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-19T11:19:30Z",
+      "side": 1,
+      "message": "This print needs to be part of gpt_init_l0_tables",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "69e3b5a7_e00f6820",
         "filename": "lib/gpt_rme/gpt_rme.mk",
         "patchSetId": 24
