@@ -1,0 +1,193 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7481d557_ec43d102",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T17:02:09Z",
+      "side": 1,
+      "message": "nit: sphinx might complain about this this extra char",
+      "range": {
+        "startLine": 2,
+        "startChar": 26,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02c2dfc8_2b22ebfd",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T17:02:09Z",
+      "side": 1,
+      "message": "nit: could",
+      "range": {
+        "startLine": 31,
+        "startChar": 49,
+        "endLine": 31,
+        "endChar": 54
+      },
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a03539a_beb1a050",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T17:02:09Z",
+      "side": 1,
+      "message": "nit: for example, (avoid using shorthand in formal docs)",
+      "range": {
+        "startLine": 36,
+        "startChar": 44,
+        "endLine": 36,
+        "endChar": 51
+      },
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f3e58db_1f1aab3e",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T17:02:09Z",
+      "side": 1,
+      "message": "nit: Secure world",
+      "range": {
+        "startLine": 45,
+        "startChar": 48,
+        "endLine": 45,
+        "endChar": 60
+      },
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d024a701_ec727686",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T17:02:09Z",
+      "side": 1,
+      "message": "Would it be worthwhile to include here diagrams showing the traditional exception model [1] and the changes with RME [2]? \n\n[1] https://developer.arm.com/-/media/Arm%20Developer%20Community/Images/Tutorial%20Guide%20Diagrams%20and%20Screenshots/Learn%20the%20Architecture/Exception%20model/Exception_Handling_Guide_2.jpg?revision\u003d267f144e-7ce2-432c-b5bf-70b6b393113a\u0026hash\u003d3F8A3D7BDC4CDB2F3BB40A39ABAAA50E702D9C80\u0026hash\u003d3F8A3D7BDC4CDB2F3BB40A39ABAAA50E702D9C80\u0026la\u003den\n\n[2] https://community.arm.com/resized-image/__size/1040x0/__key/communityserver-blogs-components-weblogfiles/00-00-00-21-42/UPDATED_5F00_Arm_5F00_CCA_5F00_Web_5F00_Launch_5F00_Diagrams_5F00_arm.com_5F00_Arm_5F00_CCA_5F00_Realms_5F00_Diagram_5F00_Developer_5F00_V2_5F00_ST3.png",
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0eb8cd77_5dace8df",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T17:02:09Z",
+      "side": 1,
+      "message": "The key principles you\u0027re listing here kind of get lost in the wall of text resulting from the way this is rendered. May I suggest using Sphinx\u0027s in-built lists to structure the content in a more readable form [1]. Something along the lines:\n\n#. Key principle\n\n   Blob of text discussing principle.\n\n[1] https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#lists-and-quote-like-blocks",
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03448b11_750e40b6",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T17:02:09Z",
+      "side": 1,
+      "message": "This is redundant, you already state what the flags are below. You may as well combine their value with the descriptions you\u0027ve given.",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 2
+      },
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5ad4436_94a92697",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T17:02:09Z",
+      "side": 1,
+      "message": "For emphasis you may want to use the actual note utility provided by Sphinx.\n\nhttps://sublime-and-sphinx-guide.readthedocs.io/en/latest/notes_warnings.html#notes",
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7731fd51_387d18a1",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-19T17:02:09Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is the most maintainable way of doing this. Unless we are saying this is a temporary design document that we only want to reflect the state of the library today, I\u0027m concerned this will be maintenance burden down the line. What if the contents of the file change? Do we have a process that will ensure this document keeps up with the library? It\u0027s not clear to me that the value of the information it provides, outweighs the long term cost of maintaining the list.",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 70
+      },
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
