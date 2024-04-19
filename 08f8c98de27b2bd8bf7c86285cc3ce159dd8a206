@@ -1,0 +1,170 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "148f89bc_b2032d1c",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-19T08:56:27Z",
+      "side": 1,
+      "message": "`make doc` may complain about those extra characters",
+      "range": {
+        "startLine": 2,
+        "startChar": 44,
+        "endLine": 2,
+        "endChar": 59
+      },
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7781f67_b347bbdb",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-19T08:56:27Z",
+      "side": 1,
+      "message": "Maybe you should add that the only 2 possible values are 0 or 1. 1 disables authentication.",
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a5ecb9c_899d8983",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-19T08:56:27Z",
+      "side": 1,
+      "message": "heap size is an u32 value",
+      "range": {
+        "startLine": 26,
+        "startChar": 17,
+        "endLine": 26,
+        "endChar": 22
+      },
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4425129e_9c9ee5d4",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-19T08:56:27Z",
+      "side": 1,
+      "message": "There is another define for ST platforms. But as it is stated in introduction chapter, I should add it to platform docs.",
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19ccc913_cc4ccf47",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-19T08:56:27Z",
+      "side": 1,
+      "message": "this property, and several other are only mandatory if the platform implements the given software part. But maybe that could be complex to determine a minimal set of properties that are mandatory for all platforms. And then sort other properties by features (or software parts).\nThe certificates UUIDs are also just needed when TRUSTED_BOARD_BOOT is enabled.",
+      "range": {
+        "startLine": 36,
+        "startChar": 16,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3529f2a8_edf90f49",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-19T08:56:27Z",
+      "side": 1,
+      "message": "it looks like it is a \u003cstring\u003e, and then the chapter may not be aligned",
+      "range": {
+        "startLine": 137,
+        "startChar": 18,
+        "endLine": 137,
+        "endChar": 21
+      },
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f84553e6_67b975f6",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-19T08:56:27Z",
+      "side": 1,
+      "message": "this appears to be a string, like the other UUIDs for FIP handles",
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05f4b325_a47850f5",
+        "filename": "docs/components/fconf/tb_fw_bindings.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-19T08:56:27Z",
+      "side": 1,
+      "message": "it is an u32 in the code and DTs, but we could wonder if this should be changed there\n\nFor all those 3 properties, I\u0027ve checked plat/arm/board/fvp/fdts/fvp_tb_fw_config.dts, but maybe there are changes on-going?",
+      "range": {
+        "startLine": 147,
+        "startChar": 18,
+        "endLine": 147,
+        "endChar": 21
+      },
+      "revId": "08f8c98de27b2bd8bf7c86285cc3ce159dd8a206",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
