@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "352e90c2_87895e94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-19T16:01:19Z",
+      "side": 1,
+      "message": "Overall a substantial amount of refactoring.\nEspecially arch_features.h file. The table provides a good overview on the list of features supported, which is handy.\n\nSome nit comments. Please take a look.",
+      "revId": "f61ce8246c90a562a829b0f03d9324cc0563a7a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c99678b1_525438ea",
+        "filename": "include/arch/aarch32/arch_features.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-19T16:01:19Z",
+      "side": 1,
+      "message": "``CREATE_FEATURE_FUNCS_VER``\nThis name was origianlly given for situations wherein we have multiple versions of same feature.\nBut this is no longer the case.\n\nWE have is_feat_present() and is_feat_supported() apis by default for all features.\nSo its good to rename this as \"\n``CREATE_FEATURE_SUPPORTED``",
+      "range": {
+        "startLine": 38,
+        "startChar": 21,
+        "endLine": 38,
+        "endChar": 24
+      },
+      "revId": "f61ce8246c90a562a829b0f03d9324cc0563a7a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b1f1112_e50166b0",
+        "filename": "include/arch/aarch32/arch_features.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-19T16:01:19Z",
+      "side": 1,
+      "message": "+---------------------------------------+\n|\tFeatures supported\t\t|\n+---------------------------------------+\n\n?",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 33
+      },
+      "revId": "f61ce8246c90a562a829b0f03d9324cc0563a7a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "752a5d33_88afd622",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-19T16:01:19Z",
+      "side": 1,
+      "message": "nit : `` CREATE_FEATURE_SUPPORTED``  ?\n Same reason as I mentioend in the aarch32.h file.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 24
+      },
+      "revId": "f61ce8246c90a562a829b0f03d9324cc0563a7a0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
