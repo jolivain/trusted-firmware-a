@@ -75,6 +75,30 @@
       },
       "revId": "694c140da08324d7159ded0be6041e6f4e03de13",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00229c2a_5a0463a0",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2024-04-19T16:26:28Z",
+      "side": 1,
+      "message": "See https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/25847/comment/9f4b645b_b13a87f0/",
+      "parentUuid": "2281ad8f_3e3328aa",
+      "range": {
+        "startLine": 1135,
+        "startChar": 2,
+        "endLine": 1135,
+        "endChar": 50
+      },
+      "revId": "694c140da08324d7159ded0be6041e6f4e03de13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
