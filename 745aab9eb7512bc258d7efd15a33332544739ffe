@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fbc10e2_0794bdd5",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-04-19T13:53:22Z",
+      "side": 1,
+      "message": "Call from both secure \u0026 non-secure\ninit_sctlr_elx(ep)\n{\n  start with 0\n  read(h.attr) and set EE bit\n  apply errata\n  \n  write_reg(sctlr_el1)\n  if (el2_present)\n     write_reg(sctlr_el2)\n  \n  if CTX_INCLUDE_EL2_REGS\n     write_reg_ctx(sctlr_el2)\n  else\n     write_reg_ctx(sctlr_el1)\n}",
+      "revId": "745aab9eb7512bc258d7efd15a33332544739ffe",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
