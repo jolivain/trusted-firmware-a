@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0460b5f1_19301e53",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 19
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-22T18:55:18Z",
+      "side": 1,
+      "message": "Overall LGTM, some ninor comments",
+      "revId": "fd3718eb129a6e2e2c1b20b3d3577687470d195c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65f1c2ac_aaf4947d",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-22T18:55:18Z",
+      "side": 1,
+      "message": "this looks good but not major maybe consider reformat to:\n\n[..]\nstatic bool is_tge_enabled(void)\n{\n\tu_register_t hcr_el2 \u003d read_hcr_el2();\n\n\treturn (is_feat_vhe_present() \u0026\u0026 (hcr_el2 \u0026 HCR_TGE_BIT));\n}\n[..]",
+      "range": {
+        "startLine": 39,
+        "startChar": 1,
+        "endLine": 39,
+        "endChar": 7
+      },
+      "revId": "fd3718eb129a6e2e2c1b20b3d3577687470d195c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31c5c991_d9dc7ba1",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-22T18:55:18Z",
+      "side": 1,
+      "message": "I believe as per formatting guidelines used should be aligned to \"(\"",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 3
+      },
+      "revId": "fd3718eb129a6e2e2c1b20b3d3577687470d195c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51c2a00f_4bc6ad45",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-22T18:55:18Z",
+      "side": 1,
+      "message": "hmm... returns bool? comparison against a unsigned \u00270\u0027 ? \n\nsince returns bool maybe just :\n\n[..]\n    if (is_feat_rme_present()) {\n[..]\n\nThis should be enough?",
+      "range": {
+        "startLine": 100,
+        "startChar": 27,
+        "endLine": 100,
+        "endChar": 33
+      },
+      "revId": "fd3718eb129a6e2e2c1b20b3d3577687470d195c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cdadc58_776d9755",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-22T18:55:18Z",
+      "side": 1,
+      "message": "just minor maybe just \n\n```\nassert(is_feat_rme_present());\n```",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 37
+      },
+      "revId": "fd3718eb129a6e2e2c1b20b3d3577687470d195c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff0d9818_efca684a",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-22T18:55:18Z",
+      "side": 1,
+      "message": "same as previous comment can avoid comparison against unsigned",
+      "range": {
+        "startLine": 220,
+        "startChar": 1,
+        "endLine": 220,
+        "endChar": 29
+      },
+      "revId": "fd3718eb129a6e2e2c1b20b3d3577687470d195c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5750e10a_0629ed7c",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-22T18:55:18Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 205,
+        "startChar": 8,
+        "endLine": 205,
+        "endChar": 27
+      },
+      "revId": "fd3718eb129a6e2e2c1b20b3d3577687470d195c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
