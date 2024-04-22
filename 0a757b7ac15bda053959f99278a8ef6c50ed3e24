@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14a569d5_fef0f2f7",
+        "filename": "include/lib/pmf/pmf.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-22T09:44:21Z",
+      "side": 1,
+      "message": "should be define a version FID here ?\n\nVersion can be at 0x20 offset and the GET can be the next one ? The PMF document would need to be updated as well.",
+      "revId": "0a757b7ac15bda053959f99278a8ef6c50ed3e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
