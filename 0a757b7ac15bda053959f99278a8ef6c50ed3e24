@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1121ea83_2bb35880",
+        "filename": "docs/components/ven-el3-service.rst",
+        "patchSetId": 24
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-22T21:54:52Z",
+      "side": 1,
+      "message": "yes its done in next patch: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27366/12",
+      "parentUuid": "065254d6_eff418e2",
+      "range": {
+        "startLine": 31,
+        "startChar": 64,
+        "endLine": 31,
+        "endChar": 66
+      },
+      "revId": "0a757b7ac15bda053959f99278a8ef6c50ed3e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14a569d5_fef0f2f7",
         "filename": "include/lib/pmf/pmf.h",
         "patchSetId": 24
@@ -37,6 +61,24 @@
       "writtenOn": "2024-04-22T09:44:21Z",
       "side": 1,
       "message": "should be define a version FID here ?\n\nVersion can be at 0x20 offset and the GET can be the next one ? The PMF document would need to be updated as well.",
+      "revId": "0a757b7ac15bda053959f99278a8ef6c50ed3e24",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d299f91_f01a457d",
+        "filename": "include/lib/pmf/pmf.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-22T21:54:52Z",
+      "side": 1,
+      "message": "yes its done in next patch: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27366/12\n\nI have kept scope of this patch to just converting to vendor specific el3 calls with backward compatibility made available in arm-sip.",
+      "parentUuid": "14a569d5_fef0f2f7",
       "revId": "0a757b7ac15bda053959f99278a8ef6c50ed3e24",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
