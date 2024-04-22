@@ -62,6 +62,30 @@
       },
       "revId": "2fc7212ccbdcfb6872a8ed22034463850e0fdc28",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7393f075_d7a5cc5f",
+        "filename": "docs/components/ven-el3-service.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-22T21:59:08Z",
+      "side": 1,
+      "message": "Hi Soby,\n\nSorry I don\u0027t follow fully, if you mean adding a version FID to PMF then yes that\u0027s been done in this patch, in here:\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27366/12/include/lib/pmf/pmf.h\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27366/12/lib/pmf/pmf_smc.c\n\n0x20 was used for timer-data now 0x21 is used for version data.\n\nDoes this clarify?",
+      "parentUuid": "619ef264_28d416c2",
+      "range": {
+        "startLine": 51,
+        "startChar": 16,
+        "endLine": 51,
+        "endChar": 33
+      },
+      "revId": "2fc7212ccbdcfb6872a8ed22034463850e0fdc28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
