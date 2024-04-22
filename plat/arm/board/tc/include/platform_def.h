@@ -12,7 +12,13 @@
 #include <lib/xlat_tables/xlat_tables_defs.h>
 #include <plat/arm/board/common/board_css_def.h>
 #include <plat/arm/board/common/v2m_def.h>
+
+#if TARGET_PLATFORM == 4
+#define PLAT_ARM_SYS_CNTCTL_BASE	UL(0x47000000)
+#define PLAT_ARM_SYS_CNTREAD_BASE	UL(0x47010000)
+#endif
 #include <plat/arm/common/arm_def.h>
+
 #include <plat/arm/common/arm_spm_def.h>
 #include <plat/arm/css/common/css_def.h>
 #include <plat/arm/soc/common/soc_css_def.h>
