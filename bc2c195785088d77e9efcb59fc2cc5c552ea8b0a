@@ -203,6 +203,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2cd012c_a1d6389c",
+        "filename": "docs/getting_started/prerequisites.rst",
+        "patchSetId": 11
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-22T14:34:20Z",
+      "side": 1,
+      "message": "I\u0027m not sure I agree with that approach. Just using OpenSSL as an example, how will anyone know what the oldest supported version of OpenSSL is? In my view this table should be a list of the minimum versions of tools required to build TF-A. If there is a special requirement for a latest version then we can add the details in the subsections below.",
+      "parentUuid": "a5fbf143_a31ed9d6",
+      "range": {
+        "startLine": 27,
+        "startChar": 25,
+        "endLine": 27,
+        "endChar": 38
+      },
+      "revId": "bc2c195785088d77e9efcb59fc2cc5c552ea8b0a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "44947459_201e8826",
         "filename": "docs/getting_started/prerequisites.rst",
         "patchSetId": 11
