@@ -22,6 +22,30 @@
       },
       "revId": "4a5a27dee4437dfc3d6e96b68c2c18fd2578f08f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "872fa031_dd05f180",
+        "filename": "plat/arm/board/neoverse_rd/common/nrd_plat1.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-04-22T13:13:49Z",
+      "side": 1,
+      "message": "This is platform dependent. The multichip variants till date have had 2 or 4 chips at max.\n\nAs of now, we don\u0027t have any checks in place to stop the value from being set to an unexpected number. I\u0027m assuming anything greater than 4 for a platform that supports upto 4 wouldn\u0027t have any negative effects.\n\nOne option could be to have this value overriden from the makefile based on NRD_PLATFORM_VARIANT so that its hardcoded and can\u0027t be externally changed.",
+      "parentUuid": "26b44759_7a8ea75a",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 18
+      },
+      "revId": "4a5a27dee4437dfc3d6e96b68c2c18fd2578f08f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
