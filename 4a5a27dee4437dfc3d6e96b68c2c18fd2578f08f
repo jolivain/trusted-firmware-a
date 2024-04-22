@@ -46,6 +46,30 @@
       },
       "revId": "4a5a27dee4437dfc3d6e96b68c2c18fd2578f08f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e011eeab_145c449f",
+        "filename": "plat/arm/board/neoverse_rd/common/nrd_plat1.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-22T14:15:17Z",
+      "side": 1,
+      "message": "\u003e One option could be to have this value overriden from the makefile based on NRD_PLATFORM_VARIANT so that its hardcoded and can\u0027t be externally changed.\n\nEither this and then remove this option from build options.\nOr consider adding a check in the platform makefile for this purpose. Please refer to [1] where TARGET_PLATFORM sanity check is performed in TF platform.\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/+/refs/heads/integration/plat/arm/board/tc/platform.mk#52",
+      "parentUuid": "872fa031_dd05f180",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 50,
+        "endChar": 18
+      },
+      "revId": "4a5a27dee4437dfc3d6e96b68c2c18fd2578f08f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
