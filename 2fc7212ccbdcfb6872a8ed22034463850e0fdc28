@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c41b9819_e5d443a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-22T09:46:30Z",
+      "side": 1,
+      "message": "minor comment related to PMF version. But otherwise is fine.",
+      "revId": "2fc7212ccbdcfb6872a8ed22034463850e0fdc28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "619ef264_28d416c2",
+        "filename": "docs/components/ven-el3-service.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-22T09:46:30Z",
+      "side": 1,
+      "message": "to adhere to this, PMF needs to introduce  a version call.",
+      "range": {
+        "startLine": 51,
+        "startChar": 16,
+        "endLine": 51,
+        "endChar": 33
+      },
+      "revId": "2fc7212ccbdcfb6872a8ed22034463850e0fdc28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
