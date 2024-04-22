@@ -215,6 +215,155 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64880519_94d04658",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-22T17:05:10Z",
+      "side": 1,
+      "message": "nit: is this really necessary? A quick grep will show where to find this. Its a minor detail that will be a pain to keep up to date in future.",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 2
+      },
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2d1f1e5_83ffbc61",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-22T17:05:10Z",
+      "side": 1,
+      "message": "nit: ditto",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 2
+      },
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c687e1c_6989e12e",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-22T17:05:10Z",
+      "side": 1,
+      "message": "nit: ditto",
+      "range": {
+        "startLine": 223,
+        "startChar": 1,
+        "endLine": 224,
+        "endChar": 1
+      },
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b19f809_f5b9a102",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-22T17:05:10Z",
+      "side": 1,
+      "message": "nit: use in-built utility",
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2f10c51_731588d4",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-22T17:05:10Z",
+      "side": 1,
+      "message": "nit: ditto",
+      "range": {
+        "startLine": 347,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 2
+      },
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a1563a7_9113523a",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-22T17:05:10Z",
+      "side": 1,
+      "message": "nit: not useful",
+      "range": {
+        "startLine": 350,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 2
+      },
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f5834a0_823fa64f",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-22T17:05:10Z",
+      "side": 1,
+      "message": "Might I suggest converting these code blocks into individual C function prototypes using Sphinx\u0027s in-built support for C prototypes [1]. This will make it easier to find the functions when searching the documentation. \n\n[1] https://www.sphinx-doc.org/en/master/usage/domains/c.html#directive-c-function",
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b1478518_97729ac1",
         "filename": "docs/components/context-management-library.rst",
         "patchSetId": 14
@@ -232,6 +381,40 @@
         "endLine": 488,
         "endChar": 8
       },
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a672dfa_abd659b4",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-22T17:05:10Z",
+      "side": 1,
+      "message": "nit: for structures like this, suggest using in-built utilities [1]. Much more readable rendering, and makes it easier to find. \n\nhttps://www.sphinx-doc.org/en/master/usage/domains/c.html#directive-c-type",
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72919473_7974e02c",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-22T17:05:10Z",
+      "side": 1,
+      "message": "Same as the comment above, these are much more useful handled as Sphinx C prototypes. \n\n    .. c:function:: void manage_extensions_nonsecure_per_world(void)\n    .. c:function:: static void manage_extensions_realm_per_world(void)\n    .. c:function:: static void manage_extensions_secure_per_world(void)",
       "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
