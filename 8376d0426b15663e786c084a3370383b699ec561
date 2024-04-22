@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d3d0aa2_ff7a486c",
+        "filename": "plat/arm/board/neoverse_rd/common/include/nrd1/nrd_plat_arm_def1.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-22T12:00:26Z",
+      "side": 1,
+      "message": "So, does this imply that rdn1edge, rdv1, rdv1mc, and sgi575 platforms are supposed to share a common maximum power level and system power domain level? \nIf not, would that mean we risk not updating these levels per platform?",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 194,
+        "endChar": 38
+      },
+      "revId": "8376d0426b15663e786c084a3370383b699ec561",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
