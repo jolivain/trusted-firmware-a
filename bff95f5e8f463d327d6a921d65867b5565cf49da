@@ -69,6 +69,30 @@
       },
       "revId": "bff95f5e8f463d327d6a921d65867b5565cf49da",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6bebd63_64dedc4d",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-22T05:58:08Z",
+      "side": 1,
+      "message": "Acknowledged, I did not change pauth since it has multiple masks and shifts. SO left it as it is. Converted bti, rng_trap and read_feat_rme.",
+      "parentUuid": "67302c46_2891a5d0",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 1
+      },
+      "revId": "bff95f5e8f463d327d6a921d65867b5565cf49da",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
