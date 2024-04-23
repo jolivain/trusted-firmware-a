@@ -92,6 +92,11 @@
 		reg = <0x0 MCN_PMU_ADDR(3) 0x0 0xffc>;
 	};
 
+	ni-pmu {
+		compatible = "arm,ni-tower";
+		reg = <0x0 0x4f000000 0x0 0x4000000>;
+	};
+
 	sram: sram@6000000 {
 		cpu_scp_scmi_p2a: scp-shmem@80 {
 			compatible = "arm,scmi-shmem";
