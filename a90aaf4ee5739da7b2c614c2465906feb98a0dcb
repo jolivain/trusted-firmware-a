@@ -46,6 +46,30 @@
       },
       "revId": "a90aaf4ee5739da7b2c614c2465906feb98a0dcb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b3b0bbc_d65f3498",
+        "filename": "plat/qemu/common/qemu_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1001039
+      },
+      "writtenOn": "2024-04-23T09:23:29Z",
+      "side": 1,
+      "message": "You\u0027re right, strlcpy() always NUL-terminates the string so there is no need to reduce the length.",
+      "parentUuid": "d8b901d8_923716b2",
+      "range": {
+        "startLine": 322,
+        "startChar": 39,
+        "endLine": 322,
+        "endChar": 67
+      },
+      "revId": "a90aaf4ee5739da7b2c614c2465906feb98a0dcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
