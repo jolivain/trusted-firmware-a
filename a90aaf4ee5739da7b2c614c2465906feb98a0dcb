@@ -22,6 +22,30 @@
       },
       "revId": "a90aaf4ee5739da7b2c614c2465906feb98a0dcb",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f7fe039_8e727d9b",
+        "filename": "plat/qemu/common/qemu_common.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-23T09:19:53Z",
+      "side": 1,
+      "message": "Yes, this is an issue on the FVP platform implementation. We will fix this in FVP side as a separate patch.",
+      "parentUuid": "d8b901d8_923716b2",
+      "range": {
+        "startLine": 322,
+        "startChar": 39,
+        "endLine": 322,
+        "endChar": 67
+      },
+      "revId": "a90aaf4ee5739da7b2c614c2465906feb98a0dcb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
