@@ -68,7 +68,7 @@ struct dyn_cfg_dtb_info_t *dyn_cfg_dtb_info_getter(unsigned int config_id)
 		return &dtb_infos[index];
 	}
 
-	WARN("FCONF: Invalid config id %u\n", config_id);
+	VERBOSE("FCONF: Invalid config id %u\n", config_id);
 
 	return NULL;
 }
