@@ -16,6 +16,24 @@
       "message": "Hi Chris, wouldn\u0027t it be simpler to add those lines in bl_common.h? That would avoid modifying too much files.",
       "revId": "a5003e04188e6eb4e6deee190d908e6bb50a5608",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d953743_0a3582d5",
+        "filename": "include/common/build_message.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-04-23T12:55:38Z",
+      "side": 1,
+      "message": "My thinking was along the lines of keeping a separation of concerns and avoiding overly-general header files, but I\u0027m happy either way.",
+      "parentUuid": "eb81b054_d6309644",
+      "revId": "a5003e04188e6eb4e6deee190d908e6bb50a5608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
