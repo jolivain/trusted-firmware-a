@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8d09802_184691f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-23T16:29:49Z",
+      "side": 1,
+      "message": "feat(s32g274a): enable BL31 stage",
+      "revId": "6598403a90c78d5ef44ceaec46f7f0a9a500f746",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a1a16499_966b7f2f",
@@ -14,6 +31,23 @@
       "writtenOn": "2024-04-23T11:49:48Z",
       "side": 1,
       "message": "This is an upstream initiative of the S32G platform based on a downstream port that can be found here:\n    https://github.com/nxp-auto-linux/arm-trusted-firmware",
+      "revId": "6598403a90c78d5ef44ceaec46f7f0a9a500f746",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05997e2f_5798c806",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-23T16:29:49Z",
+      "side": 1,
+      "message": "Please add necessary CI configs:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-ci-configurations",
       "revId": "6598403a90c78d5ef44ceaec46f7f0a9a500f746",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
