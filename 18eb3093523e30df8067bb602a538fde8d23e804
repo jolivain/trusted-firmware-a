@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00ebd5d2_352b83a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-04-23T08:13:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "440ce8d4_c8a7a148",
+      "range": {
+        "startLine": 11,
+        "startChar": 38,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "18eb3093523e30df8067bb602a538fde8d23e804",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb5c1aaa_7db1f390",
@@ -60,6 +84,30 @@
       "writtenOn": "2024-04-22T17:50:01Z",
       "side": 1,
       "message": "MPAM is 8.4 optional and can be enabled normally from plat file an override might be needed.\n\nPlease refer to make_helpers/arch_features.mk file for build utility helper on \narch features, this will only set defaults however will not modify it if set by platform. so any feature set in here will be honored from make_helpers/arch_features.mk",
+      "range": {
+        "startLine": 103,
+        "startChar": 9,
+        "endLine": 103,
+        "endChar": 25
+      },
+      "revId": "18eb3093523e30df8067bb602a538fde8d23e804",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0af2a792_0a2cc252",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-04-23T08:13:09Z",
+      "side": 1,
+      "message": "@Manish/@Govind - I\u0027m seeing mixed behavior on removing override. SVE doesn\u0027t work and others seem to work.\n\nQuick question, could we retain the override for all feature flags? We don\u0027t want this behavior to be changed externally or from any other makefiles and override keeps it very predictable.",
+      "parentUuid": "6af4596b_cb77ec12",
       "range": {
         "startLine": 103,
         "startChar": 9,
