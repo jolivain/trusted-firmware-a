@@ -64,15 +64,6 @@ documentation associated with them.
    - Arm SGI-575
    - MediaTek MT8173 SoCs
 
-Deprecated platforms
---------------------
-
-+----------------+----------------+--------------------+--------------------+
-|    Platform    |     Vendor     | Deprecated version |  Deleted version   |
-+================+================+====================+====================+
-|    rdn1edge    |      Arm       |        2.8         |       TBD          |
-+----------------+----------------+--------------------+--------------------+
-
 --------------
 
 *Copyright (c) 2019-2024, Arm Limited. All rights reserved.*
