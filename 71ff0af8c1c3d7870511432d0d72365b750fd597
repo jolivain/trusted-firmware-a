@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83ea2a7a_6cfa8021",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-23T08:29:13Z",
+      "side": 1,
+      "message": "not really needed, and it is no more the correct acronym, see below",
+      "range": {
+        "startLine": 7,
+        "startChar": 13,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "71ff0af8c1c3d7870511432d0d72365b750fd597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae3390fe_6dc2e024",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-23T08:29:13Z",
+      "side": 1,
+      "message": "TF-A: this is the recommended acronym for Trusted Firmware-A",
+      "range": {
+        "startLine": 9,
+        "startChar": 27,
+        "endLine": 9,
+        "endChar": 30
+      },
+      "revId": "71ff0af8c1c3d7870511432d0d72365b750fd597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca22a87f_cb23f612",
+        "filename": "drivers/mmc/mmc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-23T08:29:13Z",
+      "side": 1,
+      "message": "Hi @BenjaminLimJL, adding this file breaks other platforms compilation:\n\n\t03:24:49 drivers/mmc/mmc.c:20:10: fatal error: wdt/watchdog.h: No such file or directory\n\t03:24:49    20 | #include \u003cwdt/watchdog.h\u003e\n\t03:24:49       |          ^~~~~~~~~~~~~~~~\n\t03:24:49 compilation terminated.\n\nPlease see platforms builds with failure there:\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/69681/\n\nTo add watchdog support here, you will need either some generic minimal watchdog framework (see for example drivers/clk/clk.c), or a macro like what is done in U-Boot with WATCHDOG_RESET",
+      "revId": "71ff0af8c1c3d7870511432d0d72365b750fd597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdc0d45a_7c0d2e57",
+        "filename": "plat/intel/soc/agilex/bl31_plat_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-23T08:29:13Z",
+      "side": 1,
+      "message": "keep the empty line after",
+      "revId": "71ff0af8c1c3d7870511432d0d72365b750fd597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e42fbad1_5a2b4deb",
+        "filename": "plat/intel/soc/common/bl2_plat_mem_params_desc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-23T08:29:13Z",
+      "side": 1,
+      "message": "no need to update that if the file doesn\u0027t change",
+      "revId": "71ff0af8c1c3d7870511432d0d72365b750fd597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "386cd63e_28dcbc73",
+        "filename": "plat/intel/soc/common/include/platform_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-23T08:29:13Z",
+      "side": 1,
+      "message": "remove extra line",
+      "revId": "71ff0af8c1c3d7870511432d0d72365b750fd597",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
