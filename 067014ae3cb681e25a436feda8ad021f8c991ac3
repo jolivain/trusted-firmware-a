@@ -47,6 +47,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7fb979c_e6291fb0",
+        "filename": "include/plat/arm/common/arm_sip_svc.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-23T22:58:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77dfddf3_a92e2b7c",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 41
+      },
+      "revId": "067014ae3cb681e25a436feda8ad021f8c991ac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3459a555_ceb3f106",
@@ -60,6 +84,30 @@
       "writtenOn": "2024-04-23T20:41:10Z",
       "side": 1,
       "message": "nit: should have been part of previous patch",
+      "range": {
+        "startLine": 81,
+        "startChar": 52,
+        "endLine": 81,
+        "endChar": 53
+      },
+      "revId": "067014ae3cb681e25a436feda8ad021f8c991ac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "404a2b59_91ba09a9",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 26
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-23T22:58:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3459a555_ceb3f106",
       "range": {
         "startLine": 81,
         "startChar": 52,
