@@ -110,6 +110,54 @@
       },
       "revId": "2fc7212ccbdcfb6872a8ed22034463850e0fdc28",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c6607fb_2cb3015a",
+        "filename": "docs/components/ven-el3-service.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-23T14:16:50Z",
+      "side": 1,
+      "message": "Hmm, I am not sure about that. It is better to keep a version and not allow the loophole as it will cause trouble in future.",
+      "parentUuid": "017daad5_af349ce6",
+      "range": {
+        "startLine": 51,
+        "startChar": 16,
+        "endLine": 51,
+        "endChar": 20
+      },
+      "revId": "2fc7212ccbdcfb6872a8ed22034463850e0fdc28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c646452a_f5442ada",
+        "filename": "docs/components/ven-el3-service.rst",
+        "patchSetId": 12
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-04-23T14:16:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7393f075_d7a5cc5f",
+      "range": {
+        "startLine": 51,
+        "startChar": 16,
+        "endLine": 51,
+        "endChar": 33
+      },
+      "revId": "2fc7212ccbdcfb6872a8ed22034463850e0fdc28",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
