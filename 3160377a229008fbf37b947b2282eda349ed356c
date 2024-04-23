@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dce5d873_e1cf48e6",
+        "filename": "make_helpers/toolchain.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-04-23T11:14:41Z",
+      "side": 1,
+      "message": "This looks a bit noisy and hard to parse to my eyes:\n\n    make_helpers/toolchain.mk:354: The configured AArch64 assembler could not be identified and may not be supported:\n    make_helpers/toolchain.mk:354: \u003e   xyz\n    make_helpers/toolchain.mk:354: \n    make_helpers/toolchain.mk:354: The default AArch64 assembler is:\n    make_helpers/toolchain.mk:354: \u003e   aarch64-none-elf-gcc\n    make_helpers/toolchain.mk:354: \n    make_helpers/toolchain.mk:354: The following tools are supported:\n    make_helpers/toolchain.mk:354:   - Arm® Compiler for Embedded `armclang`\n    make_helpers/toolchain.mk:354:   - LLVM Clang (`clang`)\n    make_helpers/toolchain.mk:354:   - GNU GCC (`gcc`)\n    make_helpers/toolchain.mk:354: \n    make_helpers/toolchain.mk:354: The build system will treat this assembler as GNU GCC (`gcc`).\n    make_helpers/toolchain.mk:354: \n    \nI\u0027ve removed the `\u003e`s from the indented bits which makes it a bit cleaner and padded out the top and bottom, e.g.:\n\n    make_helpers/toolchain.mk:358: \n    make_helpers/toolchain.mk:358: The configured AArch64 assembler could not be identified and may not be supported:\n    make_helpers/toolchain.mk:358: \n    make_helpers/toolchain.mk:358:     xyz\n    make_helpers/toolchain.mk:358: \n    make_helpers/toolchain.mk:358: The default AArch64 assembler is:\n    make_helpers/toolchain.mk:358: \n    make_helpers/toolchain.mk:358:     aarch64-none-elf-gcc\n    make_helpers/toolchain.mk:358: \n    make_helpers/toolchain.mk:358: The following tools are supported:\n    make_helpers/toolchain.mk:358: \n    make_helpers/toolchain.mk:358:   - Arm® Compiler for Embedded `armclang`\n    make_helpers/toolchain.mk:358:   - LLVM Clang (`clang`)\n    make_helpers/toolchain.mk:358:   - GNU GCC (`gcc`)\n    make_helpers/toolchain.mk:358: \n    make_helpers/toolchain.mk:358: The build system will treat this assembler as GNU GCC (`gcc`).\n    make_helpers/toolchain.mk:358:\n    \nAre you happy enough with that? I\u0027m hoping that this is not a warning people regularly see!",
+      "parentUuid": "5162d317_ca1e9a54",
+      "revId": "3160377a229008fbf37b947b2282eda349ed356c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "893cafab_47a33075",
         "filename": "make_helpers/toolchain.mk",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2024-04-17T07:45:33Z",
       "side": 1,
       "message": "this one too",
+      "revId": "3160377a229008fbf37b947b2282eda349ed356c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6792fca1_21d4dfd1",
+        "filename": "make_helpers/toolchain.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-04-23T11:14:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "893cafab_47a33075",
       "revId": "3160377a229008fbf37b947b2282eda349ed356c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8900cbad_820862c3",
+        "filename": "make_helpers/toolchain.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-04-23T11:14:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "62e12200_21a8de60",
+      "revId": "3160377a229008fbf37b947b2282eda349ed356c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f516e5ed_7d28c6f1",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-04-17T07:45:33Z",
       "side": 1,
       "message": "and add one here",
+      "revId": "3160377a229008fbf37b947b2282eda349ed356c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43cc767a_410d8fe6",
+        "filename": "make_helpers/toolchain.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-04-23T11:14:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f516e5ed_7d28c6f1",
       "revId": "3160377a229008fbf37b947b2282eda349ed356c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
