@@ -34,6 +34,24 @@
       "parentUuid": "8a7818c5_977ffe55",
       "revId": "0fed81845e43c55550d65e8984531078cd76feb1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd7b398c_cbb691ef",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-04-23T08:42:20Z",
+      "side": 1,
+      "message": "@Soby, i spoke to Bipin and Lauren and they are happy with current version of patch so that there will be less conflict in future. Please let me know your thoughts",
+      "parentUuid": "8ae6ce01_13cf01c8",
+      "revId": "0fed81845e43c55550d65e8984531078cd76feb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
