@@ -34,6 +34,24 @@
       "parentUuid": "eb81b054_d6309644",
       "revId": "a5003e04188e6eb4e6deee190d908e6bb50a5608",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c8107ba_3e18ccd4",
+        "filename": "include/common/build_message.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-23T13:23:11Z",
+      "side": 1,
+      "message": "It seems that won\u0027t work with my proposal, sorry. I\u0027ve tested and got this compilation error:\n\n\tplat/st/stm32mp1/bl2_plat_setup.c:172:18: error: declaration of \u0027version\u0027 shadows a global declaration [-Werror\u003dshadow]\n\t  172 |         uint32_t version;\n\t      |                  ^~~~~~~",
+      "parentUuid": "1d953743_0a3582d5",
+      "revId": "a5003e04188e6eb4e6deee190d908e6bb50a5608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
