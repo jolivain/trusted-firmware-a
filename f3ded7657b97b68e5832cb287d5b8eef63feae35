@@ -228,6 +228,30 @@
       },
       "revId": "f3ded7657b97b68e5832cb287d5b8eef63feae35",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52acf7ca_9013ddcc",
+        "filename": "include/drivers/arm/dsu.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-04-23T14:21:21Z",
+      "side": 1,
+      "message": "I have changed the accessor macros for some of the data members like you mentioned. For some of the data members(counter_val and counter_type) I used the write/read_* helper functions since it makes the code more readable and a long specialised macro for what I believe will only be used once seemed unneccessary.",
+      "parentUuid": "3f9c479d_bdeed85d",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 2
+      },
+      "revId": "f3ded7657b97b68e5832cb287d5b8eef63feae35",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
