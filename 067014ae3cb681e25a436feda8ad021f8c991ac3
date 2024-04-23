@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77dfddf3_a92e2b7c",
+        "filename": "include/plat/arm/common/arm_sip_svc.h",
+        "patchSetId": 26
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-04-23T20:45:23Z",
+      "side": 1,
+      "message": "May be change the version number to 1.0 as it is no longer backward compatible ?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 41
+      },
+      "revId": "067014ae3cb681e25a436feda8ad021f8c991ac3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3459a555_ceb3f106",
         "filename": "plat/arm/common/arm_sip_svc.c",
         "patchSetId": 26
