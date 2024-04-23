@@ -16,6 +16,24 @@
       "message": "Couldn\u0027t this go in a dedicated function that would also be called at line 737 as it seems to be the same code?",
       "revId": "bfddf4bceee19dc95f24719fbc70a97b4b4eeb7d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77e02c52_a7db3793",
+        "filename": "services/spd/opteed/opteed_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000962
+      },
+      "writtenOn": "2024-04-23T18:03:21Z",
+      "side": 1,
+      "message": "Thanks, cleaned that up.",
+      "parentUuid": "1b817237_44f4fb83",
+      "revId": "bfddf4bceee19dc95f24719fbc70a97b4b4eeb7d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
