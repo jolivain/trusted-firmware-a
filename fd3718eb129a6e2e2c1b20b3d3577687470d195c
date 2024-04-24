@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f4659c6_44e3b6b0",
+        "filename": "bl31/bl31_traps.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-24T08:54:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "65f1c2ac_aaf4947d",
+      "range": {
+        "startLine": 39,
+        "startChar": 1,
+        "endLine": 39,
+        "endChar": 7
+      },
+      "revId": "fd3718eb129a6e2e2c1b20b3d3577687470d195c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31c5c991_d9dc7ba1",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-04-22T18:55:18Z",
       "side": 1,
       "message": "I believe as per formatting guidelines used should be aligned to \"(\"",
+      "range": {
+        "startLine": 58,
+        "startChar": 2,
+        "endLine": 58,
+        "endChar": 3
+      },
+      "revId": "fd3718eb129a6e2e2c1b20b3d3577687470d195c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bf0ce00_f967bbd5",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-24T08:54:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "31c5c991_d9dc7ba1",
       "range": {
         "startLine": 58,
         "startChar": 2,
@@ -87,6 +135,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "901c1927_caa0bb4b",
+        "filename": "drivers/arm/smmu/smmu_v3.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-24T08:54:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "51c2a00f_4bc6ad45",
+      "range": {
+        "startLine": 100,
+        "startChar": 27,
+        "endLine": 100,
+        "endChar": 33
+      },
+      "revId": "fd3718eb129a6e2e2c1b20b3d3577687470d195c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4cdadc58_776d9755",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-04-22T18:55:18Z",
       "side": 1,
       "message": "just minor maybe just \n\n```\nassert(is_feat_rme_present());\n```",
+      "range": {
+        "startLine": 170,
+        "startChar": 2,
+        "endLine": 170,
+        "endChar": 37
+      },
+      "revId": "fd3718eb129a6e2e2c1b20b3d3577687470d195c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b27d4fe0_48cd5dca",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-24T08:54:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4cdadc58_776d9755",
       "range": {
         "startLine": 170,
         "startChar": 2,
@@ -133,6 +229,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b2a29fd_017db9e8",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-24T08:54:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ff0d9818_efca684a",
+      "range": {
+        "startLine": 220,
+        "startChar": 1,
+        "endLine": 220,
+        "endChar": 29
+      },
+      "revId": "fd3718eb129a6e2e2c1b20b3d3577687470d195c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5750e10a_0629ed7c",
@@ -146,6 +266,30 @@
       "writtenOn": "2024-04-22T18:55:18Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 205,
+        "startChar": 8,
+        "endLine": 205,
+        "endChar": 27
+      },
+      "revId": "fd3718eb129a6e2e2c1b20b3d3577687470d195c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f986d31_294ea3a4",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-24T08:54:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5750e10a_0629ed7c",
       "range": {
         "startLine": 205,
         "startChar": 8,
