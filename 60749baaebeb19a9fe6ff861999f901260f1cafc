@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75aa91ea_564f0e53",
+        "filename": "include/lib/pmf/pmf.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-04-24T21:42:36Z",
+      "side": 1,
+      "message": "Can we use DEPRECATED instead? I feel like DEP would be mixed up with \"dependency/ies\".",
+      "range": {
+        "startLine": 42,
+        "startChar": 33,
+        "endLine": 42,
+        "endChar": 36
+      },
+      "revId": "60749baaebeb19a9fe6ff861999f901260f1cafc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85e74e72_fa0a93c0",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-04-24T21:42:36Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be removed, as PMF calls are not part of SiP anymore? Also, I see that it is initialized in ven_el3_svc.c.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 23
+      },
+      "revId": "60749baaebeb19a9fe6ff861999f901260f1cafc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e5023a6_d0a247f2",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-04-24T21:42:36Z",
+      "side": 1,
+      "message": "Rephrase: \"(...) deprecated. Please migrate (...)\"",
+      "range": {
+        "startLine": 70,
+        "startChar": 52,
+        "endLine": 71,
+        "endChar": 10
+      },
+      "revId": "60749baaebeb19a9fe6ff861999f901260f1cafc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
