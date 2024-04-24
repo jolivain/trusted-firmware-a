@@ -22,6 +22,30 @@
       },
       "revId": "e494afc05f8562455e09b4f131f2699990a744f8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b7e3561_858782a2",
+        "filename": "plat/st/common/include/plat_def_fip_uuid.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-24T13:59:08Z",
+      "side": 1,
+      "message": "Hi Manish, the file is moved from plat/st/stm32mp1/include/plat_def_fip_uuid.h and updated with a new parameter. And the previous file was there in 2021.",
+      "parentUuid": "96a8094c_ce61b49d",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "e494afc05f8562455e09b4f131f2699990a744f8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
