@@ -16,6 +16,23 @@
       "message": "Top patch passes AllowCI+2.",
       "revId": "284a47a9ba30ee6060bdfac59cf3baed8f80e27a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "148a25ff_e9c8847d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 44
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-04-24T10:08:12Z",
+      "side": 1,
+      "message": "Transient CI failures:\n\n* https://ci.trustedfirmware.org/job/tf-a-ci-gateway/70673/\n* https://ci.trustedfirmware.org/job/tf-a-ci-gateway/70674/\n\nPass on rebuild. RESET_TO_BL2 is expected to fail when TRANSFER_LIST is enabled as support is provided in later patches.",
+      "revId": "284a47a9ba30ee6060bdfac59cf3baed8f80e27a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
