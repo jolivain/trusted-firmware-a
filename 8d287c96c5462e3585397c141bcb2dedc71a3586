@@ -16,6 +16,23 @@
       "message": "Verified +1 from relation chain",
       "revId": "8d287c96c5462e3585397c141bcb2dedc71a3586",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93ab181e_7a194852",
+        "filename": "changelog.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-24T09:51:55Z",
+      "side": 1,
+      "message": "Can we add ``rd`` in the deprecation list as below?\n\n```\n          - title: Neoverse-RD\n            scope: neoverse_rd\n\n            deprecated:\n              - rd  \n              \n            subsections:\n              - title: RD-N1 Edge\n                scope: rdn1edge\n\n              - title: RD-N2\n                scope: rdn2\n```",
+      "revId": "8d287c96c5462e3585397c141bcb2dedc71a3586",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
