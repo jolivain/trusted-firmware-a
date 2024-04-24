@@ -810,6 +810,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a86f70ba_fb9f242b",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 1624,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-24T15:43:06Z",
+      "side": 1,
+      "message": "This was an optimisation for not checking src_sec_state value again when setting other variables. There was assert() in the original code.",
+      "parentUuid": "90365682_bd0cc860",
+      "range": {
+        "startLine": 1621,
+        "startChar": 2,
+        "endLine": 1624,
+        "endChar": 3
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2652a1b7_3cbcd0b1",
