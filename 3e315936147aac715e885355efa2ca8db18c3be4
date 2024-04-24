@@ -16,6 +16,24 @@
       "message": "A more general question, why did you choose to dissambiguate the platform headers as you have? That is, I\u0027d expect the file names to conform with the platforms they target i.e. nrd2_css_fw_def.h instead of nrd_css_fw_def.h",
       "revId": "3e315936147aac715e885355efa2ca8db18c3be4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b349d181_94b7d911",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-04-24T20:23:09Z",
+      "side": 1,
+      "message": "Hi Harrison, I\u0027m not sure if I got your query. The the 2 has been moved to suffix so we still have the generation number encoded in the headers (nrd_css_fw_def2.h)",
+      "parentUuid": "341dbf48_96ef5fe0",
+      "revId": "3e315936147aac715e885355efa2ca8db18c3be4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
