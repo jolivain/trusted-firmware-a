@@ -69,6 +69,24 @@
       "parentUuid": "6554419c_e7ab925c",
       "revId": "c0c280dfda7322dcaebb5c6341c0880bdf524e13",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8021e001_0978a611",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-24T08:33:27Z",
+      "side": 1,
+      "message": "Sorry, I missed previous message. When I first checked it, I put some #error message under the added flag, but didn\u0027t see, I couldn\u0027t reach this code due to USING_OPENSSL3 flag. I\u0027ve now checked that it properly works, and OPENSSL_VERSION_NUMBER is OK.",
+      "parentUuid": "ffd7c5ca_0d4358b7",
+      "revId": "c0c280dfda7322dcaebb5c6341c0880bdf524e13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
