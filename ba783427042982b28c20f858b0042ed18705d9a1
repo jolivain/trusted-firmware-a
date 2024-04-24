@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d107be30_f14e23c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-04-24T16:09:22Z",
+      "side": 1,
+      "message": "These PMU counters are part of Cluster power domain and OS doesn\u0027t know when DSU is powered OFF.",
+      "parentUuid": "90172fee_d091a964",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "ba783427042982b28c20f858b0042ed18705d9a1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a08f8897_4be58c4b",
         "filename": "plat/arm/css/common/css_pm.c",
         "patchSetId": 5
