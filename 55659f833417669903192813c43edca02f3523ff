@@ -118,6 +118,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b5b1ac83_4e2580fb",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-04-24T21:28:25Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be removed from here, as it is now initialized in ven_el3_svc.c?",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "55659f833417669903192813c43edca02f3523ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "46825a77_cd3c6729",
         "filename": "plat/arm/common/arm_sip_svc.c",
         "patchSetId": 24
