@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "915f05ad_ac694c2d",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-04-24T11:26:31Z",
+      "side": 1,
+      "message": "Do we really need setup? as we are just supporting deprecated pmf call and bailing out?",
+      "revId": "8ab70dee85985362e45c97fdd45ecc68057b5860",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
