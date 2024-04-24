@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6731facc_f5eea240",
+        "filename": "plat/arm/board/tc/fdts/tc_spmc_manifest.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-04-24T14:44:48Z",
+      "side": 1,
+      "message": "Hi Joao\nI think this may not be entirely correct. For example, SMMUtestengine and sp805 trusted watchdog are not used by TC for tf-a-tests. They are only applicable for FVP platform.\nDid you test if the failing test config issue is resolved with this patch?",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 3
+      },
+      "revId": "eba5bcbb3b0cf490eefe106bc8b08d35690de235",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
