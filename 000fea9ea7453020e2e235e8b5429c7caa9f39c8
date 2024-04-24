@@ -70,6 +70,30 @@
       },
       "revId": "000fea9ea7453020e2e235e8b5429c7caa9f39c8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d0e7a63_e7f3926d",
+        "filename": "docs/plat/index.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-04-24T13:45:17Z",
+      "side": 0,
+      "message": "16:35:27 Warning, treated as error:\n16:35:27 /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/docs/plat/index.rst:70:Malformed table.\n16:35:27 \n16:35:27 +----------------+----------------+--------------------+--------------------+\n16:35:27 |    Platform    |     Vendor     | Deprecated version |  Deleted version   |\n16:35:27 +\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d+\n16:35:27 make[1]: *** [Makefile:32: html] Error 2\n16:35:27 make: *** [Makefile:1698: doc] Error 2\n16:35:27 + echo",
+      "parentUuid": "8972c848_cc25b346",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 73
+      },
+      "revId": "000fea9ea7453020e2e235e8b5429c7caa9f39c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
