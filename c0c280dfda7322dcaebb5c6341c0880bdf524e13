@@ -51,6 +51,24 @@
       "message": "Unrelated CI failures.",
       "revId": "c0c280dfda7322dcaebb5c6341c0880bdf524e13",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffd7c5ca_0d4358b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-24T08:01:32Z",
+      "side": 1,
+      "message": "@Yann, can you please provide your response on this? Thanks!\nIMHO, this change looks fine, particularly since it\u0027s not a considered as a build option as it comes directly from OpenSSL.",
+      "parentUuid": "6554419c_e7ab925c",
+      "revId": "c0c280dfda7322dcaebb5c6341c0880bdf524e13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
