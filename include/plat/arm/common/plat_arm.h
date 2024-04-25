@@ -366,6 +366,7 @@ int arm_get_rotpk_info_dev(void **key_ptr, unsigned int *key_len,
 
 #if ARM_PLAT_MT
 unsigned int plat_arm_get_cpu_pe_count(u_register_t mpidr);
+unsigned int plat_cluster_id_by_mpidr(u_register_t mpidr);
 #endif
 
 /*
