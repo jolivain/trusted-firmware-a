@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "155282c3_4e32bb5f",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-25T16:07:06Z",
+      "side": 1,
+      "message": "Didn\u0027t find any error. But thanks for highlighting. Modified.",
+      "parentUuid": "7481d557_ec43d102",
+      "range": {
+        "startLine": 2,
+        "startChar": 26,
+        "endLine": 2,
+        "endChar": 27
+      },
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fce5291_cf2202a2",
@@ -506,6 +530,30 @@
       "writtenOn": "2024-04-19T17:02:09Z",
       "side": 1,
       "message": "I\u0027m not sure this is the most maintainable way of doing this. Unless we are saying this is a temporary design document that we only want to reflect the state of the library today, I\u0027m concerned this will be maintenance burden down the line. What if the contents of the file change? Do we have a process that will ensure this document keeps up with the library? It\u0027s not clear to me that the value of the information it provides, outweighs the long term cost of maintaining the list.",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 162,
+        "endChar": 70
+      },
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10a29b3c_1ffecb34",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-25T16:07:06Z",
+      "side": 1,
+      "message": "Agreed. But I still think its good to have files mentioned as part of the documentation. Not a major concern to maintain and also there are few instances, where few of our partner platforms have taken this approach. Will check with other reviewers and modify here if required.\nThanks!",
+      "parentUuid": "7731fd51_387d18a1",
       "range": {
         "startLine": 129,
         "startChar": 0,
