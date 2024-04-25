@@ -26,4 +26,4 @@ build-subdirs  = $(PLAT)
 build-subdirs += $(TARGET_BOARD)
 build-subdirs += $(BUILD_TYPE)
 
-BUILD_PLAT := $(abspath $(build-dir))
+BUILD_PLAT := $(build-dir)
