@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4554d88d_c5f2ba46",
+        "filename": "include/lib/pmf/pmf.h",
+        "patchSetId": 28
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-25T17:12:56Z",
+      "side": 1,
+      "message": "Yes thought about it 😊, unfortunately makes the macro very long, since this will be removed soon settled for the short name.",
+      "parentUuid": "75aa91ea_564f0e53",
+      "range": {
+        "startLine": 42,
+        "startChar": 33,
+        "endLine": 42,
+        "endChar": 36
+      },
+      "revId": "60749baaebeb19a9fe6ff861999f901260f1cafc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "85e74e72_fa0a93c0",
         "filename": "plat/arm/common/arm_sip_svc.c",
         "patchSetId": 28
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-24T21:42:36Z",
       "side": 1,
       "message": "Shouldn\u0027t this be removed, as PMF calls are not part of SiP anymore? Also, I see that it is initialized in ven_el3_svc.c.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 23
+      },
+      "revId": "60749baaebeb19a9fe6ff861999f901260f1cafc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e31d5ec_f0013872",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-25T17:12:56Z",
+      "side": 1,
+      "message": "yes clarified in here:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26917/24/plat/arm/common/arm_sip_svc.c#35",
+      "parentUuid": "85e74e72_fa0a93c0",
       "range": {
         "startLine": 25,
         "startChar": 0,
