@@ -16,6 +16,24 @@
       "message": "why did we remove the DSB after the cache flush? has it been combined into flush_dcache?",
       "revId": "bbae97882f24d476ac5fc3e04bdf41ffb740d4e1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcdab032_36e039f2",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-04-25T15:57:05Z",
+      "side": 1,
+      "message": "When I put it there, I didn\u0027t realise that do_dcache_maintenance_instr macro (lib\\aarch64\\cache_helpers.S) which is used by flush_dcache_to_popa_range() had it already, see line #68 of cache_helpers.S.",
+      "parentUuid": "b816f439_92a0a543",
+      "revId": "bbae97882f24d476ac5fc3e04bdf41ffb740d4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
