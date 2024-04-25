@@ -22,6 +22,30 @@
       },
       "revId": "eba5bcbb3b0cf490eefe106bc8b08d35690de235",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a496d97_6c9720b2",
+        "filename": "plat/arm/board/tc/fdts/tc_spmc_manifest.dtsi",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-04-25T15:06:41Z",
+      "side": 1,
+      "message": "See the most recent change. It is fixed.\nPatch passes: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/70876/",
+      "parentUuid": "6731facc_f5eea240",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 3
+      },
+      "revId": "eba5bcbb3b0cf490eefe106bc8b08d35690de235",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
