@@ -22,6 +22,7 @@ VERSION				:= ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
 MAKEOVERRIDES =
 
 MAKE_HELPERS_DIRECTORY := make_helpers/
+include ${MAKE_HELPERS_DIRECTORY}build-config.mk
 include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
 
@@ -420,10 +421,7 @@ include common/backtrace/backtrace.mk
 ################################################################################
 include ${MAKE_HELPERS_DIRECTORY}plat_helpers.mk
 
-ifeq (${BUILD_BASE},)
-     BUILD_BASE		:=	./build
-endif
-BUILD_PLAT		:=	$(abspath ${BUILD_BASE})/${PLAT}/${BUILD_TYPE}
+BUILD_PLAT		=	$(abspath $(build-dir))
 
 SPDS			:=	$(sort $(filter-out none, $(patsubst services/spd/%,%,$(wildcard services/spd/*))))
 
@@ -1588,7 +1586,7 @@ endif #(UNIX_MK)
 
 realclean distclean:
 	@echo "  REALCLEAN"
-	$(call SHELL_REMOVE_DIR,${BUILD_BASE})
+	$(call SHELL_REMOVE_DIR,$(build-base))
 	$(call SHELL_DELETE_ALL, ${CURDIR}/cscope.*)
 ifdef UNIX_MK
 	${Q}${MAKE} --no-print-directory -C ${FIPTOOLPATH} clean

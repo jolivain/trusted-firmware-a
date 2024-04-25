@@ -53,7 +53,9 @@ ENABLE_STACK_PROTECTOR		:=	strong
 SDEI_SUPPORT			:= 1
 
 # modify BUILD_PLAT to point to SoC specific build directory
-BUILD_PLAT	:=	${BUILD_BASE}/${PLAT}/${TARGET_SOC}/${BUILD_TYPE}
+build-subdirs  = $(PLAT)
+build-subdirs += $(TARGET_SOC)
+build-subdirs += $(BUILD_TYPE)
 
 include plat/nvidia/tegra/common/tegra_common.mk
 include ${SOC_DIR}/platform_${TARGET_SOC}.mk
