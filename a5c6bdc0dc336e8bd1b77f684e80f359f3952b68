@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f48cf6d2_eb45c10e",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-25T21:38:09Z",
+      "side": 1,
+      "message": "nit: limit the characters to 80 per line. The older implementation was ideal. Kindly retain it at here and at other places in this file as applicable.",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 0
+      },
+      "revId": "a5c6bdc0dc336e8bd1b77f684e80f359f3952b68",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
