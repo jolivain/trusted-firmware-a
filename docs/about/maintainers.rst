@@ -114,6 +114,8 @@ Secure Partition Manager Core (EL3 FF-A SPMC)
 :|M|: Marc Bonnici <marc.bonnici@arm.com>
 :|G|: `marcbonnici`_
 :|F|: services/std_svc/spm/el3_spmc/\*
+:|F|: include/services/el3_spmc\_\*
+:|F|: include/services/spmc_svc.h
 
 Secure Partition Manager Dispatcher (SPMD)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
