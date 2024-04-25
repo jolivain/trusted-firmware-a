@@ -86,17 +86,17 @@ BUILD_UART	:= uart-images
 UART_IMAGE	:= $(BUILD_UART).tgz.bin
 
 ifeq ($(MARVELL_SECURE_BOOT),1)
-TIM_CFG		:= $(BUILD_PLAT)/atf-tim.txt
-TIM_UART_CFG	:= $(BUILD_PLAT)/$(BUILD_UART)/atf-tim.txt
+TIM_CFG		:= $(call absolute-path,$(BUILD_PLAT)/atf-tim.txt)
+TIM_UART_CFG	:= $(call absolute-path,$(BUILD_PLAT)/$(BUILD_UART)/atf-tim.txt)
 IMAGESPATH	:= $(WTP)/tim/trusted
-TIMN_CFG	:= $(BUILD_PLAT)/atf-timN.txt
-TIMN_UART_CFG	:= $(BUILD_PLAT)/$(BUILD_UART)/atf-timN.txt
+TIMN_CFG	:= $(call absolute-path,$(BUILD_PLAT)/atf-timN.txt)
+TIMN_UART_CFG	:= $(call absolute-path,$(BUILD_PLAT)/$(BUILD_UART)/atf-timN.txt)
 TIMN_SIG	:= $(IMAGESPATH)/timnsign.txt
 TIM2IMGARGS	:= -i $(TIM_CFG) -n $(TIMN_CFG)
 TIMN_UART_IMAGE	:= $$(grep "Image Filename:" -m 1 $(TIMN_UART_CFG) | cut -c 17-)
 else #MARVELL_SECURE_BOOT
-TIM_CFG		:= $(BUILD_PLAT)/atf-ntim.txt
-TIM_UART_CFG	:= $(BUILD_PLAT)/$(BUILD_UART)/atf-ntim.txt
+TIM_CFG		:= $(call absolute-path,$(BUILD_PLAT)/atf-ntim.txt)
+TIM_UART_CFG	:= $(call absolute-path,$(BUILD_PLAT)/$(BUILD_UART)/atf-ntim.txt)
 IMAGESPATH	:= $(WTP)/tim/untrusted
 TIM2IMGARGS	:= -i $(TIM_CFG)
 endif #MARVELL_SECURE_BOOT
@@ -221,7 +221,7 @@ ifeq ($(MARVELL_SECURE_BOOT),1)
 	$(Q)sed -i 's|wtmi.bin|$(WTMI_ENC_IMG)|1' $(TIMN_CFG)
 	$(Q)sed -i 's|$(BOOT_IMAGE)|$(BOOT_ENC_IMAGE)|1' $(TIMN_CFG)
 endif
-	$(Q)cd $(BUILD_PLAT) && $(TIM2IMG) $(TIM2IMGARGS) -o $(BUILD_PLAT)/$(FLASH_IMAGE)
+	$(Q)cd $(BUILD_PLAT) && $(TIM2IMG) $(TIM2IMGARGS) -o $(call escape-shell,$(call absolute-path,$(BUILD_PLAT)/$(FLASH_IMAGE)))
 	@$(ECHO_BLANK_LINE)
 	@echo "Built $@ successfully"
 	@$(ECHO_BLANK_LINE)

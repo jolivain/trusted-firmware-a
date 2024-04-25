@@ -421,7 +421,7 @@ include common/backtrace/backtrace.mk
 ################################################################################
 include ${MAKE_HELPERS_DIRECTORY}plat_helpers.mk
 
-BUILD_PLAT		:=	$(abspath $(build-dir))
+BUILD_PLAT		:=	$(build-dir)
 
 SPDS			:=	$(sort $(filter-out none, $(patsubst services/spd/%,%,$(wildcard services/spd/*))))
 
@@ -1689,7 +1689,7 @@ else
 endif #(UNIX_MK)
 
 romlib.bin: libraries FORCE
-	${Q}${MAKE} PLAT_DIR=${PLAT_DIR} BUILD_PLAT=${BUILD_PLAT} ENABLE_BTI=${ENABLE_BTI} ARM_ARCH_MINOR=${ARM_ARCH_MINOR} INCLUDES=$(call escape-shell,$(INCLUDES)) DEFINES=$(call escape-shell,$(DEFINES)) --no-print-directory -C ${ROMLIBPATH} all
+	${Q}${MAKE} PLAT_DIR=${PLAT_DIR} BUILD_PLAT=$(call escape-shell,$(call absolute-path,$(BUILD_PLAT))) ENABLE_BTI=${ENABLE_BTI} ARM_ARCH_MINOR=${ARM_ARCH_MINOR} INCLUDES=$(call escape-shell,$(INCLUDES)) DEFINES=$(call escape-shell,$(DEFINES)) --no-print-directory -C ${ROMLIBPATH} all
 
 memmap: all
 ifdef UNIX_MK
