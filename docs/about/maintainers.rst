@@ -250,12 +250,14 @@ Power State Coordination Interface (PSCI)
 :|M|: Lauren Wehrmeister <Lauren.Wehrmeister@arm.com>
 :|G|: `laurenw-arm`_
 :|F|: lib/psci/
+:|F|: include/lib/psci/
 
 DebugFS
 ^^^^^^^
 :|M|: Olivier Deprez <olivier.deprez@arm.com>
 :|G|: `odeprez`_
 :|F|: lib/debugfs/
+:|F|: include/lib/debugfs.h
 
 Firmware Configuration Framework (FCONF)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -266,6 +268,14 @@ Firmware Configuration Framework (FCONF)
 :|M|: Lauren Wehrmeister <Lauren.Wehrmeister@arm.com>
 :|G|: `laurenw-arm`_
 :|F|: lib/fconf/
+:|F|: plat/arm/common/fconf/
+:|F|: include/lib/fconf/
+:|F|: include/plat/arm/common/arm_fconf_getter.h
+:|F|: include/plat/arm/common/arm_fconf_io_storage.h
+:|F|: include/plat/arm/common/fconf_arm_sp_getter.h
+:|F|: include/plat/arm/common/fconf_nv_cntr_getter.h
+:|F|: include/plat/arm/common/fconf_sdei_getter.h
+:|F|: include/plat/arm/common/fconf_sec_intr_config.h
 
 Performance Measurement Framework (PMF)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -287,6 +297,7 @@ Arm CPU libraries
 :|M|: Lauren Wehrmeister <Lauren.Wehrmeister@arm.com>
 :|G|: `laurenw-arm`_
 :|F|: lib/cpus/
+:|F|: include/lib/cpus/\*
 
 Reliability Availability Serviceabilty (RAS) framework
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -414,6 +425,8 @@ DRTM
 :|M|: Manish Pandey <manish.pandey2@arm.com>
 :|G|: `manish-pandey-arm`_
 :|F|: services/std_svc/drtm
+:|F|: include/plat/common/plat_drtm.h
+:|F|: include/services/drtm_svc.h
 
 PSA Firmware Update
 ^^^^^^^^^^^^^^^^^^^
@@ -640,7 +653,6 @@ Nuvoton npcm845x platform port
 :|M|: Avi Fishman <avi.fishman@nuvoton.com>
 :|G|: `avifishman`_
 :|F|: docs/plat/npcm845x.rst
-:|F|: drivers/nuvoton/
 :|F|: include/drivers/nuvoton/
 :|F|: include/plat/nuvoton/
 :|F|: plat/nuvoton/
