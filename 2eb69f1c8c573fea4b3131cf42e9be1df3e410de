@@ -88,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fae3e3ff_e0e0d0ec",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-04-25T17:00:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01a6f4d0_5fbb0d92",
+      "revId": "2eb69f1c8c573fea4b3131cf42e9be1df3e410de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "505290d3_7d856027",
@@ -101,6 +119,24 @@
       "writtenOn": "2024-04-17T21:57:25Z",
       "side": 1,
       "message": "You might want to add `sha3.c`.",
+      "revId": "2eb69f1c8c573fea4b3131cf42e9be1df3e410de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cf8133b_bede273a",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-04-25T17:00:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "505290d3_7d856027",
       "revId": "2eb69f1c8c573fea4b3131cf42e9be1df3e410de",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -141,6 +177,30 @@
       "writtenOn": "2024-04-17T21:57:25Z",
       "side": 1,
       "message": "I think you need `psa_util.c` as well now. Also `psa_crypto_aead.c` if AES-GCM is enabled.",
+      "range": {
+        "startLine": 83,
+        "startChar": 3,
+        "endLine": 83,
+        "endChar": 4
+      },
+      "revId": "2eb69f1c8c573fea4b3131cf42e9be1df3e410de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eec17d2_c52c14b6",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-04-25T17:00:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b50b7141_cd857234",
       "range": {
         "startLine": 83,
         "startChar": 3,

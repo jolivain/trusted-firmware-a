@@ -56,6 +56,30 @@
       },
       "revId": "663f40876c4da58c3238ae7d5f2d2936197c1424",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9555cf17_69142cc0",
+        "filename": "include/drivers/auth/mbedtls/mbedtls_config-3.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-04-25T17:00:17Z",
+      "side": 1,
+      "message": "That\u0027s being revmoved; and Mbedtls maintainers have advised moving to 3.6.0 with a small hack instead.",
+      "parentUuid": "9a045080_6559c5d7",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 31
+      },
+      "revId": "663f40876c4da58c3238ae7d5f2d2936197c1424",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
