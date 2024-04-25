@@ -16,6 +16,46 @@
       "message": "CI ran with 3.4.1.",
       "revId": "663f40876c4da58c3238ae7d5f2d2936197c1424",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44de1337_4c895e6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-25T10:34:43Z",
+      "side": 1,
+      "message": "I\u0027d like to know if this patch has undergone testing across all available key algorithms, such as RSA, ECDSA, etc. Thanks!",
+      "revId": "663f40876c4da58c3238ae7d5f2d2936197c1424",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a045080_6559c5d7",
+        "filename": "include/drivers/auth/mbedtls/mbedtls_config-3.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-04-25T10:34:43Z",
+      "side": 1,
+      "message": "Is there a specific rationale behind requiring this option during the transition to v3.5.2?",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 31
+      },
+      "revId": "663f40876c4da58c3238ae7d5f2d2936197c1424",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
