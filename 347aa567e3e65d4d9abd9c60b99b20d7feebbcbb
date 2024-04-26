@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d660fd74_bcb2e58f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000196
+      },
+      "writtenOn": "2024-04-26T12:10:34Z",
+      "side": 1,
+      "message": "The untimely inclusion of check_config.h might be the cause of some of your troubles.",
+      "revId": "347aa567e3e65d4d9abd9c60b99b20d7feebbcbb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14a6eeb0_70b74f1b",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000196
+      },
+      "writtenOn": "2024-04-26T12:10:34Z",
+      "side": 1,
+      "message": "More precisely, the declaration has been made internal. The Mbed TLS team recommends copying the declaration as a quick fix, but this should be followed by a proper fix of relying on `mbedtls_x509_crt_verify` or one of its variants instead of checking signatures manually. And if for some reason you really can\u0027t do that, make a feature request to expose the functionality that you need.",
+      "range": {
+        "startLine": 70,
+        "startChar": 9,
+        "endLine": 71,
+        "endChar": 55
+      },
+      "revId": "347aa567e3e65d4d9abd9c60b99b20d7feebbcbb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fee7d1de_5ab4b755",
+        "filename": "include/drivers/auth/mbedtls/mbedtls_config-3.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000196
+      },
+      "writtenOn": "2024-04-26T12:10:34Z",
+      "side": 1,
+      "message": "This should not be necessary (in 3.6: in 3.5 there was a bug that made it necessary in some cases which TF-A happens to hit). I\u0027m not sure if it\u0027s actively harmful, but the order of inclusion of the `config_adjust*.h` files matters, so including it here might cause problems.",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 48
+      },
+      "revId": "347aa567e3e65d4d9abd9c60b99b20d7feebbcbb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88768b79_433cfd7b",
+        "filename": "include/drivers/auth/mbedtls/mbedtls_config-3.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000196
+      },
+      "writtenOn": "2024-04-26T12:10:34Z",
+      "side": 1,
+      "message": "Don\u0027t include `check_config.h` here! The configuration is incomplete. This looks like a survivance from Mbed TLS 2.x, where `check_config.h` was included from `config.h`. Since Mbed TLS 3.0, the Mbed TLS headers include `check_config.h` at the right time, and including `check_config.h` manually can fail to spot bad configurations, or reject valid configurations, because the configuration is not complete (it\u0027s missing the PSA configuration, as well as some derived symbols).",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 33
+      },
+      "revId": "347aa567e3e65d4d9abd9c60b99b20d7feebbcbb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
