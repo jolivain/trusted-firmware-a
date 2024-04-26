@@ -16,6 +16,24 @@
       "message": "I have doubt here, will the code execution reach here because the SMC_RET3 at the end of the previous if statement calls SMC_RET2-\u003eSMC_RET1-\u003eSMC_RET0 which does a return I think. Or are we checking version only if the first if statement is false?",
       "revId": "c41e81b1c360cf8d8c3f1756a30cbd055fc4d750",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92e0468b_56c925bb",
+        "filename": "lib/pmf/pmf_smc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-26T19:05:07Z",
+      "side": 1,
+      "message": "line49 ret will happen only if fid is timestamp?\n\nin line 33 we check if its smc_32 then enter the if line 39\u002640 we check if its timestamp fid otherwise in line 53 we check if version request fid",
+      "parentUuid": "8a818952_9b89c933",
+      "revId": "c41e81b1c360cf8d8c3f1756a30cbd055fc4d750",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
