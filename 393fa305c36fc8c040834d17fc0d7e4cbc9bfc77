@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0bea5a03_a5caa9ba",
+        "filename": "lib/pmf/pmf_smc.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-26T19:00:59Z",
+      "side": 1,
+      "message": "Hi Sona,\n\nyes we are not removing armn-sip pmf/debugfs support but retaining backward compatibility for a release so have added a warning message when used from arm-sip",
+      "parentUuid": "35b3e7a3_cdff03fa",
+      "revId": "393fa305c36fc8c040834d17fc0d7e4cbc9bfc77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d4ab0418_34994ce0",
         "filename": "plat/arm/common/arm_sip_svc.c",
         "patchSetId": 30
@@ -31,6 +49,24 @@
       "writtenOn": "2024-04-25T22:15:35Z",
       "side": 1,
       "message": "Since this is already included as a part of the ven_el3_svc_setup, do we have to have this check here as well?\nsame for debugfs.",
+      "revId": "393fa305c36fc8c040834d17fc0d7e4cbc9bfc77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f00cee41_d6c71f31",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-04-26T19:00:59Z",
+      "side": 1,
+      "message": "yes we are not removing full support from arm-sip but have added a warning messaage so will have pmf/debugfs from bith arm-sip and vendor-el3 fids, but arm-sip range will be removed later",
+      "parentUuid": "d4ab0418_34994ce0",
       "revId": "393fa305c36fc8c040834d17fc0d7e4cbc9bfc77",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
