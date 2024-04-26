@@ -16,6 +16,23 @@
       "message": "It seems still the old CI scripts were running. It use --rss-* command line flags, instead of --rse-*.\n\n```\n10:32:14 ++ /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/tools/fiptool/fiptool update --align 8192 --rss-bl2 /home/buildslave/workspace/tf-a-builder/workspace/artefacts/debug/rss_bl2_signed.bin --align 8192 --rss-s /home/buildslave/workspace/tf-a-builder/workspace/artefacts/debug/rss_s_signed.bin --align 8192 --rss-scp-bl1 /home/buildslave/workspace/tf-a-builder/workspace/artefacts/debug/signed_scp_romfw.bin --align 8192 --rss-ap-bl1 /home/buildslave/workspace/tf-a-builder/workspace/artefacts/debug/signed_bl1.bin --out host_flash_fip.bin /home/buildslave/workspace/tf-a-builder/workspace/artefacts/debug/fip.bin\n10:32:14 update: unrecognized option \u0027--rss-bl2\u0027\n```",
       "revId": "ccc717391f5359fe2f04fe5a7a6a841bbab587b6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acfb598b_92bfda25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-04-26T09:27:55Z",
+      "side": 1,
+      "message": "CI failures unrelated",
+      "revId": "ccc717391f5359fe2f04fe5a7a6a841bbab587b6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
