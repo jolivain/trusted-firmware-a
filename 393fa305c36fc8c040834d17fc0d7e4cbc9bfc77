@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef138a4d_b1403a21",
+        "filename": "lib/pmf/pmf_smc.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-26T19:09:32Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0bea5a03_a5caa9ba",
+      "revId": "393fa305c36fc8c040834d17fc0d7e4cbc9bfc77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4ab0418_34994ce0",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "yes we are not removing full support from arm-sip but have added a warning messaage so will have pmf/debugfs from bith arm-sip and vendor-el3 fids, but arm-sip range will be removed later",
       "parentUuid": "d4ab0418_34994ce0",
+      "revId": "393fa305c36fc8c040834d17fc0d7e4cbc9bfc77",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06b0253c_c025f7ad",
+        "filename": "plat/arm/common/arm_sip_svc.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-26T19:09:32Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f00cee41_d6c71f31",
       "revId": "393fa305c36fc8c040834d17fc0d7e4cbc9bfc77",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
