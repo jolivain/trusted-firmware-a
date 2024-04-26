@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d0af7f1_f90f8f60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-04-26T11:40:05Z",
+      "side": 1,
+      "message": "Hi, could you rebase your patch on the latest integration branch? The platform build failure are cause by a wrong alignment between TF-A code and tf-a-ci-scripts.\nFor the votes, you should only provide Allow-CI+1 (and optionally Code-Review+1), the Verified+1 will be provided by CI, and the Code-Owner-Review+1 should not be done on our own patches.",
+      "revId": "67288e4c17269b7955ccee8eecc9708bb5a0fc93",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
