@@ -222,60 +222,11 @@
  */
 #define CTX_EL1_SYSREGS_END	CTX_GCS_REGS_END
 
-/*******************************************************************************
- * Constants that allow assembler code to access members of and the 'fp_regs'
- * structure at their correct offsets.
- ******************************************************************************/
-# define CTX_FPREGS_OFFSET	(CTX_EL1_SYSREGS_OFFSET + CTX_EL1_SYSREGS_END)
-#if CTX_INCLUDE_FPREGS
-#define CTX_FP_Q0		U(0x0)
-#define CTX_FP_Q1		U(0x10)
-#define CTX_FP_Q2		U(0x20)
-#define CTX_FP_Q3		U(0x30)
-#define CTX_FP_Q4		U(0x40)
-#define CTX_FP_Q5		U(0x50)
-#define CTX_FP_Q6		U(0x60)
-#define CTX_FP_Q7		U(0x70)
-#define CTX_FP_Q8		U(0x80)
-#define CTX_FP_Q9		U(0x90)
-#define CTX_FP_Q10		U(0xa0)
-#define CTX_FP_Q11		U(0xb0)
-#define CTX_FP_Q12		U(0xc0)
-#define CTX_FP_Q13		U(0xd0)
-#define CTX_FP_Q14		U(0xe0)
-#define CTX_FP_Q15		U(0xf0)
-#define CTX_FP_Q16		U(0x100)
-#define CTX_FP_Q17		U(0x110)
-#define CTX_FP_Q18		U(0x120)
-#define CTX_FP_Q19		U(0x130)
-#define CTX_FP_Q20		U(0x140)
-#define CTX_FP_Q21		U(0x150)
-#define CTX_FP_Q22		U(0x160)
-#define CTX_FP_Q23		U(0x170)
-#define CTX_FP_Q24		U(0x180)
-#define CTX_FP_Q25		U(0x190)
-#define CTX_FP_Q26		U(0x1a0)
-#define CTX_FP_Q27		U(0x1b0)
-#define CTX_FP_Q28		U(0x1c0)
-#define CTX_FP_Q29		U(0x1d0)
-#define CTX_FP_Q30		U(0x1e0)
-#define CTX_FP_Q31		U(0x1f0)
-#define CTX_FP_FPSR		U(0x200)
-#define CTX_FP_FPCR		U(0x208)
-#if CTX_INCLUDE_AARCH32_REGS
-#define CTX_FP_FPEXC32_EL2	U(0x210)
-#define CTX_FPREGS_END		U(0x220) /* Align to the next 16 byte boundary */
-#else
-#define CTX_FPREGS_END		U(0x210) /* Align to the next 16 byte boundary */
-#endif /* CTX_INCLUDE_AARCH32_REGS */
-#else
-#define CTX_FPREGS_END		U(0)
-#endif /* CTX_INCLUDE_FPREGS */
 
 /*******************************************************************************
  * Registers related to CVE-2018-3639
  ******************************************************************************/
-#define CTX_CVE_2018_3639_OFFSET	(CTX_FPREGS_OFFSET + CTX_FPREGS_END)
+#define CTX_CVE_2018_3639_OFFSET	(CTX_EL1_SYSREGS_OFFSET + CTX_EL1_SYSREGS_END)
 #define CTX_CVE_2018_3639_DISABLE	U(0)
 #define CTX_CVE_2018_3639_END		U(0x10) /* Align to the next 16 byte boundary */
 
@@ -327,9 +278,6 @@
 #define CTX_GPREG_ALL		(CTX_GPREGS_END >> DWORD_SHIFT)
 #define CTX_EL1_SYSREGS_ALL	(CTX_EL1_SYSREGS_END >> DWORD_SHIFT)
 
-#if CTX_INCLUDE_FPREGS
-# define CTX_FPREG_ALL		(CTX_FPREGS_END >> DWORD_SHIFT)
-#endif
 #define CTX_EL3STATE_ALL	(CTX_EL3STATE_END >> DWORD_SHIFT)
 #define CTX_CVE_2018_3639_ALL	(CTX_CVE_2018_3639_END >> DWORD_SHIFT)
 #if CTX_INCLUDE_PAUTH_REGS
@@ -356,9 +304,6 @@ DEFINE_REG_STRUCT(el1_sysregs, CTX_EL1_SYSREGS_ALL);
  * the floating point state during switches from one security state to
  * another.
  */
-#if CTX_INCLUDE_FPREGS
-DEFINE_REG_STRUCT(fp_regs, CTX_FPREG_ALL);
-#endif
 
 /*
  * Miscellaneous registers used by EL3 firmware to maintain its state
@@ -395,9 +340,6 @@ typedef struct cpu_context {
 	el3_state_t el3state_ctx;
 	el1_sysregs_t el1_sysregs_ctx;
 
-#if CTX_INCLUDE_FPREGS
-	fp_regs_t fpregs_ctx;
-#endif
 	cve_2018_3639_t cve_2018_3639_ctx;
 
 #if CTX_INCLUDE_PAUTH_REGS
@@ -424,9 +366,6 @@ extern per_world_context_t per_world_context[CPU_DATA_CONTEXT_NUM];
 
 /* Macros to access members of the 'cpu_context_t' structure */
 #define get_el3state_ctx(h)	(&((cpu_context_t *) h)->el3state_ctx)
-#if CTX_INCLUDE_FPREGS
-# define get_fpregs_ctx(h)	(&((cpu_context_t *) h)->fpregs_ctx)
-#endif
 #define get_el1_sysregs_ctx(h)	(&((cpu_context_t *) h)->el1_sysregs_ctx)
 #if CTX_INCLUDE_EL2_REGS
 # define get_el2_sysregs_ctx(h)	(&((cpu_context_t *) h)->el2_sysregs_ctx)
@@ -450,11 +389,6 @@ CASSERT(CTX_EL3STATE_OFFSET == __builtin_offsetof(cpu_context_t, el3state_ctx),
 
 CASSERT(CTX_EL1_SYSREGS_OFFSET == __builtin_offsetof(cpu_context_t, el1_sysregs_ctx),
 	assert_core_context_el1_sys_offset_mismatch);
-
-#if CTX_INCLUDE_FPREGS
-CASSERT(CTX_FPREGS_OFFSET == __builtin_offsetof(cpu_context_t, fpregs_ctx),
-	assert_core_context_fp_offset_mismatch);
-#endif /* CTX_INCLUDE_FPREGS */
 
 CASSERT(CTX_CVE_2018_3639_OFFSET == __builtin_offsetof(cpu_context_t, cve_2018_3639_ctx),
 	assert_core_context_cve_2018_3639_offset_mismatch);
