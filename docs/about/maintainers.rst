@@ -576,8 +576,6 @@ Intel SocFPGA platform ports
 
 MediaTek platform ports
 ^^^^^^^^^^^^^^^^^^^^^^^
-:|M|: Rex-BC Chen <rex-bc.chen@mediatek.com>
-:|G|: `mtk-rex-bc-chen`_
 :|M|: Leon Chen <leon.chen@mediatek.com>
 :|G|: `leon-chen-mtk`_
 :|M|: Jason-CH Chen <jason-ch.chen@mediatek.com>
@@ -973,7 +971,6 @@ Conventional Changelog Extensions
 .. _michalsimek: https://github.com/michalsimek
 .. _mmind: https://github.com/mmind
 .. _MrVan: https://github.com/MrVan
-.. _mtk-rex-bc-chen: https://github.com/mtk-rex-bc-chen
 .. _leon-chen-mtk: https://github.com/leon-chen-mtk
 .. _jason-ch-chen: https://github.com/jason-ch-chen
 .. _linyidi: https://github.com/linyidi
