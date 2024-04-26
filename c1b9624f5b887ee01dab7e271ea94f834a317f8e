@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "736f3795_15ff86fc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-26T20:09:56Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3215559d_f25a81f1",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 12,
+        "endChar": 34
+      },
+      "revId": "c1b9624f5b887ee01dab7e271ea94f834a317f8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f56e5ff_020f899f",
@@ -60,6 +84,54 @@
       "writtenOn": "2024-04-25T21:54:39Z",
       "side": 1,
       "message": "nit:\nThis paragraph could be simplified. Feel free to ignore if you find it not required.\n\nSomething like:\n\nThis impacts ``check_feature`` api which is explicilty used in ``detect_arch_fetaures`` procedure.\nIn order to keep it in original form, the read functions have been added. Further, the scope has also been reduced to file static without introducing any additonal overhead on code size, as the feat_detect.c is included for build, only while the FEATURE_DETECTION flag is enabled.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 58
+      },
+      "revId": "c1b9624f5b887ee01dab7e271ea94f834a317f8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e63124a_dafcf5d5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-26T20:09:56Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1f56e5ff_020f899f",
+      "range": {
+        "startLine": 15,
+        "startChar": 39,
+        "endLine": 15,
+        "endChar": 45
+      },
+      "revId": "c1b9624f5b887ee01dab7e271ea94f834a317f8e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa9b4b8a_f25ab21c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 15
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-04-26T20:09:56Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ea65d5f4_8d88c81d",
       "range": {
         "startLine": 13,
         "startChar": 0,
