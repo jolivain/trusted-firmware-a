@@ -20,3 +20,4 @@ file-name = $(call decompat-path,$(notdir $(call compat-path,$(1))))
 directory-name = $(call decompat-path,$(dir $(call compat-path,$(1))))
 
 escape-shell = '$(subst ','\'',$(1))'
+escape-make = $(subst $(space),\ ,$(1))
