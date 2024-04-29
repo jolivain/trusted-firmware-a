@@ -34,6 +34,24 @@
       "parentUuid": "fb6fc766_52d37174",
       "revId": "4731c00bb60915c0d4b29c082a752e9925a244b4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ee3dfeb_a067c32f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000966
+      },
+      "writtenOn": "2024-04-29T05:14:48Z",
+      "side": 1,
+      "message": "Hi Chris, the only reason I had not gone for the second option is that enabling and disable of ccache is convenient and we can just prefix/not prefix it in the build commands, the other one requires me to change my system PATH environment and all if I want to have that flexibility. I see Linux/U-boot or other projects also being compatible with ccache with the first option so just wondering how is tf-a differing in that regard, not sure if Linux builds are not supported in windows or something else.\n\nThe other thing am wondering is if there is a better way to fix this which will just fix the regression caused for non-UNIX environment, it seems counterintuitive that a fix for the non-UNIX environment is changing the behaviour for the builds for UNIX environment.\n\nThe other option of CMake also sounds nice but just wondering if there is a better way to fix this as well..",
+      "parentUuid": "211e4ec9_4d04dea9",
+      "revId": "4731c00bb60915c0d4b29c082a752e9925a244b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ],
   "submitRequirementResults": []
