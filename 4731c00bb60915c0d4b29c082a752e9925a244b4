@@ -52,6 +52,24 @@
       "parentUuid": "211e4ec9_4d04dea9",
       "revId": "4731c00bb60915c0d4b29c082a752e9925a244b4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49e30dab_b176a87c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-04-29T12:04:08Z",
+      "side": 1,
+      "message": "Yes, TF-A\u0027s build system differs substantially from Linux and U-boot, as neither can be built on non-Linux systems. Unfortunately, one of the trade-offs that we have had to make to better support downstream Windows users is to support compilers in paths with spaces, a la:\n\n    /c/Program Files/XYZ\n    \nThis is fundamentally incompatible with multi-argument shell strings because they are otherwise indistinguishable from paths (at least with the tools that we have available in Make). This is the same problem that other build system tools like CMake and Meson face, so in that sense we\u0027re just following their lead. Given that the end-game for the project is to eventually migrate to CMake, we are doing what we can to bring us in line with how CMake models the toolchain in preparation.",
+      "parentUuid": "5ee3dfeb_a067c32f",
+      "revId": "4731c00bb60915c0d4b29c082a752e9925a244b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ],
   "submitRequirementResults": []
