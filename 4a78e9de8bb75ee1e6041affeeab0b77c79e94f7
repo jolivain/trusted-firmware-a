@@ -22,6 +22,30 @@
       },
       "revId": "4a78e9de8bb75ee1e6041affeeab0b77c79e94f7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29de8ef1_7b9f720d",
+        "filename": "plat/intel/soc/common/drivers/qspi/cadence_qspi.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-04-29T07:11:37Z",
+      "side": 1,
+      "message": "It does not required anymore as we already added the watchdog_sw_rst. \nShall remove it.",
+      "parentUuid": "ad5d1438_8817d90d",
+      "range": {
+        "startLine": 659,
+        "startChar": 6,
+        "endLine": 659,
+        "endChar": 10
+      },
+      "revId": "4a78e9de8bb75ee1e6041affeeab0b77c79e94f7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
