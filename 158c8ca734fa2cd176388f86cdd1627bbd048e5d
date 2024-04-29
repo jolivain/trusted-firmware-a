@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d16fba29_21ce2911",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-29T09:51:15Z",
+      "side": 1,
+      "message": "No, this is an exceptional case. I am trying to explain the pattern with an example for feat_sme\nIts not something related to APIs of context management setup. Hence its better to retain them as in a single chunk of code block. I have modified whereever its applicable with the pattern you insisted.\nHope its fine here.",
+      "parentUuid": "bed87277_854c85a6",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 467,
+        "endChar": 42
+      },
+      "revId": "158c8ca734fa2cd176388f86cdd1627bbd048e5d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f29d9b4_b3291a62",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-04-26T14:43:40Z",
       "side": 1,
       "message": "nit: remove whitespace",
+      "range": {
+        "startLine": 488,
+        "startChar": 0,
+        "endLine": 488,
+        "endChar": 1
+      },
+      "revId": "158c8ca734fa2cd176388f86cdd1627bbd048e5d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86d4e5e9_6178a700",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 16
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-29T09:51:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f29d9b4_b3291a62",
       "range": {
         "startLine": 488,
         "startChar": 0,
