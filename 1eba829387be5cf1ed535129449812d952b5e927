@@ -16,6 +16,29 @@
       "message": "CI failures seems to be unrelated as the same failures are listed in the daily open-ci build as well.\nLGTM. Double check again and Feel free to manually overide the vote -1 and provide +1.",
       "revId": "1eba829387be5cf1ed535129449812d952b5e927",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40805a43_8fe170fe",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-04-30T13:53:21Z",
+      "side": 1,
+      "message": "nit: was this by mistake ? in previous patch you had removed it.",
+      "range": {
+        "startLine": 315,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 50
+      },
+      "revId": "1eba829387be5cf1ed535129449812d952b5e927",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
