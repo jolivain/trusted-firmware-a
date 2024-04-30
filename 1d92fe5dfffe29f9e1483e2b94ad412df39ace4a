@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7c1b205_74f3fd83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-04-30T09:25:59Z",
+      "side": 1,
+      "message": "This feels incorrect.\nFirst of all, why? (I can hypothesise, but the commit message should state. If this was a non-awful code review system, the cover letter/MR description should do the same.)\n\nSecondly: TRNG exists explicitly to expose a *true* RNG source. RNDR isn\u0027t that. And if you have RNDR, that is directly accessible anywhere.\n\nIf the purpose of this is simply to verify the plumbing, I highly prefer a  https://xkcd.com/221/ type solution. *That* is much less likely to be picked up by someone hounded by a hard product deadline and shipped into a real device.\n\nFinally: if the purpose is only for debug/testing, the code still needs a BIG warning comment block explaining just how badly incorrect this is architecturally and security-wise and why it\u0027s done anyway. It also needs to not be enabled by default.\n\nYou may want to consider this feedback for the Android repo as well.",
+      "revId": "1d92fe5dfffe29f9e1483e2b94ad412df39ace4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0db7af5c_f350e538",
         "filename": "plat/qemu/qemu/platform.mk",
         "patchSetId": 5
