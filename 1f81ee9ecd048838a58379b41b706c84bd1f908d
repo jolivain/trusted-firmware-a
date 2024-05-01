@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdc5849b_cddd76c4",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/rdfremont_common.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T11:47:59Z",
+      "side": 1,
+      "message": "minor, this can be sizeof(console_ptr[0].name)",
+      "range": {
+        "startLine": 153,
+        "startChar": 56,
+        "endLine": 153,
+        "endChar": 84
+      },
+      "revId": "1f81ee9ecd048838a58379b41b706c84bd1f908d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
