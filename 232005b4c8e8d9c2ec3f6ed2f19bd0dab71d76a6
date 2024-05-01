@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a9fda4e_85cbafdf",
+        "filename": "drivers/arm/css/dsu/dsu.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-05-01T17:29:05Z",
+      "side": 1,
+      "message": "nit: add an empty line after the headers",
+      "revId": "232005b4c8e8d9c2ec3f6ed2f19bd0dab71d76a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ecad2a7_406e8e22",
+        "filename": "drivers/arm/css/dsu/dsu.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-05-01T17:29:05Z",
+      "side": 1,
+      "message": "Pardon my ignorance, but why are we managing the state of these registers in EL3. Shouldnt\u0027 the hypervisor in EL2 be responsible for saving and restoring EL1 registers?",
+      "range": {
+        "startLine": 28,
+        "startChar": 7,
+        "endLine": 29,
+        "endChar": 48
+      },
+      "revId": "232005b4c8e8d9c2ec3f6ed2f19bd0dab71d76a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2710e037_77a408f5",
+        "filename": "drivers/arm/css/dsu/dsu.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-05-01T17:29:05Z",
+      "side": 1,
+      "message": "typo: delete",
+      "range": {
+        "startLine": 29,
+        "startChar": 77,
+        "endLine": 29,
+        "endChar": 78
+      },
+      "revId": "232005b4c8e8d9c2ec3f6ed2f19bd0dab71d76a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7a290f5_bd8e7368",
+        "filename": "drivers/arm/css/dsu/dsu.c",
+        "patchSetId": 27
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-05-01T17:29:05Z",
+      "side": 1,
+      "message": "nit: delete this empty line",
+      "revId": "232005b4c8e8d9c2ec3f6ed2f19bd0dab71d76a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
