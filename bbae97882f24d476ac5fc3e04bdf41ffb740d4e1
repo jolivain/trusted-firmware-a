@@ -52,6 +52,212 @@
       "parentUuid": "dcdab032_36e039f2",
       "revId": "bbae97882f24d476ac5fc3e04bdf41ffb740d4e1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6273e26a_83a49c53",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T04:38:34Z",
+      "side": 1,
+      "message": "can we have an iterative logic similar to shatter using function pointers ?",
+      "range": {
+        "startLine": 1419,
+        "startChar": 21,
+        "endLine": 1419,
+        "endChar": 31
+      },
+      "revId": "bbae97882f24d476ac5fc3e04bdf41ffb740d4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b7e13a1_73740000",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1419,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T04:38:34Z",
+      "side": 1,
+      "message": "add assertion that base is aligned to 2MB",
+      "range": {
+        "startLine": 1419,
+        "startChar": 41,
+        "endLine": 1419,
+        "endChar": 45
+      },
+      "revId": "bbae97882f24d476ac5fc3e04bdf41ffb740d4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d49755fd_a408c141",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1429,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T04:38:34Z",
+      "side": 1,
+      "message": "avoid skip logic. just check for all entries in 2MB\n\nI am not sure skipping the L1 entry is right either as the L1 entry covers 64 KB whereas we are changing PAS of a 4KB page",
+      "range": {
+        "startLine": 1429,
+        "startChar": 4,
+        "endLine": 1429,
+        "endChar": 29
+      },
+      "revId": "bbae97882f24d476ac5fc3e04bdf41ffb740d4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97e7e79c_dcbdba69",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1445,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T04:38:34Z",
+      "side": 1,
+      "message": "..temporarily. This is only till we ascertain the max fuse block size */\"",
+      "range": {
+        "startLine": 1445,
+        "startChar": 38,
+        "endLine": 1445,
+        "endChar": 39
+      },
+      "revId": "bbae97882f24d476ac5fc3e04bdf41ffb740d4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "658f7082_c54b3f79",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1451,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T04:38:34Z",
+      "side": 1,
+      "message": "/* Check each of the 2MB blocks in 32 MB whether they are contiguous or not. We just need to examine the first entry in the 2MB block to figure this out. */",
+      "range": {
+        "startLine": 1451,
+        "startChar": 4,
+        "endLine": 1451,
+        "endChar": 39
+      },
+      "revId": "bbae97882f24d476ac5fc3e04bdf41ffb740d4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72608118_4f8285f7",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1454,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T04:38:34Z",
+      "side": 1,
+      "message": "add comment\n\n\"we cannot fuse to 32 MB , hence fallback to 2 MB fuse.\"",
+      "revId": "bbae97882f24d476ac5fc3e04bdf41ffb740d4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce3a3a0a_88e99a51",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1465,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T04:38:34Z",
+      "side": 1,
+      "message": "add a whitespace to show indentation of #if",
+      "revId": "bbae97882f24d476ac5fc3e04bdf41ffb740d4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e52332a1_cf406c3d",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1497,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T04:38:34Z",
+      "side": 1,
+      "message": "need function comments.\n\nAlso mention the fact that gpi_info will be updated with the shattered l1 desc",
+      "revId": "bbae97882f24d476ac5fc3e04bdf41ffb740d4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "075b793d_82945a2c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1510,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T04:38:34Z",
+      "side": 1,
+      "message": "\"update the granule descriptor to reflect the shattered gpi back to caller\"",
+      "range": {
+        "startLine": 1510,
+        "startChar": 4,
+        "endLine": 1510,
+        "endChar": 8
+      },
+      "revId": "bbae97882f24d476ac5fc3e04bdf41ffb740d4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca6f3476_2dbecf7c",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 31
+      },
+      "lineNbr": 1617,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T04:38:34Z",
+      "side": 1,
+      "message": "minor, move this to line 1608 as it may be better to shatter before flush which keeps the window to GPT change less.\n\nalso this will align to fuse which is done after the flush",
+      "revId": "bbae97882f24d476ac5fc3e04bdf41ffb740d4e1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }

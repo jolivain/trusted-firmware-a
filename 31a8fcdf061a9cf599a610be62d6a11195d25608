@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7919a20_7189f12a",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T04:38:34Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "edb62a67_81f60f06",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 12
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae88e3a7_98da025a",
@@ -114,6 +138,24 @@
       "side": 1,
       "message": "This will be the next optimisation patch stack, when GPT library will use platform specific defines. It will also allow to have statically defined \u0026 allocated array of bit locks \u0026 not use memory page reserved for L0 GPT.",
       "parentUuid": "3a17e78c_7d5f3d9c",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6f01f4c_86181f68",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T04:38:34Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c46b404d_478d48f2",
       "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -343,6 +385,30 @@
       "side": 1,
       "message": "Won\u0027t work. memset() uses \u0027int val\u0027, here we write uint64_t values.",
       "parentUuid": "37d95b8f_5e62e018",
+      "range": {
+        "startLine": 207,
+        "startChar": 1,
+        "endLine": 209,
+        "endChar": 2
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a144fe3d_955d54be",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T04:38:34Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a9b445ac_3b6afaa0",
       "range": {
         "startLine": 207,
         "startChar": 1,
