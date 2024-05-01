@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8b66588_87dd3925",
+        "filename": "include/arch/aarch32/arch_features.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-05-01T16:28:41Z",
+      "side": 1,
+      "message": "Ack, have changed this to fit the api.. I did not change it earlier as the feature is enabled only (idfield \u003e\u003d 1) \u0026\u0026 (idfield \u003c\u003d 14). Have moved the check inside and tried to reuse the macro for is_feat_xx_supported function.",
+      "parentUuid": "f4b7dab6_5545a900",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 0
+      },
+      "revId": "6564301072d94f4c408ca00fc61f27dd52c20721",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4e4fb14_a5035a01",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-01T13:30:24Z",
       "side": 1,
       "message": "Are we using this API ? if not please get remove it. If we are using convert it to _present( )",
+      "range": {
+        "startLine": 363,
+        "startChar": 27,
+        "endLine": 363,
+        "endChar": 54
+      },
+      "revId": "6564301072d94f4c408ca00fc61f27dd52c20721",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90e2ea59_3f8af7f5",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 27
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-05-01T16:28:41Z",
+      "side": 1,
+      "message": "Have converted it and changed it in the lib/extensions/sme/sme.c file",
+      "parentUuid": "e4e4fb14_a5035a01",
       "range": {
         "startLine": 363,
         "startChar": 27,
