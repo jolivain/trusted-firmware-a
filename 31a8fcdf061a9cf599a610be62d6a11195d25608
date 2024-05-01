@@ -472,6 +472,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06c58284_c3a4ed81",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-05-01T13:45:49Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "28a7436f_7e2eaec6",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6927ecfe_fe16ee80",
@@ -1341,6 +1359,30 @@
       "side": 1,
       "message": "Seems to be OK ,can remove the unneeded white space change",
       "parentUuid": "5ac875eb_36f5007a",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 4
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a0a6b46_e02a94db",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 24
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-05-01T13:45:49Z",
+      "side": 1,
+      "message": "There is the symbol \u0027Â \u0027with 0xC2 0xA0 code after \u0027#\u0027 instead of 0x20 space in the original comment:\n#Â Size (in kilobytes) of the Trusted SRAM region to  utilize when building for",
+      "parentUuid": "7ebfd514_970d6aa1",
       "range": {
         "startLine": 29,
         "startChar": 0,
