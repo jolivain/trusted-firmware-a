@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0ce6fdc_8f88bae6",
+        "filename": "drivers/auth/mbedtls/mbedtls_crypto.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-05-01T15:18:29Z",
+      "side": 1,
+      "message": "Yep, the plan is to use this workaround now and follow that up with a refactor to use crt_verify.",
+      "parentUuid": "14a6eeb0_70b74f1b",
+      "range": {
+        "startLine": 70,
+        "startChar": 9,
+        "endLine": 71,
+        "endChar": 55
+      },
+      "revId": "347aa567e3e65d4d9abd9c60b99b20d7feebbcbb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fee7d1de_5ab4b755",
@@ -64,6 +88,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "441253e4_9ca47555",
+        "filename": "include/drivers/auth/mbedtls/mbedtls_config-3.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-05-01T15:18:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fee7d1de_5ab4b755",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 132,
+        "endChar": 48
+      },
+      "revId": "347aa567e3e65d4d9abd9c60b99b20d7feebbcbb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88768b79_433cfd7b",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-04-26T12:10:34Z",
       "side": 1,
       "message": "Don\u0027t include `check_config.h` here! The configuration is incomplete. This looks like a survivance from Mbed TLS 2.x, where `check_config.h` was included from `config.h`. Since Mbed TLS 3.0, the Mbed TLS headers include `check_config.h` at the right time, and including `check_config.h` manually can fail to spot bad configurations, or reject valid configurations, because the configuration is not complete (it\u0027s missing the PSA configuration, as well as some derived symbols).",
+      "range": {
+        "startLine": 133,
+        "startChar": 0,
+        "endLine": 133,
+        "endChar": 33
+      },
+      "revId": "347aa567e3e65d4d9abd9c60b99b20d7feebbcbb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "465e517c_fcc2325b",
+        "filename": "include/drivers/auth/mbedtls/mbedtls_config-3.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-05-01T15:18:29Z",
+      "side": 1,
+      "message": "Good to know. I\u0027ll try deleting both lines.",
+      "parentUuid": "88768b79_433cfd7b",
       "range": {
         "startLine": 133,
         "startChar": 0,
