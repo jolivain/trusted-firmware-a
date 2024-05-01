@@ -456,6 +456,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "28a7436f_7e2eaec6",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T08:56:41Z",
+      "side": 1,
+      "message": "This can be a future enhancement. please log an internal JIRA for this.",
+      "parentUuid": "b620af6b_456adbd0",
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6927ecfe_fe16ee80",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 24
@@ -571,6 +589,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ed6aa45_2ca0d848",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 773,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T08:56:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b513050_49d8c7c6",
+      "range": {
+        "startLine": 773,
+        "startChar": 17,
+        "endLine": 773,
+        "endChar": 21
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "768a2b7a_aef2bd7f",
@@ -655,6 +697,30 @@
       "side": 1,
       "message": "1) GPT_BUILD_L1_DESC macro is replaced by build_l1_desc() function which returns predefined uint64_t l1_desc based on GPI.\n2) This is taken care of in fill_l1_gran_desc(), see line #798 of the current patch.",
       "parentUuid": "24ccbaac_c209bf88",
+      "range": {
+        "startLine": 957,
+        "startChar": 7,
+        "endLine": 957,
+        "endChar": 24
+      },
+      "revId": "31a8fcdf061a9cf599a610be62d6a11195d25608",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a3e5b8b_2592616a",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 24
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-01T08:56:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b6f24f1_58d476f5",
       "range": {
         "startLine": 957,
         "startChar": 7,
