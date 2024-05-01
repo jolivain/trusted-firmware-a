@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7158d56_7e7ea01c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-05-01T16:49:47Z",
+      "side": 1,
+      "message": "\u003e Tl;dr: in our specific use case, it\u0027s to test the KASLR implementation in Trusty (and the kernel RNG in general) which use the TRNG SMC.\n\nYeah, that\u0027s reasonable. Could you add to commit message?\n\n\u003e \u003e If the purpose of this is simply to verify the plumbing, I highly prefer a https://xkcd.com/221/ type solution.\n\u003e \n\u003e That wouldn\u0027t really test the RNG users properly. Even a LFSR would be preferable for that purpose.\n\nFair.\n\n\u003e \u003e Finally: if the purpose is only for debug/testing, the code still needs a BIG warning comment block explaining just how badly incorrect this is architecturally and security-wise and why it\u0027s done anyway.\n\u003e \u003e You may want to consider this feedback for the Android repo as well.\n\u003e \n\u003e Right, this would only be used in CI for testing in Android. That said, I see how someone might run qemu + TF-A in production and an insecure RNG would be a massive problem for them.\n\nI\u0027m less worried about someone running qemu + TF-A in production than I am about someone borrowing the code to their own platform port without understanding it (and without talking to upstream).\n\n\u003e It sounds like a better approach would be to add a CSPRNG here, but would we have a secure way to seed it on qemu?\n\nNot that I\u0027m aware of. If we could, that would be genuinely useful outside of the test scenario.\n\nBut for now, could we do something like:\n- Rename the source file fake-trng.c.\n- Add a comment block in plat_get_entropy (and possibly the file header) that \"this implements fake TRNG support using a cryptographically insecure entropy source, solely for the purpose of software stack verification and testing\".\n- Add a new config option FAKE_TRNG_ENABLE (default off) and if that is set,\n  set TRNG_SUPPORT to 1\n- Include the source file in BL31_SOURCES conditional on FAKE_TRNG_ENABLE rather than the TRNG_SUPPORT one.\n?",
+      "parentUuid": "a2e3b14d_18b18ae8",
+      "revId": "1d92fe5dfffe29f9e1483e2b94ad412df39ace4a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0db7af5c_f350e538",
         "filename": "plat/qemu/qemu/platform.mk",
         "patchSetId": 5
