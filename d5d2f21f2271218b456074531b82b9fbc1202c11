@@ -16,6 +16,24 @@
       "message": "This doesn\u0027t boot on qemu(virt). It stops after:\nNOTICE:  BL1: Booting BL2",
       "revId": "d5d2f21f2271218b456074531b82b9fbc1202c11",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ee08035_24be3c1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-05-02T12:16:20Z",
+      "side": 1,
+      "message": "OK. Worked locally so looks like I need to check more.",
+      "parentUuid": "2ec4d4c1_786df106",
+      "revId": "d5d2f21f2271218b456074531b82b9fbc1202c11",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
