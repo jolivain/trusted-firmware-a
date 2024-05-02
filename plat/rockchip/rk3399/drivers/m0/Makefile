@@ -4,6 +4,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
+include ../../../../../make_helpers/build-rules.mk
 include ../../../../../make_helpers/common.mk
 include ../../../../../make_helpers/target.mk
 include ../../../../../make_helpers/toolchain.mk
@@ -17,8 +18,6 @@ ARCH		:= cortex-m0
 # Build platform
 PLAT_M0		?= rk3399m0
 PLAT_M0_PMU	?= rk3399m0pmu
-
-.SUFFIXES:
 
 INCLUDES		+= -Iinclude/ \
 			   -I../../include/shared/
@@ -90,10 +89,7 @@ define MAKE_OBJS
 	$(and $(REMAIN),$(error Unexpected source files present: $(REMAIN)))
 endef
 
-.PHONY: all
 all: $(BIN) $(BIN_PMU)
-
-.DEFAULT_GOAL := all
 
 $(LINKERFILE): private flags += $(COMMON_FLAGS) $(INCLUDES) -P -E -D__LINKER__ -MMD -MF $@.d -MT $@ -o $@ $<
 $(LINKERFILE): $(LINKERFILE_SRC)

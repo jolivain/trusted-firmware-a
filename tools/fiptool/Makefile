@@ -7,6 +7,7 @@
 MAKE_HELPERS_DIRECTORY := ../../make_helpers/
 include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
+include ${MAKE_HELPERS_DIRECTORY}build-rules.mk
 include ${MAKE_HELPERS_DIRECTORY}common.mk
 include ${MAKE_HELPERS_DIRECTORY}defaults.mk
 include ${MAKE_HELPERS_DIRECTORY}target.mk
@@ -69,7 +70,7 @@ endif
 
 DEPS := $(patsubst %.o,%.d,$(OBJECTS))
 
-.PHONY: all clean distclean --openssl
+.PHONY: --openssl
 
 all: --openssl ${PROJECT}
 

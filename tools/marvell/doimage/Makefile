@@ -4,6 +4,7 @@
 # SPDX-License-Identifier:     BSD-3-Clause
 # https://spdx.org/licenses
 
+include ../../../make_helpers/build-rules.mk
 include ../../../make_helpers/common.mk
 include ../../../make_helpers/target.mk
 include ../../../make_helpers/toolchain.mk
@@ -30,8 +31,6 @@ HOSTCCFLAGS += ${DOIMAGE_CC_FLAGS}
 INCLUDE_PATHS = -I.
 
 RM := rm -rf
-
-.PHONY: all clean
 
 all: ${PROJECT}
 

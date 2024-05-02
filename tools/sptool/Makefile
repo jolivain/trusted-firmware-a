@@ -7,6 +7,7 @@
 MAKE_HELPERS_DIRECTORY := ../../make_helpers/
 include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
+include ${MAKE_HELPERS_DIRECTORY}build-rules.mk
 include ${MAKE_HELPERS_DIRECTORY}common.mk
 include ${MAKE_HELPERS_DIRECTORY}target.mk
 include ${MAKE_HELPERS_DIRECTORY}toolchain.mk
@@ -24,8 +25,6 @@ else
 endif
 
 INCLUDE_PATHS := -I../../include/tools_share
-
-.PHONY: all clean distclean
 
 all: ${PROJECT}
 

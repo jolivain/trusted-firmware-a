@@ -13,9 +13,6 @@ VERSION_MINOR			:= 11
 VERSION_PATCH			:= 0
 VERSION				:= ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}
 
-# Default goal is build all images
-.DEFAULT_GOAL			:= all
-
 # Avoid any implicit propagation of command line variable definitions to
 # sub-Makefiles, like CFLAGS that we reserved for the firmware images'
 # usage. Other command line options like "-s" are still propagated as usual.
@@ -24,6 +21,7 @@ MAKEOVERRIDES =
 MAKE_HELPERS_DIRECTORY := make_helpers/
 include ${MAKE_HELPERS_DIRECTORY}build_macros.mk
 include ${MAKE_HELPERS_DIRECTORY}build_env.mk
+include ${MAKE_HELPERS_DIRECTORY}build-rules.mk
 include ${MAKE_HELPERS_DIRECTORY}common.mk
 include ${MAKE_HELPERS_DIRECTORY}target.mk
 
@@ -1450,8 +1448,7 @@ endif #(SPD)
 # Build targets
 ################################################################################
 
-.PHONY:	all msg_start clean realclean distclean cscope locate-checkpatch checkcodebase checkpatch fiptool sptool fip sp fwu_fip certtool dtbs memmap doc enctool
-.SUFFIXES:
+.PHONY:	msg_start cscope locate-checkpatch checkcodebase checkpatch fiptool sptool fip sp fwu_fip certtool dtbs memmap doc enctool
 
 all: msg_start
 
@@ -1758,6 +1755,3 @@ help:
 	$(s)echo ""
 	$(s)echo "example: build all targets for the FVP platform:"
 	$(s)echo "  CROSS_COMPILE=aarch64-none-elf- make PLAT=fvp all"
-
-.PHONY: FORCE
-FORCE:;

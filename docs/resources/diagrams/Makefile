@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2022, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -10,6 +10,8 @@
 # The PNG files in the present directory have been generated using Dia version
 # 0.97.2, which can be obtained from https://wiki.gnome.org/Apps/Dia/Download
 #
+
+include ../../../make_helpers/build-rules.mk
 
 # generate_image use the tool dia generate png from dia file
 #    $(1) = layers

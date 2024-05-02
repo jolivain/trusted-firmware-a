@@ -4,6 +4,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
+include ../../make_helpers/build-rules.mk
 include ../../make_helpers/common.mk
 include ../../make_helpers/target.mk
 include ../../make_helpers/toolchain.mk
@@ -36,8 +37,6 @@ ifeq (${ARM_ARCH_MINOR},0)
 else
 	ASFLAGS = -march=armv8.${ARM_ARCH_MINOR}-a
 endif
-
-.PHONY: all clean distclean
 
 all: $(BUILD_DIR)/romlib.bin $(LIB_DIR)/libwrappers.a
 
