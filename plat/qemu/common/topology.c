@@ -1,5 +1,7 @@
 /*
  * Copyright (c) 2015-2018, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2020, Nuvia Inc
+ * Copyright (c) 2024, Linaro Limited
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,20 +15,21 @@
 #include "qemu_private.h"
 
 /* The power domain tree descriptor */
-static unsigned char power_domain_tree_desc[] = {
-	/* Number of root nodes */
-	PLATFORM_CLUSTER_COUNT,
-	/* Number of children for the first node */
-	PLATFORM_CLUSTER0_CORE_COUNT,
-	/* Number of children for the second node */
-	PLATFORM_CLUSTER1_CORE_COUNT,
-};
+static unsigned char power_domain_tree_desc[PLATFORM_CLUSTER_COUNT + 1];
 
 /*******************************************************************************
  * This function returns the ARM default topology tree information.
  ******************************************************************************/
 const unsigned char *plat_get_power_domain_tree_desc(void)
 {
+	unsigned int i;
+
+	power_domain_tree_desc[0] = PLATFORM_CLUSTER_COUNT;
+
+	for (i = 1; i <= PLATFORM_CLUSTER_COUNT; i++) {
+		power_domain_tree_desc[i] = PLATFORM_MAX_CPUS_PER_CLUSTER;
+	}
+
 	return power_domain_tree_desc;
 }
 

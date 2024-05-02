@@ -75,6 +75,9 @@ BL31_SOURCES		+=	${QEMU_CPU_LIBS}				\
 				${PLAT_QEMU_COMMON_PATH}/qemu_bl31_setup.c	\
 				common/fdt_fixup.c				\
 				${QEMU_GIC_SOURCES}
+ifeq (${ARCH},aarch64)
+BL31_SOURCES		+=	${PLAT_QEMU_COMMON_PATH}/topology.c
+endif
 
 # CPU flag enablement
 ifeq (${ARCH},aarch64)
