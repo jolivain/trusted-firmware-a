@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "254a50c2_2d6bb47e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 31
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000910
+      },
+      "writtenOn": "2024-05-02T21:13:51Z",
+      "side": 1,
+      "message": "Adding manually V+1, the tests that have failed when CI+2 was triggered is related to fvp-detect-features. The dependent functions for this test were modified and added to the topmost patch, hence the failures in https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/2095/.\n\nAll tests that have failed in this patch due to dependencies have passed CI+2 on the topmost patch. \nhttps://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/2096/",
+      "revId": "aaaf2cc3135ca311ced63f49741c97897289ddcf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
