@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2015-2023, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2015-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -280,8 +280,8 @@ BL2_SOURCES		+=	drivers/st/ddr/stm32mp1_ddr.c				\
 ifeq ($(AARCH32_SP),sp_min)
 # Create DTB file for BL32
 ${BUILD_PLAT}/fdts/%-bl32.dts: fdts/%.dts fdts/${BL32_DTSI} | ${BUILD_PLAT} fdt_dirs
-	@echo '#include "$(patsubst fdts/%,%,$<)"' > $@
-	@echo '#include "${BL32_DTSI}"' >> $@
+	$(s)echo '#include "$(patsubst fdts/%,%,$<)"' > $@
+	$(s)echo '#include "${BL32_DTSI}"' >> $@
 
 ${BUILD_PLAT}/fdts/%-bl32.dtb: ${BUILD_PLAT}/fdts/%-bl32.dts
 endif
