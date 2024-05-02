@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ac5d2c8_12916883",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-02T11:29:33Z",
+      "side": 1,
+      "message": "Hi @Patrick,\n\nthis patch is still failing to get through the below-mentioned test case.\n\nYou had introduced \"https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26207/9\" to address this issue. However this is not the case. The latest CI results still show its failing.\n\n`` 2024-05-02T10:25:35 \u003e Test suite \u0027PSCI CPU Suspend in OSI mode\u0027       Failed``\n\nThe bottom two patches are in good shape. If you are planning on addressing this failure explicitly, we \ncan merge the bottom two patches. Based on your response, we will get them reviewed and merged.\nPlease share your thoughts here.\n\nThanks!",
+      "revId": "fb01a0c24865c331370f9fdf6a6311bfd7e8eade",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
