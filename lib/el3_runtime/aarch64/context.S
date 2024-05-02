@@ -464,7 +464,9 @@ sve_not_enabled:
 	msr	spsr_el3, x16
 	msr	elr_el3, x17
 
-	restore_ptw_el1_sys_regs
+	/* Branch to C function to restore EL1 system registers. */
+	mov 	x0, sp
+	bl	restore_ptw_el1_sys_regs
 
 	/* ----------------------------------------------------------
 	 * Restore general purpose (including x30), PMCR_EL0 and

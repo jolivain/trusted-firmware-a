@@ -1821,3 +1821,33 @@ void cm_set_next_eret_context(uint32_t security_state)
 
 	cm_set_next_context(ctx);
 }
+
+void restore_ptw_el1_sys_regs(u_register_t arg0)
+{
+#if ERRATA_SPECULATIVE_AT
+	/* -----------------------------------------------------------
+	 * In case of ERRATA_SPECULATIVE_AT, must follow below order
+	 * to ensure that page table walk is not enabled until
+	 * restoration of all EL1 system registers. TCR_EL1 register
+	 * should be updated at the end which restores previous page
+	 * table walk setting of stage1 i.e.(TCR_EL1.EPDx) bits. ISB
+	 * ensures that CPU does below steps in order.
+	 *
+	 * 1. Ensure all other system registers are written before
+	 *    updating SCTLR_EL1 using ISB.
+	 * 2. Restore SCTLR_EL1 register.
+	 * 3. Ensure SCTLR_EL1 written successfully using ISB.
+	 * 4. Restore TCR_EL1 register.
+	 * -----------------------------------------------------------
+	 */
+	cpu_context_t *ctx = (void *)(uintptr_t)arg0;
+
+	assert(ctx != NULL);
+
+	isb();
+	write_sctlr_el1(read_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_SCTLR_EL1));
+	isb();
+	write_tcr_el1(read_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_TCR_EL1));
+
+#endif /* ERRATA_SPECULATIVE_AT */
+}
