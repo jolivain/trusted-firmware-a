@@ -1833,3 +1833,82 @@ void cm_set_next_eret_context(uint32_t security_state)
 
 	cm_set_next_context(ctx);
 }
+
+void restore_ptw_el1_sys_regs(u_register_t arg0)
+{
+#if ERRATA_SPECULATIVE_AT
+	/* -----------------------------------------------------------
+	 * In case of ERRATA_SPECULATIVE_AT, must follow below order
+	 * to ensure that page table walk is not enabled until
+	 * restoration of all EL1 system registers. TCR_EL1 register
+	 * should be updated at the end which restores previous page
+	 * table walk setting of stage1 i.e.(TCR_EL1.EPDx) bits. ISB
+	 * ensures that CPU does below steps in order.
+	 *
+	 * 1. Ensure all other system registers are written before
+	 *    updating SCTLR_EL1 using ISB.
+	 * 2. Restore SCTLR_EL1 register.
+	 * 3. Ensure SCTLR_EL1 written successfully using ISB.
+	 * 4. Restore TCR_EL1 register.
+	 * -----------------------------------------------------------
+	 */
+	cpu_context_t *ctx = (void *)(uintptr_t)arg0;
+
+	assert(ctx != NULL);
+
+	isb();
+	write_sctlr_el1(read_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_SCTLR_EL1));
+	isb();
+	write_tcr_el1(read_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_TCR_EL1));
+
+#endif /* ERRATA_SPECULATIVE_AT */
+}
+
+
+/*
+ * In case of ERRATA_SPECULATIVE_AT, save SCTLR_EL1 and TCR_EL1
+ * registers and update EL1 registers to disable stage1 and stage2
+ * page table walk
+ */
+void save_and_update_ptw_el1_sys_regs(u_register_t arg0)
+{
+	cpu_context_t *ctx = (void *)(uintptr_t)arg0;
+
+	assert(ctx != NULL);
+	/* ----------------------------------------------------------
+	 * Save only sctlr_el1 and tcr_el1 registers
+	 * ----------------------------------------------------------
+	 */
+
+	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_SCTLR_EL1, read_sctlr_el1());
+	write_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_TCR_EL1, read_tcr_el1());
+
+	/* ------------------------------------------------------------
+	 * Must follow below order in order to disable page table
+	 * walk for lower ELs (EL1 and EL0). First step ensures that
+	 * page table walk is disabled for stage1 and second step
+	 * ensures that page table walker should use TCR_EL1.EPDx
+	 * bits to perform address translation. ISB ensures that CPU
+	 * does these 2 steps in order.
+	 *
+	 * 1. Update TCR_EL1.EPDx bits to disable page table walk by
+	 *    stage1.
+	 * 2. Enable MMU bit to avoid identity mapping via stage2
+	 *    and force TCR_EL1.EPDx to be used by the page table
+	 *    walker.
+	 * ------------------------------------------------------------
+	 */
+	u_register_t tcr_el1_val= read_tcr_el1();
+
+	tcr_el1_val |= TCR_EPD0_BIT;
+	tcr_el1_val |= TCR_EPD1_BIT;
+	write_tcr_el1(tcr_el1_val);
+	isb();
+
+	u_register_t sctlr_el1_val= read_sctlr_el1();
+
+	sctlr_el1_val |= SCTLR_M_BIT;
+	write_sctlr_el1(sctlr_el1_val);
+	isb();
+
+}
