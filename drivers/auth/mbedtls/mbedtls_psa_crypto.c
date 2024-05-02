@@ -16,6 +16,7 @@
 #include <mbedtls/platform.h>
 #include <mbedtls/version.h>
 #include <mbedtls/x509.h>
+#include <mbedtls/psa_util.h>
 #include <psa/crypto.h>
 #include <psa/crypto_platform.h>
 #include <psa/crypto_types.h>
@@ -48,16 +49,6 @@ CASSERT(CRYPTO_MD_MAX_SIZE >= MBEDTLS_MD_MAX_SIZE,
 	* CRYPTO_SUPPORT == CRYPTO_HASH_CALC_ONLY || \
 	* CRYPTO_SUPPORT == CRYPTO_AUTH_VERIFY_AND_HASH_CALC
 	*/
-
-static inline psa_algorithm_t mbedtls_md_psa_alg_from_type(
-						mbedtls_md_type_t md_type)
-{
-	assert((md_type == MBEDTLS_MD_SHA256) ||
-	       (md_type == MBEDTLS_MD_SHA384) ||
-	       (md_type == MBEDTLS_MD_SHA512));
-
-	return PSA_ALG_CATEGORY_HASH | (psa_algorithm_t) (md_type + 0x5);
-}
 
 /*
  * AlgorithmIdentifier  ::=  SEQUENCE  {
@@ -291,6 +282,17 @@ static int get_ecdsa_signature_from_asn1(unsigned char *sig_ptr,
 	* TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_ECDSA || \
 	* TF_MBEDTLS_KEY_ALG_ID == TF_MBEDTLS_RSA_AND_ECDSA
 	**/
+
+
+/* NOTE: This has been made internal in mbedtls 3.6.0 and the mbedtls team has
+ * advised that it's better to copy out the declaration than it would be to
+ * update to 3.5.2, where this function is exposed.
+ */
+int mbedtls_x509_get_sig_alg(const mbedtls_x509_buf *sig_oid,
+			     const mbedtls_x509_buf *sig_params,
+			     mbedtls_md_type_t *md_alg,
+			     mbedtls_pk_type_t *pk_alg,
+			     void **sig_opts);
 
 /*
  * Verify a signature.

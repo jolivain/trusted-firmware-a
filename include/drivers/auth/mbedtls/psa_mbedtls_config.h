@@ -24,5 +24,6 @@
  * initializing the RNG, as we are supposed to take care of that ourselves.
  */
 #define MBEDTLS_PSA_CRYPTO_EXTERNAL_RNG
+#define MBEDTLS_PSA_ASSUME_EXCLUSIVE_BUFFERS
 
 #endif /* PSA_MBEDTLS_CONFIG_H */
