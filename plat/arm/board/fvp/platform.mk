@@ -211,14 +211,19 @@ else
 					lib/cpus/aarch64/neoverse_v1.S		\
 					lib/cpus/aarch64/neoverse_e1.S		\
 					lib/cpus/aarch64/cortex_x2.S		\
-					lib/cpus/aarch64/cortex_x4.S		\
-					lib/cpus/aarch64/cortex_gelas.S		\
-					lib/cpus/aarch64/nevis.S		\
-					lib/cpus/aarch64/travis.S
+					lib/cpus/aarch64/cortex_x4.S
 	endif
 	# AArch64/AArch32 cores
 	FVP_CPU_LIBS	+=	lib/cpus/aarch64/cortex_a55.S		\
 				lib/cpus/aarch64/cortex_a75.S
+endif
+
+#Build AArch64-only CPU's with no FVP model yet.
+ifeq (${BUILD_CPUS_WITH_NO_FVP},1)
+	FVP_CPU_LIBS    +=	lib/cpus/aarch64/neoverse_hermes.S	\
+				lib/cpus/aarch64/cortex_gelas.S		\
+				lib/cpus/aarch64/nevis.S		\
+				lib/cpus/aarch64/travis.S
 endif
 
 else
