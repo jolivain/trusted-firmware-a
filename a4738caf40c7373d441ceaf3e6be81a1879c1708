@@ -16,6 +16,23 @@
       "message": "Retaining CI+1 from patch-v5 no major changes since then: http://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/6454/",
       "revId": "a4738caf40c7373d441ceaf3e6be81a1879c1708",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abb329ea_267062ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-05-02T21:54:30Z",
+      "side": 1,
+      "message": "https://ci.trustedfirmware.org/view/TF-A/job/tf-a-coverity/980/\n\n[...]\n\n15:03:18 Building TF with the following build flags:\n15:03:18 -j 40 DEBUG\u003d1 -s PLAT\u003dfvp CTX_INCLUDE_AARCH32_REGS\u003d0 HW_ASSISTED_COHERENCY\u003d1 USE_COHERENT_MEM\u003d0 BUILD_CPUS_WITH_NO_FVP_MODEL\u003d1 FVP_TRUSTED_SRAM_SIZE\u003d384\n15:03:21 REALCLEAN\n15:03:26 Building fvp\n15:03:56\n15:03:56\n15:03:56 Built /home/buildslave/workspace/tf-a-coverity/trusted-firmware-a/build/fvp/debug/bl2.bin successfully\n15:03:56 Built /home/buildslave/workspace/tf-a-coverity/trusted-firmware-a/build/fvp/debug/bl1.bin successfully\n15:03:56\n15:03:56\n15:03:56\n15:03:56\n15:03:56 Built /home/buildslave/workspace/tf-a-coverity/trusted-firmware-a/build/fvp/debug/bl31.bin successfully\n15:03:56 Built /home/buildslave/workspace/tf-a-coverity/trusted-firmware-a/build/fvp/debug/bl2u.bin successfully\n15:03:56\n15:03:56\n15:03:56 Build config complete.\n\n[...]",
+      "revId": "a4738caf40c7373d441ceaf3e6be81a1879c1708",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
