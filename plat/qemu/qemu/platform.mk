@@ -156,7 +156,6 @@ ifeq (${ARCH},aarch64)
 BL31_SOURCES		+=	drivers/arm/pl061/pl061_gpio.c		\
 				drivers/gpio/gpio.c			\
 				${PLAT_QEMU_COMMON_PATH}/qemu_pm.c	\
-				${PLAT_QEMU_COMMON_PATH}/topology.c
 
 ifeq (${SDEI_SUPPORT}, 1)
 BL31_SOURCES		+=	plat/qemu/common/qemu_sdei.c

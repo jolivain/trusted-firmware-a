@@ -20,23 +20,20 @@
 #if ARM_ARCH_MAJOR == 7
 #define PLATFORM_MAX_CPUS_PER_CLUSTER	U(4)
 #define PLATFORM_CLUSTER_COUNT		U(1)
-#define PLATFORM_CLUSTER0_CORE_COUNT	PLATFORM_MAX_CPUS_PER_CLUSTER
-#define PLATFORM_CLUSTER1_CORE_COUNT	U(0)
 #else
 /*
  * Define the number of cores per cluster used in calculating core position.
  * The cluster number is shifted by this value and added to the core ID,
  * so its value represents log2(cores/cluster).
  * Default is 2**(4) = 16 cores per cluster.
+ * Platform can have up to 512 cores which means 32 clusters by default.
  */
 #define PLATFORM_CPU_PER_CLUSTER_SHIFT	U(4)
 #define PLATFORM_MAX_CPUS_PER_CLUSTER	(U(1) << PLATFORM_CPU_PER_CLUSTER_SHIFT)
-#define PLATFORM_CLUSTER_COUNT		U(2)
-#define PLATFORM_CLUSTER0_CORE_COUNT	PLATFORM_MAX_CPUS_PER_CLUSTER
-#define PLATFORM_CLUSTER1_CORE_COUNT	PLATFORM_MAX_CPUS_PER_CLUSTER
+#define PLATFORM_CLUSTER_COUNT		U(32)
 #endif
-#define PLATFORM_CORE_COUNT		(PLATFORM_CLUSTER0_CORE_COUNT + \
-					 PLATFORM_CLUSTER1_CORE_COUNT)
+#define PLATFORM_CORE_COUNT		(PLATFORM_CLUSTER_COUNT * \
+					PLATFORM_MAX_CPUS_PER_CLUSTER)
 
 #define QEMU_PRIMARY_CPU		U(0)
 
@@ -130,9 +127,10 @@
  * Put BL1 RW at the top of the Secure SRAM. BL1_RW_BASE is calculated using
  * the current BL1 RW debug size plus a little space for growth.
  */
+#define BL1_SIZE			0x12000
 #define BL1_RO_BASE			SEC_ROM_BASE
 #define BL1_RO_LIMIT			(SEC_ROM_BASE + SEC_ROM_SIZE)
-#define BL1_RW_BASE			(BL1_RW_LIMIT - 0x12000)
+#define BL1_RW_BASE			(BL1_RW_LIMIT - BL1_SIZE)
 #define BL1_RW_LIMIT			(BL_RAM_BASE + BL_RAM_SIZE)
 
 /*
@@ -141,7 +139,8 @@
  * Put BL2 just below BL3-1. BL2_BASE is calculated using the current BL2 debug
  * size plus a little space for growth.
  */
-#define BL2_BASE			(BL31_BASE - 0x35000)
+#define BL2_SIZE			0x35000
+#define BL2_BASE			(BL31_BASE - BL2_SIZE)
 #define BL2_LIMIT			BL31_BASE
 
 /*
@@ -150,7 +149,8 @@
  * Put BL3-1 at the top of the Trusted SRAM. BL31_BASE is calculated using the
  * current BL3-1 debug size plus a little space for growth.
  */
-#define BL31_BASE			(BL31_LIMIT - 0x60000)
+#define BL31_SIZE			0x300000
+#define BL31_BASE			(BL31_LIMIT - BL31_SIZE)
 #define BL31_LIMIT			(BL_RAM_BASE + BL_RAM_SIZE - FW_HANDOFF_SIZE)
 #define BL31_PROGBITS_LIMIT		BL1_RW_BASE
 
