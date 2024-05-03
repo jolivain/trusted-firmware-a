@@ -87,6 +87,24 @@
       "parentUuid": "44034f72_49ae242c",
       "revId": "23b8840c505fba6dbea67b55e07d8385da87f019",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5984f854_692b62e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000814
+      },
+      "writtenOn": "2024-05-03T11:31:57Z",
+      "side": 1,
+      "message": "Yes, TC3 and TC4 will be supported concurrently. We haven\u0027t started upstreaming for TC4 yet though. We can add the #ifdef when we bring in TC4 support.",
+      "parentUuid": "d86ddca5_3fc17a48",
+      "revId": "23b8840c505fba6dbea67b55e07d8385da87f019",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
