@@ -33,6 +33,24 @@
       "message": "TC team is moving towards having one single binary on SCP. Meaning, the binary does the initialization and runs the runtime software. In this case, this change might not be valid?",
       "revId": "23b8840c505fba6dbea67b55e07d8385da87f019",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bbb11a5_9e05c03e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000814
+      },
+      "writtenOn": "2024-05-03T11:13:02Z",
+      "side": 1,
+      "message": "For TC3 we still have two binaries so still needed for the moment. Changing from TC4 onwards.",
+      "parentUuid": "02f8fbb0_454c271f",
+      "revId": "23b8840c505fba6dbea67b55e07d8385da87f019",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
