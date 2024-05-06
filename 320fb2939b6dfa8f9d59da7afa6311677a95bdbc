@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae983c67_6b173189",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-05-06T20:01:11Z",
+      "side": 1,
+      "message": "https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/2104/\nhttps://ci.trustedfirmware.org/job/tf-a-main/1168/\n\nFailures in static checks can be ignored its due to a multi-line warning message about deprecating debugfs/pmf in arm-sip range.",
+      "revId": "320fb2939b6dfa8f9d59da7afa6311677a95bdbc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
