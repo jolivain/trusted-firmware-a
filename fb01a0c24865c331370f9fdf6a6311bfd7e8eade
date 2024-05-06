@@ -16,6 +16,24 @@
       "message": "Hi @Patrick,\n\nthis patch is still failing to get through the below-mentioned test case.\n\nYou had introduced \"https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/26207/9\" to address this issue. However this is not the case. The latest CI results still show its failing.\n\n`` 2024-05-02T10:25:35 \u003e Test suite \u0027PSCI CPU Suspend in OSI mode\u0027       Failed``\n\nThe bottom two patches are in good shape. If you are planning on addressing this failure explicitly, we \ncan merge the bottom two patches. Based on your response, we will get them reviewed and merged.\nPlease share your thoughts here.\n\nThanks!",
       "revId": "fb01a0c24865c331370f9fdf6a6311bfd7e8eade",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7638550_8cfea1bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-05-06T13:37:57Z",
+      "side": 1,
+      "message": "Hi,\nI\u0027ve discussed this with Patrick several days ago. He\u0027ll be back next week.\nFor him, the issue is now in the test part. This change really corrects an issue we\u0027ve seen on STM32MP2. As the code was buggy and the test passed, the test may be buggy as well. @Wing Li, do you know what should be updated after https://review.trustedfirmware.org/c/TF-A/tf-a-tests/+/17684 to properly correct the issue? Maybe tftf_psci_make_composite_state_id() function should be updated?\nOr maybe there is something we\u0027ve not properly understood about the topology to be used with PSCI OSI?",
+      "parentUuid": "4ac5d2c8_12916883",
+      "revId": "fb01a0c24865c331370f9fdf6a6311bfd7e8eade",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
