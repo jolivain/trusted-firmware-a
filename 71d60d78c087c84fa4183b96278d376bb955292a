@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69ca4ffc_832b2604",
+        "filename": "plat/mediatek/drivers/emi_mpu/emi_mpu_common.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-05-06T04:06:39Z",
+      "side": 1,
+      "message": "Does it mean that the we can not clear the region protection if the region has been locked in the protection process ?",
+      "range": {
+        "startLine": 86,
+        "startChar": 1,
+        "endLine": 89,
+        "endChar": 2
+      },
+      "revId": "71d60d78c087c84fa4183b96278d376bb955292a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "627ce6dd_b222cb71",
+        "filename": "plat/mediatek/drivers/emi_mpu/mt8188/emi_mpu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-05-06T04:06:39Z",
+      "side": 1,
+      "message": "LOCK",
+      "range": {
+        "startLine": 21,
+        "startChar": 40,
+        "endLine": 21,
+        "endChar": 41
+      },
+      "revId": "71d60d78c087c84fa4183b96278d376bb955292a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91221112_a6f11ecd",
+        "filename": "plat/mediatek/drivers/emi_mpu/mt8188/emi_mpu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-05-06T04:06:39Z",
+      "side": 1,
+      "message": "please create enum or define for all the region_info.region values.",
+      "range": {
+        "startLine": 135,
+        "startChar": 23,
+        "endLine": 135,
+        "endChar": 24
+      },
+      "revId": "71d60d78c087c84fa4183b96278d376bb955292a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eb35925_754425d3",
+        "filename": "plat/mediatek/drivers/emi_mpu/mt8188/emi_mpu.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-05-06T04:06:39Z",
+      "side": 1,
+      "message": "UNLOCK",
+      "range": {
+        "startLine": 136,
+        "startChar": 41,
+        "endLine": 136,
+        "endChar": 42
+      },
+      "revId": "71d60d78c087c84fa4183b96278d376bb955292a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
