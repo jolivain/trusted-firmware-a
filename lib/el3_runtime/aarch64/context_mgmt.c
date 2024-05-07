@@ -49,6 +49,7 @@ static void manage_extensions_nonsecure(cpu_context_t *ctx);
 static void manage_extensions_secure(cpu_context_t *ctx);
 static void manage_extensions_secure_per_world(void);
 
+#if ((IMAGE_BL1) || (IMAGE_BL31 && (!CTX_INCLUDE_EL2_REGS)))
 static void setup_el1_context(cpu_context_t *ctx, const struct entry_point_info *ep)
 {
 	u_register_t sctlr_elx, actlr_elx;
@@ -106,6 +107,7 @@ static void setup_el1_context(cpu_context_t *ctx, const struct entry_point_info 
 	actlr_elx = read_actlr_el1();
 	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), actlr_el1, actlr_elx);
 }
+#endif /* (IMAGE_BL1) || (IMAGE_BL31 && (!CTX_INCLUDE_EL2_REGS)) */
 
 /******************************************************************************
  * This function performs initializations that are specific to SECURE state
@@ -138,7 +140,7 @@ static void setup_secure_context(cpu_context_t *ctx, const struct entry_point_in
 	 * Initialize EL1 context registers unless SPMC is running
 	 * at S-EL2.
 	 */
-#if !SPMD_SPM_AT_SEL2
+#if (!SPMD_SPM_AT_SEL2)
 	setup_el1_context(ctx, ep);
 #endif
 
@@ -154,7 +156,6 @@ static void setup_secure_context(cpu_context_t *ctx, const struct entry_point_in
 	if (!has_secure_perworld_init) {
 		manage_extensions_secure_per_world();
 	}
-
 }
 
 #if ENABLE_RME
@@ -258,11 +259,8 @@ static void setup_ns_context(cpu_context_t *ctx, const struct entry_point_info *
 #endif
 	write_ctx_reg(state, CTX_SCR_EL3, scr_el3);
 
-	/* Initialize EL1 context registers */
-	setup_el1_context(ctx, ep);
-
 	/* Initialize EL2 context registers */
-#if CTX_INCLUDE_EL2_REGS
+#if (CTX_INCLUDE_EL2_REGS && IMAGE_BL31)
 
 	/*
 	 * Initialize SCTLR_EL2 context register with reset value.
@@ -295,8 +293,10 @@ static void setup_ns_context(cpu_context_t *ctx, const struct entry_point_info *
 		write_el2_ctx_fgt(get_el2_sysregs_ctx(ctx), hfgwtr_el2,
 			HFGWTR_EL2_INIT_VAL);
 	}
-
-#endif /* CTX_INCLUDE_EL2_REGS */
+#else
+	/* Initialize EL1 context registers */
+	setup_el1_context(ctx, ep);
+#endif /* (CTX_INCLUDE_EL2_REGS && IMAGE_BL31) */
 
 	manage_extensions_nonsecure(ctx);
 }
@@ -327,7 +327,7 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 	 * to boot correctly. However, there are very few registers where this
 	 * is not true and some values need to be recreated.
 	 */
-#if CTX_INCLUDE_EL2_REGS
+#if (CTX_INCLUDE_EL2_REGS && IMAGE_BL31)
 	el2_sysregs_t *el2_ctx = get_el2_sysregs_ctx(ctx);
 
 	/*
@@ -343,7 +343,7 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 	 * and it may contain access control bits (e.g. CLUSTERPMUEN bit).
 	 */
 	write_el2_ctx_common(el2_ctx, actlr_el2, read_actlr_el2());
-#endif /* CTX_INCLUDE_EL2_REGS */
+#endif /* (CTX_INCLUDE_EL2_REGS && IMAGE_BL31) */
 
 	/* Start with a clean SCR_EL3 copy as all relevant values are set */
 	scr_el3 = SCR_RESET_VAL;
@@ -1085,11 +1085,14 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			}
 		}
 	}
+#if (!CTX_INCLUDE_EL2_REGS)
+	/* Restore EL1 system registers, only when CTX_INCLUDE_EL2_REGS=0 */
 	cm_el1_sysregs_context_restore(security_state);
+#endif
 	cm_set_next_eret_context(security_state);
 }
 
-#if CTX_INCLUDE_EL2_REGS
+#if (CTX_INCLUDE_EL2_REGS && IMAGE_BL31)
 
 static void el2_sysregs_context_save_fgt(el2_sysregs_t *ctx)
 {
@@ -1517,7 +1520,7 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 		write_gcspr_el2(read_el2_ctx_gcs(el2_sysregs_ctx, gcspr_el2));
 	}
 }
-#endif /* CTX_INCLUDE_EL2_REGS */
+#endif /* (CTX_INCLUDE_EL2_REGS && IMAGE_BL31) */
 
 /*******************************************************************************
  * This function is used to exit to Non-secure world. If CTX_INCLUDE_EL2_REGS
@@ -1538,15 +1541,19 @@ void cm_prepare_el3_exit_ns(void)
 			(el_implemented(2U) != EL_IMPL_NONE));
 #endif /* ENABLE_ASSERTIONS */
 
-	/* Restore EL2 and EL1 sysreg contexts */
+	/* Restore EL2 sysreg contexts */
 	cm_el2_sysregs_context_restore(NON_SECURE);
-	cm_el1_sysregs_context_restore(NON_SECURE);
 	cm_set_next_eret_context(NON_SECURE);
 #else
 	cm_prepare_el3_exit(NON_SECURE);
 #endif /* CTX_INCLUDE_EL2_REGS */
 }
 
+#if ((IMAGE_BL1) || (IMAGE_BL31 && (!CTX_INCLUDE_EL2_REGS)))
+/*******************************************************************************
+ * The next set of six functions are used by runtime services to save and restore
+ * EL1 context on the 'cpu_context' structure for the specified security state.
+ ******************************************************************************/
 static void el1_sysregs_context_save(el1_sysregs_t *ctx)
 {
 	write_el1_ctx_common(ctx, spsr_el1, read_spsr_el1());
@@ -1738,9 +1745,8 @@ static void el1_sysregs_context_restore(el1_sysregs_t *ctx)
 }
 
 /*******************************************************************************
- * The next four functions are used by runtime services to save and restore
- * EL1 context on the 'cpu_context' structure for the specified security
- * state.
+ * The next couple of functions are used by runtime services to save and restore
+ * EL1 context on the 'cpu_context' structure for the specified security state.
  ******************************************************************************/
 void cm_el1_sysregs_context_save(uint32_t security_state)
 {
@@ -1775,6 +1781,8 @@ void cm_el1_sysregs_context_restore(uint32_t security_state)
 		PUBLISH_EVENT(cm_entering_normal_world);
 #endif
 }
+
+#endif /* ((IMAGE_BL1) || (IMAGE_BL31 && (!CTX_INCLUDE_EL2_REGS))) */
 
 /*******************************************************************************
  * This function populates ELR_EL3 member of 'cpu_context' pertaining to the
