@@ -24,6 +24,11 @@
 cpu_reset_func_start neoverse_hermes
 	/* Disable speculative loads */
 	msr	SSBS, xzr
+
+#if NEOVERSE_HERMES_EXTERNAL_LLC
+	/* Some systems may have External LLC, core needs to be made aware */
+	sysreg_bit_set NEOVERSE_HERMES_CPUECTLR_EL1, NEOVERSE_HERMES_CPUECTLR_EL1_EXTLLC_BIT
+#endif
 cpu_reset_func_end neoverse_hermes
 
 	/* ----------------------------------------------------
