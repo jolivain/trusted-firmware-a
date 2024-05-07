@@ -152,7 +152,9 @@ int nrd_ras_cpu_intr_handler(const struct err_record_info *err_rec,
 	uint32_t intr;
 	int ret;
 
+#if (!CTX_INCLUDE_EL2_REGS)
 	cm_el1_sysregs_context_save(NON_SECURE);
+#endif
 	intr = data->interrupt;
 
 	INFO("[CPU RAS] CPU intr received = %d on cpu_id = %d\n",
@@ -201,7 +203,9 @@ int nrd_ras_cpu_intr_handler(const struct err_record_info *err_rec,
 		 * context when sdei_dispatch_event() returns failing result.
 		 */
 		ERROR("SDEI dispatch failed: %d", ret);
+#if (!CTX_INCLUDE_EL2_REGS)
 		cm_el1_sysregs_context_restore(NON_SECURE);
+#endif
 		cm_set_next_eret_context(NON_SECURE);
 	}
 
