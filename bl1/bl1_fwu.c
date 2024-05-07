@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -527,8 +527,10 @@ static int bl1_fwu_image_execute(unsigned int image_id,
 	INFO("BL1-FWU: Executing Secure image\n");
 
 #ifdef __aarch64__
+#if !CTX_INCLUDE_EL2_REGS
 	/* Save NS-EL1 system registers. */
 	cm_el1_sysregs_context_save(NON_SECURE);
+#endif
 #endif
 
 	/* Prepare the image for execution. */
@@ -591,11 +593,14 @@ static register_t bl1_fwu_image_resume(register_t image_param,
 		(resume_sec_state == SECURE) ? "secure" : "normal");
 
 #ifdef __aarch64__
+
+#if !CTX_INCLUDE_EL2_REGS
 	/* Save the EL1 system registers of calling world. */
 	cm_el1_sysregs_context_save(caller_sec_state);
 
 	/* Restore the EL1 system registers of resuming world. */
 	cm_el1_sysregs_context_restore(resume_sec_state);
+#endif
 
 	/* Update the next context. */
 	cm_set_next_eret_context(resume_sec_state);
@@ -647,13 +652,15 @@ static int bl1_fwu_sec_image_done(void **handle, unsigned int flags)
 	sec_exec_image_id = INVALID_IMAGE_ID;
 
 	INFO("BL1-FWU: Resuming Normal world context\n");
+
 #ifdef __aarch64__
+#if !CTX_INCLUDE_EL2_REGS
 	/*
 	 * Secure world is done so no need to save the context.
 	 * Just restore the Non-Secure context.
 	 */
 	cm_el1_sysregs_context_restore(NON_SECURE);
-
+#endif
 	/* Update the next context. */
 	cm_set_next_eret_context(NON_SECURE);
 
