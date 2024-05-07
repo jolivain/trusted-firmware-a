@@ -7,8 +7,11 @@
 #ifndef CONTEXT_H
 #define CONTEXT_H
 
+#if (!CTX_INCLUDE_EL2_REGS)
 #include <lib/el3_runtime/context_el1.h>
+#else
 #include <lib/el3_runtime/context_el2.h>
+#endif /* (CTX_INCLUDE_EL2_REGS=0) */
 #include <lib/el3_runtime/cpu_data.h>
 #include <lib/utils_def.h>
 
@@ -281,10 +284,11 @@ typedef struct cpu_context {
 	pauth_t pauth_ctx;
 #endif
 
-	el1_sysregs_t el1_sysregs_ctx;
-
 #if CTX_INCLUDE_EL2_REGS
 	el2_sysregs_t el2_sysregs_ctx;
+#else
+	/* El1 context should be included only when SPMD_SPM_AT_SEL2=0 */
+	el1_sysregs_t el1_sysregs_ctx;
 #endif
 
 } cpu_context_t;
@@ -306,10 +310,13 @@ extern per_world_context_t per_world_context[CPU_DATA_CONTEXT_NUM];
 #if CTX_INCLUDE_FPREGS
 # define get_fpregs_ctx(h)	(&((cpu_context_t *) h)->fpregs_ctx)
 #endif
-#define get_el1_sysregs_ctx(h)	(&((cpu_context_t *) h)->el1_sysregs_ctx)
+
 #if CTX_INCLUDE_EL2_REGS
-# define get_el2_sysregs_ctx(h)	(&((cpu_context_t *) h)->el2_sysregs_ctx)
+#define get_el2_sysregs_ctx(h)	(&((cpu_context_t *) h)->el2_sysregs_ctx)
+#else
+#define get_el1_sysregs_ctx(h)	(&((cpu_context_t *) h)->el1_sysregs_ctx)
 #endif
+
 #define get_gpregs_ctx(h)	(&((cpu_context_t *) h)->gpregs_ctx)
 #define get_cve_2018_3639_ctx(h)	(&((cpu_context_t *) h)->cve_2018_3639_ctx)
 
@@ -343,7 +350,7 @@ CASSERT(CTX_CVE_2018_3639_OFFSET == __builtin_offsetof(cpu_context_t, cve_2018_3
 #if ERRATA_SPECULATIVE_AT
 CASSERT(CTX_ERRATA_SPECULATIVE_OFFSET == __builtin_offsetof(cpu_context_t, errata_speculative_ctx),
 	assert_core_context_errata_speculative_offset_mismatch);
-#endif
+#endif /* ERRATA_SPECULATIVE_AT */
 
 #if CTX_INCLUDE_PAUTH_REGS
 CASSERT(CTX_PAUTH_REGS_OFFSET == __builtin_offsetof(cpu_context_t, pauth_ctx),
