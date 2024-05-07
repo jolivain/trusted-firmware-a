@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51e6caef_f3cdc6e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-05-07T15:56:02Z",
+      "side": 1,
+      "message": "The MISRA issue looks like a false positive, as the function is called in bl32/sp_min/aarch32/entrypoint.S file. But as it is an assembler file, maybe it is not properly parsed?",
+      "revId": "a1255c758593f9f6fb85b70165fad21de7491e1e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
