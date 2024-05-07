@@ -516,6 +516,7 @@ smc_unknown:
 	b	el3_exit
 
 smc_prohibited:
+#if (!CTX_INCLUDE_EL2_REGS)
 #if ERRATA_SPECULATIVE_AT
 	/* ----------------------------------------------------------
 	 * Restore SCTLR_EL1 and TCR_EL1 system registers prior to
@@ -526,6 +527,7 @@ smc_prohibited:
 	mov 	x0, sp
 	bl	restore_ptw_el1_sys_regs
 #endif
+#endif /* CTX_INCLUDE_EL2_REGS=0 */
 
 	ldp	x28, x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X28]
 	ldr	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]

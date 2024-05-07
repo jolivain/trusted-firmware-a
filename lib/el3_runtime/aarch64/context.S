@@ -421,6 +421,7 @@ sve_not_enabled:
 	msr	spsr_el3, x16
 	msr	elr_el3, x17
 
+#if (!CTX_INCLUDE_EL2_REGS)
 #if ERRATA_SPECULATIVE_AT
 	/* ----------------------------------------------------------
 	 * Restore SCTLR_EL1 and TCR_EL1 system registers prior to
@@ -431,6 +432,7 @@ sve_not_enabled:
 	mov 	x0, sp
 	bl	restore_ptw_el1_sys_regs
 #endif
+#endif /* !CTX_INCLUDE_EL2_REGS */
 
 	/* ----------------------------------------------------------
 	 * Restore general purpose (including x30), PMCR_EL0 and
