@@ -49,10 +49,11 @@ void cm_el3_arch_init_per_world(per_world_context_t *per_world_ctx);
 #if CTX_INCLUDE_EL2_REGS
 void cm_el2_sysregs_context_save(uint32_t security_state);
 void cm_el2_sysregs_context_restore(uint32_t security_state);
-#endif
-
+#else
 void cm_el1_sysregs_context_save(uint32_t security_state);
 void cm_el1_sysregs_context_restore(uint32_t security_state);
+#endif /* CTX_INCLUDE_EL2_REGS=0 */
+
 void cm_set_elr_el3(uint32_t security_state, uintptr_t entrypoint);
 void cm_set_elr_spsr_el3(uint32_t security_state,
 			uintptr_t entrypoint, uint32_t spsr);

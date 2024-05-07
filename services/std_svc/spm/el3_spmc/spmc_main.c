@@ -614,8 +614,10 @@ static uint64_t msg_wait_handler(uint32_t smc_fid,
 		unsigned int secure_state_in = SECURE;
 		unsigned int secure_state_out = NON_SECURE;
 
+#if (!CTX_INCLUDE_EL2_REGS)
 		cm_el1_sysregs_context_save(secure_state_in);
 		cm_el1_sysregs_context_restore(secure_state_out);
+#endif
 		cm_set_next_eret_context(secure_state_out);
 
 		if (sp->runtime_el == S_EL0) {
@@ -2158,7 +2160,9 @@ uint64_t spmc_sp_synchronous_entry(struct sp_exec_ctx *ec)
 	cm_set_context(&(ec->cpu_ctx), SECURE);
 
 	/* Restore the context assigned above */
+#if (!CTX_INCLUDE_EL2_REGS)
 	cm_el1_sysregs_context_restore(SECURE);
+#endif
 	cm_set_next_eret_context(SECURE);
 
 	/* Invalidate TLBs at EL1. */
@@ -2168,8 +2172,10 @@ uint64_t spmc_sp_synchronous_entry(struct sp_exec_ctx *ec)
 	/* Enter Secure Partition */
 	rc = spm_secure_partition_enter(&ec->c_rt_ctx);
 
+#if (!CTX_INCLUDE_EL2_REGS)
 	/* Save secure state */
 	cm_el1_sysregs_context_save(SECURE);
+#endif
 
 	return rc;
 }
