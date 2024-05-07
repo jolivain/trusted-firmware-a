@@ -52,6 +52,8 @@ static void manage_extensions_nonsecure(cpu_context_t *ctx);
 static void manage_extensions_secure(cpu_context_t *ctx);
 static void manage_extensions_secure_per_world(void);
 
+#if !CTX_INCLUDE_EL2_REGS
+
 static void setup_el1_context(cpu_context_t *ctx, const struct entry_point_info *ep)
 {
 	u_register_t sctlr_elx, actlr_elx;
@@ -108,6 +110,8 @@ static void setup_el1_context(cpu_context_t *ctx, const struct entry_point_info 
 	actlr_elx = read_actlr_el1();
 	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), actlr_el1, actlr_elx);
 }
+
+#endif /* CTX_INCLUDE_EL2_REGS=0 */
 
 /******************************************************************************
  * This function performs initializations that are specific to SECURE state
@@ -260,9 +264,6 @@ static void setup_ns_context(cpu_context_t *ctx, const struct entry_point_info *
 #endif
 	write_ctx_reg(state, CTX_SCR_EL3, scr_el3);
 
-	/* Initialize EL1 context registers */
-	setup_el1_context(ctx, ep);
-
 	/* Initialize EL2 context registers */
 #if CTX_INCLUDE_EL2_REGS
 
@@ -300,10 +301,12 @@ static void setup_ns_context(cpu_context_t *ctx, const struct entry_point_info *
 		write_el2_ctx_fgt(get_el2_sysregs_ctx(ctx), hfgwtr_el2,
 			HFGWTR_EL2_INIT_VAL);
 	}
+#else
+	/* When CTX_INCLUDE_EL2_REGS=0 */
 
-#endif /* CTX_INCLUDE_EL2_REGS */
+	/* Initialize EL1 context registers */
+	setup_el1_context(ctx, ep);
 
-#if !CTX_INCLUDE_EL2_REGS
 	/*
 	 * To initialise SCTLR_EL2 register, while EL2 context is not included,
 	 * we need to save the endianness value taken from the entrypoint
@@ -311,7 +314,8 @@ static void setup_ns_context(cpu_context_t *ctx, const struct entry_point_info *
 	 * the SCTLR_EL2 register, while we exit EL3.
 	 */
 	sctlr_el2_endian_val = (EP_GET_EE(ep->h.attr) != 0U) ? SCTLR_EE_BIT : 0UL;
-#endif /* CTX_INCLUDE_EL2_REGS=0 */
+
+#endif /* CTX_INCLUDE_EL2_REGS */
 
 	manage_extensions_nonsecure(ctx);
 }
@@ -1028,7 +1032,9 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			}
 		}
 	}
+#if !CTX_INCLUDE_EL2_REGS
 	cm_el1_sysregs_context_restore(security_state);
+#endif
 	cm_set_next_eret_context(security_state);
 }
 
@@ -1469,12 +1475,13 @@ void cm_prepare_el3_exit_ns(void)
 
 	/* Restore EL2 and EL1 sysreg contexts */
 	cm_el2_sysregs_context_restore(NON_SECURE);
-	cm_el1_sysregs_context_restore(NON_SECURE);
 	cm_set_next_eret_context(NON_SECURE);
 #else
 	cm_prepare_el3_exit(NON_SECURE);
 #endif /* CTX_INCLUDE_EL2_REGS */
 }
+
+#if !CTX_INCLUDE_EL2_REGS
 
 static void el1_sysregs_context_save(el1_sysregs_t *ctx)
 {
@@ -1666,13 +1673,90 @@ static void el1_sysregs_context_restore(el1_sysregs_t *ctx)
 	}
 }
 
+/*
+ * In case of ERRATA_SPECULATIVE_AT, save SCTLR_EL1 and TCR_EL1
+ * registers and update EL1 registers to disable stage1 and stage2
+ * page table walk
+ */
+void save_and_update_ptw_el1_sys_regs(u_register_t arg0)
+{
+	cpu_context_t *ctx = (void *)(uintptr_t)arg0;
+
+	assert(ctx != NULL);
+	/* ----------------------------------------------------------
+	 * Save only sctlr_el1 and tcr_el1 registers
+	 * ----------------------------------------------------------
+	 */
+	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), sctlr_el1, read_sctlr_el1());
+	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), tcr_el1, read_tcr_el1());
+
+	/* ------------------------------------------------------------
+	 * Must follow below order in order to disable page table
+	 * walk for lower ELs (EL1 and EL0). First step ensures that
+	 * page table walk is disabled for stage 1 and second step
+	 * ensures that page table walker should use TCR_EL1.EPDx
+	 * bits to perform address translation. ISB ensures that CPU
+	 * does these 2 steps in order.
+	 *
+	 * 1. Update TCR_EL1.EPDx bits to disable page table walk by
+	 *    stage1.
+	 * 2. Enable MMU bit to avoid identity mapping via stage 2
+	 *    and force TCR_EL1.EPDx to be used by the page table
+	 *    walker.
+	 * ------------------------------------------------------------
+	 */
+	u_register_t tcr_el1_val = read_tcr_el1();
+
+	tcr_el1_val |= TCR_EPD0_BIT;
+	tcr_el1_val |= TCR_EPD1_BIT;
+	write_tcr_el1(tcr_el1_val);
+	isb();
+
+	u_register_t sctlr_el1_val = read_sctlr_el1();
+
+	sctlr_el1_val |= SCTLR_M_BIT;
+	write_sctlr_el1(sctlr_el1_val);
+	isb();
+}
+
+void restore_ptw_el1_sys_regs(u_register_t arg0)
+{
+#if ERRATA_SPECULATIVE_AT
+	/* -----------------------------------------------------------
+	 * In case of ERRATA_SPECULATIVE_AT, must follow below order
+	 * to ensure that page table walk is not enabled until
+	 * restoration of all EL1 system registers. TCR_EL1 register
+	 * should be updated at the end which restores previous page
+	 * table walk setting of stage 1 i.e.(TCR_EL1.EPDx) bits. ISB
+	 * ensures that CPU does below steps in order.
+	 *
+	 * 1. Ensure all other system registers are written before
+	 *    updating SCTLR_EL1 using ISB.
+	 * 2. Restore SCTLR_EL1 register.
+	 * 3. Ensure SCTLR_EL1 written successfully using ISB.
+	 * 4. Restore TCR_EL1 register.
+	 * -----------------------------------------------------------
+	 */
+	cpu_context_t *ctx = (void *)(uintptr_t)arg0;
+
+	assert(ctx != NULL);
+
+	isb();
+	write_sctlr_el1(read_el1_ctx_common(get_el1_sysregs_ctx(ctx), sctlr_el1));
+	isb();
+	write_tcr_el1(read_el1_ctx_common(get_el1_sysregs_ctx(ctx), tcr_el1));
+
+#endif /* ERRATA_SPECULATIVE_AT */
+}
+#endif /* CTX_INCLUDE_EL2_REGS=0 */
+
 /*******************************************************************************
- * The next four functions are used by runtime services to save and restore
- * EL1 context on the 'cpu_context' structure for the specified security
- * state.
+ * The next couple of functions are used by runtime services to save and restore
+ * EL1 context on the 'cpu_context' structure for the specified security state.
  ******************************************************************************/
 void cm_el1_sysregs_context_save(uint32_t security_state)
 {
+#if (!CTX_INCLUDE_EL2_REGS)
 	cpu_context_t *ctx;
 
 	ctx = cm_get_context(security_state);
@@ -1686,10 +1770,22 @@ void cm_el1_sysregs_context_save(uint32_t security_state)
 	else
 		PUBLISH_EVENT(cm_exited_normal_world);
 #endif
+
+#else /* (CTX_INCLUDE_EL2_REGS=1) */
+
+	/*
+	 * Its an empty routine for build configs with SPMC_AT_SEL2=1.
+	 * i.e when CTX_INCLUDE_EL2_REGS=1, EL1 context saving is not
+	 * required at EL3.
+	 */
+
+#endif /* CTX_INCLUDE_EL2_REGS=0 */
+
 }
 
 void cm_el1_sysregs_context_restore(uint32_t security_state)
 {
+#if (!CTX_INCLUDE_EL2_REGS)
 	cpu_context_t *ctx;
 
 	ctx = cm_get_context(security_state);
@@ -1703,6 +1799,16 @@ void cm_el1_sysregs_context_restore(uint32_t security_state)
 	else
 		PUBLISH_EVENT(cm_entering_normal_world);
 #endif
+
+#else /* CTX_INCLUDE_EL2_REGS=1 */
+	
+	/*
+	 * Its an empty routine for build configs with SPMC_AT_SEL2=1.
+	 * i.e when CTX_INCLUDE_EL2_REGS=1, EL1 context restoring is not
+	 * required at EL3.
+	 */
+
+#endif /* CTX_INCLUDE_EL2_REGS=0 */
 }
 
 /*******************************************************************************
@@ -1804,81 +1910,4 @@ void cm_set_next_eret_context(uint32_t security_state)
 	assert(ctx != NULL);
 
 	cm_set_next_context(ctx);
-}
-
-void restore_ptw_el1_sys_regs(u_register_t arg0)
-{
-#if ERRATA_SPECULATIVE_AT
-	/* -----------------------------------------------------------
-	 * In case of ERRATA_SPECULATIVE_AT, must follow below order
-	 * to ensure that page table walk is not enabled until
-	 * restoration of all EL1 system registers. TCR_EL1 register
-	 * should be updated at the end which restores previous page
-	 * table walk setting of stage1 i.e.(TCR_EL1.EPDx) bits. ISB
-	 * ensures that CPU does below steps in order.
-	 *
-	 * 1. Ensure all other system registers are written before
-	 *    updating SCTLR_EL1 using ISB.
-	 * 2. Restore SCTLR_EL1 register.
-	 * 3. Ensure SCTLR_EL1 written successfully using ISB.
-	 * 4. Restore TCR_EL1 register.
-	 * -----------------------------------------------------------
-	 */
-	cpu_context_t *ctx = (void *)(uintptr_t)arg0;
-
-	assert(ctx != NULL);
-
-	isb();
-	write_sctlr_el1(read_el1_ctx_common(get_el1_sysregs_ctx(ctx), sctlr_el1));
-	isb();
-	write_tcr_el1(read_el1_ctx_common(get_el1_sysregs_ctx(ctx), tcr_el1));
-
-#endif /* ERRATA_SPECULATIVE_AT */
-}
-
-
-/*
- * In case of ERRATA_SPECULATIVE_AT, save SCTLR_EL1 and TCR_EL1
- * registers and update EL1 registers to disable stage1 and stage2
- * page table walk
- */
-void save_and_update_ptw_el1_sys_regs(u_register_t arg0)
-{
-	cpu_context_t *ctx = (void *)(uintptr_t)arg0;
-
-	assert(ctx != NULL);
-	/* ----------------------------------------------------------
-	 * Save only sctlr_el1 and tcr_el1 registers
-	 * ----------------------------------------------------------
-	 */
-	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), sctlr_el1, read_sctlr_el1());
-	write_el1_ctx_common(get_el1_sysregs_ctx(ctx), tcr_el1, read_tcr_el1());
-
-	/* ------------------------------------------------------------
-	 * Must follow below order in order to disable page table
-	 * walk for lower ELs (EL1 and EL0). First step ensures that
-	 * page table walk is disabled for stage 1 and second step
-	 * ensures that page table walker should use TCR_EL1.EPDx
-	 * bits to perform address translation. ISB ensures that CPU
-	 * does these 2 steps in order.
-	 *
-	 * 1. Update TCR_EL1.EPDx bits to disable page table walk by
-	 *    stage1.
-	 * 2. Enable MMU bit to avoid identity mapping via stage 2
-	 *    and force TCR_EL1.EPDx to be used by the page table
-	 *    walker.
-	 * ------------------------------------------------------------
-	 */
-	u_register_t tcr_el1_val = read_tcr_el1();
-
-	tcr_el1_val |= TCR_EPD0_BIT;
-	tcr_el1_val |= TCR_EPD1_BIT;
-	write_tcr_el1(tcr_el1_val);
-	isb();
-
-	u_register_t sctlr_el1_val = read_sctlr_el1();
-
-	sctlr_el1_val |= SCTLR_M_BIT;
-	write_sctlr_el1(sctlr_el1_val);
-	isb();
 }
