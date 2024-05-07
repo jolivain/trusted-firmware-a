@@ -57,8 +57,9 @@ static int tegra_fiq_interrupt_handler(unsigned int id, unsigned int flags,
 		 * The FIQ was generated when the execution was in the non-secure
 		 * world. Save the context registers to start with.
 		 */
+#if (!CTX_INCLUDE_EL2_REGS)
 		cm_el1_sysregs_context_save(NON_SECURE);
-
+#endif
 		/*
 		 * Save elr_el3 and spsr_el3 from the saved context, and overwrite
 		 * the context with the NS fiq_handler_addr and SPSR value.
