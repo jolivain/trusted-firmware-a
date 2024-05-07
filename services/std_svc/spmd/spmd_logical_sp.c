@@ -530,9 +530,10 @@ bool spmd_el3_invoke_partition_info_get(
 	/* Save the non-secure context before entering SPMC */
 #if SPMD_SPM_AT_SEL2
 	cm_el2_sysregs_context_save(NON_SECURE);
-#else
-	cm_el1_sysregs_context_save(NON_SECURE);
 #endif
+	/* Save S-EL1 system registers, only when SPMD_SPM_AT_SEL2=0 */
+	cm_el1_sysregs_context_save(NON_SECURE);
+
 
 	spmd_build_ffa_info_get_regs(ctx, target_uuid, start_index, tag);
 	spmd_logical_sp_set_info_regs_ongoing(ctx);
@@ -551,9 +552,10 @@ bool spmd_el3_invoke_partition_info_get(
 
 #if SPMD_SPM_AT_SEL2
 	cm_el2_sysregs_context_restore(NON_SECURE);
-#else
-	cm_el1_sysregs_context_restore(NON_SECURE);
 #endif
+	/* Restore S-EL1 system registers, only when SPMD_SPM_AT_SEL2=0 */
+	cm_el1_sysregs_context_restore(NON_SECURE);
+
 	cm_set_next_eret_context(NON_SECURE);
 	return true;
 #else
@@ -671,9 +673,10 @@ bool spmd_el3_ffa_msg_direct_req(uint64_t x1,
 	/* Save the non-secure context before entering SPMC */
 #if SPMD_SPM_AT_SEL2
 	cm_el2_sysregs_context_save(NON_SECURE);
-#else
-	cm_el1_sysregs_context_save(NON_SECURE);
 #endif
+	/* Save S-EL1 system registers, only when SPMD_SPM_AT_SEL2=0 */
+	cm_el1_sysregs_context_save(NON_SECURE);
+
 
 	/*
 	 * Perform synchronous entry into the SPMC. Synchronous entry is
@@ -712,9 +715,10 @@ bool spmd_el3_ffa_msg_direct_req(uint64_t x1,
 
 #if SPMD_SPM_AT_SEL2
 	cm_el2_sysregs_context_restore(NON_SECURE);
-#else
-	cm_el1_sysregs_context_restore(NON_SECURE);
 #endif
+	/* Restore S-EL1 system registers, only when SPMD_SPM_AT_SEL2=0 */
+	cm_el1_sysregs_context_restore(NON_SECURE);
+
 	cm_set_next_eret_context(NON_SECURE);
 
 	return true;
