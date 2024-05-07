@@ -427,8 +427,10 @@
 	 * Also, save x29 which will be used in the called function.
 	 */
 	str	x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X29]
+#if (!CTX_INCLUDE_EL2_REGS)
 	mov 	x0, sp
 	bl	save_and_update_ptw_el1_sys_regs
+#endif
 	ldr	x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X29]
 #endif
 	.endm
