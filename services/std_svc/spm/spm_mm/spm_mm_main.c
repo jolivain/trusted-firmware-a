@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2022, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -96,7 +96,9 @@ static uint64_t spm_sp_synchronous_entry(sp_context_t *ctx)
 	cm_set_context(&(ctx->cpu_ctx), SECURE);
 
 	/* Restore the context assigned above */
+#if (!CTX_INCLUDE_EL2_REGS)
 	cm_el1_sysregs_context_restore(SECURE);
+#endif
 	cm_set_next_eret_context(SECURE);
 
 	/* Invalidate TLBs at EL1. */
@@ -106,9 +108,10 @@ static uint64_t spm_sp_synchronous_entry(sp_context_t *ctx)
 	/* Enter Secure Partition */
 	rc = spm_secure_partition_enter(&ctx->c_rt_ctx);
 
+#if (!CTX_INCLUDE_EL2_REGS)
 	/* Save secure state */
 	cm_el1_sysregs_context_save(SECURE);
-
+#endif
 	return rc;
 }
 
@@ -264,14 +267,17 @@ static uint64_t mm_communicate(uint32_t smc_fid, uint64_t mm_cookie,
 	 */
 	ehf_activate_priority(PLAT_SP_PRI);
 
+#if (!CTX_INCLUDE_EL2_REGS)
 	/* Save the Normal world context */
 	cm_el1_sysregs_context_save(NON_SECURE);
-
+#endif
 	rc = spm_mm_sp_call(smc_fid, comm_buffer_address, comm_size_address,
 			    plat_my_core_pos());
 
 	/* Restore non-secure state */
+#if (!CTX_INCLUDE_EL2_REGS)
 	cm_el1_sysregs_context_restore(NON_SECURE);
+#endif
 	cm_set_next_eret_context(NON_SECURE);
 
 	/*
