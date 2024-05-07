@@ -134,20 +134,21 @@ uint64_t spmd_spm_core_sync_entry(spmd_spm_core_context_t *spmc_ctx)
 	/* Restore the context assigned above */
 #if SPMD_SPM_AT_SEL2
 	cm_el2_sysregs_context_restore(SECURE);
-#else
-	cm_el1_sysregs_context_restore(SECURE);
 #endif
+	/* Restore S-EL1 system registers, only when SPMD_SPM_AT_SEL2=0 */
+	cm_el1_sysregs_context_restore(SECURE);
+
 	cm_set_next_eret_context(SECURE);
 
 	/* Enter SPMC */
 	rc = spmd_spm_core_enter(&spmc_ctx->c_rt_ctx);
 
-	/* Save secure state */
 #if SPMD_SPM_AT_SEL2
+	/* Save S-EL2 system registers */
 	cm_el2_sysregs_context_save(SECURE);
-#else
-	cm_el1_sysregs_context_save(SECURE);
 #endif
+	/* Save S-EL1 system registers, only when SPMD_SPM_AT_SEL2=0 */
+	cm_el1_sysregs_context_save(SECURE);
 
 	return rc;
 }
@@ -229,9 +230,10 @@ static uint64_t spmd_secure_interrupt_handler(uint32_t id,
 	/* Save the non-secure context before entering SPMC */
 #if SPMD_SPM_AT_SEL2
 	cm_el2_sysregs_context_save(NON_SECURE);
-#else
-	cm_el1_sysregs_context_save(NON_SECURE);
 #endif
+	/* Save S-EL1 system registers, only when SPMD_SPM_AT_SEL2=0 */
+	cm_el1_sysregs_context_save(NON_SECURE);
+
 
 	/* Convey the event to the SPMC through the FFA_INTERRUPT interface. */
 	write_ctx_reg(gpregs, CTX_GPREG_X0, FFA_INTERRUPT);
@@ -255,9 +257,10 @@ static uint64_t spmd_secure_interrupt_handler(uint32_t id,
 
 #if SPMD_SPM_AT_SEL2
 	cm_el2_sysregs_context_restore(NON_SECURE);
-#else
-	cm_el1_sysregs_context_restore(NON_SECURE);
 #endif
+	/* Restore S-EL1 system registers, only when SPMD_SPM_AT_SEL2=0 */
+	cm_el1_sysregs_context_restore(NON_SECURE);
+
 	cm_set_next_eret_context(NON_SECURE);
 
 	SMC_RET0(&ctx->cpu_ctx);
@@ -691,16 +694,18 @@ uint64_t spmd_smc_switch_state(uint32_t smc_fid,
 	/* Save incoming security state */
 #if SPMD_SPM_AT_SEL2
 	cm_el2_sysregs_context_save(secure_state_in);
-#else
-	cm_el1_sysregs_context_save(secure_state_in);
 #endif
+	/* Save S-EL1 system registers, only when SPMD_SPM_AT_SEL2=0 */
+	cm_el1_sysregs_context_save(secure_state_in);
+
 
 	/* Restore outgoing security state */
 #if SPMD_SPM_AT_SEL2
 	cm_el2_sysregs_context_restore(secure_state_out);
-#else
-	cm_el1_sysregs_context_restore(secure_state_out);
 #endif
+	/* Restore S-EL1 system registers, only when SPMD_SPM_AT_SEL2=0 */
+	cm_el1_sysregs_context_restore(secure_state_out);
+
 	cm_set_next_eret_context(secure_state_out);
 
 #if SPMD_SPM_AT_SEL2
@@ -949,9 +954,10 @@ uint64_t spmd_smc_handler(uint32_t smc_fid,
 			/* Save non-secure system registers context */
 #if SPMD_SPM_AT_SEL2
 			cm_el2_sysregs_context_save(NON_SECURE);
-#else
-			cm_el1_sysregs_context_save(NON_SECURE);
 #endif
+			/* Save S-EL1 system registers, only when SPMD_SPM_AT_SEL2=0 */
+			cm_el1_sysregs_context_save(NON_SECURE);
+
 
 			/*
 			 * The incoming request has FFA_VERSION as X0 smc_fid
