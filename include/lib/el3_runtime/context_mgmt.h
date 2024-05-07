@@ -33,8 +33,7 @@ void cm_init_my_context(const struct entry_point_info *ep);
 void cm_setup_context(cpu_context_t *ctx, const struct entry_point_info *ep);
 void cm_prepare_el3_exit(uint32_t security_state);
 void cm_prepare_el3_exit_ns(void);
-void restore_ptw_el1_sys_regs(cpu_context_t *ctx);
-void save_and_update_ptw_el1_sys_regs(cpu_context_t *ctx);
+
 
 #if !IMAGE_BL1
 void cm_init_context_by_index(unsigned int cpu_idx,
@@ -51,10 +50,13 @@ void cm_el3_arch_init_per_world(per_world_context_t *per_world_ctx);
 #if CTX_INCLUDE_EL2_REGS
 void cm_el2_sysregs_context_save(uint32_t security_state);
 void cm_el2_sysregs_context_restore(uint32_t security_state);
-#endif
-
+#else
 void cm_el1_sysregs_context_save(uint32_t security_state);
 void cm_el1_sysregs_context_restore(uint32_t security_state);
+void save_and_update_ptw_el1_sys_regs(cpu_context_t *ctx);
+void restore_ptw_el1_sys_regs(cpu_context_t *ctx);
+#endif /* CTX_INCLUDE_EL2_REGS=0 */
+
 void cm_set_elr_el3(uint32_t security_state, uintptr_t entrypoint);
 void cm_set_elr_spsr_el3(uint32_t security_state,
 			uintptr_t entrypoint, uint32_t spsr);
