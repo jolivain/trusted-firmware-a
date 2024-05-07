@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "22b0b7ab_fb898eac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 34
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-07T10:29:57Z",
+      "side": 1,
+      "message": "Also need to see if the design document needs an update : https://github.com/ARM-software/arm-trusted-firmware/blob/master/docs/components/granule-protection-tables-design.rst\n\nCan be a separate patch",
+      "revId": "a37ba34b205a6eb313a55c6ef4fc0efd409b0968",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4680fe18_dc78aa1b",
         "filename": "lib/gpt_rme/gpt_rme.c",
         "patchSetId": 34
