@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b7fc42c_265a50cb",
+        "filename": "plat/mediatek/drivers/emi_mpu/mt8188/emi_mpu.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-05-07T08:43:55Z",
+      "side": 1,
+      "message": "`is_set` is not the boolean type. Use `is_set \u003e 0`.",
+      "range": {
+        "startLine": 126,
+        "startChar": 5,
+        "endLine": 126,
+        "endChar": 11
+      },
+      "revId": "b440e27f22bd1c6155e1f189ec97bd19530e76f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9182182_74d2e32b",
+        "filename": "plat/mediatek/drivers/emi_mpu/mt8188/emi_mpu.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-05-07T08:43:55Z",
+      "side": 1,
+      "message": "this check should be done before `if (is_set)`, right ? otherwise, any zone_id could clear the SVP DRAM protection.",
+      "range": {
+        "startLine": 127,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 3
+      },
+      "revId": "b440e27f22bd1c6155e1f189ec97bd19530e76f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06d549b9_947b2e0c",
+        "filename": "plat/mediatek/drivers/emi_mpu/mt8188/emi_mpu.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-05-07T08:43:55Z",
+      "side": 1,
+      "message": "SVP_DRAM_REGION_ID",
+      "range": {
+        "startLine": 144,
+        "startChar": 27,
+        "endLine": 144,
+        "endChar": 28
+      },
+      "revId": "b440e27f22bd1c6155e1f189ec97bd19530e76f2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
