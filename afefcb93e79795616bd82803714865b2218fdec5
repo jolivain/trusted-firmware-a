@@ -22,6 +22,30 @@
       },
       "revId": "afefcb93e79795616bd82803714865b2218fdec5",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "833a6563_fc1030e7",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-05-08T12:43:20Z",
+      "side": 1,
+      "message": "cluster_on_dsu_pmu_context_restore() is not unconditionally defined and only defined on tc platform. If this code ran on non-tc platforms(that use css_pm) with PRESERVE_DSU_PMU_REGS set to false, then it\u0027ll result in compiler error.",
+      "parentUuid": "ee7b7e9c_bfcc09df",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 25
+      },
+      "revId": "afefcb93e79795616bd82803714865b2218fdec5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
