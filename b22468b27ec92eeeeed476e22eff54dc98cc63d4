@@ -16,6 +16,29 @@
       "message": "RMM l3-boot job triggered for the top patch:\nhttps://jenkins.openci.aws.arm.com/view/RMM/job/rmm-ci-gateway-l2/5875/",
       "revId": "b22468b27ec92eeeeed476e22eff54dc98cc63d4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4659cba1_143be394",
+        "filename": "lib/gpt_rme/gpt_rme.c",
+        "patchSetId": 40
+      },
+      "lineNbr": 1365,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-08T16:06:05Z",
+      "side": 1,
+      "message": "nit: Contiguous",
+      "range": {
+        "startLine": 1365,
+        "startChar": 19,
+        "endLine": 1365,
+        "endChar": 28
+      },
+      "revId": "b22468b27ec92eeeeed476e22eff54dc98cc63d4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
