@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af44404f_9215aed2",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-08T09:02:11Z",
+      "side": 1,
+      "message": "We\u0027re not utilizing this file in TF-A, nor are we enabling the option ``MBEDTLS_AESCE_C`` which is necessary for its use. \nThis file is primarily required for implementing AES-CE for hardware AES acceleration on ARMv8 processors with Crypto Engine. Please let me know if you identify any use cases where including this file would be beneficial.",
+      "range": {
+        "startLine": 39,
+        "startChar": 5,
+        "endLine": 39,
+        "endChar": 10
+      },
+      "revId": "d5fbdfdd3a836ea9c622768ae6e2cfeecc2f4cbd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e5009b0_c1ab1ed4",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-08T09:02:11Z",
+      "side": 1,
+      "message": "I can\u0027t see any usage TF-A to include SHA-3 Secure Hash Standard. Can we remove its compilation?",
+      "range": {
+        "startLine": 59,
+        "startChar": 5,
+        "endLine": 59,
+        "endChar": 11
+      },
+      "revId": "d5fbdfdd3a836ea9c622768ae6e2cfeecc2f4cbd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9089a1bf_8da955b0",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-08T09:02:11Z",
+      "side": 1,
+      "message": "Currently, authentication decryption isn\u0027t supported with the PSA Crypto API. Consequently, we can exclude this file from the compilation process.",
+      "range": {
+        "startLine": 81,
+        "startChar": 5,
+        "endLine": 81,
+        "endChar": 22
+      },
+      "revId": "d5fbdfdd3a836ea9c622768ae6e2cfeecc2f4cbd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c1400f5_0398b9bb",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-08T09:02:11Z",
+      "side": 1,
+      "message": "Can you please remind why we need to include this file? I can see PSA based builds goes through without including this but I may be missing something.",
+      "range": {
+        "startLine": 83,
+        "startChar": 5,
+        "endLine": 83,
+        "endChar": 43
+      },
+      "revId": "d5fbdfdd3a836ea9c622768ae6e2cfeecc2f4cbd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dba0232f_b160635b",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-08T09:02:11Z",
+      "side": 1,
+      "message": "Thank you for implementing this workaround temporarily.\n\nI think this function is only necessary for RSA-based algorithms. Could we incorporate a check in the code to execute this function exclusively for RSA-based algorithms (similar to line 400, where conditional execution happened for ECDSA algorithm)? Additionally, let\u0027s add error checking here. Although this function returns an error, we\u0027re currently disregarding it silently.",
+      "range": {
+        "startLine": 435,
+        "startChar": 10,
+        "endLine": 437,
+        "endChar": 0
+      },
+      "revId": "d5fbdfdd3a836ea9c622768ae6e2cfeecc2f4cbd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
