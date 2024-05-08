@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8ee7e49_949393ba",
+        "filename": "plat/allwinner/sun50i_h616/sunxi_h616_dtb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000126
+      },
+      "writtenOn": "2024-05-08T13:46:40Z",
+      "side": 1,
+      "message": "I would suggest either setting the cache line size in the DTB based on the register, or hardcoding the value and ignoring the register. This looks questionable to use the register for one property but not another.",
+      "revId": "2f31300e4045bd633f1b923e0d3aaa3ed01aa581",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
