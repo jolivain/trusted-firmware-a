@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee7b7e9c_bfcc09df",
+        "filename": "plat/arm/css/common/css_pm.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000957
+      },
+      "writtenOn": "2024-05-08T09:03:29Z",
+      "side": 1,
+      "message": "Could you make this\n```\nif (PRESERVE_DSU_PMU_REGS) {\n    cluster_on_dsu_pmu_context_restore();\n}\n```\n\nso that the body is still checked even if `PRESERVE_DSU_PMU_REGS` is false",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 25
+      },
+      "revId": "afefcb93e79795616bd82803714865b2218fdec5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
