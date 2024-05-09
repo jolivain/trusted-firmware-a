@@ -46,6 +46,30 @@
       },
       "revId": "00cd752cad77d6ad9d89b59b73c9e4b355d5f354",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4358375_976ffa77",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-05-09T16:42:20Z",
+      "side": 1,
+      "message": "Ah ok makes sense. Agree with you, just was thinking `sctlr_el2_endian_val` doesn\u0027t fully now represent the entire value of `sctlr_el2` when we do `write_sctlr_el2`.\n\nWas just worrying(maybe unnecessarily 😊) are we overwriting any default values from Power on Reset(POR) certain regs are configured to hold default values on POR and we overwrite any default values we may be overriding any default behavior.",
+      "parentUuid": "8c8de936_9232a300",
+      "range": {
+        "startLine": 1011,
+        "startChar": 4,
+        "endLine": 1011,
+        "endChar": 13
+      },
+      "revId": "00cd752cad77d6ad9d89b59b73c9e4b355d5f354",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
