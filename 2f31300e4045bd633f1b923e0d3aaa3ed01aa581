@@ -16,6 +16,24 @@
       "message": "I would suggest either setting the cache line size in the DTB based on the register, or hardcoding the value and ignoring the register. This looks questionable to use the register for one property but not another.",
       "revId": "2f31300e4045bd633f1b923e0d3aaa3ed01aa581",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f917ad7_d286709e",
+        "filename": "plat/allwinner/sun50i_h616/sunxi_h616_dtb.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-05-09T15:20:05Z",
+      "side": 1,
+      "message": "Yes, it sounds a bit over the top, since the cache line size is almost universally 64 bytes everywhere, but I went with writing that into the DT, as read from the CCSIDR register.",
+      "parentUuid": "e8ee7e49_949393ba",
+      "revId": "2f31300e4045bd633f1b923e0d3aaa3ed01aa581",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
