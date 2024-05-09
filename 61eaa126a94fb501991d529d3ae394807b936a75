@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d5863dc_9c8e750f",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/rdfremont_bl2_measured_boot.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-05-09T13:34:35Z",
+      "side": 1,
+      "message": "Pls, check this change. On TC2 the SCP_BL2 was accidentally missed.\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/28651\n\nI think this is the case in RD-Fremont.",
+      "range": {
+        "startLine": 22,
+        "startChar": 26,
+        "endLine": 22,
+        "endChar": 54
+      },
+      "revId": "61eaa126a94fb501991d529d3ae394807b936a75",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
