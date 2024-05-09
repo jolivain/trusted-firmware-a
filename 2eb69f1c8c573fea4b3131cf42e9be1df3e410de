@@ -71,6 +71,42 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aea20fe_6cfd4745",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-09T17:49:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97256bc4_eae83bdd",
+      "revId": "2eb69f1c8c573fea4b3131cf42e9be1df3e410de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75a290ad_9dca9dcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-09T17:49:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97256bc4_eae83bdd",
+      "revId": "2eb69f1c8c573fea4b3131cf42e9be1df3e410de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01a6f4d0_5fbb0d92",
@@ -154,6 +190,30 @@
       "writtenOn": "2024-04-17T21:57:25Z",
       "side": 1,
       "message": "This issue is resolved, you shouldn\u0027t need to disable the warning anymore.",
+      "range": {
+        "startLine": 72,
+        "startChar": 30,
+        "endLine": 72,
+        "endChar": 31
+      },
+      "revId": "2eb69f1c8c573fea4b3131cf42e9be1df3e410de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce519f8f_c0e2163c",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-09T17:49:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce552996_9c5dff5d",
       "range": {
         "startLine": 72,
         "startChar": 30,
@@ -483,6 +543,30 @@
       "side": 1,
       "message": "\u003e Does enabling MBEDTLS_SHA512_C suffice when selecting the SHA512 hash algorithm?\n\nYes. Just enable the MBEDTLS_SHAnnn_C for the hashes that you want. (SHA512 without SHA384 has been supported since Mbed TLS 2.something. SHA256 without SHA224 is only possible since 3.4.)\n\nYou probably don\u0027t need SHA384. It\u0027s rarely used for signatures of stored data such as in certificates, mostly only in network protocols such as TLS.",
       "parentUuid": "8860a6c9_5415d8e9",
+      "range": {
+        "startLine": 63,
+        "startChar": 8,
+        "endLine": 63,
+        "endChar": 24
+      },
+      "revId": "2eb69f1c8c573fea4b3131cf42e9be1df3e410de",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23a22090_cc8e366f",
+        "filename": "plat/st/common/include/stm32mp_mbedtls_config-3.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-09T17:49:30Z",
+      "side": 1,
+      "message": "We\u0027ll address this as an improvement in a subsequent patch following the release.",
+      "parentUuid": "65bcb58e_e563de00",
       "range": {
         "startLine": 63,
         "startChar": 8,

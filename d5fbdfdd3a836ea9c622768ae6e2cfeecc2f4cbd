@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82a081c0_bdc8b44e",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-09T17:49:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af44404f_9215aed2",
+      "range": {
+        "startLine": 39,
+        "startChar": 5,
+        "endLine": 39,
+        "endChar": 10
+      },
+      "revId": "d5fbdfdd3a836ea9c622768ae6e2cfeecc2f4cbd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e5009b0_c1ab1ed4",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-08T09:02:11Z",
       "side": 1,
       "message": "I can\u0027t see any usage TF-A to include SHA-3 Secure Hash Standard. Can we remove its compilation?",
+      "range": {
+        "startLine": 59,
+        "startChar": 5,
+        "endLine": 59,
+        "endChar": 11
+      },
+      "revId": "d5fbdfdd3a836ea9c622768ae6e2cfeecc2f4cbd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6ad3236_a272b331",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-09T17:49:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e5009b0_c1ab1ed4",
       "range": {
         "startLine": 59,
         "startChar": 5,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d879cd1_d5ae2dee",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-09T17:49:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9089a1bf_8da955b0",
+      "range": {
+        "startLine": 81,
+        "startChar": 5,
+        "endLine": 81,
+        "endChar": 22
+      },
+      "revId": "d5fbdfdd3a836ea9c622768ae6e2cfeecc2f4cbd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c1400f5_0398b9bb",
@@ -93,6 +165,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8531a080_0a706b7c",
+        "filename": "drivers/auth/mbedtls/mbedtls_common.mk",
+        "patchSetId": 17
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-09T17:49:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c1400f5_0398b9bb",
+      "range": {
+        "startLine": 83,
+        "startChar": 5,
+        "endLine": 83,
+        "endChar": 43
+      },
+      "revId": "d5fbdfdd3a836ea9c622768ae6e2cfeecc2f4cbd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dba0232f_b160635b",
@@ -106,6 +202,30 @@
       "writtenOn": "2024-05-08T09:02:11Z",
       "side": 1,
       "message": "Thank you for implementing this workaround temporarily.\n\nI think this function is only necessary for RSA-based algorithms. Could we incorporate a check in the code to execute this function exclusively for RSA-based algorithms (similar to line 400, where conditional execution happened for ECDSA algorithm)? Additionally, let\u0027s add error checking here. Although this function returns an error, we\u0027re currently disregarding it silently.",
+      "range": {
+        "startLine": 435,
+        "startChar": 10,
+        "endLine": 437,
+        "endChar": 0
+      },
+      "revId": "d5fbdfdd3a836ea9c622768ae6e2cfeecc2f4cbd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3097d5a7_28a4b78f",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 17
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-09T17:49:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dba0232f_b160635b",
       "range": {
         "startLine": 435,
         "startChar": 10,
