@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "25882cc0_4b590029",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-09T12:49:44Z",
+      "side": 1,
+      "message": "Thanks for the review Manish.\n\nThis phrase is more from the high level point of view that in a system where we have four execution states, Root/EL3  is where the context switch related code executes and it is its responsibility to ensure general software at lower ELS in each other states are safe and independent. \n\nI believe its good to be phrased this way.",
+      "parentUuid": "c440d5be_a87da314",
+      "range": {
+        "startLine": 12,
+        "startChar": 45,
+        "endLine": 12,
+        "endChar": 68
+      },
+      "revId": "19395add5dbbca01b9f32eb84c0df888a01e1a7f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8fce5291_cf2202a2",
         "filename": "docs/components/context-management-library.rst",
         "patchSetId": 14
