@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2be5a15a_e4203243",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-05-09T13:33:22Z",
+      "side": 1,
+      "message": "Just thinking, should we completely overwrite the sctlr_el2 here? trying to understand original code does read,and/or, here we are overwriting entire reg?",
+      "range": {
+        "startLine": 1011,
+        "startChar": 4,
+        "endLine": 1011,
+        "endChar": 13
+      },
+      "revId": "00cd752cad77d6ad9d89b59b73c9e4b355d5f354",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
