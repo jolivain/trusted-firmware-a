@@ -38,7 +38,7 @@ void set_emi_mpu_regions(void)
 
 	/* SCP core0 DRAM */
 	region_info.start = 0x50000000ULL;
-	region_info.end = 0x528FFFFFULL;
+	region_info.end = 0x517FFFFFULL;
 	region_info.region = SCP_CORE0_REGION_ID;
 	SET_ACCESS_PERMISSION(region_info.apc, LOCK,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
@@ -49,7 +49,7 @@ void set_emi_mpu_regions(void)
 
 	/* SCP core1 DRAM */
 	region_info.start = 0x70000000ULL;
-	region_info.end = 0x729FFFFFULL;
+	region_info.end = 0x7BFFFFFFULL;
 	region_info.region = SCP_CORE1_REGION_ID;
 	SET_ACCESS_PERMISSION(region_info.apc, LOCK,
 			      FORBIDDEN, FORBIDDEN, FORBIDDEN, FORBIDDEN,
