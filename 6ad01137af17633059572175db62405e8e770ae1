@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5ad935a_c886bd12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-05-09T14:08:50Z",
+      "side": 1,
+      "message": "Hi,\n\nI think it would be in a better place in lib/psa folder. It is a pure SW layer and does not touch any hardware. However, I\u0027m aware that there are exceptions in the driver folder. Furthermore, the cca-attest / cca_attestation namespace would suit better. \n\nThis is a wrapper around the delegated_attestation API. I see value in it if it will be reused by other platforms, otherwise, all the code here could go to the rd-fremont platform code.",
+      "revId": "6ad01137af17633059572175db62405e8e770ae1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42f40e54_2bbf6324",
+        "filename": "drivers/delegated_attestation/rse/rse_delegated_attestation.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-05-09T14:08:50Z",
+      "side": 1,
+      "message": "nit: insert blank line",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 19
+      },
+      "revId": "6ad01137af17633059572175db62405e8e770ae1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3919d850_2c27ec84",
+        "filename": "drivers/delegated_attestation/rse/rse_delegated_attestation.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-05-09T14:08:50Z",
+      "side": 1,
+      "message": "RSE will check whether the buffer is big enough. no point in limiting here to 48 bytes",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 55
+      },
+      "revId": "6ad01137af17633059572175db62405e8e770ae1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "064ad620_8b02d046",
+        "filename": "drivers/delegated_attestation/rse/rse_delegated_attestation.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-05-09T14:08:50Z",
+      "side": 1,
+      "message": "I do not see the point why limit the RMM allocated buffer? Is there any limitation on the MHU channel? RMM probably allocates a 4K page.",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 43
+      },
+      "revId": "6ad01137af17633059572175db62405e8e770ae1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5130f0d1_db7ad181",
+        "filename": "drivers/delegated_attestation/rse/rse_delegated_attestation.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-05-09T14:08:50Z",
+      "side": 1,
+      "message": "not necessary",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 29
+      },
+      "revId": "6ad01137af17633059572175db62405e8e770ae1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "084d7821_1e0e2056",
+        "filename": "drivers/delegated_attestation/rse/rse_delegated_attestation.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-05-09T14:08:50Z",
+      "side": 1,
+      "message": "not necessary",
+      "range": {
+        "startLine": 13,
+        "startChar": 8,
+        "endLine": 13,
+        "endChar": 40
+      },
+      "revId": "6ad01137af17633059572175db62405e8e770ae1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
