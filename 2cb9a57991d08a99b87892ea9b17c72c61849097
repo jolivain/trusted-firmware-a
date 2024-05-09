@@ -16,6 +16,41 @@
       "message": "Hi, I do not know which maintainer to pick from the list of maintainers, so I picked the first one. Feel free to re-assign as needed.",
       "revId": "2cb9a57991d08a99b87892ea9b17c72c61849097",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "696b4ce3_e17fadef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001300
+      },
+      "writtenOn": "2024-05-09T18:12:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "261a8a9a_b3f28551",
+      "revId": "2cb9a57991d08a99b87892ea9b17c72c61849097",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f197ff82_041eb637",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001300
+      },
+      "writtenOn": "2024-05-09T18:12:10Z",
+      "side": 1,
+      "message": "Hi,\n\nSorry, I got confused by pointer arithmetic - it\u0027s actually the other way around. `set_gpio_bit` shifts `GPDAT_REG_OFFSET` by 2 (`GPDAT_REG_OFFSET \u003d 8`) to make `gpdat` point on `base_addr + 8`. Since those are 32bits addresses, we\u0027re in fact adding `2 * 4 bytes \u003d 8 bytes`.\n`clr_gpio_bit` should do the same though, and is not at the moment. I will send a new patch to adjust `clr_gpio_bit` in a moment.\n\nAntonin",
+      "revId": "2cb9a57991d08a99b87892ea9b17c72c61849097",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
