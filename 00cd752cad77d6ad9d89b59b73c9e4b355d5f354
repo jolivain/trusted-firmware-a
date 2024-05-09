@@ -22,6 +22,30 @@
       },
       "revId": "00cd752cad77d6ad9d89b59b73c9e4b355d5f354",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c8de936_9232a300",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-09T13:56:38Z",
+      "side": 1,
+      "message": "This code block executes in cold boot. \nPreviously, during cold boot, the primary CPU gets its context initialised for NS and later on -\u003e SECURE world.\nIn this path, if we have Secure component running at S-EL2(CTX_INCLUDE_EL2_REGS) present, then we initialise SCTLR_EL2 register in setup_ns_context function and this will be used to while we switch to NS later on, wherein NS context gets restored.\n\nIn build configs, wherein we don\u0027t have S-EL2 (SPMC), here we use the SCTLR_EL1 value to configure SCTLR_EL2 register, as we have a software component at NS-EL2, but not at S-EL2.\n\nWith this, the problem is we cannot decouple EL1 and EL2 context, which is our primary goal.\n\nHence I thought of having a global value for configuring this register, as it\u0027s just the initial configuration. With this I dont need to rely on EL2 register context, to configure EL1 register.\n\nHope this provides some overview and the reason behind this patch.",
+      "parentUuid": "2be5a15a_e4203243",
+      "range": {
+        "startLine": 1011,
+        "startChar": 4,
+        "endLine": 1011,
+        "endChar": 13
+      },
+      "revId": "00cd752cad77d6ad9d89b59b73c9e4b355d5f354",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
