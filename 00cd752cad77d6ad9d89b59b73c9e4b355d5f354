@@ -70,6 +70,30 @@
       },
       "revId": "00cd752cad77d6ad9d89b59b73c9e4b355d5f354",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "161cd489_64efa70a",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-10T14:44:06Z",
+      "side": 1,
+      "message": "I got your thought. We aren\u0027t.\n\nIdeally SCTLR_EL2 will be again configured from the software running at EL-2.\nOn top of this, at boot EL3 firmware still tries to intiailise it with some default reset value.\nSo it s a one time write.\n\nIt comes in this flow:\nprimary cpu enters, ``setup_ns_context`` where we try to fetch the endianness value and save it in global variable. Later on, when the primary cpu enters NS-EL2 for the first time, we update the ``sctlr_el2`` register with this endianness value and the ``SCTLR_EL2_RES1``. \n\nPreviously, we did the exact same thing but via ``SCTLR_EL1`` register. Now instead of this we are using the saved value. So we aren\u0027t overwriting it.\n\nIn fact, if we overwrite the ``SCTLR_EL2`` register, TFTF test cases will fail.\nI encountered this in my previous version of patch 7.\n\nSo in order to fetch the endianness value we need to save it at some place and use it at later part, while we exit to NS-EL2.",
+      "parentUuid": "a4358375_976ffa77",
+      "range": {
+        "startLine": 1011,
+        "startChar": 4,
+        "endLine": 1011,
+        "endChar": 13
+      },
+      "revId": "00cd752cad77d6ad9d89b59b73c9e4b355d5f354",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
