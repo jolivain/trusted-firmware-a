@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55621acd_e32dec47",
+        "filename": "bl1/bl1_fwu.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 532,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-05-10T15:06:41Z",
+      "side": 1,
+      "message": "Hi Jayanath,\n\nJust trying to understand, there are numerous other places in TF-A this is called unconditionally but here we are binding with macro?",
+      "range": {
+        "startLine": 532,
+        "startChar": 1,
+        "endLine": 532,
+        "endChar": 28
+      },
+      "revId": "cd5a42871bbc9891e590d66bf38dcd95d3863492",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
