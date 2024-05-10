@@ -6,6 +6,7 @@ Tools
    :caption: Contents
 
    memory-layout-tool
+   transfer-list-compiler
 
 --------------
 
