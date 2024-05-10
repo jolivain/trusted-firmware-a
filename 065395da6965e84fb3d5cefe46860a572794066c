@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "002777fa_4ef1ca87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-10T07:49:52Z",
+      "side": 1,
+      "message": "LGTM! I can see some CI failures towards mbedTLS. I believe you need to rebase this change on top of integration to get the proper CI results.",
+      "revId": "065395da6965e84fb3d5cefe46860a572794066c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
