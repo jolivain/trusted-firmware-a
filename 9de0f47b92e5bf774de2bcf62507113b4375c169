@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebc35ef3_8cef4789",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-05-10T09:26:49Z",
+      "side": 1,
+      "message": "typo: entries",
+      "revId": "9de0f47b92e5bf774de2bcf62507113b4375c169",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4629536_6f9edfaa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-05-10T09:26:49Z",
+      "side": 1,
+      "message": "A few nitpicks but the change looks good to me overall.",
+      "revId": "9de0f47b92e5bf774de2bcf62507113b4375c169",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e0339d0_6d8b9274",
+        "filename": "include/lib/el3_runtime/context_el1.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-05-10T09:26:49Z",
+      "side": 1,
+      "message": "Are these *_el2 registers meant to be here? And I can\u0027t find any references to ifscr in the documentation, is this meant to be ifsr32_el2 instead?\n\nhttps://developer.arm.com/documentation/ddi0601/2024-03/AArch64-Registers/IFSR32-EL2--Instruction-Fault-Status-Register--EL2-?lang\u003den",
+      "range": {
+        "startLine": 49,
+        "startChar": 19,
+        "endLine": 51,
+        "endChar": 22
+      },
+      "revId": "9de0f47b92e5bf774de2bcf62507113b4375c169",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfe84db5_a93ad69a",
+        "filename": "include/lib/el3_runtime/context_el1.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-05-10T09:26:49Z",
+      "side": 1,
+      "message": "nit: add a space between definitions",
+      "revId": "9de0f47b92e5bf774de2bcf62507113b4375c169",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16bee021_3536a2bf",
+        "filename": "include/lib/el3_runtime/context_el1.h",
+        "patchSetId": 13
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-05-10T09:26:49Z",
+      "side": 1,
+      "message": "typo: CONTEXT_EL1",
+      "range": {
+        "startLine": 267,
+        "startChar": 10,
+        "endLine": 267,
+        "endChar": 23
+      },
+      "revId": "9de0f47b92e5bf774de2bcf62507113b4375c169",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a85d832b_00e8a5a8",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 1853,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-05-10T09:26:49Z",
+      "side": 1,
+      "message": "nit: stage 1 / stage 2 (below as well)",
+      "range": {
+        "startLine": 1853,
+        "startChar": 36,
+        "endLine": 1853,
+        "endChar": 42
+      },
+      "revId": "9de0f47b92e5bf774de2bcf62507113b4375c169",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
