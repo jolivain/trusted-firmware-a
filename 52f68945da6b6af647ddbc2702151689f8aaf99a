@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87175670_8d7a99a3",
+        "filename": "plat/mediatek/drivers/emi_mpu/emi_mpu_common.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2024-05-10T01:00:35Z",
+      "side": 1,
+      "message": "Shouldn\u0027t these error messages be more differentiated so you can tell which case you ran into (e.g. this one could say \"region is locked\")?",
+      "revId": "52f68945da6b6af647ddbc2702151689f8aaf99a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a014e3c2_27f25e78",
+        "filename": "plat/mediatek/drivers/emi_mpu/emi_mpu_common.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2024-05-10T01:00:35Z",
+      "side": 1,
+      "message": "What\u0027s the point of this indirection? Why not just put the code right here?",
+      "revId": "52f68945da6b6af647ddbc2702151689f8aaf99a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "704fb6bb_cb69c7ba",
+        "filename": "plat/mediatek/drivers/emi_mpu/mt8188/emi_mpu.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2024-05-10T01:00:35Z",
+      "side": 1,
+      "message": "Do all of these addresses need to be hardcoded? For example, this looks like it could be `TZRAM_BASE`. Please try to use existing constants where possible.",
+      "revId": "52f68945da6b6af647ddbc2702151689f8aaf99a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e57d2aac_021fa87c",
+        "filename": "plat/mediatek/drivers/emi_mpu/mt8188/emi_mpu.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2024-05-10T01:00:35Z",
+      "side": 1,
+      "message": "(That also brings up the question why this goes to `0x54660000`, when `BL31_LIMIT` is only `0x54640000`. Could it be that either this is wrong (going farther than necessary) or `TZRAM_SIZE` should be updated? If not, what\u0027s in those remaining 128KB?)",
+      "revId": "52f68945da6b6af647ddbc2702151689f8aaf99a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bd4e9f7_1d106133",
+        "filename": "plat/mediatek/drivers/emi_mpu/mt8188/emi_mpu.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2024-05-10T01:00:35Z",
+      "side": 1,
+      "message": "This is a bit off-topic to this patch and doesn\u0027t need to be solved here, but these access control lists are terribly hard to read. I assume that this is setting the access rights for every DMA master to the memory region or something like that? How do you tell which argument corresponds to which DMA master? Even in the macro definition these are just called d0, d1, d2, etc... how do you know which DMA master has which number (without always having to dig that out of the data sheet)?\n\nI would suggest trying to find an API that allows you to read these assignments and tell what\u0027s going on just from looking at the code. You would start by making named constants for each DMA master in a platform-specific header, e.g.:\n```\nenum mpu_masters {\n  MPU_AP \u003d 0,\n  MPU_DSP \u003d 4,\n  MPU_SCP \u003d 8,\n  ...etc...\n}\n```\nThen you make some macros that can be used to initialize the register state and to change individual masters, e.g.:\n```\n#define APC_INIT(apc_ary) do { \\\n  apc_ary[1] \u003d (LOCK \u003c\u003c 31) | (FORBIDDEN \u003c\u003c 21) | (FORBIDDEN \u003c\u003c 18) | ...\n  ...\n} while (0)\n#define APC_SET_MASTER(apc_ary, master, perm) do { \\\n  if (master \u003c 7) {\n    apc_ary[0] \u003d (apc_ary[0] \u0026 ~(0x7 \u003c\u003c (master * 3))) | ((perm) \u003c\u003c (master * 3);\n  else\n    ...same for ary[1]...\n  }\n} while (0)\n```\nAnd with that, you could write all these permission assignments in a much more readable way:\n```\nAPC_INIT(region_info.apc);\nAPC_SET_MASTER(region_info.apc, MPU_AP, NO_PROTECTION);\nAPC_SET_MASTER(region_info.apc, MPU_SCP, NO_PROTECTION);\n```",
+      "revId": "52f68945da6b6af647ddbc2702151689f8aaf99a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0242f700_812ea408",
+        "filename": "plat/mediatek/drivers/emi_mpu/mt8188/emi_mpu_priv.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2024-05-10T01:00:35Z",
+      "side": 1,
+      "message": "Would it make more sense to write this as an enum and make use of the auto-increment, e.g.:\n```\nenum region_ids {\n  BL31_REGION_ID \u003d 0,\n  BL32_REGION_ID,\n  SCP_CORE0_REGION_ID,\n  SCP_CORE1_REGION_ID,\n  DSP_PROTECT_REGION_ID,\n  SVP_DRAM_REGION_ID,\n  \n  ALL_DEFAULT_REGION_ID \u003d 31,\n}\n```\nThat let\u0027s you more easily insert more regions later.",
+      "revId": "52f68945da6b6af647ddbc2702151689f8aaf99a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
