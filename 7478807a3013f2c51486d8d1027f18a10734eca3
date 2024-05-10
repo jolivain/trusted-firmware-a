@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d2dbecd_8c62443f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000764
+      },
+      "writtenOn": "2024-05-10T13:14:04Z",
+      "side": 1,
+      "message": "This fixes the following error received from Coverity over email:\n```\nHi,\n\nPlease find the latest report on new defect(s) introduced to ARM-software/arm-trusted-firmware found with Coverity Scan.\n\n1 new defect(s) introduced to ARM-software/arm-trusted-firmware found with Coverity Scan.\n8 defect(s), reported by Coverity Scan earlier, were marked fixed in the recent build analyzed by Coverity Scan.\n\nNew defect(s) Reported-by: Coverity Scan\nShowing 1 of 1 defect(s)\n\n\n** CID 425810:  High impact quality  (WRITE_CONST_FIELD)\n/plat/nxp/s32/s32g274ardb2/plat_console.c: 17 in console_s32g2_register()\n\n\n________________________________________________________________________________________________________\n*** CID 425810:  High impact quality  (WRITE_CONST_FIELD)\n/plat/nxp/s32/s32g274ardb2/plat_console.c: 17 in console_s32g2_register()\n11     \n12     void console_s32g2_register(void)\n13     {\n14     \tstatic console_t s32g2_console;\n15     \tint ret;\n16     \n\u003e\u003e\u003e     CID 425810:  High impact quality  (WRITE_CONST_FIELD)\n\u003e\u003e\u003e     A write to an aggregate overwrites a const-qualified field within the aggregate.\n17     \t(void)memset(\u0026s32g2_console, 0, sizeof(s32g2_console));\n18     \n19     \tret \u003d console_linflex_register(UART_BASE, UART_CLOCK_HZ,\n20     \t\t\t\t       UART_BAUDRATE, \u0026s32g2_console);\n21     \tif (ret \u003d\u003d 0) {\n22     \t\tpanic();\n\n\n```",
+      "revId": "7478807a3013f2c51486d8d1027f18a10734eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
