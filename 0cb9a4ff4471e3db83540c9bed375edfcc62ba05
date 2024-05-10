@@ -33,6 +33,23 @@
       "message": "So this doesn\u0027t boot for me on a Quartz64 model B. Using rk3568_bl31_v1.43.elf from rkbin works, but not the bl31.elf from here. It hangs after:\nINFO:    Maximum SPI INTID supported: 351\nI will try to debug this further, the log from the vendor BL31 suggests it touches the PMU next?",
       "revId": "0cb9a4ff4471e3db83540c9bed375edfcc62ba05",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37ab37be_264590e9",
+        "filename": "lib/cpus/aarch64/cortex_a55.S",
+        "patchSetId": 23
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-05-10T13:40:10Z",
+      "side": 1,
+      "message": "On second thought I wonder if this is really needed. If I understand the ARM ARM here correctly, this bit would reset to the value of EDPRCR[COREPURQ], an external debug register. This presumably allows an external debugger to veto a proper core shutdown, so it can stay connected and access the core still. I don\u0027t really see why we should tinker with this bit. Is that needed for a proper core shutdown? Maybe it was in some early bringup scenario in the lab only?",
+      "revId": "0cb9a4ff4471e3db83540c9bed375edfcc62ba05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
