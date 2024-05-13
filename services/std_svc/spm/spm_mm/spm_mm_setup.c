@@ -13,6 +13,13 @@
 #include <context.h>
 #include <common/debug.h>
 #include <lib/el3_runtime/context_mgmt.h>
+#include <lib/transfer_list.h>
+#if PHIT_HOB
+#include <lib/hob/hob.h>
+#include <lib/hob/hob_guid.h>
+#include <lib/hob/mmram.h>
+#include <lib/hob/mpinfo.h>
+#endif
 #include <lib/xlat_tables/xlat_tables_v2.h>
 #include <platform_def.h>
 #include <plat/common/common_def.h>
@@ -23,6 +30,151 @@
 #include "spm_mm_private.h"
 #include "spm_shim_private.h"
 
+#if PHIT_HOB && TRANSFER_LIST
+static struct efi_hob_handoff_info_table *build_sp_boot_hob_list(
+		const spm_mm_boot_info_t *sp_boot_info, uint16_t *hob_table_size)
+{
+	int ret, i;
+	uint64_t linear_id;
+	struct efi_hob_handoff_info_table *hob_table;
+	spm_mm_mp_info_t *sp_mp_info;
+	struct efi_guid mpinfo_guid = MM_MP_INFORMATION_GUID;
+	struct efi_guid ns_buf_guid = MM_NS_BUFFER_GUID;
+	struct efi_guid mmram_resv_guid = MM_PEI_MMRAM_MEMORY_RESERVE_GUID;
+	struct efi_mp_information_hob_data *mp_data;
+	struct efi_mmram_descriptor *mmram_desc_data;
+	struct efi_processor_information *processor_info;
+	uint16_t mmram_resv_data_size;
+	struct efi_mmram_hob_descriptor_block *mmram_hob_desc_data;
+	uint64_t hob_table_offset;
+
+	hob_table_offset = sizeof(struct transfer_list_header) +
+		sizeof(struct transfer_list_entry);
+
+	*hob_table_size = 0;
+
+	hob_table = create_hob_list(sp_boot_info->sp_mem_base,
+			sp_boot_info->sp_mem_limit - sp_boot_info->sp_mem_base,
+			sp_boot_info->sp_shared_buf_base + hob_table_offset,
+			sp_boot_info->sp_shared_buf_size);
+	if (hob_table == NULL) {
+		return NULL;
+	}
+
+	ret = create_fv_hob(hob_table, sp_boot_info->sp_image_base,
+			sp_boot_info->sp_image_size);
+	if (ret) {
+		return NULL;
+	}
+
+	ret = create_resource_descriptor_hob(hob_table,
+			EFI_RESOURCE_SYSTEM_MEMORY,
+			EFI_RESOURCE_ATTRIBUTE_PRESENT |
+			EFI_RESOURCE_ATTRIBUTE_TESTED |
+			EFI_RESOURCE_ATTRIBUTE_UNCACHEABLE |
+			EFI_RESOURCE_ATTRIBUTE_WRITE_COMBINEABLE |
+			EFI_RESOURCE_ATTRIBUTE_WRITE_THROUGH_CACHEABLE |
+			EFI_RESOURCE_ATTRIBUTE_WRITE_BACK_CACHEABLE,
+			sp_boot_info->sp_mem_base,
+			sp_boot_info->sp_mem_limit - sp_boot_info->sp_mem_base);
+	if (ret) {
+		return NULL;
+	}
+
+	sp_mp_info = sp_boot_info->mp_info;
+	ret = create_guid_hob(hob_table, &mpinfo_guid,
+			(sizeof(struct efi_mp_information_hob_data) +
+			(sizeof(struct efi_processor_information) * sp_boot_info->num_cpus)),
+			(void **) &mp_data);
+	if (ret) {
+		return NULL;
+	}
+
+	mp_data->number_of_processors = sp_boot_info->num_cpus;
+	mp_data->number_of_enabled_processors = sp_boot_info->num_cpus;
+	for (i = 0; i < sp_boot_info->num_cpus; i++) {
+		processor_info = &mp_data->processor_info[i];
+		memset(processor_info, 0x00, sizeof(struct efi_processor_information));
+		linear_id = plat_core_pos_by_mpidr(sp_mp_info[i].mpidr);
+
+		processor_info->processor_id = sp_mp_info[i].mpidr;
+		if (sp_mp_info[i].mpidr & MPIDR_MT_MASK) {
+			processor_info->location.package = MPIDR_AFFLVL2_VAL(sp_mp_info[i].mpidr);
+			processor_info->location.core = MPIDR_AFFLVL1_VAL(sp_mp_info[i].mpidr);
+			processor_info->location.thread = MPIDR_AFFLVL0_VAL(sp_mp_info[i].mpidr);
+		} else {
+			processor_info->location.package = MPIDR_AFFLVL1_VAL(sp_mp_info[i].mpidr);
+			processor_info->location.core = MPIDR_AFFLVL0_VAL(sp_mp_info[i].mpidr);
+			processor_info->location.thread = 0;
+		}
+
+		processor_info->status_flags = (PROCESSOR_ENABLED_BIT | PROCESSOR_HEALTH_STATUS_BIT);
+		if (plat_my_core_pos() == linear_id) {
+			processor_info->status_flags |= PROCESSOR_AS_BSP_BIT;
+			INFO("%d cpu sets with PROCESSOR_AS_BSP_BIT\n", i);
+		}
+	}
+
+	ret = create_guid_hob(hob_table, &ns_buf_guid,
+			sizeof(struct efi_mmram_descriptor), (void **) &mmram_desc_data);
+	if (ret) {
+		return NULL;
+	}
+
+	mmram_desc_data->physical_start = sp_boot_info->sp_ns_comm_buf_base;
+	mmram_desc_data->physical_size = sp_boot_info->sp_ns_comm_buf_size;
+	mmram_desc_data->cpu_start = sp_boot_info->sp_ns_comm_buf_base;
+	mmram_desc_data->region_state = EFI_CACHEABLE | EFI_ALLOCATED;
+
+	mmram_resv_data_size = sizeof(struct efi_mmram_hob_descriptor_block) +
+		sizeof(struct efi_mmram_descriptor) * sp_boot_info->num_sp_mem_regions;
+
+	ret = create_guid_hob(hob_table, &mmram_resv_guid,
+			mmram_resv_data_size, (void **) &mmram_hob_desc_data);
+	if (ret) {
+		return NULL;
+	}
+
+	*hob_table_size = hob_table->efi_free_memory_bottom -
+		(efi_physical_address_t) hob_table;
+
+	mmram_hob_desc_data->number_of_mm_reserved_regions = 5;
+	mmram_desc_data = &mmram_hob_desc_data->descriptor[0];
+
+	/* First, should be image mm range. */
+	mmram_desc_data[0].physical_start = sp_boot_info->sp_image_base;
+	mmram_desc_data[0].physical_size = sp_boot_info->sp_image_size;
+	mmram_desc_data[0].cpu_start = sp_boot_info->sp_image_base;
+	mmram_desc_data[0].region_state = EFI_CACHEABLE | EFI_ALLOCATED;
+
+	/* Second, should be shared buffer mm range. */
+	mmram_desc_data[1].physical_start = sp_boot_info->sp_shared_buf_base;
+	mmram_desc_data[1].physical_size = sp_boot_info->sp_shared_buf_size;
+	mmram_desc_data[1].cpu_start = sp_boot_info->sp_shared_buf_base;
+	mmram_desc_data[1].region_state = EFI_CACHEABLE | EFI_ALLOCATED;
+
+	/* Ns Buffer mm range */
+	mmram_desc_data[2].physical_start = sp_boot_info->sp_ns_comm_buf_base;
+	mmram_desc_data[2].physical_size = sp_boot_info->sp_ns_comm_buf_size;
+	mmram_desc_data[2].cpu_start = sp_boot_info->sp_ns_comm_buf_base;
+	mmram_desc_data[2].region_state = EFI_CACHEABLE | EFI_ALLOCATED;
+
+	/* Stack mm range */
+	mmram_desc_data[3].physical_start = sp_boot_info->sp_stack_base;
+	mmram_desc_data[3].physical_size = sp_boot_info->num_cpus * sp_boot_info->sp_pcpu_stack_size;
+	mmram_desc_data[3].cpu_start = sp_boot_info->sp_stack_base;
+	mmram_desc_data[3].region_state = EFI_CACHEABLE | EFI_ALLOCATED;
+
+	/* Heap mm range */
+	mmram_desc_data[4].physical_start = sp_boot_info->sp_heap_base;
+	mmram_desc_data[4].physical_size = sp_boot_info->sp_heap_size;
+	mmram_desc_data[4].cpu_start = sp_boot_info->sp_heap_base;
+	mmram_desc_data[4].region_state = EFI_CACHEABLE;
+
+	return hob_table;
+}
+#endif
+
 /* Setup context of the Secure Partition */
 void spm_sp_setup(sp_context_t *sp_ctx)
 {
@@ -31,6 +183,11 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 	/* Pointer to the MP information from the platform port. */
 	const spm_mm_boot_info_t *sp_boot_info =
 			plat_get_secure_partition_boot_info(NULL);
+
+	struct efi_hob_handoff_info_table *hob_table __maybe_unused;
+	struct transfer_list_header *sp_boot_tl __maybe_unused;
+	struct transfer_list_entry *sp_boot_te __maybe_unused;
+	uint16_t hob_table_size __maybe_unused;
 
 	/*
 	 * Initialize CPU context
@@ -195,7 +352,27 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 	 * Prepare information in buffer shared between EL3 and S-EL0
 	 * ----------------------------------------------------------
 	 */
+#if PHIT_HOB && TRANSFER_LIST
+	sp_boot_tl = transfer_list_init((void *) sp_boot_info->sp_shared_buf_base,
+			sizeof(struct transfer_list_header) + sizeof(struct transfer_list_entry));
+	assert(sp_boot_tl != NULL);
 
+	hob_table = build_sp_boot_hob_list(sp_boot_info, &hob_table_size);
+	assert(hob_table != NULL);
+
+	sp_boot_tl->max_size = sizeof(struct transfer_list_header) +
+		sizeof(struct transfer_list_entry) + hob_table_size;
+	transfer_list_update_checksum(sp_boot_tl);
+
+	sp_boot_te = transfer_list_add(sp_boot_tl, TL_TAG_HOB_LIST,
+			hob_table_size, hob_table);
+	assert(sp_boot_te != NULL);
+	assert((void *) (sp_boot_te + 1) == hob_table);
+
+	transfer_list_set_handoff_args(sp_boot_tl, &ep_info);
+
+	transfer_list_dump(sp_boot_tl);
+#else
 	void *shared_buf_ptr = (void *) sp_boot_info->sp_shared_buf_base;
 
 	/* Copy the boot information into the shared buffer with the SP. */
@@ -256,4 +433,33 @@ void spm_sp_setup(sp_context_t *sp_ctx)
 		if (plat_my_core_pos() == sp_mp_info[index].linear_id)
 			sp_mp_info[index].flags |= MP_INFO_FLAG_PRIMARY_CPU;
 	}
+
+	/*
+	 * X0: Virtual address of a buffer shared between EL3 and Secure EL0.
+	 *     The buffer will be mapped in the Secure EL1 translation regime
+	 *     with Normal IS WBWA attributes and RO data and Execute Never
+	 *     instruction access permissions.
+	 *
+	 * X1: Size of the buffer in bytes
+	 *
+	 * X2: cookie value (Implementation Defined)
+	 *
+	 * X3: cookie value (Implementation Defined)
+	 *
+	 * X4 to X7 = 0
+	 */
+	ep_info.args.arg0 = sp_boot_info->sp_shared_buf_base;
+	ep_info.args.arg1 = sp_boot_info->sp_shared_buf_size;
+	ep_info.args.arg2 = PLAT_SPM_COOKIE_0;
+	ep_info.args.arg3 = PLAT_SPM_COOKIE_1;
+#endif
+
+	write_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X0,
+			ep_info.args.arg0);
+	write_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X1,
+			ep_info.args.arg1);
+	write_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X2,
+			ep_info.args.arg2);
+	write_ctx_reg(get_gpregs_ctx(ctx), CTX_GPREG_X3,
+			ep_info.args.arg3);
 }
