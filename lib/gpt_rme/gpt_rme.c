@@ -1115,10 +1115,19 @@ int gpt_init_l0_tables(gpccr_pps_e pps, uintptr_t l0_mem_base,
 					GPT_L0_TABLE_SIZE(gpt_config.t));
 
 	/* Size of bitlocks in bytes */
-	locks_size = GPT_PPS_ACTUAL_SIZE(gpt_config.t) / (SZ_512M * 8U);
+	locks_size = GPT_PPS_ACTUAL_SIZE(gpt_config.t) /
+					(RME_GPT_BITLOCK_BLOCK * SZ_512M * 8U);
 
-	for (size_t i = 0UL; i < (locks_size/LOCK_SIZE); i++) {
-		bit_locks[i].lock = 0U;
+	/*
+	 * If protected space size is less than the size covered
+	 * by 'bitlock' structure, initialise a single bitlock.
+	 */
+	if (locks_size < LOCK_SIZE) {
+		bit_locks->lock = 0U;
+	} else {
+		for (size_t i = 0UL; i < (locks_size/LOCK_SIZE); i++) {
+			bit_locks[i].lock = 0U;
+		}
 	}
 
 	/* Flush updated L0 tables and bitlocks to memory */
@@ -1326,7 +1335,7 @@ static inline void write_gpt(uint64_t *gpt_l1_desc, uint64_t *gpt_l1_addr,
 static int get_gpi_params(uint64_t base, gpi_info_t *gpi_info)
 {
 	uint64_t gpt_l0_desc, *gpt_l0_base;
-	unsigned int idx_512;
+	unsigned int block_idx;
 
 	gpt_l0_base = (uint64_t *)gpt_config.plat_gpt_l0_base;
 	gpt_l0_desc = gpt_l0_base[GPT_L0_IDX(base)];
@@ -1341,12 +1350,12 @@ static int get_gpi_params(uint64_t base, gpi_info_t *gpi_info)
 	gpi_info->idx = (unsigned int)GPT_L1_INDEX(base);
 	gpi_info->gpi_shift = GPT_L1_GPI_IDX(gpt_config.p, base) << 2;
 
-	/* 512MB block index */
-	idx_512 = (unsigned int)(base / SZ_512M);
+	/* Block index */
+	block_idx = (unsigned int)(base / (RME_GPT_BITLOCK_BLOCK * SZ_512M));
 
 	/* Bitlock address and mask */
-	gpi_info->lock = &gpt_bitlock_base[idx_512 / LOCK_BITS];
-	gpi_info->mask = 1U << (idx_512 & (LOCK_BITS - 1U));
+	gpi_info->lock = &gpt_bitlock_base[block_idx / LOCK_BITS];
+	gpi_info->mask = 1U << (block_idx & (LOCK_BITS - 1U));
 
 	return 0;
 }
