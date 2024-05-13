@@ -327,6 +327,14 @@ else
 BL31_SOURCES		+=	drivers/delay_timer/generic_delay_timer.c
 endif
 
+ifeq (${TRANSFER_LIST}, 1)
+include lib/transfer_list/transfer_list.mk
+endif
+
+ifeq (${PHIT_HOB}, 1)
+include lib/hob/hob.mk
+endif
+
 # Add the FDT_SOURCES and options for Dynamic Config (only for Unix env)
 ifdef UNIX_MK
 FVP_TB_FW_CONFIG	:=	${BUILD_PLAT}/fdts/${PLAT}_tb_fw_config.dtb
@@ -357,6 +365,10 @@ FVP_TOS_FW_CONFIG	:=	${BUILD_PLAT}/fdts/${PLAT}_tsp_fw_config.dtb
 
 # Add the TOS_FW_CONFIG to FIP and specify the same to certtool
 $(eval $(call TOOL_ADD_PAYLOAD,${FVP_TOS_FW_CONFIG},--tos-fw-config,${FVP_TOS_FW_CONFIG}))
+endif
+
+ifeq (${TRANSFER_LIST}, 1)
+include lib/transfer_list/transfer_list.mk
 endif
 
 ifeq (${SPD},spmd)
