@@ -1030,6 +1030,10 @@ ifeq ($(DRTM_SUPPORT),1)
         $(info DRTM_SUPPORT is an experimental feature)
 endif
 
+ifeq (${PHIT_HOB},1)
+        $(info PHIT_HOB is an experimental feature)
+endif
+
 ifeq (${TRANSFER_LIST},1)
         $(info TRANSFER_LIST is an experimental feature)
 endif
@@ -1241,6 +1245,7 @@ $(eval $(call assert_booleans,\
 	PLATFORM_REPORT_CTX_MEM_USE \
 	EARLY_CONSOLE \
 	PRESERVE_DSU_PMU_REGS \
+	PHIT_HOB \
 )))
 
 # Numeric_Flags
@@ -1448,6 +1453,7 @@ $(eval $(call add_defines,\
 	PLATFORM_REPORT_CTX_MEM_USE \
 	EARLY_CONSOLE \
 	PRESERVE_DSU_PMU_REGS \
+	PHIT_HOB \
 )))
 
 ifeq (${PLATFORM_REPORT_CTX_MEM_USE}, 1)
