@@ -812,7 +812,13 @@ Common build options
    instead of the BL1 entrypoint. It can take the value 0 (CPU reset to BL1
    entrypoint) or 1 (CPU reset to SP_MIN entrypoint). The default value is 0.
 
--  ``RME_GPT_MAX_BLOCK``: Numeric value in MB to define maximum size of
+-  ``RME_GPT_BITLOCK_BLOCK``: Number of 512MB blocks to define the size of
+   memory protected by one bit of bitlock structure. This numeric parameter
+   must be a power of 2 and can take the values from 0 to 512. Setting this
+   value to 0 chooses a single spinlock for all GPT L1 table entries. Default
+   value is 1 which corresponds to 512MB per bit.
+
+-  ``RME_GPT_MAX_BLOCK``: Numeric value in MB to define the maximum size of
    supported contiguous blocks in GPT Library. This parameter can take the
    values 0, 2, 32 and 512. Setting this value to 0 disables use of Contigious
    descriptors. Default value is 2.
