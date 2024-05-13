@@ -93,9 +93,16 @@ license text is included in those source files.
 
    -  ``include/lib/dice/dice.h``
 
+-  Some source files originating from the `edk2`_ project.
+   These files are licensed under the BSD-2-Clause. Any contributions to this
+   code must also be made under the terms of `BSD-2-Clause`_.
+   These files are:
+
+   -  ``lib/hob/hob.c``
+
 .. _FreeBSD: http://www.freebsd.org
 .. _Linux MIT license: https://raw.githubusercontent.com/torvalds/linux/master/LICENSES/preferred/MIT
 .. _SCC: http://www.simple-cc.org/
 .. _Open Profile for DICE: https://pigweed.googlesource.com/open-dice/
 .. _Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0.txt
-
+.. _edk2: https://github.com/tianocore/edk2
