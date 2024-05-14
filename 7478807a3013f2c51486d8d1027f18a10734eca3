@@ -33,6 +33,24 @@
       "message": "why use static, it is a local variant?",
       "revId": "7478807a3013f2c51486d8d1027f18a10734eca3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4121dd26_7de3d9d8",
+        "filename": "plat/nxp/s32/s32g274ardb2/plat_console.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000764
+      },
+      "writtenOn": "2024-05-14T05:14:23Z",
+      "side": 1,
+      "message": "Changing the scope of this variable will trigger a new Coverity issue because a variable only used at a function level is declared at the object level.",
+      "parentUuid": "015b8e10_20605b7d",
+      "revId": "7478807a3013f2c51486d8d1027f18a10734eca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
