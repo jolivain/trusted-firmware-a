@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023, Arm Limited. All rights reserved.
+ * Copyright (c) 2023-2024, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -39,8 +39,6 @@ func cortex_chaberton_core_pwr_dwn
 	isb
 	ret
 endfunc cortex_chaberton_core_pwr_dwn
-
-errata_report_shim cortex_chaberton
 
 	/* ---------------------------------------------
 	 * This function provides Cortex Chaberton specific
