@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2016-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -115,11 +115,6 @@
 	  .popsection
 	.endif
 
-	/*
-	 * Mandatory errata status printing function for CPUs of
-	 * this class.
-	 */
-	.word \_name\()_errata_report
 	.word \_name\()_cpu_str
 
 #ifdef IMAGE_BL32
@@ -239,21 +234,4 @@
 	.popsection
 .endm
 
-/*
- * Maintain compatibility with the old scheme of "each cpu has its own reporter".
- * TODO remove entirely once all cpus have been converted. This includes the
- * cpu_ops entry, as print_errata_status can call this directly for all cpus
- */
-.macro errata_report_shim _cpu:req
-	#if REPORT_ERRATA
-	func \_cpu\()_errata_report
-		push	{r12, lr}
-
-		bl generic_errata_report
-
-		pop	{r12, lr}
-		bx	lr
-	endfunc \_cpu\()_errata_report
-	#endif
-.endm
 #endif /* CPU_MACROS_S */
