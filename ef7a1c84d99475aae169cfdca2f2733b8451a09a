@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34dd883a_15d1a32b",
+        "filename": "plat/mediatek/mt8192/drivers/emi_mpu/emi_mpu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-05-14T07:53:02Z",
+      "side": 1,
+      "message": "it should be 0xC3FFFFFF (0xC0000000 + 0x4000000 - 1) ?",
+      "range": {
+        "startLine": 100,
+        "startChar": 19,
+        "endLine": 100,
+        "endChar": 32
+      },
+      "revId": "ef7a1c84d99475aae169cfdca2f2733b8451a09a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f62a1ce7_b95bff7c",
+        "filename": "plat/mediatek/mt8192/drivers/emi_mpu/emi_mpu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-05-14T07:53:02Z",
+      "side": 1,
+      "message": "looks not correct",
+      "range": {
+        "startLine": 122,
+        "startChar": 19,
+        "endLine": 122,
+        "endChar": 33
+      },
+      "revId": "ef7a1c84d99475aae169cfdca2f2733b8451a09a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb3d532_1eb9fdf5",
+        "filename": "plat/mediatek/mt8192/drivers/emi_mpu/emi_mpu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-05-14T07:53:02Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 133,
+        "startChar": 19,
+        "endLine": 133,
+        "endChar": 33
+      },
+      "revId": "ef7a1c84d99475aae169cfdca2f2733b8451a09a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
