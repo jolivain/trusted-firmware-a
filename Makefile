@@ -35,7 +35,7 @@ include ${MAKE_HELPERS_DIRECTORY}defaults.mk
 # Configure the toolchains used to build TF-A and its tools
 ################################################################################
 
-include ${MAKE_HELPERS_DIRECTORY}toolchain.mk
+include $(MAKE_HELPERS_DIRECTORY)toolchain.mk
 
 # Assertions enabled for DEBUG builds by default
 ENABLE_ASSERTIONS		:= ${DEBUG}
@@ -299,7 +299,7 @@ ifeq (${SANITIZE_UB},trap)
 				-fsanitize-undefined-trap-on-error
 endif #(${SANITIZE_UB},trap)
 
-GCC_V_OUTPUT		:=	$(shell $($(ARCH)-cc) -v 2>&1)
+GCC_V_OUTPUT		:=	$(if $(toolchain-available),$(shell $($(ARCH)-cc) -v 2>&1))
 
 TF_LDFLAGS		+=	-z noexecstack
 
