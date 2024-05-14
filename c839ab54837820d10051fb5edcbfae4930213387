@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49694d11_4f087dbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-14T09:35:38Z",
+      "side": 1,
+      "message": "LGTM, apart from one small nit.",
+      "revId": "c839ab54837820d10051fb5edcbfae4930213387",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb084d20_2c564718",
+        "filename": "plat/arm/board/juno/sp_min/juno_sp_min.setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-14T09:35:38Z",
+      "side": 1,
+      "message": "nit: remove this",
+      "range": {
+        "startLine": 2,
+        "startChar": 35,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "c839ab54837820d10051fb5edcbfae4930213387",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
