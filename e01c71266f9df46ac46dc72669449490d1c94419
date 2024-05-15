@@ -16,6 +16,23 @@
       "message": "False negative - the single failing test looks like it\u0027s tracking the wrong port, as the test actually passes.",
       "revId": "e01c71266f9df46ac46dc72669449490d1c94419",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d7ba87f_c91f4644",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-05-15T13:39:43Z",
+      "side": 1,
+      "message": "Passed the final test with the following CI fix: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/28842\n\nhttps://ci.trustedfirmware.org/job/tf-a-builder/3739435/",
+      "revId": "e01c71266f9df46ac46dc72669449490d1c94419",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
