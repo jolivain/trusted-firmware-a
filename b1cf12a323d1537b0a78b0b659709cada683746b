@@ -85,6 +85,24 @@
       "message": "Any update on this?",
       "revId": "b1cf12a323d1537b0a78b0b659709cada683746b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83d17a52_4ab7a684",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2024-05-16T14:25:04Z",
+      "side": 1,
+      "message": "The \"tf-cov-make\" patch is here \"https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/21833\".\nThe \u003cplat_scmi_def.h\u003e is under the plat/\u003cplatform_name\u003e, I think it belongs to platform includes.",
+      "parentUuid": "fef36cd9_8b3ce205",
+      "revId": "b1cf12a323d1537b0a78b0b659709cada683746b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
