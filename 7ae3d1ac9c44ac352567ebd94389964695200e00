@@ -167,6 +167,30 @@
       },
       "revId": "7ae3d1ac9c44ac352567ebd94389964695200e00",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "059b03b6_8c12c289",
+        "filename": "plat/rockchip/rk3588/drivers/secure/secure.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1000177
+      },
+      "writtenOn": "2024-05-16T14:34:46Z",
+      "side": 1,
+      "message": "Yes, SYSMEM_MST36 is used by DMAC0+1, and SYSMEM_MST38 is used by DSU and gic.",
+      "parentUuid": "b95f71d3_4da453c9",
+      "range": {
+        "startLine": 39,
+        "startChar": 58,
+        "endLine": 39,
+        "endChar": 60
+      },
+      "revId": "7ae3d1ac9c44ac352567ebd94389964695200e00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
