@@ -22,6 +22,30 @@
       },
       "revId": "2d3a9042735a1bf17f8639d20a2e8de26850d4e3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f5b8b22_2b09e8f3",
+        "filename": "docs/perf/psci-performance-juno.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-05-16T06:55:47Z",
+      "side": 1,
+      "message": "This is a delta on the wake-up latency on core 1 from the previous release. Having said that, there is a slight descrepancy in the reported numbers (438.88 / 24.64 \u003d 1672), I suspect I\u0027ve run the script i wrote to perform deltas on a different log. The bad news is that the increase looks real, but I\u0027ve not had the chance to investigate its source.",
+      "parentUuid": "7d3895f8_4ba0db44",
+      "range": {
+        "startLine": 83,
+        "startChar": 50,
+        "endLine": 83,
+        "endChar": 61
+      },
+      "revId": "2d3a9042735a1bf17f8639d20a2e8de26850d4e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
