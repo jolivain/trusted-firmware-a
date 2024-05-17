@@ -293,6 +293,30 @@
       },
       "revId": "6ad01137af17633059572175db62405e8e770ae1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4fc4370_76ddcfe7",
+        "filename": "drivers/delegated_attestation/rse/rse_delegated_attestation.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-05-17T08:06:46Z",
+      "side": 1,
+      "message": "On RD-Fremont we are using the EMBED protocol, forced here - https://gitlab.arm.com/infra-solutions/reference-design/platsw/trusted-firmware-a/-/commit/fc5bc6fde882dfae6204430da163d437e81c05cc\n\nThis is because the RD-Fremont rse-comms driver in tf-m doesn\u0027t allow mapping buffers from different PAS for POINTER_ACCESS protocol.",
+      "parentUuid": "03e4a2c9_1c74d616",
+      "range": {
+        "startLine": 13,
+        "startChar": 8,
+        "endLine": 13,
+        "endChar": 40
+      },
+      "revId": "6ad01137af17633059572175db62405e8e770ae1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
