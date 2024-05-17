@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92e9d744_9a4269d4",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-05-17T14:30:55Z",
+      "side": 1,
+      "message": "i dont follow this. it takes a power of 2 number, how does the number 1 correspond to 512MB per bit?\nalso for systems with large PA space (ex 48 bit or 52 bit PA space), we may need bitlock to cover as large as 1GB or more to trade off bitlock space needed.\nif we do 512 MB per bit, one byte covers 4GB. to cover 48 bit PA space, we will need 2^16 bytes which is 64K of SRAM, since this MUST live in shielded memory. for 52 bit PA, this turns to 1MB and having that kind of SRAM is extremely expensive.\nAt 4GB per bit, we reduce requirement to 8K of SRAM for 48 bit PA, and 128K of SRAM for 52 bit PA..which is still expensive. We need to provide the ability to allow platforms to choose perf vs space tradeoffs, while not pushing them towards single spin lock, since on large systems, there will be more cores AND more PA space, and single spin lock wont scale.",
+      "range": {
+        "startLine": 819,
+        "startChar": 11,
+        "endLine": 819,
+        "endChar": 49
+      },
+      "revId": "2a88f8449e2b8acfa122547303e074724a34dd79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
