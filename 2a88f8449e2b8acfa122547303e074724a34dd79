@@ -22,6 +22,30 @@
       },
       "revId": "2a88f8449e2b8acfa122547303e074724a34dd79",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fe60ac1_4d9d2409",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 819,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-05-20T13:35:46Z",
+      "side": 1,
+      "message": "This sentence could do with a bit more elaboration.\nThis is the intention of macro values :\n\n1 means 512 MB block per bit\n2 means 1 GB block per bit\n\n...\n\n512 means 256 GB block per bit\n\nIndeed the intention is precisely what you mentioned. This macro allows the platform to tradeoff performance for SRAM foot print.\n\nHence the value for this macro hence is a progression of power of 2.\nWe could expand upper limit of the macro based on platform needs.\n\nThe value of 0 means a single global lock.",
+      "parentUuid": "92e9d744_9a4269d4",
+      "range": {
+        "startLine": 819,
+        "startChar": 11,
+        "endLine": 819,
+        "endChar": 49
+      },
+      "revId": "2a88f8449e2b8acfa122547303e074724a34dd79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
