@@ -431,6 +431,30 @@
       },
       "revId": "1c1f2ed7a566d7dff136090ad7e8d61198454929",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6c9f405_88aaa40f",
+        "filename": "docs/change-log.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-20T08:24:39Z",
+      "side": 1,
+      "message": "I think it\u0027s better not to add any new scope for this. Instead, we should cover this change under the existing scope \"Neoverse-RD\" (since SGI common is now Neoverse-RD common IIUC).",
+      "parentUuid": "534c58d4_811c78e6",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 7
+      },
+      "revId": "1c1f2ed7a566d7dff136090ad7e8d61198454929",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
