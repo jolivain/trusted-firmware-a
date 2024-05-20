@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf36ce23_78d592a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 21
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-05-20T20:52:24Z",
+      "side": 1,
+      "message": "do you mean \"for\"? What I intend to ask is if EL3 should set this register for non-secure world if a supervisory software runs at NS-EL2.",
+      "range": {
+        "startLine": 9,
+        "startChar": 43,
+        "endLine": 9,
+        "endChar": 45
+      },
+      "revId": "df5174f130d4c0822bedd9d6bde7ef92bf6e6cc1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "dfaa10a0_ea49bf55",
@@ -14,6 +37,40 @@
       "writtenOn": "2024-05-18T12:11:52Z",
       "side": 1,
       "message": "Failed ones passed here : https://ci.trustedfirmware.org/job/tf-a-ci-gateway/73969/",
+      "revId": "df5174f130d4c0822bedd9d6bde7ef92bf6e6cc1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcb4ead9_7fe1896e",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-05-20T20:52:24Z",
+      "side": 1,
+      "message": "Hi Jayanth\nI am a bit confused. For which world are we trying to set SCTLR_EL2 value? From the commit message[1], I see we intend to configure SCTLR_EL2 for NWd(Normal World). Does it matter if the platform supports S-EL2 or not?\n\n[1] SCTLR_EL2 register needs to be initialised in non-secure world\nwhile we have a software component running at NS-EL2.",
+      "revId": "df5174f130d4c0822bedd9d6bde7ef92bf6e6cc1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e49e91b7_2643a75c",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-05-20T20:52:24Z",
+      "side": 1,
+      "message": "shouldn\u0027t the value of sctlr_el2_endian_val be set in the elif block? It will be consumed in line 1011 in either conditions right?",
       "revId": "df5174f130d4c0822bedd9d6bde7ef92bf6e6cc1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
