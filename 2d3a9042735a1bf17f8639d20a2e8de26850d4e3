@@ -70,6 +70,30 @@
       },
       "revId": "2d3a9042735a1bf17f8639d20a2e8de26850d4e3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "904305c2_19615a8b",
+        "filename": "docs/perf/psci-performance-juno.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-05-20T08:08:41Z",
+      "side": 1,
+      "message": "Apologies Madhu, I have my numbers all muddled up! The delta is in fact correct, `((438.88 - 26.24) / 26.24) * 100 \u003d +1572.56%`. I\u0027ve chosen to present the delta this way (as a +/- %) because, in my view, it makes it clearer what the direction of change is. There is an existing post release action that aims to understand the latency issues from previous releases; will take this up after the release.",
+      "parentUuid": "c74f5dfa_776d3aa1",
+      "range": {
+        "startLine": 83,
+        "startChar": 50,
+        "endLine": 83,
+        "endChar": 61
+      },
+      "revId": "2d3a9042735a1bf17f8639d20a2e8de26850d4e3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
