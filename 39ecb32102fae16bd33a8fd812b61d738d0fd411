@@ -46,6 +46,30 @@
       },
       "revId": "39ecb32102fae16bd33a8fd812b61d738d0fd411",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68f1db38_7df67a75",
+        "filename": "lib/fconf/fconf_dyn_cfg_getter.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-20T10:06:16Z",
+      "side": 1,
+      "message": "If you think this function, as a standalone, emitting this as a warning seems right to me. Even if BL31 and BL33 are enabled, it is still up to the platform to decide whether to use SOC_FW_CONFIG and NT_FW_CONFIG. \nTherefore, the platform should not pass these indexes to this function, which would trigger this warning. Otherwise, these warnings can simply be ignored—it\u0027s up to the platform, IMHO.\n\nI believe you\u0027re seeing this warning because of this call [1]. Ideally, we should not end up calling this function for the SOC_FW_CONFIG and NT_FW_CONFIG IDs.\n\n[1]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a/+/refs/heads/integration/plat/arm/common/arm_dyn_cfg.c#155",
+      "parentUuid": "5cea7e95_7aed386e",
+      "range": {
+        "startLine": 71,
+        "startChar": 1,
+        "endLine": 71,
+        "endChar": 8
+      },
+      "revId": "39ecb32102fae16bd33a8fd812b61d738d0fd411",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
