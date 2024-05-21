@@ -37,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "358656e0_a3457db1",
+        "filename": "docs/change-log.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-05-21T14:51:18Z",
+      "side": 1,
+      "message": "This change fixes an errata Neoverse V2 errata 3099206.\nIs it ok to duplicate this to the \"CPU Support\" section so all CPU erratum appears together and will be easy to refer. The description could be\n\"\nworkaround for Neoverse V2 errata 3099206 ([8815cda](https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/8815cdaf57806901cfd388b8ee8c7979a8a2fe15))\n\"",
+      "range": {
+        "startLine": 335,
+        "startChar": 6,
+        "endLine": 335,
+        "endChar": 175
+      },
+      "revId": "c4539c91e5c203a0e91890796190856483b05ca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16331a58_b7ede578",
         "filename": "docs/change-log.md",
         "patchSetId": 5
