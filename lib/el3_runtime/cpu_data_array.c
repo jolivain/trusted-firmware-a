@@ -10,4 +10,5 @@
 #include <lib/el3_runtime/cpu_data.h>
 
 /* The per_cpu_ptr_cache_t space allocation */
+__attribute__((used, section(".context_populator")))
 cpu_data_t percpu_data[PLATFORM_CORE_COUNT];

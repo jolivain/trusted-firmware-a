@@ -147,7 +147,7 @@ void arm_bl2_dyn_cfg_init(void)
 		/* Get the config load address and size */
 		cfg_mem_params = get_bl_mem_params_node(config_ids[i]);
 		if (cfg_mem_params == NULL) {
-			VERBOSE("%sconfig_id = %d in bl_mem_params_node\n",
+			WARN("%sconfig_id = %d in bl_mem_params_node\n",
 				"Couldn't find ", config_ids[i]);
 			continue;
 		}

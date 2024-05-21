@@ -65,6 +65,7 @@ struct dyn_cfg_dtb_info_t *dyn_cfg_dtb_info_getter(unsigned int config_id)
 	unsigned int index = dyn_cfg_dtb_info_get_index(config_id);
 
 	if (index < MAX_DTB_INFO) {
+		WARN("FCONF: Valid config id %u\n", config_id);
 		return &dtb_infos[index];
 	}
 

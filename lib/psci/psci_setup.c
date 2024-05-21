@@ -29,7 +29,9 @@ CASSERT(PLATFORM_CORE_COUNT <= (PSCI_MAX_CPUS_INDEX + 1U), assert_psci_cores_ove
  * TODO: Use the memory allocator to set aside memory for the contexts instead
  * of relying on platform defined constants.
  ******************************************************************************/
-static cpu_context_t psci_ns_context[PLATFORM_CORE_COUNT];
+
+__attribute__((used, section(".context_populator")))
+cpu_context_t psci_ns_context[PLATFORM_CORE_COUNT];
 
 /******************************************************************************
  * Define the psci capability variable.

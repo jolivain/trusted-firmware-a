@@ -70,6 +70,13 @@
 	KEEP(*(.fconf_populator))			\
 	__FCONF_POPULATOR_END__ = .;
 
+#define CONTEXT_POPULATOR				\
+	.ctx_pop . : ALIGN(DATA_ALIGN) {		\
+		__CONTEXT_POPULATOR_START__ = .;	\
+		KEEP(*(.context_populator))		\
+		__CONTEXT_POPULATOR_END__ = .;		\
+	}
+
 /*
  * Keep the .got section in the RO section as it is patched prior to enabling
  * the MMU and having the .got in RO is better for security. GOT is a table of
