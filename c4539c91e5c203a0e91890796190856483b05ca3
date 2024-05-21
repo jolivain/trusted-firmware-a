@@ -83,6 +83,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea5109cf_7e455793",
+        "filename": "docs/change-log.md",
+        "patchSetId": 5
+      },
+      "lineNbr": 749,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-05-21T16:17:07Z",
+      "side": 1,
+      "message": "Both these read the same \"workaround for Cortex-A715 erratum 2413290 \"\n\nTo clarify can one the bottom one(15a0461) is the same factoring in \"ENABLE_SPE_FOR_NS\u003d1\" which was earlier missing.",
+      "range": {
+        "startLine": 748,
+        "startChar": 0,
+        "endLine": 749,
+        "endChar": 179
+      },
+      "revId": "c4539c91e5c203a0e91890796190856483b05ca3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3c748e4_5e07b706",
         "filename": "docs/change-log.md",
         "patchSetId": 5
