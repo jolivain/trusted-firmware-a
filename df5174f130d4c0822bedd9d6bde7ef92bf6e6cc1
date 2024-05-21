@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "975c773d_2e47c771",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 21
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-21T11:16:24Z",
+      "side": 1,
+      "message": "Yes you are right. EL3 is initialising SCTLR_EL2 before the core exits to NS-EL2.",
+      "parentUuid": "bf36ce23_78d592a2",
+      "range": {
+        "startLine": 9,
+        "startChar": 43,
+        "endLine": 9,
+        "endChar": 45
+      },
+      "revId": "df5174f130d4c0822bedd9d6bde7ef92bf6e6cc1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "dfaa10a0_ea49bf55",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 21
@@ -60,6 +84,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "252495ec_8dd59cbb",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-21T11:16:24Z",
+      "side": 1,
+      "message": "Hi Madhu,\n\nWe have two scenarios here:\nI will explain both in brief. Kindly ignore it if its redundant.\n\nUltimately EL3 need to initialise the SCTLR_EL2 register when we have a software component at NS-EL2.\n\nNow, taking this into consideration, previously we had handled it in such a way that:\n\n* whenever we had SPMC_AT_SEL2(CTX_INCLUDE_EL2_REGS\u003d1), in these build configs, SCTLR_EL2 was getting initialised via the context. (Line no: 274 in setup_ns_context() API) and this value was getting restored into the SCTLR_EL2 register when we exit to NS-EL2 (cm_el2_sysregs_context_restore, line no: 1471). \n\n* When we did not had SPMC_AT_SEL2( or ...CTX_INCLUDE_EL2_REGS\u003d0)  in these build configs, SCTLR_EL2 was getting initiliased via SCTLR_EL1 in (cm_prepare_el3_exit) API.  The reasoning I could find here is, we dont have endianess value at the moment when we exit to NS-EL2. Hence they have tried to initilaise it via SCTLR_EL1 regsiter which was initialised by default irrespective of whether (CTX_INCLUDE_EL2_REGS\u003d0 Or 1).\n\nSo taking these into consideration and with the aim to decouple EL1 and EL2 context registers, I modified it in this way.\n\nTo answer the main part, \n``Does it matter if the platform supports S-EL2 or not?``\nYes. For systems where we have S-EL2, in this path, the code takes the following flow:\nvoid cm_prepare_el3_exit_ns(void) (line 1457), and in the other case it hits the api (cm_prepare_el3_exit), which has been modified here.\n\nHope this helps.",
+      "parentUuid": "dcb4ead9_7fe1896e",
+      "revId": "df5174f130d4c0822bedd9d6bde7ef92bf6e6cc1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e49e91b7_2643a75c",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 21
@@ -71,6 +113,24 @@
       "writtenOn": "2024-05-20T20:52:24Z",
       "side": 1,
       "message": "shouldn\u0027t the value of sctlr_el2_endian_val be set in the elif block? It will be consumed in line 1011 in either conditions right?",
+      "revId": "df5174f130d4c0822bedd9d6bde7ef92bf6e6cc1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e1fd07b_453e8e12",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-21T11:16:24Z",
+      "side": 1,
+      "message": "Have explained in the other comment above.",
+      "parentUuid": "e49e91b7_2643a75c",
       "revId": "df5174f130d4c0822bedd9d6bde7ef92bf6e6cc1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
