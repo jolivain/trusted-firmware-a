@@ -16,6 +16,81 @@
       "message": "Hi Manish \u0026 Olivier,\n\nThe all build failures are from `#error \"MBEDTLS_MD_C defined, but no hash algorithm\"` which is not related to this patch. Please review this patch.",
       "revId": "e8f49024b7850165e31227433d0bac8dd03d520d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9a6df48_164625ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2024-05-21T23:57:07Z",
+      "side": 1,
+      "message": "I think that usually means it needs a rebase?",
+      "parentUuid": "ea6377a8_ee8a3f42",
+      "revId": "e8f49024b7850165e31227433d0bac8dd03d520d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0719df6_1653acd5",
+        "filename": "plat/mediatek/drivers/emi_mpu/emi_mpu_common.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2024-05-21T23:57:07Z",
+      "side": 1,
+      "message": "nit: would it make sense to use `(LOCK \u003c\u003c 31)` here and below to be more consistent with what `SET_ACCESS_PERMISSION()` is doing?",
+      "range": {
+        "startLine": 91,
+        "startChar": 44,
+        "endLine": 91,
+        "endChar": 54
+      },
+      "revId": "e8f49024b7850165e31227433d0bac8dd03d520d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33c77056_e4a5506e",
+        "filename": "plat/mediatek/drivers/emi_mpu/mt8188/emi_mpu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2024-05-21T23:57:07Z",
+      "side": 1,
+      "message": "What about these? This could be DRAM_OFFSET?\n\nI think you should try to find named constants for all of these offsets and lengths, and if they don\u0027t exist yet add them.",
+      "revId": "e8f49024b7850165e31227433d0bac8dd03d520d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84ea2326_ddd916db",
+        "filename": "plat/mediatek/drivers/emi_mpu/mt8188/emi_mpu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000060
+      },
+      "writtenOn": "2024-05-21T23:57:07Z",
+      "side": 1,
+      "message": "I think(?) this means that things will fail on 8GB devices? Are you sure that we\u0027re never going to have that with this chip? Is there a limit on how much the DRAM controller can actually support that you could put here? (Or is this that limit for this SoC? 7GB just seems like such a weird number...)",
+      "revId": "e8f49024b7850165e31227433d0bac8dd03d520d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
