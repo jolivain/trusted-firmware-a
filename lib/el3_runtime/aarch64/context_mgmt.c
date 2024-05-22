@@ -24,6 +24,7 @@
 #include <lib/el3_runtime/pubsub_events.h>
 #include <lib/extensions/amu.h>
 #include <lib/extensions/brbe.h>
+#include <lib/extensions/debug_v8p9.h>
 #include <lib/extensions/mpam.h>
 #include <lib/extensions/pmuv3.h>
 #include <lib/extensions/sme.h>
@@ -582,6 +583,10 @@ void cm_manage_extensions_el3(void)
 
 	if (is_feat_trf_supported()) {
 		trf_init_el3();
+	}
+
+	if (is_feat_debugv8p9_supported()) {
+		debugv8p9_extended_bp_wp_enable();
 	}
 
 	pmuv3_init_el3();
