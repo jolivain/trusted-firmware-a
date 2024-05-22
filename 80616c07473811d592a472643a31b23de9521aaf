@@ -188,6 +188,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36d14a06_ab3a8829",
+        "filename": "docs/change-log.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2024-05-22T17:52:16Z",
+      "side": 1,
+      "message": "So it\u0027s not worth making it clear in the changelog that these DRTM changes apply to a feature that is still experimental? I appreciate if someone try to use this they will see the build experimental message but it seemed to me we should be clearer in the changelog.\n\nHowever, its not a blocker for me.",
+      "parentUuid": "148d0676_d58b4eed",
+      "range": {
+        "startLine": 338,
+        "startChar": 6,
+        "endLine": 338,
+        "endChar": 10
+      },
+      "revId": "80616c07473811d592a472643a31b23de9521aaf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce6c7b0a_df0a642c",
@@ -321,6 +345,30 @@
       "side": 1,
       "message": "Posted a patch: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/28980",
       "parentUuid": "08930231_e51c7682",
+      "range": {
+        "startLine": 393,
+        "startChar": 2,
+        "endLine": 399,
+        "endChar": 173
+      },
+      "revId": "80616c07473811d592a472643a31b23de9521aaf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e5b7076_358cf87a",
+        "filename": "docs/change-log.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2024-05-22T17:52:16Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "57f89cbf_c2f034bc",
       "range": {
         "startLine": 393,
         "startChar": 2,
@@ -563,6 +611,30 @@
       "side": 1,
       "message": "Not that I know of.",
       "parentUuid": "f5477662_0b52e16f",
+      "range": {
+        "startLine": 498,
+        "startChar": 1,
+        "endLine": 498,
+        "endChar": 167
+      },
+      "revId": "80616c07473811d592a472643a31b23de9521aaf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ace38de_a7771d11",
+        "filename": "docs/change-log.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2024-05-22T17:52:16Z",
+      "side": 1,
+      "message": "So this new compiler option does not help mitigate the Speculation issues already listed? Are there other Advisories we should be listing that this mitigates? If not why document it?",
+      "parentUuid": "f9d4018b_b656c1de",
       "range": {
         "startLine": 498,
         "startChar": 1,
