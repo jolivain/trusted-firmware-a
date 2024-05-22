@@ -166,6 +166,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "148d0676_d58b4eed",
+        "filename": "docs/change-log.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-22T13:02:58Z",
+      "side": 1,
+      "message": "Since there are plans to enhance this implementation, it is still considered experimental. It will likely be removed after the DRTM-phase 2 work is completed and once it is adopted by one or more platforms in the upstream.",
+      "parentUuid": "736e5bfd_0cb88016",
+      "range": {
+        "startLine": 338,
+        "startChar": 6,
+        "endLine": 338,
+        "endChar": 10
+      },
+      "revId": "80616c07473811d592a472643a31b23de9521aaf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce6c7b0a_df0a642c",
         "filename": "docs/change-log.md",
         "patchSetId": 7
@@ -249,6 +273,30 @@
       "side": 1,
       "message": "Maybe list it in 2.5.4. Experimental build options section. Maybe there is another patch to do that but I cannot see it at the moment. Also perhaps call it out in the change log so its clear to people the feature with this release is experimental.",
       "parentUuid": "acb24af3_ac655dfd",
+      "range": {
+        "startLine": 393,
+        "startChar": 2,
+        "endLine": 399,
+        "endChar": 173
+      },
+      "revId": "80616c07473811d592a472643a31b23de9521aaf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08930231_e51c7682",
+        "filename": "docs/change-log.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-22T13:02:58Z",
+      "side": 1,
+      "message": "Oh yes, it is good to add this option in 2.5.4. I will post a patch for that soon and also, we can call this out explicitly in the change-log as this option is experimental (we may need manually edit the change log for that purpose).",
+      "parentUuid": "f21515f5_32a5a951",
       "range": {
         "startLine": 393,
         "startChar": 2,
