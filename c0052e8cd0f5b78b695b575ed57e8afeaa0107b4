@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe77472e_5c5d99b6",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 20
+      },
+      "lineNbr": 1827,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-05-22T20:17:15Z",
+      "side": 1,
+      "message": "I am curious if this explicit cast is required. Can the function prototype itself be changed to:\nvoid restore_ptw_el1_sys_regs(cpu_context_t *ctx)",
+      "range": {
+        "startLine": 1827,
+        "startChar": 1,
+        "endLine": 1827,
+        "endChar": 46
+      },
+      "revId": "c0052e8cd0f5b78b695b575ed57e8afeaa0107b4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
