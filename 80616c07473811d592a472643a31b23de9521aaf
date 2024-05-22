@@ -264,6 +264,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f4070ef6_5b85b43e",
+        "filename": "docs/change-log.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-22T12:18:32Z",
+      "side": 1,
+      "message": "Yes, threat ID#1 is covered. We have a separate [page] dedicated to the PSA or TBBR FWU threat model. \n\n[page]: https://trustedfirmware-a.readthedocs.io/en/latest/threat_model/firmware_threat_model/threat_model_fw_update_and_recovery.html",
+      "parentUuid": "5dba7ee9_9d627a4f",
+      "range": {
+        "startLine": 428,
+        "startChar": 2,
+        "endLine": 434,
+        "endChar": 180
+      },
+      "revId": "80616c07473811d592a472643a31b23de9521aaf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3c7dba1f_e61786bf",
         "filename": "docs/change-log.md",
         "patchSetId": 7
