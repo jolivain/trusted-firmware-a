@@ -229,6 +229,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25e83441_07b6eb3c",
+        "filename": "docs/change-log.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-05-22T09:54:21Z",
+      "side": 1,
+      "message": "Firmware Handoff still is an experimental feature",
+      "parentUuid": "9215350a_c853bdbe",
+      "range": {
+        "startLine": 70,
+        "startChar": 1,
+        "endLine": 71,
+        "endChar": 170
+      },
+      "revId": "408591682c271bb935aa671a7d9464e14a247deb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cafa3a32_1589f120",
@@ -290,6 +314,30 @@
       "side": 1,
       "message": "Agree this should not block the release. Post release threat model improvements is fine as RAS support is a capability for a long time. Just picking up there is no evidence its yet been considered in the threat model so is a gap.",
       "parentUuid": "ccd9085c_50a1cb30",
+      "range": {
+        "startLine": 83,
+        "startChar": 6,
+        "endLine": 83,
+        "endChar": 170
+      },
+      "revId": "408591682c271bb935aa671a7d9464e14a247deb",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22b6653a_0c4503fc",
+        "filename": "docs/change-log.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-05-22T09:54:21Z",
+      "side": 1,
+      "message": "As mentioned by Madhu we have documentation mentioning the limitation in Kernel First Handling (KFH). The overall story of KFH is still evolving and i would take it up later after release to put documentation on threat.",
+      "parentUuid": "d6fd396d_48dd4bfa",
       "range": {
         "startLine": 83,
         "startChar": 6,
