@@ -220,6 +220,52 @@
       "parentUuid": "6701c996_fd644e16",
       "revId": "80616c07473811d592a472643a31b23de9521aaf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dba7ee9_9d627a4f",
+        "filename": "docs/change-log.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2024-05-22T12:02:13Z",
+      "side": 1,
+      "message": "Security Review Comment: So Threat ID1 \"An attacker can mangle firmware images to execute arbitrary code\"  https://trustedfirmware-a.readthedocs.io/en/v2.10/threat_model/threat_model.html#threats-to-be-mitigated-by-the-boot-firmware should cover all these updates. Can you confirm none are needed with these changes.",
+      "range": {
+        "startLine": 428,
+        "startChar": 2,
+        "endLine": 434,
+        "endChar": 180
+      },
+      "revId": "80616c07473811d592a472643a31b23de9521aaf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c7dba1f_e61786bf",
+        "filename": "docs/change-log.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1000049
+      },
+      "writtenOn": "2024-05-22T12:02:13Z",
+      "side": 1,
+      "message": "Security Review Comment: Any update required to Speculation related Advisories (Eg TFV-7, TFV-9) regarding mitigation updates to mention this SLS compiler option?",
+      "range": {
+        "startLine": 498,
+        "startChar": 1,
+        "endLine": 498,
+        "endChar": 167
+      },
+      "revId": "80616c07473811d592a472643a31b23de9521aaf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
