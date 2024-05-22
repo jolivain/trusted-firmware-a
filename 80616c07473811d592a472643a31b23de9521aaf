@@ -124,6 +124,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "acb24af3_ac655dfd",
+        "filename": "docs/change-log.md",
+        "patchSetId": 7
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-05-22T11:35:59Z",
+      "side": 1,
+      "message": "This feature is labeled as [experimental], and we have a post-release ticket for adding the threat model for this support. I have created now another ticket to include the design details for this support.\n\n\n[experimental]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a/+/refs/heads/integration/Makefile#1028",
+      "parentUuid": "7e3dea0b_73dbc893",
+      "range": {
+        "startLine": 393,
+        "startChar": 2,
+        "endLine": 399,
+        "endChar": 173
+      },
+      "revId": "80616c07473811d592a472643a31b23de9521aaf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "29d5ec4e_53f24abc",
         "filename": "docs/change-log.md",
         "patchSetId": 7
