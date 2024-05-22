@@ -77,6 +77,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e6281d1_9c370380",
+        "filename": "plat/mediatek/drivers/emi_mpu/emi_mpu_common.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1001147
+      },
+      "writtenOn": "2024-05-22T04:16:45Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "c0719df6_1653acd5",
+      "range": {
+        "startLine": 91,
+        "startChar": 44,
+        "endLine": 91,
+        "endChar": 54
+      },
+      "revId": "e8f49024b7850165e31227433d0bac8dd03d520d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "33c77056_e4a5506e",
@@ -94,6 +118,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dbc252d_92a1f1dc",
+        "filename": "plat/mediatek/drivers/emi_mpu/mt8188/emi_mpu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1001147
+      },
+      "writtenOn": "2024-05-22T04:16:45Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "33c77056_e4a5506e",
+      "revId": "e8f49024b7850165e31227433d0bac8dd03d520d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84ea2326_ddd916db",
@@ -107,6 +149,24 @@
       "writtenOn": "2024-05-21T23:57:07Z",
       "side": 1,
       "message": "I think(?) this means that things will fail on 8GB devices? Are you sure that we\u0027re never going to have that with this chip? Is there a limit on how much the DRAM controller can actually support that you could put here? (Or is this that limit for this SoC? 7GB just seems like such a weird number...)",
+      "revId": "e8f49024b7850165e31227433d0bac8dd03d520d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c6f5751_969aae5b",
+        "filename": "plat/mediatek/drivers/emi_mpu/mt8188/emi_mpu.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1001147
+      },
+      "writtenOn": "2024-05-22T04:16:45Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "84ea2326_ddd916db",
       "revId": "e8f49024b7850165e31227433d0bac8dd03d520d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
