@@ -46,6 +46,30 @@
       },
       "revId": "c106a911fd142485888938699c0facd4725369ba",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "359d1e75_3fdd5140",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-05-23T14:05:05Z",
+      "side": 1,
+      "message": "In this case, I think the way it is currently implemented is the appropriate choice and is also the intuitive implementation.\n\nHaving the comment(line 138) but then performing cm_el1_sysregs_context_restore() is slightly misleading, even though it is taken care behind the scenes.",
+      "parentUuid": "4d769aa3_00d52837",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 0
+      },
+      "revId": "c106a911fd142485888938699c0facd4725369ba",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
