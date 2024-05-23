@@ -16,6 +16,24 @@
       "message": "The correct parameter is `kernel_address\u003d` rather than `kernel_addr\u003d`. This still worked last time I checked.",
       "revId": "f832e43ccfb192227037ce593930f0f69904bea4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "626dfb53_414a217f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001315
+      },
+      "writtenOn": "2024-05-23T04:50:07Z",
+      "side": 1,
+      "message": "Hi Mario,\n\nYes, it is `kernel_address\u003d` indeed. I made the mistake in the commit message.\n\nI checked this again and behavior is quite interesting: loader indeed prints the correct address:\n\n```\nLoading \u0027kernel_2712.img\u0027 to 0x00000000 offset 0x2000000\n```\n\nBut in fact, kernel image is located at 0x200000. I checked this with hardware debugger. This can also be verified due to this error message:\n```\n[    0.000000] OF: fdt: Reserved memory: failed to reserve memory for node \u0027optee_core@80000\u0027: base 0x0000000000080000, size 32 MiB\n```\n\nWhen I am moving OP-TEE away from memory beginnig, this message disappears.\n\nAlso, RPI documentation says that `kernel_address` is a legacy option and is not supported anymore.",
+      "parentUuid": "d4bde64f_eff769b2",
+      "revId": "f832e43ccfb192227037ce593930f0f69904bea4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
