@@ -50,6 +50,42 @@
       "message": "On second thought I wonder if this is really needed. If I understand the ARM ARM here correctly, this bit would reset to the value of EDPRCR[COREPURQ], an external debug register. This presumably allows an external debugger to veto a proper core shutdown, so it can stay connected and access the core still. I don\u0027t really see why we should tinker with this bit. Is that needed for a proper core shutdown? Maybe it was in some early bringup scenario in the lab only?",
       "revId": "0cb9a4ff4471e3db83540c9bed375edfcc62ba05",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63186128_5fb4b867",
+        "filename": "lib/cpus/aarch64/cortex_a55.S",
+        "patchSetId": 23
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2024-05-27T09:15:51Z",
+      "side": 1,
+      "message": "When this bit is set to 0bl and a core power-off is requested, the core will request OFF EMU as a minimum power mode, with the OFF EMU COREPACTIVE set HIGH. P-Channel requests to OFF will be denied. This power mode preserves debug state and allows debug access while the core functionally emulates an off state. \n\nOFF EMU: This power mode allows functional emulation of power-off, whilst still\nmaintaining debug state.\nOFF (SHUTDOWN): This power mode allows the core to be powered-off.\nThis mode powers-off the complete core domain, including all logic, TCMs, and\nL1 cache RAM.\n\nTo ensure successful powerdown, clear this register to zero.",
+      "parentUuid": "37ab37be_264590e9",
+      "revId": "0cb9a4ff4471e3db83540c9bed375edfcc62ba05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "479119d3_15d73c01",
+        "filename": "lib/cpus/aarch64/cortex_a55.S",
+        "patchSetId": 23
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2024-05-27T09:15:51Z",
+      "side": 1,
+      "message": "When this bit is set to 0bl and a core power-off is requested, the core will request OFF EMU as a minimum power mode, with the OFF EMU COREPACTIVE set HIGH. P-Channel requests to OFF will be denied. This power mode preserves debug state and allows debug access while the core functionally emulates an off state.\n\nOFF EMU: This power mode allows functional emulation of power-off, whilst still\nmaintaining debug state.\nOFF (SHUTDOWN): This power mode allows the core to be powered-off.\nThis mode powers-off the complete core domain, including all logic, TCMs, and\nL1 cache RAM.",
+      "parentUuid": "37ab37be_264590e9",
+      "revId": "0cb9a4ff4471e3db83540c9bed375edfcc62ba05",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
