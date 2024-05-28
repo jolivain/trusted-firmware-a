@@ -7,6 +7,38 @@
 #include <plat/arm/common/plat_arm.h>
 #include <platform_def.h>
 
+#if CRYPTO_SUPPORT && \
+	(defined(IMAGE_BL1) || RESET_TO_BL2 || defined(IMAGE_BL31))
+static unsigned char heap[TF_MBEDTLS_HEAP_SIZE];
+static const struct crypto_heap_info heap_info = {
+	.addr = heap,
+	.size = sizeof(heap),
+};
+#else
+static struct crypto_heap_info heap_info;
+
+struct transfer_list_entry *
+arm_transfer_list_set_heap_info(struct transfer_list_header *tl)
+{
+	struct transfer_list_entry *te;
+	te = transfer_list_find(tl, TL_TAG_CRYPTO_INFO);
+	assert(te != NULL);
+
+	heap_info = *(crypto_heap_info_t *)transfer_list_entry_data(te);
+	return te;
+}
+#endif /* CRYPTO_SUPPORT && (defined(IMAGE_BL1) || RESET_TO_BL2 || defined(IMAGE_BL31)) */
+
+int arm_get_mbedtls_heap(void **heap_addr, size_t *heap_size)
+{
+	assert(heap_addr != NULL);
+	assert(heap_size != NULL);
+	*heap_addr = heap_info.addr;
+	*heap_size = heap_info.size;
+
+	return 0;
+}
+
 void arm_transfer_list_dyn_cfg_init(struct transfer_list_header *secure_tl)
 {
 	struct transfer_list_entry *te;
