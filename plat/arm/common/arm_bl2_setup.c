@@ -244,6 +244,10 @@ void bl2_plat_arch_setup(void)
 
 	fconf_populate("TB_FW", (uintptr_t)transfer_list_entry_data(te));
 	transfer_list_rem(secure_tl, te);
+
+#if CRYPTO_SUPPORT
+	arm_transfer_list_set_heap_info(secure_tl);
+#endif /* CRYPTO_SUPPORT */
 #else
 	/* Fill the properties struct with the info from the config dtb */
 	fconf_populate("FW_CONFIG", config_base);
