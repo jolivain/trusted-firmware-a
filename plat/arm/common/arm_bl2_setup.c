@@ -244,6 +244,11 @@ void bl2_plat_arch_setup(void)
 
 	fconf_populate("TB_FW", (uintptr_t)transfer_list_entry_data(te));
 	transfer_list_rem(secure_tl, te);
+
+#if CRYPTO_SUPPORT
+	te = arm_transfer_list_set_heap_info(secure_tl);
+	transfer_list_rem(secure_tl, te);
+#endif /* CRYPTO_SUPPORT */
 #else
 	/* Fill the properties struct with the info from the config dtb */
 	fconf_populate("FW_CONFIG", config_base);
@@ -335,8 +340,10 @@ int arm_bl2_plat_handle_post_image_load(unsigned int image_id)
 
 void arm_bl2_setup_next_ep_info(bl_mem_params_node_t *next_param_node)
 {
-	assert(transfer_list_set_handoff_args(
-		       secure_tl, &next_param_node->ep_info) != NULL);
+	entry_point_info_t *ep __unused;
+	ep = transfer_list_set_handoff_args(secure_tl,
+					    &next_param_node->ep_info);
+	assert(ep != NULL);
 
 	arm_transfer_list_populate_ep_info(next_param_node, secure_tl, ns_tl);
 }
