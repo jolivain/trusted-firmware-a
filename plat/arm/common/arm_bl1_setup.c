@@ -199,7 +199,6 @@ void arm_bl1_platform_setup(void)
 	}
 
 	transfer_list_update_checksum(secure_tl);
-	fconf_populate("TB_FW", (uintptr_t)transfer_list_entry_data(te));
 #else
 	/* Set global DTB info for fixed fw_config information */
 	fw_config_max_size = ARM_FW_CONFIG_LIMIT - ARM_FW_CONFIG_BASE;
@@ -248,7 +247,17 @@ void arm_bl1_platform_setup(void)
 
 #if CRYPTO_SUPPORT
 	/* Share the Mbed TLS heap info with other images */
+#if TRANSFER_LIST
+	te = transfer_list_add(secure_tl, TL_TAG_CRYPTO_INFO,
+			       sizeof(crypto_heap_info_t), NULL);
+	assert(te != NULL);
+
+	crypto_heap_info_t *heap_info =
+		(crypto_heap_info_t *)transfer_list_entry_data(te);
+	arm_get_mbedtls_heap(&heap_info->addr, &heap_info->size);
+#else
 	arm_bl1_set_mbedtls_heap();
+#endif
 #endif /* CRYPTO_SUPPORT */
 
 	/*
