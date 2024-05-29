@@ -84,8 +84,6 @@ $(eval $(foreach objd,${OBJ_DIRS},$(call MAKE_PREREQ_DIR,${objd},${BUILD_DIR})))
 ${3}_dirs: | ${OBJ_DIRS}
 
 $(eval $(call MAKE_OBJS,$(BUILD_DIR)/$(MODULE),$(SOURCES),${3}))
-
-libraries: $(OBJS_TEMP)
 endef
 
 # Include MTK configuration files
