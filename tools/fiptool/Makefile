@@ -91,7 +91,7 @@ ${PROJECT}: ${OBJECTS} Makefile
 	@echo "  HOSTCC  $<"
 	${Q}$(host-cc) -c ${CPPFLAGS} ${HOSTCCFLAGS} ${INCLUDE_PATHS} -MD -MP $< -o $@
 
--include $(DEPS)
+-include $(wildcard $(DEPS))
 
 --openssl:
 ifeq ($(STATIC),0)
