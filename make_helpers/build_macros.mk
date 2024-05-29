@@ -438,8 +438,6 @@ define SOURCES_TO_OBJS
         $(notdir $(patsubst %.S,%.o,$(filter %.S,$(1))))
 endef
 
-.PHONY: libraries
-
 # MAKE_LIB_DIRS macro defines the target for the directory where
 # libraries are created
 define MAKE_LIB_DIRS
@@ -466,17 +464,11 @@ $(eval $(call MAKE_LIB_OBJS,$(BUILD_DIR),$(SOURCES),$(1)))
 
 .PHONY : lib${1}_dirs
 lib${1}_dirs: | ${BUILD_DIR} ${LIB_DIR}  ${ROMLIB_DIR} ${LIBWRAPPER_DIR}
-libraries: ${LIB_DIR}/lib$(1).a
-ifeq ($($(ARCH)-ld-id),arm-link)
-LDPATHS = --userlibpath=${LIB_DIR}
-LDLIBS += --library=$(1)
-else
-LDPATHS = -L${LIB_DIR}
-LDLIBS += -l$(1)
-endif
+
+LDLIBS += $(LIB_DIR)/lib$(1).a
 
 ifeq ($(USE_ROMLIB),1)
-LIBWRAPPER = -lwrappers
+LIBWRAPPER = $(BUILD_PLAT)/lib/libwrappers.a
 endif
 
 all: ${LIB_DIR}/lib$(1).a
@@ -555,22 +547,22 @@ endif
 # object file path, and prebuilt object file path.
 $(eval OBJS += $(MODULE_OBJS))
 
-$(ELF): $(OBJS) $(DEFAULT_LINKER_SCRIPT) $(LINKER_SCRIPTS) | $(1)_dirs libraries $(BL_LIBS)
+$(ELF): $(OBJS) $(LDLIBS) $(DEFAULT_LINKER_SCRIPT) $(LINKER_SCRIPTS) | $(1)_dirs $(BL_LIBS)
 	$$(ECHO) "  LD      $$@"
 ifeq ($($(ARCH)-ld-id),arm-link)
 	$$(Q)$($(ARCH)-ld) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) --entry=${1}_entrypoint \
 		--predefine=$(call escape-shell,-D__LINKER__=$(__LINKER__)) \
 		--predefine=$(call escape-shell,-DTF_CFLAGS=$(TF_CFLAGS)) \
 		--map --list="$(MAPFILE)" --scatter=${PLAT_DIR}/scat/${1}.scat \
-		$(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS) $(OBJS)
+		$(LIBWRAPPER) $(LDLIBS) $(BL_LIBS) $(OBJS)
 else ifeq ($($(ARCH)-ld-id),gnu-gcc)
 	$$(Q)$($(ARCH)-ld) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) -Wl,-Map=$(MAPFILE) \
 		$(addprefix -Wl$(comma)--script$(comma),$(LINKER_SCRIPTS)) -Wl,--script,$(DEFAULT_LINKER_SCRIPT) \
-		$(OBJS) $(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
+		$(OBJS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
 else
 	$$(Q)$($(ARCH)-ld) -o $$@ $$(TF_LDFLAGS) $$(LDFLAGS) $(BL_LDFLAGS) -Map=$(MAPFILE) \
 		$(addprefix -T ,$(LINKER_SCRIPTS)) --script $(DEFAULT_LINKER_SCRIPT) \
-		$(OBJS) $(LDPATHS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
+		$(OBJS) $(LIBWRAPPER) $(LDLIBS) $(BL_LIBS)
 endif
 ifeq ($(DISABLE_BIN_GENERATION),1)
 	@${ECHO_BLANK_LINE}

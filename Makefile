@@ -1707,7 +1707,7 @@ else
 	${Q}set MAKEFLAGS= && ${MSVC_NMAKE} /nologo /f ${FIPTOOLPATH}/Makefile.msvc FIPTOOLPATH=$(subst /,\,$(FIPTOOLPATH)) FIPTOOL=$(subst /,\,$(FIPTOOL))
 endif #(UNIX_MK)
 
-romlib.bin: libraries FORCE
+romlib.bin: $(LDLIBS) FORCE
 	${Q}${MAKE} PLAT_DIR=${PLAT_DIR} BUILD_PLAT=${BUILD_PLAT} ENABLE_BTI=${ENABLE_BTI} ARM_ARCH_MINOR=${ARM_ARCH_MINOR} INCLUDES=$(call escape-shell,$(INCLUDES)) DEFINES=$(call escape-shell,$(DEFINES)) --no-print-directory -C ${ROMLIBPATH} all
 
 memmap: all
