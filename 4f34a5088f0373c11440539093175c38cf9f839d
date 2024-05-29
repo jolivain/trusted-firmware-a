@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b45fe8a4_6346bda4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000724
+      },
+      "writtenOn": "2024-05-29T05:38:50Z",
+      "side": 1,
+      "message": "Hi Maintainers, \n\nFrom the CI build failure, \n\n1st check: This need maintainer to resolve. \n\nNew source files have been identified in your patch..\nplat/intel/soc/common/lib/sha/sha.c\n\n1. Kindly ensure these newly added source files are covered by : \n   a. Coverity scan analysis by adding them to \"tf-cov-make\" build script with the appropriate build configurations. \n   b. Built as part of one of the platform configurations present in \"tf-l1-build-plat\" test group.\n\n   Please refer to the tf-a documentation for more detailed explanation. \n   \"https://trustedfirmware-a.readthedocs.io/en/latest/process/contributing.html#add-build-configurations\"\n\n2. Please ignore if your files are already updated. Further the Code Maintainer will \n   resolve the issue by taking appropriate action.\n\n2nd Check: Platform build failure is not from Altera/Intel platform, this should not be related these patch upstream. \n\n\nThanks",
+      "revId": "4f34a5088f0373c11440539093175c38cf9f839d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
