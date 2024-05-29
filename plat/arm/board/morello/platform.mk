@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2020-2023, Arm Limited. All rights reserved.
+# Copyright (c) 2020-2024, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -107,7 +107,7 @@ HW_ASSISTED_COHERENCY			:=	1
 USE_COHERENT_MEM			:=	0
 
 # Add TARGET_PLATFORM to differentiate between Morello FVP and Morello SoC platform
-$(eval $(call add_define,TARGET_PLATFORM_$(call uppercase,${TARGET_PLATFORM})))
+$(eval $(call add_define,TARGET_PLATFORM_$(call upper-case,${TARGET_PLATFORM})))
 
 # Add MORELLO_FW_NVCTR_VAL
 $(eval $(call add_define,MORELLO_FW_NVCTR_VAL))

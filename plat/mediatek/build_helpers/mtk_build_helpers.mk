@@ -26,15 +26,13 @@ endef
 
 # Determine option variable is defined or not then define it
 define add_defined_option
-ifdef $(1)
-ifeq ($(findstring $(value $(1)), $(uppercase_table)),)
-DEFINES += -D$(1)$(if $(value $(1)),=$(value $(1)),)
-else
-ifeq ($(strip $(value $(1))),y)
-DEFINES += -D$(1)$(if $(value $(1)),=1,)
-endif
-endif
-endif
+        ifdef $(1)
+                ifeq ($(strip $($(1))),y)
+                        DEFINES += -D$(1)=1
+                else
+                        DEFINES += -D$(1)$(if $($(1)),=$($(1)))
+                endif
+        endif
 endef
 
 define EXPAND_RULES_MAKEFILE
@@ -58,7 +56,7 @@ endef
 #   $(1) = source file
 #   $(2) = BL stage (1, 2, 2u, 31, 32)
 define MAKE_LOCALS
-$(eval $(call uppercase,$(2))_SOURCES += $(1))
+$(eval $(call upper-case,$(2))_SOURCES += $(1))
 endef
 
 # MAKE_MODULE reference MAKE_OBJS.
