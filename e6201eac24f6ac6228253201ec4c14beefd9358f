@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e5a8cc0_f6b6fa9d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-29T14:39:59Z",
+      "side": 1,
+      "message": "this needs to be updated in the changelog.yaml file.\n``debug`` featname  seems to be generic and bit confusing.\nCan we name it as ``debugv8p9``? or soemthing better to avoid confusion ?",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 10
+      },
+      "revId": "e6201eac24f6ac6228253201ec4c14beefd9358f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56769ff1_35b9f0ba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-29T14:39:59Z",
+      "side": 1,
+      "message": "nit: bit.",
+      "revId": "e6201eac24f6ac6228253201ec4c14beefd9358f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1fbda02_51806909",
+        "filename": "bl31/bl31.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-29T14:39:59Z",
+      "side": 1,
+      "message": "this file missing ?",
+      "range": {
+        "startLine": 124,
+        "startChar": 36,
+        "endLine": 124,
+        "endChar": 49
+      },
+      "revId": "e6201eac24f6ac6228253201ec4c14beefd9358f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f4a212f_f7f48822",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-29T14:39:59Z",
+      "side": 1,
+      "message": "Please refer this: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27386\nand modify the names accordingly as applicable.",
+      "range": {
+        "startLine": 230,
+        "startChar": 8,
+        "endLine": 230,
+        "endChar": 43
+      },
+      "revId": "e6201eac24f6ac6228253201ec4c14beefd9358f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e69b3218_4a2f0585",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-29T14:39:59Z",
+      "side": 1,
+      "message": "nit: is",
+      "range": {
+        "startLine": 301,
+        "startChar": 27,
+        "endLine": 301,
+        "endChar": 29
+      },
+      "revId": "e6201eac24f6ac6228253201ec4c14beefd9358f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68498295_e28fb550",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-29T14:39:59Z",
+      "side": 1,
+      "message": "cant see this file in the patch ?",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 38
+      },
+      "revId": "e6201eac24f6ac6228253201ec4c14beefd9358f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "386f0879_ebb86be5",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-29T14:39:59Z",
+      "side": 1,
+      "message": "where is the implementation of this function?",
+      "range": {
+        "startLine": 589,
+        "startChar": 2,
+        "endLine": 589,
+        "endChar": 19
+      },
+      "revId": "e6201eac24f6ac6228253201ec4c14beefd9358f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d6f3d80_8714abb6",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-29T14:39:59Z",
+      "side": 1,
+      "message": "you might need to add details in the documentation regarding this flag usuage.\nbuild options section ?",
+      "range": {
+        "startLine": 357,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 22
+      },
+      "revId": "e6201eac24f6ac6228253201ec4c14beefd9358f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
