@@ -68,7 +68,7 @@ LINKERFILE_SRC		:= src/$(PLAT_M0).ld.S
 # Function definition related compilation
 define MAKE_C
 $(eval OBJ := $(1)/$(patsubst %.c,%.o,$(notdir $(2))))
--include $(patsubst %.o,%.d,$(OBJ))
+-include $$(wildcard $(patsubst %.o,%.d,$(OBJ)))
 
 $(OBJ) : $(2)
 	@echo "  CC      $$<"
@@ -102,7 +102,7 @@ all: $(BIN) $(BIN_PMU)
 
 $(LINKERFILE): $(LINKERFILE_SRC)
 	$(rk3399-m0-cc) $(COMMON_FLAGS) $(INCLUDES) -P -E -D__LINKER__ -MMD -MF $@.d -MT $@ -o $@ $<
--include $(LINKERFILE).d
+-include $(wildcard $(LINKERFILE).d)
 
 $(ELF) : $(OBJS) $(OBJS_COMMON) $(LINKERFILE)
 	@echo "  LD      $@"

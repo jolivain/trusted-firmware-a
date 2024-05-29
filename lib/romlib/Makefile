@@ -95,5 +95,5 @@ $(BUILD_DIR)/jmptbl.s: $(BUILD_DIR)/jmptbl.i
 clean:
 	@rm -f $(BUILD_DIR)/*
 
--include $(BUILD_DIR)/romlib.d
--include $(BUILD_DIR)/jmptbl.d
+-include $(wildcard $(BUILD_DIR)/romlib.d)
+-include $(wildcard $(BUILD_DIR)/jmptbl.d)

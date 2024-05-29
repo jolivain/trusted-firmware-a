@@ -309,7 +309,7 @@ $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | lib$(3)_dirs
 	$$(ECHO) "  CC      $$<"
 	$$(Q)$($(ARCH)-cc) $$($(LIB)_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(MAKE_DEP) -c $$< -o $$@
 
--include $(DEP)
+-include $$(wildcard $(DEP))
 
 endef
 
@@ -325,7 +325,7 @@ $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | lib$(3)_dirs
 	$$(ECHO) "  AS      $$<"
 	$$(Q)$($(ARCH)-as) -x assembler-with-cpp $$(TF_CFLAGS_$(ARCH)) $$(ASFLAGS) $(MAKE_DEP) -c $$< -o $$@
 
--include $(DEP)
+-include $$(wildcard $(DEP))
 
 endef
 
@@ -348,7 +348,7 @@ $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
 	$$(ECHO) "  CC      $$<"
 	$$(Q)$($(ARCH)-cc) $$(LTO_CFLAGS) $$(TF_CFLAGS) $$(CFLAGS) $(BL_CPPFLAGS) $(BL_CFLAGS) $(MAKE_DEP) -c $$< -o $$@
 
--include $(DEP)
+-include $$(wildcard $(DEP))
 
 endef
 
@@ -371,7 +371,7 @@ $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
 	$$(ECHO) "  AS      $$<"
 	$$(Q)$($(ARCH)-as) -x assembler-with-cpp $$(TF_CFLAGS_$(ARCH)) $$(ASFLAGS) $(BL_CPPFLAGS) $(BL_ASFLAGS) $(MAKE_DEP) -c $$< -o $$@
 
--include $(DEP)
+-include $$(wildcard $(DEP))
 
 endef
 
@@ -392,7 +392,7 @@ $(1): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
 	$$(ECHO) "  PP      $$<"
 	$$(Q)$($(ARCH)-cpp) -E $$(CPPFLAGS) $(BL_CPPFLAGS) $(TF_CFLAGS_$(ARCH)) -P -x assembler-with-cpp -D__LINKER__ $(MAKE_DEP) -o $$@ $$<
 
--include $(DEP)
+-include $$(wildcard $(DEP))
 
 endef
 
@@ -653,8 +653,8 @@ $(DOBJ): $(DPRE) $(filter-out %.d,$(MAKEFILE_LIST)) | fdt_dirs
 	$${ECHO} "  DTC     $$<"
 	$$(Q)$($(ARCH)-dtc) $$(DTC_FLAGS) -d $(DTBDEP) -o $$@ $$<
 
--include $(DTBDEP)
--include $(DTSDEP)
+-include $$(wildcard $(DTBDEP))
+-include $$(wildcard $(DTSDEP))
 
 endef
 
