@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6fb4859_33cdb97b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-05-29T15:51:51Z",
+      "side": 1,
+      "message": "Is this accurate or is it in reference to TFA? Can you reword as there are EL1 and EL3 registers as well associated with MPAM if I remember it right.",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "2ddc5d621c85da9b6ae497eef90f796f69afbac7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c32865a3_fdb10acc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000099
+      },
+      "writtenOn": "2024-05-29T15:51:51Z",
+      "side": 1,
+      "message": "With EL2 registers now coupled with the depend\"e\"nt features, this\npatch moves them to the el2_context structure \"el2_sysregs_t\".",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 28
+      },
+      "revId": "2ddc5d621c85da9b6ae497eef90f796f69afbac7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "95f7e786_39a21357",
