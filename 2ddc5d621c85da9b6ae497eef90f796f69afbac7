@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9245d5de_70134a9b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-29T16:07:33Z",
+      "side": 1,
+      "message": "In reference to TF-A.\nI have rephrased it. Kindly let me know if it still needs corrections.",
+      "parentUuid": "f6fb4859_33cdb97b",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "2ddc5d621c85da9b6ae497eef90f796f69afbac7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c32865a3_fdb10acc",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-29T15:51:51Z",
       "side": 1,
       "message": "With EL2 registers now coupled with the depend\"e\"nt features, this\npatch moves them to the el2_context structure \"el2_sysregs_t\".",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 28
+      },
+      "revId": "2ddc5d621c85da9b6ae497eef90f796f69afbac7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d47db071_34c4bf95",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-05-29T16:07:33Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c32865a3_fdb10acc",
       "range": {
         "startLine": 12,
         "startChar": 2,
