@@ -48,3 +48,28 @@ upper-case = $(shell echo $(call escape-shell,$(1)) | tr '[:lower:]' '[:upper:]'
 #
 
 lower-case = $(shell echo $(call escape-shell,$(1)) | tr '[:upper:]' '[:lower:]')
+
+#
+# Determine the "truthiness" of a value.
+#
+# Parameters:
+#
+#   - $(1): value to determine the truthiness of
+#
+# A value is considered truthy if:
+#
+#   - it is not 0, and
+#   - it is not equal to 'N' when upper-cased, and
+#   - it is not equal to 'NO' when upper-cased, and
+#   - it is not equal to 'F' when upper-cased, and
+#   - it is not equal to 'FALSE' when upper-cased.
+#
+# If the value is truthy then the value is returned as-is, otherwise no value
+# is returned. This makes it suitable for use in `$(if)` expressions, e.g.:
+#
+#     hello-world := 1
+#
+#     $(if $(call bool,$(hello-world),$(error hello, world!)) # hello, world!"
+#
+
+bool = $(filter-out 0 n no f false,$(call lower-case,$(1)))
