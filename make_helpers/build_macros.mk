@@ -17,22 +17,6 @@ define rwildcard
 $(strip $(foreach d,$(wildcard ${1}*),$(call rwildcard,${d}/,${2}) $(filter $(subst *,%,%${2}),${d})))
 endef
 
-# This table is used in converting lower case to upper case.
-uppercase_table:=a,A b,B c,C d,D e,E f,F g,G h,H i,I j,J k,K l,L m,M n,N o,O p,P q,Q r,R s,S t,T u,U v,V w,W x,X y,Y z,Z
-
-# Internal macro used for converting lower case to upper case.
-#   $(1) = upper case table
-#   $(2) = String to convert
-define uppercase_internal
-$(if $(1),$$(subst $(firstword $(1)),$(call uppercase_internal,$(wordlist 2,$(words $(1)),$(1)),$(2))),$(2))
-endef
-
-# A macro for converting a string to upper case
-#   $(1) = String to convert
-define uppercase
-$(eval uppercase_result:=$(call uppercase_internal,$(uppercase_table),$(1)))$(uppercase_result)
-endef
-
 # Convenience function for setting a variable to 0 if not previously set
 # $(eval $(call default_zero,FOO))
 define default_zero
@@ -199,7 +183,7 @@ endef
 
 define TOOL_ADD_IMG_PAYLOAD
 
-$(eval PRE_TOOL_FILTER := $($(call uppercase,$(1))_PRE_TOOL_FILTER))
+$(eval PRE_TOOL_FILTER := $($(call upper-case,$(1))_PRE_TOOL_FILTER))
 
 ifneq ($(PRE_TOOL_FILTER),)
 
@@ -236,7 +220,7 @@ endef
 define TOOL_ADD_IMG
     # Build option to specify the image filename (SCP_BL2, BL33, etc)
     # This is the uppercase form of the first parameter
-    $(eval _V := $(call uppercase,$(1)))
+    $(eval _V := $(call upper-case,$(1)))
 
     # $(check_$(1)_cmd) variable is executed in the check_$(1) target and also
     # is put into the ${CHECK_$(3)FIP_CMD} variable which is executed by the
@@ -303,7 +287,7 @@ MAKE_DEP = -Wp,-MD,$(DEP) -MT $$@ -MP
 define MAKE_C_LIB
 $(eval OBJ := $(1)/$(patsubst %.c,%.o,$(notdir $(2))))
 $(eval DEP := $(patsubst %.o,%.d,$(OBJ)))
-$(eval LIB := $(call uppercase, $(notdir $(1))))
+$(eval LIB := $(call upper-case, $(notdir $(1))))
 
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | lib$(3)_dirs
 	$$(ECHO) "  CC      $$<"
@@ -339,10 +323,10 @@ define MAKE_C
 $(eval OBJ := $(1)/$(patsubst %.c,%.o,$(notdir $(2))))
 $(eval DEP := $(patsubst %.o,%.d,$(OBJ)))
 
-$(eval BL_DEFINES := IMAGE_$(call uppercase,$(3)) $($(call uppercase,$(3))_DEFINES) $(PLAT_BL_COMMON_DEFINES))
-$(eval BL_INCLUDE_DIRS := $($(call uppercase,$(3))_INCLUDE_DIRS) $(PLAT_BL_COMMON_INCLUDE_DIRS))
-$(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) $(addprefix -D,$(BL_DEFINES)) $(addprefix -I,$(BL_INCLUDE_DIRS)) $(PLAT_BL_COMMON_CPPFLAGS))
-$(eval BL_CFLAGS := $($(call uppercase,$(3))_CFLAGS) $(PLAT_BL_COMMON_CFLAGS))
+$(eval BL_DEFINES := IMAGE_$(call upper-case,$(3)) $($(call upper-case,$(3))_DEFINES) $(PLAT_BL_COMMON_DEFINES))
+$(eval BL_INCLUDE_DIRS := $($(call upper-case,$(3))_INCLUDE_DIRS) $(PLAT_BL_COMMON_INCLUDE_DIRS))
+$(eval BL_CPPFLAGS := $($(call upper-case,$(3))_CPPFLAGS) $(addprefix -D,$(BL_DEFINES)) $(addprefix -I,$(BL_INCLUDE_DIRS)) $(PLAT_BL_COMMON_CPPFLAGS))
+$(eval BL_CFLAGS := $($(call upper-case,$(3))_CFLAGS) $(PLAT_BL_COMMON_CFLAGS))
 
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
 	$$(ECHO) "  CC      $$<"
@@ -362,10 +346,10 @@ define MAKE_S
 $(eval OBJ := $(1)/$(patsubst %.S,%.o,$(notdir $(2))))
 $(eval DEP := $(patsubst %.o,%.d,$(OBJ)))
 
-$(eval BL_DEFINES := IMAGE_$(call uppercase,$(3)) $($(call uppercase,$(3))_DEFINES) $(PLAT_BL_COMMON_DEFINES))
-$(eval BL_INCLUDE_DIRS := $($(call uppercase,$(3))_INCLUDE_DIRS) $(PLAT_BL_COMMON_INCLUDE_DIRS))
-$(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) $(addprefix -D,$(BL_DEFINES)) $(addprefix -I,$(BL_INCLUDE_DIRS)) $(PLAT_BL_COMMON_CPPFLAGS))
-$(eval BL_ASFLAGS := $($(call uppercase,$(3))_ASFLAGS) $(PLAT_BL_COMMON_ASFLAGS))
+$(eval BL_DEFINES := IMAGE_$(call upper-case,$(3)) $($(call upper-case,$(3))_DEFINES) $(PLAT_BL_COMMON_DEFINES))
+$(eval BL_INCLUDE_DIRS := $($(call upper-case,$(3))_INCLUDE_DIRS) $(PLAT_BL_COMMON_INCLUDE_DIRS))
+$(eval BL_CPPFLAGS := $($(call upper-case,$(3))_CPPFLAGS) $(addprefix -D,$(BL_DEFINES)) $(addprefix -I,$(BL_INCLUDE_DIRS)) $(PLAT_BL_COMMON_CPPFLAGS))
+$(eval BL_ASFLAGS := $($(call upper-case,$(3))_ASFLAGS) $(PLAT_BL_COMMON_ASFLAGS))
 
 $(OBJ): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
 	$$(ECHO) "  AS      $$<"
@@ -384,9 +368,9 @@ define MAKE_LD
 
 $(eval DEP := $(1).d)
 
-$(eval BL_DEFINES := IMAGE_$(call uppercase,$(3)) $($(call uppercase,$(3))_DEFINES) $(PLAT_BL_COMMON_DEFINES))
-$(eval BL_INCLUDE_DIRS := $($(call uppercase,$(3))_INCLUDE_DIRS) $(PLAT_BL_COMMON_INCLUDE_DIRS))
-$(eval BL_CPPFLAGS := $($(call uppercase,$(3))_CPPFLAGS) $(addprefix -D,$(BL_DEFINES)) $(addprefix -I,$(BL_INCLUDE_DIRS)) $(PLAT_BL_COMMON_CPPFLAGS))
+$(eval BL_DEFINES := IMAGE_$(call upper-case,$(3)) $($(call upper-case,$(3))_DEFINES) $(PLAT_BL_COMMON_DEFINES))
+$(eval BL_INCLUDE_DIRS := $($(call upper-case,$(3))_INCLUDE_DIRS) $(PLAT_BL_COMMON_INCLUDE_DIRS))
+$(eval BL_CPPFLAGS := $($(call upper-case,$(3))_CPPFLAGS) $(addprefix -D,$(BL_DEFINES)) $(addprefix -I,$(BL_INCLUDE_DIRS)) $(PLAT_BL_COMMON_CPPFLAGS))
 
 $(1): $(2) $(filter-out %.d,$(MAKEFILE_LIST)) | $(3)_dirs
 	$$(ECHO) "  PP      $$<"
@@ -458,7 +442,7 @@ define MAKE_LIB
         $(eval BUILD_DIR  := ${BUILD_PLAT}/lib$(1))
         $(eval LIB_DIR    := ${BUILD_PLAT}/lib)
         $(eval ROMLIB_DIR    := ${BUILD_PLAT}/romlib)
-        $(eval SOURCES    := $(LIB$(call uppercase,$(1))_SRCS))
+        $(eval SOURCES    := $(LIB$(call upper-case,$(1))_SRCS))
         $(eval OBJS       := $(addprefix $(BUILD_DIR)/,$(call SOURCES_TO_OBJS,$(SOURCES))))
 
 $(eval $(call MAKE_PREREQ_DIR,${BUILD_DIR},${BUILD_PLAT}))
@@ -503,7 +487,7 @@ endef
 #   $(4) = BL encryption flag (optional) (0, 1)
 define MAKE_BL
         $(eval BUILD_DIR  := ${BUILD_PLAT}/$(1))
-        $(eval BL_SOURCES := $($(call uppercase,$(1))_SOURCES))
+        $(eval BL_SOURCES := $($(call upper-case,$(1))_SOURCES))
         $(eval SOURCES    := $(sort $(BL_SOURCES) $(BL_COMMON_SOURCES) $(PLAT_BL_COMMON_SOURCES)))
         $(eval OBJS       := $(addprefix $(BUILD_DIR)/,$(call SOURCES_TO_OBJS,$(SOURCES))))
         $(eval MAPFILE    := $(call IMG_MAPFILE,$(1)))
@@ -511,12 +495,12 @@ define MAKE_BL
         $(eval DUMP       := $(call IMG_DUMP,$(1)))
         $(eval BIN        := $(call IMG_BIN,$(1)))
         $(eval ENC_BIN    := $(call IMG_ENC_BIN,$(1)))
-        $(eval BL_LIBS    := $($(call uppercase,$(1))_LIBS))
+        $(eval BL_LIBS    := $($(call upper-case,$(1))_LIBS))
 
-        $(eval DEFAULT_LINKER_SCRIPT_SOURCE := $($(call uppercase,$(1))_DEFAULT_LINKER_SCRIPT_SOURCE))
+        $(eval DEFAULT_LINKER_SCRIPT_SOURCE := $($(call upper-case,$(1))_DEFAULT_LINKER_SCRIPT_SOURCE))
         $(eval DEFAULT_LINKER_SCRIPT := $(call linker_script_path,$(DEFAULT_LINKER_SCRIPT_SOURCE)))
 
-        $(eval LINKER_SCRIPT_SOURCES := $($(call uppercase,$(1))_LINKER_SCRIPT_SOURCES))
+        $(eval LINKER_SCRIPT_SOURCES := $($(call upper-case,$(1))_LINKER_SCRIPT_SOURCES))
         $(eval LINKER_SCRIPTS := $(call linker_script_path,$(LINKER_SCRIPT_SOURCES)))
 
         # We use sort only to get a list of unique object directory names.
@@ -545,7 +529,7 @@ $(eval $(call MAKE_OBJS,$(BUILD_DIR),$(SOURCES),$(1)))
 $(eval $(foreach source,$(DEFAULT_LINKER_SCRIPT_SOURCE) $(LINKER_SCRIPT_SOURCES), \
         $(call MAKE_LD,$(call linker_script_path,$(source)),$(source),$(1))))
 
-$(eval BL_LDFLAGS := $($(call uppercase,$(1))_LDFLAGS))
+$(eval BL_LDFLAGS := $($(call upper-case,$(1))_LDFLAGS))
 
 ifeq ($(USE_ROMLIB),1)
 $(ELF): romlib.bin

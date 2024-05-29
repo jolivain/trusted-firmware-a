@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2019-2023, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2019-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -62,6 +62,6 @@ $(eval $(call add_define,ARM_LINUX_KERNEL_AS_BL33))
   $(eval $(call add_define,ARM_PRELOADED_DTB_BASE))
 
 # Adding TARGET_PLATFORM as a GCC define (-D option)
-$(eval $(call add_define,TARGET_PLATFORM_$(call uppercase,${TARGET_PLATFORM})))
+$(eval $(call add_define,TARGET_PLATFORM_$(call upper-case,${TARGET_PLATFORM})))
 
 include plat/arm/board/common/board_common.mk

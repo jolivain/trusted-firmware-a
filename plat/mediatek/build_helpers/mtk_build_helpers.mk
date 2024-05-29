@@ -58,7 +58,7 @@ endef
 #   $(1) = source file
 #   $(2) = BL stage (1, 2, 2u, 31, 32)
 define MAKE_LOCALS
-$(eval $(call uppercase,$(2))_SOURCES += $(1))
+$(eval $(call upper-case,$(2))_SOURCES += $(1))
 endef
 
 # MAKE_MODULE reference MAKE_OBJS.

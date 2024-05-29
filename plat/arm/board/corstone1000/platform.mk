@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2021-2023, Arm Limited and Contributors. All rights reserved.
+# Copyright (c) 2021-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -81,7 +81,7 @@ CORSTONE1000_TOS_FW_CONFIG	:=	${BUILD_PLAT}/fdts/corstone1000_spmc_manifest.dtb
 $(eval $(call TOOL_ADD_PAYLOAD,${CORSTONE1000_TOS_FW_CONFIG},--tos-fw-config,${CORSTONE1000_TOS_FW_CONFIG}))
 
 # Adding TARGET_PLATFORM as a GCC define (-D option)
-$(eval $(call add_define,TARGET_PLATFORM_$(call uppercase,${TARGET_PLATFORM})))
+$(eval $(call add_define,TARGET_PLATFORM_$(call upper-case,${TARGET_PLATFORM})))
 
 # Adding CORSTONE1000_FW_NVCTR_VAL as a GCC define (-D option)
 $(eval $(call add_define,CORSTONE1000_FW_NVCTR_VAL))

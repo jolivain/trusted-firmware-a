@@ -72,8 +72,8 @@ endif
 
 $(eval $(call add_defines, \
 	TARGET_PLATFORM \
-	TARGET_FLAVOUR_$(call uppercase,${TARGET_FLAVOUR}) \
-	TC_RESOLUTION_$(call uppercase,${TC_RESOLUTION}) \
+	TARGET_FLAVOUR_$(call upper-case,${TARGET_FLAVOUR}) \
+	TC_RESOLUTION_$(call upper-case,${TC_RESOLUTION}) \
 	TC_DPU_USE_SCMI_CLK \
 	TC_SCMI_PD_CTRL_EN \
 	TC_IOMMU_EN \
