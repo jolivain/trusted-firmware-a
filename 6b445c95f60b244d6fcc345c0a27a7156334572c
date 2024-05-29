@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9b99eb1_93b61055",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000879
+      },
+      "writtenOn": "2024-05-29T01:42:39Z",
+      "side": 1,
+      "message": "build failed:\n1. Tf-a static checks: I have submitted this https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/ +/20480 but not merged;\n2. Tf-a ci gateway:\n17: 56:47/home/buildsave/workspace/tf-a builder/workspace/mbedtls/include/mbedtls/check_config. h: 396:2: error: # error \"MBEDTLS-MD.C defined, but no hash algorithm\"\n17: 56:47 396 | # error \"MBEDTLS-MD-C defined, but no hash algorithm\"\n17: 56:47 |^~~~~\nThe error messages are similar to the logs above, and this should not be caused by this submission.\n\nDo you have any suggestions or solutions for the above problem?",
+      "revId": "6b445c95f60b244d6fcc345c0a27a7156334572c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
