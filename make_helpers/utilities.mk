@@ -20,3 +20,31 @@ file-name = $(call decompat-path,$(notdir $(call compat-path,$(1))))
 directory-name = $(call decompat-path,$(dir $(call compat-path,$(1))))
 
 escape-shell = '$(subst ','\'',$(1))'
+
+#
+# Upper-case a string value.
+#
+# Parameters:
+#
+#   - $(1): string to upper-case
+#
+# Example usage:
+#
+#     $(call upper-case,HeLlO wOrLd) # "HELLO WORLD"
+#
+
+upper-case = $(shell echo $(call escape-shell,$(1)) | tr '[:lower:]' '[:upper:]')
+
+#
+# Lower-case a string value.
+#
+# Parameters:
+#
+#   - $(1): string to lower-case
+#
+# Example usage:
+#
+#     $(call lower-case,HeLlO wOrLd) # "hello world"
+#
+
+lower-case = $(shell echo $(call escape-shell,$(1)) | tr '[:upper:]' '[:lower:]')
