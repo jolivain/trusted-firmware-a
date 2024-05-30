@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2019-2022, Xilinx, Inc. All rights reserved.
- * Copyright (c) 2022-2023, Advanced Micro Devices, Inc. All rights reserved.
+ * Copyright (c) 2022-2024, Advanced Micro Devices, Inc. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -71,11 +71,6 @@ enum {
 	IOCTL_SET_TAPDELAY_BYPASS = 4,
 	IOCTL_SD_DLL_RESET = 6,
 	IOCTL_SET_SD_TAPDELAY = 7,
-	 /* Ioctl for clock driver */
-	IOCTL_SET_PLL_FRAC_MODE = 8,
-	IOCTL_GET_PLL_FRAC_MODE = 9,
-	IOCTL_SET_PLL_FRAC_DATA = 10,
-	IOCTL_GET_PLL_FRAC_DATA = 11,
 	IOCTL_WRITE_GGS = 12,
 	IOCTL_READ_GGS = 13,
 	IOCTL_WRITE_PGGS = 14,
@@ -95,8 +90,6 @@ enum {
 	IOCTL_GET_LAST_RESET_REASON = 23,
 	/* AI engine NPI ISR clear */
 	IOCTL_AIE_ISR_CLEAR = 24,
-	/* Register SGI to TF-A */
-	IOCTL_SET_SGI = 25,
 };
 
 /**
