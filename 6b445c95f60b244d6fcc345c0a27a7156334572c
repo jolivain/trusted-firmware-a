@@ -16,6 +16,24 @@
       "message": "build failed:\n1. Tf-a static checks: I have submitted this https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/ +/20480 but not merged;\n2. Tf-a ci gateway:\n17: 56:47/home/buildsave/workspace/tf-a builder/workspace/mbedtls/include/mbedtls/check_config. h: 396:2: error: # error \"MBEDTLS-MD.C defined, but no hash algorithm\"\n17: 56:47 396 | # error \"MBEDTLS-MD-C defined, but no hash algorithm\"\n17: 56:47 |^~~~~\nThe error messages are similar to the logs above, and this should not be caused by this submission.\n\nDo you have any suggestions or solutions for the above problem?",
       "revId": "6b445c95f60b244d6fcc345c0a27a7156334572c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a998c57_2fb8702a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-05-30T15:58:21Z",
+      "side": 1,
+      "message": "1) That\u0027s alright, the CI patch has the same topic, so it\u0027s actually run, see the rk3568 build in the report. Those \"new files should be covered\" check is not clever enough to see this, bummer. It seems like plat_sip_calls.c is not built, though, it\u0027s missing from platform.mk?\n2) That\u0027s the usual unrelated build failure, so we can ignore this for now.\n\nWhat\u0027s more interesting: Does it actually work on the board? The image I built the other day (patchset 23) didn\u0027t, so it would be good if someone could check and verify this.",
+      "parentUuid": "a9b99eb1_93b61055",
+      "revId": "6b445c95f60b244d6fcc345c0a27a7156334572c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
