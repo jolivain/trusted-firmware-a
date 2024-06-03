@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e67f213_312eeca0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-03T10:57:33Z",
+      "side": 1,
+      "message": "**Tested here**\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/74961/\n\n```With SPM:```\nhttps://ci.trustedfirmware.org/job/tf-a-builder/3796867/artifact/lava-uart0.log/*view*/\n\n```Without SPM:```\nhttps://ci.trustedfirmware.org/job/tf-a-builder/3796868/artifact/lava-uart0.log/*view*/",
+      "revId": "615afc42297f4b535f12e35f168fbc65d35458a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
