@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6f68bd8_4428c4d8",
+        "filename": "docs/plat/rockchip.rst",
+        "patchSetId": 28
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-06-03T16:59:53Z",
+      "side": 1,
+      "message": "Please use a capital A in \"Cortex-A55\".",
+      "revId": "7934dafb3a014b1c2d938458faff33b952dc69d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e0d3d4a_e68d8237",
+        "filename": "plat/rockchip/rk3568/drivers/pmu/pmu.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-06-03T16:59:53Z",
+      "side": 1,
+      "message": "There is name for this register in cortex_a55.h.\nI got it to work with:\n\"msr x0, \" __XSTRING(CORTEX_A55_CPUPWRCTLR_EL1) \"\\n\"\nMaybe there is a better method, but you should definitely mention the register name.",
+      "revId": "7934dafb3a014b1c2d938458faff33b952dc69d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9a0a71d_6ce18c92",
+        "filename": "plat/rockchip/rk3568/drivers/pmu/pmu.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-06-03T16:59:53Z",
+      "side": 1,
+      "message": "Same here, please use the name.\n\nAlso you need to put x0 in the clobber list, otherwise the compiler has no clue that you are using it.",
+      "revId": "7934dafb3a014b1c2d938458faff33b952dc69d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d8942f3_6f812a4f",
+        "filename": "plat/rockchip/rk3568/drivers/pmu/pmu.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-06-03T16:59:53Z",
+      "side": 1,
+      "message": "The ISB is only needed once (if at all), after the sysreg write, so you can move this out of the loop.",
+      "revId": "7934dafb3a014b1c2d938458faff33b952dc69d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
