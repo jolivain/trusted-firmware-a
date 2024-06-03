@@ -39,6 +39,30 @@
       },
       "revId": "48be1ede9740beab767e2afbff2f8592729bb5dd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e915f6b_767b50c8",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 25
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-03T18:44:55Z",
+      "side": 1,
+      "message": "This path will be taken when CTX_INCLUDE_EL2_REGS\u003d0.\nwhen CTX_INCLUDE_EL2_REGS\u003d1, in cold or in warmboot, ```cm_prepare_el3_exit_ns```, will be\ninvoked and internally\n\n```\n#if CTX_INCLUDE_EL2_REGS\n/* Restore EL2 sysreg contexts */\n\tcm_el2_sysregs_context_restore(NON_SECURE);\n\n```\nsctlr_el2 will be initialised in the ```setup_ns_context``` routine.",
+      "parentUuid": "73e3b9a9_dcbbcf8b",
+      "range": {
+        "startLine": 1011,
+        "startChar": 4,
+        "endLine": 1011,
+        "endChar": 37
+      },
+      "revId": "48be1ede9740beab767e2afbff2f8592729bb5dd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
