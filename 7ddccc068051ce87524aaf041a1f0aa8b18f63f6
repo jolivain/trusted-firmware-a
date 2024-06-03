@@ -22,6 +22,30 @@
       },
       "revId": "7ddccc068051ce87524aaf041a1f0aa8b18f63f6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "615db75c_5613fa00",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1000101
+      },
+      "writtenOn": "2024-06-03T21:06:05Z",
+      "side": 1,
+      "message": "Yes I agree, same with CCA! TBBR was separate so this seems to make sense, but could be checked to make sure separated correctly/reducing binary size correctly.",
+      "parentUuid": "2b682c31_ef43cb8b",
+      "range": {
+        "startLine": 392,
+        "startChar": 27,
+        "endLine": 392,
+        "endChar": 54
+      },
+      "revId": "7ddccc068051ce87524aaf041a1f0aa8b18f63f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
