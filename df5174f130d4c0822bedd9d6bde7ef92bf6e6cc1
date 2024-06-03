@@ -161,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "80be2ab6_ff22addb",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-03T12:03:48Z",
+      "side": 1,
+      "message": "Excuse me for the delayed response here. Somehow this comment got overlooked.\n\nIMO, we need entry point struct information to decide the endianness.\n\n```sctlr_elx \u003d (EP_GET_EE(ep-\u003eh.attr) !\u003d 0U) ? SCTLR_EE_BIT : 0UL;```\n\nThis logic remains the same for  NS-EL2 / EL1.\n\nSo, taking this into consideration we initialise SCTLR_EL2/EL1 register, depending on the exception where we run the non-secure image.\nYou are right, endianness won\u0027t change, it remains same either we run image at NS-EL1/EL2 as the logic checks for security state, (ep-\u003eh.attr), which is Non-secure in both cases.\n\nFurther, the existing implementation tries to initialise SCTLR_EL2 with SCTLR_EL1 value when we dont have a SPMC component at S-EL2 (or CTX_INCLUDE_EL2_REGS\u003d0).\n\nThe current change is aiming towards decoupling the EL2 dependency on EL1. Hence for build configs,\nwherein we have ( BL33 at NS-EL2, and no software component at S-EL2 ), for these configs, SCTLR2_EL2 initialisation is taken care explicitly in setup_ns_context API without relying on EL1 context.",
+      "parentUuid": "9def96f1_fbbb61c0",
+      "range": {
+        "startLine": 309,
+        "startChar": 56,
+        "endLine": 309,
+        "endChar": 66
+      },
+      "revId": "df5174f130d4c0822bedd9d6bde7ef92bf6e6cc1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e49e91b7_2643a75c",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 21
