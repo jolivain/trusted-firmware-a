@@ -22,6 +22,30 @@
       },
       "revId": "a061e5d01ef773590983eef537186a43114aff3b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90dc29b1_e51c3ebb",
+        "filename": "make_helpers/build_macros.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 563,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-06-03T17:19:28Z",
+      "side": 1,
+      "message": "The only platforms that can currently use armlink are the Tegra series, for which we have no CI tests (all CI tests use GCC/LD to link).\n\nEven after this patch these platforms do not build successfully with armlink for me, so I don\u0027t know how well this is maintained.",
+      "parentUuid": "5b7f1bef_5e99ff9d",
+      "range": {
+        "startLine": 562,
+        "startChar": 0,
+        "endLine": 563,
+        "endChar": 61
+      },
+      "revId": "a061e5d01ef773590983eef537186a43114aff3b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
