@@ -16,6 +16,23 @@
       "message": "**Tested here**\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/74961/\n\n```With SPM:```\nhttps://ci.trustedfirmware.org/job/tf-a-builder/3796867/artifact/lava-uart0.log/*view*/\n\n```Without SPM:```\nhttps://ci.trustedfirmware.org/job/tf-a-builder/3796868/artifact/lava-uart0.log/*view*/",
       "revId": "615afc42297f4b535f12e35f168fbc65d35458a7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eb1e7d1_f4a74108",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-03T11:10:29Z",
+      "side": 1,
+      "message": "MPAM registers have been moved into the EL2 context and the latest version of patch addresses it.\nKindly review and add your votes/comments.\nThanks!",
+      "revId": "615afc42297f4b535f12e35f168fbc65d35458a7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
