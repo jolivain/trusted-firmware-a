@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72ace8b4_044e2a06",
+        "filename": "include/lib/el3_runtime/context_el1.h",
+        "patchSetId": 23
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-04T10:57:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a6521c9_80460d88",
+      "range": {
+        "startLine": 54,
+        "startChar": 19,
+        "endLine": 54,
+        "endChar": 27
+      },
+      "revId": "6c4bb7f04a74c8b9ff53f4f1a65ff15995caf769",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2bee7e29_6b3c19d7",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-06-03T15:56:47Z",
       "side": 1,
       "message": "Is this accurate?",
+      "range": {
+        "startLine": 424,
+        "startChar": 25,
+        "endLine": 424,
+        "endChar": 57
+      },
+      "revId": "6c4bb7f04a74c8b9ff53f4f1a65ff15995caf769",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e6ff90d_e6f8b00c",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 23
+      },
+      "lineNbr": 424,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-04T10:57:33Z",
+      "side": 1,
+      "message": "Have modified the comment. Kindly let me if this is reasonable.",
+      "parentUuid": "2bee7e29_6b3c19d7",
       "range": {
         "startLine": 424,
         "startChar": 25,
@@ -100,6 +148,30 @@
       "writtenOn": "2024-06-04T10:50:29Z",
       "side": 1,
       "message": "BTW should converting restore_ptw_el1_sys_regs / save_and_update_ptw_el1_sys_regs to C be part of another change? This doesn\u0027t relate to what the commit title suggests?",
+      "parentUuid": "5a6d2df7_3e6e3bc0",
+      "range": {
+        "startLine": 426,
+        "startChar": 4,
+        "endLine": 426,
+        "endChar": 28
+      },
+      "revId": "6c4bb7f04a74c8b9ff53f4f1a65ff15995caf769",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd0aa87e_11f67c73",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 23
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-04T10:57:33Z",
+      "side": 1,
+      "message": "Thought about this part in the initial phase, and after a few discussions with the team proceeded.\nThe only reason I did this was to get rid of EL1 Assembly offset macros in the context.h file and further from the readability aspect, this was expected from the reviewers.\n\nPreviously when EL2 registers got refactored to c structure, we didnt had these issues/corner cases, as we covered all of them in couple of c functions save /restore routines.\n\nWith EL1 context, majority of the feature dependent registers were already saved and restored in C functions ```el1_sysregs_context_save``` and ```el1_sysregs_context_restore```.\nThe exceptional case here was couple of EL1 registers ```SCTLR_EL1 and TCR_EL1``` was saved and restored under some ERRATUM flag in assembly and to remove them I took this approach.\nEspecially these functions (previously macros) ```restore_ptw_el1_sys_regs```, included EL1 offset entries, converting them to C was the feasible option. \n\nIf there is any alternative approach I could apply here let me know. I am happy to pick them up. Kindly share your thoughts.",
       "parentUuid": "5a6d2df7_3e6e3bc0",
       "range": {
         "startLine": 426,
