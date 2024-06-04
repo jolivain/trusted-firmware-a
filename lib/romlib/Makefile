@@ -41,53 +41,53 @@ endif
 all: $(BUILD_DIR)/romlib.bin $(LIB_DIR)/libwrappers.a
 
 $(filter-out %/jmptbl.o,$(OBJS)): private flags += -c $(ASFLAGS) -o $@ $<
-$(filter-out %/jmptbl.o,$(OBJS)): $(BUILD_DIR)/%.o: %.s
+$(filter-out %/jmptbl.o,$(OBJS)): $(BUILD_DIR)/%.o: %.s | $$(@D)/
 	$(s)echo "  AS      $@"
 	$(q)$(aarch64-as) $(call target-properties,flags,aarch64,as,romlib)
 
 $(BUILD_DIR)/jmptbl.o: private flags += -c $(ASFLAGS) -o $@ $<
-$(BUILD_DIR)/jmptbl.o: $(BUILD_DIR)/jmptbl.s
+$(BUILD_DIR)/jmptbl.o: $(BUILD_DIR)/jmptbl.s | $$(@D)/
 	$(s)echo "  AS      $@"
 	$(q)$(aarch64-as) $(call target-properties,flags,aarch64,as,romlib)
 
 $(BUILD_DIR)/romlib.ld: private flags += -E $(PPFLAGS) -o $@ romlib.ld.S
-$(BUILD_DIR)/romlib.ld: romlib.ld.S
+$(BUILD_DIR)/romlib.ld: romlib.ld.S | $$(@D)/
 	$(s)echo "  PP      $@"
 	$(q)$(aarch64-cpp) $(call target-properties,flags,aarch64,cpp,romlib)
 
 $(BUILD_DIR)/romlib.elf: private flags += -T $(BUILD_DIR)/romlib.ld -L$(LIB_DIR) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
-$(BUILD_DIR)/romlib.elf: $(OBJS) $(BUILD_DIR)/romlib.ld
+$(BUILD_DIR)/romlib.elf: $(OBJS) $(BUILD_DIR)/romlib.ld | $$(@D)/
 	$(s)echo "  LD      $@"
 	$(q)$(aarch64-ld) $(call target-properties,flags,aarch64,ld,romlib)
 
 $(BUILD_DIR)/romlib.bin: private flags += -O binary $(BUILD_DIR)/romlib.elf $@
-$(BUILD_DIR)/romlib.bin: $(BUILD_DIR)/romlib.elf
+$(BUILD_DIR)/romlib.bin: $(BUILD_DIR)/romlib.elf | $$(@D)/
 	$(s)echo "  BIN     $@"
 	$(q)$(aarch64-oc) $(call target-properties,flags,aarch64,oc,romlib)
 
 $(WRAPPER_OBJS) $(WRAPPER_DIR)/jmpvar.o: private flags += -c $(ASFLAGS) -o $@ $<
-$(WRAPPER_OBJS) $(WRAPPER_DIR)/jmpvar.o: $(WRAPPER_DIR)/%.o: $(WRAPPER_DIR)/%.s
+$(WRAPPER_OBJS) $(WRAPPER_DIR)/jmpvar.o: $(WRAPPER_DIR)/%.o: $(WRAPPER_DIR)/%.s | $$(@D)/
 	$(s)echo "  AS      $@"
 	$(q)$(aarch64-as) $(call target-properties,flags,aarch64,as,wrappers)
 
-$(WRAPPER_DIR)/jmpvar.s: $(BUILD_DIR)/romlib.elf
+$(WRAPPER_DIR)/jmpvar.s: $(BUILD_DIR)/romlib.elf | $$(@D)/
 	$(s)echo "  VAR     $@"
 	$(q)$(ROMLIB_GEN) genvar --output $@ $<
 
 $(LIB_DIR)/libwrappers.a: private flags += -rc $@ $(WRAPPER_DIR)/jmpvar.o $(WRAPPER_OBJS)
-$(LIB_DIR)/libwrappers.a: $(WRAPPER_DIR)/jmpvar.o $(WRAPPER_OBJS)
+$(LIB_DIR)/libwrappers.a: $(WRAPPER_DIR)/jmpvar.o $(WRAPPER_OBJS) | $$(@D)/
 	$(s)echo "  AR      $@"
 	$(q)$(aarch64-ar) $(call target-properties,flags,aarch64,ar,wrappers)
 
-$(BUILD_DIR)/jmptbl.i: ../../$(PLAT_DIR)/jmptbl.i
+$(BUILD_DIR)/jmptbl.i: ../../$(PLAT_DIR)/jmptbl.i | $$(@D)/
 	$(s)echo "  PRE     $@"
 	$(q)$(ROMLIB_GEN) pre --output $@ --deps $(BUILD_DIR)/jmptbl.d $<
 
-$(WRAPPER_SOURCES) &: $(BUILD_DIR)/jmptbl.i
+$(WRAPPER_SOURCES) &: $(BUILD_DIR)/jmptbl.i | $$(@D)/
 	$(s)echo "  WRP     $<"
 	$(q)$(ROMLIB_GEN) genwrappers --bti=$(ENABLE_BTI) -b $(WRAPPER_DIR) $<
 
-$(BUILD_DIR)/jmptbl.s: $(BUILD_DIR)/jmptbl.i
+$(BUILD_DIR)/jmptbl.s: $(BUILD_DIR)/jmptbl.i | $$(@D)/
 	$(s)echo "  TBL     $@"
 	$(q)$(ROMLIB_GEN) gentbl --output $@ --bti=$(ENABLE_BTI) $<
 

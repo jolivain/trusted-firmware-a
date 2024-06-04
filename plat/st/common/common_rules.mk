@@ -40,7 +40,7 @@ check_dtc_version:
 	fi
 
 # Create DTB file for BL2
-${BUILD_PLAT}/fdts/%-bl2.dts: fdts/%.dts fdts/${BL2_DTSI} | ${BUILD_PLAT} fdt_dirs
+${BUILD_PLAT}/fdts/%-bl2.dts: fdts/%.dts fdts/${BL2_DTSI} | $$(@D)/
 	$(q)echo '#include "$(patsubst fdts/%,%,$<)"' > $@
 	$(q)echo '#include "${BL2_DTSI}"' >> $@
 
@@ -49,7 +49,7 @@ ${BUILD_PLAT}/fdts/%-bl2.dtb: ${BUILD_PLAT}/fdts/%-bl2.dts
 ${BUILD_PLAT}/$(PLAT)-%.o: private flags += -x assembler-with-cpp $(TF_CFLAGS_$(ARCH)) $(ASFLAGS) $(TF_CFLAGS)
 ${BUILD_PLAT}/$(PLAT)-%.o: private flags += -DDTB_BIN_PATH=\"$<\"
 ${BUILD_PLAT}/$(PLAT)-%.o: private flags += -c $(word 2,$^) -o $@
-${BUILD_PLAT}/$(PLAT)-%.o: ${BUILD_PLAT}/fdts/%-bl2.dtb $(STM32_BINARY_MAPPING) bl2
+${BUILD_PLAT}/$(PLAT)-%.o: ${BUILD_PLAT}/fdts/%-bl2.dtb $(STM32_BINARY_MAPPING) bl2 | $$(@D)/
 	$(s)echo "  AS      $${PLAT}.S"
 	$(q)$($(ARCH)-as) $(call target-properties,flags,$(ARCH),as)
 
@@ -59,18 +59,18 @@ $(BUILD_PLAT)/tf-a-%.elf: private llvm-lld-flags += -o $@ $(STM32_TF_ELF_LDFLAGS
 $(BUILD_PLAT)/tf-a-%.elf: private gnu-gcc-flags += -o $@ $(subst --,-Wl$(comma)--,$(STM32_TF_ELF_LDFLAGS)) -nostartfiles -Wl,-Map=$(@:.elf=.map) -Wl,-dT $(STM32_TF_LINKERFILE) $<
 $(BUILD_PLAT)/tf-a-%.elf: private gnu-ld-flags += -o $@ $(STM32_TF_ELF_LDFLAGS) -Map=$(@:.elf=.map) --script $(STM32_TF_LINKERFILE) $<
 
-$(BUILD_PLAT)/tf-a-%.elf: $(BUILD_PLAT)/$(PLAT)-%.o ${STM32_TF_LINKERFILE}
+$(BUILD_PLAT)/tf-a-%.elf: $(BUILD_PLAT)/$(PLAT)-%.o ${STM32_TF_LINKERFILE} | $$(@D)/
 	$(s)echo "  LDS     $<"
 	$(q)$($(ARCH)-ld) $(call target-properties,flags,$(ARCH),ld)
 
 $(BUILD_PLAT)/tf-a-%.bin: private flags += -O binary $< $@
-$(BUILD_PLAT)/tf-a-%.bin: $(BUILD_PLAT)/tf-a-%.elf
+$(BUILD_PLAT)/tf-a-%.bin: $(BUILD_PLAT)/tf-a-%.elf | $$(@D)/
 	$(q)$($(ARCH)-oc) $(call target-properties,flags,$(ARCH),oc)
 	$(s)echo
 	$(s)echo "Built $@ successfully"
 	$(s)echo
 
-$(BUILD_PLAT)/tf-a-%.stm32: $(BUILD_PLAT)/tf-a-%.bin ${STM32_DEPS}
+$(BUILD_PLAT)/tf-a-%.stm32: $(BUILD_PLAT)/tf-a-%.bin ${STM32_DEPS} | $$(@D)/
 	$(s)echo
 	$(s)echo "Generate $@"
 	$(eval LOADADDR = $(shell cat $(@:.stm32=.map) | grep '^RAM' | awk '{print $$2}'))

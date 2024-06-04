@@ -75,7 +75,7 @@ DEPS := $(patsubst %.o,%.d,$(OBJECTS))
 all: --openssl ${PROJECT}
 
 $(PROJECT): private flags += $(OBJECTS) -o $@ $(LDOPTS)
-$(PROJECT): $(OBJECTS) Makefile
+$(PROJECT): $(OBJECTS) Makefile | $$(@D)/
 	$(s)echo "  HOSTLD  $@"
 	$(q)$(host-cc) $(call target-properties,flags,host,cc,fiptool)
 	$(s)echo
@@ -83,7 +83,7 @@ $(PROJECT): $(OBJECTS) Makefile
 	$(s)echo
 
 %.o: private flags += -c $(CPPFLAGS) $(HOSTCCFLAGS) $(INCLUDE_PATHS) -MD -MP $< -o $@
-%.o: %.c Makefile
+%.o: %.c Makefile | $$(@D)/
 	$(s)echo "  HOSTCC  $<"
 	$(q)$(host-cc) $(call target-properties,flags,host,cc,fiptool)
 

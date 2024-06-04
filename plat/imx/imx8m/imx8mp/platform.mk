@@ -125,13 +125,12 @@ ROT_KEY             = $(BUILD_PLAT)/rot_key.pem
 ROTPK_HASH          = $(BUILD_PLAT)/rotpk_sha256.bin
 
 $(eval $(call add_define_val,ROTPK_HASH,'"$(ROTPK_HASH)"'))
-$(eval $(call MAKE_LIB_DIRS))
 
 $(BUILD_PLAT)/bl2/imx8mp_rotpk.o: $(ROTPK_HASH)
 
 certificates: $(ROT_KEY)
 
-$(ROT_KEY): | $(BUILD_PLAT)
+$(ROT_KEY): | $$(@D)/
 	$(s)echo "  OPENSSL $@"
 	@if [ ! -f $(ROT_KEY) ]; then \
 		${OPENSSL_BIN_PATH}/openssl genrsa 2048 > $@ 2>/dev/null; \

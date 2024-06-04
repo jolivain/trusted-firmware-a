@@ -267,12 +267,12 @@ clean_srecord:
 	rm -f ${SREC_PATH}/bl2.srec ${SREC_PATH}/bl31.srec
 
 $(SREC_PATH)/bl2.srec: private flags += -O srec --srec-forceS3 $(BL2_ELF_SRC)  $(SREC_PATH)/bl2.srec
-$(SREC_PATH)/bl2.srec: $(BL2_ELF_SRC)
+$(SREC_PATH)/bl2.srec: $(BL2_ELF_SRC) | $$(@D)/
 	$(s)echo "generating srec: $(SREC_PATH)/bl2.srec"
 	$(q)$($(ARCH)-oc) $(call target-properties,flags,$(ARCH),oc,bl2)
 
 $(SREC_PATH)/bl31.srec: private flags += -O srec --srec-forceS3 $(BL31_ELF_SRC) $(SREC_PATH)/bl31.srec
-$(SREC_PATH)/bl31.srec: $(BL31_ELF_SRC)
+$(SREC_PATH)/bl31.srec: $(BL31_ELF_SRC) | $$(@D)/
 	$(s)echo "generating srec: $(SREC_PATH)/bl31.srec"
 	$(q)$($(ARCH)-oc) $(call target-properties,flags,$(ARCH),oc,bl31)
 

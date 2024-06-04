@@ -63,8 +63,8 @@ $(eval OBJ := $(1)/$(patsubst %.c,%.o,$(notdir $(2))))
 -include $$(wildcard $(patsubst %.o,%.d,$(OBJ)))
 
 $(OBJ): private flags += $$(COMMON_FLAGS) $$(CFLAGS) $$(INCLUDES) -MMD -MT $$@ -c $$< -o $$@
-$(OBJ) : $(2)
-	$$(s)echo "  CC      $$<"
+$(OBJ): $(2) | $$$$(@D)/
+	$(s)echo "  CC      $$<"
 	$$(q)$$(rk3399-m0-cc) $$(call target-properties,flags,rk3399-m0,cc)
 endef
 
@@ -72,7 +72,7 @@ define MAKE_S
 $(eval OBJ := $(1)/$(patsubst %.S,%.o,$(notdir $(2))))
 
 $(OBJ): private flags += -x assembler-with-cpp $$(COMMON_FLAGS) $$(ASFLAGS) -c $$< -o $$@
-$(OBJ) : $(2)
+$(OBJ): $(2) | $$$$(@D)/
 	$$(s)echo "  AS      $$<"
 	$$(q)$$(rk3399-m0-cc) $$(call target-properties,flags,rk3399-m0,cc)
 endef
@@ -92,22 +92,22 @@ endef
 all: $(BIN) $(BIN_PMU)
 
 $(LINKERFILE): private flags += $(COMMON_FLAGS) $(INCLUDES) -P -E -D__LINKER__ -MMD -MF $@.d -MT $@ -o $@ $<
-$(LINKERFILE): $(LINKERFILE_SRC)
+$(LINKERFILE): $(LINKERFILE_SRC) | $$(@D)/
 	$(rk3399-m0-cc) $(call target-properties,flags,rk3399-m0,cc,rk3399-m0)
 -include $(wildcard $(LINKERFILE).d)
 
 $(ELF): private flags += -o $@ $(COMMON_FLAGS) $(LDFLAGS) -Wl,-Map=$(MAPFILE) -Wl,-T$(LINKERFILE) $(OBJS) $(OBJS_COMMON)
-$(ELF) : $(OBJS) $(OBJS_COMMON) $(LINKERFILE)
+$(ELF): $(OBJS) $(OBJS_COMMON) $(LINKERFILE) | $$(@D)/
 	$(s)echo "  LD      $@"
 	$(q)$(rk3399-m0-cc) $(call target-properties,flags,rk3399-m0,cc,rk3399-m0)
 
 %.bin: private flags += -O binary $< $@
-%.bin : %.elf
+%.bin: %.elf | $$(@D)/
 	$(s)echo "  BIN     $@"
 	$(q)$(rk3399-m0-oc) $(call target-properties,flags,rk3399-m0,oc)
 
 $(ELF_PMU): private flags += -o $@ $(COMMON_FLAGS) $(LDFLAGS) -Wl,-Map=$(MAPFILE_PMU) -Wl,-T$(LINKERFILE) $(OBJS_PMU) $(OBJS_COMMON)
-$(ELF_PMU) : $(OBJS_COMMON) $(OBJS_PMU) $(LINKERFILE)
+$(ELF_PMU): $(OBJS_COMMON) $(OBJS_PMU) $(LINKERFILE) | $$(@D)/
 	$(s)echo "  LD      $@"
 	$(q)$(rk3399-m0-cc) $(call target-properties,flags,rk3399-m0,cc,rk3399-m0-pmu)
 

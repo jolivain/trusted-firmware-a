@@ -7,6 +7,11 @@
 ifndef build-rules-mk
         build-rules-mk := $(lastword $(MAKEFILE_LIST))
 
+        include $(dir $(build-rules-mk))common.mk
+        include $(dir $(build-rules-mk))utilities.mk
+
+        .SECONDARY:
+        .SECONDEXPANSION:
         .SUFFIXES:
 
         .PHONY: all clean distclean realclean
@@ -15,4 +20,8 @@ ifndef build-rules-mk
 
         .PHONY: FORCE
         FORCE: ;
+
+        %/:
+		$(s)echo '  MD      '$(call escape-shell,$(abspath $@))
+		$(q)mkdir -p $(call escape-shell,$@)
 endif

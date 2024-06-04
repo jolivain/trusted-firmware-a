@@ -679,8 +679,6 @@ else
 	FFH_SUPPORT := 0
 endif
 
-$(eval $(call MAKE_PREREQ_DIR,${BUILD_PLAT}))
-
 ifeq (${ARM_ARCH_MAJOR},7)
 include make_helpers/armv7-a-cpus.mk
 endif
@@ -1464,7 +1462,6 @@ else
 endif
 endif #(!ERROR_DEPRECATED)
 
-$(eval $(call MAKE_LIB_DIRS))
 $(eval $(call MAKE_LIB,c))
 
 # Expand build macros for the different images
@@ -1548,7 +1545,7 @@ endif #(NEED_FDT)
 
 # Add Secure Partition packages
 ifeq (${NEED_SP_PKG},yes)
-$(BUILD_PLAT)/sp_gen.mk: ${SP_MK_GEN} ${SP_LAYOUT_FILE} | ${BUILD_PLAT}
+$(BUILD_PLAT)/sp_gen.mk: ${SP_MK_GEN} ${SP_LAYOUT_FILE} | $$(@D)/
 	@${PYTHON} "$<" "$@" $(filter-out $<,$^) $(BUILD_PLAT) ${COT} ${SP_DTS_LIST_FRAGMENT}
 sp: $(DTBS) $(BUILD_PLAT)/sp_gen.mk $(SP_PKGS)
 	$(s)echo
