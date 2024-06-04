@@ -6,6 +6,7 @@
 
 toolchains := rk3399-m0
 
+include ../../../../../make_helpers/build-rules.mk
 include ../../../../../make_helpers/common.mk
 include ../../../../../make_helpers/toolchain.mk
 
