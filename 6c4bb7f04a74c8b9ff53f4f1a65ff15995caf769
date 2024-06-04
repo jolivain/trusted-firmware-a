@@ -181,6 +181,30 @@
       },
       "revId": "6c4bb7f04a74c8b9ff53f4f1a65ff15995caf769",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43f55f54_6e1b6cc0",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 23
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-04T11:54:25Z",
+      "side": 1,
+      "message": "\u003e BTW should converting restore_ptw_el1_sys_regs / save_and_update_ptw_el1_sys_regs to C be part of another change? This doesn\u0027t relate to what the commit title suggests?\n\nI thought its kind of intrerrelated as all of these aimed at converting to c struct.\nI could split this patch. No issues there. Will cover all these comments in the next version of the patch. Thanks again for the quick reviews Olivier.",
+      "parentUuid": "cd0aa87e_11f67c73",
+      "range": {
+        "startLine": 426,
+        "startChar": 4,
+        "endLine": 426,
+        "endChar": 28
+      },
+      "revId": "6c4bb7f04a74c8b9ff53f4f1a65ff15995caf769",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
