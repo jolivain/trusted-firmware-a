@@ -8,6 +8,7 @@
 #include <asm_macros.S>
 #include <drivers/arm/gicv2.h>
 #include <drivers/arm/gicv3.h>
+#include <drivers/arm/fvp/fvp_cpu_pwr.h>
 #include <drivers/arm/fvp/fvp_pwrc.h>
 #include <platform_def.h>
 
@@ -29,6 +30,14 @@
 	 */
 func plat_secondary_cold_boot_setup
 #ifndef EL3_PAYLOAD_BASE
+
+	b 	check_cpupwrctrl_el1_is_available
+	cbz	x0, 1f
+
+	mrs     x1, S3_0_C15_C2_7
+	orr     x1, x1, #1
+	msr     S3_0_C15_C2_7, x1
+
 	/* ---------------------------------------------
 	 * Power down this cpu.
 	 * TODO: Do we need to worry about powering the
@@ -37,6 +46,7 @@ func plat_secondary_cold_boot_setup
 	 * loader zeroes out the zi section.
 	 * ---------------------------------------------
 	 */
+1:
 	mrs	x0, mpidr_el1
 	mov_imm	x1, PWRC_BASE
 	str	w0, [x1, #PPOFFR_OFF]
