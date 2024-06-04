@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5446eb84_7cf2e808",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-04T14:32:36Z",
+      "side": 1,
+      "message": "This check looks to be fine for line no. 47 but I\u0027m not pretty sure about FW_HANDOFF, I think it is depends upon the platform chosen value for PLAT_ARM_EL3_FW_HANDOFF_BASE.\n\nCurrently, FW_CONFIG and PLAT_ARM_EL3_FW_HANDOFF_BASE base addresses in Arm platforms are below BL2 Base.\n\n\nMay I know the load address of BL2 in rd1ae platform?",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 17
+      },
+      "revId": "88c3094297f1f348b36aa3aef0812ac6771bc847",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
