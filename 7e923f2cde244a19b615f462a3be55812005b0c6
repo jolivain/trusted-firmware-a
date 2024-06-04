@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f98c3cac_348bf66a",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-04T14:32:47Z",
+      "side": 1,
+      "message": "Simplify this-\nifeq ($(filter $(PLAT), corstone1000 rd1ae),)",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 284,
+        "endChar": 22
+      },
+      "revId": "7e923f2cde244a19b615f462a3be55812005b0c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
