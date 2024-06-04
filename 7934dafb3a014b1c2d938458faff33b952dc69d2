@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e773a093_b5b72061",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 28
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000266
+      },
+      "writtenOn": "2024-06-04T02:20:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee091ec9_c473929b",
+      "revId": "7934dafb3a014b1c2d938458faff33b952dc69d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6f68bd8_4428c4d8",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-06-03T16:59:53Z",
       "side": 1,
       "message": "Please use a capital A in \"Cortex-A55\".",
+      "revId": "7934dafb3a014b1c2d938458faff33b952dc69d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55620ea0_d4d820d2",
+        "filename": "docs/plat/rockchip.rst",
+        "patchSetId": 28
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000266
+      },
+      "writtenOn": "2024-06-04T02:20:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6f68bd8_4428c4d8",
       "revId": "7934dafb3a014b1c2d938458faff33b952dc69d2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "122dcb17_b9fb612e",
+        "filename": "plat/rockchip/rk3568/drivers/pmu/pmu.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000266
+      },
+      "writtenOn": "2024-06-04T02:20:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e0d3d4a_e68d8237",
+      "revId": "7934dafb3a014b1c2d938458faff33b952dc69d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9a0a71d_6ce18c92",
@@ -69,6 +123,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf51d710_434ed145",
+        "filename": "plat/rockchip/rk3568/drivers/pmu/pmu.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000266
+      },
+      "writtenOn": "2024-06-04T02:20:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9a0a71d_6ce18c92",
+      "revId": "7934dafb3a014b1c2d938458faff33b952dc69d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d8942f3_6f812a4f",
@@ -82,6 +154,24 @@
       "writtenOn": "2024-06-03T16:59:53Z",
       "side": 1,
       "message": "The ISB is only needed once (if at all), after the sysreg write, so you can move this out of the loop.",
+      "revId": "7934dafb3a014b1c2d938458faff33b952dc69d2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af5be1ea_0a12258c",
+        "filename": "plat/rockchip/rk3568/drivers/pmu/pmu.c",
+        "patchSetId": 28
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000266
+      },
+      "writtenOn": "2024-06-04T02:20:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d8942f3_6f812a4f",
       "revId": "7934dafb3a014b1c2d938458faff33b952dc69d2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
