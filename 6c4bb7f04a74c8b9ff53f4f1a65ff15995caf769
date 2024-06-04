@@ -85,6 +85,30 @@
       },
       "revId": "6c4bb7f04a74c8b9ff53f4f1a65ff15995caf769",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd7854b8_0d6356d1",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 23
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-06-04T10:50:29Z",
+      "side": 1,
+      "message": "BTW should converting restore_ptw_el1_sys_regs / save_and_update_ptw_el1_sys_regs to C be part of another change? This doesn\u0027t relate to what the commit title suggests?",
+      "parentUuid": "5a6d2df7_3e6e3bc0",
+      "range": {
+        "startLine": 426,
+        "startChar": 4,
+        "endLine": 426,
+        "endChar": 28
+      },
+      "revId": "6c4bb7f04a74c8b9ff53f4f1a65ff15995caf769",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
