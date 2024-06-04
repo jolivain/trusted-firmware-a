@@ -10,6 +10,7 @@ else
         toolchains := aarch64
 endif
 
+include ../../make_helpers/build-rules.mk
 include ../../make_helpers/common.mk
 include ../../make_helpers/toolchain.mk
 
