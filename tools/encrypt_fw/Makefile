@@ -73,7 +73,7 @@ ${BINARY}: ${OBJECTS} Makefile
                 $(host-cc) -c ${HOSTCCFLAGS} -xc - -o src/build_msg.o
 	${Q}$(host-cc) src/build_msg.o ${OBJECTS} ${LIB_DIR} ${LIB} -o $@
 
-%.o: %.c
+$(OBJECTS): %.o: %.c
 	@echo "  HOSTCC  $<"
 	${Q}$(host-cc) -c ${HOSTCCFLAGS} ${INC_DIR} $< -o $@
 

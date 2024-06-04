@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2017-2023, ARM Limited and Contributors. All rights reserved.
+# Copyright (c) 2017-2024, Arm Limited and Contributors. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -135,6 +135,6 @@ endif
 
 .PHONY: bl2_gzip
 bl2_gzip: $(BUILD_PLAT)/bl2.bin.gz
-%.gz: %
+$(BUILD_PLAT)/bl2.bin.gz: %.gz: %
 	@echo "  GZIP    $@"
 	$(Q)gzip -n -f -9 $< --stdout > $@

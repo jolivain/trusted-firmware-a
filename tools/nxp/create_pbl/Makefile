@@ -52,7 +52,7 @@ ${PROJECT_2}: ${OBJECTS_2} Makefile
 	@echo "Built $@ successfully"
 	@${ECHO_BLANK_LINE}
 
-%.o: %.c %.h Makefile
+$(OBJECTS_1) $(OBJECTS_2): %.o: %.c %.h Makefile
 	@echo "  CC      $<"
 	${Q}$(host-cc) -c ${CPPFLAGS} ${CFLAGS} ${INCLUDE_PATHS} $< -o $@
 

@@ -108,7 +108,7 @@ $(ELF) : $(OBJS) $(OBJS_COMMON) $(LINKERFILE)
 	@echo "  LD      $@"
 	$(Q)$(rk3399-m0-cc) -o $@ $(COMMON_FLAGS) $(LDFLAGS) -Wl,-Map=$(MAPFILE) -Wl,-T$(LINKERFILE) $(OBJS) $(OBJS_COMMON)
 
-%.bin : %.elf
+$(BIN) $(BIN_PMU): %.bin: %.elf
 	@echo "  BIN     $@"
 	$(Q)$(rk3399-m0-oc) -O binary $< $@
 

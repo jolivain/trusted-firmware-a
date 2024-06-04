@@ -110,7 +110,7 @@ $(OUTPUT_FILE_SA6) : $(MEMORY_DEF_SA6) $(OBJ_FILE_SA6)
 # Compile
 ###################################################
 
-%.o: %.c
+$(OBJ_FILE_SA0) $(OBJ_FILE_SA6): %.o: %.c
 	$(aarch64-cc) $(CPPFLAGS) $(CFLAGS) -c -o $@ $<
 
 .PHONY: clean
