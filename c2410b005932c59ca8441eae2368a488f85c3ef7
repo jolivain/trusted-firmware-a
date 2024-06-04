@@ -16,6 +16,24 @@
       "message": "Notice the L3 test failure with tip of this changeset:\nhttps://ci.trustedfirmware.org/job/tf-a-builder/3801223/console",
       "revId": "c2410b005932c59ca8441eae2368a488f85c3ef7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eba6ce42_7770b97e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-04T12:44:18Z",
+      "side": 1,
+      "message": "I was also planning to test the entire patch series for L3 tests as recently encountered a similar issue for one of my other patches.\nWill test and address it Olivier.\nThanks for the headsup.",
+      "parentUuid": "8993181d_06247555",
+      "revId": "c2410b005932c59ca8441eae2368a488f85c3ef7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
