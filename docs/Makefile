@@ -6,6 +6,7 @@
 # Minimal makefile for Sphinx documentation
 #
 
+include ../make_helpers/build-rules.mk
 include ../make_helpers/common.mk
 
 # You can set these variables from the command line.
