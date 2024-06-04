@@ -26,7 +26,7 @@ ifneq ($(PLAT_DIR),)
         WRAPPER_SOURCES = $(sort $(shell $(ROMLIB_GEN) genwrappers -b $\
                 $(WRAPPER_DIR) --list ../../$(PLAT_DIR)/jmptbl.i))
 
-        WRAPPER_OBJS = $(WRAPPER_SOURCES:.s=.o)
+        WRAPPER_OBJS = $(WRAPPER_DIR)/jmpvar.o $(WRAPPER_SOURCES:.s=.o)
 endif
 
 V ?= 0
@@ -52,13 +52,13 @@ endif
 
 all: $(BUILD_DIR)/romlib.bin $(LIB_DIR)/libwrappers.a
 
-%.o: %.s
-	@echo "  AS      $@"
-	$(Q)$(aarch64-as) -c $(ASFLAGS) -o $@ $<
+$(filter-out %/jmptbl.o,$(OBJS)): $(BUILD_DIR)/%.o: %.s
+	$(s)echo "  AS      $@"
+	$(q)$(aarch64-as) -c $(ASFLAGS) -o $@ $<
 
-$(BUILD_DIR)/%.o: %.s
-	@echo "  AS      $@"
-	$(Q)$(aarch64-as) -c $(ASFLAGS) -o $@ $<
+$(BUILD_DIR)/jmptbl.o: $(BUILD_DIR)/jmptbl.s
+	$(s)echo "  AS      $@"
+	$(q)$(aarch64-as) -c $(ASFLAGS) -o $@ $<
 
 $(BUILD_DIR)/romlib.ld: romlib.ld.S
 	@echo "  PP      $@"
@@ -76,9 +76,13 @@ $(WRAPPER_DIR)/jmpvar.s: $(BUILD_DIR)/romlib.elf
 	@echo "  VAR     $@"
 	$(Q)$(ROMLIB_GEN) genvar --output $@ $<
 
-$(LIB_DIR)/libwrappers.a: $(WRAPPER_DIR)/jmpvar.o $(WRAPPER_OBJS)
+$(WRAPPER_OBJS): $(WRAPPER_DIR)/%.o: $(WRAPPER_DIR)/%.s
+	$(s)echo "  AS      $@"
+	$(q)$(aarch64-as) -c $(ASFLAGS) -o $@ $<
+
+$(LIB_DIR)/libwrappers.a: $(WRAPPER_OBJS)
 	@echo "  AR      $@"
-	$(Q)$(aarch64-ar) -rc $@ $(WRAPPER_DIR)/jmpvar.o $(WRAPPER_OBJS)
+	$(Q)$(aarch64-ar) -rc $@ $(WRAPPER_OBJS)
 
 $(BUILD_DIR)/jmptbl.i: ../../$(PLAT_DIR)/jmptbl.i
 	@echo "  PRE     $@"
@@ -87,8 +91,6 @@ $(BUILD_DIR)/jmptbl.i: ../../$(PLAT_DIR)/jmptbl.i
 $(WRAPPER_SOURCES) &: $(BUILD_DIR)/jmptbl.i
 	@echo "  WRP     $<"
 	$(Q)$(ROMLIB_GEN) genwrappers --bti=$(ENABLE_BTI) -b $(WRAPPER_DIR) $<
-
-$(WRAPPER_OBJS): $(WRAPPER_DIR)/%.o: $(WRAPPER_DIR)/%.s
 
 $(BUILD_DIR)/jmptbl.s: $(BUILD_DIR)/jmptbl.i
 	@echo "  TBL     $@"
