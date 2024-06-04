@@ -472,7 +472,17 @@ uint64_t rmmd_rmm_el3_handler(uint32_t smc_fid, uint64_t x1, uint64_t x2,
 	case RMM_ATTEST_GET_REALM_KEY:
 		ret = rmmd_attest_get_signing_key(x1, &x2, x3);
 		SMC_RET2(handle, ret, x2);
-
+#if RMMD_ATTESTATION_USE_HES
+	case RMM_HES_PUSH_ATTEST_REQ:
+		ret = rmmd_attest_push_request_hes(x1, x2);
+		SMC_RET1(handle, ret);
+	case RMM_HES_PULL_ATTEST_RESP:
+		ret = rmmd_attest_pull_response_hes(x1, &x2);
+		SMC_RET2(handle, ret, x2);
+	case RMM_GET_REALM_ATTEST_PUB_KEY_HES:
+		ret = rmmd_attest_get_attest_pub_key(x1, &x2, x3);
+		SMC_RET2(handle, ret, x2);
+#endif
 	case RMM_BOOT_COMPLETE:
 		VERBOSE("RMMD: running rmmd_rmm_sync_exit\n");
 		rmmd_rmm_sync_exit(x1);

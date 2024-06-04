@@ -50,6 +50,10 @@ int rmmd_attest_get_platform_token(uint64_t buf_pa, uint64_t *buf_size,
 				   uint64_t c_size);
 int rmmd_attest_get_signing_key(uint64_t buf_pa, uint64_t *buf_size,
 				uint64_t ecc_curve);
+int rmmd_attest_push_request_hes(uint64_t buf_pa, uint64_t buf_len);
+int rmmd_attest_pull_response_hes(uint64_t buf_pa, uint64_t *buf_size);
+int rmmd_attest_get_attest_pub_key(uint64_t buf_pa, uint64_t *buf_size,
+				   uint64_t ecc_curve);
 
 /* Assembly helpers */
 uint64_t rmmd_rmm_enter(uint64_t *c_rt_ctx);

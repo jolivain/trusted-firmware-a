@@ -144,7 +144,76 @@ int rmmd_attest_get_signing_key(uint64_t buf_pa, uint64_t *buf_size,
 						 (unsigned int)ecc_curve);
 	if (err != 0) {
 		ERROR("Failed to get attestation key: %d.\n", err);
-		err =  E_RMM_UNK;
+		err = E_RMM_UNK;
+	}
+
+	spin_unlock(&lock);
+
+	return err;
+}
+
+int rmmd_attest_push_request_hes(uint64_t buf_pa, uint64_t buf_size)
+{
+	int err;
+
+	err = validate_buffer_params(buf_pa, buf_size);
+	if (err != 0) {
+		return err;
+	}
+
+	spin_lock(&lock);
+
+	/* Push attestation signing request to HES. */
+	err = plat_rmmd_attest_push_request_hes((uintptr_t)buf_pa, buf_size);
+
+	spin_unlock(&lock);
+
+	return err;
+}
+
+int rmmd_attest_pull_response_hes(uint64_t buf_pa, uint64_t *buf_size)
+{
+	int err;
+
+	err = validate_buffer_params(buf_pa, *buf_size);
+	if (err != 0) {
+		return err;
+	}
+
+	spin_lock(&lock);
+
+	/* Pull attestation signing response from HES. */
+	err = plat_rmmd_attest_pull_response_hes((uintptr_t)buf_pa, buf_size);
+
+	spin_unlock(&lock);
+
+	return err;
+}
+
+int rmmd_attest_get_attest_pub_key(uint64_t buf_pa, uint64_t *buf_size,
+				   uint64_t ecc_curve)
+{
+	int err;
+
+	err = validate_buffer_params(buf_pa, *buf_size);
+	if (err != 0) {
+		return err;
+	}
+
+	if (ecc_curve != ATTEST_KEY_CURVE_ECC_SECP384R1) {
+		ERROR("Invalid ECC curve specified\n");
+		return E_RMM_INVAL;
+	}
+
+	spin_lock(&lock);
+
+	/* Get the Realm attestation public key from HES. */
+	err = plat_rmmd_get_cca_realm_attest_pub_key(
+		(uintptr_t)buf_pa, buf_size, (unsigned int)ecc_curve);
+	if (err != 0) {
+		ERROR("Failed to get attestation public key from HES: %d.\n",
+		      err);
+		err = E_RMM_UNK;
 	}
 
 	spin_unlock(&lock);
