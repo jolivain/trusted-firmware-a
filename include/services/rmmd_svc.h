@@ -132,6 +132,15 @@
 					/* 0x1B3 */
 #define RMM_ATTEST_GET_PLAT_TOKEN	SMC64_RMMD_EL3_FID(U(3))
 
+/*
+ * Function codes to support attestation where the HES is used to sign
+ * realm attestation tokens. Since the HES holds the private key, we
+ * can only get the public key.
+ */
+#define RMM_HES_PUSH_ATTEST_REQ SMC64_RMMD_EL3_FID(U(4))
+#define RMM_HES_PULL_ATTEST_RESP SMC64_RMMD_EL3_FID(U(5))
+#define RMM_GET_REALM_ATTEST_PUB_KEY_HES SMC64_RMMD_EL3_FID(U(6))
+
 /* ECC Curve types for attest key generation */
 #define ATTEST_KEY_CURVE_ECC_SECP384R1		0
 

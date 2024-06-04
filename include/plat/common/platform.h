@@ -364,6 +364,10 @@ int plat_rmmd_get_cca_attest_token(uintptr_t buf, size_t *len,
 				   uintptr_t hash, size_t hash_size);
 int plat_rmmd_get_cca_realm_attest_key(uintptr_t buf, size_t *len,
 				       unsigned int type);
+int plat_rmmd_get_cca_realm_attest_pub_key(uintptr_t buf, size_t *len,
+					   unsigned int type);
+int plat_rmmd_attest_push_request_hes(uint64_t buf_pa, uint64_t buf_size);
+int plat_rmmd_attest_pull_response_hes(uint64_t buf_pa, uint64_t *buf_size);
 size_t plat_rmmd_get_el3_rmm_shared_mem(uintptr_t *shared);
 int plat_rmmd_load_manifest(struct rmm_manifest *manifest);
 #endif
