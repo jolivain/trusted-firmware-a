@@ -516,7 +516,17 @@ smc_unknown:
 	b	el3_exit
 
 smc_prohibited:
-	restore_ptw_el1_sys_regs
+#if ERRATA_SPECULATIVE_AT
+	/* ----------------------------------------------------------
+	 * Restore SCTLR_EL1 and TCR_EL1 system registers prior to
+	 * the enablement of page table walk if ERRATA_SPECULATIVE_AT
+	 * is enabled.
+	 * ----------------------------------------------------------
+	 */
+	mov 	x0, sp
+	bl	restore_ptw_el1_sys_regs
+#endif
+
 	ldp	x28, x29, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_X28]
 	ldr	x30, [sp, #CTX_GPREGS_OFFSET + CTX_GPREG_LR]
 	mov	x0, #SMC_UNK
