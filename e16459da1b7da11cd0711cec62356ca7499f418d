@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fb773f7_5bd2afac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 29
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-06-05T16:26:05Z",
+      "side": 1,
+      "message": "Hey, that actually boots now (into U-Boot) on my Quartz64 - well done!\nAnd thanks for the changes, that looks good now.\nOne small thing, I see:\nWARNING: BL31: cortex_a55: CPU workaround for erratum 1530923 was missing!\nLooking at the SDEN we probably need this workaround, is there any reason to not have it?",
+      "revId": "e16459da1b7da11cd0711cec62356ca7499f418d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
