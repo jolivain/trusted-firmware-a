@@ -340,9 +340,9 @@ func save_and_update_ptw_el1_sys_regs
 	 * ----------------------------------------------------------
 	 */
 	mrs	x29, sctlr_el1
-	str	x29, [sp, #(CTX_EL1_SYSREGS_OFFSET + CTX_SCTLR_EL1)]
+	str	x29, [sp, #(CTX_ERRATA_SPECULATIVE_OFFSET + CTX_ERRATA_SPEC_SCTLR_EL1)]
 	mrs	x29, tcr_el1
-	str	x29, [sp, #(CTX_EL1_SYSREGS_OFFSET + CTX_TCR_EL1)]
+	str	x29, [sp, #(CTX_ERRATA_SPECULATIVE_OFFSET + CTX_ERRATA_SPEC_TCR_EL1)]
 
 	/* ------------------------------------------------------------
 	 * Must follow below order in order to disable page table
