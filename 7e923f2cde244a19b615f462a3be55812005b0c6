@@ -3,6 +3,144 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b44cadfe_4afdece3",
+        "filename": "plat/arm/board/automotive_rd/platform/rd1ae/include/plat_macros.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-05T12:39:57Z",
+      "side": 1,
+      "message": "nit: Arm?, similarly for other introduced file in this patch.",
+      "range": {
+        "startLine": 2,
+        "startChar": 23,
+        "endLine": 2,
+        "endChar": 26
+      },
+      "revId": "7e923f2cde244a19b615f462a3be55812005b0c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70169ce6_130e8693",
+        "filename": "plat/arm/board/automotive_rd/platform/rd1ae/include/plat_macros.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-05T12:39:57Z",
+      "side": 1,
+      "message": "nit: not needed, similarly for other introduced file in this patch.",
+      "range": {
+        "startLine": 2,
+        "startChar": 35,
+        "endLine": 2,
+        "endChar": 51
+      },
+      "revId": "7e923f2cde244a19b615f462a3be55812005b0c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a95c523_123a193a",
+        "filename": "plat/arm/board/automotive_rd/platform/rd1ae/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-05T12:39:57Z",
+      "side": 1,
+      "message": "align these macro assignment values.",
+      "range": {
+        "startLine": 10,
+        "startChar": 30,
+        "endLine": 10,
+        "endChar": 31
+      },
+      "revId": "7e923f2cde244a19b615f462a3be55812005b0c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b66cde71_8c905f5f",
+        "filename": "plat/arm/board/automotive_rd/platform/rd1ae/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-05T12:39:57Z",
+      "side": 1,
+      "message": "May I know rational behind this message? It will print I believe-\n\"Platform rd1ae is rd1ae (kronos) specific\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 51
+      },
+      "revId": "7e923f2cde244a19b615f462a3be55812005b0c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f1bd7dc_2a4d9bd9",
+        "filename": "plat/arm/board/automotive_rd/platform/rd1ae/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-05T12:39:57Z",
+      "side": 1,
+      "message": "Good if you align all these macros.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 0
+      },
+      "revId": "7e923f2cde244a19b615f462a3be55812005b0c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a74959c_4e5f9c11",
+        "filename": "plat/arm/board/automotive_rd/platform/rd1ae/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-05T12:39:57Z",
+      "side": 1,
+      "message": "ditto, fix the alignment",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 0
+      },
+      "revId": "7e923f2cde244a19b615f462a3be55812005b0c6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f98c3cac_348bf66a",
         "filename": "plat/arm/common/arm_common.mk",
         "patchSetId": 3
