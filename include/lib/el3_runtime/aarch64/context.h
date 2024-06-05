@@ -280,9 +280,20 @@
 #define CTX_CVE_2018_3639_END		U(0x10) /* Align to the next 16 byte boundary */
 
 /*******************************************************************************
+ * Registers related to ERRATA_SPECULATIVE
+ ******************************************************************************/
+#define CTX_ERRATA_SPECULATIVE_OFFSET	(CTX_CVE_2018_3639_OFFSET + CTX_CVE_2018_3639_END)
+#if ERRATA_SPECULATIVE_AT
+#define CTX_ERRATA_SPEC_SCTLR_EL1	U(0)
+#define CTX_ERRATA_SPEC_TCR_EL1		U(0x8)
+#define CTX_ERRATA_SPECULATIVE_END	U(0x10) /* Align to the next 16 byte boundary */
+#else
+#define CTX_ERRATA_SPECULATIVE_END	U(0x0)
+
+/*******************************************************************************
  * Registers related to ARMv8.3-PAuth.
  ******************************************************************************/
-#define CTX_PAUTH_REGS_OFFSET	(CTX_CVE_2018_3639_OFFSET + CTX_CVE_2018_3639_END)
+#define CTX_PAUTH_REGS_OFFSET	(CTX_ERRATA_SPECULATIVE_OFFSET + CTX_ERRATA_SPECULATIVE_END)
 #if CTX_INCLUDE_PAUTH_REGS
 #define CTX_PACIAKEY_LO		U(0x0)
 #define CTX_PACIAKEY_HI		U(0x8)
@@ -332,6 +343,9 @@
 #endif
 #define CTX_EL3STATE_ALL	(CTX_EL3STATE_END >> DWORD_SHIFT)
 #define CTX_CVE_2018_3639_ALL	(CTX_CVE_2018_3639_END >> DWORD_SHIFT)
+#if ERRATA_SPECULATIVE_AT
+#define CTX_ERRATA_SPECULATIVE_ALL	(CTX_ERRATA_SPECULATIVE_END >> DWORD_SHIFT)
+#endif
 #if CTX_INCLUDE_PAUTH_REGS
 # define CTX_PAUTH_REGS_ALL	(CTX_PAUTH_REGS_END >> DWORD_SHIFT)
 #endif
@@ -369,6 +383,11 @@ DEFINE_REG_STRUCT(el3_state, CTX_EL3STATE_ALL);
 /* Function pointer used by CVE-2018-3639 dynamic mitigation */
 DEFINE_REG_STRUCT(cve_2018_3639, CTX_CVE_2018_3639_ALL);
 
+/* Registers associated to Errata_Speculative */
+#if ERRATA_SPECULATIVE_AT
+DEFINE_REG_STRUCT(errata_speculative, CTX_ERRATA_SPECULATIVE_ALL);
+#endif
+
 /* Registers associated to ARMv8.3-PAuth */
 #if CTX_INCLUDE_PAUTH_REGS
 DEFINE_REG_STRUCT(pauth, CTX_PAUTH_REGS_ALL);
@@ -399,6 +418,10 @@ typedef struct cpu_context {
 	fp_regs_t fpregs_ctx;
 #endif
 	cve_2018_3639_t cve_2018_3639_ctx;
+
+#if ERRATA_SPECULATIVE_AT
+	errata_speculative_t errata_speculative_ctx;
+#endif
 
 #if CTX_INCLUDE_PAUTH_REGS
 	pauth_t pauth_ctx;
@@ -433,6 +456,10 @@ extern per_world_context_t per_world_context[CPU_DATA_CONTEXT_NUM];
 #endif
 #define get_gpregs_ctx(h)	(&((cpu_context_t *) h)->gpregs_ctx)
 #define get_cve_2018_3639_ctx(h)	(&((cpu_context_t *) h)->cve_2018_3639_ctx)
+#if ERRATA_SPECULATIVE_AT
+#define get_errata_speculative_ctx(h)	(&((cpu_context_t *) h)->errata_speculative_ctx)
+#endif
+
 #if CTX_INCLUDE_PAUTH_REGS
 # define get_pauth_ctx(h)	(&((cpu_context_t *) h)->pauth_ctx)
 #endif
@@ -458,6 +485,11 @@ CASSERT(CTX_FPREGS_OFFSET == __builtin_offsetof(cpu_context_t, fpregs_ctx),
 
 CASSERT(CTX_CVE_2018_3639_OFFSET == __builtin_offsetof(cpu_context_t, cve_2018_3639_ctx),
 	assert_core_context_cve_2018_3639_offset_mismatch);
+
+#if ERRATA_SPECULATIVE_AT
+CASSERT(CTX_ERRATA_SPECULATIVE_OFFSET == __builtin_offsetof(cpu_context_t, errata_speculative_ctx),
+	assert_core_context_errata_speculative_offset_mismatch);
+#endif
 
 #if CTX_INCLUDE_PAUTH_REGS
 CASSERT(CTX_PAUTH_REGS_OFFSET == __builtin_offsetof(cpu_context_t, pauth_ctx),
