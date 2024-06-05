@@ -280,9 +280,49 @@
 #define CTX_CVE_2018_3639_END		U(0x10) /* Align to the next 16 byte boundary */
 
 /*******************************************************************************
+ * Registers related to ERRATA_SPECULATIVE_AT
+ *
+ * This is essential as now EL1 and EL2 context registers are decoupled,
+ * both will not be present for a given build configuration.
+ * As ERRATA_SPECULATIVE_AT errata requires SCTLR_EL1 and TCR_EL1
+ * registers independent of the above logic, we need explicit context to be
+ * reserved for these registers.
+ *
+ * Note: we end up with following differnt configurations based on the
+ * presence of Errata and inclusion of EL1 or EL2 context.
+ *
+ * ============================================================================
+ * | ERRATA_SPECULATIVE_AT | EL1 context| Memory allocation(Sctlr_el1,tcr_el1)|
+ * ============================================================================
+ * |        0              |      0     |            NA                       |
+ * |        0              |      1     |    EL1 C context structure          |
+ * |        1              |      0     |    Errata Context memory            |
+ * |        1              |      1     |    Errata Context memory            |
+ * ============================================================================
+ *
+ * In the above table, when EL1_Context=0, it implies there is only EL2 context
+ * and memory for SCTLR_EL1 and TCR_EL1 is reserved explicitly under the same
+ * errata flag in context.h
+ *
+ * In situations when EL1_Context=1 and  ERRATA_SPECULATIVE_AT=1, since sctlr_el1
+ * and tcr_el1 registers will be modified under errata, save and restore happens
+ * under the errata logic explicitly. These registers will not be saved/restored
+ * again under EL1 context save & restore routines.
+ * -----------------------------------------------------------------------------
+ ******************************************************************************/
+#define CTX_ERRATA_SPEC_AT_OFFSET	(CTX_CVE_2018_3639_OFFSET + CTX_CVE_2018_3639_END)
+#if ERRATA_SPECULATIVE_AT
+#define CTX_ERRATA_SPEC_AT_SCTLR_EL1	U(0x0)
+#define CTX_ERRATA_SPEC_AT_TCR_EL1	U(0x8)
+#define CTX_ERRATA_SPEC_AT_END		U(0x10) /* Align to the next 16 byte boundary */
+#else
+#define CTX_ERRATA_SPEC_AT_END		U(0x0)
+#endif /* ERRATA_SPECULATIVE_AT */
+
+/*******************************************************************************
  * Registers related to ARMv8.3-PAuth.
  ******************************************************************************/
-#define CTX_PAUTH_REGS_OFFSET	(CTX_CVE_2018_3639_OFFSET + CTX_CVE_2018_3639_END)
+#define CTX_PAUTH_REGS_OFFSET	(CTX_ERRATA_SPEC_AT_OFFSET + CTX_ERRATA_SPEC_AT_END)
 #if CTX_INCLUDE_PAUTH_REGS
 #define CTX_PACIAKEY_LO		U(0x0)
 #define CTX_PACIAKEY_HI		U(0x8)
@@ -332,6 +372,10 @@
 #endif
 #define CTX_EL3STATE_ALL	(CTX_EL3STATE_END >> DWORD_SHIFT)
 #define CTX_CVE_2018_3639_ALL	(CTX_CVE_2018_3639_END >> DWORD_SHIFT)
+
+#if ERRATA_SPECULATIVE_AT
+#define CTX_ERRATA_SPEC_AT_ALL	(CTX_ERRATA_SPEC_AT_END >> DWORD_SHIFT)
+#endif
 #if CTX_INCLUDE_PAUTH_REGS
 # define CTX_PAUTH_REGS_ALL	(CTX_PAUTH_REGS_END >> DWORD_SHIFT)
 #endif
@@ -369,6 +413,11 @@ DEFINE_REG_STRUCT(el3_state, CTX_EL3STATE_ALL);
 /* Function pointer used by CVE-2018-3639 dynamic mitigation */
 DEFINE_REG_STRUCT(cve_2018_3639, CTX_CVE_2018_3639_ALL);
 
+/* Registers associated to Errata_Speculative */
+#if ERRATA_SPECULATIVE_AT
+DEFINE_REG_STRUCT(errata_speculative_at, CTX_ERRATA_SPEC_AT_ALL);
+#endif
+
 /* Registers associated to ARMv8.3-PAuth */
 #if CTX_INCLUDE_PAUTH_REGS
 DEFINE_REG_STRUCT(pauth, CTX_PAUTH_REGS_ALL);
@@ -399,6 +448,10 @@ typedef struct cpu_context {
 	fp_regs_t fpregs_ctx;
 #endif
 	cve_2018_3639_t cve_2018_3639_ctx;
+
+#if ERRATA_SPECULATIVE_AT
+	errata_speculative_at_t errata_speculative_at_ctx;
+#endif
 
 #if CTX_INCLUDE_PAUTH_REGS
 	pauth_t pauth_ctx;
@@ -433,6 +486,11 @@ extern per_world_context_t per_world_context[CPU_DATA_CONTEXT_NUM];
 #endif
 #define get_gpregs_ctx(h)	(&((cpu_context_t *) h)->gpregs_ctx)
 #define get_cve_2018_3639_ctx(h)	(&((cpu_context_t *) h)->cve_2018_3639_ctx)
+
+#if ERRATA_SPECULATIVE_AT
+#define get_errata_speculative_at_ctx(h)	(&((cpu_context_t *) h)->errata_speculative_at_ctx)
+#endif
+
 #if CTX_INCLUDE_PAUTH_REGS
 # define get_pauth_ctx(h)	(&((cpu_context_t *) h)->pauth_ctx)
 #endif
@@ -458,6 +516,11 @@ CASSERT(CTX_FPREGS_OFFSET == __builtin_offsetof(cpu_context_t, fpregs_ctx),
 
 CASSERT(CTX_CVE_2018_3639_OFFSET == __builtin_offsetof(cpu_context_t, cve_2018_3639_ctx),
 	assert_core_context_cve_2018_3639_offset_mismatch);
+
+#if ERRATA_SPECULATIVE_AT
+CASSERT(CTX_ERRATA_SPEC_AT_OFFSET == __builtin_offsetof(cpu_context_t, errata_speculative_at_ctx),
+	assert_core_context_errata_speculative_at_offset_mismatch);
+#endif
 
 #if CTX_INCLUDE_PAUTH_REGS
 CASSERT(CTX_PAUTH_REGS_OFFSET == __builtin_offsetof(cpu_context_t, pauth_ctx),
@@ -506,6 +569,10 @@ CASSERT(CTX_PAUTH_REGS_OFFSET == __builtin_offsetof(cpu_context_t, pauth_ctx),
 #if CTX_INCLUDE_FPREGS
 void fpregs_context_save(fp_regs_t *regs);
 void fpregs_context_restore(fp_regs_t *regs);
+#endif
+
+#if ERRATA_SPECULATIVE_AT
+void errata_spec_at_save_sctlr(errata_speculative_at_t *regs);
 #endif
 
 #endif /* __ASSEMBLER__ */
