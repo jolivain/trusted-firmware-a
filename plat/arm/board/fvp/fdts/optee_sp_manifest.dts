@@ -32,6 +32,12 @@
 	/* Boot protocol */
 	gp-register-num = <0x0>;
 
+	/* Boot Info */
+	boot-info {
+		compatible = "arm,ffa-manifest-boot-info";
+		ffa_manifest;
+	};
+
 	device-regions {
 		compatible = "arm,ffa-manifest-device-regions";
 
