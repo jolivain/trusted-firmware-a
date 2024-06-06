@@ -24,6 +24,7 @@
 #include <lib/el3_runtime/pubsub_events.h>
 #include <lib/extensions/amu.h>
 #include <lib/extensions/brbe.h>
+#include <lib/extensions/fgt2.h>
 #include <lib/extensions/mpam.h>
 #include <lib/extensions/pmuv3.h>
 #include <lib/extensions/sme.h>
@@ -772,6 +773,10 @@ static void manage_extensions_nonsecure(cpu_context_t *ctx)
 		sme_enable(ctx);
 	}
 
+	if (is_feat_fgt2_supported()) {
+		fgt2_enable(ctx);
+	}
+
 	pmuv3_enable(ctx);
 #endif /* IMAGE_BL31 */
 }
@@ -1098,6 +1103,24 @@ static void el2_sysregs_context_restore_fgt(el2_sysregs_t *ctx)
 	write_hfgwtr_el2(read_el2_ctx_fgt(ctx, hfgwtr_el2));
 }
 
+static void el2_sysregs_context_save_fgt2(el2_sysregs_t *ctx)
+{
+	write_el2_ctx_fgt2(ctx, hdfgrtr2_el2, read_hdfgrtr2_el2());
+	write_el2_ctx_fgt2(ctx, hdfgwtr2_el2, read_hdfgwtr2_el2());
+	write_el2_ctx_fgt2(ctx, hfgitr2_el2, read_hfgitr2_el2());
+	write_el2_ctx_fgt2(ctx, hfgrtr2_el2, read_hfgrtr2_el2());
+	write_el2_ctx_fgt2(ctx, hfgwtr2_el2, read_hfgwtr2_el2());
+}
+
+static void el2_sysregs_context_restore_fgt2(el2_sysregs_t *ctx)
+{
+	write_hdfgrtr2_el2(read_el2_ctx_fgt2(ctx, hdfgrtr2_el2));
+	write_hdfgwtr2_el2(read_el2_ctx_fgt2(ctx, hdfgwtr2_el2));
+	write_hfgitr2_el2(read_el2_ctx_fgt2(ctx, hfgitr2_el2));
+	write_hfgrtr2_el2(read_el2_ctx_fgt2(ctx, hfgrtr2_el2));
+	write_hfgwtr2_el2(read_el2_ctx_fgt2(ctx, hfgwtr2_el2));
+}
+
 static void el2_sysregs_context_save_mpam(el2_sysregs_t *ctx)
 {
 	u_register_t mpam_idr = read_mpamidr_el1();
@@ -1337,6 +1360,10 @@ void cm_el2_sysregs_context_save(uint32_t security_state)
 		el2_sysregs_context_save_fgt(el2_sysregs_ctx);
 	}
 
+	if (is_feat_fgt2_supported()) {
+		el2_sysregs_context_save_fgt2(el2_sysregs_ctx);
+	}
+
 	if (is_feat_ecv_v2_supported()) {
 		write_el2_ctx_ecv(el2_sysregs_ctx, cntpoff_el2, read_cntpoff_el2());
 	}
@@ -1418,6 +1445,10 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 
 	if (is_feat_fgt_supported()) {
 		el2_sysregs_context_restore_fgt(el2_sysregs_ctx);
+	}
+
+	if (is_feat_fgt2_supported()) {
+		el2_sysregs_context_restore_fgt2(el2_sysregs_ctx);
 	}
 
 	if (is_feat_ecv_v2_supported()) {
