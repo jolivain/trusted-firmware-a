@@ -353,6 +353,9 @@ ENABLE_FEAT_S2POE			?=	0
 # Flag to enable access to Stage 1 Permission Overlay (FEAT_S1POE).
 ENABLE_FEAT_S1POE			?=	0
 
+# Flag to enable FEAT_FGT2 (Fine Granular Traps 2)
+ENABLE_FEAT_FGT2			?=	0
+
 #----
 # 9.0
 #----
