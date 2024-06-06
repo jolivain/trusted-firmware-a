@@ -120,6 +120,11 @@
 #define HFGITR_EL2		S3_4_C1_C1_6
 #define HFGRTR_EL2		S3_4_C1_C1_4
 #define HFGWTR_EL2		S3_4_C1_C1_5
+#define HFGRTR2_EL2		S3_4_C3_C1_2
+#define HFGWTR2_EL2		S3_4_C3_C1_3
+#define HFGITR2_EL2		S3_4_C3_C1_7
+#define HDFGRTR2_EL2		S3_4_C3_C1_0
+#define HDFGWTR2_EL2		S3_4_C3_C1_1
 #define ICH_HCR_EL2		S3_4_C12_C11_0
 #define ICH_VMCR_EL2		S3_4_C12_C11_7
 #define MPAMVPM0_EL2		S3_4_C10_C6_0
@@ -569,6 +574,7 @@
 /* SCR definitions */
 #define SCR_RES1_BITS		((U(1) << 4) | (U(1) << 5))
 #define SCR_NSE_SHIFT		U(62)
+#define SCR_FGTEN2_BIT		(UL(1) << 59)
 #define SCR_NSE_BIT		(ULL(1) << SCR_NSE_SHIFT)
 #define SCR_GPF_BIT		(UL(1) << 48)
 #define SCR_TWEDEL_SHIFT	U(30)
