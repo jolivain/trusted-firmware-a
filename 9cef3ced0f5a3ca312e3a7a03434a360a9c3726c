@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0aec94f_39843499",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 30
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-06-06T10:47:40Z",
+      "side": 1,
+      "message": "Please fix the coding style error mentioned in the static checks.",
+      "revId": "9cef3ced0f5a3ca312e3a7a03434a360a9c3726c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18555d52_52a7c684",
+        "filename": "plat/rockchip/rk3568/drivers/pmu/pmu.c",
+        "patchSetId": 30
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-06-06T10:47:40Z",
+      "side": 1,
+      "message": "The static check complains here, please change to:\nwhile (1) {\n        wfi();\n}",
+      "revId": "9cef3ced0f5a3ca312e3a7a03434a360a9c3726c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
