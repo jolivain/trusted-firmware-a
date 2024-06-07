@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbff5d1e_4455ddfd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-06-07T16:32:00Z",
+      "side": 1,
+      "message": "typo: don\u0027t have",
+      "range": {
+        "startLine": 13,
+        "startChar": 48,
+        "endLine": 13,
+        "endChar": 49
+      },
+      "revId": "38efe38384c61c4bcf57ff1666b54f2f748b7963",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56747327_0914c774",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-06-07T16:32:00Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 5
+      },
+      "revId": "38efe38384c61c4bcf57ff1666b54f2f748b7963",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69338692_bcd4b420",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-06-07T16:32:00Z",
+      "side": 1,
+      "message": "typo: if a",
+      "range": {
+        "startLine": 18,
+        "startChar": 54,
+        "endLine": 18,
+        "endChar": 56
+      },
+      "revId": "38efe38384c61c4bcf57ff1666b54f2f748b7963",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "806fccaa_8dbdec70",
+        "filename": "include/drivers/arm/fvp/fvp_cpupwr.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-06-07T16:32:00Z",
+      "side": 1,
+      "message": "nit: should this file be named fvp_cpu_pwr.h instead?",
+      "revId": "38efe38384c61c4bcf57ff1666b54f2f748b7963",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "944c4534_0e9b8e4c",
+        "filename": "include/drivers/arm/fvp/fvp_cpupwr.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-06-07T16:32:00Z",
+      "side": 1,
+      "message": "Is there a reason for using this guard rather than the following the normal convention using the the filename i.e. FVP_CPUPWR_H? \n\nAlso, for my own understanding, why do we need the __ASSEMBLER__ and __arch64__ guards?",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 21
+      },
+      "revId": "38efe38384c61c4bcf57ff1666b54f2f748b7963",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf8c9689_a9cc4729",
+        "filename": "plat/arm/board/fvp/fvp_cpupwr.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-06-07T16:32:00Z",
+      "side": 1,
+      "message": "ditto wrt to naming convention, in my view fvp_cpu_pwr.c is a little bit easier to read.",
+      "revId": "38efe38384c61c4bcf57ff1666b54f2f748b7963",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec182902_3e0e9408",
+        "filename": "plat/arm/board/fvp/fvp_cpupwr.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-06-07T16:32:00Z",
+      "side": 1,
+      "message": "We should probably return from the function early if we\u0027ve found a matching MIDR, otherwise there\u0027s wasted cycles comparing the rest of the array.",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 2
+      },
+      "revId": "38efe38384c61c4bcf57ff1666b54f2f748b7963",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
