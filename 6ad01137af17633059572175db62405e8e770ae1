@@ -83,6 +83,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3ca1f56_9d05dc50",
+        "filename": "drivers/delegated_attestation/rse/rse_delegated_attestation.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-06-07T10:26:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e632aa79_d1163aee",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 19
+      },
+      "revId": "6ad01137af17633059572175db62405e8e770ae1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3919d850_2c27ec84",
@@ -120,6 +144,30 @@
       "side": 1,
       "message": "Here too, passing a 4K buffer may not be possible.",
       "parentUuid": "3919d850_2c27ec84",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 55
+      },
+      "revId": "6ad01137af17633059572175db62405e8e770ae1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7b044ae_ac792900",
+        "filename": "drivers/delegated_attestation/rse/rse_delegated_attestation.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-06-07T10:26:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76f9ea49_a3841587",
       "range": {
         "startLine": 34,
         "startChar": 0,
@@ -177,6 +225,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0931674f_2f01d0f3",
+        "filename": "drivers/delegated_attestation/rse/rse_delegated_attestation.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-06-07T10:26:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "119ed8fe_daf45a82",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 43
+      },
+      "revId": "6ad01137af17633059572175db62405e8e770ae1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5130f0d1_db7ad181",
@@ -214,6 +286,30 @@
       "side": 1,
       "message": "This would be needed to use the checks for PSA_KEY_EXPORT_ECC_KEY_PAIR_MAX_SIZE(384). \n\nLet me know if the buffer length checks in delegated_attestation.c driver file looks alright.",
       "parentUuid": "5130f0d1_db7ad181",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 29
+      },
+      "revId": "6ad01137af17633059572175db62405e8e770ae1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c29de0d6_11162c4f",
+        "filename": "drivers/delegated_attestation/rse/rse_delegated_attestation.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-06-07T10:26:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "281bdf8a_6554e9a5",
       "range": {
         "startLine": 11,
         "startChar": 0,
@@ -309,6 +405,30 @@
       "side": 1,
       "message": "On RD-Fremont we are using the EMBED protocol, forced here - https://gitlab.arm.com/infra-solutions/reference-design/platsw/trusted-firmware-a/-/commit/fc5bc6fde882dfae6204430da163d437e81c05cc\n\nThis is because the RD-Fremont rse-comms driver in tf-m doesn\u0027t allow mapping buffers from different PAS for POINTER_ACCESS protocol.",
       "parentUuid": "03e4a2c9_1c74d616",
+      "range": {
+        "startLine": 13,
+        "startChar": 8,
+        "endLine": 13,
+        "endChar": 40
+      },
+      "revId": "6ad01137af17633059572175db62405e8e770ae1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72b3c53f_98bb2324",
+        "filename": "drivers/delegated_attestation/rse/rse_delegated_attestation.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000914
+      },
+      "writtenOn": "2024-06-07T10:26:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4fc4370_76ddcfe7",
       "range": {
         "startLine": 13,
         "startChar": 8,
