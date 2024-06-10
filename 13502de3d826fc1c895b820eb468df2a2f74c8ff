@@ -52,6 +52,24 @@
       "parentUuid": "08cb715c_ac764355",
       "revId": "13502de3d826fc1c895b820eb468df2a2f74c8ff",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a27db4bd_6bb7da77",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-06-10T23:59:59Z",
+      "side": 1,
+      "message": "In general, our CI is not very strict on copyright year update. Anyways, since you are modifying optee_sp_manifest.dts file in later patches, please drop this patch and update the copyright in later patch.",
+      "parentUuid": "cb29464e_edea14c4",
+      "revId": "13502de3d826fc1c895b820eb468df2a2f74c8ff",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
