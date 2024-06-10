@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a2c42804_1319969f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000374
+      },
+      "writtenOn": "2024-06-10T15:23:37Z",
+      "side": 1,
+      "message": "I am OK to drop this and just have this in OPTEE build repository. But if you have future plans to add S-EL1 OP-TEE SPMC(for comparison or whatever reason), then it would be good to keep it here.\n\nI am just exploring if it makes sense to keep 2 copies of these manifest files(excluding this one for sake of discussion).",
+      "parentUuid": "c076134f_e8782621",
+      "revId": "7d28e0af72d91cedea3b64a2c45d3821bd92e4d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0818bd9e_af5aca46",
         "filename": "plat/arm/board/fvp/fdts/fvp_spmc_el1_optee_manifest.dts",
         "patchSetId": 2
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "185c0fb6_6b903bb2",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_el1_optee_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000374
+      },
+      "writtenOn": "2024-06-10T15:23:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0818bd9e_af5aca46",
+      "range": {
+        "startLine": 3,
+        "startChar": 17,
+        "endLine": 3,
+        "endChar": 26
+      },
+      "revId": "7d28e0af72d91cedea3b64a2c45d3821bd92e4d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2138bc0b_b51983ef",
         "filename": "plat/arm/board/fvp/fdts/fvp_spmc_el1_optee_manifest.dts",
         "patchSetId": 2
@@ -54,6 +96,30 @@
       "writtenOn": "2024-06-10T15:19:03Z",
       "side": 1,
       "message": "This shouldn\u0027t be necessary for the S-EL1 OP-TEE SPMC.",
+      "range": {
+        "startLine": 23,
+        "startChar": 1,
+        "endLine": 27,
+        "endChar": 3
+      },
+      "revId": "7d28e0af72d91cedea3b64a2c45d3821bd92e4d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dc3d95f_169fad95",
+        "filename": "plat/arm/board/fvp/fdts/fvp_spmc_el1_optee_manifest.dts",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000374
+      },
+      "writtenOn": "2024-06-10T15:23:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2138bc0b_b51983ef",
       "range": {
         "startLine": 23,
         "startChar": 1,
