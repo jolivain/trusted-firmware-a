@@ -16,6 +16,24 @@
       "message": "We need to be careful with this change because OP-TEE version used in TF-A CI is only compliant to an early FF-A v1.0.",
       "revId": "c26fad798b8c525d14f2634f4e20bfa7d5efcafa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75fd6f72_906b6904",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000374
+      },
+      "writtenOn": "2024-06-10T15:19:11Z",
+      "side": 1,
+      "message": "Right, I didn\u0027t realise that this would break your CI. What would be your suggestion ? Can we upgrade the CI ? Is it binary upgrade or is it built from some source ? \nI would like to know where to update to get this change merged.",
+      "parentUuid": "b7c8a3c4_1d5e6a45",
+      "revId": "c26fad798b8c525d14f2634f4e20bfa7d5efcafa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
