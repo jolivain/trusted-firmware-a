@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28d2a3ba_c72321b1",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-06-11T08:35:27Z",
+      "side": 1,
+      "message": "remove space after \u0027b\u0027 before tab.",
+      "revId": "78f15980c769fb9904bb0a3cadd53d2d69127474",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "362f67c3_518fd136",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_helpers.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-06-11T08:35:27Z",
+      "side": 1,
+      "message": "use tabs instead of spaces",
+      "revId": "78f15980c769fb9904bb0a3cadd53d2d69127474",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d91a798_c9165448",
+        "filename": "plat/arm/board/fvp/fvp_cpu_pwr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-06-11T08:35:27Z",
+      "side": 1,
+      "message": "remove this line",
+      "revId": "78f15980c769fb9904bb0a3cadd53d2d69127474",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a31f50e7_df2e90b6",
+        "filename": "plat/arm/board/fvp/fvp_cpu_pwr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-06-11T08:35:27Z",
+      "side": 1,
+      "message": "setting i \u003d 0 \u0026 midr \u003d 0 is obsolete.",
+      "revId": "78f15980c769fb9904bb0a3cadd53d2d69127474",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f81c9f58_5e654837",
+        "filename": "plat/arm/board/fvp/fvp_cpu_pwr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-06-11T08:35:27Z",
+      "side": 1,
+      "message": "insigned int midr \u003d (unsigned int)read_midr();",
+      "revId": "78f15980c769fb9904bb0a3cadd53d2d69127474",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "788b0c00_54c9c919",
+        "filename": "plat/arm/board/fvp/fvp_cpu_pwr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-06-11T08:35:27Z",
+      "side": 1,
+      "message": "unsigned int i \u003d 0U;...",
+      "revId": "78f15980c769fb9904bb0a3cadd53d2d69127474",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f2ceb37_82ba1381",
+        "filename": "plat/arm/board/fvp/fvp_cpu_pwr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-06-11T08:35:27Z",
+      "side": 1,
+      "message": "return false;",
+      "revId": "78f15980c769fb9904bb0a3cadd53d2d69127474",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfc74f47_c2961d7c",
+        "filename": "plat/arm/board/fvp/fvp_cpu_pwr.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-06-11T08:35:27Z",
+      "side": 1,
+      "message": "return true;",
+      "revId": "78f15980c769fb9904bb0a3cadd53d2d69127474",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
