@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47b1ea43_0938ce22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-11T10:24:00Z",
+      "side": 1,
+      "message": "LGTM overall! I have a few comments inline, though.",
+      "revId": "db23d65e7a266b219398419832ffc70acbc0c957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5c21058_4f50dc24",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-11T10:24:00Z",
+      "side": 1,
+      "message": "Do we need to update the specifications for this addition?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 26
+      },
+      "revId": "db23d65e7a266b219398419832ffc70acbc0c957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0972573f_cbcfbc8e",
+        "filename": "plat/arm/common/arm_bl1_setup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-11T10:24:00Z",
+      "side": 1,
+      "message": "can we call ``arm_get_mbedtls_heap`` to just set the ``heap_info`` members?\nin conjunction with this comment: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/29280/4/plat/arm/common/arm_transfer_list.c#27",
+      "revId": "db23d65e7a266b219398419832ffc70acbc0c957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "074a0d43_d1cdb059",
+        "filename": "plat/arm/common/arm_dyn_cfg.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-11T10:24:00Z",
+      "side": 1,
+      "message": ".. \u0026\u0026 !TRANSFER_LIST",
+      "range": {
+        "startLine": 121,
+        "startChar": 10,
+        "endLine": 121,
+        "endChar": 24
+      },
+      "revId": "db23d65e7a266b219398419832ffc70acbc0c957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50905da4_cb27b049",
+        "filename": "plat/arm/common/arm_transfer_list.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-11T10:24:00Z",
+      "side": 1,
+      "message": "Can we do instead as below? It seems un-necessary to set ``heap_info`` in case of BL1/RESET_TO_BL2/IMAGE_BL31 and then call ``arm_transfer_list_get_heap_info`` which is again giving back same data.\n\n```\n\t*heap_addr \u003d heap;\n\t*heap_size \u003d sizeof(heap);\n#else\n    arm_transfer_list_get_heap_info(heap_addr, heap_size);\n#endif\n```",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 55
+      },
+      "revId": "db23d65e7a266b219398419832ffc70acbc0c957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5689c811_e5041cfe",
+        "filename": "plat/arm/common/arm_transfer_list.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-11T10:24:00Z",
+      "side": 1,
+      "message": "```       \n      assert(heap_addr !\u003d NULL);\n      assert(heap_size !\u003d NULL);\n```\nAlso, It\u0027s unlikely, but can we assert that the values of ``heap_info.addr`` and ``heap_info.size`` are not null? (In case this function is invoked before arm_transfer_list_set_heap_info in BL2).\nAs per above the comment this function only be needed in case of BL2 and can be made static.",
+      "revId": "db23d65e7a266b219398419832ffc70acbc0c957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
