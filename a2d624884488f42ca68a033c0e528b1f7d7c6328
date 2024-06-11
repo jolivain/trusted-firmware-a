@@ -3,6 +3,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3bff8851_f95b7825",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-11T11:30:33Z",
+      "side": 1,
+      "message": "nit: refactor(cpufeat) ?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "a2d624884488f42ca68a033c0e528b1f7d7c6328",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46164c25_8a2a9c8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-11T11:30:33Z",
+      "side": 1,
+      "message": "Can we replicate this for aarch32 as well? \nJust trying to understand and sharing my thoughts. Kindly ignore this part, if its not required here.\n\nI agree that here the intention is more towards optimization at world switch path (save/restore), which happens frequently at runtime. But the same APIs (is_feat_xxx_supported) are called at feature enablement ( even though happens once).\nSo if forcing them inlined isn\u0027t harmful in case for aarch32, can we do it?\nJust to keep both the helper functions(aarch32/64) aligned.",
+      "range": {
+        "startLine": 9,
+        "startChar": 52,
+        "endLine": 9,
+        "endChar": 65
+      },
+      "revId": "a2d624884488f42ca68a033c0e528b1f7d7c6328",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a187c710_eb20e11e",
         "filename": "/COMMIT_MSG",
         "patchSetId": 1
@@ -14,6 +60,23 @@
       "writtenOn": "2024-06-11T00:35:08Z",
       "side": 1,
       "message": "Is it worth mentioning that there is no impact on final elf size due to page alignment requirements for the code segment?",
+      "revId": "a2d624884488f42ca68a033c0e528b1f7d7c6328",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "785dd9b5_7b5ac042",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-11T11:30:33Z",
+      "side": 1,
+      "message": "LGTM.\nJust some minor comments.",
       "revId": "a2d624884488f42ca68a033c0e528b1f7d7c6328",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
