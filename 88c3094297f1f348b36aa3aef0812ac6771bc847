@@ -22,6 +22,30 @@
       },
       "revId": "88c3094297f1f348b36aa3aef0812ac6771bc847",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad522726_873b7832",
+        "filename": "plat/arm/common/arm_bl2_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1001075
+      },
+      "writtenOn": "2024-06-11T15:51:50Z",
+      "side": 1,
+      "message": "Thanks for the review. Yes, it makes sense. The condition check is only required for \"CASSERT(BL2_BASE \u003e\u003d ARM_FW_CONFIG_LIMIT, assert_bl2_base_overflows);\" Will fix it in the next version.",
+      "parentUuid": "5446eb84_7cf2e808",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 17
+      },
+      "revId": "88c3094297f1f348b36aa3aef0812ac6771bc847",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
