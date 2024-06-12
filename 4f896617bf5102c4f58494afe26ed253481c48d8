@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "601c9920_d54acc9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2024-06-12T11:28:46Z",
+      "side": 1,
+      "message": "Only issue I had was with python3-markdown 3.4.4-1 at 23.10 ubuntu.\nbut build requires older version\nERROR: pip\u0027s dependency resolver does not currently take into account all the packages that are installed. This behavior is the source of the following dependency conflicts.\nmkdocs 1.4.2 requires markdown\u003c3.4,\u003e\u003d3.2.1, but you have markdown 3.4.4 which is incompatible.",
+      "revId": "4f896617bf5102c4f58494afe26ed253481c48d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ace7142_9097b2d4",
