@@ -16,6 +16,74 @@
       "message": "https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/2226/\n\nStatic failure is due to addition of new files that can be ignored",
       "revId": "b9c8583d17a4a4dddb98db1a95b662de35b0b2ab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61b1c4da_4e61cdec",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_helpers.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-06-12T10:27:24Z",
+      "side": 1,
+      "message": "It\u0027s a branch instruction, how does execution return to line #35?",
+      "revId": "b9c8583d17a4a4dddb98db1a95b662de35b0b2ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9691a6b6_36b6a47b",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_helpers.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-06-12T10:27:24Z",
+      "side": 1,
+      "message": "Please provide a comment about the register, its name \u0026 operation on it. Can we have macro which defines its bit 0?",
+      "revId": "b9c8583d17a4a4dddb98db1a95b662de35b0b2ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a96600f5_6d4946c7",
+        "filename": "plat/arm/board/fvp/fvp_cpu_pwr.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-06-12T10:27:24Z",
+      "side": 1,
+      "message": "const?",
+      "revId": "b9c8583d17a4a4dddb98db1a95b662de35b0b2ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58d5aaf2_6a314f13",
+        "filename": "plat/arm/board/fvp/fvp_cpu_pwr.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2024-06-12T10:27:24Z",
+      "side": 1,
+      "message": "remove ,",
+      "revId": "b9c8583d17a4a4dddb98db1a95b662de35b0b2ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
