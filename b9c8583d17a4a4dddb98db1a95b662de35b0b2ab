@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1cfc4e5_5b18c093",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_helpers.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-06-12T14:39:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "61b1c4da_4e61cdec",
+      "revId": "b9c8583d17a4a4dddb98db1a95b662de35b0b2ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9691a6b6_36b6a47b",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-06-12T10:27:24Z",
       "side": 1,
       "message": "Please provide a comment about the register, its name \u0026 operation on it. Can we have macro which defines its bit 0?",
+      "revId": "b9c8583d17a4a4dddb98db1a95b662de35b0b2ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8c61cbc_489b6c43",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_helpers.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-06-12T14:39:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9691a6b6_36b6a47b",
       "revId": "b9c8583d17a4a4dddb98db1a95b662de35b0b2ab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -82,6 +118,24 @@
       "writtenOn": "2024-06-12T10:27:24Z",
       "side": 1,
       "message": "remove ,",
+      "revId": "b9c8583d17a4a4dddb98db1a95b662de35b0b2ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c40118f_549ad996",
+        "filename": "plat/arm/board/fvp/fvp_cpu_pwr.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-06-12T14:39:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58d5aaf2_6a314f13",
       "revId": "b9c8583d17a4a4dddb98db1a95b662de35b0b2ab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
