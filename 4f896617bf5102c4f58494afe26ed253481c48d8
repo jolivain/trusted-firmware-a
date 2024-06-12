@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ace7142_9097b2d4",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000469
+      },
+      "writtenOn": "2024-06-12T11:21:18Z",
+      "side": 1,
+      "message": "I tried to add --fdt with getting to this error. By default you have 1000bytes and if DT is bigger (which is almost always the case) you get error from python but it is not clear what to do. Would be better to handle it and let recommendation to user to increase size via -s.",
+      "revId": "4f896617bf5102c4f58494afe26ed253481c48d8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
