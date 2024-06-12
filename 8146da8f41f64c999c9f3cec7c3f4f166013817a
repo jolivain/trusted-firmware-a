@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8698a2d4_8421ebc9",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-06-12T15:14:02Z",
+      "side": 1,
+      "message": "would a name that involves the feature name be more appropriate?",
+      "parentUuid": "c009a618_7a731bfc",
+      "range": {
+        "startLine": 722,
+        "startChar": 2,
+        "endLine": 722,
+        "endChar": 16
+      },
+      "revId": "8146da8f41f64c999c9f3cec7c3f4f166013817a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35872c7a_21289888",
         "filename": "lib/extensions/debug/debugv8p9.c",
         "patchSetId": 6
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-12T15:00:07Z",
       "side": 1,
       "message": "it disables the traps?",
+      "range": {
+        "startLine": 20,
+        "startChar": 8,
+        "endLine": 20,
+        "endChar": 15
+      },
+      "revId": "8146da8f41f64c999c9f3cec7c3f4f166013817a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3e15258_137aeaa6",
+        "filename": "lib/extensions/debug/debugv8p9.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-06-12T15:14:02Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "35872c7a_21289888",
       "range": {
         "startLine": 20,
         "startChar": 8,
