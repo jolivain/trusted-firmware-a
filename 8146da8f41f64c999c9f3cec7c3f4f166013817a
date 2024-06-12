@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a036389c_d3a46c2f",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-06-12T15:25:23Z",
+      "side": 1,
+      "message": "Modified it to debugv8p9_extended_bp_wp_enable to make it more specific. Done.",
+      "parentUuid": "8698a2d4_8421ebc9",
+      "range": {
+        "startLine": 722,
+        "startChar": 2,
+        "endLine": 722,
+        "endChar": 16
+      },
+      "revId": "8146da8f41f64c999c9f3cec7c3f4f166013817a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35872c7a_21289888",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "Acknowledged",
       "parentUuid": "35872c7a_21289888",
+      "range": {
+        "startLine": 20,
+        "startChar": 8,
+        "endLine": 20,
+        "endChar": 15
+      },
+      "revId": "8146da8f41f64c999c9f3cec7c3f4f166013817a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b73420b_6a9a6e04",
+        "filename": "lib/extensions/debug/debugv8p9.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-06-12T15:25:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3e15258_137aeaa6",
       "range": {
         "startLine": 20,
         "startChar": 8,
