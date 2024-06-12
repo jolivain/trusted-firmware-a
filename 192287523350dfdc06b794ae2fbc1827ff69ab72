@@ -16,6 +16,23 @@
       "message": "1 failure unrelated to this change\ntf-l1-build-fvp/fvp-tspd-tbb-mbedtls-dualroot-cot-in-dtb",
       "revId": "192287523350dfdc06b794ae2fbc1827ff69ab72",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6a9a0c1_d5672c22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-06-12T15:11:06Z",
+      "side": 1,
+      "message": "Tested with 11.16 model works now with this fix which were failing previously.\n\nhttps://ci.trustedfirmware.org/view/TF-A/job/tf-a-ci-gateway/75656/",
+      "revId": "192287523350dfdc06b794ae2fbc1827ff69ab72",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
