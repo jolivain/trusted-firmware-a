@@ -312,7 +312,7 @@ Below is non-volatile counters example for ARM platform
         #address-cells = <1>;
         #size-cells = <0>;
 
-        trusted-nv-counter: trusted_nv_counter {
+        trusted_nv_counter: trusted_nv_counter {
            id  = <TRUSTED_NV_CTR_ID>;
            reg = <TFW_NVCTR_BASE>;
            oid = TRUSTED_FW_NVCOUNTER_OID;
