@@ -377,6 +377,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bde1b32b_8b77e075",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 21
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-06-13T14:13:20Z",
+      "side": 1,
+      "message": "Thanks all for investigating! Happy with the change, I guess this comment can be resolved now.",
+      "parentUuid": "e6c5f902_3cd6b495",
+      "range": {
+        "startLine": 309,
+        "startChar": 56,
+        "endLine": 309,
+        "endChar": 66
+      },
+      "revId": "df5174f130d4c0822bedd9d6bde7ef92bf6e6cc1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e49e91b7_2643a75c",
         "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
         "patchSetId": 21
