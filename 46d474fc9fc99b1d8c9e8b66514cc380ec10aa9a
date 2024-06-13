@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b25fa3b2_75dbe58d",
+        "filename": "plat/arm/board/neoverse_rd/common/nrd_bl31_setup.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-13T15:43:55Z",
+      "side": 1,
+      "message": "I\u0027m curious if using an array is appropriate here since it contains only one channel\u0027s information. Can\u0027t we avoid using array here?",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 2
+      },
+      "revId": "46d474fc9fc99b1d8c9e8b66514cc380ec10aa9a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
