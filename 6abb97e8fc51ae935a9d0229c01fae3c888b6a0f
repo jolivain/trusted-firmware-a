@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac33b37c_59ab9c83",
+        "filename": "common/bl_common.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-13T08:47:20Z",
+      "side": 1,
+      "message": "Yes, that was easier here ;-)\nBut I agree this can move to plat_common.c (both aarch32 \u0026 aarch64 versions)",
+      "parentUuid": "aa2a3ccf_8c5ee099",
+      "range": {
+        "startLine": 208,
+        "startChar": 5,
+        "endLine": 208,
+        "endChar": 27
+      },
+      "revId": "6abb97e8fc51ae935a9d0229c01fae3c888b6a0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e2671b3_d260b65f",
         "filename": "docs/porting-guide.rst",
         "patchSetId": 15
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "715a10da_5a7ba7df",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 15
+      },
+      "lineNbr": 1528,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-13T08:47:20Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9e2671b3_d260b65f",
+      "revId": "6abb97e8fc51ae935a9d0229c01fae3c888b6a0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8ac3731c_b9f6b192",
         "filename": "docs/porting-guide.rst",
         "patchSetId": 15
@@ -54,6 +96,24 @@
       "writtenOn": "2024-06-13T07:58:02Z",
       "side": 1,
       "message": "It would be helpful to include details about the return values. I believe this function returns 0 in case of failure when it cannot find the alternate image to be loaded, and 1 otherwise.\nAdditionally, I think it would be good to reverse these conditions, as functions generally return 0 on success, but let me know what do you think on this?",
+      "revId": "6abb97e8fc51ae935a9d0229c01fae3c888b6a0f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6a4830b_91924a5d",
+        "filename": "docs/porting-guide.rst",
+        "patchSetId": 15
+      },
+      "lineNbr": 1541,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-13T08:47:20Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8ac3731c_b9f6b192",
       "revId": "6abb97e8fc51ae935a9d0229c01fae3c888b6a0f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
