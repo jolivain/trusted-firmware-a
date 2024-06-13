@@ -10,6 +10,7 @@
 #include <common/runtime_svc.h>
 #include <lib/debugfs.h>
 #include <lib/pmf/pmf.h>
+#include <lib/debug_reg_smc.h>
 #include <services/ven_el3_svc.h>
 #include <tools_share/uuid.h>
 
@@ -70,6 +71,19 @@ static uintptr_t ven_el3_svc_handler(unsigned int smc_fid,
 	}
 
 #endif /* ENABLE_PMF */
+
+#if ENABLE_DEBUG_REG_SMC
+
+	/*
+	 * Dispatch architectural register debug calls to the debug_reg_smc
+	 * handler and return its return value.
+	 */
+	if (is_debug_reg_smc_fid(smc_fid)) {
+		return debug_reg_smc_handler(smc_fid, x1, x2, x3, x4, cookie,
+				handle, flags);
+	}
+
+#endif /* ENABLE_DEBUG_REG_SMC */
 
 	switch (smc_fid) {
 	case VEN_EL3_SVC_UID:
