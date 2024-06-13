@@ -16,6 +16,24 @@
       "message": "I believe this function is specifically handling the setting of the FWU metadata image source. Would it make sense to rename it to something more descriptive, such as ``set_metadata_image_source`` (remove plat_* too, as it is static and confined to ST platform only)? Let me know what do you think? It can be done in a separate patch.",
       "revId": "748afbe32263805ee126c7a23c9b3257a6e67ec9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05f07567_89d6d141",
+        "filename": "plat/st/common/bl2_io_storage.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 799,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-13T07:56:47Z",
+      "side": 1,
+      "message": "Hi Manish, yes that could be changed, I will make a new patch for this when this series is merged.",
+      "parentUuid": "32a56ae0_4017cc41",
+      "revId": "748afbe32263805ee126c7a23c9b3257a6e67ec9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
