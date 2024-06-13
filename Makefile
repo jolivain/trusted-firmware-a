@@ -789,6 +789,15 @@ ifeq (${USE_DEBUGFS},1)
         endif
 endif #(USE_DEBUGFS)
 
+# ENABLE_DEBUG_REG_SMC should only be used in debug  builds
+ifeq (${ENABLE_DEBUG_REG_SMC},1)
+        ifeq (${DEBUG},1)
+                $(warning ENABLE_DEBUG_REG_SMC feature is enabled.)
+        else
+                $(warning ENABLE_DEBUG_REG_SMC is recommended in DEBUG builds ONLY)
+        endif
+endif #(ENABLE_DEBUG_REG_SMC)
+
 # USE_SPINLOCK_CAS requires AArch64 build
 ifeq (${USE_SPINLOCK_CAS},1)
         ifneq (${ARCH},aarch64)
@@ -1207,6 +1216,7 @@ $(eval $(call assert_booleans,\
 	PLATFORM_REPORT_CTX_MEM_USE \
 	EARLY_CONSOLE \
 	PRESERVE_DSU_PMU_REGS \
+	ENABLE_DEBUG_REG_SMC \
 )))
 
 # Numeric_Flags
@@ -1408,6 +1418,7 @@ $(eval $(call add_defines,\
 	PLATFORM_REPORT_CTX_MEM_USE \
 	EARLY_CONSOLE \
 	PRESERVE_DSU_PMU_REGS \
+	ENABLE_DEBUG_REG_SMC \
 )))
 
 ifeq (${PLATFORM_REPORT_CTX_MEM_USE}, 1)
