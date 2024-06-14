@@ -33,6 +33,24 @@
       "message": "Will this break out-of-tree boards?",
       "revId": "4391e5edea930810e68d087ddeb02d06886d891d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35ea113f_8e8dc811",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-14T15:35:11Z",
+      "side": 1,
+      "message": "Hi Ahmad, the new bindings and associated devs in driver are not compliant with old bindings. The out-of-tree board will have to be updated, teh same way I\u0027ve updated the in-tree boards.",
+      "parentUuid": "f6aff37a_9f3678ad",
+      "revId": "4391e5edea930810e68d087ddeb02d06886d891d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ],
   "submitRequirementResults": []
