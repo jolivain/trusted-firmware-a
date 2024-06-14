@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f52c8d02_0cb5c8b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-06-14T09:39:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "47b1ea43_0938ce22",
+      "revId": "db23d65e7a266b219398419832ffc70acbc0c957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5c21058_4f50dc24",
@@ -55,6 +73,30 @@
       "side": 1,
       "message": "Indeed - I\u0027m putting together a patch for the specification seperately. Should we assign this to the IMP_DEF range (i.e. 0xff000 or greater) until that is in? There\u0027s every chance it\u0027s not accepted in the generic range.",
       "parentUuid": "a5c21058_4f50dc24",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 26
+      },
+      "revId": "db23d65e7a266b219398419832ffc70acbc0c957",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7eafc8af_a478d6dd",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-06-14T09:39:42Z",
+      "side": 1,
+      "message": "https://github.com/FirmwareHandoff/firmware_handoff/pull/45",
+      "parentUuid": "5eba0a95_9e411685",
       "range": {
         "startLine": 44,
         "startChar": 0,
