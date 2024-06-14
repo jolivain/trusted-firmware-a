@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c608b6b_1e78320c",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-06-14T10:54:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb4da963_ae5d2015",
+      "revId": "d65b10d9d03a3e1b1d5853ce5fc56e607de25de9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94f582fc_6cd8a1cb",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-04-09T11:31:42Z",
       "side": 1,
       "message": "drop this part please:\n\nINFO:    Found 4 cpus\nINFO:    There are no threads in this cpu-map\nINFO:    There are no threads in this cpu-map\nINFO:    There are no threads in this cpu-map\nINFO:    There are no threads in this cpu-map\nINFO:    cpu topology:sockets: 1, clusters: 1, cores: 4, thread: 0",
+      "revId": "d65b10d9d03a3e1b1d5853ce5fc56e607de25de9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "448745be_93d52dd2",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-06-14T10:54:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94f582fc_6cd8a1cb",
       "revId": "d65b10d9d03a3e1b1d5853ce5fc56e607de25de9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -52,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05869bfa_b66b2ef1",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-06-14T10:54:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af80eec8_1e84f038",
+      "revId": "d65b10d9d03a3e1b1d5853ce5fc56e607de25de9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6d317c7_51efdff6",
@@ -69,6 +123,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "498a98b1_5c3daba6",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-06-14T10:54:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6d317c7_51efdff6",
+      "revId": "d65b10d9d03a3e1b1d5853ce5fc56e607de25de9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df431ddb_425fda7b",
@@ -82,6 +154,24 @@
       "writtenOn": "2024-04-09T09:26:06Z",
       "side": 1,
       "message": "Can you add comment like:\n\n/* we do not know topology so we report SMC as unknown */",
+      "revId": "d65b10d9d03a3e1b1d5853ce5fc56e607de25de9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dee5d817_7b5da607",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 464,
+      "author": {
+        "id": 1000443
+      },
+      "writtenOn": "2024-06-14T10:54:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df431ddb_425fda7b",
       "revId": "d65b10d9d03a3e1b1d5853ce5fc56e607de25de9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
