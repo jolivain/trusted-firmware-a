@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10b34c40_646c99ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-06-14T22:28:50Z",
+      "side": 1,
+      "message": "Retaining V+1 from Patch v7 as changes from v7 to v8 are cosmetic in nature and unlikely to influence the functionality.\n\nhttp://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/2232/\n\nStatic failure due to addition of new file can be ignored",
+      "revId": "d38c64d2466006104142ae23a673a9cf2b4170e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
