@@ -25,8 +25,7 @@
 
 /* Global options */
 
-/* Info messages created in the Makefile */
-extern const char build_msg[];
+static const char build_msg[] = "Built : " __TIME__ ", " __DATE__;
 
 static char *key_algs_str[] = {
 	[KEY_ALG_GCM] = "gcm",
