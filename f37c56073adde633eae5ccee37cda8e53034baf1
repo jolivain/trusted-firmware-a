@@ -34,6 +34,24 @@
       "parentUuid": "da26e0f2_60c1de08",
       "revId": "f37c56073adde633eae5ccee37cda8e53034baf1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad7f098f_eafc9716",
+        "filename": "include/arch/aarch64/el2_common_macros.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-14T17:26:57Z",
+      "side": 1,
+      "message": "Interestingly this portion of code, is within an erratum flag and looks like thats part of one test config.\nBut the overall test_config has passed and individual results show tests been skipped.\n\n```\n[TARGET]   \u003e Executing \u0027Version\n[TARGET]     TEST COMPLETE                                                Skipped\n\n[TARGET]   \u003e Executing \u0027EM_cpu_features\u0027\n[TARGET]     TEST COMPLETE                                                Skipped\n\n[TARGET]   ******************************* Summary *******************************\n[TARGET]   \u003e Test suite \u0027EM-ABI\u0027\n[TARGET]                                                                   Passed\n\n```\n\nBut on testing locally after save and restoring X0 and X1, these tests executed and passed.",
+      "parentUuid": "dc19542f_989e53c3",
+      "revId": "f37c56073adde633eae5ccee37cda8e53034baf1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
