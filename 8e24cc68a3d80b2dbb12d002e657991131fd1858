@@ -52,6 +52,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "651775cd_a4e70595",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_helpers.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-06-14T22:29:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6470a411_a5f5e620",
+      "revId": "8e24cc68a3d80b2dbb12d002e657991131fd1858",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8394ed71_d5b2402c",
@@ -65,6 +83,30 @@
       "writtenOn": "2024-06-14T17:07:55Z",
       "side": 1,
       "message": "In the same logical block you have same label(not a problem but can cause confusion), may be give some logical name to it and the one at line#71",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 2
+      },
+      "revId": "8e24cc68a3d80b2dbb12d002e657991131fd1858",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f76fe13e_2f267c16",
+        "filename": "plat/arm/board/fvp/aarch64/fvp_helpers.S",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-06-14T22:29:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8394ed71_d5b2402c",
       "range": {
         "startLine": 49,
         "startChar": 0,
