@@ -51,6 +51,24 @@
       "parentUuid": "143f01bb_9b4ac6a0",
       "revId": "ae1e503763c8bc52eba1a38e320539d61ebe2043",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11d2ad9b_5dfa81fe",
+        "filename": "drivers/st/clk/stm32mp1_clk.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 2646,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-14T12:17:59Z",
+      "side": 1,
+      "message": "Hi Madhukar,\nI\u0027ve check if we can use fdt_read_uint32_array() in a simple way but there are several issues.\nFirst fdt_read_uint32_array() doesn\u0027t give the number of elements found in the array, that we use to reduce the loops in stm32_clk_dividers_configure() and stm32_clk_source_configure(). We could avoid this by breaking the loop if the value is 0 (the value hasn\u0027t been initialized). But there is one possible valid value of 0 that would also incorrectly break the loop.\nAnother issue is that fdt_read_uint32_array() awaits the property length can fill the entire array. Which leads to an error, as we always have less entries in DT that the possible values. We could then call fdt_getprop() first to have the length of the array in DT. But we\u0027ll then have twice this fdt_getprop(), and searching info from DT is time consuming.\nSo I\u0027d prefer to keep our internal function.",
+      "parentUuid": "9848f9c3_73dd7db3",
+      "revId": "ae1e503763c8bc52eba1a38e320539d61ebe2043",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
