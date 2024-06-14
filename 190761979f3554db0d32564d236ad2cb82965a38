@@ -16,6 +16,29 @@
       "message": "Verfieid on top patch in series.",
       "revId": "190761979f3554db0d32564d236ad2cb82965a38",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79afaaf4_0aa696b3",
+        "filename": "tools/tlc/Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-14T12:54:10Z",
+      "side": 1,
+      "message": "These are very specific to macOS right? May I know the reason behind adding this removal.",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 44
+      },
+      "revId": "190761979f3554db0d32564d236ad2cb82965a38",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
