@@ -18,6 +18,7 @@ include ${MAKE_HELPERS_DIRECTORY}build_env.mk
 include ${MAKE_HELPERS_DIRECTORY}common.mk
 include ${MAKE_HELPERS_DIRECTORY}defaults.mk
 include ${MAKE_HELPERS_DIRECTORY}toolchain.mk
+include ${MAKE_HELPERS_DIRECTORY}utilities.mk
 
 OBJECTS := src/encrypt.o \
            src/cmd_opt.o \
@@ -64,9 +65,7 @@ all: --openssl ${BINARY}
 
 ${BINARY}: ${OBJECTS} Makefile
 	$(s)echo "  HOSTLD  $@"
-	$(q)echo 'const char build_msg[] = "Built : "__TIME__", "__DATE__;' | \
-                $(host-cc) -c ${HOSTCCFLAGS} -xc - -o src/build_msg.o
-	$(q)$(host-cc) src/build_msg.o ${OBJECTS} ${LIB_DIR} ${LIB} -o $@
+	$(q)$(host-cc) ${OBJECTS} ${LIB_DIR} ${LIB} -o $@
 
 %.o: %.c
 	$(s)echo "  HOSTCC  $<"
@@ -78,7 +77,7 @@ ifeq ($(DEBUG),1)
 endif
 
 clean:
-	$(call SHELL_DELETE_ALL, src/build_msg.o ${OBJECTS})
+	$(call SHELL_DELETE_ALL,${OBJECTS})
 
 realclean: clean
 	$(call SHELL_DELETE,${BINARY})
