@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4cad8d3_ed42b391",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000266
+      },
+      "writtenOn": "2024-06-14T06:53:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d8cddfc_9f67f3f7",
+      "revId": "7ae3d1ac9c44ac352567ebd94389964695200e00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7c6fc7af_f3273dbe",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-01-19T04:46:32Z",
       "side": 1,
       "message": "Tested-by: Eugen Hristev \u003ceugen.hristev@collabora.com\u003e",
+      "revId": "7ae3d1ac9c44ac352567ebd94389964695200e00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d45aa24c_7d536e32",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000266
+      },
+      "writtenOn": "2024-06-14T06:53:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c6fc7af_f3273dbe",
       "revId": "7ae3d1ac9c44ac352567ebd94389964695200e00",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -118,6 +154,24 @@
       "side": 1,
       "message": "I\u0027ve found a probable reason for performance differences with OpenSSL specifically, with this opensource TF-A versus the binary TF-A (I tested v1.40 from rkbin). With the binary, the CPU feature flags have ARM Crypto extensions, but with this TF-A build (I tested commit fd91c45), CPU features report they don\u0027t have the crypto extensions, and I guess OpenSSL doesn\u0027t use them and is slower.\n\nhere\u0027s the diff of /proc/cpuinfo Features:\n\n-Features\t: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\n+Features\t: fp asimd evtstrm crc32 atomics fphp asimdhp cpuid asimdrdm lrcpc dcpop asimddp\n\nI tested with sbc-bench and the rockchip-cpufreq driver from Collabora\u0027s kernel repo, and noticed that cpuinfo diff in the results, but otherwise didn\u0027t spot major differences in (non-crypto) performance.",
       "parentUuid": "67d5ae73_079cfdfd",
+      "revId": "7ae3d1ac9c44ac352567ebd94389964695200e00",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "532236d8_c1cee08f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000266
+      },
+      "writtenOn": "2024-06-14T06:53:50Z",
+      "side": 1,
+      "message": "The crypto in CPU is default off in rk3588, a workaround patch will need for enable this feature, and not sure if it\u0027s acceptable for mainline ATF.",
+      "parentUuid": "4245b01f_ed068e09",
       "revId": "7ae3d1ac9c44ac352567ebd94389964695200e00",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },

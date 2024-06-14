@@ -106,6 +106,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "919478f2_378e1caa",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000266
+      },
+      "writtenOn": "2024-06-14T06:53:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d63c7576_62b9a856",
+      "revId": "ef131ac2398ea21032a570f32b4cf4baafd3b29e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "217ee952_de86620c",
@@ -137,6 +155,24 @@
       "side": 1,
       "message": "The data in rk3588_cpub1_pvtpll_table was copied from rk3588_cpub0_pvtpll_table.\nAs shown in the following code in line 2456~2459:\nsys_clk_info.cpub23_table \u003d rk3588_cpub1_pvtpll_table;\nsys_clk_info.cpub23_rate_count \u003d ARRAY_SIZE(rk3588_cpub1_pvtpll_table);\nmemcpy(sys_clk_info.cpub23_table, sys_clk_info.cpub01_table,\n       sys_clk_info.cpub01_rate_count * sizeof(*sys_clk_info.cpub01_table));",
       "parentUuid": "217ee952_de86620c",
+      "revId": "ef131ac2398ea21032a570f32b4cf4baafd3b29e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5167bab5_de09d7be",
+        "filename": "plat/rockchip/rk3588/drivers/scmi/rk3588_clk.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1000266
+      },
+      "writtenOn": "2024-06-14T06:53:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9972f108_960cf7ac",
       "revId": "ef131ac2398ea21032a570f32b4cf4baafd3b29e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -190,6 +226,24 @@
       "side": 1,
       "message": "If PE supports multi-thread (bit[24] of MPIDR_EL1), the cluster mask and cpu mask of mpidr is 0xff0000 and 0xff00. The mpdir of cpu0~7 in rk3588:\n0x81000000, 0x81000100, 0x81000200, 0x81000300, 0x81000400, 0x81010500, 0x81000600, 0x81000700.\n\nTo match the above mpdir , we pretend that there is eight cpus in a cluster.",
       "parentUuid": "74457cdc_587f5e1e",
+      "revId": "ef131ac2398ea21032a570f32b4cf4baafd3b29e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4afe53f2_28b8185c",
+        "filename": "plat/rockchip/rk3588/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000266
+      },
+      "writtenOn": "2024-06-14T06:53:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "114fa862_b3514a8c",
       "revId": "ef131ac2398ea21032a570f32b4cf4baafd3b29e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
