@@ -12,6 +12,7 @@
 from pathlib import Path
 
 import click
+import yaml
 
 from tlc.tl import *
 
@@ -44,15 +45,28 @@ def cli():
     show_default=True,
     help="Settings for the TL's properties.",
 )
-def create(filename, size, fdt, entry, flags):
+@click.option(
+    "--from-yaml",
+    type=click.Path(exists=True),
+    help="create the transfer list from a YAML config file",
+)
+def create(filename, size, fdt, entry, flags, from_yaml):
     """Create a new Transfer List."""
-    tl = TransferList(size)
-
-    entry = (*entry, (1, fdt)) if fdt else entry
-
     try:
-        for id, path in entry:
-            tl.add_transfer_entry_from_file(id, path)
+        if from_yaml:
+            # create from yaml
+            with open(from_yaml, "r") as f:
+                config = yaml.safe_load(f)
+
+            tl = TransferList.from_dict(config)
+        else:
+            # create using command line arguments
+            tl = TransferList(size)
+
+            entry = (*entry, (1, fdt)) if fdt else entry
+
+            for id, path in entry:
+                tl.add_transfer_entry_from_file(id, path)
     except MemoryError as mem_excp:
         raise MemoryError(
             "TL max size exceeded, consider increasing with the option -s"
