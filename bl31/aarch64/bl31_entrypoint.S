@@ -16,6 +16,11 @@
 	.globl	bl31_entrypoint
 	.globl	bl31_warm_entrypoint
 
+#ifdef PLAT_RK_BL31_ENTRYPOINT
+	.globl	plat_rockchip_bl31_entrypoint
+	.globl	plat_rockchip_bl31_entrypoint_set_sp
+#endif
+
 	/* -----------------------------------------------------
 	 * bl31_entrypoint() is the cold boot entrypoint,
 	 * executed only by the primary cpu.
@@ -23,6 +28,10 @@
 	 */
 
 func bl31_entrypoint
+#ifdef PLAT_RK_BL31_ENTRYPOINT
+	bl	plat_rockchip_bl31_entrypoint_set_sp
+	bl	plat_rockchip_bl31_entrypoint
+#endif
 	/* ---------------------------------------------------------------
 	 * Stash the previous bootloader arguments x0 - x3 for later use.
 	 * ---------------------------------------------------------------

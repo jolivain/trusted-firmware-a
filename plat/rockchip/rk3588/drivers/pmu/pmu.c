@@ -136,6 +136,22 @@ static __pmusramfunc void dsu_restore_early(void)
 
 static __pmusramfunc void ddr_resume(void)
 {
+	/* check the crypto function had been enabled or not */
+	if (mmio_read_32(DSUSGRF_BASE + DSU_SGRF_SOC_CON(4)) & BIT(4)) {
+		/* enable the crypto function */
+		mmio_write_32(DSUSGRF_BASE + DSU_SGRF_SOC_CON(4), BITS_WITH_WMASK(0, 0x1, 4));
+		dsb();
+		isb();
+
+		__asm__ volatile ("mov	x0, #3\n"
+				  "dsb	sy\n"
+				  "msr	rmr_el3, x0\n"
+				  "1:\n"
+				  "isb\n"
+				  "wfi\n"
+				  "b 1b\n");
+	}
+
 	dsu_restore_early();
 }
 
@@ -1436,4 +1452,67 @@ void plat_rockchip_pmu_init(void)
 	mmio_write_32(PMU0SGRF_BASE + PMU0_SGRF_SOC_CON(2), 0x00030001);
 
 	pm_reg_rgns_init();
+}
+
+void bl31_entrypoint(void);
+
+static uint64_t boot_cpu_save[4];
+
+void plat_rockchip_bl31_entrypoint_set_sp(uint64_t reg0, uint64_t reg1,
+					  uint64_t reg2, uint64_t reg3)
+{
+	__asm__ volatile("mov x10, %0\n" : : "r" (reg0) : );
+
+	reg0 = PSRAM_SP_TOP;
+	__asm__ volatile("mov sp, %0\n" : : "r" (reg0) : );
+
+	__asm__ volatile("mov %0, x10\n" : "=r" (reg0) : :);
+}
+
+void plat_rockchip_bl31_entrypoint(uint64_t reg0, uint64_t reg1,
+				   uint64_t reg2, uint64_t reg3)
+{
+	uint32_t tmp = mmio_read_32(DSUSGRF_BASE + DSU_SGRF_SOC_CON(4));
+
+	/* check the crypto function had been enabled or not */
+	if (tmp & BIT(4)) {
+		/* save x0~x3 */
+		boot_cpu_save[0] = reg0;
+		boot_cpu_save[1] = reg1;
+		boot_cpu_save[2] = reg2;
+		boot_cpu_save[3] = reg3;
+
+		/* enable the crypto function */
+		mmio_write_32(DSUSGRF_BASE + DSU_SGRF_SOC_CON(4), BITS_WITH_WMASK(0, 0x1, 4));
+
+		/* remap pmusram to 0xffff0000 */
+		mmio_write_32(PMU0SGRF_BASE + PMU0_SGRF_SOC_CON(2), 0x00030001);
+		dsb();
+		psram_sleep_cfg->pm_flag = PM_WARM_BOOT_BIT;
+		cpuson_flags[0] = PMU_CPU_HOTPLUG;
+		cpuson_entry_point[0] = (uintptr_t)bl31_entrypoint;
+		dsb();
+
+		/* to enable the crypto function, must reset the core0 */
+		__asm__ volatile ("mov	x0, #3\n"
+				  "dsb	sy\n"
+				  "msr	rmr_el3, x0\n"
+				  "1:\n"
+				  "isb\n"
+				  "wfi\n"
+				  "b 1b\n");
+	} else {
+		/* remap bootrom to 0xffff0000 */
+		mmio_write_32(PMU0SGRF_BASE + PMU0_SGRF_SOC_CON(2), 0x00030000);
+
+		/*
+		 * the crypto function has been enabled,
+		 * restore the x0~x3.
+		 */
+		__asm__ volatile ("ldr	x0, [%0]\n"
+				  "ldr	x1, [%0 , 0x8]\n"
+				  "ldr	x2, [%0 , 0x10]\n"
+				  "ldr	x3, [%0 , 0x18]\n"
+				  : : "r" (&boot_cpu_save[0]));
+	}
 }
