@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01017519_9b681058",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-17T13:02:47Z",
+      "side": 1,
+      "message": "Static checks failure due to newly added file.\n@Arvind, could you add corresponding build entry to cover this file as part of coverity job ?\n\nFor your reference:\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/25674/2/script/tf-coverity/tf-cov-make\n\nOnce that patch is external, kindly mention it here. Will manually override and add verified+1.",
+      "revId": "c957fe8f802464aeae672dc67441a498f009723f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
