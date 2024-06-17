@@ -146,3 +146,259 @@ def test_unpack_into_dir(tlcrunner, tmpdir, tmptlstr, tmpfdt):
     tlcrunner.invoke(cli, ["unpack", "-C", tmpdir.strpath, tmptlstr])
 
     assert (Path(tmpdir.strpath) / "te_1.bin").exists()
+
+
+def test_create_fdt_entry_from_yaml(
+    tlcrunner, tmpyamlconfig_fdt_entry, tmptlstr, tmptfa
+):
+    tlcrunner.invoke(
+        cli,
+        [
+            "create-from-yaml",
+            tmpyamlconfig_fdt_entry.strpath,
+            tmptlstr,
+            "--tf-a-root",
+            tmptfa.strpath,
+        ],
+    )
+
+    tl = TransferList.fromfile(tmptlstr)
+    assert tl is not None
+    assert len(tl.entries) == 1
+    assert tl.entries[0].id == 1
+
+
+def test_create_empty_entry_from_yaml(
+    tlcrunner, tmpyamlconfig_empty_entry, tmptlstr, tmptfa
+):
+    tlcrunner.invoke(
+        cli,
+        [
+            "create-from-yaml",
+            tmpyamlconfig_empty_entry.strpath,
+            tmptlstr,
+            "--tf-a-root",
+            tmptfa.strpath,
+        ],
+    )
+
+    tl = TransferList.fromfile(tmptlstr)
+    assert tl is not None
+    assert len(tl.entries) == 1
+    assert tl.entries[0].id == 0
+    assert tl.entries[0].data_size == 4
+
+
+def test_create_memory_layout_entry_from_yaml(
+    tlcrunner, tmpyamlconfig_memory_layout_entry, tmptlstr, tmptfa
+):
+    tlcrunner.invoke(
+        cli,
+        [
+            "create-from-yaml",
+            tmpyamlconfig_memory_layout_entry.strpath,
+            tmptlstr,
+            "--tf-a-root",
+            tmptfa.strpath,
+        ],
+    )
+
+    tl = TransferList.fromfile(tmptlstr)
+    assert tl is not None
+    assert len(tl.entries) == 1
+
+    # transfer entry copied from FVP
+    expected = "0x00000010 0x04001000 0x00000000 0x00033000"
+
+    actual = tl.entries[0].data
+    actual = bytes_to_hex(actual)
+
+    assert actual == expected
+
+
+def test_create_ep_entry_from_yaml(tlcrunner, tmpyamlconfig_ep_entry, tmptlstr, tmptfa):
+    tlcrunner.invoke(
+        cli,
+        [
+            "create-from-yaml",
+            tmpyamlconfig_ep_entry.strpath,
+            tmptlstr,
+            "--tf-a-root",
+            tmptfa.strpath,
+        ],
+    )
+
+    tl = TransferList.fromfile(tmptlstr)
+    assert tl is not None
+    assert len(tl.entries) == 1
+
+    # entry_point_info struct copied from FVP
+    expected = (
+        "0x00580201 0x00000008 0x04020000 0x00000000 "
+        "0x000003C5 0x00000000 0x04001010 0x00000000 "
+        "0x04001000 0x00000000 0x00000000 0x00000000 "
+        "0x00000000 0x00000000 0x00000000 0x00000000 "
+        "0x00000000 0x00000000 0x00000000 0x00000000 "
+        "0x00000000 0x00000000"
+    )
+
+    actual = tl.entries[0].data
+    actual = bytes_to_hex(actual)
+
+    assert actual == expected
+
+
+def test_create_ep_entry_from_yaml_aarch32(
+    tlcrunner, tmpyamlconfig_ep_entry_aarch32, tmptlstr, tmptfa
+):
+    tlcrunner.invoke(
+        cli,
+        [
+            "create-from-yaml",
+            tmpyamlconfig_ep_entry_aarch32.strpath,
+            tmptlstr,
+            "--tf-a-root",
+            tmptfa.strpath,
+        ],
+    )
+
+    tl = TransferList.fromfile(tmptlstr)
+    assert tl is not None
+    assert len(tl.entries) == 1
+
+    # entry_point_info struct copied from FVP
+    expected = (
+        "0x00240201 0x00000008 0x04020000 0x000001D3 0x00000000 "
+        "0x04001008 0x04001000 0x00000000 0x00000000"
+    )
+
+    actual = tl.entries[0].data
+    actual = bytes_to_hex(actual)
+
+    assert actual == expected
+
+
+def test_create_hob_block_entry_from_yaml(
+    tlcrunner, tmpyamlconfig_hob_block_entry, tmptlstr, tmptfa
+):
+    tlcrunner.invoke(
+        cli,
+        [
+            "create-from-yaml",
+            tmpyamlconfig_hob_block_entry.strpath,
+            tmptlstr,
+            "--tf-a-root",
+            tmptfa.strpath,
+        ],
+    )
+
+    tl = TransferList.fromfile(tmptlstr)
+    assert tl is not None
+    assert len(tl.entries) == 1
+    assert tl.entries[0].id == 2
+
+
+def test_create_hob_list_entry_from_yaml(
+    tlcrunner, tmpyamlconfig_hob_list_entry, tmptlstr, tmptfa
+):
+    tlcrunner.invoke(
+        cli,
+        [
+            "create-from-yaml",
+            tmpyamlconfig_hob_list_entry.strpath,
+            tmptlstr,
+            "--tf-a-root",
+            tmptfa.strpath,
+        ],
+    )
+
+    tl = TransferList.fromfile(tmptlstr)
+    assert tl is not None
+    assert len(tl.entries) == 1
+    assert tl.entries[0].id == 3
+
+
+def test_create_acpi_entry_from_yaml(
+    tlcrunner, tmpyamlconfig_acpi_entry, tmptlstr, tmptfa
+):
+    tlcrunner.invoke(
+        cli,
+        [
+            "create-from-yaml",
+            tmpyamlconfig_acpi_entry.strpath,
+            tmptlstr,
+            "--tf-a-root",
+            tmptfa.strpath,
+        ],
+    )
+
+    tl = TransferList.fromfile(tmptlstr)
+    assert tl is not None
+    assert len(tl.entries) == 1
+    assert tl.entries[0].id == 4
+
+
+def test_create_spmc_entry_from_yaml(
+    tlcrunner, tmpyamlconfig_spmc_entry, tmptlstr, tmptfa
+):
+    tlcrunner.invoke(
+        cli,
+        [
+            "create-from-yaml",
+            tmpyamlconfig_spmc_entry.strpath,
+            tmptlstr,
+            "--tf-a-root",
+            tmptfa.strpath,
+        ],
+    )
+
+    tl = TransferList.fromfile(tmptlstr)
+    assert tl is not None
+    assert len(tl.entries) == 1
+    assert tl.entries[0].id == 0x101
+
+
+def test_create_optee_entry_from_yaml(
+    tlcrunner, tmpyamlconfig_optee_entry, tmptlstr, tmptfa
+):
+    tlcrunner.invoke(
+        cli,
+        [
+            "create-from-yaml",
+            tmpyamlconfig_optee_entry.strpath,
+            tmptlstr,
+            "--tf-a-root",
+            tmptfa.strpath,
+        ],
+    )
+
+    tl = TransferList.fromfile(tmptlstr)
+    assert tl is not None
+    assert len(tl.entries) == 1
+    assert tl.entries[0].id == 0x100
+    assert tl.entries[0].data_size == 8
+
+    expected_pp_addr = 100
+
+    content = tl.entries[0].data
+    actual_pp_addr = int.from_bytes(content, tl.endianness)
+
+    assert actual_pp_addr == expected_pp_addr
+
+
+def bytes_to_hex(data: bytes) -> str:
+    """Convert bytes to a hex string in the same format as the debugger in
+    ArmDS
+
+    You can copy data from the debugger in Arm Development Studio and put it
+    into a unit test. You can then run this function on the output from tlc,
+    and compare it to the data you copied.
+    """
+    words_hex = []
+    for i in range(0, len(data), 4):
+        word = data[i : i + 4]
+        word_int = int.from_bytes(word, "little")
+        word_hex = "0x" + f"{word_int:0>8x}".upper()
+        words_hex.append(word_hex)
+
+    return " ".join(words_hex)

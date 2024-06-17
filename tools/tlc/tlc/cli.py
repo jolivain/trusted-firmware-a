@@ -10,6 +10,7 @@
 from pathlib import Path
 
 import click
+import yaml
 
 from tlc.tl import *
 
@@ -146,3 +147,38 @@ def unpack(filename, c):
     for te in tl.entries:
         with open(pwd / f"te_{te.id}.bin", "wb") as f:
             f.write(te.data)
+
+
+@cli.command()
+@click.argument("config-file", type=click.Path(dir_okay=False))
+@click.argument("output-file", type=click.Path(dir_okay=False))
+@click.option(
+    "--tf-a-root",
+    type=click.Path(dir_okay=True),
+    help="Path to tf-a repo. Paths to blob files are relative to here. If not "
+    "given, the script will check if it is in a tf-a directory, and use "
+    "that.",
+)
+def create_from_yaml(config_file, output_file, tf_a_root):
+    """Create a new Transfer List from a YAML config file."""
+    # validate --tf-a-root and provide default
+    # If no tf-a-root is provided, search ancestors to check if the script is
+    # in a tf-a directory, and if one is found, use it.
+    if tf_a_root:
+        tf_a_root = Path(tf_a_root)
+    else:
+        # search ancestors for tf-a directory
+        file_path = Path(__file__)
+        for i, directory in reversed(list(enumerate(file_path.parts))):
+            if directory == "trusted-firmware-a":
+                tf_a_root = Path(*file_path.parts[: i + 1])
+                break
+    if tf_a_root.name != "trusted-firmware-a":
+        raise ValueError("No correct tf-a-root provided.")
+
+    with open(config_file, "r") as f:
+        config = yaml.safe_load(f)
+
+    tl = TransferList.from_dict(config, tf_a_root)
+
+    tl.write_to_file(output_file)
