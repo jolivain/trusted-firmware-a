@@ -1,0 +1,61 @@
+###### Static checks ######
+
+Patch series being checked:
+
+Base branch reference commit:
+bc29cbaf7 docs(simd): introduce CTX_INCLUDE_SVE_REGS build flag
+
+
+****** Copyright headers of files modified by this patch ******
+
+Result : FAILURE
+
+usage: /home/madhukar/TF_PLATFORM/Development/SVE_CTXT/ci-scripts-tf-a/script/static-checks/check-copyright.py
+       [-h] [--tree TREE] [--verbose] [--patch] [--from-ref FROM_REF]
+       [--to-ref TO_REF]
+/home/madhukar/TF_PLATFORM/Development/SVE_CTXT/ci-scripts-tf-a/script/static-checks/check-copyright.py: error: argument --from-ref: expected one argument
+
+
+****** Order of includes on the patch series ******
+
+Result : FAILURE
+
+usage: /home/madhukar/TF_PLATFORM/Development/SVE_CTXT/ci-scripts-tf-a/script/static-checks/check-include-order.py
+       [-h] [--tree TREE] [--patch] [--from-ref FROM_REF] [--to-ref TO_REF]
+       [--debug]
+/home/madhukar/TF_PLATFORM/Development/SVE_CTXT/ci-scripts-tf-a/script/static-checks/check-include-order.py: error: argument --from-ref: expected one argument
+
+Please refer to the docs for further information on include statement ordering: https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering.
+
+
+****** Line endings are valid ******
+
+Result : SUCCESS
+
+****** Coding style on current patch ******
+
+Result : SUCCESS
+
+  CHECKING STYLE
+usage: git merge-base [-a | --all] <commit> <commit>...
+   or: git merge-base [-a | --all] --octopus <commit>...
+   or: git merge-base --independent <commit>...
+   or: git merge-base --is-ancestor <commit> <commit>
+   or: git merge-base --fork-point <ref> [<commit>]
+
+    -a, --all             output all common ancestors
+    --octopus             find ancestors for a single n-way merge
+    --independent         list revs not reachable from others
+    --is-ancestor         is the first one ancestor of the other?
+    --fork-point          find where <commit> forked from reflog of <ref>
+
+
+
+****** Banned API check on patch(es) ******
+
+Result : FAILURE
+
+usage: check-banned-api.py [-h] [--tree TREE] [--patch] [--from-ref FROM_REF]
+                           [--to-ref TO_REF] [--verbose]
+check-banned-api.py: error: argument --from-ref: expected one argument
+
