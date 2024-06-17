@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fb5e432_11f49de5",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 10
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-06-17T19:46:36Z",
+      "side": 1,
+      "message": "Fixed the typo. I feel it\u0027s better to keep the \"optional from v8.8\" since its the language used in ARM ARM and also shows the feature is only supported from v8.8.",
+      "parentUuid": "4b2ce7f1_d6a5fc9d",
+      "range": {
+        "startLine": 326,
+        "startChar": 1,
+        "endLine": 326,
+        "endChar": 13
+      },
+      "revId": "c957fe8f802464aeae672dc67441a498f009723f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a34d745d_c15c4537",
@@ -64,6 +88,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2374a41_03668e0a",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-06-17T19:46:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a34d745d_c15c4537",
+      "range": {
+        "startLine": 230,
+        "startChar": 8,
+        "endLine": 230,
+        "endChar": 45
+      },
+      "revId": "c957fe8f802464aeae672dc67441a498f009723f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef2d4ef4_62769110",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-06-17T13:23:44Z",
       "side": 1,
       "message": "macro name to be changed here as well.",
+      "range": {
+        "startLine": 305,
+        "startChar": 29,
+        "endLine": 305,
+        "endChar": 66
+      },
+      "revId": "c957fe8f802464aeae672dc67441a498f009723f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e25729de_559769e2",
+        "filename": "include/arch/aarch64/arch_features.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-06-17T19:46:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef2d4ef4_62769110",
       "range": {
         "startLine": 305,
         "startChar": 29,
@@ -112,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6ed59eda_b5a1da13",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-06-17T19:46:36Z",
+      "side": 1,
+      "message": "I had placed this function in manage_extensions_el3 at first and then soby told me to enable it for NS world only (https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/29061/comments/119f2c79_d069310d) and hence I moved it to the current location as it is specific to NS world whereas cm_manage_extensions_el3 is for all worlds. \nIf you have any suggestions on a middle ground approach please let me know",
+      "parentUuid": "feedf26a_177528d4",
+      "range": {
+        "startLine": 721,
+        "startChar": 0,
+        "endLine": 723,
+        "endChar": 2
+      },
+      "revId": "c957fe8f802464aeae672dc67441a498f009723f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cd850048_bcb1fccc",
         "filename": "lib/extensions/debug/debugv8p9.c",
         "patchSetId": 10
@@ -123,6 +219,30 @@
       "writtenOn": "2024-06-17T13:23:44Z",
       "side": 1,
       "message": "Do we need this inclusion? \nAre we registering for any events? If not it could be removed.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 35
+      },
+      "revId": "c957fe8f802464aeae672dc67441a498f009723f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3e32f1c_2572aac6",
+        "filename": "lib/extensions/debug/debugv8p9.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-06-17T19:46:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd850048_bcb1fccc",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -146,6 +266,30 @@
       "writtenOn": "2024-06-17T13:23:44Z",
       "side": 1,
       "message": "nit: add .",
+      "range": {
+        "startLine": 20,
+        "startChar": 56,
+        "endLine": 20,
+        "endChar": 59
+      },
+      "revId": "c957fe8f802464aeae672dc67441a498f009723f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6b608f7_b3f00a91",
+        "filename": "lib/extensions/debug/debugv8p9.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-06-17T19:46:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "768fee23_09b77e0e",
       "range": {
         "startLine": 20,
         "startChar": 56,
