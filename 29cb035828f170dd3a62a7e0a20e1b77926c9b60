@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4b2c3255_b1c10d32",
+        "filename": "plat/arm/board/corstone1000/common/corstone1000_pm.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-17T12:43:49Z",
+      "side": 1,
+      "message": "A boolean value is essentially a single bit. Looks odd to store boolean values in a 64-bit variable. Could we instead use a single bit for this purpose?",
+      "range": {
+        "startLine": 49,
+        "startChar": 40,
+        "endLine": 49,
+        "endChar": 76
+      },
+      "revId": "29cb035828f170dd3a62a7e0a20e1b77926c9b60",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f5e63d9_3a2ee528",
         "filename": "plat/arm/board/corstone1000/common/corstone1000_pm.c",
         "patchSetId": 5
