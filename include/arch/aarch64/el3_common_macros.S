@@ -99,10 +99,7 @@
 	 *  debug registers, other than those registers that are controlled by
 	 *  MDCR_EL3.TDOSA.
 	 */
-	mov_imm	x0, ((MDCR_EL3_RESET_VAL | MDCR_SDD_BIT | \
-		      MDCR_SPD32(MDCR_SPD32_DISABLE)) & \
-		    ~(MDCR_TDOSA_BIT | MDCR_TDA_BIT))
-
+	mov_imm	x0, (MDCR_EL3_RESET_VAL | MDCR_SDD_BIT)
 	msr	mdcr_el3, x0
 
 	/* ---------------------------------------------------------------------
