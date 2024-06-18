@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbdb8325_a4108fbf",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-06-18T08:46:39Z",
+      "side": 1,
+      "message": "This addition, because of the number of local variabels we end up with, suggests to me that we should break this addition out into a helper function.",
+      "revId": "ab954e39f52b8fb1ed773e354f34e5e2417f563c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9696c20a_c47602bd",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-06-18T08:46:39Z",
+      "side": 1,
+      "message": "So, please move this whole block into a static function called something like read_cpu_topology_from_dt().",
+      "revId": "ab954e39f52b8fb1ed773e354f34e5e2417f563c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4e90bcf_5866d675",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-06-18T08:46:39Z",
+      "side": 1,
+      "message": "This indentation looks suspect.",
+      "revId": "ab954e39f52b8fb1ed773e354f34e5e2417f563c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
