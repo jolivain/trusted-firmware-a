@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50e3bd47_ebf151d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-06-18T19:36:18Z",
+      "side": 1,
+      "message": "I have pushed the coverity change to this patch ( https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/29446)",
+      "parentUuid": "01017519_9b681058",
+      "revId": "c957fe8f802464aeae672dc67441a498f009723f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b2ce7f1_d6a5fc9d",
@@ -220,6 +238,30 @@
       "side": 1,
       "message": "I see Soby\u0027s comment, but I think this might not fix that.\nYou are trying to disable the traps to EL3( or enable feature). But your function does enable it for all the worlds. Correct me if thats not the case.\n\nCurrently MDCR_EL3 has identical value for all the worlds. \nIf you want to enable it only for NS world, then either you need to disable it for other worlds or MDCR_EL3 need to be context switched.\n\nWith the current implementation, even though you place it inside ``manage_extensions_non_secure``, you are indirectly enabling it for all the worlds.\nKindly have a look at amu and sme for reference.\n\nMDCR_EL3 need to be context switched. Once that patch gets through, it will ensure, feature is enabled/disabled for individual worlds.\nSo to summarise, either you place it here at line 729 or at line no: 587 it still remains the same. Feature remains enabled from secure world too as MDCR_EL3 still has same value. If required (you could give this a try...locally by accessing those registers from Secure World.)\n\nIn my understanding, to keep it clean and aligned, we should place this API for now under``manage_eextensions_el3`` and once MDCR_EL3 context patch gets through (currently it\u0027s a W.I.P), it will take care of this part as well as similar other bits.\n\nKindly check with other reviewers or let\u0027s hear their thoughts here.\nApart from this, I have no other comments.",
       "parentUuid": "6ed59eda_b5a1da13",
+      "range": {
+        "startLine": 721,
+        "startChar": 0,
+        "endLine": 723,
+        "endChar": 2
+      },
+      "revId": "c957fe8f802464aeae672dc67441a498f009723f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5949fa17_45dd6ca5",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 10
+      },
+      "lineNbr": 723,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-06-18T19:36:18Z",
+      "side": 1,
+      "message": "Thanks for clearing that out. I have moved it temporarily to cm_manage_extensions_el3.",
+      "parentUuid": "4d302794_3dba16a1",
       "range": {
         "startLine": 721,
         "startChar": 0,
