@@ -63,6 +63,30 @@
       },
       "revId": "190761979f3554db0d32564d236ad2cb82965a38",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b99d122b_5178c064",
+        "filename": "tools/tlc/Makefile",
+        "patchSetId": 8
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-18T07:02:53Z",
+      "side": 1,
+      "message": "May be this one, do we generated any coverage artifacts?\n```\nclean-test: ## remove test and coverage artifacts\n\trm -fr .tox/\n\trm -f .coverage\n\trm -fr htmlcov/\n```",
+      "parentUuid": "74692e30_647c3a35",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 44
+      },
+      "revId": "190761979f3554db0d32564d236ad2cb82965a38",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
