@@ -46,10 +46,10 @@
 	((~0 << (l)) & (~0 >> (64 - 1 - (h))))
 #else
 #define GENMASK_32(h, l) \
-	(((~UINT32_C(0)) << (l)) & (~UINT32_C(0) >> (32 - 1 - (h))))
+	((~UINT32_C(0) >> (U(32) - U(1) - (h))) ^ ((BIT_32(l) - U(1))))
 
 #define GENMASK_64(h, l) \
-	(((~UINT64_C(0)) << (l)) & (~UINT64_C(0) >> (64 - 1 - (h))))
+	((~UINT64_C(0) >> (U(64) - U(1) - (h))) ^ ((BIT_64(l) - U(1))))
 #endif
 
 #ifdef __aarch64__
