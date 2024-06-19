@@ -113,8 +113,7 @@ ifeq (${ARM_LINUX_KERNEL_AS_BL33},1)
   endif
   ifeq (${RESET_TO_BL31},1)
     ifndef ARM_PRELOADED_DTB_BASE
-      $(error "ARM_PRELOADED_DTB_BASE must be set if ARM_LINUX_KERNEL_AS_BL33 is
-       used with RESET_TO_BL31.")
+      $(error "ARM_PRELOADED_DTB_BASE must be set if ARM_LINUX_KERNEL_AS_BL33 is used with RESET_TO_BL31.")
     endif
     $(eval $(call add_define,ARM_PRELOADED_DTB_BASE))
   endif
