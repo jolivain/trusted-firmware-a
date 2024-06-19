@@ -73,6 +73,23 @@
       "message": "Hi Ghennadi, I\u0027ve 2 comments about the commit message, otherwise the patch looks good to me",
       "revId": "1b7a92c74fbcb77dd529ec15d1099b23f7769528",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb4d5d14_22806245",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-19T16:10:30Z",
+      "side": 1,
+      "message": "There is a redefinition of BIT_32 in include/drivers/cadence/cdns_sdmmc.h file. But this one isn\u0027t necessary, as utils_def.h is included through mmc.h. Could you create another patch before that series to remove the redundant definition of BIT_32? The commit header should be something like:\nfix(intel): remove redundant BIT_32 macro\nIf you prefer I can push this patch",
+      "revId": "1b7a92c74fbcb77dd529ec15d1099b23f7769528",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
