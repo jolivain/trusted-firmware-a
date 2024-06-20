@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e44f13b7_5f22d735",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-06-20T04:53:32Z",
+      "side": 1,
+      "message": "configure DEV_IRQ as G1S interrupt",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "a04dfe5a8b757eba718993a838a531b1858be386",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0775b2db_515ac413",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-06-20T04:53:32Z",
+      "side": 1,
+      "message": "In order to register DEV_IRQ as secure interrupt in OP-TEE, the the GICD EnableGrp1S should be enabled for DEV_IRQ. Add mtk_interrupt_props in MTK GIC driver to configure the interrupt properly.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 21
+      },
+      "revId": "a04dfe5a8b757eba718993a838a531b1858be386",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75739832_8a8acfc1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-06-20T04:53:32Z",
+      "side": 1,
+      "message": "Please rebase to ToT",
+      "revId": "a04dfe5a8b757eba718993a838a531b1858be386",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58ce2435_248160a8",
+        "filename": "plat/mediatek/drivers/gic600/mt_gic_v3.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-06-20T04:53:32Z",
+      "side": 1,
+      "message": "Since it is platform specific setting, using `MTK` should be more appropriate.",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 9
+      },
+      "revId": "a04dfe5a8b757eba718993a838a531b1858be386",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08bb51fe_fb376fda",
+        "filename": "plat/mediatek/mt8188/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-06-20T04:53:32Z",
+      "side": 1,
+      "message": "DEV_IRQ_ID",
+      "range": {
+        "startLine": 99,
+        "startChar": 8,
+        "endLine": 99,
+        "endChar": 19
+      },
+      "revId": "a04dfe5a8b757eba718993a838a531b1858be386",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
