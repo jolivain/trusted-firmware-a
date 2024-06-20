@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8aee6484_23b76456",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001349
+      },
+      "writtenOn": "2024-06-20T05:25:41Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "e44f13b7_5f22d735",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "a04dfe5a8b757eba718993a838a531b1858be386",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0775b2db_515ac413",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-20T04:53:32Z",
       "side": 1,
       "message": "In order to register DEV_IRQ as secure interrupt in OP-TEE, the the GICD EnableGrp1S should be enabled for DEV_IRQ. Add mtk_interrupt_props in MTK GIC driver to configure the interrupt properly.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 21
+      },
+      "revId": "a04dfe5a8b757eba718993a838a531b1858be386",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d4d8e6b_935e85ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1001349
+      },
+      "writtenOn": "2024-06-20T05:25:41Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "0775b2db_515ac413",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2d2eb51_1a7ec131",
+        "filename": "plat/mediatek/drivers/gic600/mt_gic_v3.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1001349
+      },
+      "writtenOn": "2024-06-20T05:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58ce2435_248160a8",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 9
+      },
+      "revId": "a04dfe5a8b757eba718993a838a531b1858be386",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08bb51fe_fb376fda",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-06-20T04:53:32Z",
       "side": 1,
       "message": "DEV_IRQ_ID",
+      "range": {
+        "startLine": 99,
+        "startChar": 8,
+        "endLine": 99,
+        "endChar": 19
+      },
+      "revId": "a04dfe5a8b757eba718993a838a531b1858be386",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00eaf0da_e1c60e44",
+        "filename": "plat/mediatek/mt8188/include/platform_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1001349
+      },
+      "writtenOn": "2024-06-20T05:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "08bb51fe_fb376fda",
       "range": {
         "startLine": 99,
         "startChar": 8,
