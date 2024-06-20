@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3520f686_8a22ebdf",
+        "filename": "services/std_svc/rmmd/rmmd_attest.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-06-20T14:41:55Z",
+      "side": 1,
+      "message": "Hi Manish, that is one possible way, i followed this approach to keep it consistent with rmmd_attest_get_signing_key(), which takes the ECC curve. The key algorithm etc should really be agile and we should be able to either specify or return the algorithm for the key. I\u0027m happy to change, but pretty much left it this way for consistency. \nI dont this the spec requires P-384, it can be any of RSA or ECDSA.",
+      "parentUuid": "6e680991_606ca484",
+      "revId": "75c75c6ba163789c64a6ed868fd920232b58e807",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a69f79b4_036a2741",
         "filename": "services/std_svc/rmmd/rmmd_main.c",
         "patchSetId": 2
@@ -43,6 +61,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bf135cd6_b914f496",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-06-20T14:41:55Z",
+      "side": 1,
+      "message": "on the documentation, yes, i will add it :) want to be sure we do use this approach before documenting it. \nAs for guards, yes, originally i did not have it (see other patches in this revieew), but since there are plat hooks, other platforms fail to build. So added this guard and made this platform specific. These are only required, when the RMM uses EL3+HES for attestation signing so i figured this was a good approach. Let me know if you have alternatives.",
+      "parentUuid": "a69f79b4_036a2741",
+      "range": {
+        "startLine": 475,
+        "startChar": 4,
+        "endLine": 475,
+        "endChar": 28
+      },
+      "revId": "75c75c6ba163789c64a6ed868fd920232b58e807",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54f8a09e_beddeb5b",
         "filename": "services/std_svc/rmmd/rmmd_main.c",
         "patchSetId": 2
@@ -54,6 +96,30 @@
       "writtenOn": "2024-06-20T08:08:21Z",
       "side": 1,
       "message": "I\u0027m just curious—do we need to continue calling this SMC until we get a successful response from it? It seems to act as a notifier for Nwd that the given request is completed. \nI\u0027m wondering why the push request can\u0027t block the call until the operation is completed by HES. Is it because the operation takes longer, necessitating the use of PULL_ATTEST_RESP SMC?",
+      "range": {
+        "startLine": 479,
+        "startChar": 0,
+        "endLine": 480,
+        "endChar": 47
+      },
+      "revId": "75c75c6ba163789c64a6ed868fd920232b58e807",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "360ee3cb_ad6f6670",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-06-20T14:41:55Z",
+      "side": 1,
+      "message": "actually, in this case, NWd is not involved at all. This is purely between RMM and EL3. The semantics (which i can certainly document better) is that RMM will try to push and pull from EL3, assuming there is a queue maintained to push/pull responses from the HES or a mailbox between EL3/HES, which also requires polling and is equivalent to a queue length of 1 in EL3. So yes, it is possible RMM calls this in a loop, if it so chooses (we dont, we simply call it the next time RMM is given cycles). But the goal is both of the push and pull can return -EAGAIN to indicate the queue is full or there is an already existing request being processed, and RMM must call again to get the responses or push requests.\nLet me know if i can explain further.",
+      "parentUuid": "54f8a09e_beddeb5b",
       "range": {
         "startLine": 479,
         "startChar": 0,
