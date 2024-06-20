@@ -41,6 +41,15 @@ ENABLE_FEAT_RNG			:= 2
 ENABLE_FEAT_TWED		:= 2
 ENABLE_FEAT_GCS			:= 2
 
+# Set the defaults for kernel, dtb_base, initrd start and end addresses
+# These defaults are used when ARM_LINUX_KERNEL_AS_BL33=1
+# Defaults rationale:
+# The default kernel address is compatible with older and newer kernels.
+# Kernels before v5.7 required a 512K offset while new kernels don't.
+# Leaving 127MiB of memory space to accomodate larger kernel images.
+PRELOADED_BL33_BASE     := 0x80080000ULL
+ARM_PRELOADED_DTB_BASE  := 0x87F80000ULL
+
 ifeq (${ARCH}, aarch64)
 
 ifeq (${SPM_MM}, 0)
