@@ -16,6 +16,46 @@
       "message": "Added new build config to coverity job (https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/29445). Manually setting V+1",
       "revId": "2c86ddb837aba02204473e5ddca7847e42c54e30",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f74753bf_f6266e52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-06-20T17:26:17Z",
+      "side": 1,
+      "message": "overall LGTM don\u0027t you need a do a doc update as well?\nhttps://trustedfirmware-a.readthedocs.io/en/latest/getting_started/build-options.html ?",
+      "revId": "2c86ddb837aba02204473e5ddca7847e42c54e30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0b120ad_cf95d2ea",
+        "filename": "include/arch/aarch64/arch.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-06-20T17:26:17Z",
+      "side": 1,
+      "message": "minor nit: group it with S3_4_C3_* in line 117 to 119",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 34
+      },
+      "revId": "2c86ddb837aba02204473e5ddca7847e42c54e30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
