@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e680991_606ca484",
+        "filename": "services/std_svc/rmmd/rmmd_attest.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-20T08:08:21Z",
+      "side": 1,
+      "message": "I\u0027m just curious why this is an input parameter. Shouldn\u0027t the received key provide its properties, indicating whether it is ECDSA or RSA and its curve details? I believe we are always expecting this key to be ECDSA with the P-384 curve. Is that a requirement from the specification?",
+      "revId": "75c75c6ba163789c64a6ed868fd920232b58e807",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a69f79b4_036a2741",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-20T08:08:21Z",
+      "side": 1,
+      "message": "Do we really need to guard these SMCs implementations? Is this an optional feature? It would be helpful to provide details about this in section [1] if we decide to go with this option.\n\n[1]:https://git.trustedfirmware.org/TF-A/trusted-firmware-a/+/refs/heads/integration/docs/getting_started/build-options.rst",
+      "range": {
+        "startLine": 475,
+        "startChar": 4,
+        "endLine": 475,
+        "endChar": 28
+      },
+      "revId": "75c75c6ba163789c64a6ed868fd920232b58e807",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54f8a09e_beddeb5b",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-20T08:08:21Z",
+      "side": 1,
+      "message": "I\u0027m just curious—do we need to continue calling this SMC until we get a successful response from it? It seems to act as a notifier for Nwd that the given request is completed. \nI\u0027m wondering why the push request can\u0027t block the call until the operation is completed by HES. Is it because the operation takes longer, necessitating the use of PULL_ATTEST_RESP SMC?",
+      "range": {
+        "startLine": 479,
+        "startChar": 0,
+        "endLine": 480,
+        "endChar": 47
+      },
+      "revId": "75c75c6ba163789c64a6ed868fd920232b58e807",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
