@@ -1469,6 +1469,10 @@ else
 	endif
 endif #(EL3_PAYLOAD_BASE)
 
+# Start address and size of initrd, for use by the kernel in bl33
+$(eval $(call add_define,PRELOADED_INITRD_BASE))
+$(eval $(call add_define,PRELOADED_INITRD_SIZE))
+
 # Define the DYN_DISABLE_AUTH flag only if set.
 ifeq (${DYN_DISABLE_AUTH},1)
         $(eval $(call add_define,DYN_DISABLE_AUTH))

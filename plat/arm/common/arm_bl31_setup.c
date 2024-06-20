@@ -23,9 +23,13 @@
 #include <plat/arm/common/plat_arm.h>
 #include <plat/common/platform.h>
 #include <platform_def.h>
+#include <libfdt.h>
+#include <common/fdt_fixup.h>
 
 static struct transfer_list_header *secure_tl __unused;
 static struct transfer_list_header *ns_tl __unused;
+static void *dtb_base;
+#define DTB_DEFAULT_MAX_SIZE	0x100000
 
 /*
  * Placeholder variables for copying the arguments that have been passed to
@@ -323,8 +327,10 @@ void __init arm_bl31_early_platform_setup(void *from_bl2, uintptr_t soc_fw_confi
 	 */
 #if RESET_TO_BL31
 	bl33_image_ep_info.args.arg0 = (u_register_t)ARM_PRELOADED_DTB_BASE;
+	dtb_base = (void *)ARM_PRELOADED_DTB_BASE;
 #else
 	bl33_image_ep_info.args.arg0 = (u_register_t)hw_config;
+	dtb_base = (void *)hw_config;
 #endif
 	bl33_image_ep_info.args.arg1 = 0U;
 	bl33_image_ep_info.args.arg2 = 0U;
@@ -500,6 +506,72 @@ void arm_free_init_memory(void)
 }
 #endif
 
+static int add_initrd_to_dtb(void *fdt)
+{
+	/*
+	 * Update the dtb with the initrd properties to help run linux as
+	 * bl33 image
+	 */
+	int ret;
+	int size;
+
+	/*
+	 * Mapping 1MiB of memory space, to work with the dtb. This
+	 * should be enough for most cases.
+	 */
+	ret = mmap_add_dynamic_region((unsigned long long)fdt,
+					(uintptr_t)fdt,
+					DTB_DEFAULT_MAX_SIZE,
+					MT_RW_DATA | MT_NS);
+	if (ret != 0) {
+		ERROR("Error while mapping device tree (%d). Device tree can't be updated.\n", ret);
+		return -1;
+	}
+
+	ret = fdt_check_header(fdt);
+	if (ret < 0) {
+		ERROR("Invalid dtb structure at %p, error message '%s'\n", fdt, fdt_strerror(ret));
+		return ret;
+	}
+
+	size = fdt_totalsize(fdt);
+
+	if (size > (DTB_DEFAULT_MAX_SIZE - 0x80)) {
+		ERROR("Dtb can't be updated with initrd properties: dtb size after update > 1MiB\n");
+		return -1;
+	}
+
+	/* Expand the dtb size by 128 bytes to add initrd properties */
+	size += 0x80;
+
+	ret = fdt_open_into(fdt, fdt, size);
+	if (ret != 0) {
+		ERROR("Couldn't expand the dtb, error message '%s'\n", fdt_strerror(ret));
+		return ret;
+	}
+
+	ret = fdt_set_initrd_props(fdt, PRELOADED_INITRD_BASE, PRELOADED_INITRD_SIZE);
+	if (ret < 0) {
+		return ret;
+	}
+
+	/* Re-package the dtb */
+	ret = fdt_pack(fdt);
+	if (ret != 0) {
+		ERROR("Re-packing dtb failed with message '%s'\n", fdt_strerror(ret));
+		return ret;
+	}
+
+	/* Unmap the dtb memory region */
+	ret = mmap_remove_dynamic_region((uintptr_t)fdt, DTB_DEFAULT_MAX_SIZE);
+	if (ret != 0) {
+		ERROR("Error while unmapping device tree (%d).\n", ret);
+		return -1;
+	}
+
+	return 0;
+}
+
 void __init bl31_platform_setup(void)
 {
 	arm_bl31_platform_setup();
@@ -508,6 +580,14 @@ void __init bl31_platform_setup(void)
 void bl31_plat_runtime_setup(void)
 {
 	arm_bl31_plat_runtime_setup();
+
+	if (ARM_LINUX_KERNEL_AS_BL33 && (PRELOADED_INITRD_SIZE > 0)) {
+		int ret = add_initrd_to_dtb(dtb_base);
+
+		if (ret < 0) {
+			WARN("Couldn't update the device tree, linux may not boot properly\n");
+		}
+	}
 }
 
 /*******************************************************************************

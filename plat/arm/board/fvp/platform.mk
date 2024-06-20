@@ -48,9 +48,14 @@ ENABLE_FEAT_GCS			:= 2
 # Kernels before v5.7 required a 512K offset while new kernels don't.
 # Leaving 126.5MiB of memory space to accomodate larger kernel images, and
 # 1MiB for the DTB just before initrd.
-ifeq (${ARM_LINUX_KERNEL_AS_BL33}, 1)
+# The initrd is placed at the end of DTB space. The default for initrd
+# is 0, i.e. disabled. User to provide the desired initrd size at make
+# command line using the macro, if initrd is required.
+ifeq (${ARM_LINUX_KERNEL_AS_BL33}${RESET_TO_BL31}, 11)
 	PRELOADED_BL33_BASE     := 0x80080000ULL
 	ARM_PRELOADED_DTB_BASE  := 0x87F00000ULL
+	PRELOADED_INITRD_BASE   := 0x88000000ULL
+	PRELOADED_INITRD_SIZE   := 0x0ULL
 endif
 
 ifeq (${ARCH}, aarch64)
@@ -317,6 +322,8 @@ BL31_SOURCES		+=	drivers/arm/fvp/fvp_pwrc.c			\
 				${FVP_GIC_SOURCES}				\
 				${FVP_INTERCONNECT_SOURCES}			\
 				${FVP_SECURITY_SOURCES}
+
+BL31_SOURCES		+=	common/fdt_fixup.c
 
 # Support for fconf in BL31
 # Added separately from the above list for better readability

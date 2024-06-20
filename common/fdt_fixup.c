@@ -624,3 +624,59 @@ int fdt_set_mac_address(void *dtb, unsigned int ethernet_idx,
 
 	return fdt_setprop(dtb, node, "local-mac-address", mac_addr, 6);
 }
+
+/**
+ * fdt_set_initrd_props() - Update the dtb with initrd properties
+ * @fdt:		pointer to the device tree blob base address in memory
+ * @initrd_base:	initrd base address in memory
+ * @initrd_size:	initrd size in memory
+ *
+ * If initrd is required to boot linux, missing or providing the incorrect
+ * initrd properties would mean the kernel can't find the initrd in the
+ * memory address space. Thus the linux boot process would halt.
+ *
+ * Update the device tree blob in memory (at runtime) with the correct
+ * initrd start and end properties. The initrd values can either be the
+ * defaults (declared in the platform make file) or users provided.
+ *
+ * Return: 0 on success, a negative int value on failure.
+ */
+int fdt_set_initrd_props(void *fdt, uint64_t initrd_base, uint64_t initrd_size)
+{
+	int offset;
+	int ret;
+
+	offset = fdt_path_offset(fdt, "/chosen");
+	if (offset < 0) {
+		ERROR("%s: /chosen: %s\n", __func__, fdt_strerror(offset));
+		return offset;
+	}
+
+	if (HIGH_BITS(initrd_base) != 0) {
+		ret = fdt_setprop_u64(fdt, offset, "linux,initrd-start",
+					initrd_base);
+	} else {
+		ret = fdt_setprop_u32(fdt, offset, "linux,initrd-start",
+					(uint32_t)initrd_base);
+	}
+	if (ret != 0) {
+		ERROR("Error '%s' when pushing 'linux,initrd-start' to '/chosen'\n",
+			fdt_strerror(ret));
+		return ret;
+	}
+
+	if (HIGH_BITS(initrd_base + initrd_size) != 0) {
+		ret = fdt_setprop_u64(fdt, offset, "linux,initrd-end",
+					(initrd_base + initrd_size));
+	} else {
+		ret = fdt_setprop_u32(fdt, offset, "linux,initrd-end",
+					(uint32_t)(initrd_base + initrd_size));
+	}
+	if (ret != 0) {
+		ERROR("Error '%s' when pushing 'linux,initrd-end' to '/chosen'\n",
+			fdt_strerror(ret));
+		return ret;
+	}
+
+	return ret;
+}
