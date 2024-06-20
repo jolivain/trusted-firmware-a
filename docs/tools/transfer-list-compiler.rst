@@ -267,6 +267,21 @@ info entry would have an entry like:
             pc: 67239936
             spsr: 467
 
+You can give the name of the tag instead of the tag id number. Valid
+tag names are:
+
+* empty
+* fdt
+* hob_block
+* hob_list
+* acpi_table_aggregate
+* tpm_event_log_table
+* tpm_crb_base_address_table
+* optee_pageable_part
+* dt_spmc_manifest
+* exec_ep_info
+* sram_layout
+
 --------------
 
 *Copyright (c) 2024, Arm Limited. All rights reserved.*
