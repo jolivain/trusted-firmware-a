@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7b65a364_3701ad9b",
+        "filename": "services/std_svc/rmmd/rmmd_attest.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-06-20T18:06:50Z",
+      "side": 1,
+      "message": "same reason, following attest_get_signing_key :) It is possible a platform may have multiple algorithms supported so not sure why it was done that way, but didnt want to deviate. Let me know if you\u0027d like me to remove the paramter or the check, or both. I\u0027d prefer to leave it, and do it as a separate patch when somebody really needs to get rid of it.",
+      "parentUuid": "f7a2e11c_fc3db3df",
+      "revId": "75c75c6ba163789c64a6ed868fd920232b58e807",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a69f79b4_036a2741",
         "filename": "services/std_svc/rmmd/rmmd_main.c",
         "patchSetId": 2
@@ -115,6 +133,30 @@
       "side": 1,
       "message": "Yes, I think it looks fine in that case. I was just wondering why we didn\u0027t follow this for the other SMCs (for example, RMM_ATTEST_GET_REALM_KEY which is also using platform call), but I understand the intent. \nSo, IIUC, EL3+HES attestation signing support is also not mandatory for the platform as per the specification?",
       "parentUuid": "bf135cd6_b914f496",
+      "range": {
+        "startLine": 475,
+        "startChar": 4,
+        "endLine": 475,
+        "endChar": 28
+      },
+      "revId": "75c75c6ba163789c64a6ed868fd920232b58e807",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8e871ef_daff0960",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 475,
+      "author": {
+        "id": 1000114
+      },
+      "writtenOn": "2024-06-20T18:06:50Z",
+      "side": 1,
+      "message": "correct. this is purely for platforms that CHOOSE to do it with the HES.",
+      "parentUuid": "fc986939_276b3b5a",
       "range": {
         "startLine": 475,
         "startChar": 4,
