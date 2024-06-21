@@ -100,6 +100,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f28aac95_fee9f0dd",
+        "filename": "include/lib/utils_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-06-21T15:05:27Z",
+      "side": 1,
+      "message": "Thanks, Ghennadi. I had to go on a bit of a goose chase to understand the analyser here, but for any other bemused spectators...\n\nDespite the fact that section 7.18.4.1 of the C99 spec specifies:\n\n\u003e The macro `UINTN_C(value)` shall expand to an integer constant expression corresponding to the type `uint_leastN_t`.\n\nThis does not necessitate that there is a cast to `uint_least32_t` in the actual implementation of `UINT32_C`. Indeed in our libc there isn\u0027t, as it is defined as:\n\n    x ## U\n    \nMISRA then introduces the concept of Unsigned Type of Lowest Rank...\n\n\u003e The UTLR is the unsigned type having the lowest rank required to represent the value of a particular integer constant expression or the maximum value of a bit-field.\n\n... and then dictates that...\n\n\u003e If the standard type of an integer constant is `unsigned int` then its essential type is the UTLR.\n\nThat is to say that the essential type of the integer constant expression `1U` is \"essentially unsigned char\" (regardless of the fact that the actual type is `int`), and that therefore the essential type of (our implementation of) `UINT32_C(x)` is also \"essentially unsigned char\".",
+      "parentUuid": "1a51de3b_c9681e62",
+      "range": {
+        "startLine": 26,
+        "startChar": 22,
+        "endLine": 26,
+        "endChar": 38
+      },
+      "revId": "4042b5201951fa618762f707359a49a7b576782b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20876b8c_aba35057",
@@ -113,6 +137,30 @@
       "writtenOn": "2024-06-21T13:20:01Z",
       "side": 1,
       "message": "`UINT64_C(1)`",
+      "range": {
+        "startLine": 27,
+        "startChar": 22,
+        "endLine": 27,
+        "endChar": 40
+      },
+      "revId": "4042b5201951fa618762f707359a49a7b576782b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ba1ffb7_daaf67b6",
+        "filename": "include/lib/utils_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-06-21T15:05:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20876b8c_aba35057",
       "range": {
         "startLine": 27,
         "startChar": 22,
