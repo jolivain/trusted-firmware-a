@@ -16,6 +16,23 @@
       "message": "Hi all,\n\nI see many errors reported on this change. I have analyzed a few, and in all cases, the cause seems to be the misusage of the BIT macro.\nFor example\n```C\nstatic unsigned int get_interconnect_master(void)\n  2160 {\n  2161  unsigned int master;\n  2162  u_register_t mpidr;\n  2163  mpidr \u003d read_mpidr_el1();\n  2164  master \u003d ((arm_config.flags \u0026 (((uint64_t)(1ULL)) \u003c\u003c (3))) !\u003d 0U) ?\n                 \u003c~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n  2165   (((mpidr) \u003e\u003e (16U)) \u0026 (0xffULL)) : (((mpidr) \u003e\u003e (8U)) \u0026 (0xffULL));\n       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n☰ MC3R1.R10.3\npreprocessed tokens\nplat/arm/board/fvp/fvp_common.c:274.18-275.67:`?:\u0027 conditional operator has essential type 64-bit unsigned integer and standard type `unsigned long long\u0027\n\u003cpreprocessed plat/arm/board/fvp/fvp_common.c\u003e:2164.11-2165.68:preprocessed tokens\ninclude/arch/aarch64/arch.h:50.67:expanded from macro `MPIDR_AFFLVL1_VAL\u0027\nplat/arm/board/fvp/fvp_common.c:274.16:`\u003d\u0027 assignment operator expects a 32-bit unsigned integer\n  2166  ((master \u003c 2) ? (void)0 : __assert(\"plat/arm/board/fvp/fvp_common.c\", 277));\n  2167  return master;\n  2168 }\n```\n`master` has the type `uint32_t`, while `ARM_CONFIG_FVP_SHIFTED_AFF` is defined as `BIT(3)` (which is equivalent to `BIT_64(3)`). Of course, MISRA will complain about it, but this violation existed even before these changes.",
       "revId": "4042b5201951fa618762f707359a49a7b576782b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3078278b_c3e476ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-21T07:20:42Z",
+      "side": 1,
+      "message": "IMHO we should merge this series, and then ask the platforms or drivers maintainers to do the required changes. This will be easier for FVP as it is the platform tested for MISRA in CI. @Madhukar, @Manish, @Chris what\u0027s your opinion?",
+      "revId": "4042b5201951fa618762f707359a49a7b576782b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
