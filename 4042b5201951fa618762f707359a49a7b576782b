@@ -33,6 +33,70 @@
       "message": "IMHO we should merge this series, and then ask the platforms or drivers maintainers to do the required changes. This will be easier for FVP as it is the platform tested for MISRA in CI. @Madhukar, @Manish, @Chris what\u0027s your opinion?",
       "revId": "4042b5201951fa618762f707359a49a7b576782b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "472fe856_02ba4730",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-06-21T13:20:01Z",
+      "side": 1,
+      "message": "Agreed. A couple of a minor change requests.",
+      "parentUuid": "3078278b_c3e476ec",
+      "revId": "4042b5201951fa618762f707359a49a7b576782b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f522728_951896e5",
+        "filename": "include/lib/utils_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-06-21T13:20:01Z",
+      "side": 1,
+      "message": "`UINT32_C(1)`",
+      "range": {
+        "startLine": 26,
+        "startChar": 22,
+        "endLine": 26,
+        "endChar": 38
+      },
+      "revId": "4042b5201951fa618762f707359a49a7b576782b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20876b8c_aba35057",
+        "filename": "include/lib/utils_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-06-21T13:20:01Z",
+      "side": 1,
+      "message": "`UINT64_C(1)`",
+      "range": {
+        "startLine": 27,
+        "startChar": 22,
+        "endLine": 27,
+        "endChar": 40
+      },
+      "revId": "4042b5201951fa618762f707359a49a7b576782b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
