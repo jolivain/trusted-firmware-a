@@ -22,6 +22,30 @@
       },
       "revId": "c186066ad4086b4a4802d5c8f4a1dabd502659bd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e0a2c8e_5242c681",
+        "filename": "plat/arm/board/arm_fpga/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-06-21T13:21:38Z",
+      "side": 1,
+      "message": "Thanks for the heads up. Turns out that the deprecation warning in arch_features.mk misses the \":\u003d2\" case. Will send a fix separately.",
+      "parentUuid": "d0214b2e_ad34ee38",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 15
+      },
+      "revId": "c186066ad4086b4a4802d5c8f4a1dabd502659bd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
