@@ -43,7 +43,7 @@
  * finds it impossible to execute SP, this pointer is left as NULL
  ******************************************************************************/
 static int32_t (*bl32_init)(void);
-
+hello
 /*****************************************************************************
  * Function used to initialise RMM if RME is enabled
  *****************************************************************************/
