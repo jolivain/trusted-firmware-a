@@ -124,6 +124,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37dc7558_11d94295",
+        "filename": "include/lib/utils_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000764
+      },
+      "writtenOn": "2024-06-21T19:06:15Z",
+      "side": 1,
+      "message": "Replaced `U(1)` with `1U`",
+      "parentUuid": "f28aac95_fee9f0dd",
+      "range": {
+        "startLine": 26,
+        "startChar": 22,
+        "endLine": 26,
+        "endChar": 38
+      },
+      "revId": "4042b5201951fa618762f707359a49a7b576782b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20876b8c_aba35057",
@@ -161,6 +185,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "20876b8c_aba35057",
+      "range": {
+        "startLine": 27,
+        "startChar": 22,
+        "endLine": 27,
+        "endChar": 40
+      },
+      "revId": "4042b5201951fa618762f707359a49a7b576782b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4e8baea_8673cef9",
+        "filename": "include/lib/utils_def.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000764
+      },
+      "writtenOn": "2024-06-21T19:06:15Z",
+      "side": 1,
+      "message": "Replaced `ULL(1)` with `1ULL`",
+      "parentUuid": "1ba1ffb7_daaf67b6",
       "range": {
         "startLine": 27,
         "startChar": 22,
