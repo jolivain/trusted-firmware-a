@@ -33,6 +33,24 @@
       "message": "FEAT_Debugv8p9 is mandatory from Armv8.9\n\nI think you also need to add it in mandatory region, somewhere close to line #91",
       "revId": "abe1d6bb4d99302cc3d78d4a3411c88f24ddd7db",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ec03687_47d5dedf",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 13
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000803
+      },
+      "writtenOn": "2024-06-21T15:30:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85506d61_0faad107",
+      "revId": "abe1d6bb4d99302cc3d78d4a3411c88f24ddd7db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
