@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58f89d40_0ca7c515",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000709
+      },
+      "writtenOn": "2024-06-24T16:20:05Z",
+      "side": 1,
+      "message": "This patchset now fails with just a known false positive in the codestyle check:\n\ndrivers/auth/mbedtls/mbedtls_crypto.c:75: ERROR: need consistent spacing around \u0027*\u0027 (ctx:WxV)\n+int mbedtls_x509_get_sig_alg(const mbedtls_x509_buf *sig_oid,\n                                                     ^\n\ndrivers/auth/mbedtls/mbedtls_crypto.c:76: ERROR: need consistent spacing around \u0027*\u0027 (ctx:WxV)\n+\t\t\t     const mbedtls_x509_buf *sig_params,\n \t\t\t                            ^\n \t\t\t                            \n(checkpatch.pl mixing up \"*\" pointer modifier and \"*\" multiplication).",
+      "revId": "06e972f075f9af984b17e75a1e3c857744645060",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
