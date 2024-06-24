@@ -606,6 +606,9 @@
 #define SCR_VALID_BIT_MASK	U(0x24000002F8F)
 #define SCR_RESET_VAL		SCR_RES1_BITS
 
+#define SCR_EEL2_SHIFT          U(18)
+#define SCR_EEL2_MASK           ULL(0x1)
+
 /* MDCR_EL3 definitions */
 #define MDCR_EnPMSN_BIT		(ULL(1) << 36)
 #define MDCR_MPMX_BIT		(ULL(1) << 35)
