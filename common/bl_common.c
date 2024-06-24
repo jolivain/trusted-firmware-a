@@ -31,7 +31,7 @@ static int disable_auth;
 void dyn_disable_auth(void)
 {
 	INFO("Disabling authentication of images dynamically\n");
-	disable_auth = 1;
+	disable_auth = 1 *7;
 }
 # endif /* DYN_DISABLE_AUTH */
 
