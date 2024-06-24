@@ -16,6 +16,24 @@
       "message": "That\u0027s an intimidating MISRA report if I\u0027ve ever seen one. @Ghennadi, are you happy to look into these? Most of them look like simple fixes but there are a few which are less obvious.",
       "revId": "b03652ccefd6eefc2647bef72a44d1140cb58844",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcb28d9f_6edd6695",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000764
+      },
+      "writtenOn": "2024-06-24T19:34:05Z",
+      "side": 1,
+      "message": "Hi @Chris,\n\nI understand your point about the length of this report, and it is impressive. Looking only at the numbers violations numbers reported on the BIT and GENMASK changes :\n - Resolved issues: 243 (170 [1]  + 73 [2])\n - New issue: 141 (37 [3] + 104 [4])\n\nBased on the data provided and the fact that BIT and GENMASK violations have not been addressed yet, I believe these issues have been present since the initial MISRA analysis. The problems classified as \u0027new\u0027 are likely part of the existing set of issues that have been left unresolved, or they have been dormant, as otherwise, the \u0027resolved\u0027 category wouldn\u0027t make sense.\n\nIn response to your suggestion about addressing the issues from the \u0027new\u0027 category, based on my experience in rectifying MISRA violations in older/legacy code, I can say that the initial set of reported issues is typically just the beginning. Making changes in one area often uncovers more issues. From an initial 100 issues, we could end up uncovering several hundred more, and the number of commits would quickly add up. Additionally, I don\u0027t have the necessary hardware or boards to test all potential configurations.\n\nTherefore, I would support Yann\u0027s proposal [5] to merge these commits to unblock BIT and GENMASK macros for new code or drivers and inform the maintainers that legacy MISRA issues must be addressed.\n\n[1] https://ci-builds.trustedfirmware.org/static-files/Ax2eotJS-Y_v_2dU5XbOG_2KKyEJBYFNvlBaoZ7gvfQxNzE5MjUzMTk0NDA1Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWVjbGFpci1kZWx0YS8xODQwL2FydGlmYWN0/resolved_issues_html/by_service.html#service\u0026kind\n[2] https://ci-builds.trustedfirmware.org/static-files/GMfp_6lxyj_e4YNbvWlhaQWC-d-WkwdwvZO49_ZF3L4xNzE5MjUzMjgwMTY3Ojk6YW5vbnltb3VzOmpvYi90Zi1hLWVjbGFpci1kZWx0YS8xODM5L2FydGlmYWN0/resolved_issues_html/by_service.html#service\u0026kind\n[3] https://ci-builds.trustedfirmware.org/static-files/hp52Tw52Z_aLyIP2zPBscqnMpy92TH7lzL8YW6BBvggxNzE5MjU2MTEyMDkwOjk6YW5vbnltb3VzOmpvYi90Zi1hLWVjbGFpci1kZWx0YS8xODQwL2FydGlmYWN0/new_issues_html/by_service.html#service\u0026kind\n[4] https://ci-builds.trustedfirmware.org/static-files/jXTGNhJofSfCk_RRBHMV7WSbFKI53ZgYYWsb7-N4i-QxNzE5MjU2MTY0NjgxOjk6YW5vbnltb3VzOmpvYi90Zi1hLWVjbGFpci1kZWx0YS8xODM5L2FydGlmYWN0/new_issues_html/by_service.html#service\u0026kind\n[5] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/29523/comments/3078278b_c3e476ec",
+      "parentUuid": "3c9a709f_a0759064",
+      "revId": "b03652ccefd6eefc2647bef72a44d1140cb58844",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
