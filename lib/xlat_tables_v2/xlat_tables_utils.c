@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2021, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2017-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -419,10 +419,47 @@ static int xlat_get_mem_attributes_internal(const xlat_ctx_t *ctx,
 			*attributes |= MT_USER;
 	}
 
-	uint64_t ns_bit = (desc >> NS_SHIFT) & 1U;
+	uint64_t ns_bit = (desc >> NS_SHIFT) & 1ULL;
 
-	if (ns_bit == 1U)
+#if ENABLE_RME
+	uint64_t nse_bit = (desc >> NOT_GLOBAL_SHIFT) & 1ULL;
+	uint32_t sec_state = (uint32_t)(ns_bit | (nse_bit << 1ULL));
+
+/*
+ * ==================================================================
+ *  NSE    NS  |  State
+ * ==================================================================
+ *    0    0   |  Secure (if FEAT_SEL2 present, otherwise Non-Secure)
+ *    0    1   |  Non-secure
+ *    1    0   |  Root
+ *    1    1   |  Realm
+ *===================================================================
+ */
+	switch (sec_state) {
+	case MT_SECURE:
+		/*no action needed*/
+#if !ENABLE_FEAT_SEL2
+		*attributes |= LOWER_ATTRS(NS);
+#endif /* !ENABLE_FEAT_SEL2 */
+		break;
+	case MT_NS:
+		*attributes |= LOWER_ATTRS(NS);
+		break;
+	case MT_ROOT:
+		*attributes |= LOWER_ATTRS(EL3_S1_NSE);
+		break;
+	case MT_REALM:
+		*attributes |= LOWER_ATTRS(EL3_S1_NSE | NS);
+		break;
+	default:
+		assert(true);
+		break;
+	}
+#else /* ENABLE_RME */
+	if (ns_bit == 1ULL) {
 		*attributes |= MT_NS;
+	}
+#endif /* ENABLE_RME */
 
 	uint64_t xn_mask = xlat_arch_regime_get_xn_desc(ctx->xlat_regime);
 
