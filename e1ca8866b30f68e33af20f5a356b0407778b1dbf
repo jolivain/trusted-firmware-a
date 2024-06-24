@@ -1,0 +1,221 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7563cb90_e78b9265",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-24T12:54:57Z",
+      "side": 1,
+      "message": "Maybe: Console Framework",
+      "revId": "e1ca8866b30f68e33af20f5a356b0407778b1dbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b971f6f6_093fadb4",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-24T12:54:57Z",
+      "side": 1,
+      "message": "nit: I\u0027d split the sentence here.",
+      "range": {
+        "startLine": 9,
+        "startChar": 65,
+        "endLine": 9,
+        "endChar": 66
+      },
+      "revId": "e1ca8866b30f68e33af20f5a356b0407778b1dbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "404d69a6_1b6a5e60",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-24T12:54:57Z",
+      "side": 1,
+      "message": "duplicate",
+      "range": {
+        "startLine": 11,
+        "startChar": 55,
+        "endLine": 11,
+        "endChar": 62
+      },
+      "revId": "e1ca8866b30f68e33af20f5a356b0407778b1dbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8860074_9c3ae397",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-24T12:54:57Z",
+      "side": 1,
+      "message": "I wonder if the peripheral provider should also be mentioned, e.g. Arm PL011, NXP 16550... And maybe display them as a bullet point list",
+      "revId": "e1ca8866b30f68e33af20f5a356b0407778b1dbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c65feeca_8bf0d8c3",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-24T12:54:57Z",
+      "side": 1,
+      "message": "UART driver API?",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 11
+      },
+      "revId": "e1ca8866b30f68e33af20f5a356b0407778b1dbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b260c1ca_26be8687",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-24T12:54:57Z",
+      "side": 1,
+      "message": "you should say that this function is optional, and under the control of ENABLE_CONSOLE_GETC flag",
+      "revId": "e1ca8866b30f68e33af20f5a356b0407778b1dbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ed09e7_9758ed9f",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-24T12:54:57Z",
+      "side": 1,
+      "message": "remove merge conflicts",
+      "revId": "e1ca8866b30f68e33af20f5a356b0407778b1dbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2088189a_a8daaa88",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-24T12:54:57Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "e1ca8866b30f68e33af20f5a356b0407778b1dbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34bae9f9_5684bac6",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-24T12:54:57Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "e1ca8866b30f68e33af20f5a356b0407778b1dbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce553337_6fbd63e8",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-24T12:54:57Z",
+      "side": 1,
+      "message": "maybe better to put `int` here",
+      "range": {
+        "startLine": 304,
+        "startChar": 15,
+        "endLine": 304,
+        "endChar": 18
+      },
+      "revId": "e1ca8866b30f68e33af20f5a356b0407778b1dbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d483cd03_85a8bee2",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-24T12:54:57Z",
+      "side": 1,
+      "message": "just 2024",
+      "range": {
+        "startLine": 315,
+        "startChar": 15,
+        "endLine": 315,
+        "endChar": 24
+      },
+      "revId": "e1ca8866b30f68e33af20f5a356b0407778b1dbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
