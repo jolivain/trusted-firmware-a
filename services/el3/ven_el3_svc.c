@@ -6,8 +6,8 @@
 
 #include <stdint.h>
 
-#include <common/debug.h>
 #include <common/runtime_svc.h>
+#include <common/debug.h>
 #include <lib/debugfs.h>
 #include <lib/pmf/pmf.h>
 #include <services/ven_el3_svc.h>
