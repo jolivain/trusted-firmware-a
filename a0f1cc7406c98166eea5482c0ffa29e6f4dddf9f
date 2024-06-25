@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "011b672f_d1c782f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-25T14:05:27Z",
+      "side": 1,
+      "message": "Include it as part of Changelog.yaml file.",
+      "range": {
+        "startLine": 7,
+        "startChar": 6,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "a0f1cc7406c98166eea5482c0ffa29e6f4dddf9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4752860d_cf8ff750",
@@ -14,6 +37,75 @@
       "writtenOn": "2024-06-21T19:03:17Z",
       "side": 1,
       "message": "Manually setting V+1. Added new build config to coverity job (https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/29445).",
+      "revId": "a0f1cc7406c98166eea5482c0ffa29e6f4dddf9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c64c542_daab671a",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-25T14:05:27Z",
+      "side": 1,
+      "message": "Its FGT2 ?\n\nAlso it cannot be 1,2. It should be 2 and above. Because when FEAT_FGT is present, FEAT_FGT2 mandatorily need not to be present. On the other way, when FEAT_FGT2 is present, FEAT_FGT will be present in the hardware.\n\n``FGT2, 2, 2``",
+      "range": {
+        "startLine": 332,
+        "startChar": 59,
+        "endLine": 332,
+        "endChar": 72
+      },
+      "revId": "a0f1cc7406c98166eea5482c0ffa29e6f4dddf9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c0ff77b_0328a08e",
+        "filename": "docs/getting_started/build-options.rst",
+        "patchSetId": 6
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-25T14:05:27Z",
+      "side": 1,
+      "message": "I read it as optional from 8.8 in Arm Arm.\nAlso you had placed it under optional features section in arch_features.mk.\nKindly recheck and update here.",
+      "range": {
+        "startLine": 346,
+        "startChar": 9,
+        "endLine": 346,
+        "endChar": 41
+      },
+      "revId": "a0f1cc7406c98166eea5482c0ffa29e6f4dddf9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea15fddb_4d8cd2ce",
+        "filename": "make_helpers/arch_features.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-25T14:05:27Z",
+      "side": 1,
+      "message": "As per latest  Arm arm (version k.a) ``FEAT_FGT2 is OPTIONAL from Armv8.8.`` \nIf I am wrong, please share the doc which you had referred for reference.\n\nIf not, shouldn\u0027t we place it under 8.8?",
+      "range": {
+        "startLine": 356,
+        "startChar": 0,
+        "endLine": 357,
+        "endChar": 16
+      },
       "revId": "a0f1cc7406c98166eea5482c0ffa29e6f4dddf9f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
