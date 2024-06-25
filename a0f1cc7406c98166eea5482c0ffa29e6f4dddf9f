@@ -112,6 +112,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10d71802_bab95fdd",
+        "filename": "include/lib/el3_runtime/context_el2.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-25T14:40:38Z",
+      "side": 1,
+      "message": "Save \u0026 restore these registers.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 22
+      },
+      "revId": "a0f1cc7406c98166eea5482c0ffa29e6f4dddf9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27db2821_26e9e476",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 1291,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-25T14:40:38Z",
+      "side": 1,
+      "message": "Add ``is_feat_fgt2_supported() ``  here and add code at other places in this file to save/restore\nfgt2 registers as applicable, similar to feat_fgt.",
+      "range": {
+        "startLine": 1289,
+        "startChar": 0,
+        "endLine": 1291,
+        "endChar": 2
+      },
+      "revId": "a0f1cc7406c98166eea5482c0ffa29e6f4dddf9f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea15fddb_4d8cd2ce",
         "filename": "make_helpers/arch_features.mk",
         "patchSetId": 6
