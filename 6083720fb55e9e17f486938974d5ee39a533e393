@@ -191,6 +191,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72525d42_9adab62a",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-26T14:29:18Z",
+      "side": 1,
+      "message": "Acknowledged\nWe will have to update and clarify the doc if we\u0027d like to get rid of new typedef in source files",
+      "parentUuid": "ec6cac13_3182d3ff",
+      "range": {
+        "startLine": 56,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 8
+      },
+      "revId": "6083720fb55e9e17f486938974d5ee39a533e393",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ed6a27a_2901fe7b",
@@ -275,6 +299,30 @@
       "side": 1,
       "message": "O! Handy stuff :-D\n\nAs we have more places where fdt_read_uint32_default() could be used I would prefer to merge this as is and put move to fdt_read_uint32_default() on top of it.",
       "parentUuid": "745d0c72_e343a65c",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 3
+      },
+      "revId": "6083720fb55e9e17f486938974d5ee39a533e393",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "415e05b9_f5bc295b",
+        "filename": "plat/qemu/qemu_sbsa/sbsa_sip_svc.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-06-26T14:29:18Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "299af399_03868316",
       "range": {
         "startLine": 110,
         "startChar": 0,
