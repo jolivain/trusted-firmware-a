@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ea7bb2f_d5b6f0e1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2024-06-26T09:22:36Z",
+      "side": 1,
+      "message": ":",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 16
+      },
+      "revId": "6bfd336885f54843488d5d200818d7fa72b6da16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bce6525_9c258c49",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2024-06-26T09:22:36Z",
+      "side": 1,
+      "message": "this is to do ERET from BL31 to BL32?",
+      "range": {
+        "startLine": 10,
+        "startChar": 53,
+        "endLine": 10,
+        "endChar": 54
+      },
+      "revId": "6bfd336885f54843488d5d200818d7fa72b6da16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd72c450_ab59dbb5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2024-06-26T09:22:36Z",
+      "side": 1,
+      "message": "typo?",
+      "range": {
+        "startLine": 13,
+        "startChar": 62,
+        "endLine": 13,
+        "endChar": 70
+      },
+      "revId": "6bfd336885f54843488d5d200818d7fa72b6da16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d83ac04d_41658272",
+        "filename": "plat/arm/board/neoverse_rd/common/nrd_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2024-06-26T09:22:36Z",
+      "side": 1,
+      "message": "0x%lx",
+      "range": {
+        "startLine": 158,
+        "startChar": 39,
+        "endLine": 158,
+        "endChar": 42
+      },
+      "revId": "6bfd336885f54843488d5d200818d7fa72b6da16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2665d66f_d3c0f5cb",
+        "filename": "plat/arm/board/neoverse_rd/common/nrd_image_load.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2024-06-26T09:22:36Z",
+      "side": 1,
+      "message": "we won\u0027t have __aarch32__ mode. so this #else can be removed",
+      "revId": "6bfd336885f54843488d5d200818d7fa72b6da16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea227e05_d3f5b887",
+        "filename": "plat/arm/board/neoverse_rd/common/nrd_image_load.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2024-06-26T09:22:36Z",
+      "side": 1,
+      "message": "G",
+      "range": {
+        "startLine": 173,
+        "startChar": 4,
+        "endLine": 173,
+        "endChar": 5
+      },
+      "revId": "6bfd336885f54843488d5d200818d7fa72b6da16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "296740a3_fd1fd287",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000263
+      },
+      "writtenOn": "2024-06-26T09:22:36Z",
+      "side": 1,
+      "message": "does BL1 needs these file? or only BL2 is sufficient?",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 11
+      },
+      "revId": "6bfd336885f54843488d5d200818d7fa72b6da16",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
