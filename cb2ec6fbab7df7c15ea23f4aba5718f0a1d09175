@@ -22,6 +22,30 @@
       },
       "revId": "cb2ec6fbab7df7c15ea23f4aba5718f0a1d09175",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c8f801a_971086d4",
+        "filename": "include/lib/utils_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000764
+      },
+      "writtenOn": "2024-06-26T17:01:21Z",
+      "side": 1,
+      "message": "Sure.\nCreated a new commit for this purpose, given that this has to be propagated to the assembly version of the GENMASK macro.\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/29604",
+      "parentUuid": "a11f95cd_248eac8c",
+      "range": {
+        "startLine": 49,
+        "startChar": 40,
+        "endLine": 49,
+        "endChar": 50
+      },
+      "revId": "cb2ec6fbab7df7c15ea23f4aba5718f0a1d09175",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
