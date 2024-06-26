@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a11f95cd_248eac8c",
+        "filename": "include/lib/utils_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-06-26T15:28:15Z",
+      "side": 1,
+      "message": "nitpick:\nUpon first look, this appeared to me as BIT_32(1) since 1 and l look very similar and confused me.\nI was wondering if you simply expand h to high and l to low",
+      "range": {
+        "startLine": 49,
+        "startChar": 40,
+        "endLine": 49,
+        "endChar": 50
+      },
+      "revId": "cb2ec6fbab7df7c15ea23f4aba5718f0a1d09175",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
