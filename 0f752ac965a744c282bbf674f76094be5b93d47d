@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b000f405_cf51047d",
+        "filename": "drivers/st/clk/clk-stm32mp2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 629,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-06-26T20:06:34Z",
+      "side": 1,
+      "message": "Can the typedef uint64_t be used for better readability?",
+      "range": {
+        "startLine": 629,
+        "startChar": 2,
+        "endLine": 629,
+        "endChar": 20
+      },
+      "revId": "0f752ac965a744c282bbf674f76094be5b93d47d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08a1d6ad_a104196f",
         "filename": "drivers/st/clk/clk-stm32mp2.c",
         "patchSetId": 2
