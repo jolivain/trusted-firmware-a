@@ -181,3 +181,13 @@ int plat_rse_comms_init(void)
 	/* Initialize the communication channel between AP and RSE */
 	return rse_comms_init(snd_base, rcv_base);
 }
+
+int plat_spmd_handle_group0_interrupt(uint32_t intid)
+{
+	/*
+	 * As of now, there are no sources of Group0 secure interrupt enabled
+	 * for FVP.
+	 */
+	(void)intid;
+	return -1;
+}
