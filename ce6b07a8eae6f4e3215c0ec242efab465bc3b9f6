@@ -16,6 +16,29 @@
       "message": "There is a lint and static check failure. Can you take a look @Nishant?",
       "revId": "ce6b07a8eae6f4e3215c0ec242efab465bc3b9f6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2682d9fc_c293c9b7",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/rdfremont_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-06-27T10:06:12Z",
+      "side": 1,
+      "message": "Is this a mandatory platform function? If its not, shall we directly implement it when we have G0 Interrupts?",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 1
+      },
+      "revId": "ce6b07a8eae6f4e3215c0ec242efab465bc3b9f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
