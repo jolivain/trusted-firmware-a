@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3507d5ae_c34def54",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-06-27T09:45:33Z",
+      "side": 1,
+      "message": "dynamic",
+      "range": {
+        "startLine": 13,
+        "startChar": 62,
+        "endLine": 13,
+        "endChar": 70
+      },
+      "revId": "e324a989b2882a5168dba20b059a6377722ccba2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09581d7d_07d190c8",
+        "filename": "plat/arm/board/neoverse_rd/common/nrd_image_load.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-06-27T09:45:33Z",
+      "side": 1,
+      "message": "I\u0027m thinking none of our platforms support A32. Is this needed?",
+      "range": {
+        "startLine": 167,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 6
+      },
+      "revId": "e324a989b2882a5168dba20b059a6377722ccba2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
