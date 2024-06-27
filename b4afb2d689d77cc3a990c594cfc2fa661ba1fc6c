@@ -16,6 +16,23 @@
       "message": "L3 tests (passed) : https://ci.trustedfirmware.org/job/tf-a-ci-gateway/75974/",
       "revId": "b4afb2d689d77cc3a990c594cfc2fa661ba1fc6c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8226af0_7bb05341",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-06-27T13:19:02Z",
+      "side": 1,
+      "message": "Not correct",
+      "revId": "b4afb2d689d77cc3a990c594cfc2fa661ba1fc6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
