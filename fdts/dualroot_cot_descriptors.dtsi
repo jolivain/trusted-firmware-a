@@ -16,18 +16,8 @@ cot {
 			root-certificate;
 			image-id =<TRUSTED_BOOT_FW_CERT_ID>;
 			antirollback-counter = <&trusted_nv_ctr>;
-
-			tb_fw_hash: tb_fw_hash {
-				oid = TRUSTED_BOOT_FW_HASH_OID;
-			};
-			tb_fw_config_hash: tb_fw_config_hash {
-				oid = TRUSTED_BOOT_FW_CONFIG_HASH_OID;
-			};
 			hw_config_hash: hw_config_hash {
 				oid = HW_CONFIG_HASH_OID;
-			};
-			fw_config_hash: fw_config_hash {
-				oid = FW_CONFIG_HASH_OID;
 			};
 		};
 
