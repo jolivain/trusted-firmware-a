@@ -1,0 +1,158 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e1205bc_84cbfd5f",
+        "filename": "plat/aspeed/ast2700/plat_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-28T12:51:15Z",
+      "side": 1,
+      "message": "Is there any specific reason to use a native type here? Can\u0027t you use strict types like uint16_t for this and uint8_t for all the variables below?",
+      "range": {
+        "startLine": 129,
+        "startChar": 2,
+        "endLine": 129,
+        "endChar": 14
+      },
+      "revId": "9c022bda4b314812c5b257c82fafd17cc30987f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dd009e1_14017e22",
+        "filename": "plat/aspeed/ast2700/plat_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-28T12:51:15Z",
+      "side": 1,
+      "message": "missing default case?",
+      "revId": "9c022bda4b314812c5b257c82fafd17cc30987f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0710537_222fd6af",
+        "filename": "plat/aspeed/ast2700/plat_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-28T12:51:15Z",
+      "side": 1,
+      "message": "0U instead?",
+      "range": {
+        "startLine": 158,
+        "startChar": 87,
+        "endLine": 158,
+        "endChar": 88
+      },
+      "revId": "9c022bda4b314812c5b257c82fafd17cc30987f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8398d5b_e5d3f4c8",
+        "filename": "plat/aspeed/ast2700/plat_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-28T12:51:15Z",
+      "side": 1,
+      "message": "1U instead? and similarly for all below cases?",
+      "revId": "9c022bda4b314812c5b257c82fafd17cc30987f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d9f1c90_da18612a",
+        "filename": "plat/aspeed/ast2700/plat_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-28T12:51:15Z",
+      "side": 1,
+      "message": "missing default?",
+      "revId": "9c022bda4b314812c5b257c82fafd17cc30987f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87429d4c_7b52e991",
+        "filename": "plat/aspeed/ast2700/plat_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-28T12:51:15Z",
+      "side": 1,
+      "message": "either change a type of bypass to boolean or change the check to ``pll_reg.b.bypass !\u003d 0U``",
+      "range": {
+        "startLine": 171,
+        "startChar": 17,
+        "endLine": 171,
+        "endChar": 23
+      },
+      "revId": "9c022bda4b314812c5b257c82fafd17cc30987f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3085774e_40bef94a",
+        "filename": "plat/aspeed/ast2700/plat_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-28T12:51:15Z",
+      "side": 1,
+      "message": "missing braces around ``if``",
+      "revId": "9c022bda4b314812c5b257c82fafd17cc30987f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30d70b28_9f31ad5e",
+        "filename": "plat/aspeed/ast2700/plat_bl31_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-06-28T12:51:15Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "9c022bda4b314812c5b257c82fafd17cc30987f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
