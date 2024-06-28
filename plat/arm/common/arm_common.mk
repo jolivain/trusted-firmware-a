@@ -6,6 +6,9 @@
 
 include common/fdt_wrappers.mk
 
+# Variables for use with Certificate Conversion Tool
+CERTCONVPATH	?= tools/cot_dt2c
+
 ifeq (${ARCH},aarch32)
     ifeq (${AARCH32_SP},none)
         $(error Variable AARCH32_SP has to be set for AArch32)
@@ -387,18 +390,23 @@ ifneq (${TRUSTED_BOARD_BOOT},0)
         BL1_SOURCES	+=	drivers/auth/dualroot/bl1_cot.c
         ifneq (${COT_DESC_IN_DTB},0)
             BL2_SOURCES	+=	lib/fconf/fconf_cot_getter.c
-        else
-            BL2_SOURCES	+=	drivers/auth/dualroot/bl2_cot.c
         endif
     else ifeq (${COT},cca)
         BL1_SOURCES	+=	drivers/auth/cca/bl1_cot.c
         ifneq (${COT_DESC_IN_DTB},0)
             BL2_SOURCES	+=	lib/fconf/fconf_cot_getter.c
-        else
-            BL2_SOURCES	+=	drivers/auth/cca/bl2_cot.c
         endif
     else
         $(error Unknown chain of trust ${COT})
+    endif
+
+    ifeq (${COT_DESC_IN_DTB},0)
+      ifeq (${COT},dualroot)
+        COTDTPATH := fdts/dualroot_cot_descriptors.dtsi
+      else ifeq (${COT},cca)
+        COTDTPATH := fdts/cca_cot_descriptors.dtsi
+      endif
+      bl2: cot-dt2c
     endif
 
     BL1_SOURCES		+=	${AUTH_SOURCES}					\
@@ -471,4 +479,18 @@ ifeq (${TRANSFER_LIST}, 1)
   ifeq (${RESET_TO_BL31}, 1)
     bl31: tl
   endif
+endif
+
+cot-dt2c:
+ifneq ($(COTDTPATH),)
+  $(info COT CONVERSION FOR ${COTDTPATH})
+  toolpath := $(shell which cot-dt2c)
+  ifeq (${toolpath},)
+    output := $(shell make -C ./${CERTCONVPATH} install)
+    $(info install output ${output})
+    toolpath := $(shell which cot-dt2c)
+  endif
+  output := $(shell ${toolpath} convert-to-c ${COTDTPATH} ${BUILD_PLAT}/bl2_cot.c)
+  $(info ${output})
+  BL2_SOURCES += ${BUILD_PLAT}/bl2_cot.c
 endif
