@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0c178c8_8160ccd5",
+        "filename": "drivers/nxp/clk/s32cc/s32cc_clk_drv.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-06-28T14:37:34Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to be enabling any clk. the input parameter `id` is not being used in the function definition. Is this intentional?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 1
+      },
+      "revId": "3a580e9e472a5506da82227e809e0bd472dea1b1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
