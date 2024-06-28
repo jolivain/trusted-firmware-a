@@ -6,6 +6,9 @@
 
 include common/fdt_wrappers.mk
 
+# Variables for use with Certificate Conversion Tool
+CERTCONVPATH	?= tools/cot_dt2c
+
 ifeq (${ARCH},aarch32)
     ifeq (${AARCH32_SP},none)
         $(error Variable AARCH32_SP has to be set for AArch32)
@@ -387,18 +390,23 @@ ifneq (${TRUSTED_BOARD_BOOT},0)
         BL1_SOURCES	+=	drivers/auth/dualroot/bl1_cot.c
         ifneq (${COT_DESC_IN_DTB},0)
             BL2_SOURCES	+=	lib/fconf/fconf_cot_getter.c
-        else
-            BL2_SOURCES	+=	drivers/auth/dualroot/bl2_cot.c
         endif
     else ifeq (${COT},cca)
         BL1_SOURCES	+=	drivers/auth/cca/bl1_cot.c
         ifneq (${COT_DESC_IN_DTB},0)
             BL2_SOURCES	+=	lib/fconf/fconf_cot_getter.c
-        else
-            BL2_SOURCES	+=	drivers/auth/cca/bl2_cot.c
         endif
     else
         $(error Unknown chain of trust ${COT})
+    endif
+
+    ifeq (${COT_DESC_IN_DTB},0)
+      ifeq (${COT},dualroot)
+        COTDTPATH := fdts/dualroot_cot_descriptors.dtsi
+      else ifeq (${COT},cca)
+        COTDTPATH := fdts/cca_cot_descriptors.dtsi
+      endif
+      bl2: cot-dt2c
     endif
 
     BL1_SOURCES		+=	${AUTH_SOURCES}					\
@@ -457,4 +465,12 @@ ifeq (${RECLAIM_INIT_CODE}, 1)
     ifeq (${ARM_XLAT_TABLES_LIB_V1}, 1)
         $(error To reclaim init code xlat tables v2 must be used)
     endif
+endif
+
+ifneq ($(COTDTPATH),)
+cot-dt2c:
+  $(s)echo "COT CERT CONVERSION  ${COTDTPATH}"
+	$(q)$(MAKE) --no-print-directory -C ${CERTCONVPATH} install
+  file := $(shell cot-dt2c convert-to-c ${COTDTPATH} ${BUILD_PLAT}/bl2_cot.c)
+  BL2_SOURCES += ${BUILD_PLAT}/bl2_cot.c
 endif
