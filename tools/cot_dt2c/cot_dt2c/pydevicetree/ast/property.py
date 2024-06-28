@@ -81,7 +81,7 @@ class CellArray(PropertyValues):
     def to_dts(self, formatHex: bool = False) -> str:
         """Format the cell array in Devicetree Source format"""
         dtsValues = []
-        for i in self.values: 
+        for i in self.values:
             if not isinstance(i, OneString) and not isinstance(i, str):
                 dtsValues.append(i)
         return "<" + " ".join(wrapStrings(dtsValues, formatHex)) + ">"
