@@ -33,6 +33,29 @@
       "message": "LGTM Arvind.\nOne minor comment.",
       "revId": "38608f7a7de72332d434d0f255d2254983d28b91",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70d4c5b6_12425efd",
+        "filename": "common/feat_detect.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-06-28T13:00:27Z",
+      "side": 1,
+      "message": "nit:\nWith FGT2 feature, FEAT_FGT will be present when FGT2 is present, backwards compatible.\nSimilar to SME and SME2.\n\nSo this should be: \n```\ncheck_feature(ENABLE_FEAT_FGT, read_feat_fgt_id_field(), \"FGT\", 1, 2);\n```\n\nIt\u0027s better to cover this here.",
+      "range": {
+        "startLine": 331,
+        "startChar": 68,
+        "endLine": 331,
+        "endChar": 70
+      },
+      "revId": "38608f7a7de72332d434d0f255d2254983d28b91",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
