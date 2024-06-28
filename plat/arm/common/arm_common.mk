@@ -6,6 +6,10 @@
 
 include common/fdt_wrappers.mk
 
+# Variables for use with Certificate Conversion Tool
+CERTCONVPATH	?= tools/cot_dt2c
+CERTCONVTOOL	?= ${CERTCONVPATH}/cot_dt2c/cot_dt2c.py
+
 ifeq (${ARCH},aarch32)
     ifeq (${AARCH32_SP},none)
         $(error Variable AARCH32_SP has to be set for AArch32)
@@ -388,14 +392,16 @@ ifneq (${TRUSTED_BOARD_BOOT},0)
         ifneq (${COT_DESC_IN_DTB},0)
             BL2_SOURCES	+=	lib/fconf/fconf_cot_getter.c
         else
-            BL2_SOURCES	+=	drivers/auth/dualroot/cot.c
+            COTDTPATH := fdts/dualroot_cot_descriptors.dtsi
+            bl2: cot-dt2c
         endif
     else ifeq (${COT},cca)
         BL1_SOURCES	+=	drivers/auth/cca/bl1_cot.c
         ifneq (${COT_DESC_IN_DTB},0)
             BL2_SOURCES	+=	lib/fconf/fconf_cot_getter.c
         else
-            BL2_SOURCES	+=	drivers/auth/cca/cot.c
+            COTDTPATH := fdts/cca_cot_descriptors.dtsi
+            bl2: cot-dt2c
         endif
     else
         $(error Unknown chain of trust ${COT})
@@ -458,3 +464,10 @@ ifeq (${RECLAIM_INIT_CODE}, 1)
         $(error To reclaim init code xlat tables v2 must be used)
     endif
 endif
+
+cot-dt2c:
+  ifneq ($(COTDTPATH),)
+	@echo "COT CERT CONVERSION"
+  file := $(shell ${PYTHON} ${CERTCONVTOOL} ${COTDTPATH} ${BUILD_PLAT}/bl2_cot.c)
+  BL2_SOURCES += ${BUILD_PLAT}/bl2_cot.c
+  endif
