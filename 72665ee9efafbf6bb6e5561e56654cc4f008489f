@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bdc2451_5f71c136",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-01T11:51:32Z",
+      "side": 1,
+      "message": "Follow kebab-case. Begin the subject with a lowercase letter, so it should be ``: set up...``\n\nAdditionally, please resolve the CI failures [1].\n\n[1]: http://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l1/6920/",
+      "range": {
+        "startLine": 7,
+        "startChar": 15,
+        "endLine": 7,
+        "endChar": 48
+      },
+      "revId": "72665ee9efafbf6bb6e5561e56654cc4f008489f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
