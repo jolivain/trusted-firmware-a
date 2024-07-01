@@ -33,6 +33,24 @@
       "message": "Not correct",
       "revId": "b4afb2d689d77cc3a990c594cfc2fa661ba1fc6c",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79470742_a7a3d110",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-07-01T19:04:43Z",
+      "side": 1,
+      "message": "Will be addressed in the next version of patches.\nThis involves a bit of rework and testing. Hence moving this into W.I.P",
+      "parentUuid": "e8226af0_7bb05341",
+      "revId": "b4afb2d689d77cc3a990c594cfc2fa661ba1fc6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
