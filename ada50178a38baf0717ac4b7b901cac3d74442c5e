@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e76ecbd_17f9829a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-07-01T10:44:15Z",
+      "side": 1,
+      "message": "Static analysis checks are failing because of nondeterminism due to `__TIME__` and `__DATE__`, but these issues existed previously.",
+      "revId": "ada50178a38baf0717ac4b7b901cac3d74442c5e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
