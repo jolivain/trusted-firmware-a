@@ -89,6 +89,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bde78c14_8007bcec",
+        "filename": "tools/tlc/tlc/cli.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1001332
+      },
+      "writtenOn": "2024-07-02T15:09:14Z",
+      "side": 1,
+      "message": "Manish told me to make the blob file paths relative to TF-A root. Maybe we should see what he thinks.",
+      "parentUuid": "cc4a57d0_b5decd67",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 58
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "370537bb_158e8173",
         "filename": "tools/tlc/tlc/tl.py",
         "patchSetId": 2
@@ -135,6 +159,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1112625a_5b3d5e37",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1001332
+      },
+      "writtenOn": "2024-07-02T15:09:14Z",
+      "side": 1,
+      "message": "I added those function for consistency, because otherwise there would be some TE types with their own functions, and some without. Also, although these TE types don\u0027t have a special format, you don\u0027t have to remember that. For example, if I wanted to add an FDT entry, but couldn\u0027t remember if it had a special format, I could just call add_fdt_transfer_entry(), and I wouldn\u0027t have to remember that it didn\u0027t have a special format. But if you don\u0027t think that would be a problem, and I can change it.",
+      "parentUuid": "99dc8763_4c5c31aa",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 1
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1c0c9a41_0ea119fd",
         "filename": "tools/tlc/tlc/tl.py",
         "patchSetId": 2
@@ -146,6 +194,30 @@
       "writtenOn": "2024-07-02T09:43:40Z",
       "side": 1,
       "message": "Would it be possible to consolidate these functions into a generic one? Consider handling differences in struct format via arguments.",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 51
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5342798_b84bec37",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1001332
+      },
+      "writtenOn": "2024-07-02T15:09:14Z",
+      "side": 1,
+      "message": "Should I remove the original functions, or have them call the new generic function?",
+      "parentUuid": "1c0c9a41_0ea119fd",
       "range": {
         "startLine": 217,
         "startChar": 0,
@@ -192,6 +264,30 @@
       "writtenOn": "2024-07-02T09:43:40Z",
       "side": 1,
       "message": "There are two seperate variants of the entry point info type. The Aarch64 variant is currently the only supported variant in the specification [1]. The Aarch32 variant will be supported via a seperate tag. In the long run, it might help to have this logic to distinguish the two internally but for now it is probably enough to just handle the Aarch64 variant.\n\n[1] https://github.com/FirmwareHandoff/firmware_handoff/blob/main/source/transfer_list.rst#entries-related-to-trusted-firmware",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 9
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc477f6a_6fc81555",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1001332
+      },
+      "writtenOn": "2024-07-02T15:09:14Z",
+      "side": 1,
+      "message": "Should I leave this code as it is, and remove aarch32 from the yaml file?",
+      "parentUuid": "71a440d9_3a2c67dd",
       "range": {
         "startLine": 271,
         "startChar": 0,
