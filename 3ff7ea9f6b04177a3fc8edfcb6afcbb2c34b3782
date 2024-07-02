@@ -1,0 +1,228 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0fff18b_4c1b3063",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-02T09:43:40Z",
+      "side": 1,
+      "message": "Thanks for the change Charlie! My main suggestion would be to remove the assumption that blob\u0027s are all relative TF-A\u0027s root directory. As mentioned in one of the comments, the tool should be project agnostic. We should make every effort to respect the paths provided by the user.",
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c52d8912_96df1c3a",
+        "filename": "tools/tlc/tlc/cli.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-02T09:43:40Z",
+      "side": 1,
+      "message": "We should fail early if this doesn\u0027t exist.",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 2
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bc73cfc_a7ad7e65",
+        "filename": "tools/tlc/tlc/cli.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-02T09:43:40Z",
+      "side": 1,
+      "message": "Based on the comment below, I would suggest generically naming this option (e.g. `-r/--root`).",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 1
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc4a57d0_b5decd67",
+        "filename": "tools/tlc/tlc/cli.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-02T09:43:40Z",
+      "side": 1,
+      "message": "The goal is that the tool should be project agnostic, in the long run we hope that projects outside of TF-A will adopt the tool. For this reason, we should avoid creating dependencies on TF-A paths. In the general case, we should look for the paths relative to the current working directory.",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 177,
+        "endChar": 58
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "370537bb_158e8173",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-02T09:43:40Z",
+      "side": 1,
+      "message": "To avoid coupling between the command line interface and the `TranferList` type, can we catch this error at the top level, similar to `create` [1].\n\n[1] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/29573/2/tools/tlc/tlc/cli.py#55",
+      "range": {
+        "startLine": 141,
+        "startChar": 21,
+        "endLine": 148,
+        "endChar": 27
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99dc8763_4c5c31aa",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-02T09:43:40Z",
+      "side": 1,
+      "message": "Considering that we’re not performing any unique actions in each of the routines, I’m unsure if this level of abstraction is necessary. My concern is that creating separate adders for each TE type, where data is provided via a file path, might introduce unnecessary complexity in the future. Perhaps it would suffice to directly call `add_transfer_entry_from_file` instead.",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 1
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c0c9a41_0ea119fd",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-02T09:43:40Z",
+      "side": 1,
+      "message": "Would it be possible to consolidate these functions into a generic one? Consider handling differences in struct format via arguments.",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 51
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a8536bb_4a3bfee3",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-02T09:43:40Z",
+      "side": 1,
+      "message": "ditto (see comment on line 216)",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 1
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71a440d9_3a2c67dd",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-02T09:43:40Z",
+      "side": 1,
+      "message": "There are two seperate variants of the entry point info type. The Aarch64 variant is currently the only supported variant in the specification [1]. The Aarch32 variant will be supported via a seperate tag. In the long run, it might help to have this logic to distinguish the two internally but for now it is probably enough to just handle the Aarch64 variant.\n\n[1] https://github.com/FirmwareHandoff/firmware_handoff/blob/main/source/transfer_list.rst#entries-related-to-trusted-firmware",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 9
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ee2d194_d8e6a21b",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-02T09:43:40Z",
+      "side": 1,
+      "message": "In my view, we should respect the paths provided by the user. If the file can\u0027t be found, then the tool can report that back to the user as an error.",
+      "range": {
+        "startLine": 367,
+        "startChar": 0,
+        "endLine": 367,
+        "endChar": 2
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
