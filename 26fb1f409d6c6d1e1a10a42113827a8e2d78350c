@@ -18,6 +18,74 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a98ba35e_28252592",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-07-02T13:31:35Z",
+      "side": 1,
+      "message": "I\u0027ve added the MISRA comments, prefixed with MISRA:), feel free to ignore if RCAR platform does not follow MISRA rules.",
+      "revId": "26fb1f409d6c6d1e1a10a42113827a8e2d78350c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df189fca_0994ccf6",
+        "filename": "plat/renesas/common/include/rcar_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-07-02T13:31:35Z",
+      "side": 1,
+      "message": "MISRA: prefer BIT_32 macro if that applies to 32bit registers (see https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/29523)",
+      "revId": "26fb1f409d6c6d1e1a10a42113827a8e2d78350c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6aa20ca_2f8de3b5",
+        "filename": "plat/renesas/rcar/bl2_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-07-02T13:31:35Z",
+      "side": 1,
+      "message": "MISRA:\n\n\t\tif ((isr \u0026 CC63_TRNG_ISR_REG_AUTOCORR_ERR) !\u003d 0U) {\n\t\t\tpanic();\n\t\t}",
+      "revId": "26fb1f409d6c6d1e1a10a42113827a8e2d78350c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e161e1f_8b86612e",
+        "filename": "plat/renesas/rcar/bl2_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 798,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-07-02T13:31:35Z",
+      "side": 1,
+      "message": "MISRA:\n`} while ((isr \u0026 CC63_TRNG_ISR_REG_EHR_VALID) \u003d\u003d 0U);`",
+      "revId": "26fb1f409d6c6d1e1a10a42113827a8e2d78350c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "607c04ed_9f98637d",
