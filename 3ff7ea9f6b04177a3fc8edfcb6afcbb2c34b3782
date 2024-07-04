@@ -183,6 +183,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "25a868d4_deb05cb3",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-04T09:18:58Z",
+      "side": 1,
+      "message": "I understand your rationale. However, this approach isn\u0027t very scalable. The standardised TE range is 0-0xff_ffff. I think it\u0027s infeasible to have a function for each TE in that range. There may be special cases that we need to handle individually, this doesn\u0027t feel like one of them.",
+      "parentUuid": "1112625a_5b3d5e37",
+      "range": {
+        "startLine": 203,
+        "startChar": 0,
+        "endLine": 216,
+        "endChar": 1
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1c0c9a41_0ea119fd",
         "filename": "tools/tlc/tlc/tl.py",
         "patchSetId": 2
@@ -218,6 +242,30 @@
       "side": 1,
       "message": "Should I remove the original functions, or have them call the new generic function?",
       "parentUuid": "1c0c9a41_0ea119fd",
+      "range": {
+        "startLine": 217,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 51
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57798454_638ea343",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-04T09:18:58Z",
+      "side": 1,
+      "message": "I would remove the original functions since they are all thin wrappers around `add_transfer_entry`, and create a new function that generalizes their behaviour.",
+      "parentUuid": "a5342798_b84bec37",
       "range": {
         "startLine": 217,
         "startChar": 0,
@@ -288,6 +336,30 @@
       "side": 1,
       "message": "Should I leave this code as it is, and remove aarch32 from the yaml file?",
       "parentUuid": "71a440d9_3a2c67dd",
+      "range": {
+        "startLine": 271,
+        "startChar": 0,
+        "endLine": 279,
+        "endChar": 9
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f837e96f_84ee5213",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-04T09:18:58Z",
+      "side": 1,
+      "message": "Remove Aarch32 since we don\u0027t currently need it.",
+      "parentUuid": "fc477f6a_6fc81555",
       "range": {
         "startLine": 271,
         "startChar": 0,
