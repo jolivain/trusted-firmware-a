@@ -94,6 +94,30 @@
       },
       "revId": "af664972590aa1cb615bc01fb6c7a18829158869",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e36a926_7cae97da",
+        "filename": "include/lib/psa/rse_crypto_defs.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-04T14:10:12Z",
+      "side": 1,
+      "message": "\u003e If we use conditional method, it will likely causes confusion. As when anyone works on TC2 with the latest RSE binary, the RSE_CRYPTO_EXPORT_PUBLIC_KEY_SID should be updated as well.\n\nYes, that is correct. Given the upcoming deprecation of the TC2 platform, it might not be worth trying the latest RSE binaries on TC2. I\u0027m hoping the condition will be removed with the removal of TC2.\nIf you believe the latest RSE binaries should work on TC2 as well, then it\u0027s better to update the pre-built binaries in the download (or point the latest binaries for TC2 run) folder to make this fix consistent across both TC2 and TC3.\n\n\u003e I think this is a legacy issue that TC2 test sticks to an old RSE version. A potential solution is the TF-A can read RSE version and then dynamically adjust SID.\n\nI\u0027m not sure how easy it is.",
+      "parentUuid": "9cb2fee5_b5909b21",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 58
+      },
+      "revId": "af664972590aa1cb615bc01fb6c7a18829158869",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
