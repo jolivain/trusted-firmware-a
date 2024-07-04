@@ -16,6 +16,24 @@
       "message": "Hi Levi,\n\nThanks for your contribution! There appear to be a few inconsistencies between TF-A and the current state of the handoff spec. The register convention was recently modified to account for the 4-byte wide signature [1]. As you rightly point out, the previous convention didn\u0027t have a wide enough field to accomdate the entire signature. The spec now mandates:\n\nX1 is divided into the following fields:\n\n    X1[31:0]: set to the TL signature (4a0f_b10b)\n    X1[39:32]: version of the register convention used. Set to 1 for the AArch64 convention specified in this document.\n    X1[63:40]: reserved, must be zero.\n\nFor that reason, I think all we need to update is REGISTER_CONVENTION_VERSION_MASK. \n\n[1] https://github.com/FirmwareHandoff/firmware_handoff/blob/main/source/register_conventions.rst#aarch64-receiver",
       "revId": "56a68a916d75fecc035f674b0abe3666e3e93df1",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53ecfa57_4820ca9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001369
+      },
+      "writtenOn": "2024-07-04T12:07:24Z",
+      "side": 1,
+      "message": "Thanks for your review :). \n\nI\u0027ve make another patchset for this in https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/29804.\n\nBecauase of my mistake, I sent as new one..\nthanks!",
+      "parentUuid": "3ed449f1_a9b94330",
+      "revId": "56a68a916d75fecc035f674b0abe3666e3e93df1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
