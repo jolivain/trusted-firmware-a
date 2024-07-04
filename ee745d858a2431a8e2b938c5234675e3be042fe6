@@ -35,6 +35,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b40a8f5c_4c2c4943",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001368
+      },
+      "writtenOn": "2024-07-04T11:37:19Z",
+      "side": 1,
+      "message": "Ah yes, no problem. I\u0027ve (hopefully!) pushed a corrected version of the patch. :)",
+      "parentUuid": "61236fe0_d7d8d332",
+      "revId": "ee745d858a2431a8e2b938c5234675e3be042fe6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49bebc28_d32d7b1c",
@@ -48,6 +66,30 @@
       "writtenOn": "2024-07-04T11:28:53Z",
       "side": 1,
       "message": "sizeof(tmp) or sizeof(mbr_entry_t)\nThis issue was seen by checkpatch here: https://ci.trustedfirmware.org/job/tf-a-static-checks/10126/",
+      "range": {
+        "startLine": 76,
+        "startChar": 53,
+        "endLine": 76,
+        "endChar": 63
+      },
+      "revId": "ee745d858a2431a8e2b938c5234675e3be042fe6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3623770d_4b29bb80",
+        "filename": "drivers/partition/partition.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1001368
+      },
+      "writtenOn": "2024-07-04T11:37:19Z",
+      "side": 1,
+      "message": "Ah yes, no problem. I\u0027ve (hopefully!) pushed a corrected version of the patch. :)",
+      "parentUuid": "49bebc28_d32d7b1c",
       "range": {
         "startLine": 76,
         "startChar": 53,
