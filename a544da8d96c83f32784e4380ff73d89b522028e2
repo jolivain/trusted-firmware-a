@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "020377ef_5e9daa14",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-04T08:30:05Z",
+      "side": 1,
+      "message": "perhaps you can remove this, as Hafnium moved away from asm macros, and re-implemented in C and inline asm.",
+      "range": {
+        "startLine": 9,
+        "startChar": 63,
+        "endLine": 10,
+        "endChar": 51
+      },
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd1ef052_3284f87a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-04T08:30:05Z",
+      "side": 1,
+      "message": "FPU and line 13",
+      "range": {
+        "startLine": 11,
+        "startChar": 8,
+        "endLine": 11,
+        "endChar": 11
+      },
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9273f1ee_08ae4c9e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-04T08:30:05Z",
+      "side": 1,
+      "message": "is there a tab here what should be removed?",
+      "range": {
+        "startLine": 15,
+        "startChar": 63,
+        "endLine": 15,
+        "endChar": 64
+      },
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6760272_522b4108",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-04T08:30:05Z",
+      "side": 1,
+      "message": "nitpick: I would rather call it \u0027state\u0027 rather than \u0027non_vec\u0027, considering this concerns FPU control and status registers.",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efbf2207_5a922521",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-04T08:30:05Z",
+      "side": 1,
+      "message": "nitpick: would it better be a single store pair instruction (but requires an additional gp register)?",
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e2b1ae8_6b976644",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-04T08:30:05Z",
+      "side": 1,
+      "message": "I think this comment should be removed as it suggests how the macro is/should be used. It doesn\u0027t seem to apply if we consider SVE support is generic enough and isn\u0027t consumed by a specific dispatcher.",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 13
+      },
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c94aecb0_380500e3",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-04T08:30:05Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 4
+      },
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
