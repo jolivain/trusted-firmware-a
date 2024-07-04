@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e4012d84_1ffbf08f",
+        "filename": "lib/el3_runtime/simd_ctx.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-04T10:46:20Z",
+      "side": 1,
+      "message": "Could this be turned into asserts? Or must this be tested always because doing an array access at line 32?\n\nAlso the error msg saying \u0027RME not supported\u0027 is extrapolated as checks are done against SECURE/NON_SECURE constants, not REALM explicitly.",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 2
+      },
+      "revId": "6b8807ee1fb0189e6f4d28a1aa4223fa788ec81b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "261a6ac4_97f9f84a",
         "filename": "lib/el3_runtime/simd_ctx.c",
         "patchSetId": 1
@@ -38,6 +61,30 @@
       "side": 1,
       "message": "Is this necessary given hint_sve has boolean type?",
       "parentUuid": "261a6ac4_97f9f84a",
+      "range": {
+        "startLine": 37,
+        "startChar": 5,
+        "endLine": 37,
+        "endChar": 13
+      },
+      "revId": "6b8807ee1fb0189e6f4d28a1aa4223fa788ec81b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efd771a2_e0f4efd6",
+        "filename": "lib/el3_runtime/simd_ctx.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-04T10:46:20Z",
+      "side": 1,
+      "message": "If we\u0027re pedantic, I think this might be required by MISRA?\nand it should be `hint_sve \u003d\u003d true`",
+      "parentUuid": "bfc7ede8_58f36b9e",
       "range": {
         "startLine": 37,
         "startChar": 5,
