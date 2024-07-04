@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25f418ee_52754485",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2024-07-04T15:51:20Z",
+      "side": 1,
+      "message": "nit: trim the duplicated tabs",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 48
+      },
+      "revId": "cd1fbbe181a32c963a1985a76a48e28fba4f1cc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "132edd96_09014d5b",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2024-07-04T15:51:20Z",
+      "side": 1,
+      "message": "I think this is not something you expect, `REGISTER_CONVENTION_VERSION_SHIFT_64` is the number of bits to shift instead of mask.\n\nIt should be: \n```\n#define TRANSFER_LIST_HANDOFF_X1_VALUE(__version) \\\n    ((TRANSFER_LIST_SIGNATURE \u0026 ((1ULL \u003c\u003c REGISTER_CONVENTION_VERSION_SHIFT_64) - 1)) | ((__version) \u003c\u003c REGISTER_CONVENTION_VERSION_SHIFT_64))\n```",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 56
+      },
+      "revId": "cd1fbbe181a32c963a1985a76a48e28fba4f1cc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78d7d26f_4c84274d",
+        "filename": "include/lib/transfer_list.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2024-07-04T15:51:20Z",
+      "side": 1,
+      "message": "Similarly, this is not something you expect too. `REGISTER_CONVENTION_VERSION_SHIFT_32` is the number of bits to shift instead of mask.\n\nIt should be:\n```\ndefine TRANSFER_LIST_HANDOFF_R1_VALUE(__version) \\\n    ((TRANSFER_LIST_SIGNATURE \u0026 ((1ULL \u003c\u003c REGISTER_CONVENTION_VERSION_SHIFT_32) - 1)) | ((__version) \u003c\u003c REGISTER_CONVENTION_VERSION_SHIFT_32))\n```",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 56
+      },
+      "revId": "cd1fbbe181a32c963a1985a76a48e28fba4f1cc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d6be7cd_933bed3b",
+        "filename": "lib/transfer_list/transfer_list.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2024-07-04T15:51:20Z",
+      "side": 1,
+      "message": "We can read 32/64 status from SPSR, so I think this part is compatible for aarch32 build and we don\u0027t need adding this option here.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 18
+      },
+      "revId": "cd1fbbe181a32c963a1985a76a48e28fba4f1cc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ba08cff_f037e71b",
+        "filename": "plat/qemu/common/qemu_bl2_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2024-07-04T15:51:20Z",
+      "side": 1,
+      "message": "We can read 32/64 status from SPSR, so I think this part is compatible for aarch32 build and we don\u0027t need adding this option here.",
+      "range": {
+        "startLine": 363,
+        "startChar": 0,
+        "endLine": 363,
+        "endChar": 18
+      },
+      "revId": "cd1fbbe181a32c963a1985a76a48e28fba4f1cc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
