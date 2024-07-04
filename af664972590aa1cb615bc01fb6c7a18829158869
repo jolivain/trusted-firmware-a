@@ -118,6 +118,30 @@
       },
       "revId": "af664972590aa1cb615bc01fb6c7a18829158869",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09985399_173141cc",
+        "filename": "include/lib/psa/rse_crypto_defs.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000108
+      },
+      "writtenOn": "2024-07-04T16:10:55Z",
+      "side": 1,
+      "message": "I checked a bit, seems TC2 now still can work with the latest RSE (but need to use updated FVP model).\n\nTo reduce complexity, how about below steps:\n\n- Step 1: Enable \u0027rse-rotpk\u0027 test on TC3 TF-A CI test;\n- Step 2: Send a patch to remove \u0027rse-rotpk\u0027 test on TC2;\n- Step 3: Merge this patch.\n\nIf we can use TC3 as the main platform to cover the \u0027rse-rotpk\u0027 test, then maybe it is not very useful for using TC2 to do the same testing (and it has been broken for the latest code base).",
+      "parentUuid": "2e36a926_7cae97da",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 58
+      },
+      "revId": "af664972590aa1cb615bc01fb6c7a18829158869",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
