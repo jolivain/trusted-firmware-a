@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f8f9c5dd_6d5abdc2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2024-07-04T16:00:20Z",
+      "side": 1,
+      "message": "OP-TEE and U-Boot are following the existing register conventions, the feature will be broken if they are not updated at the same time.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 68
+      },
+      "revId": "cd1fbbe181a32c963a1985a76a48e28fba4f1cc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "25f418ee_52754485",
         "filename": "include/lib/transfer_list.h",
         "patchSetId": 2
