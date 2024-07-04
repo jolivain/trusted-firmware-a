@@ -63,8 +63,8 @@ transfer_list_set_handoff_args(struct transfer_list_header *tl,
 	te = transfer_list_find(tl, TL_TAG_FDT);
 	dt = transfer_list_entry_data(te);
 
-	ep_info->args.arg1 = TRANSFER_LIST_SIGNATURE |
-			     REGISTER_CONVENTION_VERSION_MASK;
+	ep_info->args.arg1 = (TRANSFER_LIST_SIGNATURE &
+			(REGISTER_CONVENTION_VERSION_MASK - 1)) | REGISTER_CONVENTION_VERSION_MASK;
 	ep_info->args.arg3 = (uintptr_t)tl;
 
 	if (GET_RW(ep_info->spsr) == MODE_RW_32) {
