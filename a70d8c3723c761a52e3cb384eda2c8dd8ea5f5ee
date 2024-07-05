@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e9c9b93_2000b6b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:35:47Z",
+      "side": 1,
+      "message": "My bad. I forgot to push those patches to external gerrit. All of them are now available under this topic:\n\nhttps://review.trustedfirmware.org/q/topic:%22mp/simd_ctxt_mgmt%22",
+      "parentUuid": "83658f87_774a97d8",
+      "revId": "a70d8c3723c761a52e3cb384eda2c8dd8ea5f5ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "676a00bc_fc67f3e6",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "db0d96ce_c67e3111",
+        "filename": "plat/arm/board/fvp/fdts/fvp_cactus_sp_manifest.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:35:47Z",
+      "side": 1,
+      "message": "The manifest in tf-a-tests cannot be reused due to difference in feature implementations between EL3 SPMC and Hafnium SPMC.\n\nIf I am not mistaken, it is not possible to host partition manifest outside of TF-A project for EL3 SPMC builds at this point of time.\nAlso, there are numerous instances of such test artefacts/dependencies co-existing in TF-A project. Examples include all tsp related files.",
+      "parentUuid": "676a00bc_fc67f3e6",
+      "revId": "a70d8c3723c761a52e3cb384eda2c8dd8ea5f5ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1b3f07bc_fda01c39",
         "filename": "plat/arm/board/fvp/fdts/fvp_cactus_sp_manifest.dts",
         "patchSetId": 1
@@ -48,6 +84,30 @@
       "writtenOn": "2024-07-04T11:14:06Z",
       "side": 1,
       "message": "remove or uncomment/reword?",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 19,
+        "endChar": 26
+      },
+      "revId": "a70d8c3723c761a52e3cb384eda2c8dd8ea5f5ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39f22500_2e9c04b5",
+        "filename": "plat/arm/board/fvp/fdts/fvp_cactus_sp_manifest.dts",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:35:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b3f07bc_fda01c39",
       "range": {
         "startLine": 19,
         "startChar": 1,
