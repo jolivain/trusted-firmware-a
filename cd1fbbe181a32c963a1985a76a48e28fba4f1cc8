@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c18f0dbc_b0d391ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2024-07-05T14:15:32Z",
+      "side": 1,
+      "message": "Yes, to avoid breaking the feature, same patch is needed for both OP-TEE and U-Boot. And some manual tests are necessary on QEMU to make sure the existing TL and TEs are handed over through TF-A, OP-TEE and U-Boot without breaking anything.\nUnfortunately currently there is no CI job for this.",
+      "parentUuid": "edf0a302_fad8563f",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 68
+      },
+      "revId": "cd1fbbe181a32c963a1985a76a48e28fba4f1cc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25f418ee_52754485",

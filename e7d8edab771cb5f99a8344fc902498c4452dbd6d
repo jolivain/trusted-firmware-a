@@ -88,6 +88,24 @@
       "parentUuid": "8bd19027_81b75308",
       "revId": "e7d8edab771cb5f99a8344fc902498c4452dbd6d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f13c3ae_7e9f65ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001070
+      },
+      "writtenOn": "2024-07-05T14:15:32Z",
+      "side": 1,
+      "message": "The 4-byte TL signature using in previous code for 32bits is due to a bug of the spec. See below link for the reference:\nhttps://github.com/FirmwareHandoff/firmware_handoff/issues/32\nPlease put the history into the commit message.\n\nI think we should update the spec revision number. Currenly the spec stays in 0.9 but with a lot of accumulated updates. It is hard to map the code changes to a specific version of spec.",
+      "parentUuid": "ca8fbef6_b3caf974",
+      "revId": "e7d8edab771cb5f99a8344fc902498c4452dbd6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
