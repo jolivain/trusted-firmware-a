@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90f55891_6581cfbc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "020377ef_5e9daa14",
+      "range": {
+        "startLine": 9,
+        "startChar": 63,
+        "endLine": 10,
+        "endChar": 51
+      },
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd1ef052_3284f87a",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-04T08:30:05Z",
       "side": 1,
       "message": "FPU and line 13",
+      "range": {
+        "startLine": 11,
+        "startChar": 8,
+        "endLine": 11,
+        "endChar": 11
+      },
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2266b30_ce123229",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd1ef052_3284f87a",
       "range": {
         "startLine": 11,
         "startChar": 8,
@@ -70,6 +118,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0707a2ac_ab218e62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9273f1ee_08ae4c9e",
+      "range": {
+        "startLine": 15,
+        "startChar": 63,
+        "endLine": 15,
+        "endChar": 64
+      },
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6760272_522b4108",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-07-04T08:30:05Z",
       "side": 1,
       "message": "nitpick: I would rather call it \u0027state\u0027 rather than \u0027non_vec\u0027, considering this concerns FPU control and status registers.",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 21
+      },
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0bd1bf0_b8e6ef64",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6760272_522b4108",
       "range": {
         "startLine": 31,
         "startChar": 14,
@@ -112,6 +208,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8f9d5a1c_6766b792",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:54Z",
+      "side": 1,
+      "message": "I tried but stp does not support offsets more than 504. CTX_SIMD_FPSR is a large number.\n\nlib/el3_runtime/aarch64/context.S: Assembler messages:\nlib/el3_runtime/aarch64/context.S:88: Error: immediate offset out of range -512 to 504 at operand 3 -- `stp x9,x10,[x0,#((0)+(32*(2048/8)))]\u0027",
+      "parentUuid": "efbf2207_5a922521",
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5e2b1ae8_6b976644",
         "filename": "lib/el3_runtime/aarch64/context.S",
         "patchSetId": 1
@@ -123,6 +237,30 @@
       "writtenOn": "2024-07-04T08:30:05Z",
       "side": 1,
       "message": "I think this comment should be removed as it suggests how the macro is/should be used. It doesn\u0027t seem to apply if we consider SVE support is generic enough and isn\u0027t consumed by a specific dispatcher.",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 13
+      },
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11719a2d_e4165fd6",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e2b1ae8_6b976644",
       "range": {
         "startLine": 43,
         "startChar": 4,
@@ -156,6 +294,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a74496fb_6c21033e",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c94aecb0_380500e3",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 4
+      },
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5b25986_e1d6b1d9",
@@ -169,6 +331,24 @@
       "writtenOn": "2024-07-04T10:27:23Z",
       "side": 1,
       "message": "nitpick: blank",
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ef955e0_630ff1a8",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5b25986_e1d6b1d9",
       "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -190,6 +370,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24dc5268_b8858e64",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "916f0603_36f4c579",
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c30b62f2_89f16b8a",
@@ -203,6 +401,30 @@
       "writtenOn": "2024-07-04T10:27:23Z",
       "side": 1,
       "message": "nitpick: use same comment as line 242 for consistency?",
+      "range": {
+        "startLine": 292,
+        "startChar": 4,
+        "endLine": 292,
+        "endChar": 23
+      },
+      "revId": "a544da8d96c83f32784e4380ff73d89b522028e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "375a6052_b45eaa3c",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c30b62f2_89f16b8a",
       "range": {
         "startLine": 292,
         "startChar": 4,
