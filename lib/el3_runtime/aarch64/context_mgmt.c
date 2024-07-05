@@ -42,7 +42,7 @@ CASSERT(((TWED_DELAY & ~SCR_TWEDEL_MASK) == 0U), assert_twed_delay_value_check);
 per_world_context_t per_world_context[CPU_DATA_CONTEXT_NUM];
 static bool has_secure_perworld_init;
 
-static void manage_extensions_common(cpu_context_t *ctx);
+static void manage_extensions_common(uint32_t security_state);
 static void manage_extensions_nonsecure(cpu_context_t *ctx);
 static void manage_extensions_secure(cpu_context_t *ctx);
 static void manage_extensions_secure_per_world(void);
@@ -508,12 +508,6 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 	write_ctx_reg(state, CTX_MDCR_EL3, mdcr_el3);
 
 	/*
-	 * Configure MDCR_EL3 register as applicable for each world
-	 * (NS/Secure/Realm) context.
-	 */
-	manage_extensions_common(ctx);
-
-	/*
 	 * Store the X0-X7 value from the entrypoint into the context
 	 * Use memcpy as we are in control of the layout of the structures
 	 */
@@ -724,9 +718,14 @@ static void manage_extensions_secure_per_world(void)
  * enabled only for non-secure world and being disabled for secure world are
  * grouped here, as the MDCR_EL3 context value remains same across the worlds.
  ******************************************************************************/
-static void manage_extensions_common(cpu_context_t *ctx)
+static void manage_extensions_common(uint32_t security_state)
 {
 #if IMAGE_BL31
+	cpu_context_t *ctx;
+
+	ctx = cm_get_context(security_state);
+	assert(ctx != NULL);
+
 	if (is_feat_spe_supported()) {
 		/*
 		 * Enable FEAT_SPE for Non-Secure and prohibit for Secure state.
@@ -1068,6 +1067,12 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			}
 		}
 	}
+
+	/*
+	 * Configure MDCR_EL3 register as applicable for each world
+	 * (NS/Secure/Realm) context.
+	 */
+	manage_extensions_common(security_state);
 	cm_el1_sysregs_context_restore(security_state);
 	cm_set_next_eret_context(security_state);
 }
@@ -1494,6 +1499,12 @@ void cm_prepare_el3_exit_ns(void)
 	assert(((scr_el3 & SCR_HCE_BIT) != 0UL) &&
 			(el_implemented(2U) != EL_IMPL_NONE));
 #endif /* ENABLE_ASSERTIONS */
+
+	/*
+	 * Configure MDCR_EL3 register as applicable for each world
+	 * (NS/Secure/Realm) context.
+	 */
+	manage_extensions_common(NON_SECURE);
 
 	/* Restore EL2 and EL1 sysreg contexts */
 	cm_el2_sysregs_context_restore(NON_SECURE);
