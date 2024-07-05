@@ -508,12 +508,6 @@ static void setup_context_common(cpu_context_t *ctx, const entry_point_info_t *e
 	write_ctx_reg(state, CTX_MDCR_EL3, mdcr_el3);
 
 	/*
-	 * Configure MDCR_EL3 register as applicable for each world
-	 * (NS/Secure/Realm) context.
-	 */
-	manage_extensions_common(ctx);
-
-	/*
 	 * Store the X0-X7 value from the entrypoint into the context
 	 * Use memcpy as we are in control of the layout of the structures
 	 */
@@ -1068,6 +1062,13 @@ void cm_prepare_el3_exit(uint32_t security_state)
 			}
 		}
 	}
+
+	/*
+	 * Configure MDCR_EL3 register as applicable for each world
+	 * (NS/Secure/Realm) context.
+	 */
+	manage_extensions_common(ctx);
+
 	cm_el1_sysregs_context_restore(security_state);
 	cm_set_next_eret_context(security_state);
 }
@@ -1494,6 +1495,12 @@ void cm_prepare_el3_exit_ns(void)
 	assert(((scr_el3 & SCR_HCE_BIT) != 0UL) &&
 			(el_implemented(2U) != EL_IMPL_NONE));
 #endif /* ENABLE_ASSERTIONS */
+
+	/*
+	 * Configure MDCR_EL3 register as applicable for each world
+	 * (NS/Secure/Realm) context.
+	 */
+	manage_extensions_common(ctx);
 
 	/* Restore EL2 and EL1 sysreg contexts */
 	cm_el2_sysregs_context_restore(NON_SECURE);
