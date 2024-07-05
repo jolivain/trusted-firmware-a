@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f9bdffaf_383c4952",
+        "filename": "lib/el3_runtime/simd_ctx.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:50Z",
+      "side": 1,
+      "message": "I think it would be best to test it against the security state. I will make necessary changes.",
+      "parentUuid": "e4012d84_1ffbf08f",
+      "range": {
+        "startLine": 27,
+        "startChar": 1,
+        "endLine": 30,
+        "endChar": 2
+      },
+      "revId": "6b8807ee1fb0189e6f4d28a1aa4223fa788ec81b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "261a6ac4_97f9f84a",
         "filename": "lib/el3_runtime/simd_ctx.c",
         "patchSetId": 1
@@ -95,6 +119,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8c1bc49_ac43dee3",
+        "filename": "lib/el3_runtime/simd_ctx.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:50Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "efd771a2_e0f4efd6",
+      "range": {
+        "startLine": 37,
+        "startChar": 5,
+        "endLine": 37,
+        "endChar": 13
+      },
+      "revId": "6b8807ee1fb0189e6f4d28a1aa4223fa788ec81b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "815ba263_379fd50f",
@@ -108,6 +156,30 @@
       "writtenOn": "2024-06-21T15:52:27Z",
       "side": 1,
       "message": "nit: regs-\u003ehint !\u003d 0",
+      "range": {
+        "startLine": 63,
+        "startChar": 5,
+        "endLine": 63,
+        "endChar": 15
+      },
+      "revId": "6b8807ee1fb0189e6f4d28a1aa4223fa788ec81b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13d2c0ed_0cf87461",
+        "filename": "lib/el3_runtime/simd_ctx.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:50Z",
+      "side": 1,
+      "message": "hint is boolean",
+      "parentUuid": "815ba263_379fd50f",
       "range": {
         "startLine": 63,
         "startChar": 5,
