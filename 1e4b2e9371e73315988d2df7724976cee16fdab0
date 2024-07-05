@@ -16,6 +16,24 @@
       "message": "Downstream removed this FP save and the next restore, see https://r.android.com/3046192. Are the SIMD ones needed?",
       "revId": "1e4b2e9371e73315988d2df7724976cee16fdab0",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aae44f7b_0a97fd62",
+        "filename": "services/spd/trusty/trusty.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:38Z",
+      "side": 0,
+      "message": "I am not sure. I feel once the downstream changes are pushed for upstream review, the corresponding simd_ctx* invocation can be removed.",
+      "parentUuid": "52777ff3_2f0a6daf",
+      "revId": "1e4b2e9371e73315988d2df7724976cee16fdab0",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
