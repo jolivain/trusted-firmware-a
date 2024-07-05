@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0dd3ab9_6822e652",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77d91c8d_4ed391cd",
+      "range": {
+        "startLine": 469,
+        "startChar": 79,
+        "endLine": 469,
+        "endChar": 86
+      },
+      "revId": "f0d7e629fb039a3fe58d13c9766de679ef1278be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "882de67d_f58a1d19",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-07-04T11:10:23Z",
       "side": 1,
       "message": "As safety net I think it should also check SPMD_SPM_AT_SEL2\u003d\u003d0",
+      "revId": "f0d7e629fb039a3fe58d13c9766de679ef1278be",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab823f7b_1bf5c00f",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-05T21:36:29Z",
+      "side": 1,
+      "message": "I feel such a check should reside in build system rather than source files. I have already put such a check here:\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/29455/1/Makefile\n\nPlease let me know if you disagree.",
+      "parentUuid": "882de67d_f58a1d19",
       "revId": "f0d7e629fb039a3fe58d13c9766de679ef1278be",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
