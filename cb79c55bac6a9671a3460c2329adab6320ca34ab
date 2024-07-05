@@ -34,6 +34,24 @@
       "parentUuid": "bd1977ff_533d5adf",
       "revId": "cb79c55bac6a9671a3460c2329adab6320ca34ab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b597f60a_7b7a02eb",
+        "filename": "docs/tools/transfer-list-compiler.rst",
+        "patchSetId": 11
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-05T17:45:47Z",
+      "side": 1,
+      "message": "\u003e Are you suggesting that we should provide an option to validate the generated TL against an existing golden TL?\n\nNo, I was thinking more along the lines of providing an already generated TL to this tool for validation, like ``tlc validate tl.bin``\n\nIf the platform has already generated a TL (not through this script), we should use the script to validate it. I\u0027m not certain how much validation can be done, but we can likely verify the signature and checksum etc, right?",
+      "parentUuid": "474ca966_c695e517",
+      "revId": "cb79c55bac6a9671a3460c2329adab6320ca34ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
