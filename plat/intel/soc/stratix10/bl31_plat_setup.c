@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2019-2022, Intel Corporation. All rights reserved.
+ * Copyright (c) 2024, Altera Corporation. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -169,3 +170,7 @@ void bl31_plat_arch_setup(void)
 	enable_mmu_el3(0);
 }
 
+void bl31_plat_runtime_setup(void)
+{
+	console_switch_state(CONSOLE_FLAG_RUNTIME|CONSOLE_FLAG_BOOT);
+}

@@ -278,3 +278,8 @@ void bl31_plat_enable_mmu(uint32_t flags)
 {
 	/* TODO: Enable mmu when needed */
 }
+
+void bl31_plat_runtime_setup(void)
+{
+	console_switch_state(CONSOLE_FLAG_RUNTIME|CONSOLE_FLAG_BOOT);
+}
