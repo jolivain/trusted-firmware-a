@@ -16,6 +16,24 @@
       "message": "Is this fix needed due to updates in the specification or a previous error?",
       "revId": "e7d8edab771cb5f99a8344fc902498c4452dbd6d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64d2e67b_5436a97e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001369
+      },
+      "writtenOn": "2024-07-05T07:56:41Z",
+      "side": 1,
+      "message": "Honestly both of them.\n\nFor 32bits, the R1 value is wrong in previous code.\n\nAfter updating specification (see https://github.com/FirmwareHandoff/firmware_handoff/commit/5aa7aa1d3a1db75213e458d392b751f0707de027),\n\nlength of signature bit is increased from 24 bits to 32 bits for aarch64.",
+      "parentUuid": "14dfc8b7_61a97a8e",
+      "revId": "e7d8edab771cb5f99a8344fc902498c4452dbd6d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
