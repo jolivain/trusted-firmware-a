@@ -81,8 +81,7 @@ TF-A to the Linux kernel, which will use a ramdisk as filesystem. This can be
 useful if both the kernel and the device tree blob (DTB) are already present in
 memory (like in FVP).
 
-For example, if the kernel is loaded at ``0x80080000`` and the DTB is loaded at
-address ``0x82000000``, the firmware can be built like this:
+For example, the firmware can be built like this:
 
 .. code:: shell
 
@@ -90,47 +89,39 @@ address ``0x82000000``, the firmware can be built like this:
     make PLAT=fvp DEBUG=1             \
     RESET_TO_BL31=1                   \
     ARM_LINUX_KERNEL_AS_BL33=1        \
-    PRELOADED_BL33_BASE=0x80080000    \
-    ARM_PRELOADED_DTB_BASE=0x82000000 \
     all fip
 
-Now, it is needed to modify the DTB so that the kernel knows the address of the
-ramdisk. The following script generates a patched DTB from the provided one,
-assuming that the ramdisk is loaded at address ``0x84000000``. Note that this
-script assumes that the user is using a ramdisk image prepared for U-Boot, like
-the ones provided by Linaro. If using a ramdisk without this header,the ``0x40``
-offset in ``INITRD_START`` has to be removed.
+.. note::
+    | The above command will make use of the below defaults
+    |
+    | PRELOADED_BL33_BASE = 0x80080000
+    | (Kernel load address, this address supports kernels before v5.7 that
+      require a 512K text offset. New kernels don't require this offset and
+      can tolerate other addresses.)
+    |
+    | ARM_PRELOADED_DTB_BASE = 0x87F00000
+    | (DTB is placed 126.5MiB after kernel to support larger kernels)
+    |
+    | PRELOADED_INITRD_BASE = 0x88000000
+    | (initrd comes 1MiB after DTB, giving DTB enough space)
+    |
+    | PRELOADED_INITRD_SIZE = 0x0
+    | (Initrd isn't required thus the default size is 0, user can override
+    | this value if an initrd is provided.)
 
-.. code:: bash
+The above defaults can be overridden per the use case, for example to provide
+the correct initrd size the above make command can be amended as:
 
-    #!/bin/bash
 
-    # Path to the input DTB
-    KERNEL_DTB=<path-to>/<fdt>
-    # Path to the output DTB
-    PATCHED_KERNEL_DTB=<path-to>/<patched-fdt>
-    # Base address of the ramdisk
-    INITRD_BASE=0x84000000
-    # Path to the ramdisk
-    INITRD=<path-to>/<ramdisk.img>
+.. code:: shell
 
-    # Skip uboot header (64 bytes)
-    INITRD_START=$(printf "0x%x" $((${INITRD_BASE} + 0x40)) )
-    INITRD_SIZE=$(stat -Lc %s ${INITRD})
-    INITRD_END=$(printf "0x%x" $((${INITRD_BASE} + ${INITRD_SIZE})) )
+    make PLAT=fvp DEBUG=1             \
+    RESET_TO_BL31=1                   \
+    ARM_LINUX_KERNEL_AS_BL33=1        \
+    PRELOADED_INITRD_SIZE=0x153840    \
+    all fip
 
-    CHOSEN_NODE=$(echo                                        \
-    "/ {                                                      \
-            chosen {                                          \
-                    linux,initrd-start = <${INITRD_START}>;   \
-                    linux,initrd-end = <${INITRD_END}>;       \
-            };                                                \
-    };")
-
-    echo $(dtc -O dts -I dtb ${KERNEL_DTB}) ${CHOSEN_NODE} |  \
-            dtc -O dtb -o ${PATCHED_KERNEL_DTB} -
-
-And the FVP binary can be run with the following command:
+Then the FVP binary can be run with the following command:
 
 .. code:: shell
 
@@ -149,9 +140,60 @@ And the FVP binary can be run with the following command:
     -C cluster1.cpu2.RVBAR=0x04001000                           \
     -C cluster1.cpu3.RVBAR=0x04001000                           \
     --data cluster0.cpu0="<path-to>/bl31.bin"@0x04001000        \
-    --data cluster0.cpu0="<path-to>/<patched-fdt>"@0x82000000   \
+    --data cluster0.cpu0="<path-to>/<device-tree-blob>"@87F00000 \
     --data cluster0.cpu0="<path-to>/<kernel-binary>"@0x80080000 \
-    --data cluster0.cpu0="<path-to>/<ramdisk.img>"@0x84000000
+    --data cluster0.cpu0="<path-to>/<ramdisk.img>"@0x88000000
+
+.. note::
+    The defaults (or overridden) addresses to the dtb, kernel, and ramdisk,
+    provided on the run command, must be the same as the ones provided to the
+    make command. The run command doesn't need the initrd size.
+
+Ramdisk with a U-Boot header
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If the initrd comes with a u-boot header then offset the initrd address by 64
+bytes (0x40), in the make command only, no need to offset the address in the
+run command. When an initrd is provided the initrd size must also be set.
+
+For example, using the default initrd address with the u-boot offset:
+
+.. code:: shell
+
+    make PLAT=fvp DEBUG=1             \
+    RESET_TO_BL31=1                   \
+    ARM_LINUX_KERNEL_AS_BL33=1        \
+    PRELOADED_INITRD_BASE=0x88000040  \
+    PRELOADED_INITRD_SIZE=0x153800
+    all fip
+
+.. note::
+    When offsetting for u-boot header and providing the initrd size as well
+    using ``PRELOADED_INITRD_SIZE``, remove 64 bytes of the initrd total size.
+    For example, an initrd of size 0x153840 would become 0x153800.
+
+Bypass DTB Runtime Update
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The default value for initrd size i.e. ``PRELOADED_INITRD_SIZE = 0`` will prevent
+the runtime update of the dtb with initrd properties. This can be useful when the
+user doesn't need an initrd or the injected DTB already contains the initrd properties.
+
+Unknown Ramdisk Size
+^^^^^^^^^^^^^^^^^^^^
+
+If the user doesn't know their initrd size they can specify a higher than expected
+initrd size using the make command line macro, for example, if the initrd is below
+128MiB set ``PRELOADED_INITRD_SIZE = 0x08000000``. This will work, although an error
+``Initramfs unpacking failed`` is encountered in the Linux kernel logs but it can
+safely be ignored. The error is about the failed attempt by Linux kernel to decode
+a secondary initrd. Initrd's can be stacked one after another so after linux unpacks
+the first initrd successfully it looks for another straight after, which it won't find.
+Thus we can ignore this error.
+
+To avoid triggering this error, provide the correct initrd size at the make
+command-line using the macro ``PRELOADED_INITRD_SIZE`` (adjust for u-boot
+header if present).
 
 Obtaining the Flattened Device Trees
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
