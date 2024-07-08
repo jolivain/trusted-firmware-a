@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b954f32_e63e91f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-08T17:05:37Z",
+      "side": 1,
+      "message": "I think there is an (undocumented?) assumption in TF-A project that the systems must be homogeneous i.,e., every CPU must be symmetric in the features it supports. IMHO support for heterogeneous systems is not trivial in TF-A and the fix you are providing may not be sufficient. At this point in time, heterogeneous CPU configuration is not supported.",
+      "revId": "70d4d99631b2c758c412b98ac935031f9cc3a110",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
