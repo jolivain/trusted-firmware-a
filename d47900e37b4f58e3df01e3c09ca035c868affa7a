@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "43bf0381_0693d853",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-09T14:15:47Z",
+      "side": 1,
+      "message": "Yes I was also a bit curious about this,\nI believe this is assuming the combinations of:\nFEAT_RME implemented + FEAT_SEL2 implemented \u003d\u003e in which case secure PAS is chosen\nor\nFEAT_RME implemented + FEAT_SEL2 not implemented \u003d\u003e results in NS PAS",
+      "parentUuid": "8bbb3d05_e440109c",
+      "range": {
+        "startLine": 433,
+        "startChar": 26,
+        "endLine": 433,
+        "endChar": 68
+      },
+      "revId": "d47900e37b4f58e3df01e3c09ca035c868affa7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3d6ed66_5e3ade05",
         "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
         "patchSetId": 5
