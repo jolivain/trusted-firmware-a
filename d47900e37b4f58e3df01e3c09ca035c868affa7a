@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5765ccd_f57fd546",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-09T21:27:23Z",
+      "side": 1,
+      "message": "\u003e I think we can simplify this.\n\u003e The firmware should not have any Secure mappings if Secure world is not present.\n\u003e The firmware only supports Secure world when S-EL2 is used (for RME systems).\n\nTo ensure that S-EL2 is a requirement for the ENABLE_RME system, we can implement the following approach:\n\n```\n#if ENABLE_RME\nswitch (sec_state) {\ncase 0U:\n  if (!is_feat_sel2_supported() || \n      (is_feat_sel2_supported() \u0026\u0026 (((read_scr_el3() \u003e\u003e 18U) \u0026 1U) \u003d\u003d 0U))) {\n      panic();\n  } else {\n      *attributes |\u003d MT_SECURE;\n  }\n  break;\n#endif\n```\nThe first condition ensures that the sel2 feature is not supported.\nThe second condition ensures that the sel2 feature is supported but not used. \nIs this condition fine?",
+      "parentUuid": "29f39ac8_49f73bbe",
+      "range": {
+        "startLine": 433,
+        "startChar": 26,
+        "endLine": 433,
+        "endChar": 68
+      },
+      "revId": "d47900e37b4f58e3df01e3c09ca035c868affa7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3d6ed66_5e3ade05",
         "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
         "patchSetId": 5
@@ -157,6 +181,30 @@
       "side": 1,
       "message": "I guess Mark emphasizes the function return value should be tested against an explicit value (true/false). I kind of recall of such a MISRA rule?\n\nDespite current code being functionally correct, for readability, I\u0027m a bit concerned there is no case of using the MT_SECURE flag e.g.:\n\n    case 0U:\n        if (is_feat_sel2_supported() \u003d\u003d true) {\n            *attributes |\u003d MT_SECURE;\n        } else {\n            *attributes |\u003d MT_NS;\n        }\n        \nor remove else statement, and fall through case 1U following.\nThis is just a suggestion, you can ignore if it\u0027s not worth.",
       "parentUuid": "d2f86226_fc397761",
+      "range": {
+        "startLine": 442,
+        "startChar": 7,
+        "endLine": 442,
+        "endChar": 29
+      },
+      "revId": "d47900e37b4f58e3df01e3c09ca035c868affa7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4facbe4_e4554d34",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-09T21:27:23Z",
+      "side": 1,
+      "message": "\u003e if (is_feat_sel2_supported() \u003d\u003d true)\n\nI think explicit checking is not really needed here as the function itself returns true/false which is MISRA compliant as per rule 14.3, and 14.4\n``14.3 Controlling expressions shall have essentially Boolean type``\n``14.4 The controlling expression of an if statement and the controlling expression of an iteration-statement shall have essentially Boolean type.``\n\n\u003e or remove else statement, and fall through case 1U following.\n\nI think, fallthrough is not MISRA compliant. MISRA rule 16.3\n``An unconditional break statement shall terminate every non-empty switch clause.``",
+      "parentUuid": "2809a6bc_c4a849e2",
       "range": {
         "startLine": 442,
         "startChar": 7,
