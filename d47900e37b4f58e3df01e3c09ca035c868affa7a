@@ -46,6 +46,30 @@
       },
       "revId": "d47900e37b4f58e3df01e3c09ca035c868affa7a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2809a6bc_c4a849e2",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-09T14:00:57Z",
+      "side": 1,
+      "message": "I guess Mark emphasizes the function return value should be tested against an explicit value (true/false). I kind of recall of such a MISRA rule?\n\nDespite current code being functionally correct, for readability, I\u0027m a bit concerned there is no case of using the MT_SECURE flag e.g.:\n\n    case 0U:\n        if (is_feat_sel2_supported() \u003d\u003d true) {\n            *attributes |\u003d MT_SECURE;\n        } else {\n            *attributes |\u003d MT_NS;\n        }\n        \nor remove else statement, and fall through case 1U following.\nThis is just a suggestion, you can ignore if it\u0027s not worth.",
+      "parentUuid": "d2f86226_fc397761",
+      "range": {
+        "startLine": 442,
+        "startChar": 7,
+        "endLine": 442,
+        "endChar": 29
+      },
+      "revId": "d47900e37b4f58e3df01e3c09ca035c868affa7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
