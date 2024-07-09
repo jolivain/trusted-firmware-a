@@ -1,6 +1,7 @@
 #
 # Copyright (c) 2019-2023, ARM Limited and Contributors. All rights reserved.
-# Copyright (c) 2019-2022, Intel Corporation. All rights reserved.
+# Copyright (c) 2019-2023, Intel Corporation. All rights reserved.
+# Copyright (c) 2024, Altera Corporation. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -79,6 +80,24 @@ BL31_SOURCES	+=	\
 		plat/intel/soc/common/soc/socfpga_reset_manager.c
 
 $(eval $(call add_define,ARM_PRELOADED_DTB_BASE))
+
+# Configs for Boot Source
+SOCFPGA_BOOT_SOURCE_SDMMC		?=	0
+SOCFPGA_BOOT_SOURCE_QSPI		?=	0
+SOCFPGA_BOOT_SOURCE_NAND		?=	0
+
+$(eval $(call assert_booleans,\
+	$(sort \
+		SOCFPGA_BOOT_SOURCE_SDMMC \
+		SOCFPGA_BOOT_SOURCE_QSPI \
+		SOCFPGA_BOOT_SOURCE_NAND \
+)))
+$(eval $(call add_defines,\
+	$(sort \
+		SOCFPGA_BOOT_SOURCE_SDMMC \
+		SOCFPGA_BOOT_SOURCE_QSPI \
+		SOCFPGA_BOOT_SOURCE_NAND \
+)))
 
 PROGRAMMABLE_RESET_ADDRESS	:= 0
 RESET_TO_BL2			:= 1

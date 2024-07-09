@@ -1,6 +1,7 @@
 #
 # Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
 # Copyright (c) 2019-2023, Intel Corporation. All rights reserved.
+# Copyright (c) 2024, Altera Corporation. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -106,6 +107,24 @@ ARM_LINUX_KERNEL_AS_BL33	:=	0
 $(eval $(call assert_boolean,ARM_LINUX_KERNEL_AS_BL33))
 $(eval $(call add_define,ARM_LINUX_KERNEL_AS_BL33))
 $(eval $(call add_define,ARM_PRELOADED_DTB_BASE))
+
+# Configs for Boot Source
+SOCFPGA_BOOT_SOURCE_SDMMC		?=	0
+SOCFPGA_BOOT_SOURCE_QSPI		?=	0
+SOCFPGA_BOOT_SOURCE_NAND		?=	0
+
+$(eval $(call assert_booleans,\
+	$(sort \
+		SOCFPGA_BOOT_SOURCE_SDMMC \
+		SOCFPGA_BOOT_SOURCE_QSPI \
+		SOCFPGA_BOOT_SOURCE_NAND \
+)))
+$(eval $(call add_defines,\
+	$(sort \
+		SOCFPGA_BOOT_SOURCE_SDMMC \
+		SOCFPGA_BOOT_SOURCE_QSPI \
+		SOCFPGA_BOOT_SOURCE_NAND \
+)))
 
 PROGRAMMABLE_RESET_ADDRESS	:= 0
 RESET_TO_BL2			:= 1
