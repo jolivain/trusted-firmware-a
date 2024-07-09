@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "29f39ac8_49f73bbe",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-07-09T15:54:26Z",
+      "side": 1,
+      "message": "There is also the case that S-EL2 implemented in hardware but not enabled in firmware via EEL2 bit. \n\nI think we can simplify this. \n\n1. The firmware should not have any Secure mappings if Secure world is not present.\n2. The firmware only supports Secure world when S-EL2 is used (for RME systems).\n\n\nIf both the above hold true, then I think the `case 0` should have a panic() is EEL2 is not enabled else do *attributes |\u003d MT_SECURE.",
+      "parentUuid": "ae0b86c5_066848d7",
+      "range": {
+        "startLine": 433,
+        "startChar": 26,
+        "endLine": 433,
+        "endChar": 68
+      },
+      "revId": "d47900e37b4f58e3df01e3c09ca035c868affa7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3d6ed66_5e3ade05",
         "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
         "patchSetId": 5
