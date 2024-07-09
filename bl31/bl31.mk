@@ -65,6 +65,10 @@ BL31_SOURCES		+=	${DEBUGFS_SRCS}					\
 				${VENDOR_EL3_SRCS}
 endif
 
+ifeq ($(ENABLE_DEBUG_REG_SMC),1)
+BL31_SOURCES		+=	lib/debug_reg_smc/debug_reg_smc.c
+endif
+
 ifeq (${PLATFORM_REPORT_CTX_MEM_USE},1)
 BL31_SOURCES		+=	lib/el3_runtime/aarch64/context_debug.c
 endif
