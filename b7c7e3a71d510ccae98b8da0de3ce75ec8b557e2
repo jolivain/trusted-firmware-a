@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "51d80267_8d98fe8f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-09T13:28:49Z",
+      "side": 1,
+      "message": "Hi Madhu, get_gpregs_ctx is a macro and doesn\u0027t result in a function call (results in deferencing a pointer). I believe the compiler does the right optimization here.",
+      "parentUuid": "44cfba7b_8e2a1904",
+      "revId": "b7c7e3a71d510ccae98b8da0de3ce75ec8b557e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5fbd1329_bd571457",
         "filename": "services/std_svc/spmd/spmd_main.c",
         "patchSetId": 1
@@ -31,6 +49,30 @@
       "writtenOn": "2024-07-09T09:07:37Z",
       "side": 1,
       "message": "nitpick: define at the top of the scope.",
+      "range": {
+        "startLine": 693,
+        "startChar": 1,
+        "endLine": 693,
+        "endChar": 15
+      },
+      "revId": "b7c7e3a71d510ccae98b8da0de3ce75ec8b557e2",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "279d1030_b043de38",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 693,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-09T13:28:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5fbd1329_bd571457",
       "range": {
         "startLine": 693,
         "startChar": 1,
