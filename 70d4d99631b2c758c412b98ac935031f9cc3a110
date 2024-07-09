@@ -34,6 +34,24 @@
       "parentUuid": "1b954f32_e63e91f8",
       "revId": "70d4d99631b2c758c412b98ac935031f9cc3a110",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75a15496_cbfba3a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000108
+      },
+      "writtenOn": "2024-07-09T08:27:15Z",
+      "side": 1,
+      "message": "Hi @Madhukar, @jayanthdodderi,\n\nFrom my understanding, from very early phase TF-A has supported heterogeneous CPUs, this is why every CPU variant has its CPU operation structure (for specific reset and ERRATA workaround, etc), and the context management provides contexts per-CPU and per-world which provides fundamental support for heterogeneous system. My personal understanding is we are not far away from support heterogeneous system.\n\nThe situation gets worse is that different CPU variants support different features. That is said, if we look again at the code (e.g. cm_manage_extensions_el3()), it has considered the code must run on the CPU itself for feature detecting. The commit 123002f91713 introduces regression and this patch just fix the regression, but I agree this patch only fixes partially the feature detecting on heterogeneous system.\n\nSo I think the question is how to fit this change into the whole patches worked by @Manish.P .  If this patch is conflict or cause difficulty for Manish\u0027s work, then it is totally fine for me to drop this one. If not, then we should consider this patch as a fixing and merge it.",
+      "parentUuid": "95c5d6ad_03ca3d6e",
+      "revId": "70d4d99631b2c758c412b98ac935031f9cc3a110",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
