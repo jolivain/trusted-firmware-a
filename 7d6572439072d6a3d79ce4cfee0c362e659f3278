@@ -16,6 +16,23 @@
       "message": "Is this package a direct dependency in pyproject.toml? If not we should instead bump anything that depends on certifi, as this looks like it could be a breaking change.",
       "revId": "7d6572439072d6a3d79ce4cfee0c362e659f3278",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b45644e0_25b112a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-09T12:45:02Z",
+      "side": 1,
+      "message": "Is this change now a duplicate of https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/29866 ?",
+      "revId": "7d6572439072d6a3d79ce4cfee0c362e659f3278",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
