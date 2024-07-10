@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2024, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2024, Linaro Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -205,24 +205,42 @@ static const uint8_t sample_platform_token[] = {
 	0x43, 0x54, 0x4d, 0xb5, 0x88, 0xd6, 0xae, 0x67,
 	0x35, 0x7a, 0xfd, 0xb0, 0x5f, 0x95, 0xb7
 };
+static uint64_t platform_token_offset;
 
 /*
  * Get the hardcoded platform attestation token as FVP does not support
  * RSE.
  */
 int plat_rmmd_get_cca_attest_token(uintptr_t buf, size_t *len,
-				   uintptr_t hash, size_t hash_size)
+				   uintptr_t hash, size_t hash_size,
+				   size_t *remaining_len)
 {
 	(void)hash;
 	(void)hash_size;
+	size_t platform_token_size = sizeof(sample_platform_token);
 
-	if (*len < sizeof(sample_platform_token)) {
-		return -EINVAL;
+	if (hash_size != 0) {
+		platform_token_offset = 0;
+	} else if (platform_token_offset == platform_token_size) {
+		return PLAT_RMMD_ATTEST_TOKEN_END_REACHED;
 	}
 
-	(void)memcpy((void *)buf, (const void *)sample_platform_token,
-		     sizeof(sample_platform_token));
-	*len = sizeof(sample_platform_token);
+	/*
+	 * If the buffer is enough to fit the remaining bytes of the token,
+	 * return only the remaining bytes of the token.
+	 */
+	if (platform_token_offset + *len
+			>= platform_token_size) {
+		*len = platform_token_size - platform_token_offset;
+	}
 
-	return 0;
+	(void)memcpy((void *)buf,
+			(const void *)sample_platform_token
+				+ platform_token_offset,
+			*len);
+
+	platform_token_offset += *len;
+	*remaining_len = platform_token_size - platform_token_offset;
+
+	return PLAT_RMMD_ATTEST_TOKEN_SUCCESS;
 }
