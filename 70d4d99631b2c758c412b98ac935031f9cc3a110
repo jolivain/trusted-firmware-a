@@ -88,6 +88,24 @@
       "parentUuid": "43c45dbb_f9502afc",
       "revId": "70d4d99631b2c758c412b98ac935031f9cc3a110",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d937490_c844ad33",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-07-10T10:41:49Z",
+      "side": 1,
+      "message": "Let me try to summarise:\nThere are more and more requests coming to provide support for some level of heterogeneity in platforms. So, from TF-A team we need to provide some support (whether we like it or not).\nIt is still under discussion that what features are allowed to differ across CPUs (that decision is mostly dependent on OS kernel).\n\nFrom EL3 PoV, in theory, the features which are only used by Lower ELs, it can support assymetricty (Lower EL\u0027s problem to find a mechanism to work this out with help from EL3).\nThe fundamental problem in TF-A is, creating the context of secondary by primary CPU. I have a WIP patch to get rid of cpu_init by index.\n\nAs you already mentioned, this patch is not complete fix as well as it has bigger problem, system registers on a given core has different values (some registers from primary core and some registers are from secondary cores and if their is dependency between system registers then it can cause weird behaviour at runtim)",
+      "parentUuid": "43c45dbb_f9502afc",
+      "revId": "70d4d99631b2c758c412b98ac935031f9cc3a110",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ],
   "submitRequirementResults": []
