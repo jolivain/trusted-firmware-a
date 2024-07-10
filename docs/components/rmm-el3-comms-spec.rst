@@ -442,7 +442,11 @@ Supported ECC Curves
 RMM_ATTEST_GET_PLAT_TOKEN command
 =================================
 
-Retrieve the Platform Token from EL3.
+Retrieve the Platform Token from EL3. If the entire token does not fit in the
+shared buffer, it returns a hunk of the token and indicates the remaining
+bytes that are pending retrieval. If parameter ``CSize`` is not 0, this
+command will return the token hunk corresponding to the beginning of the
+token. Otherwise, it will return the hunk that follows the last hunk retrieved.
 
 FID
 ---
@@ -469,7 +473,8 @@ Output values
    :widths: 1 1 1 1 5
 
    Result,x0,[63:0],Error Code,Command return status
-   tokenSize,x1,[63:0],Size,Size of the platform token
+   tokenHunkSize,x1,[63:0],Size,Size of the platform token hunk retrieved
+   remainingSize,x2,[63:0],Size,Remaining bytes of the token that are pending retrieval
 
 Failure conditions
 ------------------
@@ -484,6 +489,7 @@ a failure. The errors are ordered by condition check.
    ``E_RMM_BAD_ADDR``,``PA`` is outside the shared buffer
    ``E_RMM_INVAL``,``PA + BSize`` is outside the shared buffer
    ``E_RMM_INVAL``,``CSize`` does not represent the size of a supported SHA algorithm
+   ``E_RMM_INVAL``,``CSize`` is 0 but there are no bytes left of the token to be retrieved
    ``E_RMM_UNK``,An unknown error occurred whilst processing the command
    ``E_RMM_OK``,No errors detected
 
