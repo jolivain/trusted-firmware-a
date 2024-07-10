@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a44ff24_4bc7b3d9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2024-07-10T08:22:56Z",
+      "side": 1,
+      "message": "StMM, which is a SEL0 SP uses SSL for secure boot. The SSL library use FPs to do the calculations. I suspect denying access to the FPregs in Secure World would cause issues.\n\nCould you please add more details on why there is a conflict between SVE and FP Rregs?\nPlease correct me if I am wrong, but according to my understanding, If SVE registers are saved, it will automatically save fpregs because both point to the same set of registers. It is like x and w core registers. Same registers, different widths.",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 10
+      },
+      "revId": "553a0a2119dc02805e36f60aaa77b2162ae8676e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
