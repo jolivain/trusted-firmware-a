@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2023, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2022-2024, Arm Limited and Contributors. All rights reserved.
  * Copyright (c) 2024, Linaro Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -211,18 +211,31 @@ static const uint8_t sample_platform_token[] = {
  * RSE.
  */
 int plat_rmmd_get_cca_attest_token(uintptr_t buf, size_t *len,
-				   uintptr_t hash, size_t hash_size)
+				   uintptr_t hash, size_t hash_size,
+				   uint64_t offset)
 {
 	(void)hash;
 	(void)hash_size;
+	int ret_value = PLAT_RMMD_ATTEST_TOKEN_INCOMPLETE;
 
-	if (*len < sizeof(sample_platform_token)) {
+	if (offset >= sizeof(sample_platform_token)) {
 		return -EINVAL;
 	}
 
-	(void)memcpy((void *)buf, (const void *)sample_platform_token,
-		     sizeof(sample_platform_token));
-	*len = sizeof(sample_platform_token);
+	/*
+	 * If the number of available bytes (starting at 'offset') is
+	 * less or equal than the requested size, return the remaining
+	 * bytes only and indicate that the whole token has been
+	 * transferred.
+	 */
+	if (offset + *len >= sizeof(sample_platform_token)) {
+		*len = sizeof(sample_platform_token) - offset;
+		ret_value = PLAT_RMMD_ATTEST_TOKEN_OK;
+	}
 
-	return 0;
+	(void)memcpy((void *)buf,
+		     (const void *)sample_platform_token + offset,
+		     *len);
+
+	return ret_value;
 }

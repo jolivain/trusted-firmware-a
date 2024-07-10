@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2022, Arm Limited and Contributors. All rights reserved.
+ * Copyright (c) 2021-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -85,6 +85,7 @@
 
 /* Return error codes from RMM-EL3 SMCs */
 #define E_RMM_OK			 0
+#define E_RMM_INCOMPLETE		 1
 #define E_RMM_UNK			-1
 #define E_RMM_BAD_ADDR			-2
 #define E_RMM_BAD_PAS			-3

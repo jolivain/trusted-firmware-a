@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022, Arm Limited. All rights reserved.
+ * Copyright (c) 2022-2024, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -85,7 +85,7 @@ static int validate_buffer_params(uint64_t buf_pa, uint64_t buf_len)
 }
 
 int rmmd_attest_get_platform_token(uint64_t buf_pa, uint64_t *buf_size,
-				   uint64_t c_size)
+				   uint64_t c_size, uint64_t offset)
 {
 	int err;
 	uint8_t temp_buf[SHA512_DIGEST_SIZE];
@@ -110,9 +110,16 @@ int rmmd_attest_get_platform_token(uint64_t buf_pa, uint64_t *buf_size,
 
 	/* Get the platform token. */
 	err = plat_rmmd_get_cca_attest_token((uintptr_t)buf_pa,
-		buf_size, (uintptr_t)temp_buf, c_size);
+		buf_size, (uintptr_t)temp_buf, c_size, offset);
 
-	if (err != 0) {
+	switch (err) {
+	case PLAT_RMMD_ATTEST_TOKEN_OK:
+		err = E_RMM_OK;
+		break;
+	case PLAT_RMMD_ATTEST_TOKEN_INCOMPLETE:
+		err = E_RMM_INCOMPLETE;
+		break;
+	default:
 		ERROR("Failed to get platform token: %d.\n", err);
 		err = E_RMM_UNK;
 	}
