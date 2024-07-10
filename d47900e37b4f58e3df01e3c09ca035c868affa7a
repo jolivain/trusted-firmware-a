@@ -194,6 +194,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "85f8cc2b_8385bc60",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-10T10:10:38Z",
+      "side": 1,
+      "message": "Thanks, I will do the necessary changes. \n\n\u003e also ensure that EEL2 is set as part of reset handling in EL3 rather than context mgmt (which is hopefully the case).\n\n[EEL2 bit set]  as a part reset handling as well as in the [setup_context_common] it seems to initialize the cpu_context for first use. so it is a part of both. Do you think we should handle this bit only during the reset?\n\n[EEL2 bit set]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a/+/refs/heads/integration/include/arch/aarch64/el3_common_macros.S#79\n[setup_context_common]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a/+/refs/heads/integration/lib/el3_runtime/aarch64/context_mgmt.c#473",
+      "parentUuid": "a854c8ce_ab63b2d6",
+      "range": {
+        "startLine": 433,
+        "startChar": 26,
+        "endLine": 433,
+        "endChar": 68
+      },
+      "revId": "d47900e37b4f58e3df01e3c09ca035c868affa7a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3d6ed66_5e3ade05",
         "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
         "patchSetId": 5
