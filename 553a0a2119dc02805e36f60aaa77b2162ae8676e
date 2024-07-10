@@ -22,6 +22,30 @@
       },
       "revId": "553a0a2119dc02805e36f60aaa77b2162ae8676e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e643d3d_109f83d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-07-10T16:27:03Z",
+      "side": 1,
+      "message": "The underlying reason is that TF-A itself does *not* support saving SVE state, because that\u0027s potentially large. There are comments that suggest a SPM would need to do that:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/+/refs/heads/master/lib/el3_runtime/aarch64/context_mgmt.c#680\n\nAlso note that accessing a SIMD register using its NEON v\u003cn\u003e name will clear all bits beyond the lower 128 bits of the associated SVE register: See rule RWKYLB in the ARM ARM B1.4.3. So if we allow FP usage without saving the whole SVE state, this would corrupt the (unsaved!) SVE state.\nThe commonly expected use case is that only non-secure world would use FP/NEON and SVE, so we don\u0027t need to save state at all. If only FP is needed or supported, we can allow FP usage in secure world, but need to save the registers (but only 32*128bits worth of it) when switching between SWD and NS.\n\nSo the conflict here is between allowing SVE in NS, but also allowing FP access in the secure world, so saving just the FP part is not enough. I think for most use cases the former (SVE in NS) is far more important, since SVE is visible to the NS world, and for instance the Linux kernel will just use it if it sees the feature bit, which atm triggers a TF-A panic.",
+      "parentUuid": "2a44ff24_4bc7b3d9",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 10
+      },
+      "revId": "553a0a2119dc02805e36f60aaa77b2162ae8676e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
