@@ -19,7 +19,7 @@ workaround_reset_start cortex_a75, ERRATUM(764081), ERRATA_A75_764081
 	sysreg_bit_set sctlr_el3, SCTLR_IESB_BIT
 workaround_reset_end cortex_a75, ERRATUM(764081)
 
-check_erratum_ls cortex_a75, ERRATUM(764081), CPU_REV(0, 0)
+check_erratum_hs cortex_a75, ERRATUM(764081), CPU_REV(0, 0)
 
 workaround_reset_start cortex_a75, ERRATUM(790748), ERRATA_A75_790748
 	sysreg_bit_set CORTEX_A75_CPUACTLR_EL1, (1 << 13)
