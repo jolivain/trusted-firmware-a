@@ -178,6 +178,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c0da528_15b44573",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001087
+      },
+      "writtenOn": "2024-07-10T23:11:11Z",
+      "side": 1,
+      "message": "Olivier, thanks for bringing attention to the change. I\u0027ve rebased patches, checked the change on the device and successfully run CI locally. Now it should be fine again.",
+      "parentUuid": "dc54745f_8a588010",
+      "revId": "01e93fd523453627304bf44de2280e54dcda1da4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "71745dc7_0124b900",
         "filename": "make_helpers/defaults.mk",
         "patchSetId": 5
