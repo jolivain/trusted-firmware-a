@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49f36af4_1eb8d700",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-10T11:40:40Z",
+      "side": 1,
+      "message": "I\u0027ll need guidance which RMM CI should I trigger with this patch. Can you provide Jenkins job link to trigger?\nAlso, I will discuss with the STP team to run this patch in the Newmore STP.",
+      "parentUuid": "58728590_9e63b4e5",
+      "revId": "5d138a6bf55e0d3ac8426c8759d6bb952812d872",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2be621a7_6af47eec",
         "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
         "patchSetId": 6
@@ -31,6 +49,30 @@
       "writtenOn": "2024-07-10T11:11:38Z",
       "side": 1,
       "message": "\"(if S-EL2 is present, else invalid).\"",
+      "range": {
+        "startLine": 433,
+        "startChar": 26,
+        "endLine": 433,
+        "endChar": 46
+      },
+      "revId": "5d138a6bf55e0d3ac8426c8759d6bb952812d872",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "481a31a0_be8ca271",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-10T11:40:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2be621a7_6af47eec",
       "range": {
         "startLine": 433,
         "startChar": 26,
@@ -58,6 +100,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "978032df_a6bae791",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-10T11:40:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7631b48d_8e3d0d8b",
+      "revId": "5d138a6bf55e0d3ac8426c8759d6bb952812d872",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fe21a54_c763fff2",
@@ -81,6 +141,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9502ee25_cf05df74",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-10T11:40:40Z",
+      "side": 1,
+      "message": "((scr_el3 \u0026 SCR_EEL2_BIT) \u003d\u003d 0 )  I will go with this.",
+      "parentUuid": "2fe21a54_c763fff2",
+      "range": {
+        "startLine": 441,
+        "startChar": 6,
+        "endLine": 442,
+        "endChar": 30
+      },
+      "revId": "5d138a6bf55e0d3ac8426c8759d6bb952812d872",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b26dfe4_1a11fbdf",
@@ -94,6 +178,30 @@
       "writtenOn": "2024-07-10T11:11:38Z",
       "side": 1,
       "message": "\"A secure desc is not support on non-SEL2 RME system\"",
+      "range": {
+        "startLine": 443,
+        "startChar": 10,
+        "endLine": 444,
+        "endChar": 52
+      },
+      "revId": "5d138a6bf55e0d3ac8426c8759d6bb952812d872",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a58a1d2b_0eed2b04",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-10T11:40:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b26dfe4_1a11fbdf",
       "range": {
         "startLine": 443,
         "startChar": 10,
