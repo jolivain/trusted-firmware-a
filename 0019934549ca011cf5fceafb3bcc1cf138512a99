@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7596b04_569ab8d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001369
+      },
+      "writtenOn": "2024-07-10T14:36:29Z",
+      "side": 1,
+      "message": "This CI fairlue because of tftf test.\n\n```\nASSERT: tftf/tests/misc_tests/test_firmware_handoff.c:23:(uint32_t)tl_signature \u003d\u003d (REGISTER_CONVENTION_VERSION_MASK | TRANSFER_LIST_SIGNATURE)\n```\n\nShould I submit patch first?",
+      "revId": "0019934549ca011cf5fceafb3bcc1cf138512a99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
