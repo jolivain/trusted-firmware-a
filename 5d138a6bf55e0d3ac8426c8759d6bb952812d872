@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58728590_9e63b4e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-07-10T11:11:38Z",
+      "side": 1,
+      "message": "Also test this patch on RMM CI to ensure that 3 world cases run well. Worth triggering Newmore STP as well as a good measure.",
+      "revId": "5d138a6bf55e0d3ac8426c8759d6bb952812d872",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2be621a7_6af47eec",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-07-10T11:11:38Z",
+      "side": 1,
+      "message": "\"(if S-EL2 is present, else invalid).\"",
+      "range": {
+        "startLine": 433,
+        "startChar": 26,
+        "endLine": 433,
+        "endChar": 46
+      },
+      "revId": "5d138a6bf55e0d3ac8426c8759d6bb952812d872",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7631b48d_8e3d0d8b",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-07-10T11:11:38Z",
+      "side": 1,
+      "message": "Add comment:\n\n/* We expect to get Secure mapping on an RME system only if S-EL2 is enabled. Hence panic() if we hit the case without EEL2 being enabled */",
+      "revId": "5d138a6bf55e0d3ac8426c8759d6bb952812d872",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fe21a54_c763fff2",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-07-10T11:11:38Z",
+      "side": 1,
+      "message": "is there no short hand macro in TF-A to do this ? Or ((scr_el3 \u0026 SCR_EEL2_BIT) \u003d\u003d 0 ) ?",
+      "range": {
+        "startLine": 441,
+        "startChar": 6,
+        "endLine": 442,
+        "endChar": 30
+      },
+      "revId": "5d138a6bf55e0d3ac8426c8759d6bb952812d872",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b26dfe4_1a11fbdf",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-07-10T11:11:38Z",
+      "side": 1,
+      "message": "\"A secure desc is not support on non-SEL2 RME system\"",
+      "range": {
+        "startLine": 443,
+        "startChar": 10,
+        "endLine": 444,
+        "endChar": 52
+      },
+      "revId": "5d138a6bf55e0d3ac8426c8759d6bb952812d872",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
