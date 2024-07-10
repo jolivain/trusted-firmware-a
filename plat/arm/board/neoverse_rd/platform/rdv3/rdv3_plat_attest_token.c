@@ -12,7 +12,8 @@
 #include <psa/error.h>
 
 int plat_rmmd_get_cca_attest_token(uintptr_t buf, size_t *len,
-				   uintptr_t hash, size_t hash_size)
+				   uintptr_t hash, size_t hash_size,
+				   size_t *remaining_len)
 {
 	psa_status_t ret;
 
@@ -21,6 +22,8 @@ int plat_rmmd_get_cca_attest_token(uintptr_t buf, size_t *len,
 		ERROR("Unable to fetch CCA attestation token\n");
 		return -1;
 	}
+
+	*remaining_len = 0;
 
 	return 0;
 }
