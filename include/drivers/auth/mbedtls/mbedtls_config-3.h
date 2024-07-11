@@ -74,20 +74,16 @@
 #endif
 
 /* The library does not currently support enabling SHA-256 without SHA-224. */
-#define MBEDTLS_SHA224_C
 #define MBEDTLS_SHA256_C
 /*
  * If either Trusted Boot or Measured Boot require a stronger algorithm than
- * SHA-256, pull in SHA-512 support. Library currently needs to have SHA_384
- * support when enabling SHA-512.
+ * SHA-256, pull in SHA-512 support.
  */
 #if (TF_MBEDTLS_HASH_ALG_ID != TF_MBEDTLS_SHA256) /* TBB hash algo */
-#define MBEDTLS_SHA384_C
 #define	MBEDTLS_SHA512_C
 #else
    /* TBB uses SHA-256, what about measured boot? */
 #if defined(TF_MBEDTLS_MBOOT_USE_SHA512)
-#define MBEDTLS_SHA384_C
 #define MBEDTLS_SHA512_C
 #endif
 #endif
@@ -104,7 +100,7 @@
 #endif
 
 /* MPI / BIGNUM options */
-#define MBEDTLS_MPI_WINDOW_SIZE			2
+#define MBEDTLS_MPI_WINDOW_SIZE			1
 
 #if TF_MBEDTLS_USE_RSA
 #if TF_MBEDTLS_KEY_SIZE <= 2048
