@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5ed8a3b_d20a7557",
+        "filename": "include/plat/arm/board/common/v2m_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-11T10:12:54Z",
+      "side": 1,
+      "message": "It seems that the same FLASH region is mapped as both Read Only and Read Write. Are there any scenarios where this mapping is utilized differently? \nI haven\u0027t come across any instances in the code where the FLASH1 area is mapped as Read-Only, but there\u0027s a possibility that I might have overlooked something.",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 29
+      },
+      "revId": "2be0f45b0c880653495b122940e29d7aace68ad8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
