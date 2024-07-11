@@ -1293,6 +1293,9 @@ static uint64_t ffa_features_handler(uint32_t smc_fid,
 	case FFA_MSG_WAIT:
 	case FFA_CONSOLE_LOG_SMC32:
 	case FFA_CONSOLE_LOG_SMC64:
+	case FFA_MSG_YIELD:
+	case FFA_MEM_PERM_GET:
+	case FFA_MEM_PERM_SET:
 
 		if (!secure_origin) {
 			return spmc_ffa_error_return(handle,
