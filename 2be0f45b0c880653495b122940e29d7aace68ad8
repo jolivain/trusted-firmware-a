@@ -22,6 +22,30 @@
       },
       "revId": "2be0f45b0c880653495b122940e29d7aace68ad8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e64a2039_64d4524e",
+        "filename": "include/plat/arm/board/common/v2m_def.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1001369
+      },
+      "writtenOn": "2024-07-11T10:15:59Z",
+      "side": 1,
+      "message": "In case of fvp_ve platform. They maps V2M_MAP_FLASH1_RO.\nHowever fvp platform which uses standaloneMm should use r/w to flash0 and flash1\nfor firmware update/variable service.\n\nBecuase of fvp_ve platform. I\u0027ve move this definition which they used move to here \nTo integrate V2M_FLASHX_BASE macro.",
+      "parentUuid": "f5ed8a3b_d20a7557",
+      "range": {
+        "startLine": 132,
+        "startChar": 0,
+        "endLine": 138,
+        "endChar": 29
+      },
+      "revId": "2be0f45b0c880653495b122940e29d7aace68ad8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
