@@ -284,10 +284,7 @@ void arm_bl31_plat_arch_setup(void);
 /* Firmware Handoff utility functions */
 void arm_transfer_list_dyn_cfg_init(struct transfer_list_header *secure_tl);
 void arm_transfer_list_populate_ep_info(bl_mem_params_node_t *next_param_node,
-					struct transfer_list_header *secure_tl,
-					struct transfer_list_header *ns_tl);
-void arm_transfer_list_copy_hw_config(struct transfer_list_header *secure_tl,
-				      struct transfer_list_header *ns_tl);
+					struct transfer_list_header *secure_tl);
 struct transfer_list_entry *
 arm_transfer_list_set_heap_info(struct transfer_list_header *tl);
 void arm_transfer_list_get_heap_info(void **heap_addr, size_t *heap_size);
