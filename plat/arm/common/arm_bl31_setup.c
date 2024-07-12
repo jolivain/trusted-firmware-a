@@ -25,6 +25,8 @@
 #include <platform_def.h>
 
 static struct transfer_list_header *secure_tl __unused;
+static struct transfer_list_header *ns_tl __unused;
+
 /*
  * Placeholder variables for copying the arguments that have been passed to
  * BL31 from BL2.
@@ -95,7 +97,11 @@ struct entry_point_info *bl31_plat_get_next_image_ep_info(uint32_t type)
 
 	assert(sec_state_is_valid(type));
 	if (type == NON_SECURE) {
+#if TRANSFER_LIST
+		next_image_info = transfer_list_set_handoff_args(ns_tl, &bl33_image_ep_info);
+#else
 		next_image_info = &bl33_image_ep_info;
+#endif
 	}
 #if ENABLE_RME
 	else if (type == REALM) {
@@ -357,6 +363,29 @@ void bl31_early_platform_setup2(u_register_t arg0, u_register_t arg1,
  ******************************************************************************/
 void arm_bl31_platform_setup(void)
 {
+	struct transfer_list_entry * te __unused;
+
+#if TRANSFER_LIST
+	ns_tl = transfer_list_init((void *)FW_NS_HANDOFF_BASE,
+				   PLAT_ARM_FW_HANDOFF_SIZE);
+
+	if (ns_tl == NULL) {
+		ERROR("Non-secure transfer list initialisation failed!");
+		panic();
+	}
+
+#if !(RESET_TO_BL2 || RESET_TO_BL31)
+	te = transfer_list_find(secure_tl, TL_TAG_FDT);
+	assert(te != NULL);
+
+	fconf_populate("HW_CONFIG", (uintptr_t)transfer_list_entry_data(te));
+
+	te = transfer_list_add(ns_tl, TL_TAG_FDT, te->data_size,
+			       transfer_list_entry_data(te));
+	assert(te != NULL);
+#endif /* !(RESET_TO_BL2 || RESET_TO_BL31) */
+#endif /* TRANSFER_LIST */
+
 	/* Initialize the GIC driver, cpu and distributor interfaces */
 	plat_arm_gic_driver_init();
 	plat_arm_gic_init();
@@ -519,12 +548,4 @@ void __init bl31_plat_arch_setup(void)
 	struct transfer_list_entry *te __unused;
 
 	arm_bl31_plat_arch_setup();
-
-#if TRANSFER_LIST && !(RESET_TO_BL2 || RESET_TO_BL31)
-	te = transfer_list_find(secure_tl, TL_TAG_FDT);
-	assert(te != NULL);
-
-	/* Populate HW_CONFIG device tree with the mapped address */
-	fconf_populate("HW_CONFIG", (uintptr_t)transfer_list_entry_data(te));
-#endif
 }
