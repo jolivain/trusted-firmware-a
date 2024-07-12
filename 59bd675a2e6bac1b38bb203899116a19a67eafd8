@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5df1c6f5_4e29bc79",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-12T07:25:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30c503e5_867340c9",
+      "range": {
+        "startLine": 426,
+        "startChar": 29,
+        "endLine": 426,
+        "endChar": 45
+      },
+      "revId": "59bd675a2e6bac1b38bb203899116a19a67eafd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ed341c28_d75ae923",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-11T16:07:04Z",
       "side": 1,
       "message": "nitpick: the error message doesn\u0027t really match the condition above,\nshould it be \"when FEAT_RME is implemented and FEAT_SEL2 is not enabled\"\nor otherwise\n\"when both FEAT_RME implemented and FEAT_SEL2 not implemented.\"",
+      "range": {
+        "startLine": 447,
+        "startChar": 47,
+        "endLine": 448,
+        "endChar": 29
+      },
+      "revId": "59bd675a2e6bac1b38bb203899116a19a67eafd8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d37f4d2_3181fa77",
+        "filename": "lib/xlat_tables_v2/xlat_tables_utils.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-12T07:25:43Z",
+      "side": 1,
+      "message": "\u003e A secure descriptor is not supported on non-SEL2 RME system.\n\nHere, ``non-SEL2`` indicates that FEAT_SEL2 is not enabled, while ``RME system`` indicates that FEAT_RME is implemented. Essentially, this means that FEAT_RME is implemented, but FEAT_SEL2 is not enabled. but I agree that your suggestion makes this clearer. Updated this message in the latest version.",
+      "parentUuid": "ed341c28_d75ae923",
       "range": {
         "startLine": 447,
         "startChar": 47,
