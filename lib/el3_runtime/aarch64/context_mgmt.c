@@ -1761,6 +1761,19 @@ void cm_el1_sysregs_context_restore(uint32_t security_state)
 #endif
 }
 
+/*********************************************************************************
+* This function allows Architecture features assymetry among cores.
+* TF-A assumes that all the cores in the platform has architecture feature parity,
+* But this is not always the case. This can happen in the systems where cores are
+* not conforming to same Arch version or in the systems where CPU Erratum
+* requires certain feature to be be disabled only on a given core.
+* requires that platform integrator provides special care in making sure that
+* the affected features must be Feature state 2, ENABLE_FEAT_XXX=1.
+*********************************************************************************/
+void cm_handle_assymetric_features(void)
+{
+}
+
 /*******************************************************************************
  * This function populates ELR_EL3 member of 'cpu_context' pertaining to the
  * given security state with the given entrypoint

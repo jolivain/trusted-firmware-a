@@ -980,6 +980,16 @@ void psci_warmboot_entrypoint(void)
 	cm_manage_extensions_el3();
 
 	/*
+	 * Check and handle Architecture feature assymetry among cores.
+	 *
+	 * In warmboot path secondary cores context is initialized on core which
+	 * did CPU_ON SMC call, if there is feature assymtry in these cores handle
+	 * it in this function call.
+	 * For Symmetric cores this is an empty function.
+	 */
+	cm_handle_assymetric_features();
+
+	/*
 	 * Verify that we have been explicitly turned ON or resumed from
 	 * suspend.
 	 */
