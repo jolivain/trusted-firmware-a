@@ -228,6 +228,24 @@
       "parentUuid": "1d4eb4ca_bbd3f4e1",
       "revId": "5525c3ff114d84e29061e35fce1ff6205fbad6ea",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b633aa4_c26f2c88",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-12T12:41:13Z",
+      "side": 1,
+      "message": "Hi Jerry, \n\nCould you please group the TF-A patch and the newly created CI patch under the same topic? Once done, please trigger \u0027Allow-CI+1\u0027 so that both patches can be included in the CI run. Thanks!",
+      "parentUuid": "076660e1_21dd4661",
+      "revId": "5525c3ff114d84e29061e35fce1ff6205fbad6ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
