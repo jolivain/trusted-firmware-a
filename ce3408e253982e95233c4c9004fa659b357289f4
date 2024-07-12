@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d02cbf9b_38eab0b4",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-12T11:20:53Z",
+      "side": 1,
+      "message": "As discussed online, will follow up with an additional patch to try and move some of the code into the generic layer.",
+      "parentUuid": "768617f5_0c354ef1",
+      "revId": "ce3408e253982e95233c4c9004fa659b357289f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6764c6c2_1321154c",
         "filename": "plat/arm/common/arm_bl31_setup.c",
         "patchSetId": 18
@@ -31,6 +49,30 @@
       "writtenOn": "2024-07-12T08:22:13Z",
       "side": 1,
       "message": "looks like a single space is unintentionally removed here and all below lines in the comment.",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 155,
+        "endChar": 1
+      },
+      "revId": "ce3408e253982e95233c4c9004fa659b357289f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a55852a_5a773f21",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 18
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-12T11:20:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6764c6c2_1321154c",
       "range": {
         "startLine": 155,
         "startChar": 0,
@@ -54,6 +96,30 @@
       "writtenOn": "2024-07-12T08:22:13Z",
       "side": 1,
       "message": "This looks good for now. However, in future patches, it would be better to move this to a generic file for everyone\u0027s benefit. Otherwise, every ``RESET_TO_BL31`` platform will need to update their Makefile in this way to create the transfer list and grab the DTB offset.",
+      "range": {
+        "startLine": 462,
+        "startChar": 0,
+        "endLine": 474,
+        "endChar": 5
+      },
+      "revId": "ce3408e253982e95233c4c9004fa659b357289f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8832b77_a6e433a6",
+        "filename": "plat/arm/common/arm_common.mk",
+        "patchSetId": 18
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-07-12T11:20:53Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "42dbbfc8_b1649b5f",
       "range": {
         "startLine": 462,
         "startChar": 0,
