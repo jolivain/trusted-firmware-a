@@ -16,6 +16,29 @@
       "message": "Manually verified failing test: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/77805/.",
       "revId": "f2d685818dd1e7b5f892e3abb18a7bca1d27a734",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f39e33c7_c5299d67",
+        "filename": "plat/arm/common/arm_transfer_list.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-12T08:45:50Z",
+      "side": 1,
+      "message": "This looks better but I think we can still optimize this like below-\n\n```\n+#if CRYPTO_SUPPORT \u0026\u0026 (defined(IMAGE_BL1) || RESET_TO_BL2 || defined(IMAGE_BL31))\n+static unsigned char heap[TF_MBEDTLS_HEAP_SIZE];\n+#define HEAP_ADDR heap\n+#define HEAP_SIZE sizeof(heap)\n+#else\n+static struct crypto_heap_info heap_info;\n+\n+struct transfer_list_entry *arm_transfer_list_set_heap_info(struct transfer_list_header *tl)\n+{\n+       struct transfer_list_entry *te \u003d transfer_list_find(tl, TL_TAG_MBEDTLS_HEAP_INFO);\n+       assert(te !\u003d NULL);\n+\n+       heap_info \u003d *(struct crypto_heap_info *)transfer_list_entry_data(te);\n+       return te;\n+}\n+\n+#define HEAP_ADDR heap_info.addr\n+#define HEAP_SIZE heap_info.size\n+#endif /* CRYPTO_SUPPORT \u0026\u0026 (defined(IMAGE_BL1) || RESET_TO_BL2 || defined(IMAGE_BL31)) */\n+\n+int arm_get_mbedtls_heap(void **heap_addr, size_t *heap_size)\n+{\n+       assert(heap_addr !\u003d NULL);\n+       assert(heap_size !\u003d NULL);\n+       *heap_addr \u003d HEAP_ADDR;\n+       *heap_size \u003d HEAP_SIZE;\n+\n+       return 0;\n+}\n```\n\nWhat do you think? I\u0027m fine with your current approach also but this will just save overhead associated with ``heap_info`` in the first conditional block.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 0
+      },
+      "revId": "f2d685818dd1e7b5f892e3abb18a7bca1d27a734",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
