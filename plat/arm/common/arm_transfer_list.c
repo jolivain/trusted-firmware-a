@@ -64,9 +64,9 @@ void arm_transfer_list_dyn_cfg_init(struct transfer_list_header *secure_tl)
 		(uintptr_t)transfer_list_entry_data(te);
 }
 
-void arm_transfer_list_populate_ep_info(bl_mem_params_node_t *next_param_node,
-					struct transfer_list_header *secure_tl,
-					struct transfer_list_header *ns_tl)
+void __init
+arm_transfer_list_populate_ep_info(bl_mem_params_node_t *next_param_node,
+				   struct transfer_list_header *secure_tl)
 {
 	uint32_t next_exe_img_id;
 	entry_point_info_t *ep;
@@ -88,10 +88,7 @@ void arm_transfer_list_populate_ep_info(bl_mem_params_node_t *next_param_node,
 
 		ep = transfer_list_entry_data(te);
 
-		if (next_exe_img_id == BL33_IMAGE_ID) {
-			ep = transfer_list_set_handoff_args(ns_tl, ep);
-			assert(ep != NULL);
-		} else if ((next_exe_img_id == BL32_IMAGE_ID) && SPMC_AT_EL3) {
+		if ((next_exe_img_id == BL32_IMAGE_ID) && SPMC_AT_EL3) {
 			/*
 			 * Populate the BL32 image base, size and max limit in
 			 * the entry point information, since there is no
@@ -112,20 +109,4 @@ void arm_transfer_list_populate_ep_info(bl_mem_params_node_t *next_param_node,
 	}
 
 	flush_dcache_range((uintptr_t)secure_tl, secure_tl->size);
-}
-
-void arm_transfer_list_copy_hw_config(struct transfer_list_header *secure_tl,
-				      struct transfer_list_header *ns_tl)
-{
-	struct transfer_list_entry *te =
-		transfer_list_find(secure_tl, TL_TAG_FDT);
-	assert(te != NULL);
-
-	/* Refresh the now stale checksum following loading of HW_CONFIG into the TL. */
-	transfer_list_update_checksum(secure_tl);
-
-	/* Copy the hardware configuration to the non-secure TL. */
-	te = transfer_list_add(ns_tl, TL_TAG_FDT, te->data_size,
-			       transfer_list_entry_data(te));
-	assert(te != NULL);
 }
