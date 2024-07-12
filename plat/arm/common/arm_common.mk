@@ -464,7 +464,7 @@ TRANSFER_LIST_BIN := ${BUILD_PLAT}/tl.bin
 .PHONY: tl
 tl: ${HW_CONFIG}
 	@echo "  TLC     ${TRANSFER_LIST_BIN}"
-	$(Q)${PYTHON} -m tools.tlc.tlc create --fdt ${HW_CONFIG} -s ${FW_HANDOFF_SIZE} ${TRANSFER_LIST_BIN}
+	$(Q)tlc create --fdt ${HW_CONFIG} -s ${FW_HANDOFF_SIZE} ${TRANSFER_LIST_BIN}
 	$(Q)$(eval ARM_PRELOADED_DTB_OFFSET := `tlc info --fdt-offset ${TRANSFER_LIST_BIN}`)
 
 ifeq (${TRANSFER_LIST}, 1)
