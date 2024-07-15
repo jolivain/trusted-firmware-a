@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a35ae95_db79bb44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-07-15T15:28:40Z",
+      "side": 1,
+      "message": "Thanks for the suggestions.",
+      "revId": "fcb592efc106d3f2519138ba727f505609dd7ba7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae2ca200_a511d614",
@@ -24,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f770456_1777276e",
+        "filename": "include/drivers/auth/mbedtls/mbedtls_config-3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-07-15T15:28:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae2ca200_a511d614",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 78
+      },
+      "revId": "fcb592efc106d3f2519138ba727f505609dd7ba7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd123b86_2d2586c4",
@@ -37,6 +78,30 @@
       "writtenOn": "2024-07-15T08:21:15Z",
       "side": 1,
       "message": "Decreasing the ``MBEDTLS_MPI_WINDOW_SIZE`` reduces memory usage but requires more computational steps to perform the same operation. This increases the number of iterations and hence the time required to complete cryptographic computations, thereby reducing performance.\nCould you please explain how you arrived at the decision to set this value to 1?",
+      "range": {
+        "startLine": 103,
+        "startChar": 8,
+        "endLine": 103,
+        "endChar": 31
+      },
+      "revId": "fcb592efc106d3f2519138ba727f505609dd7ba7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b09db3c5_338ffe52",
+        "filename": "include/drivers/auth/mbedtls/mbedtls_config-3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-07-15T15:28:40Z",
+      "side": 1,
+      "message": "This was recommended by Gilles:\n\n\u003e The underlying implementation has changed in 3.6.0, in a way that perserves speed but increases RAM usage. If RAM usage is the main factor, you might want to reduce the value to 1. If you keep the performance, you may need to increase the heap size in RSA configurations (I don\u0027t know by how much).\n\nI may have misread that as reducing the window size will help with RAM constrains, and that\u0027s probably what we want. I don\u0027t think we have to worry about performance of RSA, unless we have benchmarks that say it\u0027s critical to some latency or speed somewhere.",
+      "parentUuid": "dd123b86_2d2586c4",
       "range": {
         "startLine": 103,
         "startChar": 8,
