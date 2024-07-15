@@ -62,6 +62,24 @@
       "message": "1 minor comment. I also wonder if this patch shouldn\u0027t be squashed with previous one?",
       "revId": "5e7677352a542f3d08a65358dd3f9560b55f8fed",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7625d971_974bb639",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-15T11:17:32Z",
+      "side": 1,
+      "message": "Hi Yann, \n\nSince this change is highly specific to the ST platform, I believe it would be appropriate to include it as a separate patch. Perhaps we should update the commit message to ``refactor(st):...``? \nThe previous patch pertains specifically to Arm changes. Perhaps we should also update the commit header to clarify this. Let me know what do you think?",
+      "parentUuid": "a0eb9f61_0c02e97f",
+      "revId": "5e7677352a542f3d08a65358dd3f9560b55f8fed",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
