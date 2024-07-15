@@ -16,6 +16,24 @@
       "message": "Not sure why this file is used as manifest for tc3 or any total compute platform. Or may be I am misunderstanding the test logs.",
       "revId": "731b2bd19086b5aca03ebcc09c973cdddb5f5b23",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "248cd9b6_cfa98759",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-15T14:55:12Z",
+      "side": 1,
+      "message": "I don\u0027t think tc3 test failures are related to this patch stack. Let me retrigger the failing tests anyways.",
+      "parentUuid": "e211fd33_68a5c66c",
+      "revId": "731b2bd19086b5aca03ebcc09c973cdddb5f5b23",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
