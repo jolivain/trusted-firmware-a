@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae2ca200_a511d614",
+        "filename": "include/drivers/auth/mbedtls/mbedtls_config-3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-15T08:21:15Z",
+      "side": 1,
+      "message": "This comment is no more valid in this case. Looks like now mbedTLS start supporting SHA256 without SHA224.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 78
+      },
+      "revId": "fcb592efc106d3f2519138ba727f505609dd7ba7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd123b86_2d2586c4",
+        "filename": "include/drivers/auth/mbedtls/mbedtls_config-3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-15T08:21:15Z",
+      "side": 1,
+      "message": "Decreasing the ``MBEDTLS_MPI_WINDOW_SIZE`` reduces memory usage but requires more computational steps to perform the same operation. This increases the number of iterations and hence the time required to complete cryptographic computations, thereby reducing performance.\nCould you please explain how you arrived at the decision to set this value to 1?",
+      "range": {
+        "startLine": 103,
+        "startChar": 8,
+        "endLine": 103,
+        "endChar": 31
+      },
+      "revId": "fcb592efc106d3f2519138ba727f505609dd7ba7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

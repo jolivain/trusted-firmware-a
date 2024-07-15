@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "189dfccf_ab0cec2a",
+        "filename": "include/drivers/auth/mbedtls/mbedtls_config-3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-15T08:21:15Z",
+      "side": 0,
+      "message": "This is captured in below suggested implementation.",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 24
+      },
+      "revId": "20307efa5edc54a5a6310069d4b0f8a9d65a5659",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1159add3_0bd165c6",
+        "filename": "include/drivers/auth/mbedtls/mbedtls_config-3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-15T08:21:15Z",
+      "side": 0,
+      "message": "I think for SHA384, we need to enable only the ``MBEDTLS_SHA384_C``  and not ``MBEDTLS_SHA512_C``. We have SHA384 configurations in our CI, as shown below, and  partners are also likely using SHA384 configurations.\n\n```\ntf-l2-boot-tests-misc/fvp-mb_hash256-tbb_hash384-optee-romlib:fvp-optee.mb-linux.rootfs+ftpm-romlib-fip.ftpm-aemv8a\ntf-l2-boot-tests-misc/fvp-mb_hash384-optee-romlib:fvp-optee.mb-linux.rootfs+ftpm_384-romlib-fip.ftpm-aemv8a\ntf-l2-boot-tests-misc/fvp-psa-mbedtls-mb_hash384-optee:fvp-optee.mb-linux.rootfs+ftpm_384-fip.ftpm-aemv8a\n```\n\nMay be we can modify the code as below (Simply enable the MBEDTLS_SHAnnn_C option for the hashes you need)\n\n```\n\n/* Enable hash algorithms based on TBB or Measured Boot */\n#if (TF_MBEDTLS_HASH_ALG_ID \u003d\u003d TF_MBEDTLS_SHA256 || defined(TF_MBEDTLS_MBOOT_USE_SHA256)\n    #define MBEDTLS_SHA256_C\n#endif\n\n#if (TF_MBEDTLS_HASH_ALG_ID \u003d\u003d TF_MBEDTLS_SHA384) || defined(TF_MBEDTLS_MBOOT_USE_SHA384)\n    #define MBEDTLS_SHA384_C\n#endif\n\n#if (TF_MBEDTLS_HASH_ALG_ID \u003d\u003d TF_MBEDTLS_SHA512) || defined(TF_MBEDTLS_MBOOT_USE_SHA512)\n    #define MBEDTLS_SHA512_C\n#endif\n\n```\n\nIf we go with above we need to introduce these ``TF_MBEDTLS_MBOOT_USE_SHA256`` and ``TF_MBEDTLS_MBOOT_USE_SHA384`` define.",
+      "range": {
+        "startLine": 85,
+        "startChar": 8,
+        "endLine": 85,
+        "endChar": 24
+      },
+      "revId": "20307efa5edc54a5a6310069d4b0f8a9d65a5659",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
