@@ -229,7 +229,7 @@ int rmmd_setup(void)
 	shared_buf_size =
 			plat_rmmd_get_el3_rmm_shared_mem(&shared_buf_base);
 
-	assert((shared_buf_size == SZ_4K) &&
+	assert((shared_buf_size >= SZ_4K) &&
 					((void *)shared_buf_base != NULL));
 
 	/* Zero out and load the boot manifest at the beginning of the share area */
