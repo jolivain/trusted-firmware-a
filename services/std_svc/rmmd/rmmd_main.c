@@ -219,9 +219,6 @@ int rmmd_setup(void)
 		return -ENOENT;
 	}
 
-	/* Under no circumstances will this parameter be 0 */
-	assert(rmm_ep_info->pc == RMM_BASE);
-
 	/* Initialise an entrypoint to set up the CPU context */
 	ep_attr = EP_REALM;
 	if ((read_sctlr_el3() & SCTLR_EE_BIT) != 0U) {
