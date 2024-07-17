@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82531452_a12c0d11",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1001312
+      },
+      "writtenOn": "2024-07-17T14:44:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87757ec4_ab71302a",
+      "revId": "b67262976cd78e9a6268f69f0377fe6f76029906",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8cfafc9a_262cfc69",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-07-15T07:07:29Z",
       "side": 1,
       "message": "This seems incorrect. It should include the hashes for scp_bl2u, bl2u, and ns_bl2u, , these images are involved in the firmware recovery process (TBBR FWU).",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 3
+      },
+      "revId": "b67262976cd78e9a6268f69f0377fe6f76029906",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95a35734_7132f4ce",
+        "filename": "drivers/auth/dualroot/bl1_cot.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1001312
+      },
+      "writtenOn": "2024-07-17T14:44:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8cfafc9a_262cfc69",
       "range": {
         "startLine": 160,
         "startChar": 0,

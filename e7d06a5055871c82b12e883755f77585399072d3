@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e652de14_0ec52413",
+        "filename": "drivers/auth/cca/bl1_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1001312
+      },
+      "writtenOn": "2024-07-17T14:44:58Z",
+      "side": 1,
+      "message": "One problem it might be is the descriptors still have them in their auth-data",
+      "parentUuid": "e79a22d3_c971fab0",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 48
+      },
+      "revId": "e7d06a5055871c82b12e883755f77585399072d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d48f177c_e16f9576",
@@ -95,6 +119,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e790a54f_5985c42b",
+        "filename": "drivers/auth/cca/bl1_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1001312
+      },
+      "writtenOn": "2024-07-17T14:44:58Z",
+      "side": 1,
+      "message": "Could you point me where are those information? I am looking at https://armh-my.sharepoint.com/:u:/r/personal/sandrine_afsa_arm_com/_layouts/15/Doc.aspx?sourcedoc\u003d%7BB3046CD0-D18E-4857-A628-0485DA06620B%7D\u0026file\u003dFremont%20CoT%20proposal.vsdx\u0026action\u003ddefault\u0026mobileredirect\u003dtrue\u0026wdsle\u003d0",
+      "parentUuid": "d48f177c_e16f9576",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 105
+      },
+      "revId": "e7d06a5055871c82b12e883755f77585399072d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7650a39e_07fd87b4",
@@ -129,6 +177,30 @@
         "id": 1000328
       },
       "writtenOn": "2024-07-17T11:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7650a39e_07fd87b4",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 0
+      },
+      "revId": "e7d06a5055871c82b12e883755f77585399072d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd482aee_cecc4345",
+        "filename": "drivers/auth/cca/bl1_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1001312
+      },
+      "writtenOn": "2024-07-17T14:44:58Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "7650a39e_07fd87b4",
@@ -189,6 +261,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57b08370_919090a7",
+        "filename": "drivers/auth/cca/bl1_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1001312
+      },
+      "writtenOn": "2024-07-17T14:44:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74283b3e_7c26a0aa",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 118,
+        "endChar": 3
+      },
+      "revId": "e7d06a5055871c82b12e883755f77585399072d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "10da69b0_6c47bc51",
@@ -217,6 +313,24 @@
         "id": 1000328
       },
       "writtenOn": "2024-07-17T11:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "10da69b0_6c47bc51",
+      "revId": "e7d06a5055871c82b12e883755f77585399072d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "455ed520_b926f968",
+        "filename": "drivers/auth/cca/cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1001312
+      },
+      "writtenOn": "2024-07-17T14:44:58Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "10da69b0_6c47bc51",
@@ -258,6 +372,30 @@
         "id": 1000328
       },
       "writtenOn": "2024-07-17T11:41:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e30068c6_5602c24d",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 57
+      },
+      "revId": "e7d06a5055871c82b12e883755f77585399072d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cd33fa3_75c59aa2",
+        "filename": "drivers/auth/cca/cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1001312
+      },
+      "writtenOn": "2024-07-17T14:44:58Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "e30068c6_5602c24d",
@@ -318,6 +456,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3ced0c0_01edacd9",
+        "filename": "drivers/auth/cca/cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1001312
+      },
+      "writtenOn": "2024-07-17T14:44:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdcf3af4_0c1264d0",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 4
+      },
+      "revId": "e7d06a5055871c82b12e883755f77585399072d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84936217_49768484",
@@ -335,6 +497,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8bdfd32_86724251",
+        "filename": "drivers/auth/dualroot/bl1_cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1001312
+      },
+      "writtenOn": "2024-07-17T14:44:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84936217_49768484",
+      "revId": "e7d06a5055871c82b12e883755f77585399072d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3979181c_1d59822c",
@@ -348,6 +528,24 @@
       "writtenOn": "2024-07-08T08:00:47Z",
       "side": 1,
       "message": "Same comment as given for CCA CoT for BL2.",
+      "revId": "e7d06a5055871c82b12e883755f77585399072d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30770cbc_28ca95b4",
+        "filename": "drivers/auth/dualroot/cot.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1001312
+      },
+      "writtenOn": "2024-07-17T14:44:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3979181c_1d59822c",
       "revId": "e7d06a5055871c82b12e883755f77585399072d3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
