@@ -93,6 +93,30 @@
       },
       "revId": "20307efa5edc54a5a6310069d4b0f8a9d65a5659",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c711cd5a_7d311dfc",
+        "filename": "include/drivers/auth/mbedtls/mbedtls_config-3.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-17T08:22:53Z",
+      "side": 0,
+      "message": "We need to improve the condition in this file as follows, both in the arm_common.mk file and in other platform makefiles that use Measured Boot support:\n\n```\n    ifneq (${MBOOT_EL_HASH_ALG}, sha256)\n        $(eval $(call add_define,TF_MBEDTLS_MBOOT_USE_SHA256))\n    else ifeq ${MBOOT_EL_HASH_ALG}, sha384)\n        $(eval $(call add_define,TF_MBEDTLS_MBOOT_USE_SHA384))\n    else ifeq (${MBOOT_EL_HASH_ALG}, sha512)\n        $(eval $(call add_define,TF_MBEDTLS_MBOOT_USE_SHA512))\n    endif \n```   \nOr we can change this as below:\n```\n    ifneq (${MBOOT_EL_HASH_ALG}, sha256)\n        TF_MBEDTLS_MBOOT_HASH_ALG_ID  :\u003d  TF_MBEDTLS_SHA256\n    else ifeq ${MBOOT_EL_HASH_ALG}, sha384)\n        TF_MBEDTLS_MBOOT_HASH_ALG_ID  :\u003d  TF_MBEDTLS_SHA384\n    else ifeq (${MBOOT_EL_HASH_ALG}, sha512)\n        TF_MBEDTLS_MBOOT_HASH_ALG_ID  :\u003d  TF_MBEDTLS_SHA512\n    endif \n```\n\nAnd accordingly use TF_MBEDTLS_MBOOT_HASH_ALG_ID in the code instead of TF_MBEDTLS_MBOOT_USE_*",
+      "parentUuid": "282c0116_3ab160bb",
+      "range": {
+        "startLine": 85,
+        "startChar": 8,
+        "endLine": 85,
+        "endChar": 24
+      },
+      "revId": "20307efa5edc54a5a6310069d4b0f8a9d65a5659",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
