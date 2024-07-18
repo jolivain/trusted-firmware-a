@@ -98,14 +98,15 @@ feature set, and thereby save and restore the configuration associated with them
 
 4. **Dynamic discovery of Feature enablement by EL3**
 
-TF-A supports three states for feature enablement at EL3, to make them available
+TF-A supports four states for feature enablement at EL3, to make them available
 for lower exception levels.
 
 .. code:: c
 
-	#define FEAT_STATE_DISABLED	0
-	#define FEAT_STATE_ENABLED	1
-	#define FEAT_STATE_CHECK	2
+	#define FEAT_STATE_DISABLED     	0
+	#define FEAT_STATE_ENABLED      	1
+	#define FEAT_STATE_CHECK        	2
+	#define FEAT_STATE_CHEKC_ASYMMETRIC	3
 
 A pattern is established for feature enablement behavior.
 Each feature must support the 3 possible values with rigid semantics.
@@ -119,7 +120,11 @@ Each feature must support the 3 possible values with rigid semantics.
 - **FEAT_STATE_CHECK** - same as ``FEAT_STATE_ALWAYS`` except that the feature's
   existence will be checked at runtime. Default on dynamic platforms (example: FVP).
 
-.. note::
+- **FEAT_STATE_CHECK_ASYMMETRIC** - same as ``FEAT_STATE_CHECK`` except that the feature's
+  existence is asymmetric across cores, which requires the feature existence is checked
+  during warmboot path also.
+
+ .. note::
    ``FEAT_RAS`` is an exception here, as it impacts the execution of EL3 and
    it is essential to know its presence at compile time. Refer to ``ENABLE_FEAT``
    macro under :ref:`Build Options` section for more details.
