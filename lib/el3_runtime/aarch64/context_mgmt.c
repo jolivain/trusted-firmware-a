@@ -1497,6 +1497,13 @@ void cm_el2_sysregs_context_restore(uint32_t security_state)
 *********************************************************************************/
 void cm_handle_asymmetric_features(cpu_context_t *ctx)
 {
+#if ENABLE_SPE_FOR_NS == FEAT_STATE_ASYMMETRIC
+	if (is_feat_spe_supported()) {
+		spe_enable(ctx);
+	} else {
+		spe_disable(ctx);
+	}
+#endif
 #if ERRATA_A520_2938996 | ERRATA_X4_2726228
 
 	if (check_if_affected_core() == ERRATA_APPLIES) {
