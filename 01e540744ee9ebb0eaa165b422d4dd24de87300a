@@ -16,6 +16,24 @@
       "message": "This is the load address from the loader (BL2). RMM itself does not rely on this macro. But I agree BL2 need not load it to a fixed address. \n\nCan change this assert to check that the pc is not 0 as a sanity check.",
       "revId": "01e540744ee9ebb0eaa165b422d4dd24de87300a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b599299_d156b02a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2024-07-18T17:16:47Z",
+      "side": 1,
+      "message": "Even a PC value of 0 is a valid scenario where the RMM image is not present on the platform and we would want to continue booting without the RMMD support and return errors for SMCss targeted towards the RMM. An assert halts boot, which is undesirable.",
+      "parentUuid": "15f3645e_6c3d17c9",
+      "revId": "01e540744ee9ebb0eaa165b422d4dd24de87300a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
