@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023, Arm Limited. All rights reserved.
+ * Copyright (c) 2021-2024, Arm Limited. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -26,5 +26,11 @@
  ******************************************************************************/
 #define CORTEX_A520_CPUPWRCTLR_EL1				S3_0_C15_C2_7
 #define CORTEX_A520_CPUPWRCTLR_EL1_CORE_PWRDN_BIT		U(1)
+
+#ifndef __ASSEMBLER__
+
+uint64_t  check_erratum_cortex_a520_2938996(uint64_t cpu_rev);
+
+#endif /* __ASSEMBLER__ */
 
 #endif /* CORTEX_A520_H */
