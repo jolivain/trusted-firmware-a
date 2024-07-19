@@ -52,6 +52,24 @@
       "parentUuid": "de8c0870_ba68ac0c",
       "revId": "aa08bf133aa9abf44c1a751cef1b7e1adf5237aa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f2990f5_407590ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000374
+      },
+      "writtenOn": "2024-07-19T14:07:07Z",
+      "side": 1,
+      "message": "I am not sure if there is anything other than the OPTEE repo build instruction.\nThis is what I do if I need to build manually outside their repo build setup.\n\nmake CFG_USER_TA_TARGETS\u003dta_arm64 CFG_ARM64_core\u003dy PLATFORM\u003dvexpress-fvp CROSS_COMPILE\u003daarch64-none-linux-gnu- CROSS_COMPILE_core\u003daarch64-none-linux-gnu- CROSS_COMPILE_ta_arm64\u003daarch64-none-linux-gnu- CFG_NOTIF_TEST_WD\u003dy CFG_CORE_HEAP_SIZE\u003d131072 CFG_TEE_CORE_LOG_LEVEL\u003d2 CFG_CORE_SEL2_SPMC\u003dy CFG_CORE_HAFNIUM_INTC\u003dy CFG_ARM_GICV3\u003dn CFG_CORE_ASYNC_NOTIF\u003dy CFG_CORE_WORKAROUND_NSITR_CACHE_PRIME\u003dn\n\nThere is one issue in the optee master branch though. I am reverting\nCommit 4965507859bb (\"core: hfic: fix HF_INTERRUPT HVC calls\")\nWithout the revert, OPTEE fails to boot, it is expecting a console interrupt in the DT IIUC(Olivier mentioned that).\n\nSince the existing OPTEE is also built from some local source or commit, this shouldn\u0027t be a blocker for now. I will try to take it up with OPTEE maintainers.",
+      "parentUuid": "de8c0870_ba68ac0c",
+      "revId": "aa08bf133aa9abf44c1a751cef1b7e1adf5237aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
