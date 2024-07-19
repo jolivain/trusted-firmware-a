@@ -28,4 +28,10 @@
  ******************************************************************************/
 #define CORTEX_X4_CPUACTLR3_EL1				S3_0_C15_C1_2
 
+#ifndef __ASSEMBLER__
+
+long check_erratum_cortex_x4_2726228(long cpu_rev);
+
+#endif /* __ASSEMBLER__ */
+
 #endif /* CORTEX_X4_H */
