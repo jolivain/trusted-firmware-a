@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ecf604a_3849ee1e",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-19T08:33:22Z",
+      "side": 1,
+      "message": "I\u0027m wondering if we can move these two checks to before the call to ``rmmd_setup``, instead of handling them within the function itself. \nIf we want to run the same software on platforms with RMM loaded, without RME feature, or with RME feature available but RMM is not loaded, it would be better to perform these checks at runtime using a function ``is_rmm_available`` or something similar and then call ``rmmd_setup`` accordingly. I might be overlooking the reason these checks were originally added to this function. What do you think?",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 2
+      },
+      "revId": "dfae9d5e6910321b5c230bd301b2af481ead1506",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
