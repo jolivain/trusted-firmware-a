@@ -7,8 +7,9 @@
 #ifndef ERRATA_REPORT_H
 #define ERRATA_REPORT_H
 
+#include <cortex_a520.h>
+#include <cortex_x4.h>
 #include <lib/cpus/cpu_ops.h>
-
 
 #define ERRATUM_WA_FUNC_SIZE	CPU_WORD_SIZE
 #define ERRATUM_CHECK_FUNC_SIZE	CPU_WORD_SIZE
@@ -81,5 +82,8 @@ CASSERT(sizeof(struct erratum_entry) == ERRATUM_ENTRY_SIZE,
 
 /* Macro to get CPU revision code for checking errata version compatibility. */
 #define CPU_REV(r, p)		((r << 4) | p)
+
+/* Extracts the CPU part number from MIDR for checking CPU match */
+#define EXTRACT_PARTNUM(x)     ((x >> MIDR_PN_SHIFT) & MIDR_PN_MASK)
 
 #endif /* ERRATA_REPORT_H */

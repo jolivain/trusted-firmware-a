@@ -19,6 +19,8 @@
 #include <common/debug.h>
 #include <context.h>
 #include <drivers/arm/gicv3.h>
+#include <lib/cpus/cpu_ops.h>
+#include <lib/cpus/errata.h>
 #include <lib/el3_runtime/context_mgmt.h>
 #include <lib/el3_runtime/cpu_data.h>
 #include <lib/el3_runtime/pubsub_events.h>
@@ -48,6 +50,7 @@ static void manage_extensions_common(cpu_context_t *ctx);
 static void manage_extensions_nonsecure(cpu_context_t *ctx);
 static void manage_extensions_secure(cpu_context_t *ctx);
 static void manage_extensions_secure_per_world(void);
+static unsigned int check_if_affected_core(void);
 
 static void setup_el1_context(cpu_context_t *ctx, const struct entry_point_info *ep)
 {
@@ -1540,6 +1543,15 @@ void cm_handle_asymmetric_features(void)
 		spe_disable(spe_ctx);
 	}
 #endif
+#if ERRATA_A520_2938996 | ERRATA_X4_2726228
+	cpu_context_t *trbe_ctx = cm_get_context(NON_SECURE);
+
+	if (check_if_affected_core() == ERRATA_APPLIES) {
+		if (is_feat_trbe_supported()) {
+			trbe_disable(trbe_ctx);
+		}
+	}
+#endif
 }
 
 /*******************************************************************************
@@ -1796,6 +1808,21 @@ static void el1_sysregs_context_restore(el1_sysregs_t *ctx)
 		write_gcspr_el0(read_ctx_reg(ctx, CTX_GCSPR_EL0));
 	}
 #endif
+}
+
+static unsigned int check_if_affected_core(void) {
+
+	uint32_t midr_val = read_midr();
+	long rev_var  = cpu_get_rev_var();
+
+	if(EXTRACT_PARTNUM(midr_val) == EXTRACT_PARTNUM(CORTEX_A520_MIDR)) {
+		return check_erratum_cortex_a520_2938996(rev_var);
+	}
+	else if (EXTRACT_PARTNUM(midr_val) == EXTRACT_PARTNUM(CORTEX_X4_MIDR)) {
+		return check_erratum_cortex_x4_2726228(rev_var);
+	}
+
+	return ERRATA_NOT_APPLIES;
 }
 
 /*******************************************************************************
