@@ -52,6 +52,24 @@
       "parentUuid": "0fe6f97a_7050b4d8",
       "revId": "41a188a7152c218866becd7f86bffdbab9c30fbf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66fba63b_f3c07176",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 1000108
+      },
+      "writtenOn": "2024-07-19T15:57:02Z",
+      "side": 1,
+      "message": "As the first step, it is fine for me. I would like TF-A can give out reliable info (e.g. it detects any feature is asymmetric enabled and reports the log), this would be important for later debugging and locating issues.",
+      "parentUuid": "39158064_95bfda25",
+      "revId": "41a188a7152c218866becd7f86bffdbab9c30fbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
