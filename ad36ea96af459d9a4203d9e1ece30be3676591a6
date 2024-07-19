@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "decf23d9_b943fa62",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000108
+      },
+      "writtenOn": "2024-07-19T14:52:13Z",
+      "side": 1,
+      "message": "Good point. I checked the TRM and seems this register is common for all context, so it makes sense for saving it for all contexts?",
+      "parentUuid": "b13f27f2_d5e947d1",
+      "range": {
+        "startLine": 17,
+        "startChar": 16,
+        "endLine": 19,
+        "endChar": 0
+      },
+      "revId": "ad36ea96af459d9a4203d9e1ece30be3676591a6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b5fa9e24_5a23c6f9",
