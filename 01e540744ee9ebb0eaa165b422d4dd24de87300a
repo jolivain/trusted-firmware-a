@@ -34,6 +34,24 @@
       "parentUuid": "15f3645e_6c3d17c9",
       "revId": "01e540744ee9ebb0eaa165b422d4dd24de87300a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6566f29_7f254bac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-07-19T11:06:25Z",
+      "side": 1,
+      "message": "Not sure that is a right assumption to make. A PC value of 0 will result in crash when ereting to R-EL2 as part of RMM init.\n\nA PC value of 0 should result in a return back to caller from here without making further progress (similar to other error cases above that assert() line.",
+      "parentUuid": "8b599299_d156b02a",
+      "revId": "01e540744ee9ebb0eaa165b422d4dd24de87300a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
