@@ -16,6 +16,24 @@
       "message": "If we use #if condition to check `FEAT_STATE_ASYMMETRIC`, this means we will check every feature when about to enable it.\n\nI am wandering if we can extend the macro `CREATE_FEATURE_SUPPORTED` for support asymmetric feature.  Here we need to support CPU bitmap and then use it for feature detecting, something like:\n\n```\nstatic char feat_## name ##_bitmask[128] \u003d {0};\n\nstatic inline bool is_ ## name ## _supported(void)                              \\\n{\n    int cpu_pos \u003d plat_my_core_pos();\n    bool ret; \n    ...\n\n    ret \u003d read_func();\n    set_bitmask(feat_## name ##_bitmask);\n    if (bitmask_is_not_consistent(feat_## name ##_bitmask, 0, cpu_pos)) {\n        if (((guard) \u003d\u003d FEAT_STATE_ASYMMETRIC)\n            return true;\n        else\n            return false;\n    }\n}    \n```",
       "revId": "41a188a7152c218866becd7f86bffdbab9c30fbf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fe6f97a_7050b4d8",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 1000108
+      },
+      "writtenOn": "2024-07-19T14:05:28Z",
+      "side": 1,
+      "message": "BTW, we must ensure the function `is_ ## name ## _supported()` running in the cache coherency domain.",
+      "parentUuid": "aaaf3fab_a2a2e144",
+      "revId": "41a188a7152c218866becd7f86bffdbab9c30fbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
