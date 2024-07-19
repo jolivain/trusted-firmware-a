@@ -22,6 +22,30 @@
       },
       "revId": "dfae9d5e6910321b5c230bd301b2af481ead1506",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4afae12_37d57ffe",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2024-07-19T14:34:41Z",
+      "side": 1,
+      "message": "I dont see the benefit of adding the checks before rmmd_setup(). If we add the checks outside, then that would be a departure from the way other functions are implemented. e.g. spmd_setup()",
+      "parentUuid": "5ecf604a_3849ee1e",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 2
+      },
+      "revId": "dfae9d5e6910321b5c230bd301b2af481ead1506",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
