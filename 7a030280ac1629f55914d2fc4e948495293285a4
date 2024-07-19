@@ -94,6 +94,30 @@
       },
       "revId": "7a030280ac1629f55914d2fc4e948495293285a4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "134bb3c7_bcba92e9",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-07-19T15:45:20Z",
+      "side": 1,
+      "message": "I suppose my grievance is around the asymmetry (no pun intended) of *check* vs. *asymmetric* - they both involve checking, but the naming implies that `FEAT_STATE_CHECK` does \"check\" and `FEAT_STATE_ASYMMETRIC` does not \"check\"",
+      "parentUuid": "00ce6a40_364c1a50",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 25
+      },
+      "revId": "7a030280ac1629f55914d2fc4e948495293285a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
