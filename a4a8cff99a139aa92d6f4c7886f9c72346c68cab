@@ -16,6 +16,24 @@
       "message": "There is a patch here which tries to solve this in a different way. The prototyping is being done in RMM first : https://review.trustedfirmware.org/c/TF-RMM/tf-rmm/+/29935.",
       "revId": "a4a8cff99a139aa92d6f4c7886f9c72346c68cab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b59a9b4_555f1eeb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2024-07-19T14:30:04Z",
+      "side": 1,
+      "message": "I feel that the buffer needs to be increased though to avoid multiple memcpy and reduce the number of round trips. I responded on that patch.",
+      "parentUuid": "22f1d6a4_d7f93370",
+      "revId": "a4a8cff99a139aa92d6f4c7886f9c72346c68cab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
