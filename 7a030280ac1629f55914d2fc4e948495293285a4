@@ -22,6 +22,30 @@
       },
       "revId": "7a030280ac1629f55914d2fc4e948495293285a4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dc40a8c_0d7dc9e2",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000108
+      },
+      "writtenOn": "2024-07-19T13:20:10Z",
+      "side": 1,
+      "message": "Actually, `FEAT_STATE_ASYMMETRIC` is checked on all CPUs, it permits to enable a feature in asymmetric way (some enable a featuer and other CPUs do not).\n\nSeems to me, `FEAT_STATE_CHECK_ONCE` and `FEAT_STATE_CHECK_ALWAYS` are confused.",
+      "parentUuid": "873bc205_4c356e65",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 25
+      },
+      "revId": "7a030280ac1629f55914d2fc4e948495293285a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
