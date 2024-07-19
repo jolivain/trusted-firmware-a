@@ -142,6 +142,30 @@
       },
       "revId": "7a030280ac1629f55914d2fc4e948495293285a4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f61bf47_1159667a",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000108
+      },
+      "writtenOn": "2024-07-19T16:24:28Z",
+      "side": 1,
+      "message": "I might get a bit Chris\u0027 point.\n\nActually, `FEAT_STATE_CHECK` has allowed every CPU does its own check. The new type knob `FEAT_STATE_ASYMMETRIC` is not about feature checking type, it is about if we allow the disparity. These flags are two levels relationship:\n\n  if (FEAT_STATE_CHECK(feat_spe)) then:\n     if (FEAT_STATE_ASYMMETRIC(feat_spe)) then:\n         Allow CPUs have different configs\n     else\n         Disable CPUs have different configs\n\nIf change name to `ENABLE_ASYMMETRIC_FEATURES`, maybe it is easier for understanding?",
+      "parentUuid": "655a05e1_df52caad",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 25
+      },
+      "revId": "7a030280ac1629f55914d2fc4e948495293285a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
