@@ -34,6 +34,24 @@
       "parentUuid": "aaaf3fab_a2a2e144",
       "revId": "41a188a7152c218866becd7f86bffdbab9c30fbf",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39158064_95bfda25",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1493,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-07-19T15:49:55Z",
+      "side": 1,
+      "message": "It is a good idea if it is common for majority of features, which is not the case in foreseeable future. Want to keep it simple for now.\nAlso, there is another work ongoing regards SMC Feature AWARENESS where we create a bitmask for feature enabled for lower EL, will see if we can put some effort to implement this.",
+      "parentUuid": "0fe6f97a_7050b4d8",
+      "revId": "41a188a7152c218866becd7f86bffdbab9c30fbf",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
