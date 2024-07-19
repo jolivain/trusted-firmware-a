@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "873bc205_4c356e65",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-07-19T13:00:25Z",
+      "side": 1,
+      "message": "I wonder if something like `FEAT_STATE_CHECK_ONCE` and `FEAT_STATE_CHECK_ALWAYS` is more appropriate for this pair of states? It\u0027s a bit more reflective of what this changes in the implementation, as the need to check on warm boot is *derived* from the fact that the feature is supported by only some of the cores, and it\u0027s not invalid to use this option even if the feature is supported by all cores... it\u0027s just slower.",
+      "range": {
+        "startLine": 123,
+        "startChar": 4,
+        "endLine": 123,
+        "endChar": 25
+      },
+      "revId": "7a030280ac1629f55914d2fc4e948495293285a4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
