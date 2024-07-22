@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4031f1e6_6cf57ca2",
+        "filename": "include/lib/el3_runtime/context_mgmt.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-07-22T10:26:45Z",
+      "side": 1,
+      "message": "I think the Asymmetric enablement is not something that can generically apply to all features. In a way it applies to how the NS Host can handle the assymetry, whether the feature itself is used at EL3, whether it is used in Secure world (or even Realm world). There is a security risk that if EL3 is enabling some features for NS without the knowledge of Secure, the Secure may not be aware that NS world may have programmed the feature when executing in Secure world and may break integrity/confidentiality of Trust zone. (For SPE this is not a problem as it is disabled for Secure).\n\nAlso in some cases, the feature would need to be disabled as a result of errata of in a feature. This errata would need to be done at context mgmt framework level.\n\nFor example, there could an errata in SPE of some cores and hence SPE may need to be disable on some cores even though it is present in hardware. \n\nI think both these cases should be handled at the platform level, by making this call a plat_ call.\n\nThere is also the problem that some of the sysregs are shared for all CPUs. This makes it difficult to differentially enable such features which may be controlled via those sysregs. Hence I dont think this should be a generic feature.\n\nAlso the future direction for some features which may differ, is to disable them at EL3, and then emulate as feature not present for lower ELs",
+      "revId": "beaa576ddc1a267d483a6a3f5f88eba1c9bd824e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
