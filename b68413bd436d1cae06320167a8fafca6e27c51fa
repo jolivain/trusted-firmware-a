@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55f4b2eb_d09b255d",
+        "filename": "include/lib/el3_runtime/simd_ctx.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-22T11:24:21Z",
+      "side": 1,
+      "message": "If the structure definition is already aligned to 16 bytes, then each instance within the array should also be aligned to 16 bytes. Therefore, it is unlikely that indexing into the array would start a struct at an address that is not 16-byte aligned. Therefore, explicitly adding reserved bytes is not needed here IMO. Am I missing something?\nHave you encountered a scenario where array indexing leads to an unaligned address if reserved bytes are not added?",
+      "range": {
+        "startLine": 78,
+        "startChar": 41,
+        "endLine": 81,
+        "endChar": 13
+      },
+      "revId": "b68413bd436d1cae06320167a8fafca6e27c51fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
