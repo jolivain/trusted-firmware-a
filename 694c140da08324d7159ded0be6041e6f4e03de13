@@ -99,6 +99,30 @@
       },
       "revId": "694c140da08324d7159ded0be6041e6f4e03de13",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37125aef_23fff9ba",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 1135,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2024-07-22T20:46:29Z",
+      "side": 1,
+      "message": "Please take a look at the latest patchset. Removed spmd_is_spmc_message and returned an error if REQ comes from a secure origin",
+      "parentUuid": "00229c2a_5a0463a0",
+      "range": {
+        "startLine": 1135,
+        "startChar": 2,
+        "endLine": 1135,
+        "endChar": 50
+      },
+      "revId": "694c140da08324d7159ded0be6041e6f4e03de13",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
