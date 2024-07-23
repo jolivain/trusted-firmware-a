@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7970f98_61613b6e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 42
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-23T21:01:23Z",
+      "side": 1,
+      "message": "Hi Jayanth,\nI too had a question along these lines. My apologies if it has been answered in the past. Is the assumption that if S-EL2 supervisory software exists in a system, then it must save the incoming(NWd) EL1 system/register context? We introduced such a support for hafnium SPMC but I am not sure if every SPMC implementation is guaranteed to do this.\n\nI am asking because there is a scenario where EL3 might have to save NS EL1 context even if CTX_INCLUDE_EL2_REGS\u003d1. An example is NWd execution getting preempted by a Group1-Secure interrupt through an FIQ. The NWd hypervisor does not get a chance to save EL1 context. this directly impacts the change made to tegra_fiq_glue.c file.",
+      "parentUuid": "aa4cc3c5_6e015e2b",
+      "range": {
+        "startLine": 16,
+        "startChar": 11,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "d478254057572315772a926acc3826a889ee7cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b0c74d6_ff2e2c8d",
         "filename": "/COMMIT_MSG",
         "patchSetId": 42
