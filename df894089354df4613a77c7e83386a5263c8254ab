@@ -46,6 +46,30 @@
       },
       "revId": "df894089354df4613a77c7e83386a5263c8254ab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abc2e367_03cefce2",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 41
+      },
+      "lineNbr": 1517,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-23T16:42:45Z",
+      "side": 0,
+      "message": "Okay thanks for your response. What I wanted to ask is that, in the scenario where ERRATA_SPECULATIVE_AT\u003d1, wouldn\u0027t we be saving/restoring these two registers twice? Once in bl31 exception handler and once again as part of context management here.",
+      "parentUuid": "e8b22912_323388f2",
+      "range": {
+        "startLine": 1517,
+        "startChar": 0,
+        "endLine": 1517,
+        "endChar": 26
+      },
+      "revId": "df894089354df4613a77c7e83386a5263c8254ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
