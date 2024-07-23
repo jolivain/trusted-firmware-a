@@ -6,6 +6,9 @@
 
 #include <arch.h>
 #include <asm_macros.S>
+#include <cortex_a520.h>
+#include <cortex_a725.h>
+#include <cortex_x925.h>
 #include <platform_def.h>
 #include <cpu_macros.S>
 
@@ -52,6 +55,26 @@ func plat_arm_calc_core_pos
 	ret
 endfunc plat_arm_calc_core_pos
 
+func mark_extllc_presence
+#ifdef MCN_CONFIG_ADDR
+	mov_imm x0, (MCN_CONFIG_ADDR)
+	ldr	w1, [x0]
+	ubfx	x1, x1, #MCN_CONFIG_SLC_PRESENT_BIT, #1
+	jump_if_cpu_midr CORTEX_A520_MIDR, A520
+	jump_if_cpu_midr CORTEX_A725_MIDR, A725
+	jump_if_cpu_midr CORTEX_X925_MIDR, X925
+A520:	sysreg_bitfield_insert_from_gpr CORTEX_A520_CPUECTLR_EL1, x1, \
+					CORTEX_A520_CPUECTLR_EL1_EXTLLC_BIT, 1
+	ret
+A725:	sysreg_bitfield_insert_from_gpr CORTEX_A725_CPUECTLR_EL1, x1, \
+					CORTEX_A725_CPUECTLR_EL1_EXTLLC_BIT, 1
+	ret
+X925:	sysreg_bitfield_insert_from_gpr CORTEX_X925_CPUECTLR_EL1, x1, \
+					CORTEX_X925_CPUECTLR_EL1_EXTLLC_BIT, 1
+#endif
+	ret
+endfunc mark_extllc_presence
+
 func enable_dsu_pmu_el1_access
 	sysreg_bit_set actlr_el2, CPUACTLR_CLUSTERPMUEN
 	sysreg_bit_set actlr_el3, CPUACTLR_CLUSTERPMUEN
@@ -64,6 +87,7 @@ endfunc TC_HANDLER(2)
 
 func TC_HANDLER(3)
 	mov	x9, lr
+	bl	mark_extllc_presence
 	bl	enable_dsu_pmu_el1_access
 	mov	lr, x9
 	ret
