@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79555408_6ab42862",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 42
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-23T16:48:56Z",
+      "side": 1,
+      "message": "Looks good to me",
+      "revId": "d478254057572315772a926acc3826a889ee7cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77208121_076828e7",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 42
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-23T16:48:56Z",
+      "side": 1,
+      "message": "did you mean CTX_INCLUDE_EL2_REGS\u003d0",
+      "range": {
+        "startLine": 290,
+        "startChar": 45,
+        "endLine": 290,
+        "endChar": 63
+      },
+      "revId": "d478254057572315772a926acc3826a889ee7cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
