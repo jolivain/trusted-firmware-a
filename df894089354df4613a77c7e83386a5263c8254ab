@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "162e7265_fb52af35",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 41
+      },
+      "lineNbr": 1517,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-23T15:34:28Z",
+      "side": 0,
+      "message": "Is it intentional to drop this conditional guard as part of this patch?",
+      "range": {
+        "startLine": 1517,
+        "startChar": 0,
+        "endLine": 1517,
+        "endChar": 26
+      },
+      "revId": "df894089354df4613a77c7e83386a5263c8254ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}

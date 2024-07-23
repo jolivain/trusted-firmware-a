@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a3d9410_dfb32e26",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 41
+      },
+      "lineNbr": 1539,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-23T15:34:28Z",
+      "side": 1,
+      "message": "Is it necessary to have this check? The definition of the macro write_el1_ctx_aarch32 itself is taking care of the scenario where CTX_INCLUDE_AARCH32_REGS is 0\n\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/28021/41/include/lib/el3_runtime/context_el1.h#182",
+      "range": {
+        "startLine": 1539,
+        "startChar": 1,
+        "endLine": 1539,
+        "endChar": 32
+      },
+      "revId": "0da69c46596ad41354988abd90dca8969f760689",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
