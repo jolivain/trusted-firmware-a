@@ -46,6 +46,30 @@
       },
       "revId": "fc5d1ad2b0e226e63d17ae41baa6aeaa80644f30",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a22bcb4_7a639499",
+        "filename": "services/std_svc/spmd/spmd_main.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 1187,
+      "author": {
+        "id": 1000619
+      },
+      "writtenOn": "2024-07-23T15:10:35Z",
+      "side": 0,
+      "message": "Ack, I will revert to the previous patchset",
+      "parentUuid": "47e8cde5_51345175",
+      "range": {
+        "startLine": 1187,
+        "startChar": 20,
+        "endLine": 1187,
+        "endChar": 51
+      },
+      "revId": "fc5d1ad2b0e226e63d17ae41baa6aeaa80644f30",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
