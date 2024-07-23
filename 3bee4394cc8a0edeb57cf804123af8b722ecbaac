@@ -22,6 +22,30 @@
       },
       "revId": "3bee4394cc8a0edeb57cf804123af8b722ecbaac",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22c143f0_9b6bdd28",
+        "filename": "plat/arm/board/tc/include/tc_helpers.S",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000108
+      },
+      "writtenOn": "2024-07-23T16:12:00Z",
+      "side": 1,
+      "message": "The shared code is for static definition in the building time (so it defines in the .mk file). This cannot apply on our case.\n\nCurrent case is a runtime case that we will have A520 / A725 / X925 CPUs (and might have other CPUs).  Every CPU has its own definitions for CPUECTLR and EXTLLC_BIT, this is why we need to detect CPU ID.",
+      "parentUuid": "9f107226_bdbb6047",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 40
+      },
+      "revId": "3bee4394cc8a0edeb57cf804123af8b722ecbaac",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
