@@ -1,6 +1,98 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa4cc3c5_6e015e2b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 42
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-23T16:54:44Z",
+      "side": 1,
+      "message": "does this mean \u0027EL2 should save and restore\u0027?",
+      "range": {
+        "startLine": 16,
+        "startChar": 11,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "d478254057572315772a926acc3826a889ee7cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b0c74d6_ff2e2c8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 42
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-23T16:54:44Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 20,
+        "startChar": 31,
+        "endLine": 20,
+        "endChar": 40
+      },
+      "revId": "d478254057572315772a926acc3826a889ee7cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aea6b242_ebfdc333",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 42
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-23T16:54:44Z",
+      "side": 1,
+      "message": "I don\u0027t think S-EL2 should be mentioned specifically as this also applies to R-EL2. This should be worded more generally as in el1 context register is omitted when lower EL is always x-EL2.",
+      "range": {
+        "startLine": 21,
+        "startChar": 52,
+        "endLine": 22,
+        "endChar": 69
+      },
+      "revId": "d478254057572315772a926acc3826a889ee7cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "122e406f_4649093e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 42
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-23T16:54:44Z",
+      "side": 1,
+      "message": "similar to above, I don\u0027t think it\u0027s required to mention S-EL2.",
+      "range": {
+        "startLine": 28,
+        "startChar": 36,
+        "endLine": 28,
+        "endChar": 59
+      },
+      "revId": "d478254057572315772a926acc3826a889ee7cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "79555408_6ab42862",
