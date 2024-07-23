@@ -22,6 +22,30 @@
       },
       "revId": "df894089354df4613a77c7e83386a5263c8254ab",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8b22912_323388f2",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 41
+      },
+      "lineNbr": 1517,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-07-23T16:05:32Z",
+      "side": 0,
+      "message": "Yes. \nNow that we have explicit context entries for ERRATA_SPECULATIVE_AT macro, I don\u0027t want to have its dependency here.\n\nEL1 context regs ( SCTLR_EL1 and TCR_EL1) could be saved and restored independent of it.",
+      "parentUuid": "162e7265_fb52af35",
+      "range": {
+        "startLine": 1517,
+        "startChar": 0,
+        "endLine": 1517,
+        "endChar": 26
+      },
+      "revId": "df894089354df4613a77c7e83386a5263c8254ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
