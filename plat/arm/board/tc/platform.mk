@@ -116,6 +116,14 @@ endif
 
 # CPU libraries for TARGET_PLATFORM=3
 ifeq (${TARGET_PLATFORM}, 3)
+
+# On TC3 CPUs have the same definitions for:
+#   CORTEX_{A520|A725|X925}_CPUECTLR_EL1
+#   CORTEX_{A520|A725|X925}_CPUECTLR_EL1_EXTLLC_BIT
+# Define the common macros for using in code.
+$(eval $(call add_define_val,CPUECTLR_EL1,CORTEX_A520_CPUECTLR_EL1))
+$(eval $(call add_define_val,CPUECTLR_EL1_EXTLLC_BIT,CORTEX_A520_CPUECTLR_EL1_EXTLLC_BIT))
+
 TC_CPU_SOURCES	+=	lib/cpus/aarch64/cortex_a520.S \
 			lib/cpus/aarch64/cortex_a725.S \
 			lib/cpus/aarch64/cortex_x925.S
