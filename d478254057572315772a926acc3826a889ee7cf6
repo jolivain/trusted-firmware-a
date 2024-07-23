@@ -112,6 +112,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2455fc89_aa0d41e6",
+        "filename": "bl1/bl1_fwu.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-23T17:05:23Z",
+      "side": 1,
+      "message": "Does this really apply to BL1 and BL2?\nimo CTX_INCLUDE_EL2_REGS concerns BL31 as a matter of world switching.\nBL2 runs at S-EL1 so I wonder if above has broader consequences?",
+      "range": {
+        "startLine": 530,
+        "startChar": 0,
+        "endLine": 534,
+        "endChar": 6
+      },
+      "revId": "d478254057572315772a926acc3826a889ee7cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "245b3c95_bae04598",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 42
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-23T17:05:23Z",
+      "side": 1,
+      "message": "nitpick: for readability, would it be preferable using the positive logic and flip the include statements?\n\n    #if CTX_INCLUDE_EL2_REGS\n    #include \u003clib/el3_runtime/context_el2.h\u003e\n    #else\n    #include \u003clib/el3_runtime/context_el1.h\u003e\n    #endif",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 27
+      },
+      "revId": "d478254057572315772a926acc3826a889ee7cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "77208121_076828e7",
         "filename": "include/lib/el3_runtime/aarch64/context.h",
         "patchSetId": 42
@@ -128,6 +174,98 @@
         "startChar": 45,
         "endLine": 290,
         "endChar": 63
+      },
+      "revId": "d478254057572315772a926acc3826a889ee7cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9596eed_181a7453",
+        "filename": "plat/arm/board/neoverse_rd/common/ras/nrd_ras_cpu.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-23T17:05:23Z",
+      "side": 1,
+      "message": "I wonder if this is the right fix, as CTX_INCLUDE_EL2_REGS\u003d1 will build without saving/restoring any context.\nDid build test configs fail without this change? If yes, I wonder platforms folks would have to refactor this a bit.",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 27
+      },
+      "revId": "d478254057572315772a926acc3826a889ee7cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d5a3e1e_833f550f",
+        "filename": "services/std_svc/sdei/sdei_intr_mgmt.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-23T17:05:23Z",
+      "side": 1,
+      "message": "similarly, I wonder if this is source for troubles later...",
+      "range": {
+        "startLine": 211,
+        "startChar": 1,
+        "endLine": 211,
+        "endChar": 27
+      },
+      "revId": "d478254057572315772a926acc3826a889ee7cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3222efbf_3437f83a",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-23T17:05:23Z",
+      "side": 1,
+      "message": "EL3 SPMC will never be built with CTX_INCLUDE_EL2_REGS\u003d1",
+      "range": {
+        "startLine": 617,
+        "startChar": 1,
+        "endLine": 617,
+        "endChar": 27
+      },
+      "revId": "d478254057572315772a926acc3826a889ee7cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "173f562b_93b6733c",
+        "filename": "services/std_svc/spm/spm_mm/spm_mm_main.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-07-23T17:05:23Z",
+      "side": 1,
+      "message": "SPM-MM will never be built with CTX_INCLUDE_EL2_REGS\u003d1",
+      "range": {
+        "startLine": 99,
+        "startChar": 1,
+        "endLine": 99,
+        "endChar": 27
       },
       "revId": "d478254057572315772a926acc3826a889ee7cf6",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
