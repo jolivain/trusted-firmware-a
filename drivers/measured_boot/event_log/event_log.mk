@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2020-2022, Arm Limited. All rights reserved.
+# Copyright (c) 2020-2024, Arm Limited. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -7,15 +7,15 @@
 # Default log level to dump the event log (LOG_LEVEL_INFO)
 EVENT_LOG_LEVEL         ?= 40
 
-# Measured Boot hash algorithm.
-# SHA-256 (or stronger) is required for all devices that are TPM 2.0 compliant.
+# When using a TPM, inherit the TPM's HASH ALG for Measure Boot.
 ifdef TPM_HASH_ALG
-    $(warning "TPM_HASH_ALG is deprecated. Please use MBOOT_EL_HASH_ALG instead.")
     MBOOT_EL_HASH_ALG		:=	${TPM_HASH_ALG}
 else
     MBOOT_EL_HASH_ALG		:=	sha256
 endif
 
+# Measured Boot hash algorithm.
+# SHA-256 (or stronger) is required for all devices that are TPM 2.0 compliant.
 ifeq (${MBOOT_EL_HASH_ALG}, sha512)
     TPM_ALG_ID			:=	TPM_ALG_SHA512
     TCG_DIGEST_SIZE		:=	64U
