@@ -22,6 +22,30 @@
       },
       "revId": "4784f3561b7f7d4c3e18eec7424957ada881f83f",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10a1d1fa_29de235e",
+        "filename": "include/lib/el3_runtime/simd_ctx.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-24T19:54:18Z",
+      "side": 1,
+      "message": "You are right, its not needed here. However, in the next patch[1], the outer condition gets relaxed to `#if CTX_INCLUDE_FPREGS || CTX_INCLUDE_SVE_REGS`. Hence the `CTX_INCLUDE_FPREGS \u0026\u0026 CTX_INCLUDE_AARCH32_REGS` is needed anyways in next patch. If you insist, I can make the change here but would have to be reintroduced in next patch.\n\n[1] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/29448/5/include/lib/el3_runtime/simd_ctx.h#16",
+      "parentUuid": "ba557562_93d05e79",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 22
+      },
+      "revId": "4784f3561b7f7d4c3e18eec7424957ada881f83f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
