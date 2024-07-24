@@ -205,24 +205,49 @@ static const uint8_t sample_platform_token[] = {
 	0x43, 0x54, 0x4d, 0xb5, 0x88, 0xd6, 0xae, 0x67,
 	0x35, 0x7a, 0xfd, 0xb0, 0x5f, 0x95, 0xb7
 };
+static uint64_t platform_token_offset;
 
 /*
  * Get the hardcoded platform attestation token as QEMU does not support
  * RSE.
  */
 int plat_rmmd_get_cca_attest_token(uintptr_t buf, size_t *len,
-				   uintptr_t hash, size_t hash_size)
+				   uintptr_t hash, size_t hash_size,
+				   size_t *remaining_len)
 {
 	(void)hash;
 	(void)hash_size;
+	size_t platform_token_size = sizeof(sample_platform_token);
+	size_t local_hunk_len;
+	size_t local_remaining_len;
 
-	if (*len < sizeof(sample_platform_token)) {
-		return -EINVAL;
+	if (hash_size != 0) {
+		platform_token_offset = 0;
+	} else if (platform_token_offset == platform_token_size) {
+		return PLAT_RMMD_ATTEST_TOKEN_INVAL;
 	}
 
-	(void)memcpy((void *)buf, (const void *)sample_platform_token,
-		     sizeof(sample_platform_token));
-	*len = sizeof(sample_platform_token);
+	local_hunk_len = *len;
+	local_remaining_len = platform_token_size - platform_token_offset;
 
-	return 0;
+	/*
+	 * If the buffer is enough to fit the remaining bytes of the token,
+	 * return only the remaining bytes of the token.
+	 */
+	if (local_hunk_len >= local_remaining_len) {
+		local_hunk_len = local_remaining_len;
+	}
+	/* Update remaining bytes according to hunk size */
+	local_remaining_len -= local_hunk_len;
+
+	(void)memcpy((void *)buf,
+			(const void *)sample_platform_token
+				+ platform_token_offset,
+			local_hunk_len);
+
+	platform_token_offset += local_hunk_len;
+	*len = local_hunk_len;
+	*remaining_len = local_remaining_len;
+
+	return PLAT_RMMD_ATTEST_TOKEN_OK;
 }
