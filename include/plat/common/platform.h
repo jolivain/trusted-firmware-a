@@ -411,6 +411,7 @@ const struct spm_mm_boot_info *plat_get_secure_partition_boot_info(
 int plat_spm_sp_rd_load(struct sp_res_desc *rd, const void *ptr, size_t size);
 int plat_spm_sp_get_next_address(void **sp_base, size_t *sp_size,
 				 void **rd_base, size_t *rd_size);
+int plat_get_all_processor_id(uint64_t **processor_id, uint32_t *cpunum);
 #if defined(SPD_spmd)
 int plat_spm_core_manifest_load(spmc_manifest_attribute_t *manifest,
 				const void *pm_addr);
