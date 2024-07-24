@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2024, ARM Limited and Contributors. All rights reserved.
  * Copyright (c) 2019, Linaro Limited
  *
  * SPDX-License-Identifier: BSD-3-Clause
@@ -49,5 +49,10 @@ static inline bool timeout_elapsed(uint64_t expire_cnt)
 void mdelay(uint32_t msec);
 void udelay(uint32_t usec);
 void timer_init(const timer_ops_t *ops_ptr);
+
+/* Platform Specific timer driver integration */
+uint64_t plat_timeout_init_us(uint32_t us);
+bool plat_timeout_elapsed(uint64_t expire_cnt);
+void plat_mdelay(uint32_t msec);
 
 #endif /* DELAY_TIMER_H */
