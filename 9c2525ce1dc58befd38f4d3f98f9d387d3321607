@@ -34,6 +34,24 @@
       "parentUuid": "4f94ec68_d0422fd2",
       "revId": "9c2525ce1dc58befd38f4d3f98f9d387d3321607",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4568f1ba_b9938d1c",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000814
+      },
+      "writtenOn": "2024-07-24T12:59:38Z",
+      "side": 1,
+      "message": "Yes, I was just wondering if the general macros would be clearer if defined (from the macros in the CPU headers) in plat/arm/board/tc/platform_def.h or if there was a reason the make file way was preferred.",
+      "parentUuid": "d5195443_d337ace2",
+      "revId": "9c2525ce1dc58befd38f4d3f98f9d387d3321607",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
