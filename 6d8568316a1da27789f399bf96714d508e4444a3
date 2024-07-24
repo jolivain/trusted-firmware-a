@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28db4f50_04e402f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000374
+      },
+      "writtenOn": "2024-07-24T10:32:31Z",
+      "side": 1,
+      "message": "With this change, the OPTEE commit I had asked to revert is not needed and OPTEE master branch or the release 4.3.0 must work fine. This note is for when running OPTEE with SPMC at EL2 in Hafnium.",
+      "revId": "6d8568316a1da27789f399bf96714d508e4444a3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
