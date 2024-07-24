@@ -26,7 +26,11 @@ FVP_DT_PREFIX			:= fvp-base-gicv3-psci
 
 # Size (in kilobytes) of the Trusted SRAM region to  utilize when building for
 # the FVP platform. This option defaults to 256.
-FVP_TRUSTED_SRAM_SIZE		:= 256
+ifeq ($(SPMC_AT_EL3_SEL0_SP), 1)
+FVP_TRUSTED_SRAM_SIZE := 512
+else
+FVP_TRUSTED_SRAM_SIZE	:= 256
+endif
 
 # Macro to enable helpers for running SPM tests. Disabled by default.
 PLAT_TEST_SPM	:= 0
@@ -374,7 +378,11 @@ endif
 ifeq (${SPD},spmd)
 
 ifeq ($(ARM_SPMC_MANIFEST_DTS),)
+ ifeq ($(SPMC_AT_EL3_SEL0_SP), 1)
+ARM_SPMC_MANIFEST_DTS	:=	plat/arm/board/fvp/fdts/${PLAT}_stmm_manifest.dts
+ else
 ARM_SPMC_MANIFEST_DTS	:=	plat/arm/board/fvp/fdts/${PLAT}_spmc_manifest.dts
+ endif
 endif
 
 FDT_SOURCES		+=	${ARM_SPMC_MANIFEST_DTS}
