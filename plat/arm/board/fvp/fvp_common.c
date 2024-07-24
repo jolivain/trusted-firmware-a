@@ -16,6 +16,7 @@
 #include <fconf_hw_config_getter.h>
 #include <lib/mmio.h>
 #include <lib/smccc.h>
+#include <lib/hob/mpinfo.h>
 #include <lib/xlat_tables/xlat_tables_compat.h>
 #include <platform_def.h>
 #include <services/arm_arch_svc.h>
@@ -29,6 +30,10 @@
 #include <plat/common/platform.h>
 
 #include "fvp_private.h"
+
+
+#define FVP_CPU_COUNT		(FVP_MAX_PE_PER_CPU * \
+				FVP_MAX_CPUS_PER_CLUSTER * FVP_CLUSTER_COUNT)
 
 /* Defines for GIC Driver build time selection */
 #define FVP_GICV2		1
@@ -331,6 +336,49 @@ const struct spm_mm_boot_info *plat_get_secure_partition_boot_info(
 		void *cookie)
 {
 	return &plat_arm_secure_partition_boot_info;
+}
+#elif defined(IMAGE_BL31) && SPMC_AT_EL3_SEL0_SP
+static uint64_t plat_mpdirs[FVP_CPU_COUNT];
+
+int plat_get_all_processor_id(uint64_t **processor_id, uint32_t *cpunum)
+{
+	unsigned int sys_id;
+	unsigned int rev;
+	uint8_t thread_id, core_id, cluster_id;
+	int i;
+
+	if (processor_id == NULL || cpunum == NULL) {
+		return -1;
+	}
+
+	sys_id = mmio_read_32(V2M_SYSREGS_BASE + V2M_SYS_ID);
+	rev = (sys_id >> V2M_SYS_ID_REV_SHIFT) & V2M_SYS_ID_REV_MASK;
+
+	for (i = 0; i < FVP_CPU_COUNT; i++) {
+		plat_mpdirs[i] |= (1 << 30);
+		if (rev) {
+			thread_id = i % FVP_MAX_PE_PER_CPU;
+			core_id = (i / FVP_MAX_PE_PER_CPU) % FVP_MAX_CPUS_PER_CLUSTER;
+			cluster_id = (i / (FVP_MAX_PE_PER_CPU * FVP_MAX_CPUS_PER_CLUSTER));
+
+			plat_mpdirs[i] = (MPIDR_MT_MASK |
+					(cluster_id << MPIDR_AFF2_SHIFT) |
+					(core_id << MPIDR_AFF1_SHIFT) |
+					(thread_id << MPIDR_AFF0_SHIFT));
+		} else {
+			thread_id = 0;
+			core_id = i % FVP_MAX_CPUS_PER_CLUSTER;
+			cluster_id = i / FVP_MAX_CPUS_PER_CLUSTER;
+
+			plat_mpdirs[i] = ((cluster_id << MPIDR_AFF1_SHIFT) |
+					(core_id << MPIDR_AFF0_SHIFT));
+		}
+	}
+
+	*processor_id = plat_mpdirs;
+	*cpunum = FVP_CPU_COUNT;
+
+	return 0;
 }
 #endif
 
