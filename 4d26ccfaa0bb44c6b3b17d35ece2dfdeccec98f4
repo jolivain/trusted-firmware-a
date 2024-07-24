@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc9ec36b_bbfe8cc4",
+        "filename": "include/services/rmmd_svc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-07-24T06:09:42Z",
+      "side": 1,
+      "message": "This error code may not be needed. See comments on RMM patch.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 35
+      },
+      "revId": "4d26ccfaa0bb44c6b3b17d35ece2dfdeccec98f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6388cc95_28208315",
+        "filename": "plat/arm/board/fvp/fvp_plat_attest_token.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-07-24T06:09:42Z",
+      "side": 1,
+      "message": "Have given some comments for the fake host implementation on these checks. Could you take a look at them ?",
+      "revId": "4d26ccfaa0bb44c6b3b17d35ece2dfdeccec98f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05e7f729_6f1f6032",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdv3/rdv3_plat_attest_token.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-07-24T06:09:42Z",
+      "side": 1,
+      "message": "add an assert that *len \u003d\u003d 4KB.",
+      "revId": "4d26ccfaa0bb44c6b3b17d35ece2dfdeccec98f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba0e93cc_f20e1a76",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdv3/rdv3_plat_attest_token.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-07-24T06:09:42Z",
+      "side": 1,
+      "message": "similarly an assert here that output len \u003c 4KB.",
+      "revId": "4d26ccfaa0bb44c6b3b17d35ece2dfdeccec98f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "341c1dd6_07c99f61",
+        "filename": "services/std_svc/rmmd/rmmd_private.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-07-24T06:09:42Z",
+      "side": 1,
+      "message": "`remaining_len` ?",
+      "range": {
+        "startLine": 50,
+        "startChar": 33,
+        "endLine": 50,
+        "endChar": 39
+      },
+      "revId": "4d26ccfaa0bb44c6b3b17d35ece2dfdeccec98f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
