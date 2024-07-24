@@ -16,6 +16,24 @@
       "message": "Why add this in the make file rather than platform_def.h?",
       "revId": "9c2525ce1dc58befd38f4d3f98f9d387d3321607",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5195443_d337ace2",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000108
+      },
+      "writtenOn": "2024-07-24T12:55:42Z",
+      "side": 1,
+      "message": "As discussed with Manish, the definitions for CORTEX_{A520|A725|X925}_CPUECTLR_EL1 and EXTLLC_BIT should come from CPU headers. On the other hand, because these three CPU variants have exactly same definitions, so we want to simplify the code by redefine general macros at here.\n\nYou can imagine when we support TC4, we will also define TC4\u0027s specific macros in the makefile.",
+      "parentUuid": "4f94ec68_d0422fd2",
+      "revId": "9c2525ce1dc58befd38f4d3f98f9d387d3321607",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
