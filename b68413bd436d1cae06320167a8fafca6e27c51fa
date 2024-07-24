@@ -22,6 +22,30 @@
       },
       "revId": "b68413bd436d1cae06320167a8fafca6e27c51fa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76261898_159fb756",
+        "filename": "include/lib/el3_runtime/simd_ctx.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-07-24T20:02:03Z",
+      "side": 1,
+      "message": "I did not encounter such a scenario in my limited testing. I agree with your observation that each instance within an array is expected to have the alignment constraints as the original declaration of the structure. However, I am not sure if compilers might influence the outcome. Moreover, the keyword `__attribute__(aligned)` is an extension supported by GCC (GNU tool chain). I dont know if LLVM clang would support it.\n\nEven if we remove the `reserved` bytes here, compiler will anyways insert padding for alignment purposes. Hence, I took the safer approach.",
+      "parentUuid": "55f4b2eb_d09b255d",
+      "range": {
+        "startLine": 78,
+        "startChar": 41,
+        "endLine": 81,
+        "endChar": 13
+      },
+      "revId": "b68413bd436d1cae06320167a8fafca6e27c51fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
