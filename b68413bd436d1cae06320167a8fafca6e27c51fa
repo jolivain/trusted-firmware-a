@@ -46,6 +46,30 @@
       },
       "revId": "b68413bd436d1cae06320167a8fafca6e27c51fa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26802c1c_dc43df20",
+        "filename": "include/lib/el3_runtime/simd_ctx.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-25T08:29:32Z",
+      "side": 1,
+      "message": "I agree with taking the safer approach and it\u0027s fine to proceed with it.\n\nHowever, I noticed that this safer approach isn\u0027t consistently applied across all structures in TF-A. For instance, the [cpu_data structure] is aligned(CACHE_WRITEBACK_GRANULE), but we haven\u0027t added any reserved bytes to ensure alignment.\n\nAdditionally, if we are manually adding padding bytes to ensure alignment (instead of relying on the compiler), I\u0027m not sure why we still need to explicitly use the alignment attribute then.\n\n[cpu_data structure]: https://git.trustedfirmware.org/TF-A/trusted-firmware-a/+/refs/heads/integration/include/lib/el3_runtime/cpu_data.h#119",
+      "parentUuid": "76261898_159fb756",
+      "range": {
+        "startLine": 78,
+        "startChar": 41,
+        "endLine": 81,
+        "endChar": 13
+      },
+      "revId": "b68413bd436d1cae06320167a8fafca6e27c51fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
