@@ -22,6 +22,30 @@
       },
       "revId": "f4dd18c270c0a171c1c4a04b1c7e886516ccd235",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1c151a0_5782727d",
+        "filename": "make_helpers/build-rules.mk",
+        "patchSetId": 13
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-07-25T09:35:21Z",
+      "side": 1,
+      "message": "`escape-shell` comes from `utilities.mk`, and `s` and `q` from `common.mk`",
+      "parentUuid": "4234fc31_8220e1b3",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 0
+      },
+      "revId": "f4dd18c270c0a171c1c4a04b1c7e886516ccd235",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
