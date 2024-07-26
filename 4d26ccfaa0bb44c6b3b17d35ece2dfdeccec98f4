@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7ac1370_599ee190",
+        "filename": "include/plat/common/platform.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 379,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-07-26T21:45:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85ab0cb6_81063d31",
+      "revId": "4d26ccfaa0bb44c6b3b17d35ece2dfdeccec98f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc9ec36b_bbfe8cc4",
@@ -49,6 +67,30 @@
       "writtenOn": "2024-07-24T06:09:42Z",
       "side": 1,
       "message": "This error code may not be needed. See comments on RMM patch.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 35
+      },
+      "revId": "4d26ccfaa0bb44c6b3b17d35ece2dfdeccec98f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "097fca70_8864329d",
+        "filename": "include/services/rmmd_svc.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-07-26T21:45:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc9ec36b_bbfe8cc4",
       "range": {
         "startLine": 88,
         "startChar": 0,
@@ -76,6 +118,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "325b94d8_c340de87",
+        "filename": "plat/arm/board/fvp/fvp_plat_attest_token.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-07-26T21:45:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6388cc95_28208315",
+      "revId": "4d26ccfaa0bb44c6b3b17d35ece2dfdeccec98f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "83a1074d_178dfa4f",
@@ -89,6 +149,24 @@
       "writtenOn": "2024-07-24T09:54:16Z",
       "side": 1,
       "message": "PLAT_RMMD_ATTEST_TOKEN_OK?",
+      "revId": "4d26ccfaa0bb44c6b3b17d35ece2dfdeccec98f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af524371_e97d1d8c",
+        "filename": "plat/arm/board/fvp/fvp_plat_attest_token.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-07-26T21:45:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83a1074d_178dfa4f",
       "revId": "4d26ccfaa0bb44c6b3b17d35ece2dfdeccec98f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -110,6 +188,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae59d91c_91c1611c",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdv3/rdv3_plat_attest_token.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-07-26T21:45:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05e7f729_6f1f6032",
+      "revId": "4d26ccfaa0bb44c6b3b17d35ece2dfdeccec98f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba0e93cc_f20e1a76",
@@ -123,6 +219,24 @@
       "writtenOn": "2024-07-24T06:09:42Z",
       "side": 1,
       "message": "similarly an assert here that output len \u003c 4KB.",
+      "revId": "4d26ccfaa0bb44c6b3b17d35ece2dfdeccec98f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b359ec4_c1bd7c85",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdv3/rdv3_plat_attest_token.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-07-26T21:45:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba0e93cc_f20e1a76",
       "revId": "4d26ccfaa0bb44c6b3b17d35ece2dfdeccec98f4",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
@@ -164,6 +278,30 @@
       "side": 1,
       "message": "`*remaining_len`",
       "parentUuid": "341c1dd6_07c99f61",
+      "range": {
+        "startLine": 50,
+        "startChar": 33,
+        "endLine": 50,
+        "endChar": 39
+      },
+      "revId": "4d26ccfaa0bb44c6b3b17d35ece2dfdeccec98f4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6e4a7b0_9160bbf3",
+        "filename": "services/std_svc/rmmd/rmmd_private.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1000750
+      },
+      "writtenOn": "2024-07-26T21:45:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73643606_2a44cd23",
       "range": {
         "startLine": 50,
         "startChar": 33,
