@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b0d1e34_36f09317",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1500,
+      "author": {
+        "id": 1000108
+      },
+      "writtenOn": "2024-07-26T08:52:32Z",
+      "side": 1,
+      "message": "The change is fine for me.  Just a nitpick, given `ENABLE_SPE_FOR_NS` is specific for non-secure world, I know now it only passes the non-secure context to this function, but it is good to add an `assert(ctx \u003d\u003d cm_get_context(NON_SECURE));`\n\nOr even more, you don\u0027t use the \u0027ctx\u0027 as parameter and directly fetch the non-secure context at here by calling `cpu_contex_t *ctx \u003d cm_get_context(NON_SECURE))`.",
+      "range": {
+        "startLine": 1500,
+        "startChar": 4,
+        "endLine": 1500,
+        "endChar": 22
+      },
+      "revId": "ef74710c375149c245d88eca9150fe7208810ecd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
