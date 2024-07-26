@@ -34,6 +34,24 @@
       "parentUuid": "174b29aa_4a4a91c1",
       "revId": "fdd8a24b9892fa0e67580dc25f7e7ca0b54c870e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aeaf008e_31870992",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2024-07-26T16:29:40Z",
+      "side": 1,
+      "message": "The SPMD concerns are already addressed in the RMMD design with the help of a flag. So, not sure how this change maps with the SPMD concerns.\n\nIf you check https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/30026, he already agrees that we need to allow RMMD setup failure.",
+      "parentUuid": "d675edf5_8ac4e576",
+      "revId": "fdd8a24b9892fa0e67580dc25f7e7ca0b54c870e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
