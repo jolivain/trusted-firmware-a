@@ -16,6 +16,24 @@
       "message": "this is macro is bit confusing with your commit message",
       "revId": "105369108655463fdcc0258aa58f64e6e044a430",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86cace29_0f96fddb",
+        "filename": "plat/arm/board/tc/platform.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-07-26T11:26:27Z",
+      "side": 1,
+      "message": "The newly introduced FEAT_STATE_CHECK_ASYMMETRIC has value 3 which need to be set for this feature",
+      "parentUuid": "918c2b5c_851a9b83",
+      "revId": "105369108655463fdcc0258aa58f64e6e044a430",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
