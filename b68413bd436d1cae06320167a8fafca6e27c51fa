@@ -94,6 +94,30 @@
       },
       "revId": "b68413bd436d1cae06320167a8fafca6e27c51fa",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85bc2f10_740c1c2b",
+        "filename": "include/lib/el3_runtime/simd_ctx.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-29T16:30:53Z",
+      "side": 1,
+      "message": "\u003eI had a rethink of this. It looks like clang also supports the keyword attribute(aligned). I believe compilers are much better at this relative to humans. The data structure could change over time with more fields being added. Which means, if we take the manual approach of adding reserved bytes , the burden falls on developers and could be error prone. \n\n\u003eSo I am thinking to remove reserved bytes and just stick to aligned keyword usage which puts the burden on compiler to ensure alignment. If you agree with this, I will make necessary changes.\n\nYes, that\u0027s what I was thinking too. I agree with using the aligned attribute and removing the manually added padding, it\u0027s more robust that way.",
+      "parentUuid": "6b8b0226_57b7defa",
+      "range": {
+        "startLine": 78,
+        "startChar": 41,
+        "endLine": 81,
+        "endChar": 13
+      },
+      "revId": "b68413bd436d1cae06320167a8fafca6e27c51fa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
