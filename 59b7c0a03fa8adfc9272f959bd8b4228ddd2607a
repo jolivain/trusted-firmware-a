@@ -16,6 +16,29 @@
       "message": "CI tested here from the top patch:\nhttp://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/2362/",
       "revId": "59b7c0a03fa8adfc9272f959bd8b4228ddd2607a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "854a8da4_348d4008",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-29T12:53:07Z",
+      "side": 1,
+      "message": "I\u0027m fine with this but thinking can this be wrapped in a single call as it is repitition? Something like the following:\n\n```\nstatic inline write_ctx_sctlr_el1_reg_errata(ctx) {\n#if (ERRATA_SPECULATIVE_AT)\n\twrite_ctx_reg(get_errata_speculative_at_ctx(ctx), CTX_ERRATA_SPEC_AT_SCTLR_EL1, sctlr_elx);\n#else\n\twrite_ctx_reg(get_el1_sysregs_ctx(ctx), CTX_SCTLR_EL1, sctlr_elx);\n#endif /* ERRATA_SPECULATIVE_AT */\n}\n\nwrite_ctx_sctlr_el1_reg_errata(ctx);\n```\n\nand similarly for TCR_EL1.",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 34
+      },
+      "revId": "59b7c0a03fa8adfc9272f959bd8b4228ddd2607a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
