@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1e95b843_3b6cea63",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-29T08:51:25Z",
+      "side": 1,
+      "message": "nit: variable",
+      "range": {
+        "startLine": 9,
+        "startChar": 23,
+        "endLine": 9,
+        "endChar": 32
+      },
+      "revId": "2be0f45b0c880653495b122940e29d7aace68ad8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8724abc_6f07ee4a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -32,6 +55,24 @@
       "side": 1,
       "message": "Well... Do you mean add testcase in TFTF?\nI think it would be in different patch and this patch is merged first indepenently :)",
       "parentUuid": "e8724abc_6f07ee4a",
+      "revId": "2be0f45b0c880653495b122940e29d7aace68ad8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21e554b2_df896c21",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-29T08:51:25Z",
+      "side": 1,
+      "message": "Can we run the FW update service to test the code you implemented with the TF-A continuous integration script by running all necessary binaries over the model?",
+      "parentUuid": "b7b9ce67_f7af55a9",
       "revId": "2be0f45b0c880653495b122940e29d7aace68ad8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
