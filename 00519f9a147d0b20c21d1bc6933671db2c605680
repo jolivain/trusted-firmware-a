@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "44b25376_dbd39b41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-29T14:00:58Z",
+      "side": 1,
+      "message": "s/simaltaniously/simultaneously/",
+      "revId": "00519f9a147d0b20c21d1bc6933671db2c605680",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "8c739c5f_390b29c2",
@@ -14,6 +31,29 @@
       "writtenOn": "2024-07-23T21:12:09Z",
       "side": 1,
       "message": "These issues have been resolved; there\u0027s no size change in any romlib configuration (well, there\u0027s 8 bytes less in the fvp romlibs from the duplicate table entry config).",
+      "revId": "00519f9a147d0b20c21d1bc6933671db2c605680",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf72db47_55646e96",
+        "filename": "make_helpers/build_macros.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-29T14:00:58Z",
+      "side": 1,
+      "message": "why this is not  $$(WRAPPER_FLAGS)?",
+      "range": {
+        "startLine": 559,
+        "startChar": 54,
+        "endLine": 559,
+        "endChar": 70
+      },
       "revId": "00519f9a147d0b20c21d1bc6933671db2c605680",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
