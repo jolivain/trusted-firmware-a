@@ -34,6 +34,24 @@
       "parentUuid": "4031f1e6_6cf57ca2",
       "revId": "beaa576ddc1a267d483a6a3f5f88eba1c9bd824e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31a6d59c_d23a2c2f",
+        "filename": "include/lib/el3_runtime/context_mgmt.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-07-29T14:20:39Z",
+      "side": 1,
+      "message": "\u003eThere is a security risk that if EL3 is enabling some features for NS without the knowledge of Secure,\n\nThe secure/realm context is always set on running core (in warmboot path), so this is not a problem even before this pathstack\n\n\u003eI think both these cases should be handled at the platform level, by making this call a plat_ call.\n\nThere are couple of reasons why i preferred it not to be part platform hook\n1. Does not want platform code to access context memory (keep it central)\n2. It may end up in a lot of duplicate code (each platform writing its own feature disable/enable functions)",
+      "parentUuid": "68f1432e_05baceb6",
+      "revId": "beaa576ddc1a267d483a6a3f5f88eba1c9bd824e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
