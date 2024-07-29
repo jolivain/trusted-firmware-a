@@ -39,6 +39,30 @@
       },
       "revId": "59b7c0a03fa8adfc9272f959bd8b4228ddd2607a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "535a95f8_9898a722",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-07-29T14:59:19Z",
+      "side": 1,
+      "message": "Hi Manish,\nI too agree with your comment (repeatition) and I had this in mind.\nThe reason I still proceeded with this approach is, we need four functions here.\nOne for read and one for write for SCTLR_EL1 and TCR_EL1 regs.\n\n```\nwrite_ctx_sctlr_el1_reg_errata(ctx);\nread_ctx_sctlr_el1_reg_errata(ctx);\nwrite_ctx_tcr_el1_reg_errata(ctx);\nread_ctx_tcr_el1_reg_errata(ctx);\n```\n\nSo wasn\u0027t sure how that would be seen, as we are already using macros for accessing registers and this would be on top of it. Further, it would just be for these two registers and not for all. A little bit of deviation from generic pattern.\nSo restrained myself. Kindly Let me know. If you still prefer this to be optimised as you insist, I will modify it.\nThanks!",
+      "parentUuid": "854a8da4_348d4008",
+      "range": {
+        "startLine": 97,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 34
+      },
+      "revId": "59b7c0a03fa8adfc9272f959bd8b4228ddd2607a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
