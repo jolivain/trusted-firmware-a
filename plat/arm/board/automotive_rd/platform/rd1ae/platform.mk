@@ -62,6 +62,10 @@ BL31_SOURCES	+=	${RD1AE_CPU_SOURCES}	\
 					lib/utils/mem_region.c	\
 					plat/arm/common/arm_nor_psci_mem_protect.c
 
+ifeq (${TRUSTED_BOARD_BOOT},1)
+BL2_SOURCES		+=	${RD1AE_BASE}/rd1ae_tbb.c
+endif
+
 # Add the FDT_SOURCES and options for Dynamic Config
 FDT_SOURCES		+=	${RD1AE_BASE}/fdts/${PLAT}_fw_config.dts	\
 					fdts/${PLAT}.dts
