@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33d575c8_0923e15a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001369
+      },
+      "writtenOn": "2024-07-29T08:55:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1e95b843_3b6cea63",
+      "range": {
+        "startLine": 9,
+        "startChar": 23,
+        "endLine": 9,
+        "endChar": 32
+      },
+      "revId": "2be0f45b0c880653495b122940e29d7aace68ad8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8724abc_6f07ee4a",
@@ -73,6 +97,24 @@
       "side": 1,
       "message": "Can we run the FW update service to test the code you implemented with the TF-A continuous integration script by running all necessary binaries over the model?",
       "parentUuid": "b7b9ce67_f7af55a9",
+      "revId": "2be0f45b0c880653495b122940e29d7aace68ad8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b20850b_8c012ef7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001369
+      },
+      "writtenOn": "2024-07-29T08:55:15Z",
+      "side": 1,
+      "message": "Well. recently we talk about Firmware update service but it should be implemented by TF-A side.\nSo, I need to fix the commit message for only variable service (also it could use FLASH0 area).\n\nI think it would be added after FF-A based firmware update service using StandaloneMm.\n\nI\u0027ll fix the commit message. Thanks!",
+      "parentUuid": "21e554b2_df896c21",
       "revId": "2be0f45b0c880653495b122940e29d7aace68ad8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
