@@ -10,6 +10,7 @@
 
 #include <drivers/scmi-msg.h>
 #include <drivers/scmi.h>
+#include <lib/mmio.h>
 #include <lib/utils_def.h>
 #include <platform_def.h>
 #include <scmi.h>
@@ -433,9 +434,15 @@ int32_t plat_scmi_rstd_set_state(unsigned int agent_id, unsigned int scmi_id,
 	if (assert_not_deassert) {
 		NOTICE("SCMI reset %lu/%s set\n",
 		       reset->reset_id, plat_scmi_rstd_get_name(agent_id, scmi_id));
+		if (scmi_id == RESET_UFS0_0) {
+			mmio_write_32(PMXC_CRP_RST_UFS, 1);
+		}
 	} else {
 		NOTICE("SCMI reset %lu/%s release\n",
 		       reset->reset_id, plat_scmi_rstd_get_name(agent_id, scmi_id));
+		if (scmi_id == RESET_UFS0_0) {
+			mmio_write_32(PMXC_CRP_RST_UFS, 0);
+		}
 	}
 
 	return SCMI_SUCCESS;
