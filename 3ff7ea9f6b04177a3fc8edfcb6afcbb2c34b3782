@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "400ac281_01380eac",
+        "filename": "tools/tlc/tlc/cli.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1001332
+      },
+      "writtenOn": "2024-07-29T14:21:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c52d8912_96df1c3a",
+      "range": {
+        "startLine": 153,
+        "startChar": 0,
+        "endLine": 153,
+        "endChar": 2
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6bc73cfc_a7ad7e65",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-07-02T09:43:40Z",
       "side": 1,
       "message": "Based on the comment below, I would suggest generically naming this option (e.g. `-r/--root`).",
+      "range": {
+        "startLine": 155,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 1
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d7c2bca_2d1acc45",
+        "filename": "tools/tlc/tlc/cli.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1001332
+      },
+      "writtenOn": "2024-07-29T14:21:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bc73cfc_a7ad7e65",
       "range": {
         "startLine": 155,
         "startChar": 0,
@@ -172,6 +220,30 @@
       "writtenOn": "2024-07-02T09:43:40Z",
       "side": 1,
       "message": "To avoid coupling between the command line interface and the `TranferList` type, can we catch this error at the top level, similar to `create` [1].\n\n[1] https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/29573/2/tools/tlc/tlc/cli.py#55",
+      "range": {
+        "startLine": 141,
+        "startChar": 21,
+        "endLine": 148,
+        "endChar": 27
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "459a6c3f_b2565a6f",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1001332
+      },
+      "writtenOn": "2024-07-29T14:21:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "370537bb_158e8173",
       "range": {
         "startLine": 141,
         "startChar": 21,
@@ -395,6 +467,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed6c0fff_8eee71d7",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1001332
+      },
+      "writtenOn": "2024-07-29T14:21:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a8536bb_4a3bfee3",
+      "range": {
+        "startLine": 247,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 1
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71a440d9_3a2c67dd",
@@ -503,6 +599,30 @@
       "writtenOn": "2024-07-02T09:43:40Z",
       "side": 1,
       "message": "In my view, we should respect the paths provided by the user. If the file can\u0027t be found, then the tool can report that back to the user as an error.",
+      "range": {
+        "startLine": 367,
+        "startChar": 0,
+        "endLine": 367,
+        "endChar": 2
+      },
+      "revId": "3ff7ea9f6b04177a3fc8edfcb6afcbb2c34b3782",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c59960c_585f73d6",
+        "filename": "tools/tlc/tlc/tl.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1001332
+      },
+      "writtenOn": "2024-07-29T14:21:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ee2d194_d8e6a21b",
       "range": {
         "startLine": 367,
         "startChar": 0,
