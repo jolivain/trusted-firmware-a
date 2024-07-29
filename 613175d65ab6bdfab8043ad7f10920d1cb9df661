@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afeb295c_3304d581",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 57
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-07-29T12:57:08Z",
+      "side": 1,
+      "message": "Better wording would be \nSet to one to enable SError interrupts at EL3",
+      "range": {
+        "startLine": 511,
+        "startChar": 16,
+        "endLine": 512,
+        "endChar": 37
+      },
+      "revId": "613175d65ab6bdfab8043ad7f10920d1cb9df661",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
