@@ -1534,6 +1534,8 @@ $(if ${BUILD_BL32}, $(eval $(call MAKE_BL,bl32,tos-fw)),\
 endif #(DECRYPTION_SUPPORT)
 endif #(NEED_BL32)
 
+# RMM is always needed if RME enabled
+ifeq (${ENABLE_RME},1)
 # If RMM image is needed but RMM is not defined, Test Realm Payload (TRP)
 # needs to be built from RMM_SOURCES.
 ifeq (${NEED_RMM},yes)
@@ -1543,7 +1545,11 @@ BUILD_RMM := $(if $(RMM),,$(if $(RMM_SOURCES),1))
 
 $(if ${BUILD_RMM}, $(eval $(call MAKE_BL,rmm,rmm-fw)),\
 	 $(eval $(call TOOL_ADD_IMG,rmm,--rmm-fw)))
+else
+# Use an external RMM image
+$(eval $(call TOOL_ADD_IMG,rmm,--rmm-fw))
 endif #(NEED_RMM)
+endif #(ENABLE_RME)
 
 # Add the BL33 image if required by the platform
 ifeq (${NEED_BL33},yes)
