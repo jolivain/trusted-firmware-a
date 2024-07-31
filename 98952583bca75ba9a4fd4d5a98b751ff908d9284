@@ -16,6 +16,24 @@
       "message": "You need to add to the coverity script tf-cov-mak in the tf-a-ci-scripts repo to pass the static fail.\n\nI noticed that the following rockchip compiles are already there:\n\nmake PLAT\u003drk3288 CROSS_COMPILE\u003darm-none-eabi- \\\n    $(common_flags) ARCH\u003daarch32 AARCH32_SP\u003dsp_min all\nmake PLAT\u003drk3368 $(common_flags) COREBOOT\u003d1 \\\n    ENABLE_STACK_PROTECTOR\u003dstrong all\nmake PLAT\u003drk3399 $(common_flags) COREBOOT\u003d1 PLAT_RK_DP_HDCP\u003d1 \\\n    ENABLE_STACK_PROTECTOR\u003dstrong all\nmake PLAT\u003drk3328 $(common_flags) COREBOOT\u003d1 PLAT_RK_SECURE_DDR_MINILOADER\u003d1 \\\n    ENABLE_STACK_PROTECTOR\u003dstrong all\n    \nYou will need to add for rk3588...",
       "revId": "98952583bca75ba9a4fd4d5a98b751ff908d9284",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4dde7be_8b79ffbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000266
+      },
+      "writtenOn": "2024-07-31T08:01:51Z",
+      "side": 1,
+      "message": "Hi Mark,\nDo you mean something like this?\nhttps://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/20435\n\nThis rk3568 patch still not merged.",
+      "parentUuid": "7684c865_438d69de",
+      "revId": "98952583bca75ba9a4fd4d5a98b751ff908d9284",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
