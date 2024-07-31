@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53811771_d3393443",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001289
+      },
+      "writtenOn": "2024-07-31T11:29:57Z",
+      "side": 1,
+      "message": "I have introduced a heap size optimisation in patchset 5.\nLocally, this is sufficient to stop the heap size errors which were occuring in the config \"tf-l3-boot-tests-misc/fvp-tbb-psa-mbedtls,fvp-default:fvp-tftf-fip.tftf-aemv8a-debug\" (https://ci.trustedfirmware.org/job/tf-a-builder/4070797/artifact/lava.log/*view*/). \n\nThanks Manish for highlighting this issue to me!",
+      "revId": "d904d42108ad32cfa4c0c3ce295fa238f2bb878c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
