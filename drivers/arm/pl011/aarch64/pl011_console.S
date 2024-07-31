@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2020, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2013-2024, Arm Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -134,11 +134,13 @@ func console_pl011_core_putc
 	tbnz	w2, #PL011_UARTFR_TXFF_BIT, 1b
 	mov	w2, #0xD
 	str	w2, [x1, #UARTDR]
+	dmb     st
 2:
 	/* Check if the transmit FIFO is full */
 	ldr	w2, [x1, #UARTFR]
 	tbnz	w2, #PL011_UARTFR_TXFF_BIT, 2b
 	str	w0, [x1, #UARTDR]
+	dmb     st
 	ret
 endfunc console_pl011_core_putc
 
