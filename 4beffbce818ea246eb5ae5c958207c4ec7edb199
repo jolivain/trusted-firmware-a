@@ -33,6 +33,23 @@
       "message": "Static test failure is spurious - the checker is incorrectly assuming that a unary * is a binary operator in code untouched by this patch. I\u0027m marking this as verified, CI + 1 and CI + 2 otherwised passed.",
       "revId": "4beffbce818ea246eb5ae5c958207c4ec7edb199",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a5890ea_38faa736",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-07-31T08:19:00Z",
+      "side": 1,
+      "message": "Please run these 2 configurations which are not part of L2 job:\n1. tf-l3-boot-tests-misc/fvp-tbb-psa-mbedtls-rsa-ecdsa-with-rsa-rotpk-ecdsa-cert,fvp-default:fvp-tftf-fip.tftf-aemv8a-debug\n2. tf-l3-boot-tests-misc/fvp-tbb-psa-mbedtls,fvp-default:fvp-tftf-fip.tftf-aemv8a-debug",
+      "revId": "4beffbce818ea246eb5ae5c958207c4ec7edb199",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
