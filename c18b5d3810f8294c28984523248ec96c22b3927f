@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7706241c_3d994a00",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1001235
+      },
+      "writtenOn": "2024-08-01T13:37:58Z",
+      "side": 1,
+      "message": "Per my manager\u0027s suggestion, remove the 512K offset from PRELOADED_INITRD_BASE and ARM_PRELOADED_DTB_BASE for better visualisation and ease of use of the HEX addresses.",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 40
+      },
+      "revId": "c18b5d3810f8294c28984523248ec96c22b3927f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
