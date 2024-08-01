@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7c38334_bda4a2df",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-08-01T09:16:13Z",
+      "side": 1,
+      "message": "just checking, UART device should be mapped Device-xxx\nIs an explicit memory barrier required as write to this peripheral memory region would be implicitly ordered? Or perhaps it requires revisiting the (n)G(n)R(n)E constraint?",
+      "range": {
+        "startLine": 137,
+        "startChar": 1,
+        "endLine": 137,
+        "endChar": 11
+      },
+      "revId": "67aa5d2b15ab66565248523d67220234caeb939e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
