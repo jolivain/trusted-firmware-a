@@ -22,6 +22,30 @@
       },
       "revId": "4e974a13ec2a8b963a0ef53e05fa6321b5c15edd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "954d09fe_e742a46d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-08-01T13:28:18Z",
+      "side": 1,
+      "message": "Hi Soby, just to clarify, what would be the purpose of NEED_RMM flag? I see that setting it as yes or no with external RMM doesn\u0027t make a difference as ENABLE_RME would already include rmmd makefile.\n\nRDV3 had this flag set as \"no\" along with RMM set to an external path. Would like to clarify if NEED_RMM is something we shouldn\u0027t be setting from platform itself?",
+      "parentUuid": "cbda4845_c9c3e6ef",
+      "range": {
+        "startLine": 10,
+        "startChar": 50,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "4e974a13ec2a8b963a0ef53e05fa6321b5c15edd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
