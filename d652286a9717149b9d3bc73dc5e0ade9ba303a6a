@@ -16,6 +16,23 @@
       "message": "Hi team,\nKindly review this minor patch and share your comments/votes.\nThanks!",
       "revId": "d652286a9717149b9d3bc73dc5e0ade9ba303a6a",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c33c307_607e68de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-01T09:25:27Z",
+      "side": 1,
+      "message": "**CI tested here:**\nhttps://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/2386/\n\nFailed test on rebuild (Passed):\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/80452/\n\nManually providing verified +1.",
+      "revId": "d652286a9717149b9d3bc73dc5e0ade9ba303a6a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
