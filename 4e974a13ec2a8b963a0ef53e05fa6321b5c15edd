@@ -70,6 +70,30 @@
       },
       "revId": "4e974a13ec2a8b963a0ef53e05fa6321b5c15edd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ba1c35_555cede0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000056
+      },
+      "writtenOn": "2024-08-01T13:46:26Z",
+      "side": 1,
+      "message": "The NEED_RMM is an internal flag used within the build system and not meant to be used by platforms.\n\nThe platform/user build options are mentioned here : https://trustedfirmware-a.readthedocs.io/en/latest/getting_started/build-options.html\n\nI just noticed that `RMM` as a build option is missing in that guide. Need to get that added.",
+      "parentUuid": "954d09fe_e742a46d",
+      "range": {
+        "startLine": 10,
+        "startChar": 50,
+        "endLine": 12,
+        "endChar": 27
+      },
+      "revId": "4e974a13ec2a8b963a0ef53e05fa6321b5c15edd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
