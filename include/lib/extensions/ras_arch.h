@@ -140,6 +140,92 @@
 #define ERR_CTLR_ENABLE_FIELD(_ctlr, _field) \
 	ERR_CTLR_SET_FIELD(_ctlr, _field, ERR_CTLR_ ##_field ##_MASK)
 
+/* Standard Error Record feature register fields */
+#define ERR_FR_TS_SHIFT		24
+#define ERR_FR_TS_MASK		U(0x3)
+
+#define ERR_FR_CI_SHIFT		22
+#define ERR_FR_CI_MASK		U(0x3)
+
+#define ERR_FR_INJ_SHIFT	20
+#define ERR_FR_INJ_MASK		U(0x3)
+
+#define ERR_FR_CEO_SHIFT	18
+#define ERR_FR_CEO_MASK		U(0x3)
+
+#define ERR_FR_DUI_SHIFT	16
+#define ERR_FR_DUI_MASK		U(0x3)
+
+#define ERR_FR_RP_SHIFT		15
+#define ERR_FR_RP_MASK		U(0x1)
+
+#define ERR_FR_CEC_SHIFT	12
+#define ERR_FR_CEC_MASK		U(0x7)
+
+#define ERR_FR_CFI_SHIFT	10
+#define ERR_FR_CFI_MASK		U(0x3)
+
+#define ERR_FR_UE_SHIFT		8
+#define ERR_FR_UE_MASK		U(0x3)
+
+#define ERR_FR_FI_SHIFT		6
+#define ERR_FR_FI_MASK		U(0x3)
+
+#define ERR_FR_UI_SHIFT		4
+#define ERR_FR_UI_MASK		U(0x3)
+
+#define ERR_FR_DE_SHIFT		2
+#define ERR_FR_DE_MASK		U(0x3)
+
+#define ERR_FR_ED_SHIFT		0
+#define ERR_FR_ED_MASK		U(0x3)
+
+#define ERR_FR_GET_FIELD(_fr, _field) \
+	(((_fr) >> ERR_FR_ ##_field ##_SHIFT) & ERR_FR_ ##_field ##_MASK)
+
+/* Standard Error Record miscellaneous register 0 fields */
+#define ERR_MISC0_SBE_BITPOS_VALID_SHIFT	57
+#define ERR_MISC0_SBE_BITPOS_VALID_MASK		U(0x1)
+
+#define ERR_MISC0_SBE_BITPOS_SHIFT		48
+#define ERR_MISC0_SBE_BITPOS_MASK		U(0x1ff)
+
+#define ERR_MISC0_OFO_SHIFT			47
+#define ERR_MISC0_OFO_MASK			U(0x1)
+
+#define ERR_MISC0_CECO_SHIFT			40
+#define ERR_MISC0_CECO_MASK			U(0x7F)
+
+#define ERR_MISC0_OFR_SHIFT			39
+#define ERR_MISC0_OFR_MASK			U(0x1)
+
+#define ERR_MISC0_CECR_SHIFT			32
+#define ERR_MISC0_CECR_MASK			U(0x7F)
+
+#define ERR_MISC0_WAY_SHIFT			28
+#define ERR_MISC0_WAY_MASK			U(0xF)
+
+#define ERR_MISC0_SUBBANK_SHIFT			25
+#define ERR_MISC0_SUBBANK_MASK			U(0x1)
+
+#define ERR_MISC0_BANK_SHIFT			23
+#define ERR_MISC0_BANK_MASK			U(0x3)
+
+#define ERR_MISC0_SUBARRAY_SHIFT		19
+#define ERR_MISC0_SUBARRAY_MASK			U(0xF)
+
+#define ERR_MISC0_INDEX_SHIFT			6
+#define ERR_MISC0_INDEX_MASK			U(0x1FFF)
+
+#define ERR_MISC0_ARRAY_SHIFT			4
+#define ERR_MISC0_ARRAY_MASK			U(0x3)
+
+#define ERR_MISC0_UNIT_SHIFT			0
+#define ERR_MISC0_UNIT_MASK			U(0xF)
+
+#define ERR_MISC0_GET_FIELD(_fr, _field) \
+	(((_fr) >> ERR_MISC0_ ##_field ##_SHIFT) & ERR_MISC0_ ##_field ##_MASK)
+
 /* Uncorrected error types for Asynchronous exceptions */
 #define ERROR_STATUS_UET_UC	0x0	/* Uncontainable */
 #define ERROR_STATUS_UET_UEU	0x1	/* Unrecoverable */
