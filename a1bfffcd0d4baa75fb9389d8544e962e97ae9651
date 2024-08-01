@@ -33,6 +33,24 @@
       "message": "Could we use a ``bool`` instead? Also, I\u0027m thinking the context initialization and cleanup can be wrapped as below to better handle the ``pk_initialized`` flag in tandem. What do you think?\n\n```\nstatic void initialize_pk_context(mbedtls_pk_context *pk  bool *pk_initialised) {\n    mbedtls_pk_init(pk);\n    *pk_initialised \u003d true;\n}\n\nstatic void cleanup_pk_context(mbedtls_pk_context *pk, int *pk_initialised) {\n    if (*pk_initialised) {\n        mbedtls_pk_free(pk);\n        *pk_initialised \u003d false;\n    }\n}\n```",
       "revId": "a1bfffcd0d4baa75fb9389d8544e962e97ae9651",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccc4c015_dbede834",
+        "filename": "drivers/auth/mbedtls/mbedtls_psa_crypto.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1001289
+      },
+      "writtenOn": "2024-08-01T10:24:45Z",
+      "side": 1,
+      "message": "Good idea, I have implemented this pattern in patch set 7.",
+      "parentUuid": "de2f10be_38815470",
+      "revId": "a1bfffcd0d4baa75fb9389d8544e962e97ae9651",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
