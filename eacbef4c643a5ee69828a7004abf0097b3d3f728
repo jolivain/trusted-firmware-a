@@ -127,6 +127,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb5650e1_b77a6392",
+        "filename": "services/std_svc/rmmd/rmmd_main.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1000162
+      },
+      "writtenOn": "2024-08-01T16:47:30Z",
+      "side": 1,
+      "message": "I have not seen other failures so far. Thanks for the pointers - I will keep an eye out. The main intention was to remove the assert and continue with boot cleanly.",
+      "parentUuid": "2de62e3c_915ab5fe",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 209,
+        "endChar": 2
+      },
+      "revId": "eacbef4c643a5ee69828a7004abf0097b3d3f728",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6e4853fc_676022a5",
         "filename": "services/std_svc/rmmd/rmmd_main.c",
         "patchSetId": 2
