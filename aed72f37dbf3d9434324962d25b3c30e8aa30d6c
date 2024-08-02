@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67b41382_0e119ad9",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-08-02T15:02:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55f1f66d_4e35701c",
+      "range": {
+        "startLine": 444,
+        "startChar": 70,
+        "endLine": 446,
+        "endChar": 36
+      },
+      "revId": "aed72f37dbf3d9434324962d25b3c30e8aa30d6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9fc19f2_c759a6a2",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-08-02T08:36:41Z",
       "side": 1,
       "message": "I think ``arm_transfer_list_populate_ep_info`` is used by BL2 so __init is not really needed here.",
+      "range": {
+        "startLine": 32,
+        "startChar": 5,
+        "endLine": 32,
+        "endChar": 11
+      },
+      "revId": "aed72f37dbf3d9434324962d25b3c30e8aa30d6c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03b3b2b1_efaa2e68",
+        "filename": "plat/arm/common/arm_transfer_list.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-08-02T15:02:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9fc19f2_c759a6a2",
       "range": {
         "startLine": 32,
         "startChar": 5,
