@@ -16,6 +16,23 @@
       "message": "Fixed Static Check failures",
       "revId": "0bc36c839fb0ffe488d4fe1c853310ee79d62425",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da2079a6_5798447a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-02T08:16:24Z",
+      "side": 1,
+      "message": "Static failures are false positives so ignoring it and providing Verified+1. Also, this patch is tested with the existing PSA_CRYPTO test configurations part of L3 job [1].\n\n[1]: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/80627/",
+      "revId": "0bc36c839fb0ffe488d4fe1c853310ee79d62425",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
