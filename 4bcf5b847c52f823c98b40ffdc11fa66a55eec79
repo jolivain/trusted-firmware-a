@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49541d89_5e579a4e",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-08-02T16:09:48Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "2b7e6b52_9ad9db82",
+      "range": {
+        "startLine": 278,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 20
+      },
+      "revId": "4bcf5b847c52f823c98b40ffdc11fa66a55eec79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68b7ce61_01eb908d",
@@ -85,6 +109,30 @@
       "side": 0,
       "message": "I feel it is redundant and prone to getting stale. This is only applicable to hafnium spmc. In case of EL3 SPMC based platform, BL32 is not SPMC. SP becomes the BL32. Please let me know your thoughts on this.",
       "parentUuid": "68b7ce61_01eb908d",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 9
+      },
+      "revId": "4bcf5b847c52f823c98b40ffdc11fa66a55eec79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2b7a4d5_2f3080d4",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-08-02T16:09:48Z",
+      "side": 0,
+      "message": "Isn\u0027t this passed to an SP for example with EL3 SPMC?\nIsn\u0027t this given to an S-EL1 SPMC as well (without S-EL2)?",
+      "parentUuid": "b9d92cb9_a06441e9",
       "range": {
         "startLine": 494,
         "startChar": 0,
