@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e648ffd_a275b6e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1001235
+      },
+      "writtenOn": "2024-08-05T17:27:39Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f2c5c262_5560b4bb",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 9
+      },
+      "revId": "2c55c183e84803ba490fcf85ce36574e8ad6a061",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "531db17e_64f28e7a",
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "imilar existing defines are currently treated as platform specific macros (see PLAT_HW_CONFIG_DTB_BASE for example). We ought to do the same here for consistency.",
       "parentUuid": "531db17e_64f28e7a",
+      "range": {
+        "startLine": 1435,
+        "startChar": 0,
+        "endLine": 1437,
+        "endChar": 48
+      },
+      "revId": "2c55c183e84803ba490fcf85ce36574e8ad6a061",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e7fe211_56f08a69",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 1001235
+      },
+      "writtenOn": "2024-08-05T17:27:39Z",
+      "side": 1,
+      "message": "We need users to be able to override any of these values at the make command line. If we move it to a header file they can only be overriden by code which will have limited scope.",
+      "parentUuid": "b29cf96e_3b9e2cae",
       "range": {
         "startLine": 1435,
         "startChar": 0,
