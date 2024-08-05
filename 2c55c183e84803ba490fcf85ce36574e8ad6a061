@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2c5c262_5560b4bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-08-05T15:49:37Z",
+      "side": 1,
+      "message": "nit: user",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 9
+      },
+      "revId": "2c55c183e84803ba490fcf85ce36574e8ad6a061",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "531db17e_64f28e7a",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-08-05T15:49:37Z",
+      "side": 1,
+      "message": "It\u0027s not very common to have defines added in top level makefile, with the exception of those we expect to be used by all platforms. Suggest moving these into",
+      "range": {
+        "startLine": 1435,
+        "startChar": 0,
+        "endLine": 1437,
+        "endChar": 48
+      },
+      "revId": "2c55c183e84803ba490fcf85ce36574e8ad6a061",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61793732_5d64c30c",
+        "filename": "plat/arm/board/fvp/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-08-05T15:49:37Z",
+      "side": 1,
+      "message": "I think we need a condition to ensure these are set only when ARM_LINUX_KERNEL_AS_BL33\u003d1 (see line 55 for reference). Otherwise these always apply.",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 40
+      },
+      "revId": "2c55c183e84803ba490fcf85ce36574e8ad6a061",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
