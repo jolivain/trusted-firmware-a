@@ -442,6 +442,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa253abf_a7fd0d8c",
+        "filename": "plat/arm/board/neoverse_rd/common/ras/nrd_ras_cpu.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-05T15:35:55Z",
+      "side": 1,
+      "message": "Have made changes.\nCTX_INCLUDE_EL2_REGS flag is not applicable for this platform.\nBy default they only consume EL1 context. The current change has been removed as its not required here.",
+      "parentUuid": "d9596eed_181a7453",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 157,
+        "endChar": 27
+      },
+      "revId": "d478254057572315772a926acc3826a889ee7cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d5a3e1e_833f550f",
@@ -455,6 +479,30 @@
       "writtenOn": "2024-07-23T17:05:23Z",
       "side": 1,
       "message": "similarly, I wonder if this is source for troubles later...",
+      "range": {
+        "startLine": 211,
+        "startChar": 1,
+        "endLine": 211,
+        "endChar": 27
+      },
+      "revId": "d478254057572315772a926acc3826a889ee7cf6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a221755_54ccf9c6",
+        "filename": "services/std_svc/sdei/sdei_intr_mgmt.c",
+        "patchSetId": 42
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-05T15:35:55Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2d5a3e1e_833f550f",
       "range": {
         "startLine": 211,
         "startChar": 1,
