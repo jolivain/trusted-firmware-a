@@ -41,6 +41,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54d90e64_bb5e0164",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1001235
+      },
+      "writtenOn": "2024-08-05T11:26:18Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c06dd554_1c1e6d96",
+      "range": {
+        "startLine": 501,
+        "startChar": 4,
+        "endLine": 501,
+        "endChar": 9
+      },
+      "revId": "1d9caa86c16dc0265dc45a81e90c952667ced035",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4b6e5ac_00687914",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-08-02T17:16:10Z",
       "side": 1,
       "message": "Convert tabs to spaces and wrap lines to 100 chars.",
+      "range": {
+        "startLine": 523,
+        "startChar": 0,
+        "endLine": 525,
+        "endChar": 17
+      },
+      "revId": "1d9caa86c16dc0265dc45a81e90c952667ced035",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "753a9055_ccc2a056",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 1001235
+      },
+      "writtenOn": "2024-08-05T11:26:18Z",
+      "side": 1,
+      "message": "Do you mean convert spaces to tabs?",
+      "parentUuid": "e4b6e5ac_00687914",
       "range": {
         "startLine": 523,
         "startChar": 0,
