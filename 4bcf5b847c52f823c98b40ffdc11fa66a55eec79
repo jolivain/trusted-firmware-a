@@ -169,6 +169,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "848b9d0d_b23d1948",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-08-05T08:43:14Z",
+      "side": 0,
+      "message": "Maybe for some of these sections, for completeness, there could be some small duplication...\nE.g.\nTF-A documents with given SPM build options prepare those arguments for BL32, whereas the hafnium doc would provide a link to that documentation and state it consumes those arguments and follows convention from TF-A docs.\n\nWould such an approach make sense for this case?",
+      "parentUuid": "2cdcb7f0_104e608a",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 9
+      },
+      "revId": "4bcf5b847c52f823c98b40ffdc11fa66a55eec79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7ad2078d_71aeb7b4",
         "filename": "docs/components/secure-partition-manager.rst",
         "patchSetId": 1
@@ -204,6 +228,30 @@
       "side": 0,
       "message": "I think \"Loading of SPs\" is very different for the three SPMC configs. I dont know about OPTEE SPMC but I guess there is no commonality between them that would require us to keep this section in the common component doc.",
       "parentUuid": "7ad2078d_71aeb7b4",
+      "range": {
+        "startLine": 514,
+        "startChar": 14,
+        "endLine": 514,
+        "endChar": 17
+      },
+      "revId": "4bcf5b847c52f823c98b40ffdc11fa66a55eec79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4640da7_3e39f99f",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-08-05T08:43:14Z",
+      "side": 0,
+      "message": "I think it is ok to keep this Hafnium specific.\nI just want to make sure we don\u0027t miss anything, as such putting bits to discussion.",
+      "parentUuid": "2aa94ea1_fc4f300d",
       "range": {
         "startLine": 514,
         "startChar": 14,
@@ -251,6 +299,30 @@
       "side": 0,
       "message": "okay I will keep this section.",
       "parentUuid": "360ee34a_96d82d3a",
+      "range": {
+        "startLine": 523,
+        "startChar": 0,
+        "endLine": 523,
+        "endChar": 11
+      },
+      "revId": "4bcf5b847c52f823c98b40ffdc11fa66a55eec79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12ad857b_f021cbc2",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1000341
+      },
+      "writtenOn": "2024-08-05T08:43:14Z",
+      "side": 0,
+      "message": "I believe this is similar to the previous comment. And could remain hafnium specific.\nIt seems this is narrowing down the use of the secure boot protocol to that required for Hafnium at S-EL2 integration.",
+      "parentUuid": "d4a0a26f_4dfe1bb6",
       "range": {
         "startLine": 523,
         "startChar": 0,
