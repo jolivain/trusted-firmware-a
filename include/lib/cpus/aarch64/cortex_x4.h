@@ -28,4 +28,8 @@
  ******************************************************************************/
 #define CORTEX_X4_CPUACTLR3_EL1				S3_0_C15_C1_2
 
+#ifndef __ASSEMBLER__
+
+#endif /* __ASSEMBLER__ */
+
 #endif /* CORTEX_X4_H */

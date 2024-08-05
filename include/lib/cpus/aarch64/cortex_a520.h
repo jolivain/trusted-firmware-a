@@ -28,4 +28,8 @@
 #define CORTEX_A520_CPUPWRCTLR_EL1				S3_0_C15_C2_7
 #define CORTEX_A520_CPUPWRCTLR_EL1_CORE_PWRDN_BIT		U(1)
 
+#ifndef __ASSEMBLER__
+
+#endif /* __ASSEMBLER__ */
+
 #endif /* CORTEX_A520_H */
