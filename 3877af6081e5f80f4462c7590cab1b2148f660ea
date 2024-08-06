@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e410b92e_f33fca99",
+        "filename": "docs/plat/arm/fvp/fvp-specific-configs.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1001235
+      },
+      "writtenOn": "2024-08-06T10:09:14Z",
+      "side": 1,
+      "message": "This is done to force line breaks, which is in turn done to make it clear for the reader, for example, when this is rendered you would see: \n\nPRELOADED_BL33_BASE\u003d0x80080000\n(Kernel load address ....)\n\notherwise you would see it on oneline:\nPRELOADED_BL33_BASE \u003d 0x80080000 (Kernel load address ...)",
+      "parentUuid": "9b00ffa9_9a774f0b",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 6
+      },
+      "revId": "3877af6081e5f80f4462c7590cab1b2148f660ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc362c49_148822ed",
         "filename": "docs/plat/arm/fvp/fvp-specific-configs.rst",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2024-08-06T08:24:36Z",
       "side": 1,
       "message": "nit: don\u0027t",
+      "range": {
+        "startLine": 99,
+        "startChar": 46,
+        "endLine": 99,
+        "endChar": 51
+      },
+      "revId": "3877af6081e5f80f4462c7590cab1b2148f660ea",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "433216d9_0cdba393",
+        "filename": "docs/plat/arm/fvp/fvp-specific-configs.rst",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1001235
+      },
+      "writtenOn": "2024-08-06T10:09:14Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fc362c49_148822ed",
       "range": {
         "startLine": 99,
         "startChar": 46,
