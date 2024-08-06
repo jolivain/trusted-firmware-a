@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b21249cf_a4d520ac",
+        "filename": "docs/tools/cot-dt2c.rst",
+        "patchSetId": 22
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-06T07:56:03Z",
+      "side": 1,
+      "message": "Also, provide cleaning and uninstall command of this tool \n\n```\nmake clean\nmake uninstall\n```\n\nIf someone would to install/uninstall/clean this tool, provide an alternative command as -\n\n```\nmake -C tools/cot-dt2c install\nmake -C tools/cot-dt2c uninstall\nmake -C tools/cot-dt2c clean\n```",
+      "revId": "da34d7b497966143e44ed5a5086c4e424fb6cf90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
