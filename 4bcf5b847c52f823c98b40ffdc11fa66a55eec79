@@ -191,6 +191,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "34fa2dbb_8ee2c55f",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-08-06T18:50:33Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "848b9d0d_b23d1948",
+      "range": {
+        "startLine": 494,
+        "startChar": 0,
+        "endLine": 494,
+        "endChar": 9
+      },
+      "revId": "4bcf5b847c52f823c98b40ffdc11fa66a55eec79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ad2078d_71aeb7b4",
@@ -347,6 +371,30 @@
       "side": 0,
       "message": "Maybe for this section, we ought to add TF-A\u0027s secure boot process in the references to this section?\nAnd maybe add a note pointing to it?\nE.g.\nHafnium doc mentions it uses TF-A as a bootloader at the beginning of the section (done already), and mentions for more details about the secure boot process refer to the respective page, providing the link.\nThen details what is its use for it. (already there as well).\nSo small change required.\nLet me know if this makes sense...",
       "parentUuid": "12ad857b_f021cbc2",
+      "range": {
+        "startLine": 523,
+        "startChar": 0,
+        "endLine": 523,
+        "endChar": 11
+      },
+      "revId": "4bcf5b847c52f823c98b40ffdc11fa66a55eec79",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c1964de_7cb4dac2",
+        "filename": "docs/components/secure-partition-manager.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 523,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-08-06T18:50:33Z",
+      "side": 0,
+      "message": "I am not sure I understand your comment. Anyways, I will keep this section as it is so as to progress the patch stack which has important updates to ff-a bindings. Do you think its fine if we can take up further refactoring of docs as a future improvement?",
+      "parentUuid": "e7cf0daa_55c1f6da",
       "range": {
         "startLine": 523,
         "startChar": 0,
