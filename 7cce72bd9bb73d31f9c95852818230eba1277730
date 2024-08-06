@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b9668a9_91b1f6e4",
+        "filename": "plat/allwinner/common/allwinner-common.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-08-06T15:09:25Z",
+      "side": 1,
+      "message": "It looks a bit odd to have this definition in here when we have a target specific Makefile in platform.mk. Can\u0027t this line be included there, before it\u0027s including this file here?\nOr is the intention to later roll this out to more than just the A64, and we want to keep this one place?",
+      "revId": "7cce72bd9bb73d31f9c95852818230eba1277730",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8868142_497de6df",
+        "filename": "plat/allwinner/sun50i_a64/platform_defaults.mk",
+        "patchSetId": 8
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-08-06T15:09:25Z",
+      "side": 1,
+      "message": "@Manish, @Olivier, can you please give some votes for the prerequisite patch that introduces this file? I don\u0027t feel confident enough to approve this rather generic patch.",
+      "revId": "7cce72bd9bb73d31f9c95852818230eba1277730",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
