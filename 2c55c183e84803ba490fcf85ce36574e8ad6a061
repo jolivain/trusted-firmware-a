@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c8df7da_44fbfd0a",
+        "filename": "Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 1437,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-08-07T16:08:38Z",
+      "side": 1,
+      "message": "Wouldn\u0027t declaring them in the platform makefile have the same effect (i.e.plat/arm/common/arm_common.mk)? Currently, we only have one platform that supports this specific use case. Offering this option here implies otherwise. We generally aim to adhere to the principle of the strictest scope.",
+      "parentUuid": "1e7fe211_56f08a69",
+      "range": {
+        "startLine": 1435,
+        "startChar": 0,
+        "endLine": 1437,
+        "endChar": 48
+      },
+      "revId": "2c55c183e84803ba490fcf85ce36574e8ad6a061",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "61793732_5d64c30c",
         "filename": "plat/arm/board/fvp/platform.mk",
         "patchSetId": 1
