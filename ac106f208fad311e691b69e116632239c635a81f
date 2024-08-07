@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb35af0a_36e0c5ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-07T10:47:18Z",
+      "side": 1,
+      "message": "The CI failures are not related, as the errors stem from the following issues:\n\n1. Copyright year discrepancies in the third-party files\n2. The bl1_cot.c file for CCA and DualRoot \n\nbl1_cot.c is already part of Arm Build and hence it is covered. Copyright year we can\u0027t modify for the third party files.\n\nHence manually giving Verified+1",
+      "revId": "ac106f208fad311e691b69e116632239c635a81f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
