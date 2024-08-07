@@ -304,6 +304,7 @@ static bool direct_msg_validate_lp_resp(uint16_t origin_id, uint16_t lp_id,
 					void *handle)
 {
 	/* Retrieve populated Direct Response Arguments. */
+	uint64_t smc_fid = SMC_GET_GP(handle, CTX_GPREG_X0);
 	uint64_t x1 = SMC_GET_GP(handle, CTX_GPREG_X1);
 	uint64_t x2 = SMC_GET_GP(handle, CTX_GPREG_X2);
 	uint16_t src_id = ffa_endpoint_source(x1);
@@ -323,7 +324,8 @@ static bool direct_msg_validate_lp_resp(uint16_t origin_id, uint16_t lp_id,
 		return false;
 	}
 
-	if (!direct_msg_validate_arg2(x2)) {
+	if ((smc_fid != FFA_MSG_SEND_DIRECT_RESP2_SMC64) &&
+			!direct_msg_validate_arg2(x2)) {
 		ERROR("Invalid EL3 LP message encoding.\n");
 		return false;
 	}
@@ -349,10 +351,16 @@ static uint64_t direct_req_smc_handler(uint32_t smc_fid,
 	struct secure_partition_desc *sp;
 	unsigned int idx;
 
+	if (smc_fid != FFA_MSG_SEND_DIRECT_REQ2_SMC64) {
 	/* Check if arg2 has been populated correctly based on message type. */
-	if (!direct_msg_validate_arg2(x2)) {
-		return spmc_ffa_error_return(handle,
-					     FFA_ERROR_INVALID_PARAMETER);
+		if (!direct_msg_validate_arg2(x2)) {
+			return spmc_ffa_error_return(handle, FFA_ERROR_INVALID_PARAMETER);
+		}
+	} else {
+		/* Check nil uuid. */
+		if (x2 == 0x00 && x3 == 0x00) {
+			return spmc_ffa_error_return(handle, FFA_ERROR_INVALID_PARAMETER);
+		}
 	}
 
 	/* Validate Sender is either the current SP or from the normal world. */
@@ -1909,7 +1917,9 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 
 	/* Validate this entry, we currently only support direct messaging. */
 	if ((config_32 & ~(FFA_PARTITION_DIRECT_REQ_RECV |
-			  FFA_PARTITION_DIRECT_REQ_SEND)) != 0U) {
+			  FFA_PARTITION_DIRECT_REQ_SEND |
+			  FFA_PARTITION_DIRECT_REQ2_RECV |
+			  FFA_PARTITION_DIRECT_REQ2_SEND)) != 0U) {
 		WARN("Invalid Secure Partition messaging method (0x%x)\n",
 		     config_32);
 		return -EINVAL;
@@ -2354,11 +2364,13 @@ uint64_t spmc_smc_handler(uint32_t smc_fid,
 
 	case FFA_MSG_SEND_DIRECT_REQ_SMC32:
 	case FFA_MSG_SEND_DIRECT_REQ_SMC64:
+	case FFA_MSG_SEND_DIRECT_REQ2_SMC64:
 		return direct_req_smc_handler(smc_fid, secure_origin, x1, x2,
 					      x3, x4, cookie, handle, flags);
 
 	case FFA_MSG_SEND_DIRECT_RESP_SMC32:
 	case FFA_MSG_SEND_DIRECT_RESP_SMC64:
+	case FFA_MSG_SEND_DIRECT_RESP2_SMC64:
 		return direct_resp_smc_handler(smc_fid, secure_origin, x1, x2,
 					       x3, x4, cookie, handle, flags);
 
