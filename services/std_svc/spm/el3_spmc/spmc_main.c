@@ -304,6 +304,7 @@ static bool direct_msg_validate_lp_resp(uint16_t origin_id, uint16_t lp_id,
 					void *handle)
 {
 	/* Retrieve populated Direct Response Arguments. */
+	uint64_t smc_fid = SMC_GET_GP(handle, CTX_GPREG_X0);
 	uint64_t x1 = SMC_GET_GP(handle, CTX_GPREG_X1);
 	uint64_t x2 = SMC_GET_GP(handle, CTX_GPREG_X2);
 	uint16_t src_id = ffa_endpoint_source(x1);
@@ -323,7 +324,8 @@ static bool direct_msg_validate_lp_resp(uint16_t origin_id, uint16_t lp_id,
 		return false;
 	}
 
-	if (!direct_msg_validate_arg2(x2)) {
+	if ((smc_fid != FFA_MSG_SEND_DIRECT_RESP2_SMC64) &&
+			!direct_msg_validate_arg2(x2)) {
 		ERROR("Invalid EL3 LP message encoding.\n");
 		return false;
 	}
@@ -345,14 +347,21 @@ static uint64_t direct_req_smc_handler(uint32_t smc_fid,
 {
 	uint16_t src_id = ffa_endpoint_source(x1);
 	uint16_t dst_id = ffa_endpoint_destination(x1);
+	uint16_t dir_req_version;
 	struct el3_lp_desc *el3_lp_descs;
 	struct secure_partition_desc *sp;
 	unsigned int idx;
 
-	/* Check if arg2 has been populated correctly based on message type. */
-	if (!direct_msg_validate_arg2(x2)) {
-		return spmc_ffa_error_return(handle,
-					     FFA_ERROR_INVALID_PARAMETER);
+	dir_req_version = (smc_fid != FFA_MSG_SEND_DIRECT_REQ2_SMC64) ?
+		FFA_FNUM_MSG_SEND_DIRECT_REQ : FFA_FNUM_MSG_SEND_DIRECT_REQ2;
+
+	/*
+	 * Sanity check for DIRECT_REQ:
+	 * Check if arg2 has been populated correctly based on message type
+	 */
+	if ((dir_req_version == FFA_FNUM_MSG_SEND_DIRECT_REQ) &&
+			!direct_msg_validate_arg2(x2)) {
+		return spmc_ffa_error_return(handle, FFA_ERROR_INVALID_PARAMETER);
 	}
 
 	/* Validate Sender is either the current SP or from the normal world. */
@@ -402,6 +411,13 @@ static uint64_t direct_req_smc_handler(uint32_t smc_fid,
 					     FFA_ERROR_INVALID_PARAMETER);
 	}
 
+	if ((dir_req_version == FFA_FNUM_MSG_SEND_DIRECT_REQ &&
+			((sp->properties & FFA_PARTITION_DIRECT_REQ_RECV) == 0U)) ||
+			(dir_req_version == FFA_FNUM_MSG_SEND_DIRECT_REQ2 &&
+			((sp->properties & FFA_PARTITION_DIRECT_REQ2_RECV) == 0U))) {
+			return spmc_ffa_error_return(handle, FFA_ERROR_NOT_SUPPORTED);
+	}
+
 	/* Protect the runtime state of a UP S-EL0 SP with a lock. */
 	if (sp->runtime_el == S_EL0) {
 		spin_lock(&sp->rt_state_lock);
@@ -430,6 +446,7 @@ static uint64_t direct_req_smc_handler(uint32_t smc_fid,
 	sp->ec[idx].rt_state = RT_STATE_RUNNING;
 	sp->ec[idx].rt_model = RT_MODEL_DIR_REQ;
 	sp->ec[idx].dir_req_origin_id = src_id;
+	sp->ec[idx].dir_req_version = dir_req_version;
 
 	if (sp->runtime_el == S_EL0) {
 		spin_unlock(&sp->rt_state_lock);
@@ -453,8 +470,12 @@ static uint64_t direct_resp_smc_handler(uint32_t smc_fid,
 					uint64_t flags)
 {
 	uint16_t dst_id = ffa_endpoint_destination(x1);
+	uint16_t dir_req_version;
 	struct secure_partition_desc *sp;
 	unsigned int idx;
+
+	dir_req_version = (smc_fid != FFA_MSG_SEND_DIRECT_RESP2_SMC64) ?
+		FFA_FNUM_MSG_SEND_DIRECT_REQ : FFA_FNUM_MSG_SEND_DIRECT_REQ2;
 
 	/* Check if arg2 has been populated correctly based on message type. */
 	if (!direct_msg_validate_arg2(x2)) {
@@ -507,6 +528,15 @@ static uint64_t direct_resp_smc_handler(uint32_t smc_fid,
 		return spmc_ffa_error_return(handle, FFA_ERROR_DENIED);
 	}
 
+	if (dir_req_version != sp->ec[idx].dir_req_version) {
+		WARN("Unmatched direct req/resp version. req:%x, resp:%x on core%u.\n",
+		     sp->ec[idx].dir_req_version, (smc_fid & FFA_ID_MASK), idx);
+		if (sp->runtime_el == S_EL0) {
+			spin_unlock(&sp->rt_state_lock);
+		}
+		return spmc_ffa_error_return(handle, FFA_ERROR_DENIED);
+	}
+
 	if (sp->ec[idx].dir_req_origin_id != dst_id) {
 		WARN("Invalid direct resp partition ID 0x%x != 0x%x on core%u.\n",
 		     dst_id, sp->ec[idx].dir_req_origin_id, idx);
@@ -521,6 +551,9 @@ static uint64_t direct_resp_smc_handler(uint32_t smc_fid,
 
 	/* Clear the ongoing direct request ID. */
 	sp->ec[idx].dir_req_origin_id = INV_SP_ID;
+
+	/* Clear the ongoing direct request message version. */
+	sp->ec[idx].dir_req_version = 0x00;
 
 	if (sp->runtime_el == S_EL0) {
 		spin_unlock(&sp->rt_state_lock);
@@ -1909,7 +1942,9 @@ static int sp_manifest_parse(void *sp_manifest, int offset,
 
 	/* Validate this entry, we currently only support direct messaging. */
 	if ((config_32 & ~(FFA_PARTITION_DIRECT_REQ_RECV |
-			  FFA_PARTITION_DIRECT_REQ_SEND)) != 0U) {
+			  FFA_PARTITION_DIRECT_REQ_SEND |
+			  FFA_PARTITION_DIRECT_REQ2_RECV |
+			  FFA_PARTITION_DIRECT_REQ2_SEND)) != 0U) {
 		WARN("Invalid Secure Partition messaging method (0x%x)\n",
 		     config_32);
 		return -EINVAL;
@@ -2354,11 +2389,13 @@ uint64_t spmc_smc_handler(uint32_t smc_fid,
 
 	case FFA_MSG_SEND_DIRECT_REQ_SMC32:
 	case FFA_MSG_SEND_DIRECT_REQ_SMC64:
+	case FFA_MSG_SEND_DIRECT_REQ2_SMC64:
 		return direct_req_smc_handler(smc_fid, secure_origin, x1, x2,
 					      x3, x4, cookie, handle, flags);
 
 	case FFA_MSG_SEND_DIRECT_RESP_SMC32:
 	case FFA_MSG_SEND_DIRECT_RESP_SMC64:
+	case FFA_MSG_SEND_DIRECT_RESP2_SMC64:
 		return direct_resp_smc_handler(smc_fid, secure_origin, x1, x2,
 					       x3, x4, cookie, handle, flags);
 
