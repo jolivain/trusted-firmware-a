@@ -88,6 +88,24 @@
       "parentUuid": "f6f78dbb_71b6cff4",
       "revId": "beaa576ddc1a267d483a6a3f5f88eba1c9bd824e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04493ec0_1ab0b6f6",
+        "filename": "include/lib/el3_runtime/context_mgmt.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-08-07T11:42:45Z",
+      "side": 1,
+      "message": "Me and Soby had a discussion and agreed to have carry on it with this design and provide a threat model around asymmetry features. I will create a separate patch for that.",
+      "parentUuid": "06c58e22_c759cb47",
+      "revId": "beaa576ddc1a267d483a6a3f5f88eba1c9bd824e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
