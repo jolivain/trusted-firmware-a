@@ -16,6 +16,24 @@
       "message": "The non-cpu nodes are stored in a different array to the cpu nodes. I think this patch contains the correct code: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/30156\n\nAlthough the tests pass on the original buggy code, the function returns the correct values for the existing test cases, so the existing tests are working as expected.\n\nThis patch contains a new test which catches the bug in the original code. https://review.trustedfirmware.org/c/TF-A/tf-a-tests/+/30198",
       "revId": "15fb5ac1173d5a5b917d9650fbadad53883e62cd",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "371d0d2b_806ad4bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-08-07T14:52:41Z",
+      "side": 1,
+      "message": "As Charlie has provided a complete fix for this patch, i would recommend this patch be abandoned",
+      "parentUuid": "a21ed1e0_ef70cd5f",
+      "revId": "15fb5ac1173d5a5b917d9650fbadad53883e62cd",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
