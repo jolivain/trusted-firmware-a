@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37513934_b9f19060",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001386
+      },
+      "writtenOn": "2024-08-08T05:46:29Z",
+      "side": 1,
+      "message": "Good job Jay, please see my comments below.",
+      "revId": "03fa6f42502a3b6b318a9a73a228a6c751329a8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdbeda37_1e40eb2f",
+        "filename": "plat/xilinx/common/include/pm_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1001386
+      },
+      "writtenOn": "2024-08-08T05:46:29Z",
+      "side": 1,
+      "message": "May be a good idea to use PAYLOAD_ARG_CNT + 1 for the definition of RET_PAYLOAD_ARG_CNT?",
+      "revId": "03fa6f42502a3b6b318a9a73a228a6c751329a8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6acc110_d72f5efc",
+        "filename": "plat/xilinx/common/include/pm_common.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1001386
+      },
+      "writtenOn": "2024-08-08T05:46:29Z",
+      "side": 1,
+      "message": "May be a good idea to use PAYLOAD_ARG_CNT + 1 for the definition of RET_PAYLOAD_ARG_CNT?",
+      "revId": "03fa6f42502a3b6b318a9a73a228a6c751329a8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a7b4030_83edcfed",
+        "filename": "plat/xilinx/common/pm_service/pm_ipi.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001386
+      },
+      "writtenOn": "2024-08-08T05:46:29Z",
+      "side": 1,
+      "message": "As discussed, please rewrite the code as follows\n\n- Retain the count, in the function pm_ipi_buff_read, to read only the uptil the count not the full payload (PAYLOAD_ARG_CNT)\n- Avoid using the temporary like response_payloay and ret_payload\n- Retain the value buffer inside the pm_ipi_buff_read to store only the payload, not the return status (like as it was before)\n- Call the calculate_crc with the buffer_base, instead of value.",
+      "revId": "03fa6f42502a3b6b318a9a73a228a6c751329a8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0de93f3e_1d3a635d",
+        "filename": "plat/xilinx/common/pm_service/pm_ipi.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1001386
+      },
+      "writtenOn": "2024-08-08T05:46:29Z",
+      "side": 1,
+      "message": "You need to change the function comments to reflect the new arguments.",
+      "revId": "03fa6f42502a3b6b318a9a73a228a6c751329a8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cde64d3c_08b67d17",
+        "filename": "plat/xilinx/common/pm_service/pm_ipi.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1001386
+      },
+      "writtenOn": "2024-08-08T05:46:29Z",
+      "side": 1,
+      "message": "I would suggest to use pointer instead of array, because that\u0027s a standard way of using pass by reference.",
+      "revId": "03fa6f42502a3b6b318a9a73a228a6c751329a8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca40a2ca_b8f328c8",
+        "filename": "plat/xilinx/common/pm_service/pm_ipi.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1001386
+      },
+      "writtenOn": "2024-08-08T05:46:29Z",
+      "side": 1,
+      "message": "Can we not remove the response_payload here? as we did in pm_ipi_buff_read",
+      "revId": "03fa6f42502a3b6b318a9a73a228a6c751329a8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87fca5e4_ace57946",
+        "filename": "plat/xilinx/common/pm_service/pm_ipi.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1001386
+      },
+      "writtenOn": "2024-08-08T05:46:29Z",
+      "side": 1,
+      "message": "There is additional buffer again in this function, which is not required.",
+      "revId": "03fa6f42502a3b6b318a9a73a228a6c751329a8f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
