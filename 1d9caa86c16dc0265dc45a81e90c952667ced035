@@ -109,6 +109,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5576bf88_d8e4fd4f",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1001235
+      },
+      "writtenOn": "2024-08-08T10:16:19Z",
+      "side": 1,
+      "message": "In our scenario we assumed the DTB max size to be 1MiB and left enough space in the memory address space for it. We also map exactly 1MiB of space for working with the device tree at runtime. 1MiB seems to be enough but if the user tries higher than 1MiB dtb we throw an ERROR because the extra memory space would not be mapped.",
+      "parentUuid": "ffad023e_02b7f54f",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 2
+      },
+      "revId": "1d9caa86c16dc0265dc45a81e90c952667ced035",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c06dd554_1c1e6d96",
         "filename": "plat/arm/common/arm_bl31_setup.c",
         "patchSetId": 2
