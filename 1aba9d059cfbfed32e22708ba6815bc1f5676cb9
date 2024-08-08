@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d474159b_cb83b69b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-08T14:00:47Z",
+      "side": 1,
+      "message": "The remaining issue is because of new files (drivers/st/ddr/stm32mp2_ddr_helpers.c, plat/st/stm32mp2/stm32mp2_private.c and plat/st/stm32mp2/stm32mp2_syscfg.c) which are unconditionally compiled when building STM32MP2 platform software.",
+      "revId": "1aba9d059cfbfed32e22708ba6815bc1f5676cb9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
