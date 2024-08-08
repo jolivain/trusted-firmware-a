@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5b32a1c_25601d10",
+        "filename": "drivers/nxp/clk/s32cc/s32cc_clk_drv.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-08-08T18:19:25Z",
+      "side": 1,
+      "message": "what is the precedence here:\nIN/(OUT/2)\nor\n(IN/OUT)/2",
+      "range": {
+        "startLine": 613,
+        "startChar": 4,
+        "endLine": 613,
+        "endChar": 25
+      },
+      "revId": "7be88f7c38c4ea6975c4e1f4a9b4fc090780304b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
