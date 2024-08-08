@@ -163,6 +163,24 @@
       "parentUuid": "1711c28c_ddf2e22d",
       "revId": "1123fba276030a000cda8f868d4f9cd5d74166b3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99fb5740_41ef2c45",
+        "filename": "plat/rpi/rpi3/plat_delay_timer.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-08T21:06:07Z",
+      "side": 1,
+      "message": "In the current implementation, there is a flaw: ``timeout_init_us`` and ``timeout_elapsed`` are incorrectly defined in the ``delay_timer`` interface header. These functions should be part of the ``generic_delay_timer`` (architectural timer) header instead, as they access the system register (Counter-timer Physical Count register) of the CPU. It would be better to move these functions to the ``generic_delay_timer.h`` file, and platforms should use this header instead of ``delay_timer.h`` when these functions are needed.\n\nI suggest that we hook ``timeout_init_us`` and ``timeout_elapsed`` into timer_ops_t and register this platform-specific timer driver ops for the Raspberry Pi 3 through the ``timer_init`` function, rather than using platform-specific APIs.\n\nAdditionally, I\u0027m unclear why a separate timer driver was created for the Raspberry Pi 3. Upon reviewing the code, I noticed that the generic delay timer is already compiled in BL2 for Raspberry Pi 3, and you may need it for BL1 as well for dTPM. see [1] and [2].\n\n[1]: https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/refs/heads/master/plat/rpi/rpi3/platform.mk#37\n[2]: https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/refs/heads/master/plat/rpi/common/rpi3_common.c#203",
+      "parentUuid": "d18d3563_caab9710",
+      "revId": "1123fba276030a000cda8f868d4f9cd5d74166b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
