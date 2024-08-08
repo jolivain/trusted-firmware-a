@@ -46,6 +46,30 @@
       },
       "revId": "7be88f7c38c4ea6975c4e1f4a9b4fc090780304b",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1226917_c6f5c142",
+        "filename": "drivers/nxp/clk/s32cc/s32cc_clk_drv.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-08-08T20:55:01Z",
+      "side": 1,
+      "message": "Yes, that would be good. Same with the actual calculation in line 617",
+      "parentUuid": "1d8c8371_783c066f",
+      "range": {
+        "startLine": 613,
+        "startChar": 4,
+        "endLine": 613,
+        "endChar": 25
+      },
+      "revId": "7be88f7c38c4ea6975c4e1f4a9b4fc090780304b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
