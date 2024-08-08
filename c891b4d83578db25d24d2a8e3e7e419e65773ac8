@@ -33,6 +33,24 @@
       "message": "While I understand the need for some solution today for this platform, I don\u0027t want this to set an example for all the vendors to define set of vendor specific SMCs for extracting such information. With most of the firmwares(TF-A in this context) supporting device trees these days, it becomes much easier to push all such the platform specific data into the device tree instead of defining such SMCs. I would like the TF-A community to push back such solution for any other real silicon platforms. Also once we have support for DT parsing in various firmware(like UEFI/U-Boot/whatever..), we must revert this change and move towards using that. With firmware handoff specification also being cooked up now, I think DT must be the way for such things that are already well defined in the DT.\n\nBTW what prevents from using DT based solution today for this platform ? I assume these SMCs are called from UEFI ? If UEFI could parse such info from DT passed as part of firmware handoff, will that work here ? Just trying to see if I am missing anything else that needs to be considered for a standard solution instead of vendor/platform specific SMCs.",
       "revId": "c891b4d83578db25d24d2a8e3e7e419e65773ac8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc91a42b_1947ea16",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000541
+      },
+      "writtenOn": "2024-08-08T11:35:34Z",
+      "side": 1,
+      "message": "No. I\u0027m not going back into silly ACPI-vs-DT wars.\n\nIf Arm *once* tried to lead by example and provide useful common interfaces instead of vague handwaving and playing \"fetch me a rock\" we wouldn\u0027t be in this position.\n\nYou can take it or leave it.\n\nEnough of the sealioning.",
+      "parentUuid": "f40b36ec_ce4708a0",
+      "revId": "c891b4d83578db25d24d2a8e3e7e419e65773ac8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ],
   "submitRequirementResults": []
