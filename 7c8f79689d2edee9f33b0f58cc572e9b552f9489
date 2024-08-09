@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "170774d2_52e48c1c",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1001369
+      },
+      "writtenOn": "2024-08-09T09:38:03Z",
+      "side": 1,
+      "message": "Because Nil UUID is used when finding \"all information of partition\" in PARTITION_INFO_GET*.\n\nThat\u0027s why it seems impossible to specifiy Nil UUID when sending DIRECT_MSG_REQ2 which sent specific partition.",
+      "parentUuid": "0c9c8b4f_b3899ff7",
+      "revId": "7c8f79689d2edee9f33b0f58cc572e9b552f9489",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9e12148_5f3c8e1e",
@@ -35,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18a4d1fa_ea0a8e8e",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1001369
+      },
+      "writtenOn": "2024-08-09T09:38:03Z",
+      "side": 1,
+      "message": "Agree. I\u0027ll but on line 412 after get dst sp information :)",
+      "parentUuid": "a9e12148_5f3c8e1e",
+      "revId": "7c8f79689d2edee9f33b0f58cc572e9b552f9489",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c551ddec_91f9bf44",
@@ -48,6 +84,24 @@
       "writtenOn": "2024-08-08T21:36:55Z",
       "side": 1,
       "message": "Should we add another check here to ensure that a Direct_Req2 is not completing with a Direct_Resp(1) and vice versa?",
+      "revId": "7c8f79689d2edee9f33b0f58cc572e9b552f9489",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "016d68a3_f0d70760",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 518,
+      "author": {
+        "id": 1001369
+      },
+      "writtenOn": "2024-08-09T09:38:03Z",
+      "side": 1,
+      "message": "Thanks :) I\u0027ll add sanity check.",
+      "parentUuid": "c551ddec_91f9bf44",
       "revId": "7c8f79689d2edee9f33b0f58cc572e9b552f9489",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
