@@ -16,6 +16,103 @@
       "message": "Depends on https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/29959",
       "revId": "e49395fa9ab3821a47d2b2b51ab35a281d8d390e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bed609c_2026c912",
+        "filename": "plat/qemu/common/qemu_plat_attest_token.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2024-08-09T07:22:47Z",
+      "side": 1,
+      "message": "I\u0027d prefer having this line after the local variables.",
+      "range": {
+        "startLine": 218,
+        "startChar": 7,
+        "endLine": 218,
+        "endChar": 11
+      },
+      "revId": "e49395fa9ab3821a47d2b2b51ab35a281d8d390e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10d8ad32_2627d8a5",
+        "filename": "plat/qemu/common/qemu_plat_attest_token.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2024-08-09T07:22:47Z",
+      "side": 1,
+      "message": "Please remove this line since \"hash_size\" is used from now on.",
+      "range": {
+        "startLine": 219,
+        "startChar": 7,
+        "endLine": 219,
+        "endChar": 16
+      },
+      "revId": "e49395fa9ab3821a47d2b2b51ab35a281d8d390e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e159d33_e438475d",
+        "filename": "plat/qemu/common/qemu_plat_attest_token.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2024-08-09T07:22:47Z",
+      "side": 1,
+      "message": "Please remove the (void) cast on the result from memcpy().",
+      "revId": "e49395fa9ab3821a47d2b2b51ab35a281d8d390e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1fa8652_794ddee0",
+        "filename": "plat/qemu/common/qemu_plat_attest_token.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2024-08-09T07:22:47Z",
+      "side": 1,
+      "message": "Why is this cast needed?",
+      "revId": "e49395fa9ab3821a47d2b2b51ab35a281d8d390e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c83eb738_b830457e",
+        "filename": "plat/qemu/common/qemu_plat_attest_token.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000120
+      },
+      "writtenOn": "2024-08-09T07:22:47Z",
+      "side": 1,
+      "message": "Please please the \"+\" at the end of previous line.",
+      "revId": "e49395fa9ab3821a47d2b2b51ab35a281d8d390e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
