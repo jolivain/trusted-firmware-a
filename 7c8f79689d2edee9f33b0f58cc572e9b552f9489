@@ -36,6 +36,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d502b95_71866c18",
+        "filename": "services/std_svc/spm/el3_spmc/spmc_main.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000290
+      },
+      "writtenOn": "2024-08-09T13:10:01Z",
+      "side": 1,
+      "message": "In section 6.2.3 the 1.2 EAC spec states that if the Nil UUID is specified in an messaging ABI it is left IMPDEF for the callee on how the target service within the endpoint is identified.\nThe expectation is that the the UUID can be use as a generic mechanism to identify a service within an endpoint, however if the Nil UUID is provided then the ABIs would work similarly to the original Direct_Req ABIs although with more register space.\n\nI hope this seems reasonable?",
+      "parentUuid": "170774d2_52e48c1c",
+      "revId": "7c8f79689d2edee9f33b0f58cc572e9b552f9489",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9e12148_5f3c8e1e",
