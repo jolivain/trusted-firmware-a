@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "59e9ef19_e6c34bf3",
+        "filename": "docs/components/context-management-library.rst",
+        "patchSetId": 14
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-08-12T15:43:43Z",
+      "side": 1,
+      "message": "To add, what is the limiting factor? Do you mean to say instead that only a few existing features are assymetric? From my reading this implies we have an immutable set of features that are assymetric.",
+      "parentUuid": "06fa4f05_4a9a1ae6",
+      "range": {
+        "startLine": 125,
+        "startChar": 29,
+        "endLine": 125,
+        "endChar": 89
+      },
+      "revId": "30b54a70bb4dc6e9335b761268cc30706ffc93c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "826ae3f2_39ecffee",
         "filename": "include/common/feat_detect.h",
         "patchSetId": 14
@@ -60,6 +84,30 @@
       "writtenOn": "2024-08-12T15:04:11Z",
       "side": 1,
       "message": "nit:\nFeel free to ignore, if already discussed and agreed on this part.\n\nI think, it could be just stated as ``FEAT_STATE_ASYMMETRIC``.",
+      "range": {
+        "startLine": 17,
+        "startChar": 19,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "30b54a70bb4dc6e9335b761268cc30706ffc93c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1e21fcc_5829663f",
+        "filename": "include/common/feat_detect.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-08-12T15:43:43Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "826ae3f2_39ecffee",
       "range": {
         "startLine": 17,
         "startChar": 19,
