@@ -216,6 +216,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eabb9f9a_15d7ff81",
+        "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-12T13:02:18Z",
+      "side": 1,
+      "message": "The issue is not in BL31, but really the loading of BL31 binary here in BL2.\nWe have:\nBL2 DT from 0x0e01100 to 0x0e01600\nBL2 from 0x0e01600 to 0x0e040000\n\nAnd then we\u0027ll load BL31 binary from 0x0e000000 to 0x0e015780.\nThen at runtime, BL31 will use memory from 0x0e000000 to 0x0e020000.\nThat\u0027s why we need to unmap BL2 DT here, as it is no more used after FW-CONFIG loading, and a part of its area will be used to load BL31, with different access (read-write while it was read-only for BL2 DT).",
+      "parentUuid": "f3482073_44448125",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 61
+      },
+      "revId": "e1f142bd63c0115f200e3f72d0a67715eb484de4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "20eb85dd_48b82155",
         "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
         "patchSetId": 3
