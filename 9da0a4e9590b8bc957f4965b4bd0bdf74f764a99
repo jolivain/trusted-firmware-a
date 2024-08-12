@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c80ce2db_7ce83127",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-12T13:32:43Z",
+      "side": 1,
+      "message": "Hi Yann,\n\nThe FW config is primarily used for managing configuration Device Tree (DT) files across various firmware components. It should include the following:\n\nTB_FW_CONFIG: To be utilized by BL2.\nNT_FW_CONFIG: To be utilized by BL33.\nHW_CONFIG: To be securely used by BL31, and by BL33 through non-secure memory.\nTOS_FW_CONFIG: To be utilized by BL32.\n\nIdeally, this configuration should not contain details about the firmware to be loaded. If the device trees are already embedded within the firmware, explicit entries are unnecessary, as these DTs are part of the firmware and will be loaded by BL2 using memory descriptors. The primary purpose of FW_CONFIG is to provide a dynamic capability to load firmware configurations at the desired location.\n\nI saw from your patch that it is basically using FW_CONFIG DT to load the firmware by providing its load address. See how Arm FVP platform uses here [1].\n\nThis makes me think that on the ST platform, you\u0027ve chosen not to load BL32 and BL33 at fixed addresses. Please correct me if I\u0027m mistaken.\n\n\n[1]: https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/refs/heads/master/plat/arm/board/fvp/fdts/fvp_fw_config.dts",
+      "revId": "9da0a4e9590b8bc957f4965b4bd0bdf74f764a99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1e5ceb31_fb975179",
         "filename": "fdts/stm32mp25-fw-config.dtsi",
         "patchSetId": 2
