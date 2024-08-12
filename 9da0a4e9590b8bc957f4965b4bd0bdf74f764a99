@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aaa50467_14787a1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-12T13:51:42Z",
+      "side": 1,
+      "message": "On STM32MP1 and STM32MP2 platform, there is no BL1, and the ROM code can only load one binary. That\u0027s why TB_FW_CONFIG macro is not used, but BL2 DT is inside the .stm32 binary together with BL2.\nAs OP-TEE does not properly handle external DT (but it may have changed), we decided to use directly HW_CONFIG for U-Boot device tree.\nOn ST boards, we usually load BL32 and BL33 at the same place, but we want to let our customers the possibility to change this. This could be required for boards having less DDR for example.",
+      "parentUuid": "c80ce2db_7ce83127",
+      "revId": "9da0a4e9590b8bc957f4965b4bd0bdf74f764a99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1e5ceb31_fb975179",
         "filename": "fdts/stm32mp25-fw-config.dtsi",
         "patchSetId": 2
