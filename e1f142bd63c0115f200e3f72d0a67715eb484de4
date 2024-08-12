@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1129027e_abf215fa",
+        "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-12T12:04:54Z",
+      "side": 1,
+      "message": "Hi Manish,\nThis happens when splitting patches by features. The BL31 \u0026 BL32 parts will be added later. See https://github.com/STMicroelectronics/arm-trusted-firmware/blob/v2.8-stm32mp/plat/st/stm32mp2/bl2_plat_setup.c. I\u0027ll push the other patches when this series is merged. If needed I can rework this patch (removing err), and the one that adds BL31 support (adding back err).",
+      "parentUuid": "9b19a0f4_7a6f7125",
+      "range": {
+        "startLine": 236,
+        "startChar": 1,
+        "endLine": 236,
+        "endChar": 13
+      },
+      "revId": "e1f142bd63c0115f200e3f72d0a67715eb484de4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fba0398c_4dd2ed39",
         "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2024-08-12T11:36:45Z",
       "side": 1,
       "message": "I\u0027m curious, why are there only 2 MMC blocks to invalidate?",
+      "range": {
+        "startLine": 250,
+        "startChar": 4,
+        "endLine": 250,
+        "endChar": 26
+      },
+      "revId": "e1f142bd63c0115f200e3f72d0a67715eb484de4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17b04c02_b5d8dd89",
+        "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-12T12:04:54Z",
+      "side": 1,
+      "message": "This was the same for STM32MP1, and discussed there: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/10663/12/plat/st/stm32mp1/bl2_plat_setup.c ;-)",
+      "parentUuid": "fba0398c_4dd2ed39",
       "range": {
         "startLine": 250,
         "startChar": 4,
@@ -72,6 +120,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7b701563_090d780d",
+        "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-12T12:04:54Z",
+      "side": 1,
+      "message": "Due to limited size of embedded SRAM, this area will be used by BL31.",
+      "parentUuid": "2c34d8a3_be0f9e40",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 61
+      },
+      "revId": "e1f142bd63c0115f200e3f72d0a67715eb484de4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "20eb85dd_48b82155",
         "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
         "patchSetId": 3
@@ -95,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea81ba37_abfc60af",
+        "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-12T12:04:54Z",
+      "side": 1,
+      "message": "`load_auth_image` will flush the exact size of the DT binary, not all the area. This will be the same issue as for the 2 MMC blocks invalidation. But I wonder if this is really necessary, as this area is read-only, so the cache should not be dirty. I could run some tests to check that.",
+      "parentUuid": "20eb85dd_48b82155",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 51
+      },
+      "revId": "e1f142bd63c0115f200e3f72d0a67715eb484de4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22f4bc53_1947b2f7",
         "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
         "patchSetId": 3
@@ -106,6 +202,30 @@
       "writtenOn": "2024-08-12T11:36:45Z",
       "side": 1,
       "message": "return 0 instead?",
+      "range": {
+        "startLine": 271,
+        "startChar": 1,
+        "endLine": 271,
+        "endChar": 11
+      },
+      "revId": "e1f142bd63c0115f200e3f72d0a67715eb484de4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6987ea8e_bbbc3965",
+        "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-12T12:04:54Z",
+      "side": 1,
+      "message": "same as for the first comment.",
+      "parentUuid": "22f4bc53_1947b2f7",
       "range": {
         "startLine": 271,
         "startChar": 1,
