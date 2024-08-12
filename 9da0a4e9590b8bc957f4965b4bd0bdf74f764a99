@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65af31ce_cd3980fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-12T18:02:58Z",
+      "side": 1,
+      "message": "I understand your point. It seems like we might be altering the original purpose of the FW_CONFIG device tree. The intent behind adding FW_CONFIG was to provide load addresses for different configurations (mentioned in above discussion) that come into play during the boot process, not to include firmware\u0027s load addresses.\n\nIMO, if we need to incorporate firmware load addresses into the device tree, they should be included in the TB_FW_CONFIG. Is it possible for BL2 to load the TB_FW_CONFIG on its own to retrieve those details before proceeding with firmware loading? (as you mentioned in ST case ROM can\u0027t load the TB_FW_CONFIG).\n\nI believe we should explore adopting the firmware handoff mechanism in the future, as it may reduce the need for FW_CONFIG.",
+      "parentUuid": "aaa50467_14787a1b",
+      "revId": "9da0a4e9590b8bc957f4965b4bd0bdf74f764a99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1e5ceb31_fb975179",
         "filename": "fdts/stm32mp25-fw-config.dtsi",
         "patchSetId": 2
