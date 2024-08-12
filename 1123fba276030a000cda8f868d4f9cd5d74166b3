@@ -181,6 +181,24 @@
       "parentUuid": "d18d3563_caab9710",
       "revId": "1123fba276030a000cda8f868d4f9cd5d74166b3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fdb6667f_527eabe1",
+        "filename": "plat/rpi/rpi3/plat_delay_timer.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1001360
+      },
+      "writtenOn": "2024-08-12T17:08:06Z",
+      "side": 1,
+      "message": "Thanks for your comments Manish,\n\nDuring the development of the drivers, I was trying to use the provided delay_timer.h functions such as timeout_init_us and timeout_elapsed. \n\nThe problem I encountered is that these functions read the register CNTFRQ, and in the case of RPI3 this register is empty in TF-A. The register should be set to the CPU clock frequency. Nowhere did I see online that this can be done for RPI3, and I also tried to write an estimated clock frequency of 19.2Mhz to the register, but this did not work. In the arm fvp platform, arm_configure_sys_timer() handles the initialization of the CNTFRQ register. For RPI3 there is no ARM_SYS_TIMCTL_BASE address...\n\nBecause of this, delay_timer is not working for RPI3. This is why I implemented a specific plat delay timer for the RPI3.",
+      "parentUuid": "99fb5740_41ef2c45",
+      "revId": "1123fba276030a000cda8f868d4f9cd5d74166b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
