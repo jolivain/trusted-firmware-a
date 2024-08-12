@@ -335,6 +335,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c64b13df_92fa1227",
+        "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-12T13:34:41Z",
+      "side": 1,
+      "message": "After digging a bit in our internal tree, I found that we had a cache issue, but not properly understood at that time. The real correction for this is in BL31, and will be upstreamed after this series. So this cache invalidation is useless. I\u0027ll remove it.",
+      "parentUuid": "a6f3180f_122ab80f",
+      "range": {
+        "startLine": 262,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 51
+      },
+      "revId": "e1f142bd63c0115f200e3f72d0a67715eb484de4",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22f4bc53_1947b2f7",
         "filename": "plat/st/stm32mp2/bl2_plat_setup.c",
         "patchSetId": 3
