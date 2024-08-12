@@ -109,6 +109,9 @@ endif
 
 # CPU libraries for TARGET_PLATFORM=2
 ifeq (${TARGET_PLATFORM}, 2)
+ERRATA_A520_2938996	:=	1
+ERRATA_X4_2726228	:=	1
+
 TC_CPU_SOURCES	+=	lib/cpus/aarch64/cortex_a520.S \
 			lib/cpus/aarch64/cortex_a720.S \
 			lib/cpus/aarch64/cortex_x4.S
@@ -116,6 +119,8 @@ endif
 
 # CPU libraries for TARGET_PLATFORM=3
 ifeq (${TARGET_PLATFORM}, 3)
+ERRATA_A520_2938996	:=	1
+
 TC_CPU_SOURCES	+=	lib/cpus/aarch64/cortex_a520.S \
 			lib/cpus/aarch64/cortex_a725.S \
 			lib/cpus/aarch64/cortex_x925.S
