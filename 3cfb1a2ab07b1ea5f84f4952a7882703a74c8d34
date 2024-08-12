@@ -39,6 +39,29 @@
       "message": "Nit otherwise LGTM",
       "revId": "3cfb1a2ab07b1ea5f84f4952a7882703a74c8d34",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1486910_e29c5fb4",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 1539,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-12T17:05:29Z",
+      "side": 1,
+      "message": "could this be improvised ?\n\nIs there a possibility to bring this check inside the helper function\n``is_feat_supported`` ? as we evaluate other values inside it.",
+      "range": {
+        "startLine": 1539,
+        "startChar": 0,
+        "endLine": 1539,
+        "endChar": 52
+      },
+      "revId": "3cfb1a2ab07b1ea5f84f4952a7882703a74c8d34",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
