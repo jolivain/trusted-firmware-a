@@ -62,6 +62,30 @@
       },
       "revId": "3cfb1a2ab07b1ea5f84f4952a7882703a74c8d34",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f864f4a_87089fd2",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 1539,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-12T17:06:22Z",
+      "side": 1,
+      "message": "** ``is_feat_spe_supported``",
+      "parentUuid": "b1486910_e29c5fb4",
+      "range": {
+        "startLine": 1539,
+        "startChar": 0,
+        "endLine": 1539,
+        "endChar": 52
+      },
+      "revId": "3cfb1a2ab07b1ea5f84f4952a7882703a74c8d34",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
