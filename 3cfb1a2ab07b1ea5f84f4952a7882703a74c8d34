@@ -110,6 +110,30 @@
       },
       "revId": "3cfb1a2ab07b1ea5f84f4952a7882703a74c8d34",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95efea81_27db15ea",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 15
+      },
+      "lineNbr": 1539,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-13T11:37:51Z",
+      "side": 1,
+      "message": "@Yann, Thanks for sharing your thoughts around this check.\nTo be precise, I was concerned on avoiding #ifs usage in .c file. Nothing harm in the current patch, but we had introduced inline functions for both enable \u0026 disable for each feature with these thoughts.\n**https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/20167**\n**Eg: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/19277/11/include/arch/aarch64/arch_features.h#29**\n\nI am not sure if this needs to be followed on all cases, but just thought of mentioning about it. Currently STATE\u003d3, is used in a way that if its set then we first fetch the NS context and then overwrite that context based on feature presence/supported which is directing to FEAT_STATE_CHECK\u003d2.\nI presume its not possible to figure out which feature is asymmetric across which core. I mean we might know SPE is an asymmetric feature at build time, but we are\u0027nt sure whether its asymmetric in Core 2/3/4...which is decided on runtime and henceforth STATE\u003d3  and STATE\u003d2 are kind of clubbed here. So I am ok with this approach.\n\nI was initially thinking about something similar to this:\n\n```\nstatic inline bool is_feat_SPE_supported(void)\n{\n\tif (ENABLE_FEAT_PAN \u003d\u003d FEAT_STATE_DISABLED) {\n\t\treturn false;\n\t}\n\n\tif (ENABLE_FEAT_PAN \u003d\u003d FEAT_STATE_ALWAYS) {\n\t\treturn true;\n\t}\n\n\tif (ENABLE_FEAT_PAN \u003d\u003d FEAT_STATE_ASSYMETRIC) {\n\t\t...spe_assymetric ();\n\t}\n\treturn read_feat_pan_id_field() !\u003d 0U;\n}\n```\n\nBut I guess this is not looking good either as ``is_spe_supported`` itself is an inline function, so wouldn\u0027t recommend having an other function call which hopefully is not an inline here.\n\nSo the last option which I see here is having explicit static inline helper APIs to cover this #ifs check. Like:\n```\nstatic inline bool is_feat_spe_asymmetic(void)\n{\n   if (ENABLE_FEAT_PAN \u003d\u003d FEAT_STATE_ASSYMETRIC) {\n\t\n\t----\n\t/* Logic */\n\t----\n\t}\n\n}\n```\n\nI leave it to the patch author\u0027s decision. I dont have any other comments here. @Manish P, Feel free to close this part.",
+      "parentUuid": "9512dd8a_6354161e",
+      "range": {
+        "startLine": 1539,
+        "startChar": 0,
+        "endLine": 1539,
+        "endChar": 52
+      },
+      "revId": "3cfb1a2ab07b1ea5f84f4952a7882703a74c8d34",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
