@@ -34,6 +34,24 @@
       "parentUuid": "a8ac9450_5bb9f1a9",
       "revId": "7622331aa8e8fdae609318ae6d2f09682bf6d5c8",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52359598_b0a3650b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-13T22:15:28Z",
+      "side": 1,
+      "message": "Yes... it is supposed to happen but the error that is returned is SDEI_EDENY.  After review of the spec it seems that perhaps returning SDEI_ENOMEM might be more appropriate.",
+      "parentUuid": "bb362ba2_9596ae9a",
+      "revId": "7622331aa8e8fdae609318ae6d2f09682bf6d5c8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
