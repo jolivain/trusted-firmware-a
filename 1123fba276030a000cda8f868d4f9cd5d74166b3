@@ -199,6 +199,47 @@
       "parentUuid": "99fb5740_41ef2c45",
       "revId": "1123fba276030a000cda8f868d4f9cd5d74166b3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40ab5ef4_2e9e3736",
+        "filename": "plat/rpi/rpi3/plat_delay_timer.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-14T07:41:40Z",
+      "side": 1,
+      "message": "```\n\ndiff --git a/drivers/delay_timer/delay_timer.c b/drivers/delay_timer/delay_timer.c\nindex a3fd7bfeb..4f1351111 100644\n--- a/drivers/delay_timer/delay_timer.c\n+++ b/drivers/delay_timer/delay_timer.c\n@@ -80,3 +80,23 @@ void timer_init(const timer_ops_t *ops_ptr)\n \n        timer_ops \u003d ops_ptr;\n }\n+\n+/***********************************************************\n+ * Initialize the timer in us\n+ ***********************************************************/\n+uint64_t timer_init_us(uint32_t usec)\n+{\n+       assert(timer_ops !\u003d NULL);\n+       assert(timer_ops-\u003etimer_init_us !\u003d NULL); \n+\n+       return (timer_ops-\u003etimer_init_us(usec));\n+}\n+\n+/***********************************************************\n+ * check the given timeout elapsed or not.\n+ ***********************************************************/\n+bool timeout_elapsed(uint64_t cnt)\n+{\n+       assert(timer_ops !\u003d NULL);\n+       assert(timer_ops-\u003etimeout_elapsed !\u003d NULL);\n+\n+       return (timer_ops-\u003etimeout_elapsed(usec));\n+}\n\ndiff --git a/drivers/delay_timer/generic_delay_timer.c b/drivers/delay_timer/generic_delay_timer.c\nindex ca522e05a..1ea9fba9a 100644\n--- a/drivers/delay_timer/generic_delay_timer.c\n+++ b/drivers/delay_timer/generic_delay_timer.c\n@@ -18,6 +18,25 @@\n \n static timer_ops_t ops;\n \n+static uint64_t timeout_cnt_us2cnt(uint32_t us)\n+{\n+        return ((uint64_t)us * (uint64_t)read_cntfrq_el0()) / 1000000ULL;\n+}\n+\n+uint64_t timeout_init_us(uint32_t us)\n+{\n+        uint64_t cnt \u003d timeout_cnt_us2cnt(us);\n+\n+        cnt +\u003d read_cntpct_el0();\n+\n+        return cnt;\n+}\n+\n+bool timeout_elapsed(uint64_t expire_cnt)\n+{\n+        return read_cntpct_el0() \u003e expire_cnt;\n+}\n+\n static uint32_t get_timer_value(void)\n {\n        /*\n@@ -34,6 +53,8 @@ void generic_delay_timer_init_args(uint32_t mult, uint32_t div)\n        ops.get_timer_value     \u003d get_timer_value;\n        ops.clk_mult            \u003d mult;\n        ops.clk_div             \u003d div;\n+       ops.timeout_init_us     \u003d timeout_init_us;\n+       ops.timeout_elapsed     \u003d timeout_elapsed;\n \n        timer_init(\u0026ops);\ndiff --git a/include/drivers/delay_timer.h b/include/drivers/delay_timer.h\nindex 20a554357..1eba491a7 100644\n--- a/include/drivers/delay_timer.h\n+++ b/include/drivers/delay_timer.h\n@@ -25,27 +25,12 @@ typedef struct timer_ops {\n        uint32_t (*get_timer_value)(void);\n        uint32_t clk_mult;\n        uint32_t clk_div;\n+       uint64_t (*timeout_init_us)(uint32_t);\n+       bool (*timeout_elapsed)(uint64_t);\n } timer_ops_t;\n-static inline uint64_t timeout_cnt_us2cnt(uint32_t us)\n-{\n-       return ((uint64_t)us * (uint64_t)read_cntfrq_el0()) / 1000000ULL;\n-}\n-\n-static inline uint64_t timeout_init_us(uint32_t us)\n-{\n-       uint64_t cnt \u003d timeout_cnt_us2cnt(us);\n-\n-       cnt +\u003d read_cntpct_el0();\n-\n-       return cnt;\n-}\n-\n-static inline bool timeout_elapsed(uint64_t expire_cnt)\n-{\n-       return read_cntpct_el0() \u003e expire_cnt;\n-}\n-\n+uint64_t timeout_init_us(uint32_t us);\n+bool timeout_elapsed(uint64_t cnt);\n void mdelay(uint32_t msec);\n void udelay(uint32_t usec);\n void timer_init(const timer_ops_t *ops_ptr);\n \n ```\n\nNote: it is not tested code 😊.\n\nI envision a setup where ``timeout_init_us`` and ``timeout_elapsed`` are integrated within the timer operations, eliminating the need for separate platform definitions. To align with this framework, you\u0027ll need to enhance the existing driver implementation. Your timer driver should include these timer operations, and you\u0027ll also need to ensure that these operations are properly registered via ``timer_init``. \n\nAdditionally, as previously mentioned, the Raspberry Pi 3 platform uses the generic delay timer during BL2 compilation. Therefore, opting not to use the generic timer and creating a separate timer driver means that the generic delay timer being non-functional on this platform. \n@Andre, do you have any idea whether generic delay timer functional for Raspberry Pi 3?",
+      "parentUuid": "fdb6667f_527eabe1",
+      "revId": "1123fba276030a000cda8f868d4f9cd5d74166b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a9d63d9_74e30373",
+        "filename": "plat/rpi/rpi3/plat_delay_timer.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-14T07:41:40Z",
+      "side": 1,
+      "message": "What is the frequency of this timer? It seems to be assuming that the timer ticks every microsecond. Is that correct?",
+      "range": {
+        "startLine": 24,
+        "startChar": 21,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "1123fba276030a000cda8f868d4f9cd5d74166b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
