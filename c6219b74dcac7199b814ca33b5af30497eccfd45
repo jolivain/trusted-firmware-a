@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86dbf131_691785fa",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 19
+      },
+      "lineNbr": 1552,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-08-14T17:42:11Z",
+      "side": 1,
+      "message": "minor nit: should the comments be placed under the #if block?",
+      "range": {
+        "startLine": 1552,
+        "startChar": 4,
+        "endLine": 1552,
+        "endChar": 9
+      },
+      "revId": "c6219b74dcac7199b814ca33b5af30497eccfd45",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
