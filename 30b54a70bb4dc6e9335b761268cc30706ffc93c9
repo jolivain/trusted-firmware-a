@@ -116,6 +116,30 @@
       },
       "revId": "30b54a70bb4dc6e9335b761268cc30706ffc93c9",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4b130a2_890da6fd",
+        "filename": "include/common/feat_detect.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000102
+      },
+      "writtenOn": "2024-08-14T09:37:51Z",
+      "side": 1,
+      "message": "Originally i used FEAT_STATE_ASYMMETRIC but there was discussion to make it CHECK_ASYMMETRIC",
+      "parentUuid": "a1e21fcc_5829663f",
+      "range": {
+        "startLine": 17,
+        "startChar": 19,
+        "endLine": 17,
+        "endChar": 35
+      },
+      "revId": "30b54a70bb4dc6e9335b761268cc30706ffc93c9",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
