@@ -1,6 +1,7 @@
 #
 # Copyright (c) 2019-2020, ARM Limited and Contributors. All rights reserved.
 # Copyright (c) 2019-2023, Intel Corporation. All rights reserved.
+# Copyright (c) 2024, Altera Corporation. All rights reserved.
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -93,6 +94,7 @@ BL31_SOURCES	+=	\
 		plat/intel/soc/common/sip/socfpga_sip_ecc.c		\
 		plat/intel/soc/common/sip/socfpga_sip_fcs.c		\
 		plat/intel/soc/common/soc/socfpga_mailbox.c		\
+		plat/intel/soc/common/soc/socfpga_system_manager.c	\
 		plat/intel/soc/common/soc/socfpga_reset_manager.c
 
 # Configs for A76 and A55
