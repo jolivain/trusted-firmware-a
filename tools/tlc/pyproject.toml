@@ -135,13 +135,11 @@ addopts = [
 
 [tool.coverage.run]
 source = ["tests"]
-
-[coverage.paths]
-source = "tlc"
-
-[coverage.run]
 branch = true
 
-[coverage.report]
+[tool.coverage.paths]
+source = "tlc"
+
+[tool.coverage.report]
 fail_under = 50
 show_missing = true
