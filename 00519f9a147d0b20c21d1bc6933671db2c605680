@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c83e855d_97b6e506",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-08-15T15:50:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44b25376_dbd39b41",
+      "revId": "00519f9a147d0b20c21d1bc6933671db2c605680",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8c739c5f_390b29c2",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -130,6 +148,30 @@
       "side": 1,
       "message": "Understood, to reference Makefile variables within Makefile recipes $(WRAPPER_FLAGS) suffice. For consistency, could you use $(WRAPPER_FLAGS) at line 555 also?",
       "parentUuid": "305f21b0_5a43d9a9",
+      "range": {
+        "startLine": 559,
+        "startChar": 54,
+        "endLine": 559,
+        "endChar": 70
+      },
+      "revId": "00519f9a147d0b20c21d1bc6933671db2c605680",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0821d7bf_66b98033",
+        "filename": "make_helpers/build_macros.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1000272
+      },
+      "writtenOn": "2024-08-15T15:50:16Z",
+      "side": 1,
+      "message": "I\u0027ll make them consistent.",
+      "parentUuid": "649f6747_50cd52b5",
       "range": {
         "startLine": 559,
         "startChar": 54,
