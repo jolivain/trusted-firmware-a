@@ -1619,7 +1619,6 @@ endif #(CHECKPATCH)
 clean:
 	$(s)echo "  CLEAN"
 	$(call SHELL_REMOVE_DIR,${BUILD_PLAT})
-	$(q)${MAKE} -C ${CERTCONVPATH} clean
 ifdef UNIX_MK
 	$(q)${MAKE} --no-print-directory -C ${FIPTOOLPATH} clean
 else
@@ -1635,7 +1634,6 @@ realclean distclean:
 	$(s)echo "  REALCLEAN"
 	$(call SHELL_REMOVE_DIR,${BUILD_BASE})
 	$(call SHELL_DELETE_ALL, ${CURDIR}/cscope.*)
-	$(q)${MAKE} -C ${CERTCONVPATH} clean
 ifdef UNIX_MK
 	$(q)${MAKE} --no-print-directory -C ${FIPTOOLPATH} clean
 else
