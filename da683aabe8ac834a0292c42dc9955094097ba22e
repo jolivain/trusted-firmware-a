@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2138eaa8_c61410c2",
+        "filename": "plat/mediatek/drivers/emi_mpu/mt8188/emi_mpu_priv.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000822
+      },
+      "writtenOn": "2024-08-15T06:52:12Z",
+      "side": 1,
+      "message": "What about\n```\n#define SVP_DRAM_REGION_COUNT    10\n\nenum .. {\n    ...\n    ...\n    SVP_DRAM_REGION_ID_END \u003d SVP_DRAM_REGION_ID_START + SVP_DRAM_REGION_COUNT - 1,\n    \n};\n```\nIt should be more flexible and clear.",
+      "range": {
+        "startLine": 66,
+        "startChar": 1,
+        "endLine": 66,
+        "endChar": 29
+      },
+      "revId": "da683aabe8ac834a0292c42dc9955094097ba22e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
