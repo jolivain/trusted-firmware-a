@@ -45,6 +45,29 @@
       },
       "revId": "e7918efe3083a555d6fe8e5b453399a334d5e1f7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1be349b0_55330b75",
+        "filename": "include/lib/cpus/errata.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-08-16T14:57:02Z",
+      "side": 1,
+      "message": "shouldn\u0027t this go into individual cpu\u0027s headers?\n\ncortex_a530.h and cortex_x4.h?\n\nI would avoid polluting this file with cpu specific things.",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
+        "endChar": 39
+      },
+      "revId": "e7918efe3083a555d6fe8e5b453399a334d5e1f7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
