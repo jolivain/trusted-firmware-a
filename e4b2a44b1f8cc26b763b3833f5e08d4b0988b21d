@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e70d8a00_efc1ff0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-16T15:29:44Z",
+      "side": 1,
+      "message": "As mentioned earlier, it would be ideal if you could create a separate change for each platform. While this change impacts mbedTLS, it\u0027s primarily a platform-specific change. So I think the changes should be scoped as follows:\n\n```\nchore(arm): ...\nchore(imx): ...\n```",
+      "revId": "e4b2a44b1f8cc26b763b3833f5e08d4b0988b21d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
