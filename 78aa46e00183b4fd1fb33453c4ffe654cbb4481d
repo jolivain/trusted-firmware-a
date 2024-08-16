@@ -47,6 +47,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3856cd7_f3c084bc",
+        "filename": "lib/cpus/errata_common.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-16T13:47:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df0593f5_2f444015",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 43
+      },
+      "revId": "78aa46e00183b4fd1fb33453c4ffe654cbb4481d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7dbb10cb_a101068e",
@@ -64,6 +88,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26acee4b_39bb3075",
+        "filename": "lib/cpus/errata_common.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-16T13:47:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7dbb10cb_a101068e",
+      "revId": "78aa46e00183b4fd1fb33453c4ffe654cbb4481d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0beaefe_237f2539",
@@ -77,6 +119,30 @@
       "writtenOn": "2024-08-14T17:09:09Z",
       "side": 1,
       "message": "It should be ERRATA_A520_2938996 || ERRATA_X4_2726228. Additionally, don’t we need ENABLE_TRBE_FOR_NS to extend its state to use FEAT_STATE_CHECK_ASYMMETRIC and use that check accordingly, similar to how it’s done with SPE?",
+      "range": {
+        "startLine": 1551,
+        "startChar": 0,
+        "endLine": 1551,
+        "endChar": 43
+      },
+      "revId": "78aa46e00183b4fd1fb33453c4ffe654cbb4481d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8a47274_1ede15e9",
+        "filename": "lib/el3_runtime/aarch64/context_mgmt.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 1551,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-16T13:47:40Z",
+      "side": 1,
+      "message": "Discussed with ManishP offline. The FEAT_STATE_CHECK_ASYMMETRIC option isn\u0027t necessary, as this erratum needs to be applied regardless of whether the feature check is asymmetric or not.",
+      "parentUuid": "d0beaefe_237f2539",
       "range": {
         "startLine": 1551,
         "startChar": 0,
