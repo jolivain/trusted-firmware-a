@@ -133,6 +133,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "343d2ddf_da89945c",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-08-16T15:58:48Z",
+      "side": 1,
+      "message": "Okay, if i\u0027ve understood you correctly, this is a platform agnostic constant that specifies how much space has been mapped in DRAM for the DTB (i.e. 1MiB)?",
+      "parentUuid": "5576bf88_d8e4fd4f",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 2
+      },
+      "revId": "1d9caa86c16dc0265dc45a81e90c952667ced035",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c06dd554_1c1e6d96",
         "filename": "plat/arm/common/arm_bl31_setup.c",
         "patchSetId": 2
