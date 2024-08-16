@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47b73b47_8d8d7269",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-16T14:59:24Z",
+      "side": 1,
+      "message": "nit: would be nice to stick to one pattern in naming.\nFeel free to ignore if its not required.\n\nEither as :\n```\nsve_predicate_op\nsve_vectors_op\n\nor\nsve_op_predicate\nsve_op_vectors\n```",
+      "range": {
+        "startLine": 161,
+        "startChar": 7,
+        "endLine": 161,
+        "endChar": 21
+      },
+      "revId": "44e08a6deac896d812c17a8aa3d5513d45067761",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cec65a79_25074af9",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 6
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-16T14:59:24Z",
+      "side": 1,
+      "message": "tabs here and at the below lines in this function.",
+      "revId": "44e08a6deac896d812c17a8aa3d5513d45067761",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
