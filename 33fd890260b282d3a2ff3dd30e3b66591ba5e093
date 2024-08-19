@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba4ad521_e3d868f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-08-19T16:49:49Z",
+      "side": 1,
+      "message": "Hi Manish, that\u0027s about right, though with a fresh Python 3.12 virtual environment and a clean repository I\u0027m no longer able to reproduce the original \"ifdef\" error I was seeing.\n\nI do see additional errors with Python 3.8, as even though the tool reports that it supports it, it has a dependency on pandas that it doesn\u0027t use. If you remove that dependency then you\u0027ll get the following error (unrelated to pandas):\n\n    Traceback (most recent call last):\n      File \"/home/vscode/.cache/pypoetry/virtualenvs/trusted-firmware-a-xJCVjTsP-py3.8/bin/cot-dt2c\", line 5, in \u003cmodule\u003e\n        from cot_dt2c.__main__ import cli\n      File \"/home/vscode/.cache/pypoetry/virtualenvs/trusted-firmware-a-xJCVjTsP-py3.8/lib/python3.8/site-packages/cot_dt2c/__main__.py\", line 8, in \u003cmodule\u003e\n        from cot_dt2c.cli import cli\n      File \"/home/vscode/.cache/pypoetry/virtualenvs/trusted-firmware-a-xJCVjTsP-py3.8/lib/python3.8/site-packages/cot_dt2c/cli.py\", line 8, in \u003cmodule\u003e\n        from cot_dt2c.cot_dt2c import generateMain\n      File \"/home/vscode/.cache/pypoetry/virtualenvs/trusted-firmware-a-xJCVjTsP-py3.8/lib/python3.8/site-packages/cot_dt2c/cot_dt2c.py\", line 8, in \u003cmodule\u003e\n        from cot_dt2c.cot_parser import COT\n      File \"/home/vscode/.cache/pypoetry/virtualenvs/trusted-firmware-a-xJCVjTsP-py3.8/lib/python3.8/site-packages/cot_dt2c/cot_parser.py\", line 25, in \u003cmodule\u003e\n        class COT:\n      File \"/home/vscode/.cache/pypoetry/virtualenvs/trusted-firmware-a-xJCVjTsP-py3.8/lib/python3.8/site-packages/cot_dt2c/cot_parser.py\", line 354, in COT\n        def get_node(self, nodes: list[Node], name: str) -\u003e Node:\n    TypeError: \u0027type\u0027 object is not subscriptable\n\nThis error is also resolved (accidentally) by this change.\n\n\u003e The patch also removes the Makefile for the tool—does this mean we should no longer use the make command to build this tool?\n\nI would generally recommend it - Poetry plays a similar sort of role for Python scripts that Make plays for our C sources... not entirely identical, but if we had kept it, it would have been exceedingly short and probably a bit pointless.\n\n\u003e Additionally, should the test vectors (test DTSI files) be preprocessed, and some might not be required at all which were added for #ifdef checks?\n\n\u003e We need to update the documentation towards this tool as it used make commands and also it used direct dtsi files rather preprocessed ones so we need to update documentation towards input parameter also\n\nAh, yes, you\u0027re right on both counts.\n\n\u003e Also, there are other tools in TF-A like tlc which also uses makefile, can we remove that too to make it consistent?\n\nOnly the TLC tool, which Harrison is working on a similar set of changes for in parallel.",
+      "parentUuid": "db3ae2c2_420ca922",
+      "revId": "33fd890260b282d3a2ff3dd30e3b66591ba5e093",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "89d22144_46236d24",
         "filename": "tools/cot_dt2c/.gitignore",
         "patchSetId": 3
@@ -48,6 +66,30 @@
       "writtenOn": "2024-08-19T16:06:55Z",
       "side": 1,
       "message": "We don\u0027t use any of these tools and are unlikely to do so in this project, does it make sense to include them?",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 7
+      },
+      "revId": "33fd890260b282d3a2ff3dd30e3b66591ba5e093",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d94ee43_83fecd40",
+        "filename": "tools/cot_dt2c/.gitignore",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000206
+      },
+      "writtenOn": "2024-08-19T16:49:49Z",
+      "side": 1,
+      "message": "I can remove them - it\u0027s just if we regenerate it (with gitignore.io) they\u0027ll be added and we\u0027ll have to remove them again.",
+      "parentUuid": "89d22144_46236d24",
       "range": {
         "startLine": 62,
         "startChar": 0,
