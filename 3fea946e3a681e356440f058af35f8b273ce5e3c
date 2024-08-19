@@ -72,6 +72,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a18d3f7_81524f92",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-08-19T15:58:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27b921df_c988c585",
+      "range": {
+        "startLine": 978,
+        "startChar": 53,
+        "endLine": 979,
+        "endChar": 12
+      },
+      "revId": "3fea946e3a681e356440f058af35f8b273ce5e3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a82c7c82_1a802250",
@@ -133,6 +157,30 @@
       "side": 1,
       "message": "Ok.\nTo summarise your thoughts,\nIf we overide and set this to 1, few platforms would be impacted. Further, they are already taking care on their own in differnt ways without SIMD context mgmt support in EL3. So even without CTX_INCLUE_SVE_REGS, its taken care.\nAgree with this.\n\n\nJust checking, are there any platforms in our CI, wherein if we dont enable CTX_INCLUDE_SVE_RGES even when both \"ENABLE_SVE_FOR_SWD and ENABLE_SVE_FOR_NS\" are enabled. Not sure this is a valid case or if its already taken care. \nJust wanted to highlight as my original comment was targetting such platforms.\nWill there be any sve state corruption in those scenarious? If not I am ok with this check.",
       "parentUuid": "65920ffc_5fbb95ce",
+      "range": {
+        "startLine": 991,
+        "startChar": 12,
+        "endLine": 991,
+        "endChar": 103
+      },
+      "revId": "3fea946e3a681e356440f058af35f8b273ce5e3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65fe293e_09e131a0",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-08-19T15:58:58Z",
+      "side": 1,
+      "message": "Discussed offline. Many platforms have other tricks to get away from SIMD context management in EL3 even when SWD and NWD have access to SVE.",
+      "parentUuid": "ab238367_d5b44a65",
       "range": {
         "startLine": 991,
         "startChar": 12,
