@@ -48,6 +48,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e9b6d14_321681de",
+        "filename": "lib/el3_runtime/simd_ctx.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-19T15:22:27Z",
+      "side": 1,
+      "message": "Thanks, got it.",
+      "parentUuid": "34c716e1_dc535d32",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 26
+      },
+      "revId": "e8e33b095379a749238168d48c4d46514464668f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ef52ab9_22dc7d73",
@@ -132,6 +156,30 @@
       "side": 1,
       "message": "Yes, this is for the memory size concerns due to constraints in secure memory.\nI have provided the documentation here:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/29831/5/docs/getting_started/build-options.rst",
       "parentUuid": "bf6162df_a5043b5d",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 21
+      },
+      "revId": "e8e33b095379a749238168d48c4d46514464668f",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f11f6457_e1ad6d46",
+        "filename": "make_helpers/defaults.mk",
+        "patchSetId": 6
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-19T15:22:27Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3b27e054_c581f4de",
       "range": {
         "startLine": 245,
         "startChar": 0,
