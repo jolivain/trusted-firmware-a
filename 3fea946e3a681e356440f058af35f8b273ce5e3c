@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "884cb277_442e090e",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-19T13:05:57Z",
+      "side": 1,
+      "message": "nit:\nnot completely.\nAFAIK, feature detection mechanism in not influencing this bit.",
+      "range": {
+        "startLine": 978,
+        "startChar": 53,
+        "endLine": 979,
+        "endChar": 12
+      },
+      "revId": "3fea946e3a681e356440f058af35f8b273ce5e3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a82c7c82_1a802250",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-19T13:05:57Z",
+      "side": 1,
+      "message": "why don\u0027t we go ahead and set the CTX_INCLUDE_SVE_REGS\u003d1 in this case?\nWill there be a problem if we use overide option here?\nWould be good throw a warning and set the required flag if its not harmful.\nPlease do let me know if thats a viable option here.",
+      "range": {
+        "startLine": 991,
+        "startChar": 12,
+        "endLine": 991,
+        "endChar": 103
+      },
+      "revId": "3fea946e3a681e356440f058af35f8b273ce5e3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
