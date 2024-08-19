@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27b921df_c988c585",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-19T14:25:34Z",
+      "side": 1,
+      "message": "ok. Now I get your point.\nThe naming part is the confusion here.\nPreviously we used to refer the entire support functions where build flags used to be evaluated as feature detection mechanism. \nBut Andre refactored this here: \n*https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/25653*\nIts ``ENBALE_FEAT`` mechanism.\n\nFurther, in manage_extensions_secure_per_world, based on the build flag being set to 0,1 or 2, we are doing feature check. We dont have separate APIs again to check whether feature is present in secure world as well. Those helper functions have been written in general for NS world build flags.\n\nComing back to the main comment, Excuse but I am really not sure of the reason here for SVE, why we need to enable ENABLE_SVE_FOR_NS when we want to enable it for Secure world, but all I am aware is, its not because of ENABLE_FEAT mechanism.\n\nThis check:\n```\nifeq (${ENABLE_SVE_FOR_SWD},1)\n    ifeq (${ENABLE_SVE_FOR_NS},0)\n        $(error \"ENABLE_SVE_FOR_SWD requires ENABLE_SVE_FOR_NS\")\n    endif\nendif\n```\n\nwas there even before we added those supporting helper functions.\nSo shall we remove this comment part and lets just have:\n`` Enabling SVE for SWD requires enabling SVE for NWD`` ?",
+      "parentUuid": "5b65d298_4d6855e2",
+      "range": {
+        "startLine": 978,
+        "startChar": 53,
+        "endLine": 979,
+        "endChar": 12
+      },
+      "revId": "3fea946e3a681e356440f058af35f8b273ce5e3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a82c7c82_1a802250",
         "filename": "Makefile",
         "patchSetId": 7
