@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99c9eb05_9f814ced",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-19T15:16:20Z",
+      "side": 1,
+      "message": "LGTM. \nminor comment.",
+      "revId": "b1e602ff57f890c196037e4053fee34bf74ca141",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98d51cad_8be1bbdc",
+        "filename": "include/lib/el3_runtime/aarch64/context.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-19T15:16:20Z",
+      "side": 1,
+      "message": "remove these lines.",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 3
+      },
+      "revId": "b1e602ff57f890c196037e4053fee34bf74ca141",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
