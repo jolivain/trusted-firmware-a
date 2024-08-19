@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5b65d298_4d6855e2",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-08-19T13:56:36Z",
+      "side": 1,
+      "message": "I believe it depends on feature detection as seen here:\nhttps://git.trustedfirmware.org/TF-A/trusted-firmware-a/+/refs/tags/v2.11/lib/el3_runtime/aarch64/context_mgmt.c#660\n\nThe function, manage_extensions_secure_per_world, relies on is_feat_sve_supported() before enabling SVE for secure world. And you know, is_feat_sve_supported depends on ENABLE_SVE_FOR_NS.\n\nPlease let me know if you disagree.",
+      "parentUuid": "884cb277_442e090e",
+      "range": {
+        "startLine": 978,
+        "startChar": 53,
+        "endLine": 979,
+        "endChar": 12
+      },
+      "revId": "3fea946e3a681e356440f058af35f8b273ce5e3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a82c7c82_1a802250",
         "filename": "Makefile",
         "patchSetId": 7
@@ -37,6 +61,30 @@
       "writtenOn": "2024-08-19T13:05:57Z",
       "side": 1,
       "message": "why don\u0027t we go ahead and set the CTX_INCLUDE_SVE_REGS\u003d1 in this case?\nWill there be a problem if we use overide option here?\nWould be good throw a warning and set the required flag if its not harmful.\nPlease do let me know if thats a viable option here.",
+      "range": {
+        "startLine": 991,
+        "startChar": 12,
+        "endLine": 991,
+        "endChar": 103
+      },
+      "revId": "3fea946e3a681e356440f058af35f8b273ce5e3c",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65920ffc_5fbb95ce",
+        "filename": "Makefile",
+        "patchSetId": 7
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-08-19T13:56:36Z",
+      "side": 1,
+      "message": "Indeed, in the initial patch sets, I had done the same. I completely agree throwing a warning may not be sufficient. I had put an error here which would terminate the builds.\nHowever, there are many platforms which simply cannot cope up with such an error, including reference design platforms from Arm. My understanding is that, they have different techniques through which they ensure the SVE state is not corrupted during world switch and they do this without any SIMD context management in EL3. \n\nPlease let me know if you disagree.",
+      "parentUuid": "a82c7c82_1a802250",
       "range": {
         "startLine": 991,
         "startChar": 12,
