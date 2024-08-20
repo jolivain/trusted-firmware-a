@@ -53,6 +53,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fef6717_f83bfbba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-20T13:48:09Z",
+      "side": 1,
+      "message": "\u003e I would generally recommend it - Poetry plays a similar sort of role for Python scripts that Make plays for our C sources... not entirely identical, but if we had kept it, it would have been exceedingly short and probably a bit pointless.\n\nI\u0027m fine with removal with this explanation.\n\nAck, after this patch will look into the other patch to do the necessary modifications in the documentation and also, will remove un-necessary test dtsi files.",
+      "parentUuid": "ba4ad521_e3d868f4",
+      "revId": "33fd890260b282d3a2ff3dd30e3b66591ba5e093",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89d22144_46236d24",
