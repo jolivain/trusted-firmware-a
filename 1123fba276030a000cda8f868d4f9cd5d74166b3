@@ -239,6 +239,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d5e40744_7e76ec59",
+        "filename": "plat/rpi/rpi3/plat_delay_timer.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-20T14:24:33Z",
+      "side": 1,
+      "message": "My understanding the generic_delay_timer is the architectural timer so reading of architectural timer registers(cntfrq_el0, cntpct_el0) should be part of generic_delay_timer.c.",
+      "parentUuid": "efff5aff_0dcc7914",
+      "revId": "1123fba276030a000cda8f868d4f9cd5d74166b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a9d63d9_74e30373",
         "filename": "plat/rpi/rpi3/plat_delay_timer.c",
         "patchSetId": 1
@@ -274,6 +292,30 @@
       "side": 1,
       "message": "yes It is assuming microseconds, the rpi SYSTEM_TIMER_CLO is read in and gives us the time in us.",
       "parentUuid": "4a9d63d9_74e30373",
+      "range": {
+        "startLine": 24,
+        "startChar": 21,
+        "endLine": 24,
+        "endChar": 38
+      },
+      "revId": "1123fba276030a000cda8f868d4f9cd5d74166b3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7980a466_85ee1444",
+        "filename": "plat/rpi/rpi3/plat_delay_timer.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-20T14:24:33Z",
+      "side": 1,
+      "message": "This seems incorrect based on my understanding. The architected timer appears to be running at 19.2 MHz with a divider of 1, so the system timer should also be operating at the same frequency. I\u0027m not entirely certain, but is there any documentation stating that the system timer runs at 1 MHz?",
+      "parentUuid": "9d8ac1cc_2ce5057c",
       "range": {
         "startLine": 24,
         "startChar": 21,
