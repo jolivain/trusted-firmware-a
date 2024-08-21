@@ -73,6 +73,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e50c9e5_0de89312",
+        "filename": "Makefile",
+        "patchSetId": 3
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-08-21T08:19:18Z",
+      "side": 1,
+      "message": "Probably makes sense to remove this since it is now unused.",
+      "revId": "33fd890260b282d3a2ff3dd30e3b66591ba5e093",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "89d22144_46236d24",
         "filename": "tools/cot_dt2c/.gitignore",
         "patchSetId": 3
@@ -108,6 +125,30 @@
       "side": 1,
       "message": "I can remove them - it\u0027s just if we regenerate it (with gitignore.io) they\u0027ll be added and we\u0027ll have to remove them again.",
       "parentUuid": "89d22144_46236d24",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 7
+      },
+      "revId": "33fd890260b282d3a2ff3dd30e3b66591ba5e093",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d9c1abd_79fad8d1",
+        "filename": "tools/cot_dt2c/.gitignore",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-08-21T08:19:18Z",
+      "side": 1,
+      "message": "Leave it to your judgement, my uneducated guess is we won\u0027t need to touch the file down the line. But if you can see us needing to make wholesale changes down the road I\u0027m happy for it to stay as is.",
+      "parentUuid": "9d94ee43_83fecd40",
       "range": {
         "startLine": 62,
         "startChar": 0,
