@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2024, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -13,6 +13,8 @@
 #include <lib/mmio.h>
 #include <lib/xlat_tables/xlat_mmu_helpers.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
+#include <drivers/generic_delay_timer.h>
+#include <plat/common/platform.h>
 
 #include <rpi_shared.h>
 
@@ -36,6 +38,15 @@ void bl1_early_platform_setup(void)
 
 	/* Initialize the console to provide early debug support */
 	rpi3_console_init();
+
+	/* Enable arch timer */
+	generic_delay_timer_init();
+
+	/*
+	 * Write the System Timer Frequency to CNTFRQ manually since
+	 * ARM_SYS_CNTCTL_BASE is not defined for the rpi3 platform.
+	 */
+	write_cntfrq_el0(plat_get_syscnt_freq2());
 
 	/* Allow BL1 to see the whole Trusted RAM */
 	bl1_tzram_layout.total_base = BL_RAM_BASE;
