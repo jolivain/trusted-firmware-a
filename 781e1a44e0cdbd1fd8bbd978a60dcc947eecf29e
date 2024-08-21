@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e93fe41_5dadf43c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 45
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-21T16:15:37Z",
+      "side": 1,
+      "message": "FP_REGS has been moved out of CPU_ctx and its a separate context part of SIMD.\nThose changes got merged the previous day. So had to remove them as part of this report.",
+      "revId": "781e1a44e0cdbd1fd8bbd978a60dcc947eecf29e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
