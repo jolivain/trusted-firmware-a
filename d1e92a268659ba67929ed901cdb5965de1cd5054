@@ -16,6 +16,24 @@
       "message": "Did you notice issues with any of the test config builds in CI? BL32 typically refers to TOS or SPMC which live outside of TF-A project",
       "revId": "d1e92a268659ba67929ed901cdb5965de1cd5054",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d2fa400_8e3a2b84",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001289
+      },
+      "writtenOn": "2024-08-21T16:47:21Z",
+      "side": 1,
+      "message": "Hi Madhukar, I didn\u0027t find any issues with current CI configs. This issue was spotted when I locally converted test configs to have PSA_CRYPTO\u003d1, this option currently has a size penalty which breaks the hardcoded limit. These configs may be added to the CI in future.",
+      "parentUuid": "1991104d_50d92d9a",
+      "revId": "d1e92a268659ba67929ed901cdb5965de1cd5054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
