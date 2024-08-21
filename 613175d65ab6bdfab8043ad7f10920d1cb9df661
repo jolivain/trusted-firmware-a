@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "406e1505_c905af31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 57
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-21T13:10:13Z",
+      "side": 1,
+      "message": "Not tested yet.\nWill test against instrumentation configs and analyse the results.\nThanks for highlighting this bit.",
+      "parentUuid": "f5a6a464_74fc6b27",
+      "revId": "613175d65ab6bdfab8043ad7f10920d1cb9df661",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcb5c766_d8873df0",
@@ -41,6 +59,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60696ce5_b108d2c2",
+        "filename": "include/arch/aarch64/el3_common_macros.S",
+        "patchSetId": 57
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-21T13:10:13Z",
+      "side": 1,
+      "message": "No not required. Will remove this comment in the next patch.",
+      "parentUuid": "dcb5c766_d8873df0",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 82,
+        "endChar": 2
+      },
+      "revId": "613175d65ab6bdfab8043ad7f10920d1cb9df661",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afeb295c_3304d581",
@@ -54,6 +96,30 @@
       "writtenOn": "2024-07-29T12:57:08Z",
       "side": 1,
       "message": "Better wording would be \nSet to one to enable SError interrupts at EL3",
+      "range": {
+        "startLine": 511,
+        "startChar": 16,
+        "endLine": 512,
+        "endChar": 37
+      },
+      "revId": "613175d65ab6bdfab8043ad7f10920d1cb9df661",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "050f9180_1c5d7d37",
+        "filename": "lib/el3_runtime/aarch64/context.S",
+        "patchSetId": 57
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-21T13:10:13Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "afeb295c_3304d581",
       "range": {
         "startLine": 511,
         "startChar": 16,
