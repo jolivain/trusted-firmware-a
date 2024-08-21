@@ -16,6 +16,29 @@
       "message": "No major change. Just a rebase to resolve merge conflict.\nRetaining verified +1 (https://ci.trustedfirmware.org/job/tf-a-gerrit-tforg-l2/2437/)",
       "revId": "c65b700af3462800121b81ec5304b179f9ded8db",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79f32905_f997e105",
+        "filename": "include/lib/el3_runtime/context_mgmt.h",
+        "patchSetId": 61
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-08-21T14:36:57Z",
+      "side": 1,
+      "message": "minor nit: missing `\u0026\u0026 IMAGE_BL31` ?",
+      "range": {
+        "startLine": 56,
+        "startChar": 10,
+        "endLine": 56,
+        "endChar": 30
+      },
+      "revId": "c65b700af3462800121b81ec5304b179f9ded8db",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
