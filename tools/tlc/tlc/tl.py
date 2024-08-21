@@ -197,11 +197,19 @@ class TransferList:
             sum(self.header_to_bytes()) + sum(te.sum_of_bytes for te in self.entries)
         ) % 256
 
-    def get_entry_data_offset(self, tag_id: int) -> int:
-        """Returns offset of data of a TE from the base of the TL."""
+    def get_entry(self, tag_id: int) -> "TransferEntry":
         for te in self.entries:
             if te.id == tag_id:
-                return te.offset + te.hdr_size
+                return te
+
+        return None
+
+    def get_entry_data_offset(self, tag_id: int) -> int:
+        """Returns offset of data of a TE from the base of the TL."""
+        te = self.get_entry(tag_id)
+
+        if te:
+            return te.offset + te.hdr_size
 
         raise ValueError(f"Tag {tag_id} not found in TL!")
 
