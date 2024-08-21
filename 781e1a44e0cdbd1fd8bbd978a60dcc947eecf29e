@@ -33,6 +33,23 @@
       "message": "Tested here:\nhttps://ci.trustedfirmware.org/job/tf-a-ci-gateway/82101/\n\n``With SPM:``\nhttps://ci.trustedfirmware.org/job/tf-a-builder/4149518/artifact/lava-uart0.log/*view*/\n\n``Without SPM:``\nhttps://ci.trustedfirmware.org/job/tf-a-builder/4149519/artifact/lava-uart0.log/*view*/",
       "revId": "781e1a44e0cdbd1fd8bbd978a60dcc947eecf29e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9bdf08a_acb1e136",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 45
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000660
+      },
+      "writtenOn": "2024-08-21T16:36:03Z",
+      "side": 1,
+      "message": "Tested here explicitly on ci-gateway:\nL1 tests: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/82104/\nL3 tests: https://ci.trustedfirmware.org/job/tf-a-ci-gateway/82102/",
+      "revId": "781e1a44e0cdbd1fd8bbd978a60dcc947eecf29e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
