@@ -173,6 +173,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09f4d052_66516fdb",
+        "filename": "fdts/stm32mp25-fw-config.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-08-22T12:53:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "94dcc577_51c33d87",
+      "range": {
+        "startLine": 25,
+        "startChar": 9,
+        "endLine": 25,
+        "endChar": 22
+      },
+      "revId": "9da0a4e9590b8bc957f4965b4bd0bdf74f764a99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d44b4435_96a5c5cf",
@@ -210,6 +234,30 @@
       "side": 1,
       "message": "Same kind of thing here. TOS_FW_CONFIG_ID would be OP-TEE device tree for our use-case. But it is not possible (yet?) to load a separate DT for OP-TEE. The DT is embedded into OP-TEE binary.",
       "parentUuid": "d44b4435_96a5c5cf",
+      "range": {
+        "startLine": 29,
+        "startChar": 9,
+        "endLine": 29,
+        "endChar": 22
+      },
+      "revId": "9da0a4e9590b8bc957f4965b4bd0bdf74f764a99",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f4d0595_c0bf8bfb",
+        "filename": "fdts/stm32mp25-fw-config.dtsi",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-08-22T12:53:41Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "dc20ffb5_c2836cc9",
       "range": {
         "startLine": 29,
         "startChar": 9,
