@@ -16,6 +16,24 @@
       "message": "Hey, do you have any patch to get HDMI-RX working with this code? https://gitlab.collabora.com/hardware-enablement/rockchip-3588/trusted-firmware-a/-/issues/1",
       "revId": "fe34e3b38768c30ed7d6340f9c2ea74d686a864d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2d92e93_5a218ae0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000266
+      },
+      "writtenOn": "2024-08-22T03:02:03Z",
+      "side": 1,
+      "message": "We got report from collabora for this issue, and try to fix it before, but not success due to we can not reproduce it. We believe this is a separate feature update than the main soc support, so would like to make this basic soc support patch land first, and we will keep debug on known issue and share the patch if we fix it. The fix may also happen in HDMI-RX driver isntead of ATF.",
+      "parentUuid": "301535f3_dfd92016",
+      "revId": "fe34e3b38768c30ed7d6340f9c2ea74d686a864d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
