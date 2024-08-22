@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cca80bd_71f8fca9",
+        "filename": "bl2/bl2_main.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-08-22T16:52:20Z",
+      "side": 1,
+      "message": "I don’t think it makes sense to define this outside of platform-specific code. This setup is highly specific to the platform, and TF-A doesn’t require the use of fw_config or tb_fw_config. So far, only two platforms have actually utilized this mechanism.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 35
+      },
+      "revId": "f2d475c133a03027f189ed9437e12947fc172d90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
