@@ -240,6 +240,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b95df1f_ab1b60d2",
+        "filename": "plat/intel/soc/common/drivers/sdmmc/sdmmc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1000742
+      },
+      "writtenOn": "2024-08-22T07:24:26Z",
+      "side": 1,
+      "message": "Hi Sandrine, SieuMun, \n\nI believed there is confusion here.\n\nLet me explain and clear the doubts. \n\nFrom the mmc_csd, we are actually only needed the top 2 bytes info which will mask with 0xFFFF 0000. \nThis 2 bytes info consists of the file format, write protect, file format group and etc which needed for the subsequence send_cmd. \n\nI do understand that the resp_data is a 4 byte array and your concern is totally valid when taking into consideration of the entire 4 bytes data. However for our case over here, there is not necessary for us to fully copy the 4 bytes data from resp_data to mmc_csd. \n\nTherefore, in the implementation, we only opt to copy 1 byte which in turn added the / MBOX_WORD_BYTE. \n\nHope this is clear.",
+      "parentUuid": "34d95ca1_176b6334",
+      "range": {
+        "startLine": 522,
+        "startChar": 20,
+        "endLine": 522,
+        "endChar": 37
+      },
+      "revId": "b318494601e5533980abee8a36cd9e72ea0fccb7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0311a136_99a66f05",
