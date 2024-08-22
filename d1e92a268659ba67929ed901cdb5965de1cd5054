@@ -52,6 +52,24 @@
       "parentUuid": "2d2fa400_8e3a2b84",
       "revId": "d1e92a268659ba67929ed901cdb5965de1cd5054",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50a26d4c_b9cdfab1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001289
+      },
+      "writtenOn": "2024-08-22T16:33:32Z",
+      "side": 1,
+      "message": "Looks like the failed configs are all TSRAM.\n\nI checked again to find examples: The configs which fail are ones where I added both FVP_TRUSTED_SRAM_SIZE\u003d384 and PSA_CRYPTO\u003d1. For example: https://review.trustedfirmware.org/c/ci/tf-a-ci-scripts/+/29975/2/tf_config/fvp-aarch32-tbb-psa-mbedtls-dualroot. Though FVP_TRUSTED_SRAM_SIZE looks to be the issue on the linked config, it fails even without PSA_CRYPTO\u003d1.\n\nIs it the case that configs like the above are not supposed to be supported?",
+      "parentUuid": "b6c29cdc_ae371c76",
+      "revId": "d1e92a268659ba67929ed901cdb5965de1cd5054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
