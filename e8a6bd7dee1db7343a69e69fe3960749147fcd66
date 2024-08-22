@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5c31fa3_14ab1594",
+        "filename": "include/lib/extensions/ras_arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000923
+      },
+      "writtenOn": "2024-08-22T20:17:47Z",
+      "side": 1,
+      "message": "if this is referring to AET bits [12:10] then shouldnt this be just a Asynchronous Error Type.\n\nref: https://developer.arm.com/documentation/ddi0601/2024-06/AArch64-Registers/ESR-EL3--Exception-Syndrome-Register--EL3-?lang\u003den\n\n\nI don\u0027t see a Corrected error types under esr_el3",
+      "range": {
+        "startLine": 229,
+        "startChar": 2,
+        "endLine": 229,
+        "endChar": 24
+      },
+      "revId": "e8a6bd7dee1db7343a69e69fe3960749147fcd66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
