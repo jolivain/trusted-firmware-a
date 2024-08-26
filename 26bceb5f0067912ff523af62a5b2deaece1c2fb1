@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64b5f8d5_12917a80",
+        "filename": "plat/intel/soc/agilex5/bl2_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-26T11:13:27Z",
+      "side": 1,
+      "message": "keep assert.h first. TF-A coding style asks for libc includes to be first:\nhttps://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#include-statement-ordering",
+      "revId": "26bceb5f0067912ff523af62a5b2deaece1c2fb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b111fbc_d6fdbc11",
+        "filename": "plat/intel/soc/agilex5/bl2_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-26T11:13:27Z",
+      "side": 1,
+      "message": "minor: you could have kept the empty line after `static console_t console;`",
+      "revId": "26bceb5f0067912ff523af62a5b2deaece1c2fb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a128311a_cb20bcef",
+        "filename": "plat/intel/soc/agilex5/bl2_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-26T11:13:27Z",
+      "side": 1,
+      "message": "indentation is wrong, and if you follow MISRA, you should have curly braces, it is also better (still for MISRA) to use a boolean condition:\n```\n\t\twhile (true) {\n\t\t\twfi();\n\t\t}\n```",
+      "range": {
+        "startLine": 228,
+        "startChar": 0,
+        "endLine": 229,
+        "endChar": 8
+      },
+      "revId": "26bceb5f0067912ff523af62a5b2deaece1c2fb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
