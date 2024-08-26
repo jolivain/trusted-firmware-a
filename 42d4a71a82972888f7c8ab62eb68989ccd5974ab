@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5879ec7c_c9301bd7",
+        "filename": "plat/intel/soc/agilex/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-26T09:50:41Z",
+      "side": 1,
+      "message": "Is this change required?\nSame for some other files in this patch, and in other patches you\u0027ve pushed.",
+      "revId": "42d4a71a82972888f7c8ab62eb68989ccd5974ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3cfe3cb3_e517ee8f",
+        "filename": "plat/intel/soc/n5x/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-26T09:50:41Z",
+      "side": 1,
+      "message": "This change does not directly seem related to the boot source management. You may add a line about this in the commit message. Or have a dedicated patch.",
+      "revId": "42d4a71a82972888f7c8ab62eb68989ccd5974ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7572e3b4_9de2f01e",
+        "filename": "plat/intel/soc/stratix10/platform.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-26T09:50:41Z",
+      "side": 1,
+      "message": "ditto",
+      "revId": "42d4a71a82972888f7c8ab62eb68989ccd5974ab",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
