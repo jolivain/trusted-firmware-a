@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e146d77_95294754",
+        "filename": "plat/intel/soc/common/include/platform_def.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-26T09:58:47Z",
+      "side": 1,
+      "message": "As the code is common when PRELOADED_BL33_BASE is defined, maybe this could be changed to:\n\n```\n#ifdef PRELOADED_BL33_BASE\n#define PLAT_NS_IMAGE_OFFSET\t\t\tPRELOADED_BL33_BASE\n#else\n#if PLATFORM_MODEL \u003d\u003d PLAT_SOCFPGA_AGILEX5\n#define PLAT_NS_IMAGE_OFFSET\t\t\t0x80200000\n#else\n/* Legacy Products. Please refactor with Agilex5 */\n#define PLAT_NS_IMAGE_OFFSET\t\t\t0x10000000\n#endif /* #if PLATFORM_MODEL \u003d\u003d PLAT_SOCFPGA_AGILEX5 */\n```",
+      "revId": "71cea4643c1182f534c26cc68e3090d2cda1928b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
