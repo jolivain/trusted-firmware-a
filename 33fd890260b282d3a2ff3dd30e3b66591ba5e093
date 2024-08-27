@@ -71,6 +71,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8535b3e_3e383a4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-27T10:31:42Z",
+      "side": 1,
+      "message": "\u003e Ah, yes, you\u0027re right on both counts.\n\nUpdated the documentation and removed unused test Device Tree (DT) files due to this change. Additionally, modified the remaining test DT files to include preprocessed data. See this change [1]\n\n[1]: https://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/30745",
+      "parentUuid": "5fef6717_f83bfbba",
+      "revId": "33fd890260b282d3a2ff3dd30e3b66591ba5e093",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e50c9e5_0de89312",
