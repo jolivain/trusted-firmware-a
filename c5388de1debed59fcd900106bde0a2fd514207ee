@@ -93,6 +93,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d33a2de3_5bafb92e",
+        "filename": "include/lib/extensions/ras_arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1001395
+      },
+      "writtenOn": "2024-08-27T21:55:56Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "f44766f9_b9404ed3",
+      "range": {
+        "startLine": 168,
+        "startChar": 9,
+        "endLine": 168,
+        "endChar": 25
+      },
+      "revId": "c5388de1debed59fcd900106bde0a2fd514207ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "249b7a4f_762adbed",
@@ -110,6 +134,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "635b1d38_83b1f479",
+        "filename": "include/lib/extensions/ras_arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1001395
+      },
+      "writtenOn": "2024-08-27T21:55:56Z",
+      "side": 1,
+      "message": "Added also based on newer processors (same)\nhttps://developer.arm.com/documentation/107997/0000/AArch64-registers/AArch64-RAS-registers-summary/ERXMISC0-EL1--Selected-Error-Record-Miscellaneous-Register-0",
+      "parentUuid": "249b7a4f_762adbed",
+      "revId": "c5388de1debed59fcd900106bde0a2fd514207ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5ceb62b_db74f83b",
@@ -123,6 +165,30 @@
       "writtenOn": "2024-08-22T15:39:54Z",
       "side": 1,
       "message": "As per rerf:\nhttps://developer.arm.com/documentation/102530/0002/External-registers/External-RAS-registers-summary/ERR0MISC0--Error-Record-Miscellaneous-Register-0\n\n\nthis is CECO - Corrected error count ? bit 40 to 46",
+      "range": {
+        "startLine": 190,
+        "startChar": 8,
+        "endLine": 190,
+        "endChar": 26
+      },
+      "revId": "c5388de1debed59fcd900106bde0a2fd514207ee",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5369c77a_f3df5cf6",
+        "filename": "include/lib/extensions/ras_arch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1001395
+      },
+      "writtenOn": "2024-08-27T21:55:56Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "a5ceb62b_db74f83b",
       "range": {
         "startLine": 190,
         "startChar": 8,
