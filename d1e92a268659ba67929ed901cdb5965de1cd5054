@@ -70,6 +70,24 @@
       "parentUuid": "b6c29cdc_ae371c76",
       "revId": "d1e92a268659ba67929ed901cdb5965de1cd5054",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c184052_a9c0dcf9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000098
+      },
+      "writtenOn": "2024-08-27T14:59:06Z",
+      "side": 1,
+      "message": "Actually, I realized I was looking at BL32 from a completely different point of view. In fact, you might be to referring to BL32 for AArch32 builds where BL32 is the runtime service. If thats correct, please update commit message to reflect it.\n\nI am not sure whether or not the configs you are adding are meaningful.",
+      "parentUuid": "50a26d4c_b9cdfab1",
+      "revId": "d1e92a268659ba67929ed901cdb5965de1cd5054",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
