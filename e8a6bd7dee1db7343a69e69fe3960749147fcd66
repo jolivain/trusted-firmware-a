@@ -22,6 +22,30 @@
       },
       "revId": "e8a6bd7dee1db7343a69e69fe3960749147fcd66",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b1b7c65_01428dc2",
+        "filename": "include/lib/extensions/ras_arch.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1001395
+      },
+      "writtenOn": "2024-08-27T22:19:22Z",
+      "side": 1,
+      "message": "In the reference pointed out https://developer.arm.com/documentation/ddi0601/2024-06/AArch64-Registers/ESR-EL3--Exception-Syndrome-Register--EL3-?lang\u003den \n\nPlease search for \"AET,\" and table contains\n\nAsynchronous Error Type.\n\nDescribes the PE error state after taking the SError exception.\n\nAET\tMeaning\n0b000\t\nUncontainable (UC).\n\n0b001\t\nUnrecoverable state (UEU).\n\n0b010\t\nRestartable state (UEO).\n\n0b011\t\nRecoverable state (UER).\n\n*0b110\t\nCorrected (CE).*\n\nAll the AET\u0027s starting with U are uncorrectable error types and CE is corrected.\n\nAlso please refer to section: D19.4.1 PE error state recording in the exception syndrome in Arm Architecture Reference Manual for A-profile architecture (https://developer.arm.com/documentation/ddi0487/latest/) which indicates CE, Uncategorized error, implementation defined syndrome in addition to Uncorrected. Value for Uncategorized and implementation defined is not defined by ARM.\n\nAArch32 doesn\u0027t have CE, so my understanding is code is initially written for AArch32 ref: section: D19.4.1 PE error state recording in the exception syndrome in Arm Architecture Reference Manual for A-profile architecture\n\nAs far as naming is concerned, I followed the convention i.e. older (AArch32) + newer (AArch64 addition) to ensure I don\u0027t break any UET (AArch32) dependencies.",
+      "parentUuid": "c5c31fa3_14ab1594",
+      "range": {
+        "startLine": 229,
+        "startChar": 2,
+        "endLine": 229,
+        "endChar": 24
+      },
+      "revId": "e8a6bd7dee1db7343a69e69fe3960749147fcd66",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
