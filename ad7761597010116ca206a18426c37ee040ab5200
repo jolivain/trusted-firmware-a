@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb6c7912_b6dff7e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-27T16:20:44Z",
+      "side": 1,
+      "message": "Hi,\nThis patch will conflict with the patch:\nhttps://review.trustedfirmware.org/c/TF-A/trusted-firmware-a/+/27997\nAnd it seems to do almost the same thing. Which one is the correct one? One of the 2 patches may be abandoned then.\nThe patch also conflicts with other Intel platforms patches. Could you make a series with all the patches, as some patches may depend on other ones.\nThanks",
+      "revId": "ad7761597010116ca206a18426c37ee040ab5200",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
