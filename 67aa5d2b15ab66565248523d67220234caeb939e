@@ -70,6 +70,30 @@
       },
       "revId": "67aa5d2b15ab66565248523d67220234caeb939e",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcf57dc0_cd70aea8",
+        "filename": "drivers/arm/pl011/aarch64/pl011_console.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-08-28T05:46:44Z",
+      "side": 1,
+      "message": "sorry, last sentence should read\nArm ARM states about DSB behaviour wrt Device-...nE implying a transaction is guaranteed to be completed at the device end after the barrier. But either way it may suggest using a DSB after a transaction to a range marked E does not necessarily guarantees that the transaction reached the device if acknowledged by the fabric itself?",
+      "parentUuid": "a5358aa9_f51345c1",
+      "range": {
+        "startLine": 137,
+        "startChar": 1,
+        "endLine": 137,
+        "endChar": 11
+      },
+      "revId": "67aa5d2b15ab66565248523d67220234caeb939e",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
