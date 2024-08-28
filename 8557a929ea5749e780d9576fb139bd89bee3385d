@@ -51,6 +51,24 @@
       "message": "tf-l1-build-fvp/fvp-rdv3-tbb-debug build fails with \n\n12:46:26 \t make  ARM_ROTPK_LOCATION\u003ddevel_rsa COT\u003dcca CREATE_KEYS\u003d1 CROSS_COMPILE\u003daarch64-none-elf- DEBUG\u003d1 ENABLE_RME\u003d1 GENERATE_COT\u003d1 MEASURED_BOOT\u003d1 PLAT_MHU_VERSION\u003d3 PLAT\u003drdv3 ROT_KEY\u003dplat/arm/board/common/rotpk/arm_rotprivk_rsa.pem RME_GPT_BITLOCK_BLOCK\u003d0 RMM\u003d/dev/null TRUSTED_BOARD_BOOT\u003d1   DEBUG\u003d1 V\u003d1 fiptool all\n....\n12:46:26 make_helpers/plat_helpers.mk:32: *** \"Error: Invalid platform. The following platforms are available: a3700|a5ds|a70x0|a70x0_amc|a70x0_mochabin|a80x0|a80x0_mcbin|a80x0_puzzle|agilex|agilex5|arm_fpga|ast2700|axg|\n\n\n\nI did not check yet the entire patch stack, is PLAT\u003drdv3 valid?",
       "revId": "8557a929ea5749e780d9576fb139bd89bee3385d",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "815c359e_92dd1f67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2024-08-28T08:27:16Z",
+      "side": 1,
+      "message": "yes, rdfremont renamed to rdv3",
+      "parentUuid": "a74ea53a_21098aba",
+      "revId": "8557a929ea5749e780d9576fb139bd89bee3385d",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
