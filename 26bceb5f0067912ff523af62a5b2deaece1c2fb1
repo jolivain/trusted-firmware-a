@@ -37,6 +37,52 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0a9059cb_1aeaca2c",
+        "filename": "plat/intel/soc/agilex5/bl2_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T20:16:28Z",
+      "side": 1,
+      "message": "socfpga_get_handoff(\u0026reverse_handoff_ptr) !\u003d 0",
+      "range": {
+        "startLine": 91,
+        "startChar": 5,
+        "endLine": 91,
+        "endChar": 45
+      },
+      "revId": "26bceb5f0067912ff523af62a5b2deaece1c2fb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4d1cbf8_14a8c52c",
+        "filename": "plat/intel/soc/agilex5/bl2_plat_setup.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T20:16:28Z",
+      "side": 1,
+      "message": "Is this a void function? no return of value? Don\u0027t see how you can check return status here...",
+      "range": {
+        "startLine": 100,
+        "startChar": 5,
+        "endLine": 100,
+        "endChar": 26
+      },
+      "revId": "26bceb5f0067912ff523af62a5b2deaece1c2fb1",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a128311a_cb20bcef",
         "filename": "plat/intel/soc/agilex5/bl2_plat_setup.c",
         "patchSetId": 1
