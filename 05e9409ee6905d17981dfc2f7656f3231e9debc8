@@ -1,0 +1,1177 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f501fb4_949b17ba",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "(sys_reg \u0026 SYSMGR_BS_POR0_DDR_PROGRESS_MASK) !\u003d 0",
+      "range": {
+        "startLine": 107,
+        "startChar": 5,
+        "endLine": 107,
+        "endChar": 47
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "768df507_c1b4072e",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "start \u003d\u003d true",
+      "range": {
+        "startLine": 118,
+        "startChar": 5,
+        "endLine": 118,
+        "endChar": 10
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cce523b2_2f279994",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "is_dualemif \u003d\u003d true",
+      "range": {
+        "startLine": 129,
+        "startChar": 5,
+        "endLine": 129,
+        "endChar": 16
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef8c8a4e_78e2ec71",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "(sys_reg \u0026 SYSMGR_BS_COLD3_OCRAM_DBE_MASK) !\u003d 0",
+      "range": {
+        "startLine": 159,
+        "startChar": 5,
+        "endLine": 159,
+        "endChar": 45
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "483123ef_c8405fa1",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "(sys_reg \u0026 SYSMGR_BS_COLD3_DDR_DBE_MASK) !\u003d 0",
+      "range": {
+        "startLine": 169,
+        "startChar": 5,
+        "endLine": 169,
+        "endChar": 44
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91b10735_dac25b12",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "ddr_info_set[i].size \u003d\u003d 0",
+      "range": {
+        "startLine": 182,
+        "startChar": 7,
+        "endLine": 182,
+        "endChar": 27
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ddfbf03_fd425303",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "ddr_info_set[i].size \u003d\u003d 0",
+      "range": {
+        "startLine": 245,
+        "startChar": 7,
+        "endLine": 245,
+        "endChar": 27
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a5e738d_814b5a02",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "is_dualport \u003d\u003d true",
+      "range": {
+        "startLine": 317,
+        "startChar": 5,
+        "endLine": 317,
+        "endChar": 16
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd12c18b_4b95c09e",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "is_dualemif \u003d\u003d true",
+      "range": {
+        "startLine": 321,
+        "startChar": 5,
+        "endLine": 321,
+        "endChar": 16
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32a5cea0_3daf5715",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "(is_dualport \u003d\u003d true) || (is_dualemif \u003d\u003d true)",
+      "range": {
+        "startLine": 329,
+        "startChar": 5,
+        "endLine": 329,
+        "endChar": 31
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65d1baac_9517eefd",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 356,
+        "startChar": 5,
+        "endLine": 356,
+        "endChar": 8
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18f1952e_0ee0a304",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 362,
+        "startChar": 5,
+        "endLine": 362,
+        "endChar": 8
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa4c468f_a5b3826c",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 387,
+        "startChar": 5,
+        "endLine": 387,
+        "endChar": 8
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5825bc3f_d256a69f",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "io96b_ctrl.ecc_status !\u003d 0",
+      "range": {
+        "startLine": 396,
+        "startChar": 5,
+        "endLine": 396,
+        "endChar": 26
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf0f3e1a_383bdc29",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "(full_mem_init \u003d\u003d true) || ((reset_t \u003d\u003d WARM_RESET || reset_t \u003d\u003d COLD_RESET) \u003d\u003d 0)",
+      "range": {
+        "startLine": 399,
+        "startChar": 6,
+        "endLine": 399,
+        "endChar": 70
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d817fc5_1db93522",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 401,
+        "startChar": 7,
+        "endLine": 401,
+        "endChar": 10
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "056f999d_24f79435",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "set \u003d\u003d false",
+      "range": {
+        "startLine": 36,
+        "startChar": 7,
+        "endLine": 36,
+        "endChar": 10
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfa31b07_985fc084",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 74,
+        "startChar": 5,
+        "endLine": 74,
+        "endChar": 8
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9904b27c_2f2b6ac7",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "cmd_param_0 !\u003d 0",
+      "range": {
+        "startLine": 83,
+        "startChar": 7,
+        "endLine": 83,
+        "endChar": 18
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3307870b_f7a14c4f",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "cmd_param_1 !\u003d 0",
+      "range": {
+        "startLine": 88,
+        "startChar": 7,
+        "endLine": 88,
+        "endChar": 18
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0550f7ef_57b0c6b4",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "cmd_param_2 !\u003d 0",
+      "range": {
+        "startLine": 93,
+        "startChar": 7,
+        "endLine": 93,
+        "endChar": 18
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bdeae9f_e8152665",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "cmd_param_3 !\u003d 0",
+      "range": {
+        "startLine": 98,
+        "startChar": 7,
+        "endLine": 98,
+        "endChar": 18
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "485c3678_b3d4b7bd",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "cmd_param_4 !\u003d 0",
+      "range": {
+        "startLine": 103,
+        "startChar": 7,
+        "endLine": 103,
+        "endChar": 18
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb5a73fd_46417bff",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "cmd_param_5 !\u003d 0",
+      "range": {
+        "startLine": 108,
+        "startChar": 7,
+        "endLine": 108,
+        "endChar": 18
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dd2ec0e_bea6b7bd",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "cmd_param_6 !\u003d 0",
+      "range": {
+        "startLine": 113,
+        "startChar": 7,
+        "endLine": 113,
+        "endChar": 18
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aad0c0c3_f10e8bb0",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 133,
+        "startChar": 5,
+        "endLine": 133,
+        "endChar": 8
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70d0ab6f_6f5c8fbe",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "ip_type_ret !\u003d 0",
+      "range": {
+        "startLine": 217,
+        "startChar": 8,
+        "endLine": 217,
+        "endChar": 19
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90784698_f296924b",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "ip_type_ret !\u003d 0",
+      "range": {
+        "startLine": 248,
+        "startChar": 8,
+        "endLine": 248,
+        "endChar": 19
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "691fc9da_70f1d301",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "cal_busy_status !\u003d 0",
+      "range": {
+        "startLine": 276,
+        "startChar": 5,
+        "endLine": 276,
+        "endChar": 20
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0a6aad8_4252851c",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "cal_success_status !\u003d 0",
+      "range": {
+        "startLine": 285,
+        "startChar": 5,
+        "endLine": 285,
+        "endChar": 23
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3807c96_5e9aa234",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 307,
+        "startChar": 7,
+        "endLine": 307,
+        "endChar": 10
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f11b946d_fc982adb",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "ret !\u003d 0",
+      "range": {
+        "startLine": 319,
+        "startChar": 7,
+        "endLine": 319,
+        "endChar": 10
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9efdfd6_93ec5ea0",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "(io96b_ctrl-\u003eio96b_0.cal_status) \u003d\u003d false",
+      "range": {
+        "startLine": 349,
+        "startChar": 8,
+        "endLine": 349,
+        "endChar": 40
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a087f365_c110b33f",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "recal_success \u003d\u003d false",
+      "range": {
+        "startLine": 375,
+        "startChar": 9,
+        "endLine": 375,
+        "endChar": 22
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae1ae515_19522005",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "recal_success \u003d\u003d false",
+      "range": {
+        "startLine": 405,
+        "startChar": 9,
+        "endLine": 405,
+        "endChar": 22
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f1fc5fa_922e0333",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "(io96b_ctrl-\u003eio96b_1.cal_status) \u003d\u003d false",
+      "range": {
+        "startLine": 414,
+        "startChar": 8,
+        "endLine": 414,
+        "endChar": 40
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44f506a8_2d7acd7d",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 440,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "recal_success \u003d\u003d false",
+      "range": {
+        "startLine": 440,
+        "startChar": 9,
+        "endLine": 440,
+        "endChar": 22
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6219cd9_af20dab3",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "recal_success \u003d\u003d false",
+      "range": {
+        "startLine": 470,
+        "startChar": 9,
+        "endLine": 470,
+        "endChar": 22
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe35167e_11335733",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "strcmp(io96b_ctrl-\u003eddr_type, \"UNKNOWN\") \u003d\u003d 0",
+      "range": {
+        "startLine": 513,
+        "startChar": 9,
+        "endLine": 513,
+        "endChar": 48
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70f62b2e_a7ca3fdb",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 534,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "strcmp(io96b_ctrl-\u003eddr_type, \"UNKNOWN\") \u003d\u003d 0",
+      "range": {
+        "startLine": 534,
+        "startChar": 9,
+        "endLine": 534,
+        "endChar": 48
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24943217_e661502d",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 572,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "memory_size \u003d\u003d 0U",
+      "range": {
+        "startLine": 572,
+        "startChar": 8,
+        "endLine": 572,
+        "endChar": 19
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8296284_328381dc",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "memory_size \u003d\u003d 0U",
+      "range": {
+        "startLine": 593,
+        "startChar": 8,
+        "endLine": 593,
+        "endChar": 19
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7db963f4_f93413c6",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "total_memory_size \u003d\u003d 0U",
+      "range": {
+        "startLine": 606,
+        "startChar": 6,
+        "endLine": 606,
+        "endChar": 23
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "806e4741_4c4a9e93",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "ecc_stat_set \u003d\u003d false",
+      "range": {
+        "startLine": 640,
+        "startChar": 9,
+        "endLine": 640,
+        "endChar": 21
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b17d5965_61e08b22",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "ecc_stat_set \u003d\u003d false",
+      "range": {
+        "startLine": 663,
+        "startChar": 9,
+        "endLine": 663,
+        "endChar": 21
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e774832d_4dee5561",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "bist_start \u003d\u003d false",
+      "range": {
+        "startLine": 708,
+        "startChar": 9,
+        "endLine": 708,
+        "endChar": 19
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10b450ff_de68a2dd",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 720,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "bist_success \u003d\u003d false",
+      "range": {
+        "startLine": 720,
+        "startChar": 12,
+        "endLine": 720,
+        "endChar": 24
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18f8b09d_1ccdb4fc",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "bist_success \u003d\u003d false",
+      "range": {
+        "startLine": 730,
+        "startChar": 11,
+        "endLine": 730,
+        "endChar": 23
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b7c1f6f_14414842",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "bist_start \u003d\u003d false",
+      "range": {
+        "startLine": 764,
+        "startChar": 9,
+        "endLine": 764,
+        "endChar": 19
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec70109c_a564fa7a",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 776,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "bist_success \u003d\u003d false",
+      "range": {
+        "startLine": 776,
+        "startChar": 12,
+        "endLine": 776,
+        "endChar": 24
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81569a3a_677ce08a",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-28T19:27:47Z",
+      "side": 1,
+      "message": "bist_success \u003d\u003d false",
+      "range": {
+        "startLine": 786,
+        "startChar": 11,
+        "endLine": 786,
+        "endChar": 23
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
