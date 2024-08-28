@@ -16,6 +16,24 @@
       "message": "nit: It would be better to add an inline comment here to ensure that these defines are resolved before including arm_def.h, as they are referenced in that header. \nI know already put it in the commit message but having inline comment for this will be helpful (if some refactoring happens in the future).\n\nAdditionally, we need to consider how to resolve this dependency. It seems we need to ensure that arm_def.h is included only once right?",
       "revId": "0e3e9dad9cb2b6e627f23b82f671b066ed9d8264",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c9d584a_1da73bb2",
+        "filename": "plat/arm/board/tc/include/platform_def.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000108
+      },
+      "writtenOn": "2024-08-28T13:25:41Z",
+      "side": 1,
+      "message": "Will update the patch for this.  I also have added a detection in the new patch, if detected the macro ARM_SYS_CNTCTL_BASE is defined prior to PLAT_ARM_SYS_CNTCTL_BASE, it will reports error.",
+      "parentUuid": "24fadd2c_b1b1b3b0",
+      "revId": "0e3e9dad9cb2b6e627f23b82f671b066ed9d8264",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
