@@ -16,6 +16,29 @@
       "message": "Propagated Verified+1 from the top patch.",
       "revId": "729e8cc1b7b1e1faf60bf1302440d5dd2fb91dc7",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f90a5f4_24494911",
+        "filename": "tools/cert_create/include/key.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-08-28T04:35:41Z",
+      "side": 1,
+      "message": "nitpick: would cert_key_t be more explicit?\n\nThe \u0027local\u0027 prefix doesn\u0027t really say much apart from the trick of distinguishing from the POSIX key_t, or about why it is has to be \u0027local\u0027.",
+      "range": {
+        "startLine": 68,
+        "startChar": 2,
+        "endLine": 68,
+        "endChar": 13
+      },
+      "revId": "729e8cc1b7b1e1faf60bf1302440d5dd2fb91dc7",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
