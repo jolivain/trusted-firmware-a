@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a2f35b0_56d3bbc1",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-08-29T15:16:08Z",
+      "side": 1,
+      "message": "Would be good to give a brief explanation what the different scopes cover.\nMaybe with mentioning the two common scenarios: having a separate UART for firmware messages, with boot messages appearing on the primary console, or having just one UART, with no runtime messages from TF-A.",
+      "revId": "3edbf6b18e3e4019d74dd0b75c18790603270cc5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66c79b5f_523bff86",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-08-29T15:16:08Z",
+      "side": 1,
+      "message": "Maybe worth mentioning the finish_console_register() macro, which does the generic book keeping part of the registration. I see it being deprecated in change-log.md, but still heavily used. Would be good to clarify this.",
+      "revId": "3edbf6b18e3e4019d74dd0b75c18790603270cc5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f7b387a_66b4ae35",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-08-29T15:16:08Z",
+      "side": 1,
+      "message": "That doesn\u0027t sound right. getc() returns an *incoming* character, that is completely separate from any buffered *output*. It it optional because it might have security implications, and also most platforms do not require any kind of interactive input.",
+      "revId": "3edbf6b18e3e4019d74dd0b75c18790603270cc5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb0eccd_25568b54",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-08-29T15:16:08Z",
+      "side": 1,
+      "message": "\"print buffer\" is a bit ambiguous here. TF-A does not implement any kind of output buffering, it purely relies on the hardware FIFO in the UART. This function flushes that FIFO, by *busy waiting* until all characters in the FIFO have been sent out. I think that deserves to be mentioned here, since it might take around one millisecond to do so.",
+      "revId": "3edbf6b18e3e4019d74dd0b75c18790603270cc5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0adceb13_82415572",
+        "filename": "docs/design/console-framework.rst",
+        "patchSetId": 3
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-08-29T15:16:08Z",
+      "side": 1,
+      "message": "Same comment about \"print buffer\" as above: this flushes the FIFO.",
+      "revId": "3edbf6b18e3e4019d74dd0b75c18790603270cc5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
