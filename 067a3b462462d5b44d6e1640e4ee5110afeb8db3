@@ -24,6 +24,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2cf2a9c_20e971a6",
+        "filename": "drivers/tpm/tpm2.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001360
+      },
+      "writtenOn": "2024-08-29T16:17:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9a813624_1fae194e",
+      "range": {
+        "startLine": 32,
+        "startChar": 20,
+        "endLine": 32,
+        "endChar": 33
+      },
+      "revId": "067a3b462462d5b44d6e1640e4ee5110afeb8db3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "597774f7_88a6cfc0",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-08-28T23:10:07Z",
       "side": 1,
       "message": "remove as the source file is empty...",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 42
+      },
+      "revId": "067a3b462462d5b44d6e1640e4ee5110afeb8db3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "892db065_8a005148",
+        "filename": "drivers/tpm/tpm2.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1001360
+      },
+      "writtenOn": "2024-08-29T16:17:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "597774f7_88a6cfc0",
       "range": {
         "startLine": 33,
         "startChar": 0,
@@ -117,6 +165,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4ee7325_d2881506",
+        "filename": "drivers/tpm/tpm2_fifo_i2c.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1001360
+      },
+      "writtenOn": "2024-08-29T16:17:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f7c57d68_a18fb538",
+      "revId": "067a3b462462d5b44d6e1640e4ee5110afeb8db3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f9ab38c_692c1014",
@@ -152,6 +218,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84619e6d_1c57a9f4",
+        "filename": "drivers/tpm/tpm2_fifo_spi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001360
+      },
+      "writtenOn": "2024-08-29T16:17:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7d09ee69_9f965043",
+      "revId": "067a3b462462d5b44d6e1640e4ee5110afeb8db3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8eb6ebd6_8919edf8",
@@ -183,6 +267,24 @@
       "side": 1,
       "message": "added check for this",
       "parentUuid": "8eb6ebd6_8919edf8",
+      "revId": "067a3b462462d5b44d6e1640e4ee5110afeb8db3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eafe302_a10e48d6",
+        "filename": "drivers/tpm/tpm2_fifo_spi.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1001360
+      },
+      "writtenOn": "2024-08-29T16:17:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6c69c5a0_470fb71c",
       "revId": "067a3b462462d5b44d6e1640e4ee5110afeb8db3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
