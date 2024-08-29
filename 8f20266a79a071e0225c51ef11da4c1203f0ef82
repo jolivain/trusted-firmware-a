@@ -70,6 +70,24 @@
       "parentUuid": "17cb599d_65467c17",
       "revId": "8f20266a79a071e0225c51ef11da4c1203f0ef82",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8bbbc38_7f581a34",
+        "filename": "tools/fiptool/fiptool.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-29T11:18:55Z",
+      "side": 0,
+      "message": "Thanks for your input. Guarding it with the ``__linux__`` flag seems like a sensible approach, as it will prevent this file from being used on FreeBSD and Windows.\n\nHowever, I\u0027m considering if we could include only \u003csys/mount.h\u003e. Unfortunately I was looking FreeBSD’s ``sys/mount.h`` where this define ``BLKGETSIZE64`` was not present , it appears that the Linux version of ``sys/mount.h`` includes ``sys/ioctl.h`` and defines ``BLKGETSIZE64`` so can we do as below?\n\n```\n#ifdef __linux__\n/* for BLKGETSIZE64 */\n#include \u003csys/mount.h\u003e\n#endif\n```\n\nLet me know what do you think?",
+      "parentUuid": "59a12a4b_80a0f505",
+      "revId": "8f20266a79a071e0225c51ef11da4c1203f0ef82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
