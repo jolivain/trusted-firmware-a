@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db599a1c_d62d8d1b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-08-29T16:43:05Z",
+      "side": 1,
+      "message": "nit: BL32",
+      "range": {
+        "startLine": 7,
+        "startChar": 23,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "31a629fc91bdd46431d7781830089d562fe8992a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27e9c34c_fbfe364e",
+        "filename": "plat/arm/board/neoverse_rd/common/include/nrd3/nrd_pas_def3.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-08-29T16:43:05Z",
+      "side": 1,
+      "message": "These ranges (and the ones close to it) seems to be copy-paste typo. Could you correct it just for BL32. We can fix the others in a separate patch outside of this series.",
+      "range": {
+        "startLine": 181,
+        "startChar": 3,
+        "endLine": 182,
+        "endChar": 72
+      },
+      "revId": "31a629fc91bdd46431d7781830089d562fe8992a",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
