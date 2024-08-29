@@ -18,6 +18,24 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d815d35_4f550659",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-08-29T10:21:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6aa0e5cc_35c2a5dc",
+      "revId": "ce6b07a8eae6f4e3215c0ec242efab465bc3b9f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2682d9fc_c293c9b7",
@@ -79,6 +97,30 @@
       "side": 1,
       "message": "Shall this be closed?",
       "parentUuid": "7e462bf3_d0e703e7",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 1
+      },
+      "revId": "ce6b07a8eae6f4e3215c0ec242efab465bc3b9f6",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8196d2a9_b1a79ac5",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdfremont/rdfremont_common.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1000228
+      },
+      "writtenOn": "2024-08-29T10:21:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f982e7c4_19dbdf57",
       "range": {
         "startLine": 185,
         "startChar": 0,
