@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "65f73c52_275c6d54",
+        "filename": "plat/intel/soc/agilex5/include/agilex5_ddr.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-29T07:56:35Z",
+      "side": 1,
+      "message": "We try to avoid new typedef in header files, see https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#avoid-anonymous-typedefs-of-structs-enums-in-headers",
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d31ac91_97e7a9df",
+        "filename": "plat/intel/soc/agilex5/include/agilex5_system_manager.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-29T07:56:35Z",
+      "side": 1,
+      "message": "Should the same change be done in other Intel platforms?",
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f501fb4_949b17ba",
         "filename": "plat/intel/soc/agilex5/soc/agilex5_ddr.c",
         "patchSetId": 1
@@ -371,6 +405,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a6adc4f0_2684607b",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-29T07:56:35Z",
+      "side": 1,
+      "message": "Do you really need this as you just void it after? Either you could remove it, or if used in patches to come, you could use __maybe_unused here.",
+      "range": {
+        "startLine": 25,
+        "startChar": 10,
+        "endLine": 25,
+        "endChar": 30
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "056f999d_24f79435",
         "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
         "patchSetId": 1
@@ -382,6 +439,30 @@
       "writtenOn": "2024-08-28T19:27:47Z",
       "side": 1,
       "message": "set \u003d\u003d false",
+      "range": {
+        "startLine": 36,
+        "startChar": 7,
+        "endLine": 36,
+        "endChar": 10
+      },
+      "revId": "05e9409ee6905d17981dfc2f7656f3231e9debc8",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79b1d0ff_9bbc1a6c",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_iossm_mailbox.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-29T07:56:35Z",
+      "side": 1,
+      "message": "Hi @Mark, maybe there\u0027s something I haven\u0027t understood about MISRA. But as `set` is already a boolean, there is no need to compare it to something. For me `!set` is correct here.\n\nOtherwise the curly braces are missing here and at several other places in the patch (https://trustedfirmware-a.readthedocs.io/en/latest/process/coding-style.html#conditional-statement-bodies)",
+      "parentUuid": "056f999d_24f79435",
       "range": {
         "startLine": 36,
         "startChar": 7,
