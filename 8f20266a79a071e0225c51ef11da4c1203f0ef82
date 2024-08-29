@@ -34,6 +34,24 @@
       "parentUuid": "a13210c1_63fb3e21",
       "revId": "8f20266a79a071e0225c51ef11da4c1203f0ef82",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17cb599d_65467c17",
+        "filename": "tools/fiptool/fiptool.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-29T08:43:53Z",
+      "side": 0,
+      "message": "BLKGETSIZE64 is declared in ``linux/fs.h`` and ioctl is declared in ``sys/ioctl.h``. I can\u0027t see any usage of ``sys/mount.h`` here. The ``linux/fs.h`` and ``sys/ioctl.h`` headers are not included in fiptool.c, so I\u0027m wondering how this has been compiled (looks like those are explicitly include while compiling this tool for example ``gcc -include \u003cheader-file\u003e``. \nI\u0027m just speculating at this point, so I\u0027ll let Antonio weigh in on this. I\u0027m happy to update the patch as needed based on his feedback.",
+      "parentUuid": "4ad68a0f_88203492",
+      "revId": "8f20266a79a071e0225c51ef11da4c1203f0ef82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
