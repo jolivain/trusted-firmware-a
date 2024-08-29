@@ -52,6 +52,24 @@
       "parentUuid": "4ad68a0f_88203492",
       "revId": "8f20266a79a071e0225c51ef11da4c1203f0ef82",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59a12a4b_80a0f505",
+        "filename": "tools/fiptool/fiptool.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000943
+      },
+      "writtenOn": "2024-08-29T10:28:03Z",
+      "side": 0,
+      "message": "As far as I remember, `sys/mount.h` was added to include the declaration of `BLKGETSIZE64` without using an OS-dependent file like `linux/fs.h`.\nBut then `sys/mount.h` does not exists in on Windows, thus the ugly condition on `_MSC_VER`.\n\nSince `BLKGETSIZE64` is Linux specific, I believe the best way to address this is through\n```\n#ifdef __linux__\n/* for BLKGETSIZE64 */\n#include \u003clinux/fs.h\u003e\n#endif\n```\nor similar.",
+      "parentUuid": "17cb599d_65467c17",
+      "revId": "8f20266a79a071e0225c51ef11da4c1203f0ef82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
