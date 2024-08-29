@@ -16,6 +16,24 @@
       "message": "I hadn\u0027t checked that yet, but it may break the feature brought with this patch:\nfeat(fiptool): handle FIP in a disk partition\nI\u0027ll ask Antonio about that",
       "revId": "8f20266a79a071e0225c51ef11da4c1203f0ef82",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ad68a0f_88203492",
+        "filename": "tools/fiptool/fiptool.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-29T08:19:37Z",
+      "side": 0,
+      "message": "Thanks, Yann for adding Antonio. I was just checking it from the compilation point of view and the issue raised here [1].\n\n\n[1]: https://github.com/TrustedFirmware-A/trusted-firmware-a/issues/9",
+      "parentUuid": "a13210c1_63fb3e21",
+      "revId": "8f20266a79a071e0225c51ef11da4c1203f0ef82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
