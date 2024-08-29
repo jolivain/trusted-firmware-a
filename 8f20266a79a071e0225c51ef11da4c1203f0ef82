@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a13210c1_63fb3e21",
+        "filename": "tools/fiptool/fiptool.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000103
+      },
+      "writtenOn": "2024-08-29T08:09:39Z",
+      "side": 0,
+      "message": "I hadn\u0027t checked that yet, but it may break the feature brought with this patch:\nfeat(fiptool): handle FIP in a disk partition\nI\u0027ll ask Antonio about that",
+      "revId": "8f20266a79a071e0225c51ef11da4c1203f0ef82",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
