@@ -33,6 +33,24 @@
       "message": "Hi Tamas,\nI am executing the same code with ARM FVP_RDN2Cfg2 platform with Quad chiplet configurations. But I am facing issue with SDS initiatlization. It returns Error for chiplet-1 because it says not a valid SDS memory region. Please let me know if I am missing any configuration. And Please have a look below snippet log\n\nLog: \n\nINFO:    SDS: Detected SDS Memory Region (3520 bytes)\nINFO:    SDS isolated CPU list is empty\nINFO:    SDS: Detected SDS Memory Region (3520 bytes)\nINFO:    Block count: 0x1\nINFO:    Table Size: 0x80\nERROR:   SDS: No valid SDS Memory Region found 1 ,70368811286528\nERROR:   SDS initialization failed. ret: -1\nBACKTRACE: START: plat_arm_nrd_get_pcie_mmap\n0: EL1: 0x403a384\n1: EL1: 0x403ea34\n2: EL1: 0x403ed58\n3: EL1: 0x403edb0\n4: EL1: 0x403a1d8\n5: EL1: 0x403a2b8\n6: EL1: 0x403a078\nBACKTRACE: END: plat_arm_nrd_get_pcie_mmap\nPANIC at PC : 0x000000000403ea3c",
       "revId": "8d1a04bd3717dcb3ad9a7a7ed56543ec278d5856",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f95bb36_2721f5a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000024
+      },
+      "writtenOn": "2024-08-29T07:53:08Z",
+      "side": 1,
+      "message": "Hi Srinivas,\n\nI\u0027m not sure whether TF-A CI has multiple chiplet configurations for ARM FVP_RDN2Cfg2. Could you test a previous commit in your environment which does not contain this SDS refactoring?",
+      "parentUuid": "eb9b7146_b43d9373",
+      "revId": "8d1a04bd3717dcb3ad9a7a7ed56543ec278d5856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ],
   "submitRequirementResults": []
