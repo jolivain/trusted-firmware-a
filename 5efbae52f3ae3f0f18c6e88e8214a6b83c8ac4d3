@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b354ccde_f142dcf3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-08-29T22:15:52Z",
+      "side": 1,
+      "message": "So these \"varying data size properties\" are not seen too often, indeed these initrd properties seem to be one of the few occasions this is used.\nBut we could have a function that takes a 64-bit value, and writes as many cells as requested. And we determine this number for both start and end first:\nint nr_cells \u003d 2;\nif (HIGH_BITS(base) \u003d\u003d 0 \u0026\u0026 HIGH_BITS(base+size) \u003d\u003d 0) nr_cells \u003d 1;\nfdt_setprop_int(fdt, offset, \"linux,initrd-start\", initrd_base, nr_cells);\n....",
+      "parentUuid": "b02fa91d_5d2b5ff5",
+      "revId": "5efbae52f3ae3f0f18c6e88e8214a6b83c8ac4d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a4d31ea_5853d4e1",
         "filename": "common/fdt_fixup.c",
         "patchSetId": 4
@@ -37,6 +55,47 @@
         "endLine": 635,
         "endChar": 29
       },
+      "revId": "5efbae52f3ae3f0f18c6e88e8214a6b83c8ac4d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3f5d7dc_c04df297",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-08-29T22:15:52Z",
+      "side": 1,
+      "message": "Yeah, I agree that needs some clarification. First, the kernel itself is totally fine running without an initrd. If your rootfs is on a block device with a builtin driver, then this works without any issues.\nOnly *if* you need an initrd, either for the whole rootfs, or for the intermediate step to load the modules, then you will need to tell the kernel about this using  this DT entry. And this \"whole busybox based rootfs in an initrd\" approach is often used for (CI) testing.\nSo I\u0027d suggest: \n\"When a Linux boot requires an initrd, the start and end address need to be entered into the devicetree\u0027s chosen node. Doing this manually is tedious and error prone, so you can specify the initrd load address and size at build time, and TF-A will add the required properties at runtime.\"",
+      "parentUuid": "9a4d31ea_5853d4e1",
+      "range": {
+        "startLine": 635,
+        "startChar": 3,
+        "endLine": 635,
+        "endChar": 29
+      },
+      "revId": "5efbae52f3ae3f0f18c6e88e8214a6b83c8ac4d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f26aa4b_24148c36",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-08-29T22:15:52Z",
+      "side": 1,
+      "message": "So it makes me a bit uneasy that this width decision and the one below, for the \"end\" address, are independent. I would assume either both would use 32 bits, or both would use 64 bits, but there wouldn\u0027t be any mix-up. Can we check those two conditions first, and OR the result into a boolean variable, to use that instead?",
       "revId": "5efbae52f3ae3f0f18c6e88e8214a6b83c8ac4d3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
