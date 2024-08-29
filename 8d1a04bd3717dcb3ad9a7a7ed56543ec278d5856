@@ -87,6 +87,24 @@
       "parentUuid": "58a285cb_bf2fa75c",
       "revId": "8d1a04bd3717dcb3ad9a7a7ed56543ec278d5856",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ca20733_41f678ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000793
+      },
+      "writtenOn": "2024-08-29T09:22:14Z",
+      "side": 1,
+      "message": "That is strange. We have this setup working on our internal CIs. Please confirm and check the tag for SCP. SCP initialises the regions, and if it is not at the correct version, then that could cause this issue.",
+      "parentUuid": "fe1307d7_b289e5b4",
+      "revId": "8d1a04bd3717dcb3ad9a7a7ed56543ec278d5856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ],
   "submitRequirementResults": []
