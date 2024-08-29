@@ -16,6 +16,24 @@
       "message": "Can you please look at this build failure: https://ci.trustedfirmware.org/job/tf-a-builder/4172512/console?\n\n```\n11:51:10 \u0027dtc\u0027 -I dts -O dtb -d /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/tc/debug/fdts/tc3.d -o /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/tc/debug/fdts/tc3.dtb /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/tc/debug/fdts/tc3.pre.dts\n11:51:10 Error: /home/buildslave/workspace/tf-a-builder/trusted-firmware-a/build/tc/debug/fdts/tc3.pre.dts:125.26-27 syntax error\n11:51:10 FATAL ERROR: Unable to parse input tree\n```",
       "revId": "1adfd70d1b655c0d757860dc895a4db00cf1a996",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24fba150_223436ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000108
+      },
+      "writtenOn": "2024-08-29T13:03:33Z",
+      "side": 1,
+      "message": "Thanks for the reporting.  I am checking it.",
+      "parentUuid": "accfe1e4_7f3c9910",
+      "revId": "1adfd70d1b655c0d757860dc895a4db00cf1a996",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ]
 }
