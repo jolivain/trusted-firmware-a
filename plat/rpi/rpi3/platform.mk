@@ -8,7 +8,8 @@ include lib/libfdt/libfdt.mk
 include lib/xlat_tables_v2/xlat_tables.mk
 
 PLAT_INCLUDES		:=	-Iplat/rpi/common/include		\
-				-Iplat/rpi/rpi3/include
+				-Iplat/rpi/rpi3/include		\
+				-Iinclude/lib/libfdt
 
 PLAT_BL_COMMON_SOURCES	:=	drivers/ti/uart/aarch64/16550_console.S	\
 				drivers/arm/pl011/aarch64/pl011_console.S \
@@ -19,6 +20,38 @@ PLAT_BL_COMMON_SOURCES	:=	drivers/ti/uart/aarch64/16550_console.S	\
 				plat/rpi/common/rpi3_common.c		\
 				plat/rpi/common/rpi3_console_dual.c	\
 				${XLAT_TABLES_LIB_SRCS}
+
+ifeq (${DISCRETE_TPM},1)
+TPM2_MK := drivers/tpm/tpm2.mk
+$(info Including ${TPM2_MK})
+include ${TPM2_MK}
+endif
+
+ifeq (${MEASURED_BOOT},1)
+MEASURED_BOOT_MK := drivers/measured_boot/event_log/event_log.mk
+$(info Including ${MEASURED_BOOT_MK})
+include ${MEASURED_BOOT_MK}
+
+ifneq (${MBOOT_EL_HASH_ALG}, sha256)
+$(eval $(call add_define,TF_MBEDTLS_MBOOT_USE_SHA512))
+endif
+
+PLAT_BL_COMMON_SOURCES	+= plat/rpi/common/rpi_spi.c \
+				${TPM2_SOURCES} \
+				${EVENT_LOG_SOURCES}
+
+BL1_SOURCES         +=      plat/rpi/rpi3/rpi3_bl1_mboot.c
+BL2_SOURCES         +=      plat/rpi/rpi3/rpi3_bl2_mboot.c \
+							plat/rpi/rpi3/rpi3_dyn_cfg_helpers.c
+
+CRYPTO_SOURCES	:=	drivers/auth/crypto_mod.c
+
+BL1_SOURCES		+=	${CRYPTO_SOURCES}
+BL2_SOURCES		+=	${CRYPTO_SOURCES}
+
+include drivers/auth/mbedtls/mbedtls_crypto.mk
+
+endif
 
 BL1_SOURCES		+=	drivers/io/io_fip.c			\
 				drivers/io/io_memmap.c			\
@@ -32,6 +65,7 @@ BL1_SOURCES		+=	drivers/io/io_fip.c			\
 				plat/rpi/rpi3/rpi_mbox_board.c
 
 BL2_SOURCES		+=	common/desc_image_load.c		\
+				common/fdt_wrappers.c		\
 				drivers/io/io_fip.c			\
 				drivers/io/io_memmap.c			\
 				drivers/io/io_storage.c			\
@@ -43,7 +77,9 @@ BL2_SOURCES		+=	common/desc_image_load.c		\
 				plat/rpi/rpi3/aarch64/rpi3_bl2_mem_params_desc.c \
 				plat/rpi/rpi3/rpi3_bl2_setup.c		\
 				plat/rpi/common/rpi3_image_load.c	\
-				plat/rpi/common/rpi3_io_storage.c
+				plat/rpi/common/rpi3_io_storage.c	\
+				common/fdt_fixup.c		\
+				common/uuid.c
 
 BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S		\
 				plat/common/plat_gicv2.c		\

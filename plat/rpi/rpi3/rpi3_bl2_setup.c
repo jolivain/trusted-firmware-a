@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015-2019, ARM Limited and Contributors. All rights reserved.
+ * Copyright (c) 2015-2024, ARM Limited and Contributors. All rights reserved.
  *
  * SPDX-License-Identifier: BSD-3-Clause
  */
@@ -18,6 +18,10 @@
 #include <drivers/generic_delay_timer.h>
 #include <drivers/rpi3/gpio/rpi3_gpio.h>
 #include <drivers/rpi3/sdhost/rpi3_sdhost.h>
+
+#include <libfdt.h>
+#include <common/fdt_fixup.h>
+#include <common/fdt_wrappers.h>
 
 #include <rpi_shared.h>
 
@@ -46,6 +50,8 @@ static void rpi3_sdhost_setup(void)
  * in x0. This memory layout is sitting at the base of the free trusted SRAM.
  * Copy it to a safe location before its reclaimed by later BL2 functionality.
  ******************************************************************************/
+uint8_t* event_log_start;
+size_t event_log_size;
 
 void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 			       u_register_t arg2, u_register_t arg3)
@@ -67,6 +73,9 @@ void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	/* Setup SDHost driver */
 	rpi3_sdhost_setup();
 
+	/* eventlog base and size from arg2 & arg3 */
+	event_log_start = (uint8_t *)(uintptr_t)arg2;
+	event_log_size = arg3;
 	plat_rpi3_io_setup();
 }
 
@@ -81,10 +90,12 @@ void bl2_platform_setup(void)
 /*******************************************************************************
  * Perform the very early platform specific architectural setup here.
  ******************************************************************************/
+
 void bl2_plat_arch_setup(void)
 {
 	rpi3_setup_page_tables(bl2_tzram_layout.total_base,
-			       bl2_tzram_layout.total_size,
+				   /*increasing the size to accomodate TPM drivers*/
+				   0xFF000,
 			       BL_CODE_BASE, BL_CODE_END,
 			       BL_RO_DATA_BASE, BL_RO_DATA_END
 #if USE_COHERENT_MEM

@@ -261,4 +261,9 @@
  */
 #define SYS_COUNTER_FREQ_IN_TICKS	ULL(19200000)
 
+/* TPM Event Log */
+#define PLAT_RPI3_DTO_BASE          ULL(0x11530000) //DT location in dram, used by BL33
+#define PLAT_RPI3_DTO_MAX_SIZE      ULL(0x001000) //max size of dt that is passed
+#define PLAT_ARM_EVENT_LOG_MAX_SIZE UL(0x400)
+
 #endif /* PLATFORM_DEF_H */

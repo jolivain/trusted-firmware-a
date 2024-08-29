@@ -13,10 +13,13 @@
 #include <common/debug.h>
 #include <bl31/interrupt_mgmt.h>
 #include <drivers/console.h>
+#include <drivers/rpi3/gpio/rpi3_gpio.h>
 #include <lib/xlat_tables/xlat_tables_v2.h>
 
+#include <plat/common/platform.h>
 #include <rpi_hw.h>
 #include <rpi_shared.h>
+#include <drivers/delay_timer.h>
 
 #define MAP_DEVICE0	MAP_REGION_FLAT(DEVICE0_BASE,			\
 					DEVICE0_SIZE,			\
@@ -97,6 +100,24 @@ static const mmap_region_t plat_rpi3_mmap[] = {
 	{0}
 };
 #endif
+
+/*******************************************************************************
+ * RPI3 delay function and Discrete TPM gpio init
+ ******************************************************************************/
+
+void rpi_delay(int us)
+{
+	uint64_t timeout_delay;
+
+	timeout_delay = timeout_init_us(us);
+	while(!timeout_elapsed(timeout_delay));
+}
+
+void rpi3_tpm_init(void)
+{
+	rpi3_gpio_set_select(14, RPI3_GPIO_FUNC_ALT5);
+	rpi3_gpio_set_select(15, RPI3_GPIO_FUNC_ALT5);
+}
 
 /*******************************************************************************
  * Function that sets up the console
@@ -225,3 +246,10 @@ uint32_t plat_interrupt_type_to_line(uint32_t type, uint32_t security_state)
 	/* Secure interrupts are signalled on the FIQ line always. */
 	return  __builtin_ctz(SCR_FIQ_BIT);
 }
+
+#if MEASURED_BOOT || TRUSTED_BOARD_BOOT
+int plat_get_mbedtls_heap(void **heap_addr, size_t *heap_size)
+{
+	return get_mbedtls_heap_helper(heap_addr, heap_size);
+}
+#endif

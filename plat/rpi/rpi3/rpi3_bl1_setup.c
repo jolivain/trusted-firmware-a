@@ -39,6 +39,9 @@ void bl1_early_platform_setup(void)
 	/* Initialize the console to provide early debug support */
 	rpi3_console_init();
 
+	/* Initialize Discrete TPM GPIO to prepare for use */
+	rpi3_tpm_init();
+
 	/* Enable arch timer */
 	generic_delay_timer_init();
 

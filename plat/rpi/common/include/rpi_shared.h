@@ -16,8 +16,9 @@
  * Function and variable prototypes
  ******************************************************************************/
 
-/* Serial console functions */
+/* Serial console and Discrete TPM functions */
 void rpi3_console_init(void);
+void rpi3_tpm_init(void);
 int rpi3_register_used_uart(console_t *console);
 
 /* Utility functions */
@@ -52,4 +53,4 @@ int plat_rpi_get_model(void);
 
 void plat_rpi_bl31_custom_setup(void);
 
-#endif /* RPI3_PRIVATE_H */
+#endif /* RPI3_SHARED_H */

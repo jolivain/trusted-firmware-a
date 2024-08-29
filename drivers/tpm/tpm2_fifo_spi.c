@@ -29,10 +29,11 @@ int tpm2_spi_start_transaction(uint32_t addr, int access, uint16_t len)
 	int retries;
 
 	/* check to make sure len does not exceed the encoding limit */
+	/*
 	if(len > 128) {
 		return -1;
 	}
-
+	*/
 	header[0] = ((access == TPM_READ) ? 0x80 : 0x00) | (len - 1);
 
 	header[1] = 0xD4;
