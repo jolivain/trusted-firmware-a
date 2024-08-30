@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfa3d520_f32841ed",
+        "filename": "plat/arm/board/neoverse_rd/common/nrd_bl31_setup.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-30T08:38:21Z",
+      "side": 1,
+      "message": "Why is this needed? Can\u0027t we use fconf support without this? FW_CONFIG gets loaded by BL1 so ideally BL31 can consume it.",
+      "range": {
+        "startLine": 157,
+        "startChar": 36,
+        "endLine": 157,
+        "endChar": 55
+      },
+      "revId": "1e974d7060d9c9c2116329e8e986b5064902081b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0d33b9d_85d87d4f",
+        "filename": "plat/arm/board/neoverse_rd/common/nrd_bl31_setup.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-30T08:38:21Z",
+      "side": 1,
+      "message": "The call at line 162 expects soc_fw_config as arg1. Therefore, it\u0027s better to retrieve and override arg1 with soc_fw_config before executing line 162. Although arg1 might not be used currently, it\u0027s best to retain it with the address of the configuration used for BL31.\n\n\n```\n        soc_fw_config_info \u003d FCONF_GET_PROPERTY(dyn_cfg, dtb, SOC_FW_CONFIG_ID);\n        if (soc_fw_config_info !\u003d NULL) {\n                arg1 \u003d soc_fw_config_info-\u003econfig_addr;\n        }\n```",
+      "revId": "1e974d7060d9c9c2116329e8e986b5064902081b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5483917_8ff92464",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdv3/platform.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-30T08:38:21Z",
+      "side": 1,
+      "message": "This looks redundant as line no. 38 already takes care of it (by including arm_common.mk)",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 26
+      },
+      "revId": "1e974d7060d9c9c2116329e8e986b5064902081b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99760b1c_cc14159b",
+        "filename": "plat/arm/board/neoverse_rd/platform/rdv3/platform.mk",
+        "patchSetId": 9
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-30T08:38:21Z",
+      "side": 1,
+      "message": "Can it be improvise as below?\n\n```\nifeq ($(filter 1,${RESET_TO_BL31} ${RESET_TO_BL2}),)\nifeq ($(SPMD_SPM_AT_SEL2),1)\nBL31_SOURCES\t+\u003d\t${FCONF_SOURCES} ${FCONF_DYN_SOURCES}\nendif\nendif\n```",
+      "range": {
+        "startLine": 143,
+        "startChar": 0,
+        "endLine": 144,
+        "endChar": 53
+      },
+      "revId": "1e974d7060d9c9c2116329e8e986b5064902081b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
