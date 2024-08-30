@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d08646a8_1401a0e9",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_clock_manager.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-30T18:38:50Z",
+      "side": 1,
+      "message": "(req_status \u0026 CLKMGR_MEM_ERR) !\u003d 0",
+      "range": {
+        "startLine": 134,
+        "startChar": 5,
+        "endLine": 134,
+        "endChar": 32
+      },
+      "revId": "315bddbf89878bc2059c4a28e1f14a53c81d7546",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "766f24e0_b2c3eb21",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_clock_manager.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-30T18:38:50Z",
+      "side": 1,
+      "message": "(req_status \u0026 CLKMGR_MEM_REQ) !\u003d 0",
+      "range": {
+        "startLine": 137,
+        "startChar": 33,
+        "endLine": 137,
+        "endChar": 62
+      },
+      "revId": "315bddbf89878bc2059c4a28e1f14a53c81d7546",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "414799b4_8200966c",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_clock_manager.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-30T18:38:50Z",
+      "side": 1,
+      "message": "pll_source_sync_wait(pll_type, retry_count) !\u003d 0",
+      "range": {
+        "startLine": 187,
+        "startChar": 5,
+        "endLine": 187,
+        "endChar": 48
+      },
+      "revId": "315bddbf89878bc2059c4a28e1f14a53c81d7546",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf5d4021_38925fb9",
+        "filename": "plat/intel/soc/agilex5/soc/agilex5_clock_manager.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 1000124
+      },
+      "writtenOn": "2024-08-30T18:38:50Z",
+      "side": 1,
+      "message": "perpll_emac_src !\u003d 0",
+      "range": {
+        "startLine": 494,
+        "startChar": 5,
+        "endLine": 494,
+        "endChar": 20
+      },
+      "revId": "315bddbf89878bc2059c4a28e1f14a53c81d7546",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
