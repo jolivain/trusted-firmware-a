@@ -205,6 +205,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c4401e66_af1f987f",
+        "filename": "plat/arm/common/arm_bl31_setup.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000744
+      },
+      "writtenOn": "2024-08-30T16:01:54Z",
+      "side": 1,
+      "message": "I\u0027m still not really happy with the way we\u0027ve prescribed this definition. Firstly, I think it should be formally defined in either the platform makefile or header. This source file is consumed by numerous platforms, we should provide them with enough flexibility to configure the value of the max size. I also think we need to be a bit more explicit in code about the difference between PLAT_ARM_HW_CONFIG_SIZE and DTB_DEFAULT_MAX_SIZE. In my mind there is a conflict between the two definitions. This might cause problems with platforms using the two values interchangeably. If we mean to say that in this build configuration the DTB must be resized to a max size of 0x100000, then I think PLAT_ARM_HW_CONFIG_SIZE ought to be accordingly updated to reflect this.",
+      "parentUuid": "668e2565_10f86f1b",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 2
+      },
+      "revId": "1d9caa86c16dc0265dc45a81e90c952667ced035",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c06dd554_1c1e6d96",
         "filename": "plat/arm/common/arm_bl31_setup.c",
         "patchSetId": 2
