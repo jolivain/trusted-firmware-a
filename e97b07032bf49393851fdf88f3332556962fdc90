@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "186429dc_fc9c6119",
+        "filename": "include/plat/arm/common/fconf_arm_sp_getter.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000328
+      },
+      "writtenOn": "2024-08-30T08:43:24Z",
+      "side": 1,
+      "message": "+1, this is how it has been done for [TC platform].\n\n[TC platform]: https://review.trustedfirmware.org/plugins/gitiles/TF-A/trusted-firmware-a/+/refs/heads/integration/plat/arm/board/tc/include/platform_def.h#266",
+      "parentUuid": "9d33650d_fea081fc",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 36
+      },
+      "revId": "e97b07032bf49393851fdf88f3332556962fdc90",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03f5b291_eb9ad115",
         "filename": "plat/arm/board/neoverse_rd/common/nrd_plat3.c",
         "patchSetId": 9
