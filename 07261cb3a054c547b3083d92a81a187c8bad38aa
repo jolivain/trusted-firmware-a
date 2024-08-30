@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "727120c3_7452caaf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-08-30T21:07:08Z",
+      "side": 1,
+      "message": "@Salman, there are quite some build errors, in particular for the Juno board. Looks like a missing include file:\nplat/arm/common/arm_bl31_setup.c: In function \u0027add_initrd_to_dtb\u0027:\nplat/arm/common/arm_bl31_setup.c:522:15: error: implicit declaration of function \u0027mmap_add_dynamic_region\u0027; did you mean \u0027mmap_add_region\u0027? [-Werror\u003dimplicit-function-declaration]\n522 |         ret \u003d mmap_add_dynamic_region((unsigned long long)fdt,\n    |               ^~~~~~~~~~~~~~~~~~~~~~~\n    |               mmap_add_region\nplat/arm/common/arm_bl31_setup.c:566:15: error: implicit declaration of function \u0027mmap_remove_dynamic_region\u0027 [-Werror\u003dimplicit-function-declaration]\n566 |         ret \u003d mmap_remove_dynamic_region((uintptr_t)fdt, DTB_DEFAULT_MAX_SIZE);\n    |               ^~~~~~~~~~~~~~~~~~~~~~~~~~\n    \nThere might be more ...",
+      "revId": "07261cb3a054c547b3083d92a81a187c8bad38aa",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
