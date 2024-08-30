@@ -512,9 +512,9 @@ static void drtm_dl_reset_dlme_el_state(enum drtm_dlme_el dlme_el)
 	sctlr &= ~(/* Disable DLME's EL MMU, since the existing page-tables are untrusted. */
 		   SCTLR_M_BIT
 		   | SCTLR_EE_BIT               /* Little-endian data accesses. */
+		   | SCTLR_C_BIT		/* disable data caching */
+		   | SCTLR_I_BIT		/* disable instruction caching */
 		  );
-
-	sctlr |= SCTLR_C_BIT | SCTLR_I_BIT; /* Allow instruction and data caching. */
 
 	switch (dlme_el) {
 	case DLME_AT_EL1:
