@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4848e2d4_1951a8c7",
+        "filename": "docs/plat/arm/fvp/fvp-specific-configs.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-08-30T12:03:02Z",
+      "side": 1,
+      "message": "Actually, thinking about that: the main reason initrds are wrapped in a U-Boot header is that the image contains the size. So we could read the actual size from the payload uploaded into memory by the user. TF-A would check the first four bytes of the initrd for the U-Boot image magic, and then read the size from the header, putting the load address +64 as the base, and the calculated end address in the DT. This would allow to use arbitrarily sized initrds at model runtime, without needing to provide a suitable size upfront. But I guess this involves mapping that header, so this is surely a separate patch, for later.",
+      "revId": "410699923940e67a71ed0400b9fecf108b0f76fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e8689dd_cf31b654",
+        "filename": "docs/plat/arm/fvp/fvp-specific-configs.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-08-30T12:03:02Z",
+      "side": 1,
+      "message": "... when the user doesn\u0027t need an initrd in the first place, or the injected DTB already contains the initrd properties.",
+      "revId": "410699923940e67a71ed0400b9fecf108b0f76fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90e245fb_0bf27d07",
+        "filename": "docs/plat/arm/fvp/fvp-specific-configs.rst",
+        "patchSetId": 4
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1000118
+      },
+      "writtenOn": "2024-08-30T12:03:02Z",
+      "side": 1,
+      "message": "I almost ran out of breath when reading this sentence ;-) so please split this up:\n... is encountered in the Linux kernel logs. This message is actually about the failed attempt to decode a *secondary* initrd, expected to be located right behind the primary one. Overestimating the initrd size makes the kernel believe more initrds would follow, so this message can be ignored in this case.",
+      "revId": "410699923940e67a71ed0400b9fecf108b0f76fc",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
