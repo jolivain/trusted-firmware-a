@@ -83,6 +83,30 @@
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93f4e6e6_f4d7e2ce",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1001235
+      },
+      "writtenOn": "2024-08-30T10:37:39Z",
+      "side": 1,
+      "message": "As Andre mentioned the issue is only caused when initrd is required by the user to boot linux. I would re-word it and provide short detail of the issue caused.",
+      "parentUuid": "a3f5d7dc_c04df297",
+      "range": {
+        "startLine": 635,
+        "startChar": 3,
+        "endLine": 635,
+        "endChar": 29
+      },
+      "revId": "5efbae52f3ae3f0f18c6e88e8214a6b83c8ac4d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f26aa4b_24148c36",
@@ -96,6 +120,24 @@
       "writtenOn": "2024-08-29T22:15:52Z",
       "side": 1,
       "message": "So it makes me a bit uneasy that this width decision and the one below, for the \"end\" address, are independent. I would assume either both would use 32 bits, or both would use 64 bits, but there wouldn\u0027t be any mix-up. Can we check those two conditions first, and OR the result into a boolean variable, to use that instead?",
+      "revId": "5efbae52f3ae3f0f18c6e88e8214a6b83c8ac4d3",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df850f34_bf652b64",
+        "filename": "common/fdt_fixup.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 653,
+      "author": {
+        "id": 1001235
+      },
+      "writtenOn": "2024-08-30T10:37:39Z",
+      "side": 1,
+      "message": "The initrd_base is basically the initrd-start offset in memory whereas the \u003cinitrd_base + initrd_size\u003e determines the initrd-end. So if initrd_base is 64 bits no matter the initrd_size (assuming valid value) the initrd_end property will automatically be 64 bits. \n\nThe only situation where if we use a 32 bit address for initrd_base, for example, 3.8Gib and add it to let\u0027s say 256MiB then the address will go over the 4GiB (32bit) range into the 64bit memory address space. In which case the initrd_end property would be a 64bit value. In this case, I still think it is ok as the user\u0027s initrd image would fall around the 4GiB memory region (assuming they have enough memory).",
+      "parentUuid": "2f26aa4b_24148c36",
       "revId": "5efbae52f3ae3f0f18c6e88e8214a6b83c8ac4d3",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
