@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1863f40f_26ff3bad",
+        "filename": "plat/arm/board/neoverse_rd/common/nrd_image_load.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1000774
+      },
+      "writtenOn": "2024-08-30T11:45:07Z",
+      "side": 1,
+      "message": "Would this not work with RESET_TO_BL2?",
+      "range": {
+        "startLine": 159,
+        "startChar": 4,
+        "endLine": 159,
+        "endChar": 17
+      },
+      "revId": "1e974d7060d9c9c2116329e8e986b5064902081b",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a5483917_8ff92464",
         "filename": "plat/arm/board/neoverse_rd/platform/rdv3/platform.mk",
         "patchSetId": 9
