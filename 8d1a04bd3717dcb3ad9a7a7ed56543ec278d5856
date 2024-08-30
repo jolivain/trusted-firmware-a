@@ -141,6 +141,24 @@
       "parentUuid": "967c0c0e_3fd1f647",
       "revId": "8d1a04bd3717dcb3ad9a7a7ed56543ec278d5856",
       "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f98a910c_e252a6de",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001415
+      },
+      "writtenOn": "2024-08-30T05:16:04Z",
+      "side": 1,
+      "message": "Hi Nishanta,\n\nGood Morning. \nYes. I have double checked and confirmed that SCP and TF-A has same tag versions i.e RD-INFRA-2024.07.15. The following commands are using for compilation and execution. Please check and let me know if anything missing in commands.\n\nCompiling:  sudo ./build-scripts/rdinfra/build-test-busybox.sh -p rdn2cfg2 all\n\nSourcing the Model: export MODEL\u003d/home/FVP_RD_N2/models/Linux64_GCC-9.3/FVP_RD_N2_Cfg2\n\nExecution:./boot.sh -p rdn2cfg2\nThanks",
+      "parentUuid": "c7f26e12_b5506317",
+      "revId": "8d1a04bd3717dcb3ad9a7a7ed56543ec278d5856",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
     }
   ],
   "submitRequirementResults": []
