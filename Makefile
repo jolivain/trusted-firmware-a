@@ -713,6 +713,10 @@ else
 endif
 
 ifeq ($(ENABLE_PIE),1)
+	BL1_CPPFLAGS	+=	-fpie
+	BL1_CFLAGS	+=	-fpie
+	BL1_LDFLAGS	+=	$(PIE_LDFLAGS)
+
 	ifeq ($(RESET_TO_BL2),1)
 		ifneq ($(BL2_IN_XIP_MEM),1)
 			BL2_CPPFLAGS	+=	-fpie
