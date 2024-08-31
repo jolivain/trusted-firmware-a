@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "480196b3_39f0bc46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000709
+      },
+      "writtenOn": "2024-08-31T09:53:27Z",
+      "side": 1,
+      "message": "Part of FVP upgrade patchset: https://review.trustedfirmware.org/q/hashtag:%22fvp_migration_11_26%22+(status:open%20OR%20status:merged)\n\nBut FVP docs were restuctured in the mainline after 2.10 was branched, so this patch doesn\u0027t apply cleanly. Given that it\u0027s doc-only change, I skip it. Feel free to request manual application.",
+      "revId": "7295bfa0bd6907ae737df66c2475124dea9476f5",
+      "serverId": "8f6f209b-db1a-4cbf-aa44-c8bc30e9bfda"
+    }
+  ]
+}
